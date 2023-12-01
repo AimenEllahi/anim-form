@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Creepster&family=Poppins:wght@200;300;400;500;600&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -17,11 +18,1457 @@
 }
 
 body {
+  font-family: "Poppins", sans-serif !important;
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
+  background: linear-gradient(to bottom,
       transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+}
+
+
+/* Assuming the body is the parent element */
+body {
+  display: flex;
+  flex-direction: column;
+  /* Align children in a column direction */
+  align-items: center;
+  /* Center children horizontally */
+  justify-content: center;
+  /* Center children vertically */
+  min-height: 100vh;
+  /* Ensure it takes up at least the full height of the viewport */
+  margin: 0;
+  /* Remove default body margin */
+  background-color: #1e1e1e;
+  /* Your chosen main background color */
+}
+
+/* Style your main container to only handle its contents and appearance, and not positioning */
+.home-container {
+  position: relative;
+  /* Add this to ensure z-index is respected */
+  z-index: 10;
+  /* Make sure it's always on top */
+  display: flex;
+  flex-direction: column;
+  /* Align children in a column direction */
+  align-items: center;
+  /* Center children horizontally */
+  justify-content: center;
+  /* C
+    width: 90%;
+    max-width: 800px;
+    padding: 20px;
+    box-sizing: border-box;
+    /* Rest of your styles */
+}
+
+.background-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+}
+
+.button-container {
+  display: grid;
+  justify-content: center;
+  width: 100%;
+  /* Take full width to center content */
+}
+
+/* Button styles */
+.play-game-button {
+  background-color: #2ecc71;
+  /* Nice green theme for buttons */
+  color: #fff;
+  border: none;
+  padding: 15px 30px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease,
+    box-shadow 0.3s ease;
+  margin: 20px 0;
+  /* Spacing around the button */
+  border-radius: 8px;
+  /* Rounded corners */
+  /* Lighting effects */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  /* Subtle shadow for depth */
+}
+
+/* Button hover effect to enhance the lighting effect */
+.play-game-button:hover {
+  transform: translateY(-2px);
+  /* Small lift */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  /* Increased shadow for effect */
+  background-color: #27ae60;
+  /* Slightly darker green when hovered */
+}
+
+/* Ensure the button remains visually clickable */
+.play-game-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Styling the heading */
+h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Instructions Section */
+.instructions {
+  max-width: 800px;
+  /* Set a max width for readability */
+  text-align: justify;
+  /* Justify the text for a neat presentation */
+}
+
+/* Instructions paragraphs */
+.instructions p {
+  background-color: #282c34;
+  /* Slightly lighter than the container background */
+  border-left: 4px solid #4a90e2;
+  /* A thicker blue accent border */
+  padding: 15px;
+  margin-bottom: 15px;
+  /* Consistent spacing */
+  line-height: 1.7;
+  /* More comfortable reading line height */
+  border-radius: 6px;
+  /* Rounded corners */
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
+  /* Subtle box shadow for depth */
+}
+
+footer {
+  z-index: 100;
+  background-color: #000000;
+}
+
+.overflow-y-scroll {
+  overflow-y: auto;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button:hover {
+  border-color: #646cff;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+
+  a:hover {
+    color: #747bff;
+  }
+
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: #333;
+  color: #ffffff;
+  text-align: center;
+  padding: 10px 0;
+  box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+footer a {
+  color: #50b894;
+  text-decoration: none;
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+footer ul li {
+  display: inline;
+  margin: 0 10px;
+}
+
+
+body {
+  background-color: #343541;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #D1D5DB;
+}
+
+#202123 .containerConversation {
+  background-color: #343541;
+  border: 1px solid #beedbe;
+  border-radius: 10px;
+  margin: 20px;
+  padding: 20px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+header {
+  background: #333333;
+  color: #D1D5DB;
+  padding: 20px 0;
+  text-align: center;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  /*Added to give a depth effect*/
+}
+
+header a {
+  color: #fff;
+}
+
+#login {
+  font-size: small;
+  background-color: #50b894;
+  color: #fff;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#login:hover {
+  background-color: #4ea689;
+}
+
+#signup {
+  font-size: small;
+  background-color: #50b894;
+  color: #fff;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#signup:hover {
+  background-color: #4ea689;
+}
+
+
+#logout {
+  font-size: small;
+  background-color: #50b894;
+  color: #fff;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#logout:hover {
+  background-color: #4ea689;
+}
+
+#logout {
+  display: none;
+}
+
+.top-right-content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  /* Adjust as needed */
+  background-color: #333;
+  /* Background color */
+  color: #fff;
+  /* Text color */
+  width: fit-content;
+  margin-right: 20px;
+
+}
+
+.top-left-content {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 10px;
+  /* Adjust as needed */
+  background-color: #333;
+  /* Background color */
+  color: #fff;
+  /* Text color */
+  width: fit-content;
+  margin-right: 20px;
+
+}
+
+header a {
+  color: #fff;
+}
+
+
+
+h1 {
+  margin: 0;
+  font-size: 2.5em;
+  /*Added to give a more impacting header title*/
+}
+
+.conversation-history {
+  background-color: #444654;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  height: 100%;
+  overflow-y: auto;
+  padding: 1rem;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #202123;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+@media (max-width: 768px) {
+  .user-input {
+    flex-direction: column;
+  }
+}
+
+
+label {
+  margin-right: 10px;
+}
+
+#user-input {
+  font-size: larger;
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #00fa001a;
+  ;
+  border-radius: 10px;
+  width: 80%;
+}
+
+#submitUserInputButton {
+  background-color: #202123;
+  /* Change background color to black */
+  color: #D1D5DB;
+  /* Change font color to white */
+  border: 2px solid #D1D5DB;
+  /* Add a white border */
+  border-radius: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  width: 20%;
+}
+
+#submitUserInputButton:hover {
+  background-color: #D1D5DB;
+  /* Change the background color on hover to white */
+  color: #202123;
+  /* Change font color on hover to black */
+}
+
+/* Styling for conversation items (user and assistant messages) */
+.conversation-item {
+  padding: 10px;
+  border-radius: 10px;
+  margin: 5px 0;
+  display: flex;
+  align-items: center;
+  /* Center content vertically */
+  justify-content: space-between;
+  /* Separate text and image */
+}
+
+.user {
+  background-color: #343541;
+  color: #d1d5db;
+  text-align: left;
+  justify-content: center;
+  /*justify-content: flex-end;  Align user messages to the right */
+}
+
+.assistant {
+  background-color: #343541;
+  justify-content: center;
+}
+
+.assistant img,
+.user img {
+  margin: 0 auto;
+  /* Center the images horizontally */
+  display: block;
+  /* Ensure the image is a block element for centering */
+}
+
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+
+/* Styling for the loading animation */
+#loading-animation {
+  display: none;
+  text-align: center;
+}
+
+
+/* Styling for the container that holds the story form */
+.container {
+  background-color: #202123;
+  border: 1px solid #ccc;
+  border-radius: 142px;
+  margin: 20px 0;
+  padding: 10%;
+  box-shadow: 0 0 100px #00fa001a;
+}
+
+
+
+
+/* Centering the title */
+.container h2 {
+  font-size: xxx-large;
+  color: #d1d5db;
+  text-align: center;
+  /* Center horizontally */
+  margin-top: 20px;
+  /* Center vertically by adding margin */
+}
+
+/* Styling for individual form items using CSS Grid */
+.form-group {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 10px;
+  /* Add spacing between label and input fields */
+}
+
+@media (max-width: 768px) {
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  .form-group input[type="text"] {
+    padding: 10px;
+  }
+}
+
+
+
+/* Styling for labels */
+.form-group label {
+  margin-top: auto;
+  font-size: larger;
+  color: #d1d5db;
+  min-width: 149px;
+  font-weight: bold;
+  text-align: right;
+  /* Right-align the labels */
+}
+
+@media (max-width: 768px) {
+  .form-group label {
+    min-width: 0;
+    margin-top: 10px;
+  }
+}
+
+/* Styling for input fields */
+.form-group input[type="text"] {
+  font-size: larger;
+  flex: 1;
+  padding: 0px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  /*width: 71%;*/
+}
+
+#randomNameButton {
+  background-color: #50b894;
+  /* Change background color to black */
+  color: #fff;
+  /* Change font color to white */
+  border: 2px solid #D1D5DB;
+  /* Add a white border */
+  border-radius: 10px;
+  /*padding: 10px 20px;*/
+  cursor: pointer;
+  /*margin-left: 40%;
+  margin-top: 3%;*/
+}
+
+#randomNameButton:hover {
+  background-color: #4ea689;
+  color: #202123;
+}
+
+
+/* Styling for the button */
+#generatePostButton {
+  font-size: larger;
+  background-color: #50b894;
+  /* Change background color to black */
+  color: #fff;
+  /* Change font color to white */
+  border: 2px solid #D1D5DB;
+  /* Add a white border */
+  border-radius: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-left: 40%;
+  margin-top: 3%;
+}
+
+@media (max-width: 768px) {
+  #generatePostButton {
+    margin-left: 25%;
+    margin-top: 15%;
+  }
+}
+
+#generatePostButton:hover {
+  background-color: #4ea689;
+  color: #202123;
+}
+
+#who {
+  font-size: larger;
+  color: #d1d5db;
+  background-color: #202123;
+  /* Green text color for the "who" input field */
+  margin-top: 3%;
+}
+
+@media (max-width: 768px) {
+  #who {
+    text-align: center;
+    font-size: larger;
+    color: #d1d5db;
+    background-color: #202123;
+    /* Green text color for the "who" input field */
+    margin-top: 3%;
+  }
+}
+
+
+#dexterity {
+  margin-top: 2%;
+  border: hidden;
+  font-size: larger;
+  color: #d1d5db;
+  background-color: #202123;
+  /* Green text color for the "who" input field */
+}
+
+@media (max-width: 768px) {
+  #dexterity {
+    text-align: center;
+    margin-top: 2%;
+    border: hidden;
+    font-size: larger;
+    color: #d1d5db;
+    background-color: #202123;
+    /* Green text color for the "who" input field */
+  }
+}
+
+#strength {
+  margin-top: 2%;
+  border: hidden;
+  font-size: larger;
+  color: #d1d5db;
+  background-color: #202123;
+  /* Green text color for the "who" input field */
+}
+
+@media (max-width: 768px) {
+  #strength {
+    text-align: center;
+    margin-top: 2%;
+    border: hidden;
+    font-size: larger;
+    color: #d1d5db;
+    background-color: #202123;
+    /* Green text color for the "who" input field */
+  }
+}
+
+#constitution {
+  margin-top: 2%;
+  border: hidden;
+  font-size: larger;
+  color: #d1d5db;
+  background-color: #202123;
+  /* Green text color for the "who" input field */
+}
+
+@media (max-width: 768px) {
+  #constitution {
+    text-align: center;
+    margin-top: 2%;
+    border: hidden;
+    font-size: larger;
+    color: #d1d5db;
+    background-color: #202123;
+    /* Green text color for the "who" input field */
+  }
+}
+
+#intelligence {
+  margin-top: 2%;
+  border: hidden;
+  font-size: larger;
+  color: #d1d5db;
+  background-color: #202123;
+  /* Green text color for the "who" input field */
+}
+
+@media (max-width: 768px) {
+  #intelligence {
+    text-align: center;
+    margin-top: 2%;
+    border: hidden;
+    font-size: larger;
+    color: #d1d5db;
+    background-color: #202123;
+    /* Green text color for the "who" input field */
+  }
+}
+
+#wisdom {
+  margin-top: 2%;
+  border: hidden;
+  font-size: larger;
+  color: #d1d5db;
+  background-color: #202123;
+  /* Green text color for the "who" input field */
+}
+
+@media (max-width: 768px) {
+  #wisdom {
+    text-align: center;
+    margin-top: 2%;
+    border: hidden;
+    font-size: larger;
+    color: #d1d5db;
+    background-color: #202123;
+    /* Green text color for the "who" input field */
+  }
+}
+
+#charisma {
+  margin-top: 2%;
+  border: hidden;
+  font-size: larger;
+  color: #d1d5db;
+  background-color: #202123;
+  /* Green text color for the "who" input field */
+}
+
+@media (max-width: 768px) {
+  #charisma {
+    text-align: center;
+    margin-top: 2%;
+    border: hidden;
+    font-size: larger;
+    color: #d1d5db;
+    background-color: #202123;
+    /* Green text color for the "who" input field */
+  }
+}
+
+#dndClasses {
+  margin-top: 2%;
+  border: hidden;
+  font-size: larger;
+  color: #d1d5db;
+  background-color: #202123;
+}
+
+@media (max-width: 768px) {
+  #dndClasses {
+    text-align: center;
+    margin-top: 2%;
+    border: hidden;
+    font-size: larger;
+    color: #d1d5db;
+    background-color: #202123;
+    /* Green text color for the "who" input field */
+  }
+}
+
+#dndRace {
+  margin-top: 2%;
+  border: hidden;
+  font-size: larger;
+  color: #d1d5db;
+  background-color: #202123;
+}
+
+@media (max-width: 768px) {
+  #dndRace {
+    text-align: center;
+    margin-top: 2%;
+    border: hidden;
+    font-size: larger;
+    color: #d1d5db;
+    background-color: #202123;
+    /* Green text color for the "who" input field */
+  }
+}
+
+
+#styleArt {
+  font-size: larger;
+  background-color: #202123;
+  color: #D1D5DB;
+  border: 2px solid #D1D5DB;
+  border-radius: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+
+}
+
+@media (max-width: 768px) {
+  #styleArt {
+    text-align: center;
+    margin-top: 2%;
+    border: hidden;
+    font-size: larger;
+    color: #d1d5db;
+    background-color: #202123;
+    /* Green text color for the "who" input field */
+  }
+}
+
+#user-input {
+  font-size: larger;
+  background-color: #202123;
+  color: #D1D5DB;
+  border: 2px solid #D1D5DB;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 80%;
+  margin-right: 2%;
+}
+
+.generated-paragraph {
+  margin: inherit;
+  padding: 5%;
+  font-size: 20px;
+  color: #d1d5db;
+  margin: 10px 0;
+  /* Add more styles as needed */
+}
+
+
+@keyframes ldio-22rmsiiwpz1-1 {
+  0% {
+    transform: rotate(0deg)
+  }
+
+  50% {
+    transform: rotate(-45deg)
+  }
+
+  100% {
+    transform: rotate(0deg)
+  }
+}
+
+@keyframes ldio-22rmsiiwpz1-2 {
+  0% {
+    transform: rotate(180deg)
+  }
+
+  50% {
+    transform: rotate(225deg)
+  }
+
+  100% {
+    transform: rotate(180deg)
+  }
+}
+
+.ldio-22rmsiiwpz1>div:nth-child(2) {
+  transform: translate(-15px, 0);
+}
+
+.ldio-22rmsiiwpz1>div:nth-child(2) div {
+  position: absolute;
+  top: 40.199999999999996px;
+  left: 40.199999999999996px;
+  width: 120.6px;
+  height: 60.3px;
+  border-radius: 120.6px 120.6px 0 0;
+  background: #1E8F18;
+  animation: ldio-22rmsiiwpz1-1 1s linear infinite;
+  transform-origin: 60.3px 60.3px
+}
+
+.ldio-22rmsiiwpz1>div:nth-child(2) div:nth-child(2) {
+  animation: ldio-22rmsiiwpz1-2 1s linear infinite
+}
+
+.ldio-22rmsiiwpz1>div:nth-child(2) div:nth-child(3) {
+  transform: rotate(-90deg);
+  animation: none;
+}
+
+@keyframes ldio-22rmsiiwpz1-3 {
+  0% {
+    transform: translate(190.95px, 0);
+    opacity: 0
+  }
+
+  20% {
+    opacity: 1
+  }
+
+  100% {
+    transform: translate(70.35px, 0);
+    opacity: 1
+  }
+}
+
+.ldio-22rmsiiwpz1>div:nth-child(1) {
+  display: block;
+}
+
+.ldio-22rmsiiwpz1>div:nth-child(1) div {
+  position: absolute;
+  top: 92.46px;
+  left: -8.04px;
+  width: 16.08px;
+  height: 16.08px;
+  border-radius: 50%;
+  background: #030e26;
+  animation: ldio-22rmsiiwpz1-3 1s linear infinite
+}
+
+.ldio-22rmsiiwpz1>div:nth-child(1) div:nth-child(1) {
+  animation-delay: -0.67s
+}
+
+.ldio-22rmsiiwpz1>div:nth-child(1) div:nth-child(2) {
+  animation-delay: -0.33s
+}
+
+.ldio-22rmsiiwpz1>div:nth-child(1) div:nth-child(3) {
+  animation-delay: 0s
+}
+
+.loadingio-spinner-bean-eater-wlm92ek3kko {
+  width: 201px;
+  height: 201px;
+  display: inline-block;
+  overflow: hidden;
+  background: #f2f2f2;
+}
+
+.ldio-22rmsiiwpz1 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform: translateZ(0) scale(1);
+  backface-visibility: hidden;
+  transform-origin: 0 0;
+  /* see note above */
+}
+
+.ldio-22rmsiiwpz1 div {
+  box-sizing: content-box;
+}
+
+/* Styling for the loading spinner overlay */
+.loading-overlay {
+  position: fixed;
+  /* Fixed position to cover the entire viewport */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #444654;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  /* Ensure it's above other elements */
+}
+
+
+/* Styling for the loading spinner itself */
+.loadingio-spinner-bean-eater-wlm92ek3kko {
+  width: 201px;
+  height: 201px;
+  display: inline-block;
+  overflow: hidden;
+  background: #333333;
+  /* You can customize the background color here */
+}
+
+.ldio-22rmsiiwpz1 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform: translateZ(0) scale(1);
+  backface-visibility: hidden;
+  transform-origin: 0 0;
+}
+
+.ldio-22rmsiiwpz1 div {
+  box-sizing: content-box;
+}
+
+/*Dice*/
+@keyframes roll {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+
+  10% {
+    transform: rotateX(1080deg) rotateY(2160deg) rotateZ(0deg);
+  }
+
+  20% {
+    transform: rotateX(2160deg) rotateY(4320deg) rotateZ(0deg);
+  }
+
+  30% {
+    transform: rotateX(3240deg) rotateY(6480deg) rotateZ(0deg);
+  }
+
+  40% {
+    transform: rotateX(4320deg) rotateY(8640deg) rotateZ(0deg);
+  }
+
+  50% {
+    transform: rotateX(5400deg) rotateY(10800deg) rotateZ(0deg);
+  }
+
+  60% {
+    transform: rotateX(6480deg) rotateY(12960deg) rotateZ(0deg);
+  }
+
+  70% {
+    transform: rotateX(7560deg) rotateY(15120deg) rotateZ(0deg);
+  }
+
+  80% {
+    transform: rotateX(8640deg) rotateY(17280deg) rotateZ(0deg);
+  }
+
+  90% {
+    transform: rotateX(9720deg) rotateY(19440deg) rotateZ(0deg);
+  }
+
+  100% {
+    transform: rotateX(10800deg) rotateY(21600deg) rotateZ(0deg);
+  }
+}
+
+
+body {
+  background: #333;
+  padding: 20px;
+}
+
+.content {
+  margin: auto auto;
+  position: relative;
+  width: 200px;
+  height: 200px;
+  perspective: 1500px;
+}
+
+.die {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease-out;
+  cursor: pointer;
+  transform: rotateX(-53deg);
+}
+
+.die.rolling {
+  animation: roll 90s linear;
+}
+
+.die[data-face="1"] {
+  transform: rotateX(-53deg) rotateY(0deg);
+}
+
+.die[data-face="2"] {
+  transform: rotateX(-53deg) rotateY(72deg);
+}
+
+.die[data-face="3"] {
+  transform: rotateX(-53deg) rotateY(144deg);
+}
+
+.die[data-face="4"] {
+  transform: rotateX(-53deg) rotateY(216deg);
+}
+
+.die[data-face="5"] {
+  transform: rotateX(-53deg) rotateY(288deg);
+}
+
+.die[data-face="16"] {
+  transform: rotateX(127deg) rotateY(-72deg);
+}
+
+.die[data-face="17"] {
+  transform: rotateX(127deg) rotateY(-144deg);
+}
+
+.die[data-face="18"] {
+  transform: rotateX(127deg) rotateY(-216deg);
+}
+
+.die[data-face="19"] {
+  transform: rotateX(127deg) rotateY(-288deg);
+}
+
+.die[data-face="20"] {
+  transform: rotateX(127deg) rotateY(-360deg);
+}
+
+.die[data-face="6"] {
+  transform: rotateX(11deg) rotateZ(180deg) rotateY(0deg);
+}
+
+.die[data-face="7"] {
+  transform: rotateX(11deg) rotateZ(180deg) rotateY(72deg);
+}
+
+.die[data-face="8"] {
+  transform: rotateX(11deg) rotateZ(180deg) rotateY(144deg);
+}
+
+.die[data-face="9"] {
+  transform: rotateX(11deg) rotateZ(180deg) rotateY(216deg);
+}
+
+.die[data-face="10"] {
+  transform: rotateX(11deg) rotateZ(180deg) rotateY(288deg);
+}
+
+.die[data-face="11"] {
+  transform: rotateX(11deg) rotateY(-252deg);
+}
+
+.die[data-face="12"] {
+  transform: rotateX(11deg) rotateY(-324deg);
+}
+
+.die[data-face="13"] {
+  transform: rotateX(11deg) rotateY(-396deg);
+}
+
+.die[data-face="14"] {
+  transform: rotateX(11deg) rotateY(-468deg);
+}
+
+.die[data-face="15"] {
+  transform: rotateX(11deg) rotateY(-540deg);
+}
+
+.die .face {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  margin: 0 -50px;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 86px solid rgba(136, 19, 18, 0.75);
+  width: 0px;
+  height: 0px;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  counter-increment: steps 1;
+}
+
+.die .face:before {
+  content: counter(steps);
+  position: absolute;
+  top: 21.5px;
+  left: -100px;
+  color: #fff;
+  text-shadow: 1px 1px 3px #000;
+  font-size: 43px;
+  text-align: center;
+  line-height: 77.4px;
+  width: 200px;
+  height: 86px;
+}
+
+.die .face:nth-child(1) {
+  transform: rotateY(0deg) translateZ(33.5px) translateY(-12.9px) rotateX(53deg);
+}
+
+.die .face:nth-child(2) {
+  transform: rotateY(-72deg) translateZ(33.5px) translateY(-12.9px) rotateX(53deg);
+}
+
+.die .face:nth-child(3) {
+  transform: rotateY(-144deg) translateZ(33.5px) translateY(-12.9px) rotateX(53deg);
+}
+
+.die .face:nth-child(4) {
+  transform: rotateY(-216deg) translateZ(33.5px) translateY(-12.9px) rotateX(53deg);
+}
+
+.die .face:nth-child(5) {
+  transform: rotateY(-288deg) translateZ(33.5px) translateY(-12.9px) rotateX(53deg);
+}
+
+.die .face:nth-child(16) {
+  transform: rotateY(-108deg) translateZ(33.5px) translateY(121.26px) rotateZ(180deg) rotateX(53deg);
+}
+
+.die .face:nth-child(17) {
+  transform: rotateY(-36deg) translateZ(33.5px) translateY(121.26px) rotateZ(180deg) rotateX(53deg);
+}
+
+.die .face:nth-child(18) {
+  transform: rotateY(36deg) translateZ(33.5px) translateY(121.26px) rotateZ(180deg) rotateX(53deg);
+}
+
+.die .face:nth-child(19) {
+  transform: rotateY(108deg) translateZ(33.5px) translateY(121.26px) rotateZ(180deg) rotateX(53deg);
+}
+
+.die .face:nth-child(20) {
+  transform: rotateY(180deg) translateZ(33.5px) translateY(121.26px) rotateZ(180deg) rotateX(53deg);
+}
+
+.die .face:nth-child(6) {
+  transform: rotateY(360deg) translateZ(75px) translateY(54.18px) rotateZ(180deg) rotateX(-11deg);
+}
+
+.die .face:nth-child(7) {
+  transform: rotateY(288deg) translateZ(75px) translateY(54.18px) rotateZ(180deg) rotateX(-11deg);
+}
+
+.die .face:nth-child(8) {
+  transform: rotateY(216deg) translateZ(75px) translateY(54.18px) rotateZ(180deg) rotateX(-11deg);
+}
+
+.die .face:nth-child(9) {
+  transform: rotateY(144deg) translateZ(75px) translateY(54.18px) rotateZ(180deg) rotateX(-11deg);
+}
+
+.die .face:nth-child(10) {
+  transform: rotateY(72deg) translateZ(75px) translateY(54.18px) rotateZ(180deg) rotateX(-11deg);
+}
+
+.die .face:nth-child(11) {
+  transform: rotateY(252deg) translateZ(75px) translateY(54.18px) rotateX(-11deg);
+}
+
+.die .face:nth-child(12) {
+  transform: rotateY(324deg) translateZ(75px) translateY(54.18px) rotateX(-11deg);
+}
+
+.die .face:nth-child(13) {
+  transform: rotateY(396deg) translateZ(75px) translateY(54.18px) rotateX(-11deg);
+}
+
+.die .face:nth-child(14) {
+  transform: rotateY(468deg) translateZ(75px) translateY(54.18px) rotateX(-11deg);
+}
+
+.die .face:nth-child(15) {
+  transform: rotateY(540deg) translateZ(75px) translateY(54.18px) rotateX(-11deg);
+}
+
+h2 {
+  color: #fafafa;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul>li {
+  display: inline-block;
+  margin: 10px 10px;
+}
+
+/*a {
+  text-align: center;
+  color: #fff;
+  text-decoration: none;
+  font-size: 25px;
+  font-weight: bold;
+  padding: 5px 15px;
+  width: 40px;
+  display: inline-block;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  background-color: #999;
+}
+*/
+
+a.active {
+  background-color: #333;
+}
+
+a:hover {
+  background-color: #666;
+}
+
+a.randomize {
+  width: auto;
+  margin: 20px 10px;
+}
+
+audio {
+  margin-left: 5%;
+  width: 300px;
+  height: 54px;
+}
+
+@media (max-width: 768px) {
+  audio {
+    margin-top: 3%;
+    margin-left: 0%;
+  }
+}
+
+audio::-webkit-media-controls-panel {
+  background-color: #343541;
+  border: none;
+}
+
+audio::-webkit-media-controls-play-button {
+  background-color: #444654;
+  border-radius: 50%;
+}
+
+audio::-webkit-media-controls-current-time-display {
+  color: #ffffff;
+}
+
+audio::-webkit-media-controls-time-remaining-display {
+  color: #fff;
+}
+
+audio::-webkit-media-controls-timeline {
+  border-radius: 40px;
+  background-color: #444654;
+}
+
+audio::-webkit-media-controls-volume-slider {
+  background-color: #444654;
+  border-radius: 50px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+audio::-webkit-media-controls-mute-button {
+  background-color: #444654;
+  border-radius: 50%;
+}
+
+
+.generated-paragraph {
+  background: #343541;
+  margin: inherit;
+  padding: 2%;
+  /*border: 1px solid #d1d5db;*/
+  border-radius: 11px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+header a {
+  color: #fff;
+}
+
+#login {
+  font-size: small;
+  background-color: #50b894;
+  color: #fff;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#login:hover {
+  background-color: #4ea689;
+}
+
+#signup {
+  font-size: small;
+  background-color: #50b894;
+  color: #fff;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#signup:hover {
+  background-color: #4ea689;
+}
+
+.dropbtn {
+  background-color: #333;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown-content {
+
+  position: absolute;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content p {
+  margin-left: 0;
+  margin-right: 0;
+  color: #fff;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a {
+  margin-left: 0;
+  margin-right: 0;
+  color: #fff;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+}
+
+.dropdown-content div {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  color: #D1D5DB;
+  background-color: #202123;
+  box-shadow: 0 0 5px #00fa001a;
+  max-width: 800px;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
+
+
+#logout {
+  position: fixed;
+  top: 0;
+  right: 0;
+  font-size: small;
+  background-color: #50b894;
+  color: #fff;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#logout:hover {
+  background-color: #4ea689;
+}
+
+#logout {
+  display: none;
+}
+
+
+#saveGameButton {
+  background-color: #202123;
+  /* Change background color to black */
+  color: #D1D5DB;
+  /* Change font color to white */
+  border: 2px solid #D1D5DB;
+  /* Add a white border */
+  border-radius: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-left: 2%;
+  font-size: larger;
+}
+
+
+@media (max-width: 768px) {
+  #saveGameButton {
+    padding: 2% 20%;
+    margin-left: 0%;
+  }
+}
+
+
+
+#generateImagesButton {
+  background-color: #202123;
+  /* Change background color to black */
+  color: #D1D5DB;
+  /* Change font color to white */
+  border: 2px solid #D1D5DB;
+  /* Add a white border */
+  border-radius: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-left: 2%;
+  font-size: larger;
+}
+
+
+@media (max-width: 768px) {
+  #generateImagesButton {
+    padding: 2% 20%;
+    margin-left: 0%;
+  }
 }
