@@ -29,44 +29,46 @@ function Shop() {
         style={{ zIndex: "-1" }}
       ></div>
 
-      <div className="w-[100vw] mx-auto mt-4 mb-10 h-auto bg-transparent text-white rounded-md shadow-md font-sans">
-        <div className="mb-6 p-8" data-aos="fade-up" data-aos-delay="700">
-          <h2 className="text-4xl font-semibold mb-10 flex justify-center items-center ">
-            Our <span className="text-green-500">Products</span>
-          </h2>
-          <div className="flex flex-wrap justify-between">
-            {[...Array(6)].map((_, index) => (
-              <div
-                key={index}
-                className="mb-6"
-                data-aos="fade-up"
-                data-aos-delay={100}
-              >
-                <Product />
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="flex justify-center items-center mt-10">
-          {" "}
-          <div
-            className="mb-8 p-6 rounded-md boxshadow-lg w-[80%] text-center"
-            data-aos="fade-up"
-            data-aos-delay="100"
-          >
-            <h2 className="text-3xl font-semibold text-white mb-4">
-              About DnDAI <span className="text-green-500">Credits</span>
+      <div className="flex justify-center items-center">
+        <div className="p-6 w-[100%] mt-4 mb-10 h-auto bg-transparent text-white rounded-md shadow-md">
+          <div className="mb-6" data-aos="fade-up" data-aos-delay="700">
+            <h2 className="text-4xl font-semibold mb-10 flex justify-center items-center ">
+              Our <span className="text-green-500">Products</span>
             </h2>
-            <p className="text-gray-400">
-              To maintain the quality of our platform and provide you with a
-              seamless experience, we have introduced a system of "Credits"
-              available for purchase. Each "Credit" enables you to perform an
-              action in the game—whether it's initiating a new game, manually
-              saving progress, creating an image, or contributing user input to
-              a story. We appreciate your understanding and support as we strive
-              to offer you an exceptional and sustainable experience on our
-              platform.
-            </p>
+            <div className="flex flex-wrap justify-between">
+              {[...Array(6)].map((_, index) => (
+                <div
+                  key={index}
+                  className="mb-6"
+                  data-aos="fade-up"
+                  data-aos-delay={100}
+                >
+                  <Product />
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="flex justify-center items-center mt-10">
+            {" "}
+            <div
+              className="mb-8 p-6 rounded-md boxshadow-lg w-[80%] text-center"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <h2 className="text-3xl font-semibold text-white mb-4">
+                About DnDAI <span className="text-green-500">Credits</span>
+              </h2>
+              <p className="text-gray-400">
+                To maintain the quality of our platform and provide you with a
+                seamless experience, we have introduced a system of "Credits"
+                available for purchase. Each "Credit" enables you to perform an
+                action in the game—whether it's initiating a new game, manually
+                saving progress, creating an image, or contributing user input
+                to a story. We appreciate your understanding and support as we
+                strive to offer you an exceptional and sustainable experience on
+                our platform.
+              </p>
+            </div>
           </div>
         </div>
       </div>
