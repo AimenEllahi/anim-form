@@ -1,6 +1,6 @@
 import React from "react";
 import { useRouter } from "next/navigation";
-// import { Input } from "../ui/input";
+import { FaGoogle } from "react-icons/fa";
 
 export default function Login() {
   const router = useRouter();
@@ -10,62 +10,72 @@ export default function Login() {
   };
 
   return (
-    <div className='w-screen'>
-      <div className='max-w-lg mx-auto mt-10 p-8 bg-[#4a4848] text-white rounded-md shadow-md'>
-        {/* <Input /> */}
-        <h2 className='text-2xl mb-4'>Login</h2>
-        <form
-          id='loginForm'
-          action='/login'
-          method='post'
-          className='space-y-4'
-        >
-          <div>
-            <label
-              htmlFor='username'
-              className='block text-sm font-medium text-gray-300'
-            >
-              Username:
-            </label>
-            <input
-              type='text'
-              id='username'
-              name='username'
-              required
-              className='w-full px-4 py-2 rounded-md bg-white text-gray-500 focus:outline-none focus:border-blue-500'
-            />
+    <div className="flex h-screen w-screen relative">
+      <div className="w-1/2 h-full hidden md:block">
+        <img
+          src="/login.webp"
+          alt="Login"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute top-0 left-0 w-1/2 h-full bg-black opacity-10"></div>
+      </div>
+      <div className="md:w-1/2 w-[100vw] flex items-center justify-center p-8  text-white bg-black">
+        <div className="w-96">
+          <div className="flex flex-col justify-center items-center">
+            <h2 className="text-3xl font-bold mb-2">Login</h2>
+            <p className="text-white text-sm mb-6 flex justify-center items-center">
+              Log in to your account to continue
+            </p>
           </div>
-          <div>
-            <label
-              htmlFor='password'
-              className='block text-sm font-medium text-gray-300'
-            >
-              Password:
-            </label>
-            <input
-              type='password'
-              id='password'
-              name='password'
-              required
-              className='w-full px-4 py-2 rounded-md bg-gray-white text-gray-500 focus:outline-none focus:border-blue-500'
-            />
-          </div>
-          <button
-            type='submit'
-            className='w-full bg-[#2ecc71] text-white py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue'
+          <form
+            id="loginForm"
+            action="/login"
+            method="post"
+            className="space-y-6"
           >
-            Login
-          </button>
-          <p className='text-sm'>
-            No account yet?{" "}
-            <span
-              className='text-blue-500 hover:cursor-pointer'
-              onClick={handleSignupClick}
+            <div>
+              <label htmlFor="username" className="block text-md text-white">
+                Username:
+              </label>
+              <input
+                type="text"
+                id="username"
+                name="username"
+                placeholder="Enter your username"
+                required
+                className="w-full px-3 py-2 rounded-md bg-white text-black focus:outline-none focus:border-blue-500"
+              />
+            </div>
+            <div>
+              <label htmlFor="password" className="block text-md text-white">
+                Password:
+              </label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Enter your password"
+                required
+                className="w-full px-3 py-2 rounded-md bg-white text-black focus:outline-none focus:border-blue-500"
+              />
+            </div>
+            <button
+              type="submit"
+              className="w-full bg-green-500 text-white py-2 rounded-md hover:bg-green-600 focus:outline-none"
             >
-              Sign Up
-            </span>
-          </p>
-        </form>
+              Login
+            </button>
+            <p className="text-sm mt-4">
+              No account yet?{" "}
+              <span
+                className="text-white hover:text-green-300 cursor-pointer"
+                onClick={handleSignupClick}
+              >
+                Sign Up
+              </span>
+            </p>
+          </form>
+        </div>
       </div>
     </div>
   );

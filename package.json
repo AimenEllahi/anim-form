@@ -9,10 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "react": "^18",
-    "react-dom": "^18",
-    "next": "14.0.3",
     "@headlessui/react": "^1.7.17",
+    "@radix-ui/themes": "^2.0.1",
+    "@react-icons/all-files": "^4.1.0",
     "@react-three/drei": "^9.89.0",
     "@react-three/fiber": "^8.15.11",
     "aos": "^2.3.4",
@@ -21,7 +20,11 @@
     "gsap": "^3.12.3",
     "leva": "^0.9.35",
     "lucide-react": "^0.294.0",
+    "next": "14.0.3",
+    "react": "^18",
+    "react-dom": "^18",
     "react-hot-toast": "^2.4.1",
+    "react-icons": "^4.12.0",
     "tailwind-merge": "^2.0.0",
     "tailwindcss-animate": "^1.0.7",
     "three": "^0.159.0"

@@ -24,50 +24,61 @@ const Accounts = () => {
   }, []);
 
   return (
-    <div className='relative inline-block text-left' ref={dropdownRef}>
+    <div className="relative inline-block text-left " ref={dropdownRef}>
       <button
         onClick={toggleDropdown}
-        type='button'
-        className='inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-[#4a4848] rounded-md focus:outline-none focus-visible:ring focus-visible:ring-gray-500 focus-visible:ring-opacity-75'
-        id='options-menu'
-        aria-haspopup='true'
-        aria-expanded='true'
+        type="button"
+        className="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-[#4a4848] rounded-md focus:outline-none hover:outline-none"
+        id="options-menu"
+        aria-haspopup="true"
+        aria-expanded="true"
       >
         Account
       </button>
 
       {isDropdownOpen && (
         <div
-          className='absolute right-0 mt-2 space-y-2 bg-[#4a4848] text-white rounded-md shadow-md'
-          role='menu'
-          aria-orientation='vertical'
-          aria-labelledby='options-menu'
+          className="absolute right-0 mt-2 space-y-2 bg-[#4a4848] text-white rounded-md shadow-md"
+          role="menu"
+          aria-orientation="vertical"
+          aria-labelledby="options-menu"
         >
           <Link
-            to='/new-game'
-            className='block px-4 py-2 text-sm'
-            role='menuitem'
+            href="/new-game"
+            className="cursor-pointer block px-4 py-2 text-sm text-white hover:text-white focus:text-white"
+            role="menuitem"
           >
             New Game
           </Link>
-          <div className='border-t border-gray-700'></div>
-          <div className='px-4 py-2 text-sm'>Credits: Display Credits Here</div>
+          <div className="border-t border-gray-700"></div>
+          <div className="px-4 py-2 text-sm">Credits: 90</div>
           <Link
-            to='/savegame'
-            className='block px-4 py-2 text-sm'
-            role='menuitem'
+            href="/savegame"
+            className="cursor-pointer block px-4 py-2 text-sm text-white hover:text-white focus:text-white"
+            role="menuitem"
           >
             Save Games
           </Link>
           <Link
-            to='/images'
-            className='block px-4 py-2 text-sm'
-            role='menuitem'
+            href="/images"
+            className="cursor-pointer block px-4 py-2 text-sm text-white hover:text-white focus:text-white"
+            role="menuitem"
           >
             Images
           </Link>
-          <Link to='/shop' className='block px-4 py-2 text-sm' role='menuitem'>
+          <Link
+            href="/shop"
+            className="cursor-pointer block px-4 py-2 text-sm text-white hover:text-white focus:text-white"
+            role="menuitem"
+          >
             Shop
+          </Link>
+          <Link
+            href="/register"
+            className="cursor-pointer block px-4 py-2 text-sm text-white hover:text-white focus:text-white"
+            role="menuitem"
+          >
+            Logout
           </Link>
         </div>
       )}

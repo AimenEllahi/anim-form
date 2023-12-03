@@ -1,32 +1,74 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Product from "./Product";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function Shop() {
-  return (
-    <div className="w-[70vw] mx-auto mt-10 mb-10 p-8 h-auto bg-[#4a4848] text-white rounded-md shadow-md font-sans">
-      <div className="mb-8 p-6 bg-[#2d2d2d] rounded-md">
-        <h2 className="text-3xl font-semibold text-gray-300 mb-4">
-          Important Note:
-        </h2>
-        <p className="text-gray-400">
-          Due to the substantial costs associated with the GPT-4 and DALL-E 3
-          API, we regret to inform you that access to dndai.app cannot be
-          provided for free. To enable usage of our platform, we have introduced
-          a system of "Credits" available for purchase. Each "Credit" allows you
-          to perform one action in the game—whether it's initiating a new game,
-          manually saving progress, creating an image, or contributing user
-          input to a story. We remain optimistic and confident that as API
-          prices evolve over time, we will be able to adjust our credit pricing
-          accordingly. Your understanding and support are greatly appreciated as
-          we strive to provide you with an exceptional and sustainable
-          experience on our platform.
-        </p>
-      </div>
+  useEffect(() => {
+    AOS.init();
+  }, []);
 
-      {/* Product Card */}
-      <div className="mb-6">
-        <h2 className="text-3xl font-semibold mb-4">Products</h2>
-        <Product />
+  return (
+    <div className="w-[100vw] mx-auto mt-10 mb-10 h-auto bg-black text-white rounded-md shadow-md font-sans">
+      <div className="relative w-screen h-[50vh]">
+        <img
+          src="/header1.webp"
+          alt="image here"
+          className="w-full h-full object-cover"
+          style={{ position: "absolute", zIndex: "-1" }}
+        />
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white z-10">
+          <h1 className="text-4xl font-bold">Welcome to the DnDAI Shop!</h1>
+          <p className="text-lg">
+            Explore our exclusive products and enhance your DnDAI experience.
+          </p>
+        </div>
+      </div>
+      <div
+        className="absolute top-0 left-0 w-full h-full bg-black opacity-50"
+        style={{ zIndex: "-1" }}
+      ></div>
+
+      <div className="w-[100vw] mx-auto mt-4 mb-10 h-auto bg-transparent text-white rounded-md shadow-md font-sans">
+        <div className="mb-6 p-8" data-aos="fade-up" data-aos-delay="700">
+          <h2 className="text-4xl font-semibold mb-10 flex justify-center items-center ">
+            Our <span className="text-green-500">Products</span>
+          </h2>
+          <div className="flex flex-wrap justify-between">
+            {[...Array(6)].map((_, index) => (
+              <div
+                key={index}
+                className="mb-6"
+                data-aos="fade-up"
+                data-aos-delay={100}
+              >
+                <Product />
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="flex justify-center items-center mt-10">
+          {" "}
+          <div
+            className="mb-8 p-6 rounded-md boxshadow-lg w-[80%] text-center"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <h2 className="text-3xl font-semibold text-white mb-4">
+              About DnDAI <span className="text-green-500">Credits</span>
+            </h2>
+            <p className="text-gray-400">
+              To maintain the quality of our platform and provide you with a
+              seamless experience, we have introduced a system of "Credits"
+              available for purchase. Each "Credit" enables you to perform an
+              action in the game—whether it's initiating a new game, manually
+              saving progress, creating an image, or contributing user input to
+              a story. We appreciate your understanding and support as we strive
+              to offer you an exceptional and sustainable experience on our
+              platform.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );

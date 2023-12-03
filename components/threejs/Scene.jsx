@@ -11,7 +11,7 @@ export default function Scene() {
 
   return (
     <div className="bg-black z-[1] ">
-      {loaded && <Navbar />}
+      {/* {loaded && <Navbar />} */}
       <div className="fixed top-0 left-0 bg-black w-screen h-screen overflow-y-scroll z-[3] ">
         <Canvas className="z-10">
           <Suspense fallback={<Loader />}>
