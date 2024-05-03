@@ -1,9 +1,12 @@
 "use client";
-import React from "react";
-import CustomInput from "../ui/custom-input";
-import CustomButton from "../ui/custom-button";
-
+import React, { useState } from "react";
+import CustomInput from "@/components/ui/custom-input";
+import CustomButton from "@/components/ui/custom-button";
+import { validateEmail } from "@/lib/helpers";
+import Link from "next/link";
 export default function forgotPass() {
+  const [email, setEmail] = useState("");
+
   return (
     <div className=' text-white h-auto w-[345px]  flex flex-col justify-between items-start gap-8'>
       <div className='flex flex-col gap-4'>
@@ -14,14 +17,22 @@ export default function forgotPass() {
         </span>
       </div>
       <div className='flex flex-col gap-6 w-full'>
-        <CustomInput placeholder='E-MAIL' />
-        <div className='w-full flex flex-col gap-2.5 '>
-          <CustomButton variant={"primary"} className={"w-full font-bold"}>
+        <CustomInput
+          placeholder='E-MAIL'
+          onChange={(value) => setEmail(value)}
+          value={email}
+        />
+        <div className='w-full flex flex-col gap-4 '>
+          <CustomButton
+            disabled={!validateEmail(email)}
+            variant={"primary"}
+            className={"w-full font-bold"}
+          >
             RESET PASSWORD
           </CustomButton>
-          <span className='running-text-small'>
+          <Link href='/' className='running-text-small'>
             I do not have access to my E-Mail address
-          </span>
+          </Link>
         </div>
       </div>
     </div>

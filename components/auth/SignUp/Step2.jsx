@@ -7,7 +7,20 @@ export default function Step2({ setStep, user, setUser }) {
   const onChange = (key, value) => {
     setUser({ ...user, [key]: value });
   };
-
+  const [showPassword, setShowPassword] = useState(false);
+  const [agreeTOC, setAgreeTOC] = useState(false);
+  const invalidData = () => {
+    return (
+      user.username.length < 3 ||
+      user.name.length < 2 ||
+      user.surname.length < 2 ||
+      user.password.length < 8 ||
+      !agreeTOC
+    );
+  };
+  const handleCreateAccount = () => {
+    console.log("Creating account", user);
+  };
   return (
     <div className='w-full flex flex-col gap-6'>
       <CustomInput
@@ -18,7 +31,8 @@ export default function Step2({ setStep, user, setUser }) {
       <CustomInput
         placeholder='E-MAIL'
         value={user.email}
-        onChange={(value) => onChange("email", value)}
+        disabled
+        onChange={(value) => {}}
       />
       <CustomInput
         placeholder='NAME'
@@ -33,7 +47,25 @@ export default function Step2({ setStep, user, setUser }) {
       <CustomInput
         placeholder='PASSWORD'
         value={user.password}
+        type={showPassword ? "text" : "password"}
         onChange={(value) => onChange("password", value)}
+        icon={
+          showPassword ? (
+            <img
+              src='/Icons/Eye.svg'
+              onClick={() => setShowPassword(false)}
+              alt='Success'
+              className=' h-5 w-5 cursor-pointer invert'
+            />
+          ) : (
+            <img
+              src='/Icons/EyeClosed.svg'
+              onClick={() => setShowPassword(true)}
+              alt='Success'
+              className=' h-5 w-5 cursor-pointer invert'
+            />
+          )
+        }
       />
       {/* <div>
         <ul>
@@ -43,7 +75,11 @@ export default function Step2({ setStep, user, setUser }) {
         </ul>
       </div> */}
       <div className='flex w-full justify-center items-center gap-3'>
-        <Checkbox className='border border-irisPurpleLight ' />
+        <Checkbox
+          checked={agreeTOC}
+          onCheckedChange={(value) => setAgreeTOC(value)}
+          className='border border-irisPurpleLight '
+        />
         <span className='text-white running-text-small  text-left'>
           By selecting I agree to the dndai{" "}
           <span className='text-irisPurpleLight'>terms and conditions. </span>
@@ -52,7 +88,12 @@ export default function Step2({ setStep, user, setUser }) {
         </span>
       </div>
       <div className='w-full'>
-        <CustomButton variant={"primary"} className={"w-full font-bold"}>
+        <CustomButton
+          variant={"primary"}
+          disabled={invalidData()}
+          onClick={handleCreateAccount}
+          className={"w-full font-bold"}
+        >
           CREATE ACCOUNT{" "}
           <img src='/Icons/ArrowRight.svg' alt='' className='h-5 w-5' />
         </CustomButton>

@@ -5,7 +5,7 @@ import Navbar from "@/components/navigation/Navbar";
 import Footer from "@/components/navigation/Footer";
 import { Toaster } from "@/components/ui/toaster";
 import { usePathname } from "next/navigation";
-
+import { GoogleOAuthProvider } from "@react-oauth/google";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -15,13 +15,15 @@ export default function RootLayout({ children }) {
   const isTransparentNavbar = pathname.includes("/auth");
   const showFooter = !pathname.includes("/auth");
   return (
-    <html lang="en" suppressHydrationWarning={true}>
-      <body className={"w-screen  relative max-w-screen overflow-x-hidden "}>
-        <Navbar variant="glass" transparentNavbar={isTransparentNavbar} />
-        {children}
-        <Toaster />
-        {showFooter && <Footer />}
-      </body>
+    <html lang='en' suppressHydrationWarning={true}>
+      <GoogleOAuthProvider clientId='1036030324483-ltg0nqpg0ectr5q3n7cfa66l7eq1ban8.apps.googleusercontent.com'>
+        <body className={"w-screen  relative max-w-screen overflow-x-hidden "}>
+          <Navbar variant={isTransparentNavbar ? "transparent" : "glass"} />
+          {children}
+          <Toaster />
+          {showFooter && <Footer />}
+        </body>
+      </GoogleOAuthProvider>
     </html>
   );
 }
