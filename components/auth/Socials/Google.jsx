@@ -41,6 +41,7 @@ export default function GoogleAuth({ isLoading, setIsLoading }) {
       variant={"primary"}
       onClick={login_action}
     >
+      <img src="/Icons/Google.png" alt="" />
       CONTINUE WITH GOOGLE
     </CustomButton>
   );
