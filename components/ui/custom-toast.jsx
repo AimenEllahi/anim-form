@@ -26,5 +26,6 @@ export default function ToastWithAction({
       </ToastAction>
     ),
   });
+
   return null;
 }

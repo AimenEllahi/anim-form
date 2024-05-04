@@ -6,16 +6,18 @@ import { validateEmail } from "@/lib/helpers";
 import { verifyEmailExists } from "@/actions/auth";
 export default function Step1({ setStep, user, setUser }) {
   const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+
   const next = async () => {
     try {
       const response = await verifyEmailExists(user.email);
       console.log(response);
       if (response.exists) {
         setError("Email already exists");
+      } else {
+        setStep(2);
       }
     } catch (error) {}
-
-    //setStep(2);
   };
 
   //pass input, setInput state to CustomInput component
@@ -39,11 +41,22 @@ export default function Step1({ setStep, user, setUser }) {
             )
           }
         />
-        <div className='mt-2 running-text-small text-errorRed'>{error}</div>
+        {error && (
+          <div className='mt-2 running-text-small text-errorRed flex justify-start items-center gap-2'>
+            <img
+              src={"/Icons/Error.png"}
+              alt='Validation'
+              className='h-4 w-4 inline-block ml-2'
+            />
+            {error}
+          </div>
+        )}
       </div>
       <CustomButton
         variant={"primary"}
-        disabled={user.email.length === 0 || !validateEmail(user.email)}
+        disabled={
+          user.email.length === 0 || !validateEmail(user.email) || isLoading
+        }
         onClick={next}
       >
         NEXT <img src='/Icons/ArrowRight.svg' alt='' className='h-5 w-5' />
@@ -54,7 +67,7 @@ export default function Step1({ setStep, user, setUser }) {
         <div className='px-2 text-lg text-gray2'>OR</div>
         <div className='border-t border-gray3 w-full'></div>
       </div>
-      <GoogleAuth />
+      <GoogleAuth isLoading={isLoading} setIsLoading={setIsLoading} />
     </div>
   );
 }

@@ -6,14 +6,14 @@ export const login = async (username, password) => {
 
     return response.data;
   } catch (error) {
-    console.error("Error:", error);
+    console.error("Error:", error.response.data.message);
     throw error;
   }
 };
 
-export const register = async (username, email, password) => {
+export const register = async (user) => {
   try {
-    const response = await api.post("/auth/signup", username, email, password);
+    const response = await api.post("/auth/signup", user);
 
     return response.data;
   } catch (error) {
@@ -53,6 +53,7 @@ export const resetPassword = async (password, resetToken) => {
 export const continueWithGoogle = async (user) => {
   try {
     const userData = await getUserData(user);
+    console.log(userData);
     const response = await api.post("/auth/google", userData);
 
     return response.data;

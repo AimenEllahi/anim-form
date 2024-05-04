@@ -5,8 +5,11 @@ import { continueWithGoogle, getUserData } from "@/actions/auth";
 import Cookie from "universal-cookie";
 import { useRouter } from "next/navigation";
 import CustomButton from "@/components/ui/custom-button";
+import useCustomToast from "@/hooks/useCustomToast";
 export default function GoogleAuth({ isLoading, setIsLoading }) {
   const router = useRouter();
+  const { invokeToast } = useCustomToast();
+
   //const setUser = useUserStore((state) => state.setUser);
 
   const cookies = new Cookie();
@@ -14,13 +17,19 @@ export default function GoogleAuth({ isLoading, setIsLoading }) {
     try {
       setIsLoading(true);
       const data = await continueWithGoogle(user);
-      setUser(data);
+      // setUser(data);
 
       cookies.set("token", data.token, { path: "/" });
-      toast.success("Login Successful");
+      invokeToast("Login Successful", "Success", "", "", "/");
       router.push("/");
     } catch (error) {
-      toast.error(error?.response?.data?.message || "Some error occurred");
+      invokeToast(
+        error?.response?.data?.message || "Error",
+        "Error",
+        "",
+        "",
+        ""
+      );
       console.log("An error occurred:", error);
     } finally {
       setIsLoading(false);
@@ -41,7 +50,7 @@ export default function GoogleAuth({ isLoading, setIsLoading }) {
       variant={"primary"}
       onClick={login_action}
     >
-      <img src="/Icons/Google.png" alt="" />
+      <img src='/Icons/Google.png' alt='' />
       CONTINUE WITH GOOGLE
     </CustomButton>
   );

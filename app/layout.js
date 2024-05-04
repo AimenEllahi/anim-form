@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import { Inter } from "next/font/google";
 import Navbar from "@/components/navigation/Navbar";
 import Footer from "@/components/navigation/Footer";
@@ -15,13 +15,13 @@ export default function RootLayout({ children }) {
   const isTransparentNavbar = pathname.includes("/auth");
   const showFooter = !pathname.includes("/auth");
   return (
-    <html lang="en" suppressHydrationWarning={true}>
-      <GoogleOAuthProvider clientId="1036030324483-ltg0nqpg0ectr5q3n7cfa66l7eq1ban8.apps.googleusercontent.com">
+    <html lang='en' suppressHydrationWarning={true}>
+      <GoogleOAuthProvider clientId='1036030324483-ltg0nqpg0ectr5q3n7cfa66l7eq1ban8.apps.googleusercontent.com'>
         <body className={"w-screen  relative max-w-screen overflow-x-hidden "}>
           <Navbar variant={isTransparentNavbar ? "transparent" : "glass"} />
           {children}
-          <Toaster />
           {showFooter && <Footer />}
+          <Toaster />
         </body>
       </GoogleOAuthProvider>
     </html>

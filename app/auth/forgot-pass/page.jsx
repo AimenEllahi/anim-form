@@ -1,5 +1,6 @@
 import React from "react";
 import ForgotPass from "@/components/auth/forgotPass";
+import dynamic from "next/dynamic";
 
 export default function page() {
   return (

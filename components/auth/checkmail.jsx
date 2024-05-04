@@ -1,8 +1,9 @@
 "use client";
 import React from "react";
 import CustomButton from "../ui/custom-button";
+import Link from "next/link";
 
-export default function checkmail() {
+export default function checkmail({ handleResend, isLoading }) {
   return (
     <div className=' text-white h-[278px] w-[345px] flex text-center flex-col justify-between items-center gap-8  '>
       <img src='/Icons/plane.png' alt='' className='w-[171px] object-contain' />
@@ -15,10 +16,17 @@ export default function checkmail() {
       </div>
 
       <div className='w-full flex flex-col gap-4'>
-        <CustomButton variant={"primary"} className={"w-full font-bold"}>
+        <CustomButton
+          onClick={handleResend}
+          disabled={isLoading}
+          variant={"primary"}
+          className={"w-full font-bold"}
+        >
           RESEND LINK
         </CustomButton>
-        <span className='running-text-small'>Back to sign up</span>
+        <Link href={"/auth/sign-up"} className='running-text-small'>
+          Back to sign up
+        </Link>
       </div>
     </div>
   );
