@@ -12,27 +12,19 @@ export default function ToastWithAction({
 }) {
   const { toast } = useToast();
 
-  return (
-    <Button
-      variant='outline'
-      onClick={() => {
-        toast({
-          title: title,
-          description: "",
-          className: cn(
-            "border-0 text-white font-roboto-mono uppercase",
-            message === "Error" ? "bg-[#C92631] " : "bg-[#4767DC] "
-          ),
-          action: (
-            <ToastAction altText='Try again' className='gap-x-2'>
-              {actionIcon}
-              {actionText}
-            </ToastAction>
-          ),
-        });
-      }}
-    >
-      {message}
-    </Button>
-  );
+  toast({
+    title: title,
+    description: "",
+    className: cn(
+      "border-0 text-white font-roboto-mono uppercase",
+      message === "Error" ? "bg-[#C92631] " : "bg-[#4767DC] "
+    ),
+    action: (
+      <ToastAction altText='Try again' className='gap-x-2'>
+        {actionIcon}
+        {actionText}
+      </ToastAction>
+    ),
+  });
+  return null;
 }

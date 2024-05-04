@@ -80,3 +80,14 @@ const getUserData = async (user) => {
     throw error; // rethrow the error to be caught by the error handler in useMutation
   }
 };
+
+export const verifyEmailExists = async (email) => {
+  try {
+    const response = await api.post("/auth/verify-email", { email });
+
+    return response.data;
+  } catch (error) {
+    console.error("Error:", error);
+    throw error;
+  }
+};
