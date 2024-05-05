@@ -20,16 +20,10 @@ export default function GoogleAuth({ isLoading, setIsLoading }) {
       // setUser(data);
 
       cookies.set("token", data.token, { path: "/" });
-      invokeToast("Login Successful", "Success", "", "", "/");
+      invokeToast("Login Successful", "Success");
       router.push("/");
     } catch (error) {
-      invokeToast(
-        error?.response?.data?.message || "Error",
-        "Error",
-        "",
-        "",
-        ""
-      );
+      invokeToast(error?.response?.data?.message || "Error", "Error");
       console.log("An error occurred:", error);
     } finally {
       setIsLoading(false);

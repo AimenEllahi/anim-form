@@ -5,6 +5,7 @@ import { Checkbox } from "../../ui/checkbox";
 import { register } from "@/actions/auth";
 import useCustomToast from "@/hooks/useCustomToast";
 import { isPasswordValid } from "@/lib/helpers";
+import CustomValidationtext from "@/components/ui/custom-validationtext";
 export default function Step2({ setStep, user, setUser, reset }) {
   const { invokeToast } = useCustomToast();
 
@@ -54,6 +55,10 @@ export default function Step2({ setStep, user, setUser, reset }) {
       });
       reset();
     } catch (error) {
+      invokeToast(
+        error?.response?.data?.message || "Something Went Wrong",
+        "error"
+      );
     } finally {
       setIsLoading(false);
     }
@@ -79,103 +84,70 @@ export default function Step2({ setStep, user, setUser, reset }) {
         value={user.email}
         disabled
         onChange={(value) => {}}
+        icon={
+          user.email && (
+            <img src='/Icons/Success.png' alt='Success' className=' h-4 w-4' />
+          )
+        }
       />
       <CustomInput
         placeholder='NAME'
         value={user.name}
         onChange={(value) => onChange("name", value)}
+        icon={
+          user.name.length > 2 && (
+            <img src='/Icons/Success.png' alt='Success' className=' h-4 w-4' />
+          )
+        }
       />
       <CustomInput
         placeholder='SURNAME'
         value={user.surname}
         onChange={(value) => onChange("surname", value)}
-      />
-      <CustomInput
-        placeholder='PASSWORD'
-        value={user.password}
-        type={showPassword ? "text" : "password"}
-        onChange={(value) => onChange("password", value)}
         icon={
-          showPassword ? (
-            <img
-              src='/Icons/Eye.svg'
-              onClick={() => setShowPassword(false)}
-              alt='Success'
-              className=' h-5 w-5 cursor-pointer invert'
-            />
-          ) : (
-            <img
-              src='/Icons/EyeClosed.svg'
-              onClick={() => setShowPassword(true)}
-              alt='Success'
-              className=' h-5 w-5 cursor-pointer invert'
-            />
+          user.surname.length > 2 && (
+            <img src='/Icons/Success.png' alt='Success' className=' h-4 w-4' />
           )
         }
       />
-      <div>
-        <ul>
-          <li className='flex justify-start items-center gap-2'>
-            <img
-              src={
-                passwordValidation.hasMinLength
-                  ? "/Icons/Success.png"
-                  : "/Icons/Error.png"
-              }
-              alt='Validation'
-              className='h-4 w-4 inline-block ml-2'
-            />
-            <span
-              className={
-                passwordValidation.hasMinLength
-                  ? "text-successGreen"
-                  : "text-errorRed"
-              }
-            >
-              At least 8 characters
-            </span>
-          </li>
-          <li className='flex justify-start items-center gap-2'>
-            <img
-              src={
-                passwordValidation.hasNumber
-                  ? "/Icons/Success.png"
-                  : "/Icons/Error.png"
-              }
-              alt='Validation'
-              className='h-4 w-4 inline-block ml-2'
-            />
-            <span
-              className={
-                passwordValidation.hasNumber
-                  ? "text-successGreen"
-                  : "text-errorRed"
-              }
-            >
-              Contains a number
-            </span>
-          </li>
-          <li className='flex justify-start items-center gap-2'>
-            <img
-              src={
-                passwordValidation.hasSpecialChar
-                  ? "/Icons/Success.png"
-                  : "/Icons/Error.png"
-              }
-              alt='Validation'
-              className='h-4 w-4 inline-block ml-2'
-            />
-            <span
-              className={
-                passwordValidation.hasSpecialChar
-                  ? "text-successGreen"
-                  : "text-errorRed"
-              }
-            >
-              Contains a special character
-            </span>
-          </li>
-        </ul>
+      <div className='flex flex-col gap-3'>
+        <CustomInput
+          placeholder='PASSWORD'
+          value={user.password}
+          type={showPassword ? "text" : "password"}
+          onChange={(value) => onChange("password", value)}
+          icon={
+            showPassword ? (
+              <img
+                src='/Icons/Eye.svg'
+                onClick={() => setShowPassword(false)}
+                alt='Success'
+                className=' h-5 w-5 cursor-pointer invert'
+              />
+            ) : (
+              <img
+                src='/Icons/EyeClosed.svg'
+                onClick={() => setShowPassword(true)}
+                alt='Success'
+                className=' h-5 w-5 cursor-pointer invert'
+              />
+            )
+          }
+        />
+        <div>
+          <CustomValidationtext
+            validator={passwordValidation.hasMinLength}
+            text={"At least 8 characters"}
+          />
+          <CustomValidationtext
+            validator={passwordValidation.hasNumber}
+            text={"Contains a number"}
+          />
+          <CustomValidationtext
+            validator={passwordValidation.hasSpecialChar}
+            text={"Contains a special character"}
+          />
+        </div>
       </div>
       <div className='flex w-full justify-center items-center gap-3'>
         <Checkbox

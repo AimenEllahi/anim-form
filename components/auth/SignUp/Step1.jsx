@@ -4,6 +4,7 @@ import CustomButton from "@/components/ui/custom-button";
 import GoogleAuth from "../Socials/Google";
 import { validateEmail } from "@/lib/helpers";
 import { verifyEmailExists } from "@/actions/auth";
+import CustomValidationtext from "@/components/ui/custom-validationtext";
 export default function Step1({ setStep, user, setUser }) {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -23,7 +24,7 @@ export default function Step1({ setStep, user, setUser }) {
   //pass input, setInput state to CustomInput component
   return (
     <div className='w-full flex flex-col gap-6'>
-      <div>
+      <div className='flex flex-col gap-3'>
         <CustomInput
           placeholder='E-MAIL'
           className={"w-full"}
@@ -41,16 +42,7 @@ export default function Step1({ setStep, user, setUser }) {
             )
           }
         />
-        {error && (
-          <div className='mt-2 running-text-small text-errorRed flex justify-start items-center gap-2'>
-            <img
-              src={"/Icons/Error.png"}
-              alt='Validation'
-              className='h-4 w-4 inline-block ml-2'
-            />
-            {error}
-          </div>
-        )}
+        {error && <CustomValidationtext validator={false} text={error} />}
       </div>
       <CustomButton
         variant={"primary"}

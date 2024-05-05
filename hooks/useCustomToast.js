@@ -21,9 +21,9 @@ const useCustomToast = () => {
       description: "",
       className: cn(
         "border-0 text-white font-roboto-mono uppercase",
-        message === "Error" ? "bg-[#C92631] " : "bg-[#4767DC] "
+        message.toLowerCase() === "error" ? "bg-[#C92631] " : "bg-[#4767DC] "
       ),
-      action: (
+      action: actionText && (
         <ToastAction
           onClick={() => {
             if (redirectLink) {

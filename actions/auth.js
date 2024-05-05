@@ -17,7 +17,7 @@ export const register = async (user) => {
 
     return response.data;
   } catch (error) {
-    console.error("Error:", error);
+    console.error("Error:", error.response.data.message);
     throw error;
   }
 };
@@ -31,7 +31,7 @@ export const requestPasswordReset = async (email, redirectURL) => {
 
     return response.data;
   } catch (error) {
-    console.error("Error:", error);
+    console.error("Error:", error.response.data.message);
     throw error;
   }
 };

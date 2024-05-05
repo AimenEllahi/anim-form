@@ -7,8 +7,9 @@ import GoogleAuth from "../Socials/Google";
 import Link from "next/link";
 import { login } from "@/actions/auth";
 import { validateEmail } from "@/lib/helpers";
-
+import useCustomToast from "@/hooks/useCustomToast";
 export default function SignIn() {
+  const { invokeToast } = useCustomToast();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isEmailValid, setIsEmailValid] = useState(false);
@@ -25,6 +26,11 @@ export default function SignIn() {
       const response = await login(email, password);
       console.log(response);
     } catch (error) {
+      console.log(error.response.data.message);
+      invokeToast(
+        error?.response?.data?.message || "Something Went Wrong",
+        "error"
+      );
     } finally {
       setIsLoading(false);
     }

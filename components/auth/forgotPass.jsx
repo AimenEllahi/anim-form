@@ -24,6 +24,10 @@ export default function forgotPass() {
       setEmailSent(true);
       console.log(response);
     } catch (error) {
+      invokeToast(
+        error?.response?.data?.message || "Something Went Wrong",
+        "error"
+      );
     } finally {
       setIsLoading(false);
     }

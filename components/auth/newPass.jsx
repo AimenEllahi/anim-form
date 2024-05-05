@@ -7,9 +7,12 @@ import { useSearchParams } from "next/navigation";
 import { resetPassword } from "@/actions/auth";
 import { isPasswordValid } from "@/lib/helpers";
 import CustomValidationtext from "../ui/custom-validationtext";
+import useCustomToast from "@/hooks/useCustomToast";
+import { useRouter } from "next/navigation";
 export default function newPass() {
   const searchParams = useSearchParams();
   const token = searchParams.get("token");
+  const { invokeToast } = useCustomToast();
   const [isLoading, setIsLoading] = useState(false);
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -32,7 +35,14 @@ export default function newPass() {
       setIsLoading(true);
       const response = await resetPassword(password, token);
       console.log(response);
+      invokeToast("Password Reset Successful", "Success");
+      router.push("/auth/sign-in");
     } catch (error) {
+      console.log(error.response.data.message);
+      invokeToast(
+        error?.response?.data?.message || "Something Went Wrong",
+        "error"
+      );
     } finally {
       setIsLoading(false);
     }
