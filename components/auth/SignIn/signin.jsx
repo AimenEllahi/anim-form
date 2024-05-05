@@ -8,13 +8,19 @@ import Link from "next/link";
 import { login } from "@/actions/auth";
 import { validateEmail } from "@/lib/helpers";
 import useCustomToast from "@/hooks/useCustomToast";
+import useUserStore from "@/utils/userStore";
+import Cookie from "universal-cookie";
+import { useRouter } from "next/navigation";
 export default function SignIn() {
+  const cookies = new Cookie();
+  const router = useRouter();
+  const { setUser } = useUserStore();
   const { invokeToast } = useCustomToast();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const [isEmailValid, setIsEmailValid] = useState(false);
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
 
   const togglePasswordVisibility = () => {
     setIsPasswordVisible(!isPasswordVisible);
@@ -24,7 +30,10 @@ export default function SignIn() {
     try {
       setIsLoading(true);
       const response = await login(email, password);
-      console.log(response);
+      setUser(response);
+      cookies.set("token", response.token, { path: "/" });
+      invokeToast("Login Successful", "Success");
+      router.push("/");
     } catch (error) {
       console.log(error.response.data.message);
       invokeToast(

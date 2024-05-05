@@ -6,15 +6,17 @@ import { register } from "@/actions/auth";
 import useCustomToast from "@/hooks/useCustomToast";
 import { isPasswordValid } from "@/lib/helpers";
 import CustomValidationtext from "@/components/ui/custom-validationtext";
+import { useRouter } from "next/navigation";
 export default function Step2({ setStep, user, setUser, reset }) {
+  const router = useRouter();
   const { invokeToast } = useCustomToast();
+  const [agreeTOC, setAgreeTOC] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const onChange = (key, value) => {
     setUser({ ...user, [key]: value });
   };
-  const [isLoading, setIsLoading] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
-  const [agreeTOC, setAgreeTOC] = useState(false);
   const invalidData = () => {
     return (
       user.username.length < 3 ||
@@ -34,25 +36,12 @@ export default function Step2({ setStep, user, setUser, reset }) {
         email: user.email,
         password: user.password,
       });
-      console.log(response);
+
       invokeToast(
         "A verification email has been sent to your email",
-        "Success",
-        <img
-          src='/Icons/ArrowRight.svg'
-          alt='Success'
-          className='h-5 w-5 invert'
-        />,
-        "Sign In",
-        "/auth/sign-in"
+        "Success"
       );
-      setUser({
-        username: "",
-        email: "",
-        name: "",
-        surname: "",
-        password: "",
-      });
+      router.push("/auth/sign-in");
       reset();
     } catch (error) {
       invokeToast(
