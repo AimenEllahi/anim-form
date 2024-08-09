@@ -8,6 +8,7 @@ import {
   getPopularCampaigns,
 } from "@/actions/campaigns";
 import useCustomToast from "@/hooks/useCustomToast";
+import { getGames } from "@/actions/game";
 
 export default function page() {
   const { user } = useUserStore();
@@ -16,11 +17,27 @@ export default function page() {
   const [campaigns, setCampaigns] = useState([]);
   const [popularCampaigns, setPopularCampaigns] = useState([]);
   const [characters, setCharacters] = useState([]);
+  const [games, setGames] = useState([]);
+
+  const handleGetRecentlyPlayed = async () => {
+    try {
+      const response = await getGames(user?.token);
+
+      setGames(response.games);
+    } catch (error) {
+      invokeToast(
+        error?.response?.data?.error || "Error fetching Recently Played",
+        "Error"
+      );
+      setGames([]);
+      console.error("Error:", error);
+    }
+  };
 
   const handleGetPopularCampaigns = async () => {
     try {
       const response = await getPopularCampaigns();
-      console.log(response, "Public Campaigns");
+
       setPopularCampaigns(response.campaigns);
     } catch (error) {
       invokeToast(
@@ -49,7 +66,7 @@ export default function page() {
   const getAllCharacters = async () => {
     try {
       const response = await getCharacters(user?.token);
-      console.log("response", response);
+
       setCharacters(response.characters);
     } catch (error) {
       invokeToast(
@@ -64,12 +81,14 @@ export default function page() {
     handleGetPopularCampaigns();
     handleGetMostLikedCampaigns();
     getAllCharacters();
+    handleGetRecentlyPlayed();
   }, [user]);
   return (
     <Discover
       characters={characters}
       mostLiked={campaigns}
       popular={popularCampaigns}
+      recentlyPlayed={games}
     />
   );
 }

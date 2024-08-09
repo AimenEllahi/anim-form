@@ -40,7 +40,7 @@ export default function index({
   }, [showMenu]);
   return (
     <>
-      <div className='lg:hidden flex flex-col items-center gap-4    w-full'>
+      <div className='lg:hidden flex flex-col items-center     w-full'>
         {showMenu && (
           <SettingsMenu
             textSize={textSize}

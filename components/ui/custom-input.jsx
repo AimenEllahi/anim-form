@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import React, { useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 
 export default function CustomInput({
   className,
@@ -13,7 +13,14 @@ export default function CustomInput({
   error,
   onFocus,
   onBlur,
+  focusOnError,
 }) {
+  const inputRef = useRef();
+  useEffect(() => {
+    if (focusOnError) {
+      inputRef.current.focus();
+    }
+  }, [error]);
   return (
     <div
       className={cn(
@@ -23,6 +30,7 @@ export default function CustomInput({
       )}
     >
       <input
+        ref={inputRef}
         autofill='off'
         disabled={disabled}
         type={type || "text"}

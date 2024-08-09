@@ -37,9 +37,11 @@ export default function SettingsMenu({
   return (
     <>
       <hr
-        className={cn("w-9 border-[1px] rounded-sm border-gray1 text-gray1")}
+        className={cn(
+          "w-9 border-[1px] mb-4 rounded-sm border-gray1 text-gray1"
+        )}
       />
-      <div className='w-full border settings-menu  rounded-[16px] bg-white/10 border-white/10 game-mobile-menu-shadow '>
+      <div className='w-full border mb-4 settings-menu  rounded-[16px] bg-white/10 border-white/10 game-mobile-menu-shadow '>
         <div className='p-5 flex items-center justify-between'>
           <div className='flex items-center gap-2'>
             <img

@@ -40,6 +40,8 @@ const dummyGame = {
   updatedAt: "2024-07-23T19:25:47.517Z",
   __v: 1,
 };
+
+let INTTIATING = false;
 function GameHandler() {
   const router = useRouter();
   const pathname = usePathname();
@@ -62,15 +64,16 @@ function GameHandler() {
   const [response, setResponse] = useState();
 
   const handleInitiateGame = async () => {
-    console.log(user, "user");
     if (user.blueCredits < 1) {
       console.log("here");
       setShowCreditsDialogue(true);
 
       return;
     }
-    console.log("currentCampaign", currentCampaign);
-    console.log("currentCharacter", currentCharacter);
+    if (INTTIATING) {
+      return;
+    }
+    INTTIATING = true;
     try {
       const { game, character, campaign } = await initiateGame(
         {
@@ -98,6 +101,7 @@ function GameHandler() {
       const { credits } = await getCredits(user?.token);
       setBlueCredits(credits.blueCredits);
       setYellowCredits(credits.yellowCredits);
+      INTTIATING = false;
     }
   };
 

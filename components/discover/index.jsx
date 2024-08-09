@@ -3,14 +3,28 @@ import Row from "@/components/ui/Shared/DiscoverRow";
 import Star from "@/components/ui/Icons/Star";
 import World from "@/components/ui/Icons/World";
 import MyCharacters from "@/components/character/myCharacter/characters/index";
+import RecentlyPlayed from "@/components/ui/Icons/RecentlyPlayed";
 
-export default function index({ characters, popular, mostLiked }) {
+export default function index({
+  characters,
+  popular,
+  mostLiked,
+  recentlyPlayed,
+}) {
   return (
     <div className=' pt-[128px] w-full h-full relative text-white  '>
       <span className='headline-3 !z-[20] px-5 md:px-12 hidden md:block'>
         Discover
       </span>
       <div className='flex flex-col h-full gap-16 w-full mt-5 md:mt-9'>
+        <Row
+          text={"Recently Played"}
+          isGame={true}
+          games={recentlyPlayed}
+          icon={
+            <RecentlyPlayed isfilled={"true"} className='h-5 w-5 fill-gray2' />
+          }
+        />
         <Row
           text={"Community Favorites"}
           campaigns={mostLiked}

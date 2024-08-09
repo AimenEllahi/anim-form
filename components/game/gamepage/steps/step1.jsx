@@ -11,7 +11,7 @@ import Loader from "@/components/ui/Loader";
 import useControlsStore from "@/utils/controlsStore";
 import Navbar from "@/components/navigation/Navbar";
 import useDeviceDetect from "@/hooks/useDeviceDetect";
-import Image from 'next/image';
+import Image from "next/image";
 
 export default function StepDialog({
   setOpen,
@@ -47,7 +47,6 @@ export default function StepDialog({
   };
 
   const handleGenerateGameImage = async () => {
-
     if (user.yellowCredits < 1) {
       setShowCreditsDialogue(true);
     }
@@ -58,7 +57,7 @@ export default function StepDialog({
         type: imageType,
         artStyle: style,
         prompt: game.state,
-        character: game.characterId
+        character: game.characterId,
       };
       const { imageUrl, credits } = await generateGameImage(
         payload,
@@ -163,7 +162,13 @@ export default function StepDialog({
 
       <div className='flex justify-end gap-4  p-6 md:border-t border-white/10 fixed bottom-0 right-0 w-screen md:w-full md:relative bg-blur-bottom-menu md:bg-transparent'>
         <CustomButton disabled={loading} withIcon onClick={handleCancel}>
-          <Image src='/Icons/Cancel.svg' alt='' width={24} height={24} className='opacity-70' />
+          <Image
+            src='/Icons/Cancel.svg'
+            alt=''
+            width={20}
+            height={20}
+            className='opacity-70'
+          />
           <span className='running-text-mono text-white'>CANCEL</span>
         </CustomButton>
         <CustomButton
@@ -179,13 +184,20 @@ export default function StepDialog({
             <Image
               src='/Icons/ArrowRight.svg'
               alt=''
-              width={24}
-              height={24}
+              width={20}
+              height={20}
               className='opacity-70'
             />
           ) : (
             <>
-              (<Image src='/gems/Legendary.webp' alt='' width={24} height={24} /> 1)
+              (
+              <Image
+                src='/gems/Legendary.webp'
+                alt=''
+                width={15}
+                height={18}
+              />{" "}
+              1)
             </>
           )}
         </CustomButton>
