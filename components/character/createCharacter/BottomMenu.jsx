@@ -201,6 +201,7 @@ export default function BottomMenu({ character, setCharacter }) {
         </CustomButton>
         <div className='flex w-1/4 relative flex-col gap-1'>
           <CustomInput
+            focusOnError={true}
             value={character.name}
             disabled={isChoosingRandom}
             icon={

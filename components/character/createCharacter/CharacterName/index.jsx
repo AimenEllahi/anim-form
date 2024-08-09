@@ -23,6 +23,7 @@ export default function index({ character, setCharacter }) {
       <div className='flex flex-col gap-1'>
         {" "}
         <CustomInput
+          focusOnError={true}
           value={character.name}
           icon={
             character.name && (

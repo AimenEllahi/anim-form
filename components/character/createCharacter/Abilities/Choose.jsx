@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CustomButton from "@/components/ui/custom-button";
 import CustomIconbutton from "@/components/ui/custom-iconbutton";
 import {
@@ -8,6 +8,9 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import Dice from "@/components/ui/Icons/Dice";
+import DiceBox from "@3d-dice/dice-box";
+import useStepperStore from "@/utils/characterStore";
+
 const _ABILITIES = [
   {
     name: "Strength",
@@ -53,6 +56,43 @@ export default function Choose({
   _pointsToSpend,
 }) {
   const [pointsToSpend, setPointsToSpend] = useState(_pointsToSpend);
+  const {
+    setAbilitiesRoll,
+    abilitiesRoll,
+    isRollingAbilities,
+    setIsRollingAbilities,
+  } = useStepperStore();
+  const [diceBox, setDiceBox] = useState(null);
+
+  useEffect(() => {
+    const _diceBox = new DiceBox("#dice-box-abilities", {
+      assetPath: "/assets/dice-box", // required
+      theme: "default", //optional
+      enableShadows: true, // optional
+      themeColor: "#242e9e", // optional
+      scale: 4,
+      lightIntensity: 1,
+      shadowIntensity: 2,
+    });
+    _diceBox.init();
+    setDiceBox(_diceBox);
+  }, []);
+
+  const handleRollDice = (ability) => {
+    setAbilitiesRoll(ability);
+    setIsRollingAbilities(true);
+    diceBox.roll("4d6").then((result) => {
+      //loop through result and get all the values, drop the lowest
+      const value = result
+        .map((dice) => dice.value)
+        .sort((a, b) => b - a)
+        .slice(0, 3)
+        .reduce((a, b) => a + b, 0);
+
+      handleChangeAbilities({ ...abilities, [ability]: parseInt(value) });
+      setIsRollingAbilities(false);
+    });
+  };
   const handleChangeAbilityScore = (ability, value, type) => {
     if (
       value < 8 ||
@@ -75,7 +115,7 @@ export default function Choose({
         setPointsToSpend((prev) => prev + 1);
       }
     }
-    handleChangeAbilities({ ...abilities, [ability]: value });
+    //handleChangeAbilities({ ...abilities, [ability]: value });
   };
 
   const resetAbilities = () => {
@@ -120,7 +160,7 @@ export default function Choose({
 
               <div className='flex items-center gap-[28px]'>
                 <div className='flex items-center gap-2'>
-                  <CustomIconbutton
+                  {/* <CustomIconbutton
                     onClick={() =>
                       handleChangeAbilityScore(
                         abilityName,
@@ -137,9 +177,9 @@ export default function Choose({
                       alt='logo'
                       className='h-2 w-2'
                     />
-                  </CustomIconbutton>
+                  </CustomIconbutton> */}
                   <span className='running-text-mono'>{score}</span>
-                  <CustomIconbutton
+                  {/* <CustomIconbutton
                     onClick={() =>
                       handleChangeAbilityScore(
                         abilityName,
@@ -156,16 +196,27 @@ export default function Choose({
                     className={"h-6 w-6"}
                   >
                     <img src='/Icons/Add.svg' alt='logo' className='h-2 w-2' />
-                  </CustomIconbutton>
+                  </CustomIconbutton> */}
                 </div>
-                <Dice className='h-5 w-5 opacity-70 cursor-pointer' />
+                {abilitiesRoll[abilityName] || isRollingAbilities ? (
+                  <Dice
+                    disabled={abilitiesRoll[abilityName]}
+                    className='h-5 w-5 opacity-20 pointer-events-none'
+                  />
+                ) : (
+                  <Dice
+                    disabled={abilitiesRoll[abilityName]}
+                    onClick={() => handleRollDice(abilityName)}
+                    className='h-5 w-5 opacity-70 cursor-pointer disabled:opacity-20'
+                  />
+                )}
               </div>
             </div>
           );
         })}
       </div>
 
-      <div className='flex justify-between items-center'>
+      {/* <div className='flex justify-between items-center'>
         <CustomButton onClick={resetAbilities} withIcon={true}>
           <img
             src='/Icons/Reset.svg'
@@ -177,7 +228,7 @@ export default function Choose({
         <span className='running-text-mono text-gray2 uppercase'>
           Points Total: {pointsToSpend}
         </span>
-      </div>
+      </div> */}
     </div>
   );
 }

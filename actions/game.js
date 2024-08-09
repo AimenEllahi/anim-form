@@ -93,3 +93,18 @@ export const getGame = async (id, token) => {
     throw error;
   }
 };
+
+export const getGames = async (token) => {
+  try {
+    const response = await api.get("/games", {
+      headers: {
+        Authorization: token,
+      },
+    });
+
+    return response.data;
+  } catch (error) {
+    console.error("Error:", error);
+    throw error;
+  }
+};

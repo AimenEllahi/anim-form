@@ -35,6 +35,8 @@ export default function RootLayout({ children }) {
 
   const showDiceGold =
     pathname.includes("/character/create") && activeStep === 7;
+  const showDiceAbilities =
+    pathname.includes("/character/create") && activeStep === 2;
 
   const showDiceGame = pathname.includes("/game/play");
 
@@ -104,7 +106,7 @@ export default function RootLayout({ children }) {
             }}
             async
           />
-          {/* Dynamic Meta Tags */}
+          {/* Dynamic Meta Tag */}
           <meta
             name="description"
             content="Join DnDAI to play DnD with AI. AI-supported pen and paper games. Explore adventure games, text-based games, and interactive fiction online for free."
@@ -129,6 +131,10 @@ export default function RootLayout({ children }) {
         >
           {showDiceGold && <div id="dice-box-gold" className="dice-box"></div>}
           {showDiceGame && <div id="dice-box-game" className="dice-box"></div>}
+          {showDiceAbilities && (
+            <div id="dice-box-abilities" className="dice-box"></div>
+          )}
+
           <img
             src="/images/bg.png"
             alt="Background"

@@ -13,7 +13,6 @@ import ImagesVisual from "@/components/landingPage/imagesVisual";
 import Campaigns from "@/components/landingPage/campaignSection";
 import Image from "next/image";
 import Head from "next/head";
-import useCustomToast from "@/hooks/useCustomToast";
 const LocomotiveScroll = dynamic(
   () => import("@/components/landingPage/LocomotiveScroll"),
   {
@@ -25,7 +24,6 @@ export default function Home() {
   const { showMenu } = useControlsStore();
   const scrollRef = useRef(null);
   const locoScrollRef = useRef(null);
-  const { invokeToast } = useCustomToast();
 
   const { isMobile } = useDeviceDetect();
 
@@ -62,13 +60,6 @@ export default function Home() {
             priority
           />
           <div className='absolute md:bottom-10 px-5 md:px-12 bottom-20 md:left-0 left-0 md:w-2/4 w-full'>
-            <button
-              onClick={() =>
-                invokeToast("Character created successfully ", "success")
-              }
-            >
-              Click here
-            </button>
             <h1 className='text-white w-full text-3xl md:text-5xl lg:text-6xl leading-tight md:leading-snug'>
               EXPERIENCE GAMEPLAY WITHOUT CREATIVE BOUNDARIES, WHERE YOUR
               IMAGINATION IS THE ONLY LIMIT.

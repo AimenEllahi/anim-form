@@ -3,6 +3,8 @@ import { create } from "zustand";
 
 const useStepperStore = create((set) => ({
   activeStep: 0,
+  abilitiesRoll: {},
+  isRollingAbilities: false,
   selectedCharacteristic: {
     name: null,
     image: null,
@@ -22,6 +24,14 @@ const useStepperStore = create((set) => ({
   setShowModal: (showModal) => set({ showModal }),
   setCharacterNameError: (characterNameError) => set({ characterNameError }),
   setSelectedFace: (selectedFace) => set({ selectedFace }),
+  setAbilitiesRoll: (ability) =>
+    set((state) => ({
+      abilitiesRoll: {
+        ...state.abilitiesRoll,
+        [ability]: true,
+      },
+    })),
+  setIsRollingAbilities: (isRollingAbilities) => set({ isRollingAbilities }),
 }));
 
 export default useStepperStore;

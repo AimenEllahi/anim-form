@@ -3,8 +3,15 @@ import React, { useEffect, useState, useRef } from "react";
 import CampaignCard from "@/components/ui/Shared/Card/campaign";
 import CustomIconbutton from "@/components/ui/custom-iconbutton";
 import { cn } from "@/lib/utils";
+import GameCard from "../Card/game";
 
-export default function Campaign({ campaigns, isLanding = false, className }) {
+export default function Campaign({
+  campaigns,
+  isLanding = false,
+  isGame,
+  games,
+  className,
+}) {
   const containerRef = useRef(null);
   const [canScrollLeft, setScrollLeft] = useState(false);
   const [canScrollRight, setScrollRight] = useState(false);
@@ -44,6 +51,8 @@ export default function Campaign({ campaigns, isLanding = false, className }) {
     });
   };
 
+  console.log(games)
+
   return (
     <div
       className={cn(
@@ -57,8 +66,8 @@ export default function Campaign({ campaigns, isLanding = false, className }) {
           !canScrollLeft && "pointer-events-none opacity-0"
         )}
       >
-        <CustomIconbutton onClick={scrollLeft} variant="primary">
-          <img src="/Icons/ArrowLeft.svg" alt="" className="w-5 h-5" />
+        <CustomIconbutton onClick={scrollLeft} variant='primary'>
+          <img src='/Icons/ArrowLeft.svg' alt='' className='w-5 h-5' />
         </CustomIconbutton>
       </div>
       <div
@@ -69,10 +78,10 @@ export default function Campaign({ campaigns, isLanding = false, className }) {
       >
         <CustomIconbutton
           onClick={scrollRight}
-          variant="primary"
+          variant='primary'
           className={"hidden md:flex"}
         >
-          <img src="/Icons/ArrowRight.svg" alt="" className="w-5 h-5" />
+          <img src='/Icons/ArrowRight.svg' alt='' className='w-5 h-5' />
         </CustomIconbutton>
       </div>
       <div
@@ -83,15 +92,17 @@ export default function Campaign({ campaigns, isLanding = false, className }) {
           className
         )}
       >
-        {campaigns.map((campaign, index) => (
-          <CampaignCard
-            campaign={campaign}
-            key={index}
-            carousel
-            isLanding={isLanding}
-            className="snap-center"
-          />
-        ))}
+        {isGame
+          ? games.map((game, index) => <GameCard game={game} key={index} />)
+          : campaigns.map((campaign, index) => (
+              <CampaignCard
+                campaign={campaign}
+                key={index}
+                carousel
+                isLanding={isLanding}
+                className='snap-center'
+              />
+            ))}
       </div>
     </div>
   );
