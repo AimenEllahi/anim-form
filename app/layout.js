@@ -44,18 +44,32 @@ export default function RootLayout({ children }) {
 
   useEffect(() => {
     const setDocumentTitle = (url) => {
-      let title =
-        "DnD AI - Play AI-Guided Pen and Paper Games and create breathtaking images in the process"; // Default title
+      let title = "DnD AI - Play AI-Guided Pen and Paper Games and create breathtaking images in the process"; // Default title
 
-      if (url.includes("character/sheet")) {
+      if (url.includes("/character/sheet")) {
         title = "DnD AI / Character Overview";
       } else if (url === "/") {
         title = "DnD AI / Home";
+      } else if (url.includes("/campaign/")) {
+        if (url.includes("/campaign/create")) {
+          title = "DnD AI / Create Campaign";
+        } else if (url.includes("/campaign/my-campaigns")) {
+          title = "DnD AI / My Campaigns";
+        } else {
+          // Extract the campaign ID if needed or set a generic campaign details title
+          const campaignIdMatch = url.match(/\/campaign\/([^\/]+)/);
+          const campaignId = campaignIdMatch ? campaignIdMatch[1] : null;
+
+          if (campaignId) {
+            title = "DnD AI / Campaign Details";
+          } else {
+            title = "DnD AI / Campaign";
+          }
+        }
       } else {
         const pageTitle = url.split("/").pop().replaceAll("-", " ");
         title = `${capitalizeFirstLetterOfEachWord(pageTitle)} - DnD AI`;
       }
-
       document.title = title;
       window.gtag("config", "G-BTHMYX7TZ9", {
         page_title: title,
@@ -63,19 +77,17 @@ export default function RootLayout({ children }) {
         screen_name: title,
       });
     };
-
     setDocumentTitle(pathname);
-
     // Re-run on path changes
     const handleRouteChange = (url) => {
       setDocumentTitle(url);
     };
-
     if (window.gtag) {
       handleRouteChange(pathname); // Capture the initial page
     }
   }, [pathname]);
-
+  
+  
   return (
     <html lang="en" suppressHydrationWarning className={inter.className}>
       <GoogleOAuthProvider clientId="1036030324483-ltg0nqpg0ectr5q3n7cfa66l7eq1ban8.apps.googleusercontent.com">
