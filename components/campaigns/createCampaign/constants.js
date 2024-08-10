@@ -1,15 +1,16 @@
 export const TIMES = [
-  "Paleolithic Time",
-  "Neolithic Time",
-  "Bronze Age Time",
-  "Ancient Time",
-  "Classical Time",
-  "Medieval Time",
-  "Renaissance Time",
-  "Enlightenment Time",
-  "Industrial Time",
-  "Modern Time",
-  "Present Time",
+"Future",
+"Present Time",
+"Modern Time",
+"Industrial Time",
+"Enlightenment Time",
+"Renaissance Time",
+"Medieval Time",
+"Classical Time",
+"Ancient Time",
+"Bronze Age Time",
+"Neolithic Time",
+"Paleolithic Time",
 ];
 
 export const SETTINGS = [
