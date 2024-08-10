@@ -162,13 +162,13 @@ export default function card({
               {campaign?.playerName}
             </div> */}
             <div className='flex justify-center items-center gap-2  prevent-redirect'>
-              <IconButton className='bg-blur group   opacity-0 group-hover:opacity-100   prevent-redirect'>
+           {/*   <IconButton className='bg-blur group   opacity-0 group-hover:opacity-100   prevent-redirect'>
                 <img
                   src='/Icons/Share.svg'
                   alt=''
                   className='h-5 w-5 group-hover:opacity-100 invert  prevent-redirect'
                 />
-              </IconButton>
+              </IconButton>*/}
               <IconButton
                 disabled={isLoading || !user?.token}
                 onClick={handleStar}
