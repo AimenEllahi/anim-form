@@ -81,7 +81,7 @@ export default function index({ campaign, setCampaign }) {
                   icon={"/Icons/Comment.svg"}
                   text={"Comments"}
                 />
-                <TabButtons icon={"/Icons/Adventure.svg"} text={"Adventures"} />
+               {/** <TabButtons icon={"/Icons/Adventure.svg"} text={"Adventures"} />*/}
               </div>
               {/**Details section */}
 

@@ -17,7 +17,7 @@ export default function Timestamps({ campaign }) {
           <span className='ml-2'>{campaign.playerName}</span>
         </div>
         <div className='  border-white/10 pt-5 '>
-          <span className=' text-gray2'>UPDATED:</span>
+          <span className=' text-gray2'>Last played:</span>
           <span className='ml-2'> {moment(campaign.updatedAt).fromNow()}</span>
         </div>
       </div>
