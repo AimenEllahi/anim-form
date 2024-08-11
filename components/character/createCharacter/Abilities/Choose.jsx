@@ -63,6 +63,7 @@ export default function Choose({
     setIsRollingAbilities,
   } = useStepperStore();
   const [diceBox, setDiceBox] = useState(null);
+  const rollSound = new Audio("/audio/dice-roll.mp3");
 
   useEffect(() => {
     const _diceBox = new DiceBox("#dice-box-abilities", {
@@ -81,6 +82,9 @@ export default function Choose({
   const handleRollDice = (ability) => {
     setAbilitiesRoll(ability);
     setIsRollingAbilities(true);
+    setTimeout(() => {
+      rollSound.play();
+    }, 1000);
     diceBox.roll("4d6").then((result) => {
       //loop through result and get all the values, drop the lowest
       const value = result

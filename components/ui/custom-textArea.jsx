@@ -26,9 +26,10 @@ export default function CustomTextArea({
         id={placeholder}
         value={value}
         className={cn(
-          "block w-full h-[80px]  overflow-y-hidden py-[28px]  resize-none  peer ps-5 pe-[70px] box-border !running-text   text-white rounded-[10px] bg-transparent cursor-pointer duration-300 transition-all focus:outline-0   focus:shadow-text-area  ",
+          "block w-full h-[80px] pb-2  resize-none  peer px-5   mt-3 box-border !running-text   text-white rounded-[10px] bg-transparent cursor-pointer duration-300 transition-all focus:outline-0   focus:shadow-text-area  ",
           isComment && "h-16 !py-5",
-          className
+          className,
+          "h-[93%]"
         )}
         placeholder=' '
         onChange={(e) => onChange(e.target.value)}
@@ -38,7 +39,7 @@ export default function CustomTextArea({
 
       <label
         className={cn(
-          `absolute left-[9px] running-text-mono   uppercase top-px !text-sm text-gray2 transition-all duration-300 px-1 transform -translate-y-[43%] pointer-events-none 
+          `absolute left-[9px]   running-text-mono   uppercase top-px !text-sm text-gray2 transition-all duration-300 px-1 transform -translate-y-[43%] pointer-events-none 
   peer-placeholder-shown:top-[27px]  font-medium peer-placeholder-shown:text-xl group-focus-within:!top-px group-focus-within:!text-sm group-focus-within:!text-irisPurpleLight group-focus-within:!text-[10px]`,
           value && "!text-[10px]"
         )}
@@ -48,7 +49,7 @@ export default function CustomTextArea({
 
       <fieldset
         className={cn(
-          "inset-0 absolute border running-text-mono   border-gray2 rounded-[10px] pointer-events-none mt-[-6px] invisible peer-placeholder-shown:visible group-focus-within:!border-irisPurpleLight group-focus-within:border-1 group-focus-within:rounded-[10px] group-hover:border-white transition-all duration-300 ",
+          "inset-0 absolute  border running-text-mono   border-gray2 rounded-[10px] pointer-events-none mt-[-6px] invisible peer-placeholder-shown:visible group-focus-within:!border-irisPurpleLight group-focus-within:border-1 group-focus-within:rounded-[10px] group-hover:border-white transition-all duration-300 ",
           error &&
             "border-errorRed group-focus-within:!border-errorRed group-hover:!border-errorRed group-hover-within:text-[10px]"
         )}
@@ -60,7 +61,7 @@ export default function CustomTextArea({
 
       <fieldset
         className={cn(
-          "inset-0 absolute border running-text-mono   uppercase border-gray-400 rounded-[10px] pointer-events-none mt-[-6px] visible peer-placeholder-shown:invisible group-focus-within:border-1 group-focus-within:!border-irisPurpleLight group-hover:border-irisPurpleLight group-hover-within:text-[10px]",
+          "inset-0 absolute  border running-text-mono   uppercase border-gray-400 rounded-[10px] pointer-events-none mt-[-6px] visible peer-placeholder-shown:invisible group-focus-within:border-1 group-focus-within:!border-irisPurpleLight group-hover:border-irisPurpleLight group-hover-within:text-[10px]",
           error &&
             "border-errorRed group-hover:!border-errorRed group-focus-within:!border-errorRed"
         )}

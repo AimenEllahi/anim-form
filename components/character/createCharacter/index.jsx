@@ -1,4 +1,4 @@
-"use client";
+  "use client";
 import React, { useEffect, useState } from "react";
 import Create from "@/components/character/createCharacter/create";
 import useStepperStore from "@/utils/characterStore";

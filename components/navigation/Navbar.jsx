@@ -26,21 +26,21 @@ import Discover from "@/components/ui/Icons/Discover";
 
 const NavLinks = () => {
   return (
-    <ul className="flex gap-4">
+    <ul className='flex gap-4'>
       <li>
         <Link
-          href="/discover/gallery"
-          className="text-white hover:text-gray1 transition-all duration-300 ease-in-out"
-          aria-label="Gallery"
+          href='/discover/gallery'
+          className='text-white hover:text-gray1 transition-all duration-300 ease-in-out'
+          aria-label='Gallery'
         >
           GALLERY
         </Link>
       </li>
       <li>
         <Link
-          href="/pricing"
-          className="text-white hover:text-gray1 transition-all duration-300 ease-in-out"
-          aria-label="Pricing"
+          href='/pricing'
+          className='text-white hover:text-gray1 transition-all duration-300 ease-in-out'
+          aria-label='Pricing'
         >
           PRICING
         </Link>
@@ -58,9 +58,9 @@ const DiscoverButton = () => {
       }}
       variant={"subtle"}
       withIcon={true}
-      aria-label="Discover"
+      aria-label='Discover'
     >
-      <Discover className="h-5 w-5 fill-white opacity-70 " />
+      <Discover className='h-5 w-5 fill-white opacity-70 ' />
       Discover
     </CustomButton>
   );
@@ -78,9 +78,9 @@ const UpgradeButton = () => {
         " text-irisPurpleLight hover:!text-irisPurpleLight/80 active:!text-irisPurpleLight/90"
       }
       withIcon={true}
-      aria-label="Upgrade"
+      aria-label='Upgrade'
     >
-      <Diamond className="h-5 w-5 fill-irisPurpleLight hover:!fill-irisPurpleLight/80 active:!fill-irisPurpleLight/90" />
+      <Diamond className='h-5 w-5 fill-irisPurpleLight hover:!fill-irisPurpleLight/80 active:!fill-irisPurpleLight/90' />
       Upgrade
     </CustomButton>
   );
@@ -92,19 +92,25 @@ const CreditsDisplay = () => {
   return (
     <>
       {" "}
-      <CustomIcontext className={"pointer-events-none"} aria-label="Blue Credits">
+      <CustomIcontext
+        className={"pointer-events-none"}
+        aria-label='Blue Credits'
+      >
         <img
-          src="/gems/Mythic.webp"
-          alt="Blue Credits"
-          className="h-[18px] object-contain "
+          src='/gems/Mythic.webp'
+          alt='Blue Credits'
+          className='h-[18px] object-contain '
         />
         {user?.blueCredits}
       </CustomIcontext>
-      <CustomIcontext className={"pointer-events-none"} aria-label="Yellow Credits">
+      <CustomIcontext
+        className={"pointer-events-none"}
+        aria-label='Yellow Credits'
+      >
         <img
-          src="/gems/Legendary.webp"
-          alt="Yellow Credits"
-          className="h-[18px] object-contain "
+          src='/gems/Legendary.webp'
+          alt='Yellow Credits'
+          className='h-[18px] object-contain '
         />
         {user?.yellowCredits}
       </CustomIcontext>
@@ -262,22 +268,22 @@ export default function Navbar({ variant, characterSheet }) {
           }
         >
           <Link
-            href="/"
-            className="text-white hover:text-gray1 transition-all duration-300 ease-in-out"
-            aria-label="Home"
+            href='/'
+            className='text-white hover:text-gray1 transition-all duration-300 ease-in-out'
+            aria-label='Home'
           >
             <img
-              src="/Icons/Logo.svg"
-              alt="logo"
-              className="h-8 object-contain"
+              src='/Icons/Logo.svg'
+              alt='logo'
+              className='h-8 object-contain'
             />
           </Link>
           <button
             onClick={() => setShowMenu(true)}
-            className="w-10"
-            aria-label="Menu"
+            className='w-10'
+            aria-label='Menu'
           >
-            <Menu fill="#9A9AC1" />
+            <Menu fill='#9A9AC1' />
           </button>
 
           <DrawerMenu
@@ -286,20 +292,20 @@ export default function Navbar({ variant, characterSheet }) {
           />
         </div>
         {/* Desktop */}
-        <div className=" w-full hidden h-full text-white  md:flex justify-between items-center">
-          <div className="flex justify-center items-center gap-6">
+        <div className=' w-full hidden h-full text-white  md:flex justify-between items-center'>
+          <div className='flex justify-center items-center gap-6'>
             <Link
-              href="/"
-              className="text-white me-2 hover:text-gray1 transition-all duration-300 ease-in-out"
-              aria-label="Home"
+              href='/'
+              className='text-white me-2 hover:text-gray1 transition-all duration-300 ease-in-out'
+              aria-label='Home'
             >
-              <img src="/Icons/Logo.svg" alt="logo" className="h-10" />
+              <img src='/Icons/Logo.svg' alt='logo' className='h-10' />
             </Link>
             {showNavLinks && <NavLinks />}
             {showDiscoverButton && <DiscoverButton />}
             {showUpgradeButton && <UpgradeButton />}
           </div>
-          <div className="flex justify-center items-center gap-5">
+          <div className='flex justify-center items-center gap-5'>
             <span
               className={cn(
                 "running-text-mono uppercase cursor-pointer",
@@ -308,15 +314,21 @@ export default function Navbar({ variant, characterSheet }) {
               aria-label={isSignUp ? "Sign In" : "Sign Up"}
             >
               {isSignUp ? (
-                <Link href={"/auth/sign-in"} aria-label="Sign In">Sign In</Link>
+                <Link href={"/auth/sign-in"} aria-label='Sign In'>
+                  Sign In
+                </Link>
               ) : (
-                <Link href={"/auth/sign-up"} aria-label="Sign Up">Sign Up</Link>
+                <Link href={"/auth/sign-up"} aria-label='Sign Up'>
+                  Sign Up
+                </Link>
               )}
             </span>
             {isGamePage && <CreditsDisplay />}
-            {user?.token && <CreateMenu aria-label="Create Menu" />}
-            <AccountDropdown aria-label="Account Dropdown" />
-            {(variant === "transparent" || !user?.token) && <SoundButton aria-label="Sound Button" />}
+            {user?.token && <CreateMenu aria-label='Create Menu' />}
+            <AccountDropdown aria-label='Account Dropdown' />
+
+            <SoundButton aria-label='Sound Button' />
+
             {characterSheet || isCampaignSubpage ? (
               <CustomButton
                 variant={"primary"}
@@ -329,7 +341,7 @@ export default function Navbar({ variant, characterSheet }) {
                 }
                 aria-label={isCampaignSubpage ? "Play Campaign" : "Play Now"}
               >
-                <Play className="h-5 w-5 fill-russianViolet opacity-70" />
+                <Play className='h-5 w-5 fill-russianViolet opacity-70' />
                 {isCampaignSubpage ? "Play Campaign" : "PLAY Now"}
               </CustomButton>
             ) : (
@@ -338,7 +350,7 @@ export default function Navbar({ variant, characterSheet }) {
                 onClick={handlePlay}
                 variant={"primary"}
                 className={cn(isGamePage && "hidden")}
-                aria-label="Play for Free"
+                aria-label='Play for Free'
               >
                 PLAY FOR FREE
               </CustomButton>
@@ -346,7 +358,7 @@ export default function Navbar({ variant, characterSheet }) {
           </div>
         </div>
       </div>
-      <MobileHeader aria-label="Mobile Header" />
+      <MobileHeader aria-label='Mobile Header' />
     </nav>
   );
 }

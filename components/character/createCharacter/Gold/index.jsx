@@ -9,6 +9,7 @@ export default function Index({ character, setCharacter }) {
   const [rolling, setRolling] = useState(false);
   const { selectedFace, setSelectedFace } = useCharacterStore();
   const [diceBox, setDiceBox] = useState(null);
+  const rollSound = new Audio("/audio/dice-roll.mp3");
 
   useEffect(() => {
     const _diceBox = new DiceBox("#dice-box-gold", {
@@ -25,6 +26,9 @@ export default function Index({ character, setCharacter }) {
 
   const handleRollDice = () => {
     diceBox.init().then(() => {
+      setTimeout(() => {
+        rollSound.play();
+      }, 1000);
       diceBox.roll("1d20").then((result) => {
         setSelectedFace(result[0].value);
       });
