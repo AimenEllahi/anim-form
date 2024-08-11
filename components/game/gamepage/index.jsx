@@ -54,7 +54,7 @@ export default function Index({
 
   useEffect(() => {
     if (gameCampaign?.title) {
-      document.title ="DnD AI / Play: "+ gameCampaign.title;
+      document.title ="DnD AI | Game: "+ gameCampaign.title;
     }
   }, [gameCampaign]);
 

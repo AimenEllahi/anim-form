@@ -42,14 +42,14 @@ export default function RootLayout({ children }) {
 
   useEffect(() => {
     const setDocumentTitle = (url) => {
-      let title = "DnD AI - Play AI-Guided Pen and Paper Games";
+      let title = "DnD AI | Dive into epic, story-driven adventures with free pen and paper games, powered by OpenAI’s cutting-edge artificial intelligence!";
 
       if (url.includes("/character/sheet")) {
-        title = "DnD AI / Character Overview";
+        title = "DnD AI | Character Overview";
       } else if (url === "/") {
-        title = "DnD AI / Home";
+        title = "DnD AI | Home";
       } else if (url.includes("/campaign/")) {
-        title = "DnD AI / Campaign Details";
+        title = "DnD AI | Campaign Details";
       } else {
         const pageTitle = url.split("/").pop().replaceAll("-", " ");
         title = `${pageTitle.charAt(0).toUpperCase() + pageTitle.slice(1)} - DnD AI`;
@@ -98,7 +98,7 @@ export default function RootLayout({ children }) {
           <meta name="description" content="Join DnDAI to play DnD with AI. AI-supported pen and paper games." />
           <meta name="keywords" content="AI adventure games, text-based games, interactive fiction, role-playing games, free online adventure games, AI Game, Free online game 2024" />
           <meta property="og:title" content="DnD AI - Play an AI driven Story game and create breathtaking images in the process" />
-          <meta property="og:description" content="Play DnD AI for free. Interactive Dungeons and Dragons Game." />
+          <meta property="og:description" content="Dive into epic, story-driven adventures with free pen and paper games, powered by OpenAI’s cutting-edge artificial intelligence." />
           <meta property="og:url" content="https://www.dndai.app" />
           <meta property="og:image" content="https://dndai-images.s3.eu-central-1.amazonaws.com/Headers/Header.webp" />
           <meta property="og:type" content="website" />

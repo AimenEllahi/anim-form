@@ -26,7 +26,7 @@ export default function Index({ campaign, setCampaign }) {
 
   useEffect(() => {
     if (campaign?.title) {
-      document.title = "DND AI / Campaign: "+campaign.title ;
+      document.title = "DND AI | Campaign: "+campaign.title ;
     }
   }, [campaign]);
 
