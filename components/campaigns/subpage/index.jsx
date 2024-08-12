@@ -1,8 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Button from "@/components/ui/custom-button";
-
-import { extractSection } from "@/lib/Helpers/shared";
 import TimeStamps from "./Timestamps";
 import Comments from "./Comments";
 import Details from "./Details";
@@ -24,20 +22,7 @@ const TabButtons = ({ activeTab, onClick, icon, text }) => {
 
 export default function index({ campaign, setCampaign }) {
   const [activeTab, setActiveTab] = useState("details");
-  const [hook, setHook] = useState("");
-  const [plot, setPlot] = useState("");
-  const [time, setTime] = useState("");
 
-  console.log(campaign);
-
-  useEffect(() => {
-    // const _hook = extractSection(campaign.adventure, "hook");
-    // const _plot = extractSection(campaign.adventure, "plot");
-    // const _time = extractSection(campaign.adventure, "time");
-    // setHook(_hook || campaign.hook);
-    // setPlot(_plot || campaign.plot);
-    // setTime(_time || campaign.time);
-  }, [campaign]);
   return (
     <div className='min-h-screen h-full w-full flex flex-col   pt-[86px] md:pt-[128px]  lg:px-12 md:pb-20 '>
       <div className='flex flex-col gap-5 z-[10]  px-5 md:px-0'>

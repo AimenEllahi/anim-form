@@ -18,7 +18,7 @@ export default function GameCard({ game, className }) {
   return (
     <div
       className={cn(
-        "rounded-[16px] cursor-pointer bg-white/[8%] hover:bg-white/10   h-full group hover:!shadow-custom-1 min-w-[292px] w-[292px] max-w-[292px] ease-animate  overflow-hidden md:min-w-[345px] md:w-[345px]  border-white/[8%] border hover:border-white/20 running-text-mono   ",
+        "rounded-[16px] cursor-pointer bg-white/[8%] hover:bg-white/10   h-full group hover:!shadow-custom-1 min-w-[325px] w-[325px] max-w-[325px] ease-animate  overflow-hidden md:min-w-[345px] md:w-[345px]  border-white/[8%] border hover:border-white/20 running-text-mono   ",
         className
       )}
     >
@@ -58,9 +58,10 @@ export default function GameCard({ game, className }) {
               "flex justify-between items-center gap-5 mt-auto  text-white"
             )}
           >
-            <div className='flex items-center gap-x-1 running-text-mono uppercase text-[14px] '>
+            <div className='flex items-center gap-x-1 running-text-mono uppercase text-[11px] md:text-[12px] xl:text-[14px] '>
               <RecentlyPlayed className='h-5 w-5 fill-white opacity-70 prevent-redirect' />
-              {moment(game.game.updatedAt).fromNow()}
+              {/* {moment(game.game.updatedAt).fromNow()} */}
+              52 Minutes ago
             </div>
             <Button onClick={redirect} withIcon className='prevent-redirect'>
               <Continue className='h-5 w-5 fill-white opacity-70 prevent-redirect' />

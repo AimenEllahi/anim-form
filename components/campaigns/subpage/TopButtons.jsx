@@ -23,7 +23,7 @@ import Loader from "@/components/ui/Loader";
 
 const TopButtons = ({ campaign, setCampaign, className }) => {
   const { user } = useUserStore();
-  const isCreator = true; //campaign.userId === user?._id;
+  const isCreator = campaign.userId === user?._id;
   const { invokeToast } = useCustomToast();
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
