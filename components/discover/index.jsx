@@ -12,28 +12,28 @@ export default function index({
   recentlyPlayed,
 }) {
   return (
-    <div className=' pt-[128px] w-full h-full relative text-white  '>
-      <span className='headline-3 !z-[20] px-5 md:px-12 hidden md:block'>
+    <div className=" pt-[128px] w-full h-full relative text-white  ">
+      <span className="headline-3 !z-[20] px-5 md:px-12 hidden md:block">
         Discover
       </span>
-      <div className='flex flex-col h-full gap-16 w-full mt-5 md:mt-9'>
+      <div className="flex flex-col h-full gap-16 w-full mt-5 md:mt-9">
         <Row
           text={"Recently Played"}
           isGame={true}
           games={recentlyPlayed}
           icon={
-            <RecentlyPlayed isfilled={"true"} className='h-5 w-5 fill-gray2' />
+            <RecentlyPlayed isfilled={"true"} className="h-5 w-5 fill-gray2" />
           }
         />
         <Row
           text={"Community Favorites"}
           campaigns={mostLiked}
-          icon={<Star isfilled={"true"} className='h-5 w-5 fill-gray2' />}
+          icon={<Star isfilled={"true"} className="h-5 w-5 fill-gray2" />}
         />
         <Row
           text={"Public games"}
           campaigns={popular}
-          icon={<World className='h-5 w-5 fill-gray2' />}
+          icon={<World className="h-5 w-5 fill-gray2" />}
           showMore={true}
         />
 
