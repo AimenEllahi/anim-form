@@ -42,17 +42,17 @@ export default function RootLayout({ children }) {
 
   useEffect(() => {
     const setDocumentTitle = (url) => {
-      let title = "DnD AI | Dive into epic, story-driven adventures with free pen and paper games, powered by OpenAI’s cutting-edge artificial intelligence!";
+      let title = "DND AI | Dive into epic, story-driven adventures with free pen and paper games, powered by OpenAI’s cutting-edge artificial intelligence!";
 
       if (url.includes("/character/sheet")) {
-        title = "DnD AI | Character Overview";
+        title = "DND AI | Character Overview";
       } else if (url === "/") {
-        title = "DnD AI | Home";
+        title = "DND AI | Home";
       } else if (url.includes("/campaign/")) {
-        title = "DnD AI | Campaign Details";
+        title = "DND AI | Campaign Details";
       } else {
         const pageTitle = url.split("/").pop().replaceAll("-", " ");
-        title = `${pageTitle.charAt(0).toUpperCase() + pageTitle.slice(1)} - DnD AI`;
+        title = `${pageTitle.charAt(0).toUpperCase() + pageTitle.slice(1)} - DND AI`;
       }
 
       document.title = title;
@@ -95,9 +95,9 @@ export default function RootLayout({ children }) {
             async
           />
           {/* Global Meta Tags */}
-          <meta name="description" content="Join DnDAI to play DnD with AI. AI-supported pen and paper games." />
+          <meta name="description" content="Join DNDAI to play Dungeons and Dragons with AI as Game Master. AI-supported pen and paper games." />
           <meta name="keywords" content="AI adventure games, text-based games, interactive fiction, role-playing games, free online adventure games, AI Game, Free online game 2024" />
-          <meta property="og:title" content="DnD AI - Play an AI driven Story game and create breathtaking images in the process" />
+          <meta property="og:title" content="DND AI - Play an AI driven Story game and create breathtaking images in the process" />
           <meta property="og:description" content="Dive into epic, story-driven adventures with free pen and paper games, powered by OpenAI’s cutting-edge artificial intelligence." />
           <meta property="og:url" content="https://www.dndai.app" />
           <meta property="og:image" content="https://dndai-images.s3.eu-central-1.amazonaws.com/Headers/Header.webp" />
