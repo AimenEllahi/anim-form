@@ -204,14 +204,14 @@ const TopButtons = ({ campaign, setCampaign, className }) => {
             />
             <span>{campaign.analytics.stars.length}</span>
           </CustomIcontext>
-          <CustomIcontext>
+            {/** <CustomIcontext>
             <img
               src='/Icons/Share.svg'
               alt=''
               className='h-5 w-5 opacity-70 invert'
             />{" "}
             <span>Share</span>
-          </CustomIcontext>
+          </CustomIcontext>**/}
         </div>
       </div>
       <div className=' gap-6 items-start md:justify-end md:items-end flex-col-reverse md:flex-row flex px-5 md:px-0'>
@@ -241,14 +241,14 @@ const TopButtons = ({ campaign, setCampaign, className }) => {
           </DeleteCampaign>
         </div>
 
-        <Button disabled={isLoading} onClick={downloadWorldMap} withIcon>
+    {/**     <Button disabled={isLoading} onClick={downloadWorldMap} withIcon>
           <img
             src='/Icons/Download.svg'
             className='h-5 w-5 opacity-75 invert'
             alt=''
           />{" "}
           <span>Download world map</span>
-        </Button>
+        </Button> **/}
       </div>
     </div>
   );

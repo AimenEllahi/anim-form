@@ -38,7 +38,7 @@ export default function CustomInput({
         className={cn(
           "outline-none  px-4  h-full w-full peer bg-transparent text-white disabled:pointer-events-none   ",
           icon && "pr-8",
-          !placeholder.toLowerCase().includes("password") && "uppercase"
+          //!placeholder.toLowerCase().includes("password") && "uppercase"
         )}
         placeholder=' '
         //show password

@@ -133,10 +133,10 @@ export default function characterSheet({ character, setCharacter }) {
           {character?.personal?.portraits?.length > 0 ? "Change " : "Create "}
           character portrait
         </CustomButton>
-        <CustomButton variant='subtle'>
-          <Download fill='white' className='h-5 w-5 opacity-70 text-white' />
+    {/**       <CustomButton variant='subtle'>
+         <Download fill='white' className='h-5 w-5 opacity-70 text-white' />
           Download character sheet
-        </CustomButton>
+        </CustomButton> */}
         <DeleteCharacter action={handleDeleteCharacter}>
           <CustomButton
             withIcon={true}

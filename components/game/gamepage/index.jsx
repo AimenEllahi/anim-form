@@ -52,6 +52,12 @@ export default function Index({
     setDiceBox(_diceBox);
   }, []);
 
+  useEffect(() => {
+    if (gameCampaign?.title) {
+      document.title ="DND AI | Game: "+ gameCampaign.title;
+    }
+  }, [gameCampaign]);
+
   const handleChat = async (text) => {
     if (user.blueCredits < 1) {
       setShowCreditsDialogue(true);

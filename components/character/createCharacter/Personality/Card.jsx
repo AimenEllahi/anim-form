@@ -22,7 +22,7 @@ export default function Card({
       <div className='w-full h-[353px]  md:w-full md:h-auto'>
         <img
           src={img}
-          alt=''
+          alt='Personality'
           className=' h-full w-full object-cover  rounded-[10px]  md:rounded-none'
         />
       </div>

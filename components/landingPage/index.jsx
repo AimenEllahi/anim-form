@@ -12,7 +12,6 @@ import PlayForFreeMobile from "@/components/ui/Shared/PlayForFreeMobile";
 import ImagesVisual from "@/components/landingPage/imagesVisual";
 import Campaigns from "@/components/landingPage/campaignSection";
 import Image from "next/image";
-import Head from "next/head";
 const LocomotiveScroll = dynamic(
   () => import("@/components/landingPage/LocomotiveScroll"),
   {
@@ -29,17 +28,6 @@ export default function Home() {
 
   return (
     <>
-      <Head>
-        <title>Home - Your Game</title>
-        <meta
-          name='description'
-          content='Experience gameplay without creative boundaries, where your imagination is the only limit.'
-        />
-        <meta name='viewport' content='width=device-width, initial-scale=1' />
-        <meta charSet='UTF-8' />
-        <meta name='robots' content='index, follow' />
-        <link rel='canonical' href='https://yourwebsite.com' />
-      </Head>
       <LocomotiveScroll scrollRef={scrollRef} locoScrollRef={locoScrollRef} />
       <div
         data-scroll-container
@@ -108,7 +96,7 @@ export default function Home() {
             number={3}
             title={"EXPERIENCE EPIC CHARACTER PROGRESSION"}
             description={
-              "Whether playing solo or with friends in multiplayer mode, immerse yourself in the journey of your character's growth. Progress through your own campaigns or those created by others, both privately and publicly, for an unforgettable gaming experience!"
+              "Immerse yourself in the journey of your character's growth. Progress through your own campaigns or those created by others, both privately and publicly, for an unforgettable gaming experience!"
             }
             image={
               "https://dndai-images.s3.eu-central-1.amazonaws.com/tutorial/tutorial-3.webp"
