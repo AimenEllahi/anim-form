@@ -110,7 +110,7 @@ export default function Avatar({
       setIsLoading(true);
       setLoadingAvatar(true);
       setOpen(false);
-      payload.appearance += ",in " + style;
+      payload.appearance += " in the visual art of" + style;
       const { avatarUrl } = await handleGenerateAvatar(payload, user?.token);
       const { credits } = await getCredits(user?.token);
       setCurrentPortrait(avatarUrl);
