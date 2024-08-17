@@ -11,7 +11,7 @@ export default function SoundButton() {
 
   function toggleSound() {
     setIsSoundOn((prev) => !prev);
-    console.log("here");
+
     if (isSoundOn) {
       audioRef.current.pause();
     } else {
@@ -23,12 +23,12 @@ export default function SoundButton() {
     <>
       <CustomIconbutton onClick={toggleSound}>
         {isSoundOn ? (
-          <Sound className="h-5 w-5 fill-white" />
+          <Sound className='h-5 w-5 fill-white' />
         ) : (
-          <SoundOff className="h-5 w-5 fill-white" />
+          <SoundOff className='h-5 w-5 fill-white' />
         )}
       </CustomIconbutton>
-      <audio loop autoplay ref={audioRef} src="/audio/ambient.mp3" />
+      <audio loop ref={audioRef} src='/audio/ambient.mp3' />
     </>
   );
 }

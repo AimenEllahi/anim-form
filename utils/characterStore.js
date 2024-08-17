@@ -2,9 +2,10 @@
 import { create } from "zustand";
 
 const useStepperStore = create((set) => ({
-  activeStep: 0,
+  activeStep: 2,
   abilitiesRoll: {},
   isRollingAbilities: false,
+  finalRollResults: {},
   selectedCharacteristic: {
     name: null,
     image: null,
@@ -32,6 +33,7 @@ const useStepperStore = create((set) => ({
       },
     })),
   setIsRollingAbilities: (isRollingAbilities) => set({ isRollingAbilities }),
+  setFinalRollResults: (finalRollResults) => set({ finalRollResults }),
 }));
 
 export default useStepperStore;

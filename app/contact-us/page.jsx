@@ -1,6 +1,10 @@
 import ContactUs from "@/components/contactUs/index";
-import React from "react";
+import React, { Suspense } from "react";
 
 export default function page() {
-  return <ContactUs />;
+  return (
+    <Suspense>
+      <ContactUs />
+    </Suspense>
+  );
 }

@@ -38,6 +38,15 @@ const NavLinks = () => {
       </li>
       <li>
         <Link
+          href='/about-us'
+          className='text-white hover:text-gray1 transition-all duration-300 ease-in-out'
+          aria-label='About'
+        >
+          ABOUTS US
+        </Link>
+      </li>
+      <li>
+        <Link
           href='/pricing'
           className='text-white hover:text-gray1 transition-all duration-300 ease-in-out'
           aria-label='Pricing'

@@ -1,17 +1,15 @@
 import React from "react";
 
-export default function index() {
+export default function Privacy() {
   return (
-    <div className="h-full text-white w-full flex flex-col pt-[154px] md:pt-[128px] px-5 lg:px-12 pb-32">
-      <div className="flex flex-col w-full gap-10 z-[10]">
-        <div className="flex  justify-between text-white  w-full md:w-auto">
-          <span className="headline-3 z-[10] hidden md:block ">
-            Terms and Conditions
-          </span>
+    <div className='h-full text-white w-full flex flex-col pt-[154px] md:pt-[128px] px-5 lg:px-12 pb-32'>
+      <div className='flex flex-col w-full gap-10 z-[10]'>
+        <div className='flex  justify-between text-white  w-full md:w-auto'>
+          <span className='headline-3 z-[10] hidden md:block '>Privacy</span>
         </div>
-        <div className=" text-white capitalize  flex flex-col gap-8 justify-center items-center">
-          <div className="flex flex-col gap-5 md:w-[711px] w-full">
-            <span className="running-text-large">Subheadline</span>
+        <div className=' text-white capitalize  flex flex-col gap-8 justify-center items-center'>
+          <div className='flex flex-col gap-5 md:w-[711px] w-full'>
+            <span className='running-text-large'>Subheadline</span>
             <p>
               Lorem ipsum dolor sit amet consectetur. Enim proin etiam nibh hac
               nisl. Tortor elit praesent et at condimentum pharetra ultrices. Ac
@@ -35,8 +33,8 @@ export default function index() {
               lectus proin elementum.
             </p>
           </div>
-          <div className="flex flex-col gap-5 md:w-[711px] w-full">
-            <span className="running-text-large">Subheadline</span>
+          <div className='flex flex-col gap-5 md:w-[711px] w-full'>
+            <span className='running-text-large'>Subheadline</span>
             <p>
               Lorem ipsum dolor sit amet consectetur. Enim proin etiam nibh hac
               nisl. Tortor elit praesent et at condimentum pharetra ultrices. Ac
@@ -60,8 +58,8 @@ export default function index() {
               lectus proin elementum.
             </p>
           </div>
-          <div className="flex flex-col gap-5 md:w-[711px] w-full">
-            <span className="running-text-large">Subheadline</span>
+          <div className='flex flex-col gap-5 md:w-[711px] w-full'>
+            <span className='running-text-large'>Subheadline</span>
             <p>
               Lorem ipsum dolor sit amet consectetur. Enim proin etiam nibh hac
               nisl. Tortor elit praesent et at condimentum pharetra ultrices. Ac

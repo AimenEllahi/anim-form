@@ -29,7 +29,8 @@ export default function RootLayout({ children }) {
     !pathname.includes("/campaign") &&
     !pathname.includes("/discover") &&
     !pathname.includes("game") &&
-    !pathname.includes("payment");
+    !pathname.includes("payment") &&
+    !pathname.includes("settings");
 
   const showDiceGold =
     pathname.includes("/character/create") && activeStep === 7;
@@ -42,7 +43,8 @@ export default function RootLayout({ children }) {
 
   useEffect(() => {
     const setDocumentTitle = (url) => {
-      let title = "DND AI | Dive into epic, story-driven adventures with free pen and paper games, powered by OpenAI’s cutting-edge artificial intelligence!";
+      let title =
+        "DND AI | Dive into epic, story-driven adventures with free pen and paper games, powered by OpenAI’s cutting-edge artificial intelligence!";
 
       if (url.includes("/character/sheet")) {
         title = "DND AI | Character Overview";
@@ -52,7 +54,9 @@ export default function RootLayout({ children }) {
         title = "DND AI | Campaign Details";
       } else {
         const pageTitle = url.split("/").pop().replaceAll("-", " ");
-        title = `${pageTitle.charAt(0).toUpperCase() + pageTitle.slice(1)} - DND AI`;
+        title = `${
+          pageTitle.charAt(0).toUpperCase() + pageTitle.slice(1)
+        } - DND AI`;
       }
 
       document.title = title;
@@ -73,15 +77,22 @@ export default function RootLayout({ children }) {
   }, [pathname]);
 
   return (
-    <html lang="en" suppressHydrationWarning className={inter.className}>
-      <GoogleOAuthProvider clientId="your-client-id">
+    <html lang='en' suppressHydrationWarning className={inter.className}>
+      <GoogleOAuthProvider clientId='1036030324483-ltg0nqpg0ectr5q3n7cfa66l7eq1ban8.apps.googleusercontent.com'>
         <head>
-          <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-          <link rel="icon" href="/favicon.ico" />
-          <Script strategy="afterInteractive" src={`https://www.googletagmanager.com/gtag/js?id=G-BTHMYX7TZ9`} async />
+          <meta
+            name='viewport'
+            content='width=device-width, initial-scale=1, maximum-scale=1'
+          />
+          <link rel='icon' href='/favicon.ico' />
           <Script
-            id="google-analytics"
-            strategy="afterInteractive"
+            strategy='afterInteractive'
+            src={`https://www.googletagmanager.com/gtag/js?id=G-BTHMYX7TZ9`}
+            async
+          />
+          <Script
+            id='google-analytics'
+            strategy='afterInteractive'
             dangerouslySetInnerHTML={{
               __html: `
                 window.dataLayer = window.dataLayer || [];
@@ -95,26 +106,50 @@ export default function RootLayout({ children }) {
             async
           />
           {/* Global Meta Tags */}
-          <meta name="description" content="Join DNDAI to play Dungeons and Dragons with AI as Game Master. AI-supported pen and paper games." />
-          <meta name="keywords" content="AI adventure games, text-based games, interactive fiction, role-playing games, free online adventure games, AI Game, Free online game 2024" />
-          <meta property="og:title" content="DND AI - Play an AI driven Story game and create breathtaking images in the process" />
-          <meta property="og:description" content="Dive into epic, story-driven adventures with free pen and paper games, powered by OpenAI’s cutting-edge artificial intelligence." />
-          <meta property="og:url" content="https://www.dndai.app" />
-          <meta property="og:image" content="https://dndai-images.s3.eu-central-1.amazonaws.com/Headers/Header.webp" />
-          <meta property="og:type" content="website" />
+          <meta
+            name='description'
+            content='Join DNDAI to play Dungeons and Dragons with AI as Game Master. AI-supported pen and paper games.'
+          />
+          <meta
+            name='keywords'
+            content='AI adventure games, text-based games, interactive fiction, role-playing games, free online adventure games, AI Game, Free online game 2024'
+          />
+          <meta
+            property='og:title'
+            content='DND AI - Play an AI driven Story game and create breathtaking images in the process'
+          />
+          <meta
+            property='og:description'
+            content='Dive into epic, story-driven adventures with free pen and paper games, powered by OpenAI’s cutting-edge artificial intelligence.'
+          />
+          <meta property='og:url' content='https://www.dndai.app' />
+          <meta
+            property='og:image'
+            content='https://dndai-images.s3.eu-central-1.amazonaws.com/Headers/Header.webp'
+          />
+          <meta property='og:type' content='website' />
         </head>
-        <body className="w-screen hide-scrollbar relative max-w-screen overflow-x-hidden bg-russianViolet">
-          {showDiceGold && <div id="dice-box-gold" className="dice-box"></div>}
-          {showDiceGame && <div id="dice-box-game" className="dice-box"></div>}
-          {showDiceAbilities && <div id="dice-box-abilities" className="dice-box"></div>}
-          <img src="/images/bg.png" alt="Background" className="h-screen w-screen object-fill fixed top-0 left-0 z-0" />
-          <MemoizedNavbar characterSheet={characterSheet} variant={isTransparentNavbar ? "transparent" : "glass"} />
-          <main className="z-[1]">{children}</main>
+        <body className='w-screen hide-scrollbar relative max-w-screen overflow-x-hidden bg-russianViolet'>
+          {showDiceGold && <div id='dice-box-gold' className='dice-box'></div>}
+          {showDiceGame && <div id='dice-box-game' className='dice-box'></div>}
+          {showDiceAbilities && (
+            <div id='dice-box-abilities' className='dice-box'></div>
+          )}
+          <img
+            src='/images/bg.png'
+            alt='Background'
+            className='h-screen w-screen object-fill fixed top-0 left-0 z-0'
+          />
+          <MemoizedNavbar
+            characterSheet={characterSheet}
+            variant={isTransparentNavbar ? "transparent" : "glass"}
+          />
+          <main className='z-[1]'>{children}</main>
           {showFooter && <MemoizedFooter />}
           <Suspense fallback={null}>
             <CreditsDialogue />
           </Suspense>
-          <div className="!z-[50]">
+          <div className='!z-[50]'>
             <Toaster />
           </div>
         </body>

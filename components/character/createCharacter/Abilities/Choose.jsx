@@ -10,6 +10,9 @@ import {
 import Dice from "@/components/ui/Icons/Dice";
 import DiceBox from "@3d-dice/dice-box";
 import useStepperStore from "@/utils/characterStore";
+import CustomDropdown from "@/components/ui/custom-dropdown";
+import RolledDice from "@/components/ui/Icons/RolledDice";
+import { cn } from "@/lib/utils";
 
 const _ABILITIES = [
   {
@@ -41,31 +44,66 @@ const _ABILITIES = [
   },
 ];
 
-const INITIAL_ABILITIES = {
-  strength: 8,
-  dexterity: 8,
-  constitution: 8,
-  intelligence: 8,
-  wisdom: 8,
-  charisma: 8,
+const ABILITIES = [
+  "strength",
+  "dexterity",
+  "constitution",
+  "intelligence",
+  "wisdom",
+  "charisma",
+];
+
+const DiceResults = ({ results, value }) => {
+  return (
+    <div className='flex items-center justify-between'>
+      <div className='flex items-center gap-2 py-3.5'>
+        {results.reverse().map((result, index) => {
+          return (
+            <RolledDice
+              roll={result}
+              key={index}
+              className={cn(
+                "h-5 w-5 fill-successGreen",
+                index == 0 && "fill-errorRed"
+              )}
+            />
+          );
+        })}
+      </div>
+      <span className='running-text-mono text-gray2 uppercase'>{value}</span>
+    </div>
+  );
 };
-const INITIAL_POINTS = 27;
 export default function Choose({
   abilities,
   handleChangeAbilities,
   _pointsToSpend,
 }) {
-  const [pointsToSpend, setPointsToSpend] = useState(_pointsToSpend);
   const {
     setAbilitiesRoll,
     abilitiesRoll,
     isRollingAbilities,
     setIsRollingAbilities,
+    finalRollResults,
+    setFinalRollResults,
   } = useStepperStore();
+  const [rollResults, setRollResults] = useState(finalRollResults);
   const [diceBox, setDiceBox] = useState(null);
-  const rollSound = new Audio("/audio/dice-roll.mp3");
+
+  const [options, setOptions] = useState(ABILITIES);
+  const [rollSound, setRollSound] = useState(null);
+  const [showRollAll, setShowRollAll] = useState(true);
 
   useEffect(() => {
+    setFinalRollResults(rollResults);
+  }, [rollResults]);
+
+  useEffect(() => {
+    //initiate sound
+    const audio = new Audio("/audio/dice-roll.mp3");
+    setRollSound(audio);
+
+    //initiate dice box
     const _diceBox = new DiceBox("#dice-box-abilities", {
       assetPath: "/assets/dice-box", // required
       theme: "default", //optional
@@ -77,162 +115,224 @@ export default function Choose({
     });
     _diceBox.init();
     setDiceBox(_diceBox);
+
+    //set initial abilities
+    const selectedOptions = Object.keys(rollResults).map((result, index) => {
+      return rollResults[result].ability;
+    });
+    setOptions((prev) =>
+      prev.filter((option) => !selectedOptions.includes(option))
+    );
   }, []);
 
-  const handleRollDice = (ability) => {
-    setAbilitiesRoll(ability);
+  const handleRollDice = async (index) => {
+    //setAbilitiesRoll(ability);
     setIsRollingAbilities(true);
     setTimeout(() => {
       rollSound.play();
     }, 1000);
-    diceBox.roll("4d6").then((result) => {
-      //loop through result and get all the values, drop the lowest
+    try {
+      const result = await diceBox.roll("4d6");
       const value = result
         .map((dice) => dice.value)
         .sort((a, b) => b - a)
         .slice(0, 3)
         .reduce((a, b) => a + b, 0);
+      //loop through result and get all the values, drop the lowest
+      setRollResults((prev) => ({
+        ...prev,
+        [index]: {
+          ...prev[index],
+          value,
+          result: result.map((dice) => dice.value).sort((a, b) => a - b),
+        },
+      }));
 
-      handleChangeAbilities({ ...abilities, [ability]: parseInt(value) });
-      setIsRollingAbilities(false);
-    });
-  };
-  const handleChangeAbilityScore = (ability, value, type) => {
-    if (
-      value < 8 ||
-      value > 15 ||
-      (pointsToSpend <= 0 && type === "increasing")
-    )
-      return;
-
-    //On top of that, you have 27 points to spend however you like to increase these scores. The cost to increase a score by 1 point is 1 point itself, except when the score reaches 14; from there, it costs 2 points to increase it further to a maximum of 15
-    if (type === "increasing") {
-      if (value > 14) {
-        setPointsToSpend((prev) => prev - 2);
-      } else {
-        setPointsToSpend((prev) => prev - 1);
+      if (rollResults[index]?.ability) {
+        handleChangeAbilities({
+          ...abilities,
+          [rollResults[index].ability]: value,
+        });
       }
-    } else {
-      if (value >= 14) {
-        setPointsToSpend((prev) => prev + 2);
-      } else {
-        setPointsToSpend((prev) => prev + 1);
-      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setTimeout(() => {
+        diceBox.clear();
+        setIsRollingAbilities(false);
+      }, 1000);
     }
-    //handleChangeAbilities({ ...abilities, [ability]: value });
+  };
+
+  const handleRollAll = async (index) => {
+    //setAbilitiesRoll(ability);
+
+    try {
+      setIsRollingAbilities(true);
+      setTimeout(() => {
+        rollSound.play();
+      }, 1000);
+      setShowRollAll(false);
+      const result = await diceBox.roll("24d6");
+      const values = result.map((dice) => dice.value);
+      const abilities = [
+        "strength",
+        "dexterity",
+        "constitution",
+        "intelligence",
+        "wisdom",
+        "charisma",
+      ];
+
+      const usedIndexes = new Set(); // Track used indexes
+
+      const abilityRolls = []; // Store rolls for each ability
+
+      abilities.forEach((ability, index) => {
+        // Randomly select 4 unique values
+        const selectedValues = [];
+        while (selectedValues.length < 4) {
+          const randomIndex = Math.floor(Math.random() * values.length);
+          if (!usedIndexes.has(randomIndex)) {
+            selectedValues.push(values[randomIndex]);
+            usedIndexes.add(randomIndex);
+          }
+        }
+
+        // Sort and pick the highest 3 out of the selected 4
+        const highestThree = selectedValues.sort((a, b) => b - a).slice(0, 3);
+        const sum = highestThree.reduce((a, b) => a + b, 0);
+
+        setRollResults((prev) => ({
+          ...prev,
+          [index]: {
+            ...prev[index],
+            ability,
+            value: sum,
+            result: [...selectedValues].reverse(), // Store the detailed roll results for each ability
+          },
+        }));
+        abilityRolls.push({ ability, value: sum });
+      });
+
+      abilityRolls.forEach(({ ability, value }) => {
+        handleChangeAbilities({
+          ...abilities,
+          [ability]: value,
+        });
+      });
+    } catch (error) {
+    } finally {
+      setOptions([]);
+
+      setTimeout(() => {
+        setIsRollingAbilities(false);
+        diceBox.clear();
+      }, 3000);
+    }
+  };
+  const handleChangeAbilityScore = (ability, index, value) => {
+    setRollResults({
+      ...rollResults,
+      [index]: {
+        ...rollResults[index],
+        ability,
+      },
+    });
+
+    const selectedOptions = Object.keys(rollResults).map((result, index) => {
+      return rollResults[result].ability;
+    });
+    selectedOptions.push(ability);
+    setOptions((prev) =>
+      prev.filter((option) => !selectedOptions.includes(option))
+    );
+    handleChangeAbilities({ ...abilities, [ability]: value });
   };
 
   const resetAbilities = () => {
-    handleChangeAbilities(INITIAL_ABILITIES);
-    setPointsToSpend(INITIAL_POINTS);
+    setRollResults({});
+    diceBox.clear();
+    setShowRollAll(true);
+    setOptions(ABILITIES);
   };
 
   return (
-    <div className='md:rounded-[16px] flex flex-col gap-6 w-full md:w-3/5 lg:w-2/5 max-h-full h-fit mb-auto md:p-5 md:pt-6 md:border border-white/10 md:bg-white/[8%]  overflow-auto hide-scrollbar'>
+    <div className='md:rounded-[16px] flex flex-col gap-6 w-full md:w-fit max-h-fit h-full mb-auto md:p-5 md:pt-6 md:border border-white/10 md:bg-white/[8%]  '>
       <h1 className='headline-4 hidden md:block'>Abilities</h1>
 
-      <div className='flex flex-col justify-start gap-5  w-full'>
+      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-start gap-6  w-full hide-scrollbar overflow-y-scroll'>
         {_ABILITIES.map((ability, index) => {
-          const abilityName = ability.name.toLowerCase();
-          const score = abilities[abilityName];
+          const diceRoll = rollResults[index];
           return (
             <div
-              className='flex items-center justify-between w-full'
               key={index}
+              className='border col-span-1 border-white/5  bg-white/[.02] p-5 rounded-[10px] gap-5 flex flex-col'
             >
-              <TooltipProvider delayDuration={100}>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <div
-                      key={index}
-                      className={`flex cursor-pointer running-text-mono uppercase justify-start items-center gap-3  `}
-                    >
-                      <img
-                        src={`https://dndai-images.s3.eu-central-1.amazonaws.com/abilities/${abilityName}.webp`}
-                        className={`w-12 h-12 ease-animate object-cover rounded-[10px] `}
-                      />
-                      <span>{ability.name}</span>
-                    </div>
-                  </TooltipTrigger>
-                  <TooltipContent side='right'>
-                    <span className='!running-text-small '>
-                      {ability.description}
-                    </span>
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
+              {diceRoll?.result ? (
+                <DiceResults results={diceRoll.result} value={diceRoll.value} />
+              ) : (
+                <CustomButton
+                  className={"w-full"}
+                  variant={"primary"}
+                  disabled={isRollingAbilities}
+                  withIcon={true}
+                  onClick={() => handleRollDice(index)}
+                >
+                  <Dice className='h-5 fill-russianViolet w-5' />
+                  Roll
+                </CustomButton>
+              )}
 
-              <div className='flex items-center gap-[28px]'>
-                <div className='flex items-center gap-2'>
-                  {/* <CustomIconbutton
-                    onClick={() =>
-                      handleChangeAbilityScore(
-                        abilityName,
-                        score - 1,
-                        "descreasing"
-                      )
-                    }
-                    disabled={score === 8}
-                    variant={"primary"}
-                    className={"h-6 w-6"}
-                  >
-                    <img
-                      src='/Icons/Minus.svg'
-                      alt='logo'
-                      className='h-2 w-2'
-                    />
-                  </CustomIconbutton> */}
-                  <span className='running-text-mono'>{score}</span>
-                  {/* <CustomIconbutton
-                    onClick={() =>
-                      handleChangeAbilityScore(
-                        abilityName,
-                        score + 1,
-                        "increasing"
-                      )
-                    }
-                    disabled={
-                      score === 15 ||
-                      pointsToSpend <= 0 ||
-                      (score === 14 && pointsToSpend <= 1)
-                    }
-                    variant={"primary"}
-                    className={"h-6 w-6"}
-                  >
-                    <img src='/Icons/Add.svg' alt='logo' className='h-2 w-2' />
-                  </CustomIconbutton> */}
-                </div>
-                {abilitiesRoll[abilityName] || isRollingAbilities ? (
-                  <Dice
-                    disabled={abilitiesRoll[abilityName]}
-                    className='h-5 w-5 opacity-20 pointer-events-none'
-                  />
-                ) : (
-                  <Dice
-                    disabled={abilitiesRoll[abilityName]}
-                    onClick={() => handleRollDice(abilityName)}
-                    className='h-5 w-5 opacity-70 cursor-pointer disabled:opacity-20'
-                  />
-                )}
-              </div>
+              <CustomDropdown
+                setSelectedOption={(abiliity) =>
+                  handleChangeAbilityScore(abiliity, index, diceRoll?.value)
+                }
+                selectedOption={diceRoll?.ability || ""}
+                options={options}
+                className={"w-full min-w-full"}
+                placeholder={"Select Stat"}
+              />
             </div>
           );
         })}
       </div>
 
-      {/* <div className='flex justify-between items-center'>
-        <CustomButton onClick={resetAbilities} withIcon={true}>
-          <img
-            src='/Icons/Reset.svg'
-            alt='logo'
-            className='h-5 w-5 invert opacity-70'
-          />
-          Reset Points
-        </CustomButton>
+      <div className='flex justify-between items-center'>
+        <div className='flex gap-5'>
+          <CustomButton
+            disabled={isRollingAbilities}
+            className='w-fit'
+            onClick={resetAbilities}
+            withIcon={true}
+          >
+            <img
+              src='/Icons/Reset.svg'
+              alt='logo'
+              className='h-5 w-5 invert opacity-70'
+            />
+            Reset Points
+          </CustomButton>
+          {showRollAll && (
+            <CustomButton
+              disabled={isRollingAbilities}
+              className='w-fit'
+              variant={"subtle"}
+              onClick={handleRollAll}
+              withIcon={true}
+            >
+              <Dice className='h-5 opacity-70 w-5' />
+              Roll All Dice
+            </CustomButton>
+          )}
+        </div>
         <span className='running-text-mono text-gray2 uppercase'>
-          Points Total: {pointsToSpend}
+          Points Total:{" "}
+          {Object.keys(rollResults)
+            .map((result) => rollResults[result].value)
+            .reduce((a, b) => a + b, 0) || 0}
         </span>
-      </div> */}
+      </div>
     </div>
   );
 }

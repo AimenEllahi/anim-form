@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 export default function emoticons() {
-  const [selected, setSelected] = useState(null);
+  const [selected, setSelected] = useState(5);
 
   const emoticons = [
     { id: 1, label: "Very Unhappy", icon: "/Icons/saddest.svg" },
@@ -16,8 +16,8 @@ export default function emoticons() {
   };
 
   return (
-    <div className="flex flex-col items-start">
-      <div className="flex justify-start space-x-4">
+    <div className='flex flex-col items-start'>
+      <div className='flex justify-start space-x-4'>
         {emoticons.map((emoticon) => (
           <div
             key={emoticon.id}

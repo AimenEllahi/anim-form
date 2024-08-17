@@ -15,9 +15,8 @@ export default function SignedInUserMenu() {
 
   const cookies = new Cookie();
   const handleLogout = () => {
-    console.log("Logging out");
-    setUser(null);
     cookies.set("token", null, { path: "/" });
+    setUser(null);
   };
 
   const handleRedirect = (path) => {
@@ -113,7 +112,9 @@ export default function SignedInUserMenu() {
       <hr className='w-full border-white/5 my-2' />
       <div className='w-full px-2 gap-2 flex flex-col'>
         {/* <DropdownMenuItem className='flex gap-2 !p-0   focus:bg-transparent focus:text-white  transition-all duration-300 ease-linear cursor-pointer'>
-          <CustomMenuItem>
+          <CustomMenuItem
+            onClick={() => handleRedirect("/my-account/settings")}
+          >
             <img
               src='/Icons/Settings.svg'
               alt=''
