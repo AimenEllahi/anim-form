@@ -6,6 +6,7 @@ import { STEP_NAMES } from "@/components/character/createCharacter/constants";
 import useStepperStore from "@/utils/characterStore";
 import { cn } from "@/lib/utils";
 import useControlsStore from "@/utils/controlsStore";
+import CustomRadioButton from "@/components/ui/custom-radio-button";
 const campaignSubpageRegex = /^\/campaign\/[a-fA-F0-9]{24}$/;
 export default function index() {
   const pathname = usePathname();
@@ -18,7 +19,8 @@ export default function index() {
     totalPublicImages,
     totalPublicCampaigns,
   } = useUserStore();
-  const { activeStep } = useStepperStore();
+
+  const { activeStep, gender, setGender } = useStepperStore();
 
   const noHeading =
     pathname === "/" ||
@@ -38,6 +40,9 @@ export default function index() {
   const myImages = pathname.includes("/my-account/gallery");
   const publicGallery = pathname.includes("/discover/gallery");
   const publicCampaigns = pathname.includes("/campaign/public");
+  const tac = pathname.includes("/terms");
+  const privacy = pathname.includes("/privacy");
+  const imprint = pathname.includes("/imprint");
 
   if (noHeading) return null;
 
@@ -116,6 +121,14 @@ export default function index() {
             <span className='text-gray2'>Step {activeStep + 1}/9</span>
             <span className='text-white'> {STEP_NAMES[activeStep]}</span>
           </div>
+          {activeStep === 0 && (
+            <CustomRadioButton
+              options={["male", "female", "diverse"]}
+              selectedOption={gender}
+              className={"flex flex-row flex-wrap mt-2 md:hidden"}
+              onChange={setGender}
+            />
+          )}
         </div>
       );
     } else if (createCampaign) {
@@ -177,6 +190,12 @@ export default function index() {
           )}
         </span>
       );
+    } else if (tac) {
+      return <span className='headline-3  '>Terms and Conditions</span>;
+    } else if (privacy) {
+      return <span className='headline-3  '>Privacy Policy</span>;
+    } else if (imprint) {
+      return <span className='headline-3  '>Imprint</span>;
     }
   };
 

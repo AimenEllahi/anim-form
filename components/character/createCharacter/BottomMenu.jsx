@@ -15,6 +15,7 @@ import useCustomToast from "@/hooks/useCustomToast";
 import { useRouter } from "next/navigation";
 import { INITIAL_CHARACTER } from "./constants";
 import useControlsStore from "@/utils/controlsStore";
+import Loader from "@/components/ui/Loader";
 
 const BackButton = ({ activeStep, isChoosingRandom, handleBack }) => {
   return (
@@ -95,6 +96,7 @@ export default function BottomMenu({ character, setCharacter }) {
   const { user, setBlueCredits, setYellowCredits } = useUserStore();
   const [isChoosingRandom, setIsChoosingRandom] = useState(false);
   const MAX_STEPS = isMobile ? 8 : 7;
+  console.log(character);
 
   const formComplete = activeStep === MAX_STEPS;
   function toggleSound() {
@@ -190,6 +192,14 @@ export default function BottomMenu({ character, setCharacter }) {
       setSearchMode(false);
     }
   };
+
+  if (isLoading)
+    return (
+      <Loader
+        className={"fixed top-0 h-screen w-screen left-0 z-[20] bg-blur"}
+        text='Creating Character...'
+      />
+    );
 
   return (
     <>
