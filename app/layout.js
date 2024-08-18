@@ -41,55 +41,6 @@ export default function RootLayout({ children }) {
   const characterSheet = pathname.includes("/character/sheet");
 
   useEffect(() => {
-    // Function to remove global meta tags
-    const removeGlobalMetaTags = () => {
-      const globalMetaTags = [
-        "meta[name='description']",
-        "meta[name='keywords']",
-        "meta[property='og:title']",
-        "meta[property='og:description']",
-        "meta[property='og:url']",
-        "meta[property='og:image']",
-        "meta[property='og:type']",
-      ];
-
-      globalMetaTags.forEach(selector => {
-        const elements = document.querySelectorAll(selector);
-        elements.forEach(element => element.remove());
-      });
-    };
-
-    // Set global meta tags (you can customize these as needed)
-    const setGlobalMetaTags = () => {
-      const metaTags = [
-        { name: "description", content: "Join DNDAI to play Dungeons and Dragons with AI as Game Master. AI-supported pen and paper games.", id: "meta-description" },
-        { name: "keywords", content: "AI adventure games, text-based games, interactive fiction, role-playing games, free online adventure games, AI Game, Free online game 2024", id: "meta-keywords" },
-        { property: "og:title", content: "DND AI - Play an AI driven Story game and create breathtaking images in the process", id: "meta-og-title" },
-        { property: "og:description", content: "Dive into epic, story-driven adventures with free pen and paper games, powered by OpenAI’s cutting-edge artificial intelligence.", id: "meta-og-description" },
-        { property: "og:url", content: "https://www.dndai.app", id: "meta-og-url" },
-        { property: "og:image", content: "https://dndai-images.s3.eu-central-1.amazonaws.com/Headers/Header.webp", id: "meta-og-image" },
-        { property: "og:type", content: "website", id: "meta-og-type" },
-      ];
-
-      metaTags.forEach(tag => {
-        const metaElement = document.createElement("meta");
-        if (tag.name) {
-          metaElement.name = tag.name;
-        }
-        if (tag.property) {
-          metaElement.setAttribute("property", tag.property);
-        }
-        metaElement.content = tag.content;
-        if (tag.id) {
-          metaElement.id = tag.id;
-        }
-        document.head.appendChild(metaElement);
-      });
-    };
-
-    // Clean up and set global meta tags
-    removeGlobalMetaTags();
-    setGlobalMetaTags();
 
     // Set document title
     const setDocumentTitle = (url) => {
