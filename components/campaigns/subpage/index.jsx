@@ -6,6 +6,7 @@ import Comments from "./Comments";
 import Details from "./Details";
 import TopButtons from "./TopButtons";
 import CampaignTabBar from "@/components/ui/Shared/TabBar/campaign";
+import Head from 'next/head';
 
 const TabButtons = ({ activeTab, onClick, icon, text }) => {
   return (
@@ -25,6 +26,16 @@ export default function Index({ campaign, setCampaign }) {
   const [activeTab, setActiveTab] = useState("details");
 
   return (
+    <>
+     <Head>
+        <title>DND AI | {campaign.title || 'Campaign Details'}</title>
+        <meta name="description" content={campaign.adventure.plot || 'Campaign description'} />
+        <meta property="og:title" content={`DND AI | ${campaign.adventure.title || 'Campaign Details'}`} />
+        <meta property="og:description" content={campaign.adventure.plot || 'Campaign description'} />
+        <meta property="og:url" content={`https://www.dndai.app/campaign/${campaign._id}`} />
+        <meta property="og:image" content={campaign.worldMapUrl || 'https://dndai-images.s3.eu-central-1.amazonaws.com/Headers/Header.webp'} />
+        <meta property="og:type" content="website" />
+      </Head>
     <div className="min-h-screen h-full w-full flex flex-col pt-[86px] md:pt-[128px] lg:px-12 md:pb-20">
       <div className="flex flex-col gap-5 z-[10] px-5 md:px-0">
         <span className="headline-3 text-white capitalize">
@@ -89,5 +100,6 @@ export default function Index({ campaign, setCampaign }) {
       </div>
       <CampaignTabBar campaign={campaign} />
     </div>
+    </>
   );
 }
