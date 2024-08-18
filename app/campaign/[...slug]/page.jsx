@@ -5,7 +5,6 @@ import { getCampaignBySlug } from "@/actions/campaigns";
 import Loader from "@/components/ui/Loader";
 import useCustomToast from "@/hooks/useCustomToast";
 import { useRouter } from "next/navigation";
-
 const dummy = {
   analytics: {
     likes: [],
@@ -41,15 +40,14 @@ const dummy = {
   __v: 6,
   playerName: "aimen",
 };
-
-export default function Page({ params }) {
+export default function page({ params }) {
   const [campaign, setCampaign] = useState();
   const { invokeToast } = useCustomToast();
   const router = useRouter();
-
   const handleGetCampaign = async () => {
     try {
       const _campaign = await getCampaignBySlug(params.slug);
+
       setCampaign(_campaign.campaign);
       console.log(_campaign.campaign);
     } catch (error) {
@@ -65,12 +63,6 @@ export default function Page({ params }) {
   useEffect(() => {
     handleGetCampaign();
   }, []);
-
-  useEffect(() => {
-    if (campaign) {
-      document.title = `DND AI | ${campaign.title || "Campaign Details"}`;
-    }
-  }, [campaign]);
 
   if (!campaign) return <Loader text={"Loading Campaign..."} />;
   return <Subpage campaign={campaign} setCampaign={setCampaign} />;
