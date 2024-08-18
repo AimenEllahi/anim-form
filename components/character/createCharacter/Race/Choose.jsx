@@ -10,10 +10,6 @@ export default function Choose({ race, handleSelectRace }) {
   const { raceQuery, setRaceQuery, setShowModal, setSelectedCharacteristic } =
     useCharacterStore();
 
-  const handleSelect = (gender) => {
-    handleSelectRace({ ...race, gender });
-  };
-
   useEffect(() => {
     if (race.name) {
       //focus div with id of this name
@@ -35,13 +31,6 @@ export default function Choose({ race, handleSelectRace }) {
         className={"hidden md:block"}
       />
 
-      {/* For mobile */}
-      <CustomRadioButton
-        options={["male", "female", "diverse"]}
-        selectedOption={race?.gender}
-        className={"flex flex-row flex-wrap md:hidden"}
-        onChange={handleSelect}
-      />
       {/* Ends */}
       <div className='grid grid-cols-12 md:grid-cols-8 lg:grid-cols-12 xl:grid-cols-10 2xl:grid-cols-12 gap-4 md:gap-5 w-full overflow-auto hide-scrollbar md:pb-5'>
         {RACE.filter(({ name }) => {

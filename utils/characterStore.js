@@ -2,7 +2,8 @@
 import { create } from "zustand";
 
 const useStepperStore = create((set) => ({
-  activeStep: 2,
+  activeStep: 0,
+  gender: "male",
   abilitiesRoll: {},
   isRollingAbilities: false,
   finalRollResults: {},
@@ -34,6 +35,7 @@ const useStepperStore = create((set) => ({
     })),
   setIsRollingAbilities: (isRollingAbilities) => set({ isRollingAbilities }),
   setFinalRollResults: (finalRollResults) => set({ finalRollResults }),
+  setGender: (gender) => set({ gender }),
 }));
 
 export default useStepperStore;
