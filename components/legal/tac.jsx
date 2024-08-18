@@ -207,11 +207,219 @@ export default function TAC() {
             <p>
               To the fullest extent permitted by applicable law, you are responsible for all use of your account. You must notify Dndai.app immediately of any unauthorized use of your username, password, account information, or any other breach of security that you become aware of relating to your Account. Such notification should be made via the Customer Support web page.
             </p>
+          </div>
+          <div className='flex flex-col gap-5 md:w-[711px] w-full'>
+            <span className='running-text-large'>10. SERVICE PROVIDED CONTENT</span>
             <p>
-            From time to time, Dndai.app may need to amend this Agreement if there is a good reason for the change and the changes reasonably take into account the interests of both parties, for example to reflect or include new products or services, and to enhance security for users or because of changes in the law, but we will not modify the terms to change our main obligations to you. If Dndai.app makes a change to this Agreement, we will inform you of the particular changes in advance of the changes coming into force, and you will have at least six weeks (starting from our notice to you) to indicate whether you accept the amended Agreement. If you don’t tell us that you object to the changes within the time period set out above, you shall be deemed to have accepted these changes (i) unless you have notified us of your objection to such changes within the stated six weeks, or (ii) if you use the Product after the changes have entered into force. In the notification, we will inform you of your right to object, the applicable notice period and the legal consequences of a failure to object.
+            "Service Provided Content" consists of those materials provided to Product users (with or without an account as applicable) such as unlockable content, virtual assets, codes, achievements, etc. You understand that while at times you may "earn" "buy" or "purchase" "Service Provided Content"; you do not in fact own or have any property interest in the "Service Provided Content" and the price of any "Service Provided Content" does not refer to any credit balance of real currency or its equivalent. Rather, any Service Provided Content that you receive is licensed to you as set out on Section 3 and subject to all other terms of this Agreement and Dndai.app's Privacy Policy.            </p>
+            <p>
+            Dndai.app does not recognize the transfer of accounts or Service Provided Content. You may not purchase, sell, resell, lend, rent, gift, trade or otherwise transfer any account or Service Provided Content, or offer to purchase, sell, resell, lend, rent, gift, trade or otherwise transfer any Product account or materials, and any such attempt shall be null and void.
+            </p>
+            <p>
+            Upon termination of any Account, the Agreement, or license, you acknowledge and agree that, to the fullest extent permitted by applicable law, you shall retain no access or control over any aspect thereof.
+            </p>
+          </div>
+          <div className='flex flex-col gap-5 md:w-[711px] w-full'>
+            <span className='running-text-large'> 11. CONSENT TO MONITOR</span>
+            <p>
+            Communications made using a Product should not be considered private. Dndai.app may monitor and/or record your communications (including without limitation chat text or voice communications) when you are using a Product, and you hereby provide your irrevocable, express consent to such monitoring and recording. You acknowledge and agree that you have no expectation of privacy concerning the transmission of any UGC or communications, including without limitation chat text or voice communications. Because voice chat and other communications may be viewed and/or heard by other users, users should avoid revealing any personally identifiable information.            </p>
+            <p>
+            Additionally, Dndai.app may, with or without notice to you, disclose your Internet Protocol (IP) address(es), personal information, chat logs, and other information about you and your activities consistent with the Dndai.app Privacy Policy available at https://www.dndai.app/privacy.  
+            </p>
+          </div>
+          <div className='flex flex-col gap-5 md:w-[711px] w-full'>
+            <span className='running-text-large'> 12. SUPPORT  </span>
+            <p>
+            If you have a complaint regarding the Product or desire further information on use of a Product, write to Dndai.app's Customer Support at info@dndai.app.     
+            </p>
+          </div>
+          <div className='flex flex-col gap-5 md:w-[711px] w-full'>
+            <span className='running-text-large'> 13. TERMINATION.</span>
+            <p>
+            The license granted under this Agreement is effective until terminated by you or Dndai.app. Upon termination of the license, You shall cease all use of the Product, and destroy all copies, full or partial, of the Product. 
+             </p>
+             <li>
+    FOR RESIDENTS OUTSIDE THE EUROPEAN UNION AND THE UNITED KINGDOM:
+          </li>
+          <p>
+          Your rights under this Agreement will terminate automatically without notice from Dndai.app if you fail to comply with any term(s) of this Agreement or applicable Third Party Terms.
+
+Dndai.app reserves the right to terminate this Agreement without cause on immediate written notice.
+
+Nothing herein limits Dndai.app's rights to suspend, terminate or delete any account.
+
+DNDAI.APP MAY SUSPEND, TERMINATE, MODIFY, OR DELETE ANY ACCOUNT AT ANY TIME FOR ANY REASON OR FOR NO REASON, WITH OR WITHOUT NOTICE TO YOU, TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW. For purposes of explanation and not limitation, many account suspensions, terminations and/or deletions may be the result of violations of this Agreement.
+          </p>
+    <li>
+    FOR RESIDENTS IN THE EUROPEAN UNION AND UNITED KINGDOM:
+           </li>
+           <p>
+           DNDAI.APP MAY TERMINATE THE LICENSE GRANTED TO YOU UNDER THIS AGREEMENT AND/OR SUSPEND, MODIFY, OR DELETE YOUR ACCOUNT AT ANY TIME WITHOUT GIVING YOU ANY PRIOR NOTICE IF YOU SERIOUSLY VIOLATE THIS AGREEMENT.  SERIOUS VIOLATIONS ARE VIOLATIONS OF IMPORTANT PROVISIONS WHICH INCLUDE SECTIONS 3(C)(i)-(iv) AND 8(E) OF THIS AGREEMENT OR REPEATED VIOLATIONS OF OTHER PROVISIONS OF THIS AGREEMENT (INCLUDING FURTHER NON-COMPLIANCE WHERE YOU ALREADY HAVE RECEIVED A PRIOR WARNING).
+IF YOU THINK THAT SUCH DECISION WAS TAKEN WRONGLY, YOU CAN CONTACT DNDAI.APP. IF DNDAI.APP CANNOT RESOLVE YOUR COMPLAINT AND YOU ARE A RESIDENT OF THE EUROPEAN UNION, YOU CAN USE THE ONLINE DISPUTE RESOLUTION PLATFORM SET UP BY THE EUROPEAN COMMISSION WHICH YOU CAN ACCESS AT http://ec.europa.eu/odr.  If you are resident in Germany, the terms in Appendix 1 will apply to you instead of Section B(i).
+DNDAI.APP MAY TERMINATE THE LICENSE GRANTED TO YOU UNDER THIS AGREEMENT AND/OR SUSPEND, MODIFY, OR DELETE YOUR ACCOUNT IF IT HAS ANOTHER VALID REASON TO DO SO (FOR EXAMPLE, CEASING AN ONLINE SERVICE FOR ECONOMIC REASONS DUE TO A LIMITED NUMBER OF USERS CONTINUING TO MAKE USE OF THE SERVICE OVER TIME) OR WITHOUT REASON BY GIVING YOU REASONABLE PRIOR NOTICE.
+IF DNDAI.APP TERMINATES THE LICENSE GRANTED TO YOU UNDER THIS AGREEMENT AND/OR SUSPENDS OR DELETES YOUR ACCOUNT, THIS MEANS THATYOUR ACCESS AND RIGHT TO USE THE PRODUCT(S) AND SERVICE PROVIDED CONTENT WILL BE REVOKED.
+With the exception of Agreements relating to (1) Service Provided Content or (2) Programs which do not involve aspects of online-based gameplay, if you are resident in a country in the EEA, you have a legal right to cancel your Agreement with us within the time limits set out in applicable consumer laws. Instructions on how to exercise this right are set out at the end of this Agreement in Appendix 2 (Section A: ‘Information concerning the exercise of the right of withdrawal’). For residents of the United Kingdom, while you also have a similar right to cancel your Agreement for digital services, when you purchase the Product and request immediate access to the Product, you will be asked to acknowledge that this means you will lose your statutory right to withdraw from the Agreement and your right to receive a refund within the withdrawal period.
+</p>
+          </div>
+          <div className='flex flex-col gap-5 md:w-[711px] w-full'>
+            <span className='running-text-large'> 14. THIRD PARTIES  </span>
+            <p>
+  The Product may enable, or require, access to other third party materials, services or web sites ("Third Party Materials"). Use of Third Party Materials may require additional terms of service.
+
+You understand that by using any Third Party Materials you may encounter content that may be deemed offensive, indecent, or objectionable. You agree (i) to use Third Party Materials at your sole risk; (ii) that Dndai.app shall not have any liability to you for Third Party Materials; (iii) Dndai.app is not responsible for examining or evaluating the content, accuracy, completeness, timeliness, validity, copyright compliance, legality, decency, quality or any other aspect of such Third Party Materials. Third Party Materials are provided solely as a convenience to you.
+
+Your right to use the Product is also predicated on your compliance with any applicable terms of service, terms of use, and privacy policies you have agreed and accepted with Third Parties ("Third Party Terms").
+
+Applicable third parties (such as your console account, mobile phone, or internet access account provider) may also impose limits on the use of or access to certain Products, in any case and without notice or liability. You agree that Dndai.app shall not be liable for any acts or omissions of such third parties.
+        </p>
+          </div>
+          <div className='flex flex-col gap-5 md:w-[711px] w-full'>
+            <span className='running-text-large'> 15. WARRANTY DISCLAIMER AND LIMITATION OF LIABILITY  </span>
+            <li>
+    WARRANTY DISCLAIMER.
+    </li>
+          <p>
+          TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, THE PRODUCT IS PROVIDED "AS IS" AND DNDAI.APP DOES NOT WARRANT THAT THE PRODUCT WILL BE UNINTERRUPTED OR ERROR-FREE, THAT DEFECTS WILL BE CORRECTED, THAT THE PRODUCT IS FREE OF VIRUSES OR OTHER HARMFUL COMPONENTS, OR THAT ALL OF THE PRODUCT CONTENT WILL BE ACCURATE. TO THE EXTENT PERMITTED BY APPLICABLE LAW, DNDAI.APP EXPRESSLY DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION THE IMPLIED WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY PARTICULAR PURPOSE OR USE, AND NON-INFRINGEMENT.
+RESIDENTS IN THE EUROPEAN ECONOMIC AREA: CERTAIN STATUTORY CONFORMITY WARRANTIES MAY BE APPLICABLE TO YOU UNDER YOUR LOCAL LAW AND NOTHING IN THIS AGREEMENT IS INTENDED TO AFFECT THOSE RIGHTS. YOUR LOCAL LAWS MAY PROVIDE YOU WITH A LEGAL GUARANTEE THAT THE PRODUCT WILL BE IN LEGAL CONFORMITY AT THE TIME OF SUPPLY AND DURING THE LIFE OF THIS AGREEMENT WITH YOU. UNDER THIS LEGAL GUARANTEE, WE WILL BE LIABLE FOR LACK OF CONFORMITY OF THE PRODUCT AND YOU MAY HAVE A RIGHT TO, UNDER YOUR LOCAL LAWS: (A) HAVE THE PRODUCT BROUGHT BACK INTO CONFORMITY; OR (B) RECEIVE A PROPORTIONATE REFUND AND/OR TERMINATE THE AGREEMENT. PLEASE CONTACT DNDAI.APP FOR FURTHER INFORMATION. IF YOU ARE RESIDENT IN FRANCE, THE TERMS IN APPENDIX 2 (SECTION C) APPLY TO THE STATUTORY GUARANTEES OF THE PRODUCT. 
+AUSTRALIA: YOU HAVE CERTAIN STATUTORY GUARANTEES UNDER AUSTRALIAN CONSUMER LAW AND NOTHING IN THE AGREEMENT IS INTENDED TO AFFECT THOSE RIGHTS. PRODUCTS THAT YOU HAVE PURCHASED COME WITH GUARANTEES THAT CANNOT BE EXCLUDED UNDER AUSTRALIAN CONSUMER LAW: YOU ARE ENTITLED TO A REFUND FOR A MAJOR FAILURE AND COMPENSATION FOR ANY OTHER REASONABLY FORESEEABLE LOSS OR DAMAGE: YOU ARE ALSO ENTITLED TO HAVE GOODS REPAIRED OR REPLACED IF GOODS FAIL TO BE OF ACCEPTABLE QUALITY AND THE FAILURE DOES NOT AMOUNT TO A MAJOR FAILURE.
+          </p>
+    <li>
+    LIMITATION OF LIABILITY.
+           </li>
+           <p>
+           i.    TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW AND WITHOUT PREJUDICE TO STATUTORY CONFORMITY WARRANTIES THAT MAY APPLY TO YOU UNDER YOUR LOCAL LAWS, NEITHER DNDAI.APP NOR ITS PARENT, SUBSIDIARIES, LICENSORS OR AFFILIATES SHALL BE LIABLE IN ANY WAY FOR DAMAGE OR LOSS OF ANY KIND RESULTING FROM (A) THE USE OF OR INABILITY TO USE THE PRODUCT INCLUDING WITHOUT LIMITATION LOSS OF GOODWILL, WORK STOPPAGE, COMPUTER FAILURE OR MALFUNCTION; (B) THE LOSS OR DAMAGE TO CHARACTERS, ACCOUNTS, STATISTICS, INVENTORIES, VIRTUAL GOODS, OR USER PROFILE INFORMATION; OR (C) INTERRUPTIONS OF SERVICE INCLUDING WITHOUT LIMITATION ISP DISRUPTIONS, SOFTWARE OR HARDWARE FAILURES, FAILURES OF ANY THIRD PARTY BILLING SOLUTIONS OR OTHER SERVICES, OR ANY OTHER EVENT WHICH MAY RESULT IN A LOSS OF DATA OR DISRUPTION OF SERVICE. IN NO EVENT WILL DNDAI.APP BE LIABLE TO YOU OR ANYONE ELSE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, REMOTE, SPECULATIVE, PUNITIVE OR CONSEQUENTIAL DAMAGES.
+ii.    IN NO CASE SHALL DNDAI.APP'S LIABILITY EXCEED THE AMOUNT THAT YOU PAID TO US DURING THE TWELVE (12) MONTHS PRIOR TO THE TIME YOUR CAUSE OF ACTION AROSE.
+iii.    IMPORTANT INFORMATION RELATING TO WARRANTY DISCLAIMER AND LIMITATION OF LIABILITY: BECAUSE SOME STATES OR JURISDICTIONS DO NOT ALLOW THE DISCLAIMER OF CERTAIN WARRANTIES OR THE EXCLUSION OR THE LIMITATION OF LIABILITY FOR CONSEQUENTIAL, INCIDENTAL, OR OTHER TYPES OF DAMAGES, IN SUCH STATES OR JURISDICTIONS, YOU MAY HAVE DIFFERENT OR ADDITIONAL RIGHTS ACCORDING TO THE APPLICABLE LAWS OF COUNTRY FROM WHICH YOU VALIDLY ACQUIRED AND USE THE PRODUCT AND IN WHICH CASE THE LIABILITY OF DNDAI.APP AND ITS AFFILIATES SHALL BE LIMITED TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW.
+iv.    Member States of the European Union: subject to Section 5, Dndai.app shall be liable in accordance with statutory law in cases of its (a) intentional misconduct; (b) gross negligence; (c) breach of applicable Product Liability Acts. Without limiting the foregoing, Dndai.app may only be liable for modest levels of negligence in cases of a breach of a "material" contractual obligation under the Agreement, the breach of which would jeopardize the purpose of the Agreement. In such circumstances, Dndai.app's liability will be limited to typical and foreseeable damages: in other circumstances Dndai.app shall not be liable for acts of modest negligence.
+</p>
+<p>
+FOR INDIVIDUALS VALIDLY ACQUIRING AND USING THE PRODUCT FROM A MEMBER STATE OF THE EUROPEAN UNION NOTHING SHALL EXCLUDE DNDAI.APP'S LIABILITY FOR DEATH OR PERSONAL INJURY AS A RESULT OF ITS NEGLIGENCE.
+</p>
+          </div>
+          <div className='flex flex-col gap-5 md:w-[711px] w-full'>
+            <span className='running-text-large'>  16. INDEMNIFICATION   </span>
+            <p>
+       You agree to indemnify, defend and hold harmless Dndai.app and its affiliates, and their respective officers, directors, owners, agents, employees, contractors, information providers and licensors ("Indemnified Party", and collectively the "Indemnified Parties") from and against any claims, liability, losses, costs and expenses (including attorneys' fees) incurred by an Indemnified Party in connection with (i) any breach by you of the Agreement, and/or (ii) your posting or uploading any UGC.
+Dndai.app reserves the right, at its own expense, to assume the exclusive defense and control of any matter otherwise subject to indemnification by you, and in such case, you agree to cooperate with Dndai.app's defense of such claim.
+       </p>
+          </div>
+          <div className='flex flex-col gap-5 md:w-[711px] w-full'>
+            <span className='running-text-large'> 17. RISK OF LOSS    </span>
+            <p>
+       You bear all risk of loss for accessing or completing the download of any Product and for any loss of any Product that you have accessed or downloaded, including any loss due to a file corruption or Device crash.
+Any Product may be available for limited periods of time, and/or subject to other access restrictions (including for example, possession of other specific Product(s) for access or use). Products may become unavailable due to potential content provider licensing restrictions or other reasons; unless otherwise required by applicable law, Dndai.app will not be liable to you if any Product is or becomes unavailable for download or access, for any reason, to the fullest extent permitted by applicable law.
+       </p>
+          </div>
+          <div className='flex flex-col gap-5 md:w-[711px] w-full'>
+            <span className='running-text-large'>     18. AVAILABILITY   </span>
+            <p>
+       Except as otherwise set forth herein and/or as otherwise required by applicable law, Dndai.app does not guarantee that any particular Product or Service Provided Content will be available at all times or at any given time or that Dndai.app will continue to offer the Product or Service Provided Content for any particular length of time.
+In addition, Products that may be accessed from, displayed on or linked to from a Device are not available in all languages or in all countries.
+FOR RESIDENTS OUTSIDE THE EUROPEAN ECONOMIC AREA AND THE UNITED KINGDOM:
+Dndai.app may change and update the Product or Service Provided Content without notice to you. Dndai.app makes no warranty or representation regarding the availability of online Product features and reserves the right to modify or discontinue online Product features in its discretion without notice, including for example, ceasing an online service for economic reasons due to a limited number of users continuing to make use of the online service over time.
+To the fullest extent permitted by applicable law (i) Dndai.app, and its licensors, reserve the right to change, suspend, remove, or disable access to any Product at any time without notice, and (ii) Dndai.app will not be liable for the removal of or disabling of access to any Product.
+FOR RESIDENTS IN THE EUROPEAN ECONOMIC AREA AND THE UNITED KINGDOM:
+Dndai.app and its licensors may change the Product or Service Provided Content at any timein order to, for example: (A) ensure compliance with applicable laws and/or reflect change in relevant laws and regulatory requirements; (B) perform temporary maintenance, fix bugs, implement technical adjustments, and make improvements, (C) update or upgrade the Product including updating the structure, design, or layout of the Product; (D) ensure the security of the Product; and (E) to combat against illegal and/or harmful activities and the use of unauthorized programs or other activities which breach this Agreement. We will not be liable for any malfunction or error to the Product or Service Provided Content caused by your failure to install an update where we have informed you of the consequences of not installing the update.   
+If these changes affect you negatively in a more than minor manner, we will provide you with notice of such changes. If you don’t agree to these changes, you will be able to terminate your license within 30 days from the date of any notice we provide or 30 days from when the change comes into effect, whichever is later. You may contact Dndai.app to terminate license and discuss refund options for any Product or Service Provided Content paid for but not received. Please visit support.dndai.app
+ for more information. If you do not refuse the changes or terminate the Agreement within the stated time period, we will take that as your acceptance of the changes. If you are resident in Germany, the specified terms in Appendix 1 will apply to you instead.
+Dndai.app makes no warranty or representation regarding the availability of online Product features and reserves the right to modify or discontinue online Product features in its discretion with reasonable notice, including for example, ceasing an online service for economic reasons due to a limited number of users continuing to make use of the online service over time.
+       </p>
+          </div>
+          <div className='flex flex-col gap-5 md:w-[711px] w-full'>
+            <span className='running-text-large'> 19. OWNERSHIP   </span>
+            <p>
+       All title, ownership, and intellectual property rights in and to the Product (including, but not limited to, any titles, trademarks, service marks, and trade names, computer code, themes, objects, characters, character names, stories, dialog, catch phrases, locations, concepts, artwork, animations, sounds, musical compositions, audio-visual effects, methods of operation, moral rights, and any related documentation) are owned by Dndai.app and/or Dndai.app's licensor(s). The Product is licensed, not sold, for your use. Your license confers no title or ownership in this Product and should not be construed as a sale of any rights in the Product. YOU ACKNOWLEDGE AND AGREE THAT, OTHER THAN LICENSE GRANTED TO YOU BY THIS AGREEMENT, YOU SHALL HAVE NO OWNERSHIP OR OTHER PROPERTY INTEREST IN ANY PRODUCT OR SERVICE PROVIDED CONTENT (INCLUDING WITHOUT LIMITATION ANY VIRTUAL GOODS), AND YOU FURTHER ACKNOWLEDGE AND AGREE THAT TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW ALL RIGHTS IN AND TO SUCH PRODUCTS AND SERVICE PROVIDED CONTENT ARE AND SHALL FOREVER BE OWNED BY AND INURE TO THE BENEFIT OF DNDAI.APP AND ITS LICENSORS. You agree that all Products and Third Party Materials contain proprietary content, information and material that are protected by applicable intellectual property and other laws, including but not limited to copyright, and that you will not use such proprietary content, information or materials in any way whatsoever except for permitted use. No portion of the Products or Third Party Materials may be reproduced in any form or by any means other than as permitted under applicable license.
+       </p>
+          </div>
+          <div className='flex flex-col gap-5 md:w-[711px] w-full'>
+            <span className='running-text-large'>   20. PAYMENT    </span>
+            <p>
+   YOU AGREE TO PAY ALL FEES AND APPLICABLE TAXES INCURRED BY YOU OR ANYONE USING A PRODUCT FROM YOUR DEVICE.
+   </p>
+   <li>
+    Payment Options / Third Party Billing Partners. You may pay for certain Products and Service Provided Content using the methods made available to you, and you agree to the terms and conditions applicable to each payment method you choose. Payment methods may vary by console, platform, system or Device that you use to access the Product or Service Provided Content
+    </li>
+    <li>
+    By paying for a Product or Service Provided Content you (i) represent that you are authorized to use the payment method you have selected and that any payment information you provide is true and accurate; (ii) authorize the party charging you for the Product or Service Provided Content to take payment from you for the Product or Service Provided Content, using the payment method you have selected.
+           </li>
+          </div>
+          <div className='flex flex-col gap-5 md:w-[711px] w-full'>
+            <span className='running-text-large'>   21. CHANGES TO THE AGREEMENT   </span>
+            <p>
+       FOR RESIDENTS OUTSIDE THE EUROPEAN UNION AND THE UNITED KINGDOM:
+      </p>
+      <p>
+Except for Section 4 (Binding Arbitration and Class Action Waiver), Dndai.app reserves the right, at its sole and absolute discretion, to change, modify, add to, supplement or delete any of the terms and conditions of this Agreement at any time, effective with or without prior notice, and by any means, including without limitation by posting notification on any Product website, by email, through a patch process, pop-up screen or in-Product notice. Your continued use of the Product following any revision to this Agreement constitutes your acceptance of any such changes. Additionally, you may be asked to affirmatively accept updates to this Agreement from time to time. Note that if you do not affirmatively indicate your acceptance when requested, you may not be able to continue to use the Product or Service Provided Content. In relation to Products and Service Provided Content you have paid for, if you do not wish to accept a change to the Agreement, please stop using the Product or Service Provided Content and contact Dndai.app for refund options.
+FOR RESIDENTS IN THE EUROPEAN UNION AND THE UNITED KINGDOM: FROM TIME TO TIME, DNDAI.APP MAY MODIFY, ADD TO, SUPPLEMENT OR DELETE THE TERMS OF THIS AGREEMENT, FOR INSTANCE IF THERE IS A CHANGE TO ITS PRODUCTS AND SERVICES, TO IMPROVE PLAYERS’ SAFETY OR IN CASE OF CHANGE IN APPLICABLE LAWS. IF DNDAI.APP SUBSTANTIALLY CHANGES THE TERMS OF THIS AGREEMENT, DNDAI.APP WILL NOTIFY YOU IN ADVANCE BEFORE THE NEW TERMS OF THIS AGREEMENT COMES INTO EFFECT AND YOU WILL BE ASKED TO ACCEPT THOSE CHANGES TO CONTINUE TO USE DNDAI.APP PRODUCTS AND SERVICES. YOU WILL HAVE THE OPTION TO REFUSE THE AMENDED AGREEMENT, BUT IF YOU DO YOU WILL NO LONGER BE ABLE TO USE DNDAI.APP PRODUCTS AND SERVICES. THE LATEST VERSION OF THE AGREEMENT IS AVAILABLE ON OUR WEBSITE http://support.dndai.app/license, SO WE ADVISE YOU TO CHECK WHETHER THE TERMS OF THE AGREEMENT HAVE BEEN UPDATED EACH TIME YOU USE DNDAI.APP PRODUCTS AND SERVICES. CHANGES TO THE TERMS OF THIS AGREEMENT WON’T AFFECT YOUR RIGHTS, WILL NOT SUBSTANTIALLY CHANGE THE CONTRACTUAL BALANCE BETWEEN YOU AND DNDAI.APP AND WILL NOT HAVE RETROACTIVE EFFECTS.
+      </p>
+          </div>
+          <div className='flex flex-col gap-5 md:w-[711px] w-full'>
+            <span className='running-text-large'>   22. GENERAL    </span>
+            <li>
+    Severability
+Except as otherwise stated above, if any provision of this Agreement shall be unlawful, void or for any reason unenforceable, then that provision shall be deemed severable from this Agreement and shall not affect the validity and enforceability of any remaining provisions.
+          </li>
+    <li>
+    Survival
+
+SECTIONS 4, 5, 8, 12, 14 to 24 inclusive, and, those other sections that by their terms apply after this Agreement ends, and the Privacy Policy, will survive any termination or cancellation of this Agreement.
+           </li>
+    <li>
+    Assignment and Transfer
+
+We may assign this Agreement, in whole or in part, at any time without notice to you. You may not assign this agreement or transfer any rights to use the services.
+        </li>
+        <li>
+        Notices
+You consent to Dndai.app providing you notifications about the Product or information the law requires us to provide via email to any address that you specified if you were required to register for the Product. Notices emailed to you will be deemed given and received when the email is sent. If you don't consent to receive notices electronically, you must stop using the Product. For Products that do not require you to register or provide an email address, notices and other information may be made available in updates to this Agreement.
+        </li>
+        <li>
+        Force Majeure
+
+Dndai.app shall not be liable for any delay or failure to perform resulting from causes outside Dndai.app's reasonable control, including without limitation any failure to perform hereunder due to unforeseen circumstances or cause beyond Dndai.app's control such as acts of God, war, terrorism, riots, embargoes, acts of civil or military authorities, fire, floods, accidents, strikes, or shortages of transportation facilities, fuel, energy, labor or materials.
+
+        </li>
+        <li>
+        Equitable Remedies
+
+In the event that you breach this Agreement, you hereby agree that Dndai.app would be irreparably damaged if this Agreement were not specifically enforced, and therefore you agree that Dndai.app shall be entitled, without bond, other security, or proof of damages, to appropriate equitable remedies with respect to breaches of this Agreement, in addition to such other remedies as Dndai.app may otherwise have available to it under applicable laws.
+
+        </li>
+        <li>
+        Export and Commercial Items
+
+You may not use, access, download, or otherwise export, reexport, or transfer the Product in contravention of applicable export control, economic sanctions, and import laws and regulations, including, but not limited to, the U.S. Export Administration Regulations (“EAR”) and regulations promulgated by the U.S. Department of the Treasury’s Office of Foreign Assets Control (“OFAC”). You represent and warrant that you (1) are not subject to U.S. sanctions or export restrictions and otherwise are eligible to utilize the under applicable laws and regulations; (2) are not located or ordinarily resident in a country or region subject to comprehensive or near-comprehensive U.S. sanctions/embargo, unless your use of the Product in such country or region is authorized by U.S. law; (3) are not an official, employee, agent, or contractor of, or directly or indirectly acting or purporting to act for or on behalf of, a government (including any political subdivision, agency, or instrumentality thereof or any person directly or indirectly owned or controlled by the foregoing) or political party (e.g., Cuban Communist Party, Workers’ Party of Korea) subject to U.S. sanctions/embargo or any other entity in a sanctioned/embargoed country or region or subject to U.S. sanctions/embargo; and (4) will not use the in connection with an end-use prohibited by U.S. law, including, without limitation, the development, design, manufacture or production of nuclear missiles, or chemical or biological weapons.
+
+The Product and related documentation are "Commercial Items", as that term is defined at 48 C.F.R. 2.101, consisting of "Commercial Computer Software" and "Commercial Computer Software Documentation", as such terms are used in 48 C.F.R. 12.212 or 48 C.F.R. 227.7202, as applicable. Consistent with 48 C.F.R. 12.212 or 48 C.F.R. 227.7202-1 through 227.7202-4, as applicable, the Commercial Computer Software and Commercial Computer Software Documentation are being licensed to U.S. Government end users (a) only as Commercial Items and (b) with only those rights as are granted to all other end users pursuant to the terms and conditions herein. Unpublished-rights reserved under the copyright laws of the United States.
+</li>
+<li>
+Entire Agreement
+
+This Agreement constitutes the entire agreement and understanding between you and Dndai.app, and supersedes any prior or contemporaneous agreements or understandings, whether written or oral, relating to the matters contained herein.
+ </li>
+          </div>
+          <div className='flex flex-col gap-5 md:w-[711px] w-full'>
+            <span className='running-text-large'>   Appendix    </span>
+            <p>
+       SUPPLEMENTAL TERMS – APPLICABLE TO RESIDENTS OF GERMANY
+      </p>
+      <p>
+      The following Section below supersedes and replaces the corresponding Section 14 (‘Termination’) with respect to sub-section B(i):
+
+DNDAI.APP MAY TERMINATE THE LICENSE GRANTED TO YOU UNDER THIS AGREEMENT AND/OR SUSPEND, MODIFY, OR DELETE YOUR ACCOUNT IF YOU SERIOUSLY VIOLATE THIS AGREEMENT. WE WILL NOTIFY YOU IN ADVANCE IF WE DECIDE TO TERMINATE OR SUSPEND THE LICENSE, UNLESS WE ARE TERMINATING OR SUSPENDING IT TO COMPLY WITH A LEGAL OBLIGATION WHICH DOES NOT INCLUDE A PRIOR NOTICE OBLIGATION. WE WILL RESTORE THIS LICENSE IF YOU HAVE GOOD CAUSE TO BELIEVE OUR ACTIONS WERE NOT SUFFICIENTLY JUSTIFIED. SERIOUS VIOLATIONS ARE VIOLATIONS OF IMPORTANT PROVISIONS WHICH INCLUDE SECTION 3(C)(i)-(iv) AND 8(E) OF THIS AGREEMENT, REPEATED VIOLATIONS OF OTHER PROVISIONS OF THIS AGREEMENT (INCLUDING FURTHER NON-COMPLIANCE WHERE YOU HAVE ALREADY RECEIVED A PRIOR WARNING).
+
+IF YOU THINK THAT SUCH DECISION WAS TAKEN WRONGLY, YOU CAN CONTACT DNDAI.APP AT info@dndai.app
+
+The second paragraph of the sub-section ‘For the residents of the European Economic Area’ of Section 19 shall be replaced with the following paragraph:
+
+If these changes affect you negatively in a more than minor way, we will give you at least six weeks’ advance notice of the change and you will have 30 days from our notice of the change or from when the change comes into effect (whichever is later) to reject the changes and terminate the Agreement. You may also be able to receive a proportionate refund for any Product or Service Provided Content paid for but not received. Please write info@dndai.app for more information. If you do not reject these changes or terminate the Agreement within the stated time limit, we will take that as your acceptance of the changes.
+
+The sub-section ‘For residents of the European Union and the United Kingdom’ within Section 22 shall be replaced with the following paragraphs:
+
+From time to time, Dndai.app may need to amend this Agreement if there is a good reason for the change and the changes reasonably take into account the interests of both parties, for example to reflect or include new products or services, and to enhance security for users or because of changes in the law, but we will not modify the terms to change our main obligations to you. If Dndai.app makes a change to this Agreement, we will inform you of the particular changes in advance of the changes coming into force, and you will have at least six weeks (starting from our notice to you) to indicate whether you accept the amended Agreement. If you don’t tell us that you object to the changes within the time period set out above, you shall be deemed to have accepted these changes (i) unless you have notified us of your objection to such changes within the stated six weeks, or (ii) if you use the Product after the changes have entered into force. In the notification, we will inform you of your right to object, the applicable notice period and the legal consequences of a failure to object.
 
 The latest version of this Agreement will always be available on our website, so we recommend that you check for updates to this Agreement each time you use the Product. Changes to the Agreement shall not affect your accrued rights, shall not substantially disrupt the contractual balance between you and us under this Agreement and shall not have retroactive effect.
-</p>
+      </p>
           </div>
         </div>
       </div>
