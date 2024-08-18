@@ -5,6 +5,7 @@ import { getCampaignBySlug } from "@/actions/campaigns";
 import Loader from "@/components/ui/Loader";
 import useCustomToast from "@/hooks/useCustomToast";
 import { useRouter } from "next/navigation";
+
 const dummy = {
   analytics: {
     likes: [],
@@ -40,14 +41,15 @@ const dummy = {
   __v: 6,
   playerName: "aimen",
 };
-export default function page({ params }) {
+
+export default function Page({ params }) {
   const [campaign, setCampaign] = useState();
   const { invokeToast } = useCustomToast();
   const router = useRouter();
-  const handleGetyCampaign = async () => {
+
+  const handleGetCampaign = async () => {
     try {
       const _campaign = await getCampaignBySlug(params.slug);
-
       setCampaign(_campaign.campaign);
       console.log(_campaign.campaign);
     } catch (error) {
@@ -61,8 +63,41 @@ export default function page({ params }) {
   };
 
   useEffect(() => {
-    handleGetyCampaign();
+    handleGetCampaign();
   }, []);
+
+  useEffect(() => {
+    if (campaign) {
+      document.title = "DND AI | " + campaign.title || "Campaign Details"; // Set the page title
+
+      const metaTags = [
+        { name: "description", content: campaign.adventure.plot || "Campaign description" },
+        { property: "og:title", content: "DND AI | " + campaign.adventure.title || "Campaign Details" },
+        { property: "og:description", content: campaign.adventure.plot || "Campaign description" },
+        { property: "og:url", content: window.location.href },
+        { property: "og:image", content: campaign.worldMapUrl || "https://dndai-images.s3.eu-central-1.amazonaws.com/Headers/Header.webp" },
+        { property: "og:type", content: "website" },
+        { name: "keywords", content:  "AI DnD Game, OpenAI DnD, AI-Powered Campaigns, DnD Artificial Intelligence, AI Dungeons & Dragons, AI Dungeon Master, DnD AI Tools, AI Gameplay, Campaign Details, AI Campaign Management, Automated DnD Campaigns, OpenAI in Games, Intelligent DnD Tools, DnD Adventure AI, AI Storytelling, Roleplaying AI Tools"  },
+      ];
+
+      metaTags.forEach(tag => {
+        const metaElement = document.createElement("meta");
+        if (tag.name) {
+          metaElement.name = tag.name;
+        }
+        if (tag.property) {
+          metaElement.setAttribute("property", tag.property);
+        }
+        metaElement.content = tag.content;
+        document.head.appendChild(metaElement);
+
+        // Clean up the meta tags when the component unmounts or campaign changes
+        return () => {
+          document.head.removeChild(metaElement);
+        };
+      });
+    }
+  }, [campaign]);
 
   if (!campaign) return <Loader text={"Loading Campaign..."} />;
   return <Subpage campaign={campaign} setCampaign={setCampaign} />;
