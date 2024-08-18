@@ -8,7 +8,7 @@ export default function index() {
         <div className="flex  justify-between text-white  w-full md:w-auto">
           <span className="headline-3 z-[10] hidden md:block ">About us</span>
         </div>
-        <div className=" text-white flex flex-col gap-8 justify-center items-center">
+        <div className=" text-white capitalize  flex flex-col gap-8 justify-end items-end">
           <div className="flex flex-col gap-5 md:w-[711px] w-full">
             <span>
               Welcome to{" "}
