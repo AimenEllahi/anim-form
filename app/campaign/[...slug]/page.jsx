@@ -5,7 +5,6 @@ import { getCampaignBySlug } from "@/actions/campaigns";
 import Loader from "@/components/ui/Loader";
 import useCustomToast from "@/hooks/useCustomToast";
 import { useRouter } from "next/navigation";
-
 const dummy = {
   analytics: {
     likes: [],
@@ -41,16 +40,14 @@ const dummy = {
   __v: 6,
   playerName: "aimen",
 };
-
-
-export default function Page({ params }) {
+export default function page({ params }) {
   const [campaign, setCampaign] = useState();
   const { invokeToast } = useCustomToast();
   const router = useRouter();
-
   const handleGetCampaign = async () => {
     try {
       const _campaign = await getCampaignBySlug(params.slug);
+
       setCampaign(_campaign.campaign);
       console.log(_campaign.campaign);
     } catch (error) {
@@ -67,65 +64,12 @@ export default function Page({ params }) {
     handleGetCampaign();
   }, [params.slug]);
 
-  useEffect(() => {
-    // Function to remove specific meta tags
-    const removeMetaTags = (selectors) => {
-      selectors.forEach(selector => {
-        const elements = document.querySelectorAll(selector);
-        elements.forEach(element => element.remove());
-      });
-    };
-
-    // Define meta tags to be removed
-    const metaTagSelectors = [
-      "meta[name='description']",
-      "meta[name='keywords']",
-      "meta[property='og:title']",
-      "meta[property='og:description']",
-      "meta[property='og:url']",
-      "meta[property='og:image']",
-      "meta[property='og:type']",
-    ];
-
     if (campaign) {
 
       document.title = "DND AI | " + campaign.title || "Campaign Details"; // Set the page title
-
-      // Remove existing meta tags before adding new ones
-      removeMetaTags(metaTagSelectors);
-
-      // Add new meta tags for the campaign detail page
-      const metaTags = [
-        { name: "description", content: campaign.adventure.plot || "Campaign description", id: "meta-description" },
-        { property: "og:title", content: "DND AI | " + campaign.adventure.title || "Campaign Details", id: "meta-og-title" },
-        { property: "og:description", content: campaign.adventure.plot || "Campaign description", id: "meta-og-description" },
-        { property: "og:url", content: window.location.href, id: "meta-og-url" },
-        { property: "og:image", content: campaign.worldMapUrl || "https://dndai-images.s3.eu-central-1.amazonaws.com/Headers/Header.webp", id: "meta-og-image" },
-        { property: "og:type", content: "website", id: "meta-og-type" },
-        { name: "keywords", content: "AI DnD Game, OpenAI DnD, AI-Powered Campaigns, DnD Artificial Intelligence, AI Dungeons & Dragons, AI Dungeon Master, DnD AI Tools, AI Gameplay, Campaign Details, AI Campaign Management, Automated DnD Campaigns, OpenAI in Games, Intelligent DnD Tools, DnD Adventure AI, AI Storytelling, Roleplaying AI Tools", id: "meta-keywords" },
-      ];
-
-      metaTags.forEach(tag => {
-        const metaElement = document.createElement("meta");
-        if (tag.name) {
-          metaElement.name = tag.name;
-        }
-        if (tag.property) {
-          metaElement.setAttribute("property", tag.property);
-        }
-        metaElement.content = tag.content;
-        if (tag.id) {
-          metaElement.id = tag.id;
-        }
-        document.head.appendChild(metaElement);
-      });
     }
-
-    // Cleanup meta tags on component unmount or when campaign changes
-    return () => {
-      removeMetaTags(metaTagSelectors);
-    };
-  }, [campaign]);
+    handleGetCampaign();
+   [];
 
   if (!campaign) return <Loader text={"Loading Campaign..."} />;
   return <Subpage campaign={campaign} setCampaign={setCampaign} />;
