@@ -105,6 +105,29 @@ export default function RootLayout({ children }) {
             }}
             async
           />
+          {/* Global Meta Tags */}
+          <meta
+            name="description"
+            content="Join DNDAI to play Dungeons and Dragons with AI as Game Master. AI-supported pen and paper games."
+          />
+          <meta
+            name="keywords"
+            content="AI adventure games, text-based games, interactive fiction, role-playing games, free online adventure games, AI Game, Free online game 2024"
+          />
+          <meta
+            property="og:title"
+            content="DND AI - Play an AI driven Story game and create breathtaking images in the process"
+          />
+          <meta
+            property="og:description"
+            content="Dive into epic, story-driven adventures with free pen and paper games, powered by OpenAI’s cutting-edge artificial intelligence."
+          />
+          <meta property="og:url" content="https://www.dndai.app" />
+          <meta
+            property="og:image"
+            content="https://dndai-images.s3.eu-central-1.amazonaws.com/Headers/Header.webp"
+          />
+          <meta property="og:type" content="website" />
         </head>
         <body className="w-screen hide-scrollbar relative max-w-screen overflow-x-hidden bg-russianViolet">
           {showDiceGold && <div id="dice-box-gold" className="dice-box"></div>}

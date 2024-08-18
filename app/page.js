@@ -1,5 +1,6 @@
-import PageClient from "./page.client";
+"use client";
+import Landing from "@/components/landingPage/index";
 
 export default function Home() {
-  return <PageClient />;
+  return <Landing />;
 }
