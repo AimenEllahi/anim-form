@@ -28,7 +28,7 @@ export default function Index({ campaign, setCampaign }) {
   return (
     <>
      <Head>
-        <title>DND AI | {campaign.title || 'Campaign Details'}</title>
+        <title>DND AI | {campaign.adventure.title || 'Campaign Details'}</title>
         <meta name="description" content={campaign.adventure.plot || 'Campaign description'} />
         <meta property="og:title" content={`DND AI | ${campaign.adventure.title || 'Campaign Details'}`} />
         <meta property="og:description" content={campaign.adventure.plot || 'Campaign description'} />
