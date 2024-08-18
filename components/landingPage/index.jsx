@@ -12,7 +12,6 @@ import PlayForFreeMobile from "@/components/ui/Shared/PlayForFreeMobile";
 import ImagesVisual from "@/components/landingPage/imagesVisual";
 import Campaigns from "@/components/landingPage/campaignSection";
 import Image from "next/image";
-import Head from 'next/head';
 const LocomotiveScroll = dynamic(
   () => import("@/components/landingPage/LocomotiveScroll"),
   {
@@ -29,15 +28,30 @@ export default function Home() {
 
   return (
     <>
-     <Head>
-        <title>DND AI | Home</title>
-        <meta name="description" content={'Join DNDAI to play Dungeons and Dragons with AI as Game Master. AI-supported pen and paper games.'} />
-        <meta property="og:title" content={`DND AI | Home'}`} />
-        <meta property="og:description" content={"Dive into epic, story-driven adventures with free pen and paper games, powered by OpenAI’s cutting-edge artificial intelligence."} />
-        <meta property="og:url" content={`https://www.dndai.app`} />
-        <meta property="og:image" content={'https://dndai-images.s3.eu-central-1.amazonaws.com/Headers/Header.webp'} />
-        <meta property="og:type" content="website" />
-      </Head>
+    <head>
+          <meta
+            name="description"
+            content="Join DNDAI to play Dungeons and Dragons with AI as Game Master. AI-supported pen and paper games."
+          />
+          <meta
+            name="keywords"
+            content="AI adventure games, text-based games, interactive fiction, role-playing games, free online adventure games, AI Game, Free online game 2024"
+          />
+          <meta
+            property="og:title"
+            content="DND AI - Play an AI driven Story game and create breathtaking images in the process"
+          />
+          <meta
+            property="og:description"
+            content="Dive into epic, story-driven adventures with free pen and paper games, powered by OpenAI’s cutting-edge artificial intelligence."
+          />
+          <meta property="og:url" content="https://www.dndai.app" />
+          <meta
+            property="og:image"
+            content="https://dndai-images.s3.eu-central-1.amazonaws.com/Headers/Header.webp"
+          />
+          <meta property="og:type" content="website" />
+        </head>
       <LocomotiveScroll scrollRef={scrollRef} locoScrollRef={locoScrollRef} />
       <div
         data-scroll-container
