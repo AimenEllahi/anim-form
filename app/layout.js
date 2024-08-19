@@ -12,10 +12,48 @@ import useGameStore from "@/utils/gameStore";
 import CreditsDialogue from "@/components/ui/Shared/Dialogue/GetCredits";
 import useStepperStore from "@/utils/characterStore";
 
+
 const inter = Inter({ subsets: ["latin"] });
 
 const MemoizedNavbar = memo(Navbar);
 const MemoizedFooter = memo(Footer);
+
+function getMetaTags(pathname) {
+  let title = "DND AI | Dive into epic, story-driven adventures with free pen and paper games, powered by OpenAI’s cutting-edge artificial intelligence!";
+  let description = "Join DNDAI to play Dungeons and Dragons with AI as Game Master. AI-supported pen and paper games.";
+  let keywords = "AI adventure games, text-based games, interactive fiction, role-playing games, free online adventure games, AI Game, Free online game 2024";
+  let ogTitle = "DND AI - Play an AI driven Story game and create breathtaking images in the process";
+  let ogDescription = "Dive into epic, story-driven adventures with free pen and paper games, powered by OpenAI’s cutting-edge artificial intelligence.";
+  let ogImage = "https://dndai-images.s3.eu-central-1.amazonaws.com/Headers/Header.webp";
+  let ogUrl = "https://www.dndai.app";
+
+  if (pathname.includes("/character/sheet")) {
+    title = "DND AI | Character Overview";
+    description = "View and manage your character sheet in DNDAI.";
+    keywords = "character sheet, DnD AI, role-playing games, RPG character management";
+    ogTitle = "DND AI - Character Overview";
+    ogDescription = "Manage your character sheet and track your progress in DNDAI.";
+  } else if (pathname === "/") {
+    title = "DND AI | Home";
+    description = "Welcome to DNDAI - Dive into epic, AI-driven adventures!";
+    keywords = "home, DnD AI, AI adventure games, free online games";
+  } else if (pathname.includes("/campaign/")) {
+    title = "DND AI | Campaign Details";
+    description = "Explore exciting campaigns and adventures in DNDAI.";
+    keywords = "campaigns, adventures, AI game master, DnD AI";
+    ogTitle = "DND AI - Campaign Details";
+    ogDescription = "Dive into detailed campaigns and epic stories.";
+  } else if (pathname.includes("/auth")) {
+    title = "DND AI | Authentication";
+    description = "Authenticate to access your DNDAI account and continue your adventures.";
+    keywords = "authentication, login, sign up, DnD AI";
+  }
+
+  // Add more conditions as needed for other paths.
+
+  return { title, description, keywords, ogTitle, ogDescription, ogImage, ogUrl };
+}
+
 
 export default function RootLayout({ children }) {
   const pathname = usePathname();
@@ -41,24 +79,10 @@ export default function RootLayout({ children }) {
 
   const characterSheet = pathname.includes("/character/sheet");
 
+  const { title, description, keywords, ogTitle, ogDescription, ogImage, ogUrl } = getMetaTags(pathname);
+
   useEffect(() => {
     const setDocumentTitle = (url) => {
-      let title =
-        "DND AI | Dive into epic, story-driven adventures with free pen and paper games, powered by OpenAI’s cutting-edge artificial intelligence!";
-
-      if (url.includes("/character/sheet")) {
-        title = "DND AI | Character Overview";
-      } else if (url === "/") {
-        title = "DND AI | Home";
-      } else if (url.includes("/campaign/")) {
-        title = "DND AI | Campaign Details";
-      } else {
-        const pageTitle = url.split("/").pop().replaceAll("-", " ");
-        title = `${
-          pageTitle.charAt(0).toUpperCase() + pageTitle.slice(1)
-        } - DND AI`;
-      }
-
       document.title = title;
       window.gtag("config", "G-BTHMYX7TZ9", {
         page_title: title,
@@ -74,7 +98,7 @@ export default function RootLayout({ children }) {
     if (window.gtag) {
       handleRouteChange(pathname);
     }
-  }, [pathname]);
+  }, [pathname, title]);
 
   return (
     <html lang="en" suppressHydrationWarning className={inter.className}>
@@ -105,28 +129,12 @@ export default function RootLayout({ children }) {
             }}
             async
           />
-          {/* Global Meta Tags */}
-          <meta
-            name="description"
-            content="Join DNDAI to play Dungeons and Dragons with AI as Game Master. AI-supported pen and paper games."
-          />
-          <meta
-            name="keywords"
-            content="AI adventure games, text-based games, interactive fiction, role-playing games, free online adventure games, AI Game, Free online game 2024"
-          />
-          <meta
-            property="og:title"
-            content="DND AI - Play an AI driven Story game and create breathtaking images in the process"
-          />
-          <meta
-            property="og:description"
-            content="Dive into epic, story-driven adventures with free pen and paper games, powered by OpenAI’s cutting-edge artificial intelligence."
-          />
-          <meta property="og:url" content="https://www.dndai.app" />
-          <meta
-            property="og:image"
-            content="https://dndai-images.s3.eu-central-1.amazonaws.com/Headers/Header.webp"
-          />
+          <meta name="description" content={description} />
+          <meta name="keywords" content={keywords} />
+          <meta property="og:title" content={ogTitle} />
+          <meta property="og:description" content={ogDescription} />
+          <meta property="og:url" content={ogUrl} />
+          <meta property="og:image" content={ogImage} />
           <meta property="og:type" content="website" />
         </head>
         <body className="w-screen hide-scrollbar relative max-w-screen overflow-x-hidden bg-russianViolet">
