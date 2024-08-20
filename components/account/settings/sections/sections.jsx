@@ -22,7 +22,7 @@ export default function Index() {
     }));
   };
 
-  console.log(user);
+ // console.log(user);
   const renderPersonalData = () => {
     return isEditing.personalData ? (
       <div>

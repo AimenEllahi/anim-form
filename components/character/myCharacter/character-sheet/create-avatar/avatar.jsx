@@ -131,7 +131,7 @@ export default function Avatar({
       );
       console.log("error", error);
     } finally {
-      console.log("here");
+    //  console.log("here");
       setIsLoading(false);
       setLoadingAvatar(false);
     }

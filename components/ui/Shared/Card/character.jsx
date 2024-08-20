@@ -40,7 +40,7 @@ export default function card({
     try {
       setIsLoading(true);
       const characterId = character._id;
-      console.log(characterId);
+    //  console.log(characterId);
       const { character: _character } = await getCharacter(
         characterId,
         user?.token

@@ -75,7 +75,7 @@ const TopButtons = ({ campaign, setCampaign, className }) => {
     setIsLoading(true);
     try {
       const response = await unPublishCampaign(campaign._id, user?.token);
-      console.log(response);
+    //  console.log(response);
       setCampaign((prev) => ({
         ...prev,
         isPublished: response.isPublished,

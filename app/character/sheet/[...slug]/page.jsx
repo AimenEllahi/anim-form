@@ -88,7 +88,7 @@ export default function page({ params }) {
 
   if (!character) return <Loader text={"loading character..."} />;
 
-  console.log(character);
+ // console.log(character);
   return (
     <div className='bg-gradient text-white'>
       <CharacterSheet character={character} setCharacter={setCharacter} />

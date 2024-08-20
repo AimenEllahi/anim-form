@@ -23,10 +23,10 @@ function GalleryContainer() {
 
   const handleGetImages = async () => {
     try {
-      console.log("here");
+    //  console.log("here");
       const isReverse = selectedOption === SORT_BY_OPTIONS[1];
       const response = await getImages(user.token, page, isReverse);
-      console.log(response);
+    //  console.log(response);
       setImages(response.images);
       setTotalPages(response.totalPages);
       setTotalRecords(response.totalRecords);
@@ -44,7 +44,7 @@ function GalleryContainer() {
   };
 
   useEffect(() => {
-    console.log(user?.token);
+   // console.log(user?.token);
     if (user?.token) handleGetImages();
   }, [user?.token, page, selectedOption]);
 

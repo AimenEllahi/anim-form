@@ -39,7 +39,7 @@ export default function GameplayNavbar({ loading, setLoading }) {
   const handleSaveCharacter = async () => {
     try {
       setLoading(true);
-      console.log(game);
+     // console.log(game);
       const payload = {
         characterId: game.characterId,
         gameId: game._id,

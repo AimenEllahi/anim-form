@@ -14,7 +14,7 @@ export default function page() {
     " We have sent you a link to verify your E-mail. You may need to check your spam folder.";
 
   const handleResend = async () => {
-    console.log("here");
+   // console.log("here");
     setIsLoading(true);
     try {
       await resendVerificationLink(email);

@@ -49,7 +49,7 @@ export default function page({ params }) {
       const _campaign = await getCampaignBySlug(params.slug);
 
       setCampaign(_campaign.campaign);
-      console.log(_campaign.campaign);
+     // console.log(_campaign.campaign);
     } catch (error) {
       invokeToast(
         error?.response?.data?.error || "Error fetching campaign",

@@ -14,7 +14,7 @@ export default function index({ characters }) {
     router.push("/character/create");
   };
 
-  console.log(currentCampaign);
+  //console.log(currentCampaign);
 
   return (
     <div className='border-white gap-8 w-full flex flex-col pt-[86px] md:pt-[128px] z-[10] text-white relative px-6 lg:px-12 md:pb-64'>

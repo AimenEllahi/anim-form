@@ -54,7 +54,7 @@ export default function card({
       setIsLoading(true);
 
       const response = await starCampaign(campaign._id, user?.token);
-      console.log(response);
+     // console.log(response);
       handleUpdateCampaigns({
         ...campaign,
         analytics: {
@@ -105,7 +105,7 @@ export default function card({
         hasSingleCharacter,
         characterId,
       } = await getCampaignBySlug(campaignId, user?.token);
-      console.log(hasSingleCharacter, characterId);
+     // console.log(hasSingleCharacter, characterId);
       setCurrentCampaign(_campaign);
 
       if (hasSingleCharacter) {

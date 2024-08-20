@@ -62,7 +62,7 @@ export default function CampaignTabBar({ campaign }) {
       }
     } catch (error) {
       invokeToast(error?.response?.data || "Error playing campaign", "Error");
-      console.log("Error:", error);
+     // console.log("Error:", error);
     } finally {
       setIsLoading(false);
     }

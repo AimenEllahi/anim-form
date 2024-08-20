@@ -12,7 +12,7 @@ export default function CampaignSection() {
   const handleGetCampaigns = async () => {
     try {
       const response = await getMostLikedCampaigns();
-      console.log("response", response);
+     // console.log("response", response);
       setCampaigns(response.campaigns);
     } catch (error) {
       console.error("Error:", error);
