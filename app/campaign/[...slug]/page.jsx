@@ -44,12 +44,12 @@ export default function page({ params }) {
   const [campaign, setCampaign] = useState();
   const { invokeToast } = useCustomToast();
   const router = useRouter();
-  const handleGetyCampaign = async () => {
+  const handleGetCampaign = async () => {
     try {
       const _campaign = await getCampaignBySlug(params.slug);
 
       setCampaign(_campaign.campaign);
-      console.log(_campaign.campaign);
+     // console.log(_campaign.campaign);
     } catch (error) {
       invokeToast(
         error?.response?.data?.error || "Error fetching campaign",
@@ -61,7 +61,7 @@ export default function page({ params }) {
   };
 
   useEffect(() => {
-    handleGetyCampaign();
+    handleGetCampaign();
   }, []);
 
   if (!campaign) return <Loader text={"Loading Campaign..."} />;

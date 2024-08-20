@@ -55,7 +55,7 @@ export default function bottomMenu({
     }
     try {
       setLoading(true);
-      console.log(game);
+     // console.log(game);
       const payload = {
         characterId: game.characterId,
         gameId: game._id,

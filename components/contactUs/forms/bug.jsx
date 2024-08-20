@@ -6,6 +6,7 @@ import CustomButton from "@/components/ui/custom-button";
 import ArrowRight from "@/components/ui/Icons/ArrowRight";
 import Upload from "./upload";
 
+//bug form
 export default function bug() {
   const [file, setFile] = useState(null);
   const [bugDescription, setBugDescription] = useState("");

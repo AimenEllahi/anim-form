@@ -176,7 +176,7 @@ export default function Navbar({ variant, characterSheet }) {
       if (hasSingleCharacter) {
         const { character } = await getCharacter(characterId, user?.token);
 
-        console.log("Has single character", character);
+      //  console.log("Has single character", character);
         setCurrentCharacter(character);
         router.push("/game/play");
         return;

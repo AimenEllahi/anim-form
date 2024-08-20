@@ -52,7 +52,7 @@ export default function Index() {
       setLoading(true);
       const { newCampaign } = await createCampaign(campaign, user?.token);
       const { credits } = await getCredits(user?.token);
-      console.log(newCampaign);
+     // console.log(newCampaign);
       setYellowCredits((prev) => credits?.yellowCredits || prev);
 
       setBlueCredits((prev) => credits?.blueCredits || prev);

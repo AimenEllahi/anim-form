@@ -65,7 +65,7 @@ function GameHandler() {
 
   const handleInitiateGame = async () => {
     if (user.blueCredits < 1) {
-      console.log("here");
+   //   console.log("here");
       setShowCreditsDialogue(true);
 
       return;

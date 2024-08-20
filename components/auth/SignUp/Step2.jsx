@@ -27,7 +27,7 @@ export default function Step2({ setStep, user, setUser, reset }) {
     const checkUsername = async () => {
       try {
         const exists = await verifyUserNameExists(debounceUsername);
-        console.log(exists);
+     //   console.log(exists);
         setUsernameExists(exists);
       } catch (error) {
         invokeToast(

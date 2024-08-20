@@ -56,7 +56,7 @@ export const resetPassword = async (password, resetToken) => {
       resetToken,
     });
 
-    console.log(response.data);
+    //console.log(response.data);
 
     return response.data;
   } catch (error) {
@@ -68,7 +68,7 @@ export const resetPassword = async (password, resetToken) => {
 export const continueWithGoogle = async (user) => {
   try {
     const userData = await getUserData(user);
-    console.log(userData);
+    //console.log(userData);
     const response = await api.post("/auth/google", userData);
 
     return response.data;

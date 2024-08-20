@@ -51,7 +51,7 @@ export default function Campaign({
     });
   };
 
-  console.log(games)
+ // console.log(games)
 
   return (
     <div

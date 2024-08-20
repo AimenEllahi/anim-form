@@ -162,7 +162,7 @@ export default function Comments({ campaign }) {
         user?.token
       );
       setComment("");
-      console.log(response.comment);
+    //  console.log(response.comment);
       setComments([...comments, response.comment]);
     } catch (error) {
       invokeToast("Error commenting", "error");

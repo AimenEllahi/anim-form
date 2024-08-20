@@ -96,7 +96,7 @@ export default function BottomMenu({ character, setCharacter }) {
   const { user, setBlueCredits, setYellowCredits } = useUserStore();
   const [isChoosingRandom, setIsChoosingRandom] = useState(false);
   const MAX_STEPS = isMobile ? 8 : 7;
-  console.log(character);
+ // console.log(character);
 
   const formComplete = activeStep === MAX_STEPS;
   function toggleSound() {
@@ -188,7 +188,7 @@ export default function BottomMenu({ character, setCharacter }) {
 
   const detectClickOutside = (e) => {
     if (searchMode && !e.target.closest(".search")) {
-      console.log("here");
+     // console.log("here");
       setSearchMode(false);
     }
   };

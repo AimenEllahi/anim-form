@@ -15,13 +15,13 @@ export default function index({ popular, mostLiked }) {
   const [searchedCampaign, setSearchedCampaign] = useState(null); // [campaign1, campaign2, ...
   const debouncedQuery = useDebounce(query, 500);
   const { currentCharacter } = useGameStore();
-  console.log("currentCharacter", currentCharacter);
+//  console.log("currentCharacter", currentCharacter);
   const handleSearchCampaign = async () => {
     // search campaign
     try {
-      console.log("debouncedQuery", debouncedQuery);
+    //  console.log("debouncedQuery", debouncedQuery);
       const { campaigns } = await searchCampaigns(debouncedQuery);
-      console.log("campaigns", campaigns);
+   //   console.log("campaigns", campaigns);
       setSearchedCampaign(campaigns);
     } catch (error) {
       console.error("Error:", error);

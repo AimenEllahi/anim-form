@@ -35,11 +35,11 @@ export default function newPass() {
     try {
       setIsLoading(true);
       const response = await resetPassword(password, token);
-      console.log(response);
+   //   console.log(response);
       invokeToast("Password Reset Successful", "Success");
       router.push("/auth/pass-changed");
     } catch (error) {
-      console.log(error);
+    //  console.log(error);
       invokeToast(
         error?.response?.data?.message || "Something Went Wrong",
         "error"

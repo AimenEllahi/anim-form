@@ -67,7 +67,7 @@ export default function page() {
   const getAllCharacters = async () => {
     try {
       const response = await getCharacters(user?.token);
-      console.log("response", response);
+    //  console.log("response", response);
       setCharacters(response.characters);
       setTotalCharacters(response.characters.length);
     } catch (error) {

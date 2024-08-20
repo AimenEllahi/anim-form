@@ -22,7 +22,7 @@ export default function forgotPass() {
         process.env.NEXT_PUBLIC_BASE_URL + "/auth/reset-password";
       const response = await requestPasswordReset(email, REDIRECT_URL);
       setEmailSent(true);
-      console.log(response);
+    //  console.log(response);
     } catch (error) {
       invokeToast(
         error?.response?.data?.message || "Something Went Wrong",

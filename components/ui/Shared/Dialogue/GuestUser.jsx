@@ -28,7 +28,7 @@ export default function GuestUser({ children, action }) {
     router.push(pathname);
     setOpen(false);
   };
-  console.log(showGuestDialogue);
+ // console.log(showGuestDialogue);
   return (
     <Dialog open={open} onOpenChange={closeModal}>
       <DialogContent className='bg-white/[8%] gap-6 p-6 pt-4 !rounded-[16px]  text-white border border-white/10 !w-[94%] sm:min-w-[320px]'>

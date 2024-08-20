@@ -12,6 +12,8 @@ import PlayForFreeMobile from "@/components/ui/Shared/PlayForFreeMobile";
 import ImagesVisual from "@/components/landingPage/imagesVisual";
 import Campaigns from "@/components/landingPage/campaignSection";
 import Image from "next/image";
+
+// Dynamically import LocomotiveScroll to avoid server-side rendering issues
 const LocomotiveScroll = dynamic(
   () => import("@/components/landingPage/LocomotiveScroll"),
   {
@@ -23,7 +25,6 @@ export default function Home() {
   const { showMenu } = useControlsStore();
   const scrollRef = useRef(null);
   const locoScrollRef = useRef(null);
-
   const { isMobile } = useDeviceDetect();
 
   return (
@@ -54,7 +55,7 @@ export default function Home() {
             </h1>
             <div
               className={cn(
-                `flex w-full z-50 fixed bottom-[20px]  left-0 px-[20px] justify-between items-center md:hidden`,
+                `flex w-full z-50 fixed bottom-[20px] left-0 px-[20px] justify-between items-center md:hidden`,
                 showMenu && "hidden"
               )}
             >

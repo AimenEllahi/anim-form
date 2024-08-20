@@ -26,7 +26,7 @@ export default function GoogleAuth({ isLoading, setIsLoading }) {
       router.push("/discover");
     } catch (error) {
       invokeToast(error?.response?.data?.message || "Error", "Error");
-      console.log("An error occurred:", error);
+    //  console.log("An error occurred:", error);
     } finally {
       setIsLoading(false);
     }
