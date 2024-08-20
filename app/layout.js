@@ -111,7 +111,7 @@ else if (pathname.match(/^\/discover\/gallery(\?page=\d+)?$/)) {
   description = "Unveil stunning images in the DnD AI Image Gallery! Explore captivating visuals created during gameplay, all free to use and copyright-free. Ignite your imagination and download your favorites at dndai.app";
   keywords = "image gallery, stunning game visuals, free to use images, copyright-free RPG images, AI-generated artwork, gameplay images, Dungeons & Dragons gallery, downloadable RPG images, captivating game art, RPG visuals";
   ogTitle = "DND AI | Gallery";
-  ogDescription = "Explore our gallery of public campaigns on DnD AI! Browse adventures, view detailed stories, and discover exciting content crafted by users and AI.";
+  ogDescription = "Unveil stunning images in the DnD AI Image Gallery! Explore captivating visuals created during gameplay, all free to use and copyright-free. Ignite your imagination and download your favorites";
   ogImage = "https://dndai-images.s3.eu-central-1.amazonaws.com/Headers/Header.webp";
   ogUrl = `https://dndai.app${pathname}`;
 }
