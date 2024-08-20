@@ -5,7 +5,8 @@ import useGameStore from "@/utils/gameStore";
 import ReactMarkdown from "react-markdown";
 import { cn } from "@/lib/utils";
 import ArrowRight from "@/components/ui/Icons/ArrowRight";
-
+import Loader from "@/components/ui/Loader";
+import Tab from "@/components/ui/Icons/Tab";
 //text sizes for chatbox
 const TEXT_SIZES = {
   17: "text-xs",
@@ -32,7 +33,10 @@ export default function chatbox({
   loading,
   textSize,
   setImageViewDialog,
+  setInput,
   narrate,
+  isImageLoading,
+  setFocusTrigger,
 }) {
   const { setGameImage } = useGameStore();
   const chatboxRef = useRef(null);
@@ -138,11 +142,41 @@ export default function chatbox({
                 </span>
               </div>
               {item.type === "system" ? (
-                <ReactMarkdown
-                  className={cn("markdown-text ", TEXT_SIZES[textSize])}
-                >
-                  {item.text}
-                </ReactMarkdown>
+                <>
+                  <ReactMarkdown
+                    className={cn("markdown-text ", TEXT_SIZES[textSize])}
+                  >
+                    {item.text}
+                  </ReactMarkdown>
+                  <div
+                    className={cn(
+                      "flex flex-col gap-5 mt-8 md:gap-8",
+                      TEXT_SIZES[textSize],
+                      index !== chat.length - 1 && "pointer-events-none"
+                    )}
+                  >
+                    {item?.choices?.map((choice, _index) => (
+                      <div
+                        key={index}
+                        onClick={() => {
+                          if (choice.title.toLowerCase() === "free choice") {
+                            setInput("");
+                          } else setInput(choice.description);
+                          setFocusTrigger((prev) => !prev);
+                        }}
+                        className='flex transition-all ease-in-out hover:duration-300 active:duration-100 group cursor-pointer flex-col gap-2 md:gap-4'
+                      >
+                        <span className='flex group-hover:text-[#B1B2FF]  group-active:text-white items-center gap-2 running-text-mono uppercase text-irisPurpleLight'>
+                          {choice.title}{" "}
+                          <Tab className='h-5 w-5 fill-irisPurpleLight group-hover:fill-[#B1B2FF] group-active:fill-white ' />
+                        </span>
+                        <span className='running-text group-hover:text-gray1 group-active:text-gray1'>
+                          {choice.description}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </>
               ) : (
                 <span
                   className={cn(
@@ -174,6 +208,20 @@ export default function chatbox({
               </span>
             </div>
             <TypingIndicator />
+          </div>
+        )}
+
+        {isImageLoading && (
+          <div className='relative h-[223px] w-fit rounded-[16px] overflow-hidden'>
+            <Loader
+              text='Generating Image...'
+              className='absolute top-0 left-0 w-full h-full bg-blur flex items-center justify-center'
+            />
+            <img
+              src='/images/CreateCharacter/CharacterName/CharacterName.png'
+              alt='gradient'
+              className=' h-full object-contain'
+            />
           </div>
         )}
       </div>

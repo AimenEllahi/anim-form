@@ -26,7 +26,7 @@ export default function CustomTextArea({
         id={placeholder}
         value={value}
         className={cn(
-          "block w-full h-[80px] pb-2  resize-none  peer px-5   mt-3 box-border !running-text   text-white rounded-[10px] bg-transparent cursor-pointer duration-300 transition-all focus:outline-0   focus:shadow-text-area  ",
+          "block w-full h-[80px] pb-2  resize-none  peer px-5   mt-3 box-border !running-text   text-white rounded-[10px] bg-transparent cursor-pointer duration-300 transition-all focus:!outline-none  focus:!ring-none  ",
           isComment && "h-16 !py-5",
           className,
           "h-[93%]"

@@ -1,7 +1,6 @@
 import React, { useCallback, useState, useEffect, useRef } from "react";
-//import Tiff from "../../public/convertors/tiff/tiff.min.js";
-// import { useDropzone } from "react-dropzone";
 import Upload from "@/components/ui/Icons/Upload";
+import { useDropzone } from "react-dropzone";
 
 import "subjx/dist/style/subjx.css";
 // import { cn } from "@/lib/utils";
@@ -83,21 +82,43 @@ import "subjx/dist/style/subjx.css";
 //   "application/pdf",
 // ];
 
-const upload = () => {
+const upload = ({ file, setFile }) => {
+  const onDrop = useCallback((acceptedFiles) => {
+    acceptedFiles.forEach((file) => {
+      const reader = new FileReader();
+
+      reader.onabort = () => console.log("file reading was aborted");
+      reader.onerror = () => console.log("file reading has failed");
+      reader.onload = () => {
+        // Do whatever you want with the file contents
+        const binaryStr = reader.result;
+        console.log(binaryStr);
+      };
+      reader.readAsArrayBuffer(file);
+    });
+  }, []);
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    onDrop,
+  });
+
   return (
     <>
       <div
         className={"max-h-[173px] w-full flex items-center justify-center  "}
       >
-        <section className=" h-[173px] w-full">
-          <div className="dropzone h-full w-full rounded-xl border-dashed border-white border border-opacity-75  flex items-center justify-center flex-col gap-y-3 bg-transparent">
+        <section className=' h-[173px] w-full'>
+          <div
+            {...getRootProps()}
+            className='dropzone h-full w-full rounded-xl border-dashed border-white border border-opacity-75  flex items-center justify-center flex-col gap-y-3 bg-transparent'
+          >
+            <input {...getInputProps()} />
             <Upload />
 
             <span>
-              <span className="text-gray2">Drag and drop files or </span>upload
+              <span className='text-gray2'>Drag and drop files or </span>upload
               files
             </span>
-            <span className="text-gray2 font-roboto-mono">
+            <span className='text-gray2 font-roboto-mono'>
               png, jpg, tif, webp, pdf
             </span>
           </div>

@@ -64,7 +64,7 @@ export default function Footer() {
       <div className='w-full'>
         <div className='w-full md:w-1/2 flex flex-wrap md:gap-8 gap-3 gap-y-12 justify-between '>
           {/* Help and Support Section */}
-          {/* <NavMenu
+          <NavMenu
             menu={{
               heading: "HELP AND SUPPORT",
               navlinks: [
@@ -74,7 +74,7 @@ export default function Footer() {
                 "Report a Bug",
               ],
             }}
-          /> */}
+          />
           <NavMenu
             menu={{
               heading: "LEGAL",
