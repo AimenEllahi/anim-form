@@ -41,6 +41,7 @@ const dummyGame = {
   __v: 1,
 };
 
+//game logic fixed
 let INTTIATING = false;
 function GameHandler() {
   const router = useRouter();
@@ -65,7 +66,7 @@ function GameHandler() {
 
   const handleInitiateGame = async () => {
     if (user.blueCredits < 1) {
-   //   console.log("here");
+      //   console.log("here");
       setShowCreditsDialogue(true);
 
       return;
@@ -141,7 +142,7 @@ function GameHandler() {
   }, [user?.token]);
 
   if (!response) {
-    return <Loader text='Loading Game ...' />;
+    return <Loader text="Loading Game ..." />;
   }
   return (
     <Game
