@@ -6,10 +6,13 @@ import Feedback from "./forms/feedback";
 import Bug from "./forms/bug";
 import { cn } from "@/lib/utils";
 import { useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 export default function index() {
   const type = useSearchParams().get("type");
-  const [reason, setReason] = useState(type || "support");
+  const [reason, setReason] = useState(type || "feedback");
+
+  const router = useRouter();
 
   useEffect(() => {
     if (type) {
@@ -27,21 +30,21 @@ export default function index() {
             <span className='running-text-large'>Reason for your request</span>
             <div className='flex gap-4 flex-wrap '>
               <CustomButton
-                onClick={() => setReason("support")}
+                onClick={() => router.push("/contact-us?type=support")}
                 variant={reason === "support" && "primary"}
                 className={cn("rounded-[48px]  ")}
               >
                 Support Request
               </CustomButton>
               <CustomButton
-                onClick={() => setReason("feedback")}
+                onClick={() => router.push("/contact-us?type=feedback")}
                 variant={reason === "feedback" && "primary"}
                 className={cn("rounded-[48px]  ")}
               >
                 feedback
               </CustomButton>
               <CustomButton
-                onClick={() => setReason("bug")}
+                onClick={() => router.push("/contact-us?type=bug")}
                 variant={reason === "bug" && "primary"}
                 className={cn("rounded-[48px]  ")}
               >

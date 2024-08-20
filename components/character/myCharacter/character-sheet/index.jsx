@@ -43,11 +43,6 @@ export default function characterSheet({ character, setCharacter }) {
   );
   const isCreator = user?._id === character?.userId;
 
-  // useEffect(() => {
-  //   let _appearance = extractSection(character.value, "appearance:character.personal.appearance")?.trim();
-  //   setAppearance:character.personal.appearance(_appearance:character.personal.appearance);
-  // }, [character]);
-
   useEffect(() => {
     const container = containerRef.current;
     if (open) {
@@ -133,7 +128,7 @@ export default function characterSheet({ character, setCharacter }) {
           {character?.personal?.portraits?.length > 0 ? "Change " : "Create "}
           character portrait
         </CustomButton>
-    {/**       <CustomButton variant='subtle'>
+        {/**       <CustomButton variant='subtle'>
          <Download fill='white' className='h-5 w-5 opacity-70 text-white' />
           Download character sheet
         </CustomButton> */}

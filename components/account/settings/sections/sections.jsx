@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Edit from "@/components/ui/Icons/Edit";
 import CustomInput from "@/components/ui/custom-input";
 import Cancel from "@/components/ui/Icons/Cancel";
@@ -9,6 +9,11 @@ import useUserStore from "@/utils/userStore";
 
 export default function Index() {
   const { user } = useUserStore();
+  const [fd, setFd] = useState({
+    name: user.name,
+    username: user.username,
+    email: user.email,
+  });
   const [isEditing, setIsEditing] = useState({
     personalData: false,
     email: false,
@@ -22,14 +27,38 @@ export default function Index() {
     }));
   };
 
- // console.log(user);
+  useEffect(() => {
+    setFd({
+      name: user.name,
+      username: user.username,
+      email: user.email,
+    });
+  }, [user]);
+
   const renderPersonalData = () => {
     return isEditing.personalData ? (
       <div>
         <div className='p-4 flex flex-col gap-8'>
-          <CustomInput placeholder='Username' />
-          <CustomInput placeholder='Name' />
-          <CustomInput placeholder='SurName' />
+          <CustomInput
+            value={fd.username}
+            onChange={(e) =>
+              setFd((prev) => ({
+                ...prev,
+                username: e,
+              }))
+            }
+            placeholder='Username'
+          />
+          <CustomInput
+            value={fd.name}
+            onChange={(e) =>
+              setFd((prev) => ({
+                ...prev,
+                name: e,
+              }))
+            }
+            placeholder='Name'
+          />
         </div>
         <hr className='border border-white/[8%]' />
         <div className='flex gap-4 justify-end items-end p-4'>
@@ -58,13 +87,7 @@ export default function Index() {
           <span className='font-roboto-mono text-[10px] leading-[15px]  text-irisPurpleLight'>
             NAME
           </span>
-          <span className='running-text-mono'>LUCAS</span>
-        </div>
-        <div className='p-4 flex flex-col gap-4'>
-          <span className='font-roboto-mono text-[10px] leading-[15px]  text-irisPurpleLight'>
-            SURNAME
-          </span>
-          <span className='running-text-mono'>ROSSMAN</span>
+          <span className='running-text-mono'>{user.name}</span>
         </div>
       </div>
     );
@@ -158,13 +181,13 @@ export default function Index() {
       <div className='w-[709px] border border-white/[8%] rounded-[16px] bg-white/[8%] uppercase'>
         <div className='p-4 flex justify-between items-center'>
           <span className='headline-4'>E-MAIL</span>
-          <span
+          {/* <span
             className='running-text-mono flex justify-center items-center gap-2 cursor-pointer'
             onClick={() => handleEditClick("email")}
           >
             <Edit className='h-5 w-5 opacity-70 fill-white' />
             EDIT
-          </span>
+          </span> */}
         </div>
         <hr className='border border-white/[8%]' />
         {renderEmailSection()}

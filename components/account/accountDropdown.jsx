@@ -16,17 +16,21 @@ export default function accountDropdown() {
   const { user } = useUserStore();
 
   return (
-    <DropdownMenu onOpenChange={(e) => setOpen(e)} open={open}>
-      <DropdownMenuTrigger
-        suppressHydrationWarning
-        className='outline-0 hidden md:block'
-      >
-        <CustomIconbutton
+    <DropdownMenu
+      suppressHydrationWarning
+      onOpenChange={(e) => setOpen(e)}
+      open={open}
+    >
+      <DropdownMenuTrigger asChild={true} className='outline-0 hidden md:block'>
+        <div
           //  onClick={() => setOpen((prev) => !prev)}
-          className={open && "border-white/40 bg-white/20 cursor-pointer"}
+          className={cn(
+            "bg-white/10 p-2 border bg-blur flex items-center justify-center box-border ease-animate rounded-full border-white/[8%] cursor-pointer hover:border-white/20 hover:bg-white/10 active:bg-white/20  active:border-white/40 disabled:opacity-30% disabled:pointer-events-none hover:!duration-200 active:!duration-100",
+            open && "border-white/40 bg-white/20 cursor-pointer"
+          )}
         >
           <img src='/Icons/User.svg' className='h-5 w-5 invert' />
-        </CustomIconbutton>
+        </div>
       </DropdownMenuTrigger>
 
       {user?.token ? (

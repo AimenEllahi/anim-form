@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Card from "@/components/ui/Shared/Card/character";
 import CustomInputIcon from "@/components/ui/custom-input-icon";
 import Chatbox from "./chatbox";
@@ -18,6 +18,7 @@ export default function Index({
   gameCharacter,
   setGameCharacter,
   gameCampaign,
+  choices,
 }) {
   const { game, setGame } = useGameStore();
   const { user, setYellowCredits, setBlueCredits } = useUserStore();
@@ -32,14 +33,19 @@ export default function Index({
   const [isImageLoading, setIsImageLoading] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [diceBox, setDiceBox] = useState(null);
+  const [rollSound, setRollSound] = useState();
+  const [focusTrigger, setFocusTrigger] = useState(false);
   const [chat, setChat] = useState([
     {
       type: "system",
       text: response,
+      choices,
     },
   ]);
 
   useEffect(() => {
+    const rollSound = new Audio("/audio/dice-roll.mp3");
+    setRollSound(rollSound);
     const _diceBox = new DiceBox("#dice-box-game", {
       assetPath: "/assets/dice-box", // required
       theme: "default", //optional
@@ -54,7 +60,7 @@ export default function Index({
 
   useEffect(() => {
     if (gameCampaign?.title) {
-      document.title ="DND AI | Game: "+ gameCampaign.title;
+      document.title = "DND AI | Game: " + gameCampaign.title;
     }
   }, [gameCampaign]);
 
@@ -73,6 +79,9 @@ export default function Index({
         diceBox.initialized = true; // Mark as initialized to prevent re-initialization
       }
 
+      setTimeout(() => {
+        rollSound.play();
+      }, 1000);
       // Roll the dice
       const result = await diceBox.roll("1d20");
 
@@ -88,16 +97,17 @@ export default function Index({
       const {
         game: _game,
         responseText,
-        credits,
+        choices,
       } = await addChoice(payload, user?.token);
 
       setGame(_game);
-
+      console.log(choices);
       setChat((prev) => [
         ...prev,
         {
           type: "system",
           text: responseText,
+          choices,
         },
       ]);
     } catch (error) {
@@ -120,9 +130,9 @@ export default function Index({
 
   return (
     <>
-      {(saveCharacterLoading || isImageLoading) && (
+      {saveCharacterLoading && (
         <Loader
-          text={isImageLoading ? "Generating Image..." : "Saving Character..."}
+          text={"Saving Character..."}
           className='absolute top-0 z-[40] left-0 max-h-screen h-screen w-screen bg-blur-bottom-menu flex items-center justify-center'
         />
       )}
@@ -153,15 +163,19 @@ export default function Index({
               <div className='fixed z-[10] top-0 left-0 w-screen h-screen bg-russianViolet/20'></div>
             )}
             <Chatbox
+              isImageLoading={isImageLoading}
               textSize={textSize}
               loading={loading}
               chat={chat}
               character={gameCharacter}
+              setInput={setInput}
               setImageViewDialog={setImageViewDialog}
               narrate={narrate}
+              setFocusTrigger={setFocusTrigger}
             />
             <div className='z-[20] flex flex-col-reverse lg:flex-col gap-4 lg:gap-5 fixed bottom-0 left-0 w-screen bg-blur-bottom-menu lg:bg-transparent lg:backdrop-filter-none px-5 lg:p-0 lg:pt-2 pb-5 pt-4 lg:relative lg:w-full'>
               <CustomInputIcon
+                focusTrigger={focusTrigger}
                 blurOnOutsideClick={true}
                 value={input}
                 disabled={loading}

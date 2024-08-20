@@ -15,8 +15,9 @@ export default function SignedInUserMenu() {
 
   const cookies = new Cookie();
   const handleLogout = () => {
-    cookies.set("token", null, { path: "/" });
+    cookies.set("token", "", { path: "/" });
     setUser(null);
+    router.refresh();
   };
 
   const handleRedirect = (path) => {

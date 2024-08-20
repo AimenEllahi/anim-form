@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useImperativeHandle } from "react";
 import IconButton from "@/components/ui/custom-iconbutton";
 import { cn } from "@/lib/utils";
 import CustomButton from "./custom-button";
@@ -18,11 +18,16 @@ export default function CustomInputIcon({
   disabled,
   textAreaClassName,
   blurOnOutsideClick,
+  focusTrigger,
 }) {
   const [inFocus, setInFocus] = useState(false);
 
   const textAreaRef = useRef(null);
 
+  useEffect(() => {
+    textAreaRef.current?.focus();
+    setInFocus(true);
+  }, [focusTrigger]);
   const handleOutsideClick = (e) => {
     if (!isSafariMobile || window.innerWidth > 450) return;
     if (
@@ -64,7 +69,7 @@ export default function CustomInputIcon({
         className
       )}
     >
-      <div className='absolute inset-y-0 end-0 flex  items-center pe-5 ps-[14px] '>
+      <div className='absolute inset-y-0 end-0 flex z-20 items-center pe-5 ps-[14px] '>
         {isSubtle ? (
           <CustomButton
             onClick={onClick}

@@ -6,14 +6,18 @@ import CustomButton from "@/components/ui/custom-button";
 import { useRouter } from "next/navigation";
 
 export default function page() {
-  const { user, setYellowCredits, setBlueCredits } = useUserStore();
+  const { user, setYellowCredits, setBlueCredits, setUser } = useUserStore();
   const router = useRouter();
 
-  const handleUpdateCredits = async () => {
+  const handleUpdateUser = async () => {
     try {
-      const { credits } = await getCredits(user.token);
+      const { credits, paymentHistory } = await getCredits(user.token);
       setYellowCredits(credits.yellowCredits);
       setBlueCredits(credits.blueCredits);
+      setUser({
+        ...user,
+        paymentHistory,
+      });
     } catch (error) {
       console.error("Error:", error);
       throw error;
@@ -25,7 +29,7 @@ export default function page() {
   };
 
   useEffect(() => {
-    if (user?.token) handleUpdateCredits();
+    if (user?.token) handleUpdateUser();
   }, [user.token]);
 
   return (

@@ -50,7 +50,7 @@ function GameHandler() {
   const id = searchParams.get("id");
   const [gameCampaign, setGameCampaign] = useState();
   const [gameCharacter, setGameCharacter] = useState();
-
+  const [choices, setChoices] = useState([]);
   const {
     currentCampaign,
     currentCharacter,
@@ -82,7 +82,7 @@ function GameHandler() {
         },
         user?.token
       );
-
+      setChoices(game.choices);
       setResponse(game.state);
 
       setGame(game);
@@ -110,6 +110,7 @@ function GameHandler() {
       const { game, character, campaign } = await getGame(id, user?.token);
       setGame(game);
       setResponse(game?.state);
+      setChoices(game?.choices);
       setCurrentCharacter(null);
       setCurrentCampaign(null);
       setGameCharacter(character);
@@ -148,6 +149,7 @@ function GameHandler() {
       gameCharacter={gameCharacter}
       setGameCharacter={setGameCharacter}
       gameCampaign={gameCampaign}
+      choices={choices}
     />
   );
 }

@@ -1,16 +1,6 @@
 import React, { useState } from "react";
 
-export default function emoticons() {
-  const [selected, setSelected] = useState(5);
-
-  const emoticons = [
-    { id: 1, label: "Very Unhappy", icon: "/Icons/saddest.svg" },
-    { id: 2, label: "Unhappy", icon: "/Icons/sadder.svg" },
-    { id: 3, label: "Neutral", icon: "/Icons/sad.svg" },
-    { id: 4, label: "Happy", icon: "/Icons/happy.svg" },
-    { id: 5, label: "Very Happy", icon: "/Icons/happiest.svg" },
-  ];
-
+export default function emoticons({ selected, setSelected, emoticons }) {
   const handleSelect = (id) => {
     setSelected(id);
   };
