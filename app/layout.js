@@ -233,21 +233,19 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning className={inter.className}>
       <GoogleOAuthProvider clientId="1036030324483-ltg0nqpg0ectr5q3n7cfa66l7eq1ban8.apps.googleusercontent.com">
-        <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="preload" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap" as="style" />
-        <link rel="preload" href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" as="style" />
-        <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" as="style" />
-        <link rel="preload" href="/fonts/HelveticaNowDisplay-Medium.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" />
+      <head>
           <meta
             name="viewport"
             content="width=device-width, initial-scale=1, maximum-scale=1"
           />
           <link rel="icon" href="/favicon.ico" />
+          <link rel="preload" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;700&display=swap" as="style" />
+          <link rel="preload" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap" as="style" />
+          <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" as="style" />
+          <link rel="preload" href="/fonts/HelveticaNowDisplay-Medium.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
+          <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;700&display=swap" />
+          <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap" />
+          <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" />
           <Script
             strategy="afterInteractive"
             src={`https://www.googletagmanager.com/gtag/js?id=G-BTHMYX7TZ9`}
