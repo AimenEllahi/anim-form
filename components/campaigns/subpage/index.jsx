@@ -1,6 +1,5 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import Head from "next/head";
 import Button from "@/components/ui/custom-button";
 import TimeStamps from "./Timestamps";
 import Comments from "./Comments";
@@ -27,30 +26,6 @@ export default function Index({ campaign, setCampaign }) {
 
   return (
     <>
-      <Head>
-        <title>{`DND AI | ${campaign.title || "Campaign Details"}`}</title>
-        <meta
-          name="description"
-          content={campaign.description || "Explore the campaign details in DND AI."}
-        />
-        <meta
-          name="keywords"
-          content="DND AI, Campaign Details, Role-playing games"
-        />
-        <meta
-          property="og:title"
-          content={`DND AI | ${campaign.title || "Campaign Details"}`}
-        />
-        <meta
-          property="og:description"
-          content={campaign.description || "Explore the campaign details in DND AI."}
-        />
-        <meta property="og:url" content={`https://www.dndai.app/campaign/${campaign.slug}`} />
-        <meta
-          property="og:image"
-          content="https://dndai-images.s3.eu-central-1.amazonaws.com/Headers/Header.webp"
-        />
-      </Head>
       <div className="min-h-screen h-full w-full flex flex-col pt-[86px] md:pt-[128px] lg:px-12 md:pb-20">
         <div className="flex flex-col gap-5 z-[10] px-5 md:px-0">
           <span className="headline-3 text-white capitalize">
