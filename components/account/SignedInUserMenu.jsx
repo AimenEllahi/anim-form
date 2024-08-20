@@ -112,7 +112,7 @@ export default function SignedInUserMenu() {
       </div>
       <hr className='w-full border-white/5 my-2' />
       <div className='w-full px-2 gap-2 flex flex-col'>
-        <DropdownMenuItem className='flex gap-2 !p-0   focus:bg-transparent focus:text-white  transition-all duration-300 ease-linear cursor-pointer'>
+        {/* <DropdownMenuItem className='flex gap-2 !p-0   focus:bg-transparent focus:text-white  transition-all duration-300 ease-linear cursor-pointer'>
           <CustomMenuItem
             onClick={() => handleRedirect("/my-account/settings")}
           >
@@ -123,7 +123,7 @@ export default function SignedInUserMenu() {
             />
             <span>Account Settings</span>
           </CustomMenuItem>
-        </DropdownMenuItem>
+        </DropdownMenuItem> */}
         <DropdownMenuItem className='flex gap-2 !p-0   focus:bg-transparent focus:text-white  transition-all duration-300 ease-linear cursor-pointer'>
           <CustomMenuItem onClick={handleLogout}>
             <img
