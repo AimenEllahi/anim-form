@@ -6,12 +6,12 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @font-face {
   font-family: "Helvetica Now Display";
   src: url("/fonts/HelveticaNowDisplay-Medium.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
+  font-display: swap;
 }
 
 body {

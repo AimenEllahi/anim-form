@@ -11,6 +11,7 @@ import "./globals.css";
 import useGameStore from "@/utils/gameStore";
 import CreditsDialogue from "@/components/ui/Shared/Dialogue/GetCredits";
 import useStepperStore from "@/utils/characterStore";
+import Image from "next/image";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -233,6 +234,15 @@ export default function RootLayout({ children }) {
     <html lang="en" suppressHydrationWarning className={inter.className}>
       <GoogleOAuthProvider clientId="1036030324483-ltg0nqpg0ectr5q3n7cfa66l7eq1ban8.apps.googleusercontent.com">
         <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="preload" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap" as="style" />
+        <link rel="preload" href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" as="style" />
+        <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" as="style" />
+        <link rel="preload" href="/fonts/HelveticaNowDisplay-Medium.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" />
           <meta
             name="viewport"
             content="width=device-width, initial-scale=1, maximum-scale=1"
@@ -272,10 +282,13 @@ export default function RootLayout({ children }) {
           {showDiceAbilities && (
             <div id="dice-box-abilities" className="dice-box"></div>
           )}
-          <img
+          <Image
             src="/images/bg.png"
             alt="Background"
-            className="h-screen w-screen object-fill fixed top-0 left-0 z-0"
+            fill
+            style={{ objectFit: "cover" }}
+            priority
+            className="fixed top-0 left-0 z-0"
           />
           <MemoizedNavbar
             characterSheet={characterSheet}
