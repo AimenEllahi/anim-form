@@ -49,9 +49,9 @@ const NavLinks = () => {
         <Link
           href='/pricing'
           className='text-white hover:text-gray1 transition-all duration-300 ease-in-out'
-          aria-label='Pricing'
+          aria-label='support us'
         >
-          PRICING
+          SUPPORT US
         </Link>
       </li>
     </ul>
