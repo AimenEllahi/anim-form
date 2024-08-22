@@ -3,98 +3,41 @@ import Upload from "@/components/ui/Icons/Upload";
 import { useDropzone } from "react-dropzone";
 
 import "subjx/dist/style/subjx.css";
-// import { cn } from "@/lib/utils";
-// import ImageEditor from "./ImageEditor";
-// import { useFunctionalityStore } from "@/utils/store";
-// import PopupShapes from "../BottomMenu/PopupShapes";
-// const convertPdfToImages = async (file) => {
-//   const pdfjs = window.pdfjsLib;
-//   const pdfjsWorker = await import("pdfjs-dist/build/pdf.worker.min.mjs");
-//   pdfjs.GlobalWorkerOptions.workerSrc = pdfjsWorker;
-//   console.log("PDFJS", pdfjs);
-//   let image;
-//   // const data = await readFileData(file);
-//   const pdf = await pdfjs.getDocument(file).promise;
-//   console.log(pdf);
-//   const canvas = document.createElement("canvas");
-
-//   const page = await pdf.getPage(1);
-//   const viewport = page.getViewport({ scale: 1 });
-//   const context = canvas.getContext("2d");
-//   canvas.height = viewport.height;
-//   canvas.width = viewport.width;
-//   await page.render({ canvasContext: context, viewport: viewport }).promise;
-//   image = canvas.toDataURL("image/png");
-
-//   canvas.remove();
-//   return image;
-// };
-
-// const tiffToImage = (file) => {
-//   return new Promise((resolve, reject) => {
-//     const xhr = new XMLHttpRequest();
-//     xhr.responseType = "arraybuffer";
-//     xhr.open("GET", file);
-//     xhr.onload = function (e) {
-//       if (xhr.status === 200) {
-//         const Tiff = window.Tiff;
-//         const tiff = new Tiff({ buffer: xhr.response });
-//         const canvas = tiff.toCanvas();
-//         const imageData = canvas.toDataURL("image/png");
-
-//         canvas.remove();
-//         resolve(imageData);
-//       } else {
-//         reject(new Error("Failed to fetch TIFF file"));
-//       }
-//     };
-//     xhr.onerror = function (e) {
-//       reject(new Error("Error fetching TIFF file"));
-//     };
-//     xhr.send();
-//   });
-// };
-
-// const createImage = (
-//   url,
-//   setSelectedFile,
-//   setAspectRatio,
-//   calculateDimensions
-// ) => {
-//   // Load the image to get its natural width and height
-//   const img = new Image();
-//   img.onload = function () {
-//     // Calculate the aspect ratio
-//     const aspectRatio = img.naturalWidth / img.naturalHeight;
-//     console.log("Aspect Ratio:", aspectRatio);
-
-//     // Set the selected file and aspect ratio in state
-//     calculateDimensions(url);
-//     setSelectedFile(url);
-//     setAspectRatio(aspectRatio);
-//   };
-//   img.src = url;
-// };
-// const AcceptedFileTypes = [
-//   "image/png",
-//   "image/jpeg",
-//   "image/tiff",
-//   "application/pdf",
-// ];
-
-const upload = ({ file, setFile }) => {
+const allowedTypes = ["image/jpeg", "image/webp", "image/png"];
+const upload = ({ files, setFiles }) => {
   const onDrop = useCallback((acceptedFiles) => {
     acceptedFiles.forEach((file) => {
       const reader = new FileReader();
 
+      if (!allowedTypes.includes(file.type)) {
+        console.log(`File type ${file.type} is not allowed.`);
+        return; // Skip this file if it's not an allowed type
+      }
+
       reader.onabort = () => console.log("file reading was aborted");
       reader.onerror = () => console.log("file reading has failed");
       reader.onload = () => {
-        // Do whatever you want with the file contents
-        const binaryStr = reader.result;
-        console.log(binaryStr);
+        // Convert the file to Base64
+        const base64String = reader.result.split(",")[1]; // Extract base64 part
+        const base64URL = reader.result; // Full base64 string with prefix for rendering
+
+        setFiles((prev) => {
+          if (prev.length < 5) {
+            return [
+              ...prev,
+              {
+                filename: file.name,
+                content: base64String,
+                encoding: "base64",
+                url: base64URL,
+              },
+            ];
+          } else {
+            return prev;
+          }
+        });
       };
-      reader.readAsArrayBuffer(file);
+      reader.readAsDataURL(file);
     });
   }, []);
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
@@ -118,9 +61,7 @@ const upload = ({ file, setFile }) => {
               <span className='text-gray2'>Drag and drop files or </span>upload
               files
             </span>
-            <span className='text-gray2 font-roboto-mono'>
-              png, jpg, tif, webp, pdf
-            </span>
+            <span className='text-gray2 font-roboto-mono'>png, jpg, webp</span>
           </div>
         </section>
       </div>

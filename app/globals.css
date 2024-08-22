@@ -396,6 +396,11 @@ audio::-webkit-media-controls-enclosure {
   -webkit-appearance: none;
 }
 
+ input::-ms-reveal,
+ input::-ms-clear {
+   display: none;
+ }
+
 /* width */
 @media screen and (-webkit-min-device-pixel-ratio: 0) and (max-width: 764px) {
 

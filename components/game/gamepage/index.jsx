@@ -71,8 +71,6 @@ export default function Index({
     }
 
     try {
-      setLoading(true);
-
       // Initialize the dice box if not already initialized
       if (!diceBox.initialized) {
         await diceBox.init();
@@ -94,6 +92,16 @@ export default function Index({
         campaignId: game.campaignId,
         gameId: game._id,
       };
+
+      setLoading(true);
+      const element = document.querySelector(".chat-box");
+      setTimeout(() => {
+        element.scrollTo({
+          top: element.scrollHeight,
+          behavior: "smooth", // You can also use 'auto' for an immediate scroll
+        });
+      }, 500);
+
       const {
         game: _game,
         responseText,

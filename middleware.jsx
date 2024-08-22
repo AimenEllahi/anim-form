@@ -4,7 +4,7 @@ export default async function middleware(req) {
   let url = req.url;
   let baseURL = process.env.NEXT_PUBLIC_BASE_URL;
   let token = req.cookies.get("token")?.value;
-  console.log(!token);
+  console.log(token);
   //if not logged in and not on the login page
   if (!token && (url.includes("my-account") || url.includes("favorites"))) {
     console.log("here");

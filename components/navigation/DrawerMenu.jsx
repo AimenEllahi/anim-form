@@ -126,14 +126,15 @@ const UserLoggedIn = ({ handleRedirect, handlePlay }) => {
 
       <hr className='border-white/10 ' />
       <div className='flex flex-col gap-6'>
-        {/* <CustomMenuItem
+        <CustomMenuItem
+          onClick={() => handleRedirect("my-account/settings")}
           className={
             "p-0 hover:bg-transparent active:bg-transparent hover:border-transparent active:border-transparent"
           }
         >
           <Settings className='h-5 w-5 opacity-70 fill-white' />
           <span>Account Setting</span>
-        </CustomMenuItem> */}
+        </CustomMenuItem>
 
         <CustomMenuItem
           onClick={handleLogout}

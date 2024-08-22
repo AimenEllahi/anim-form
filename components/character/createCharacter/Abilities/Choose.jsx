@@ -121,7 +121,7 @@ export default function Choose({
       return rollResults[result].ability;
     });
     setOptions((prev) =>
-      prev.filter((option) => !selectedOptions.includes(option))
+      ABILITIES.filter((option) => !selectedOptions.includes(option))
     );
   }, []);
 
@@ -240,15 +240,18 @@ export default function Choose({
       },
     });
 
+    handleChangeAbilities({ ...abilities, [ability]: value });
+  };
+
+  useEffect(() => {
     const selectedOptions = Object.keys(rollResults).map((result, index) => {
       return rollResults[result].ability;
     });
-    selectedOptions.push(ability);
+    console.log(selectedOptions);
     setOptions((prev) =>
-      prev.filter((option) => !selectedOptions.includes(option))
+      ABILITIES.filter((option) => !selectedOptions.includes(option))
     );
-    handleChangeAbilities({ ...abilities, [ability]: value });
-  };
+  }, [rollResults]);
 
   const resetAbilities = () => {
     setRollResults({});
@@ -258,7 +261,7 @@ export default function Choose({
   };
 
   return (
-    <div className='md:rounded-[16px] flex flex-col gap-6 w-full md:w-fit max-h-fit h-full mb-auto md:p-5 md:pt-6 md:border border-white/10 md:bg-white/[8%]  '>
+    <div className='md:rounded-[16px] flex flex-col gap-6 w-full md:w-fit max-h-full h-fit md:p-5 md:pt-6 md:border border-white/10 md:bg-white/[8%]  '>
       <h1 className='headline-4 hidden md:block'>Abilities</h1>
 
       <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-start gap-6  w-full hide-scrollbar overflow-y-scroll'>
@@ -267,7 +270,7 @@ export default function Choose({
           return (
             <div
               key={index}
-              className='border col-span-1 border-white/5  bg-white/[.02] p-5 rounded-[10px] gap-5 flex flex-col'
+              className='border col-span-1 border-white/5  bg-white/[.02] p-5 rounded-[10px] gap-5 flex flex-col '
             >
               {diceRoll?.result ? (
                 <DiceResults results={diceRoll.result} value={diceRoll.value} />
@@ -288,8 +291,8 @@ export default function Choose({
                 setSelectedOption={(abiliity) =>
                   handleChangeAbilityScore(abiliity, index, diceRoll?.value)
                 }
-                selectedOption={diceRoll?.ability || ""}
-                options={options}
+                selectedOption={diceRoll?.ability || "Select Stat"}
+                options={["Select Stat", ...options]}
                 className={"w-full min-w-full"}
                 placeholder={"Select Stat"}
               />
