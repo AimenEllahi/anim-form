@@ -83,7 +83,7 @@ export default function chatbox({
     <div
       ref={chatboxRef}
       className={cn(
-        "relative  chat-box w-full lg:w-[65%]  min-h-1/2 flex-1  overflow-y-scroll hide-scrollbar  flex flex-col  pb-40 pt-12 lg:py-12 lg:pt-32  ",
+        "relative chat-box w-full lg:w-[65%]  min-h-1/2 flex-1  overflow-y-scroll hide-scrollbar  flex flex-col  pb-40 pt-12 lg:py-12 lg:pt-32  ",
         narrate && "pb-48"
       )}
     >
@@ -102,7 +102,7 @@ export default function chatbox({
         {chat.map((item, index) => {
           return item.type === "image" ? (
             <div
-              key={index}
+              key={index + "dnd-master"}
               className={cn(
                 "h-[223px] w-full",
                 index === chat.length - 1 && "last-obj"
@@ -161,7 +161,7 @@ export default function chatbox({
                         onClick={() => {
                           if (choice.title.toLowerCase() === "free choice") {
                             setInput("");
-                          } else setInput(choice.description);
+                          } else setInput(choice.title);
                           setFocusTrigger((prev) => !prev);
                         }}
                         className='flex transition-all ease-in-out hover:duration-300 active:duration-100 group cursor-pointer flex-col gap-2 md:gap-4'

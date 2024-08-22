@@ -43,6 +43,9 @@ export default function index() {
   const tac = pathname.includes("/terms");
   const privacy = pathname.includes("/privacy");
   const imprint = pathname.includes("/imprint");
+  const about = pathname.includes("/about");
+  const contact = pathname.includes("/contact");
+  const settings = pathname.includes("my-account/settings");
 
   if (noHeading) return null;
 
@@ -196,7 +199,12 @@ export default function index() {
       return <span className='headline-3  '>Privacy Policy</span>;
     } else if (imprint) {
       return <span className='headline-3  '>Imprint</span>;
-    }
+    } else if (about) {
+      return <span className='headline-3  '>Imprint</span>;
+    } else if (contact) {
+      return <span className='headline-3  '>Contact</span>;
+    } else if (settings)
+      return <span className='headline-3  '> Account settings</span>;
   };
 
   return <div className='  text-white md:hidden'>{renderHeader()}</div>;

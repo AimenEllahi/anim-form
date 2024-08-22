@@ -1,12 +1,12 @@
 "use client";
 import React, { useState } from "react";
-import CustomInput from "../ui/custom-input";
-import CustomButton from "../ui/custom-button";
+import CustomInput from "@/components/ui/custom-input";
+import CustomButton from "@/components/ui/custom-button";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { resetPassword } from "@/actions/auth";
 import { isPasswordValid } from "@/lib/Helpers/auth";
-import CustomValidationtext from "../ui/custom-validationtext";
+import CustomValidationtext from "@/components/ui/custom-validationtext";
 import useCustomToast from "@/hooks/useCustomToast";
 import { useRouter } from "next/navigation";
 export default function newPass() {
@@ -35,11 +35,11 @@ export default function newPass() {
     try {
       setIsLoading(true);
       const response = await resetPassword(password, token);
-   //   console.log(response);
+      //   console.log(response);
       invokeToast("Password Reset Successful", "Success");
       router.push("/auth/pass-changed");
     } catch (error) {
-    //  console.log(error);
+      //  console.log(error);
       invokeToast(
         error?.response?.data?.message || "Something Went Wrong",
         "error"
