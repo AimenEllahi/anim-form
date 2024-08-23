@@ -11,6 +11,7 @@ export default function row({
   showMore,
   isGame,
   games,
+  handleUpdateCampaigns,
 }) {
   const router = useRouter();
   return (
@@ -22,6 +23,7 @@ export default function row({
       <CampaignCarousel
         isGame={isGame}
         games={games}
+        handleUpdateCampaigns={handleUpdateCampaigns}
         campaigns={campaigns}
         className={"px-5 md:px-12"}
       />

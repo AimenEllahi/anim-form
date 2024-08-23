@@ -9,24 +9,45 @@ import { useDebounce } from "@/hooks/useDebounce";
 import { searchCampaigns } from "@/actions/campaigns";
 import useGameStore from "@/utils/gameStore";
 import GeneralGameTabbar from "@/components/ui/Shared/TabBar/generalGame";
+import _ from "lodash";
 
-export default function index({ popular, mostLiked }) {
+export default function index({
+  popular,
+  mostLiked,
+  setPopularCampaigns,
+  setCampaigns,
+}) {
   const [query, setQuery] = useState("");
   const [searchedCampaign, setSearchedCampaign] = useState(null); // [campaign1, campaign2, ...
   const debouncedQuery = useDebounce(query, 500);
   const { currentCharacter } = useGameStore();
-//  console.log("currentCharacter", currentCharacter);
+  //  console.log("currentCharacter", currentCharacter);
   const handleSearchCampaign = async () => {
     // search campaign
     try {
-    //  console.log("debouncedQuery", debouncedQuery);
+      //  console.log("debouncedQuery", debouncedQuery);
       const { campaigns } = await searchCampaigns(debouncedQuery);
-   //   console.log("campaigns", campaigns);
+      //   console.log("campaigns", campaigns);
       setSearchedCampaign(campaigns);
     } catch (error) {
       console.error("Error:", error);
     }
   };
+
+  const handleUpdateMostLikedCampaigns = (campaign) => {
+    let _campaigns = mostLiked.filter((c) => c._id !== campaign._id);
+    _campaigns.push(campaign);
+    _campaigns = _.sortBy(_campaigns, ["createdAt"]);
+    setCampaigns(_campaigns);
+  };
+
+  const handleUpdatePublicCampaigns = (campaign) => {
+    let _campaigns = popular.filter((c) => c._id !== campaign._id);
+    _campaigns.push(campaign);
+    _campaigns = _.sortBy(_campaigns, ["createdAt"]);
+    setPopularCampaigns(_campaigns);
+  };
+
   useEffect(() => {
     if (debouncedQuery) {
       handleSearchCampaign();
@@ -69,12 +90,14 @@ export default function index({ popular, mostLiked }) {
         )}
 
         <Row
+          handleUpdateCampaigns={handleUpdateMostLikedCampaigns}
           text={"Community Favorites"}
           campaigns={mostLiked}
           icon={<Star isfilled={"true"} className='h-5 w-5 fill-gray2' />}
         />
         <Row
           text={"Public games"}
+          handleUpdateCampaigns={handleUpdatePublicCampaigns}
           campaigns={popular}
           icon={<World className='h-5 w-5 fill-gray2' />}
           showMore={true}

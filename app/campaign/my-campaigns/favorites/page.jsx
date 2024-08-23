@@ -32,5 +32,5 @@ export default function page() {
   }, [user]);
 
   if (!campaigns) return <Loader text='Loading Favorites ...' />;
-  return <Favorties campaigns={campaigns} />;
+  return <Favorties campaigns={campaigns} setCampaigns={setCampaigns} />;
 }

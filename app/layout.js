@@ -12,7 +12,8 @@ import useGameStore from "@/utils/gameStore";
 import CreditsDialogue from "@/components/ui/Shared/Dialogue/GetCredits";
 import useStepperStore from "@/utils/characterStore";
 import Image from "next/image";
-
+import useUserStore from "@/utils/userStore";
+import Cookie from "universal-cookie";
 const inter = Inter({ subsets: ["latin"] });
 
 const MemoizedNavbar = memo(Navbar);
@@ -253,6 +254,8 @@ function getMetaTags(pathname) {
 export default function RootLayout({ children }) {
   const pathname = usePathname();
   const { activeStep } = useStepperStore();
+  const { user } = useUserStore();
+  const cookies = new Cookie();
 
   const isTransparentNavbar =
     pathname.includes("/auth") || pathname.includes("/game/play");
@@ -302,7 +305,18 @@ export default function RootLayout({ children }) {
       handleRouteChange(pathname);
     }
   }, [pathname, title]);
+  useEffect(() => {
+    //get token
+    const token = cookies.get("token");
+    if (!token && user?.token) {
+      cookies.set("token", user.token, {
+        path: "/",
+        secure: true,
 
+        sameSite: "Strict",
+      });
+    }
+  }, [user]);
   return (
     <html lang='en' suppressHydrationWarning className={inter.className}>
       <GoogleOAuthProvider clientId='1036030324483-ltg0nqpg0ectr5q3n7cfa66l7eq1ban8.apps.googleusercontent.com'>

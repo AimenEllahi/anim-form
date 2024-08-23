@@ -152,7 +152,9 @@ export default function chatbox({
                     className={cn(
                       "flex flex-col gap-5 mt-8 md:gap-8",
                       TEXT_SIZES[textSize],
-                      index !== chat.length - 1 && "pointer-events-none"
+                      index !== chat.length - 1 &&
+                        chat[chat.length - 1].type !== "image" &&
+                        "pointer-events-none"
                     )}
                   >
                     {item?.choices?.map((choice, _index) => (

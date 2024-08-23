@@ -16,63 +16,60 @@ export default function CustomDropdown({
   options,
   selectedOption,
   setSelectedOption,
-  dropDownClassname,
 }) {
   const [show, setShow] = useState(false);
 
-  console.log(show);
-
   return (
     <Select open={show} onOpenChange={(e) => setShow(e)}>
-      <SelectTrigger className={cn(className)} onClick={() => setShow(true)}>
-        <div className='w-full '>
-          <input
-            disabled={true}
-            type='text'
-            className='outline-none cursor-pointer pointer-events-none h-full text-[14px] px-3 pt-0.5 peer bg-transparent disabled:opacity-100 !text-white uppercase placeholder:!text-white  '
-            placeholder=' '
-            value={selectedOption}
-            autoFocus={false}
-          />
-          <img
-            src='/Icons/DropdownArrow.svg'
-            className='absolute z-[9] h-1 w-2  right-4 top-1/2 transform -translate-y-1/2 text-white pointer-events-none'
-          />
+      <div
+        onClick={() => setShow(true)}
+        className='w-full !h-[48px]   max-h-[48px]  relative   flex  running-text-mono uppercase overflow-visible !ring-offset-0 outline-none  focus:!border-none focus:!ring-0'
+      >
+        <input
+          disabled={true}
+          type='text'
+          className='outline-none relative cursor-pointer pointer-events-none h-full text-[14px] px-3 pt-0.5 peer bg-transparent disabled:opacity-100 !text-white uppercase placeholder:!text-white  '
+          placeholder=' '
+          value={selectedOption}
+          autoFocus={false}
+        />
+        <img
+          src='/Icons/DropdownArrow.svg'
+          className='absolute z-[9] h-1 w-2  right-4 top-1/2 transform -translate-y-1/2 text-white pointer-events-none'
+        />
 
-          <label
-            className={cn(
-              "absolute left-[9px] uppercase top-px !text-sm text-irisPurpleLight transition-all duration-300 ease-in-out px-1 transform -translate-y-[43%] pointer-events-none  peer-placeholder-shown:top-1/2 font-medium peer-placeholder-shown:text-xl group-focus-within:!top-px group-focus-within:!text-sm group-focus-within:!text-irisPurpleLight group-focus-within:!text-[10px]",
-              selectedOption && "!text-[10px]"
-            )}
-          >
+        <label
+          className={cn(
+            "absolute left-[9px] uppercase top-px !text-sm text-irisPurpleLight transition-all duration-300 ease-in-out px-1 transform -translate-y-[43%] pointer-events-none  peer-placeholder-shown:top-1/2 font-medium peer-placeholder-shown:text-xl group-focus-within:!top-px group-focus-within:!text-sm group-focus-within:!text-irisPurpleLight group-focus-within:!text-[10px]",
+            selectedOption && "!text-[10px]"
+          )}
+        >
+          {placeholder}
+        </label>
+
+        <fieldset
+          className={cn(
+            "inset-0 absolute border border-gray2 rounded-[10px] pointer-events-none mt-[-6px] invisible peer-placeholder-shown:visible group-focus-within:!border-irisPurpleLight group-focus-within:border-1 group-hover:border-white transition-all duration-300 ease-in-out group-hover-within:text-[10px]",
+            show && "border-irisPurpleLight group-hover:border-irisPurpleLight "
+          )}
+        >
+          <legend className='ml-2 uppercase px-0 text-[10px] transition-all duration-300 ease-in-out invisible max-w-[0.01px] group-focus-within:max-w-full group-focus-within:px-[3px] whitespace-nowrap'>
             {placeholder}
-          </label>
+          </legend>
+        </fieldset>
 
-          <fieldset
-            className={cn(
-              "inset-0 absolute border border-gray2 rounded-[10px] pointer-events-none mt-[-6px] invisible peer-placeholder-shown:visible group-focus-within:!border-irisPurpleLight group-focus-within:border-1 group-hover:border-white transition-all duration-300 ease-in-out group-hover-within:text-[10px]",
-              show &&
-                "border-irisPurpleLight group-hover:border-irisPurpleLight "
-            )}
-          >
-            <legend className='ml-2 uppercase px-0 text-[10px] transition-all duration-300 ease-in-out invisible max-w-[0.01px] group-focus-within:max-w-full group-focus-within:px-[3px] whitespace-nowrap'>
-              {placeholder}
-            </legend>
-          </fieldset>
-
-          <fieldset
-            className={cn(
-              "inset-0 absolute border uppercase border-gray2 rounded-[10px] transition-all duration-300 ease-in-out  pointer-events-none mt-[-6px] visible peer-placeholder-shown:invisible group-focus-within:border-1 group-focus-within:!border-irisPurpleLight group-hover:border-white",
-              show &&
-                "border-irisPurpleLight group-hover:border-irisPurpleLight"
-            )}
-          >
-            <legend className='-ml-[26.5%]  !-mt-1  text-[10px] invisible px-[3px] max-w-full whitespace-nowrap  group-hover-within:text-[10px]'>
-              {placeholder}
-            </legend>
-          </fieldset>
-        </div>
-      </SelectTrigger>
+        <fieldset
+          className={cn(
+            "inset-0 absolute  border uppercase border-gray2 rounded-[10px] transition-all duration-300 ease-in-out  pointer-events-none mt-[-6px] visible peer-placeholder-shown:invisible group-focus-within:border-1 group-focus-within:!border-irisPurpleLight group-hover:border-white",
+            show && "border-irisPurpleLight group-hover:border-irisPurpleLight"
+          )}
+        >
+          <legend className='ml-2  !-mt-1  text-[10px] invisible px-[3px] max-w-full whitespace-nowrap  group-hover-within:text-[10px]'>
+            {placeholder}
+          </legend>
+        </fieldset>
+      </div>
+      <SelectTrigger onClick={() => setShow(true)}></SelectTrigger>
       <SelectContent
         className={cn(
           "!bg-blur flex text-white  overflow-y-scroll hide-scrollbar !rounded-[16px]   !w-auto  !border !border-white/10  flex-col gap-2 shadow-lg mt-2 !p-2  uppercase   transition-all duration-300 ease-in-out !z-[50] "

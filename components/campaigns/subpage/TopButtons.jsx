@@ -75,7 +75,7 @@ const TopButtons = ({ campaign, setCampaign, className }) => {
     setIsLoading(true);
     try {
       const response = await unPublishCampaign(campaign._id, user?.token);
-    //  console.log(response);
+      //  console.log(response);
       setCampaign((prev) => ({
         ...prev,
         isPublished: response.isPublished,
@@ -177,7 +177,7 @@ const TopButtons = ({ campaign, setCampaign, className }) => {
         className
       )}
     >
-      <div className='hidden md:flex justify-start items-start md:items-center gap-8 w-full md:w-3/4 flex-col md:flex-row'>
+      <div className=' flex justify-start items-start md:items-center gap-8 w-full md:w-3/4 flex-col md:flex-row'>
         <div className='flex gap-6 md:gap-8 w-full  justify-start items-start'>
           <CustomIcontext disabled={isLoading} onClick={handleLike}>
             <Like
@@ -204,7 +204,7 @@ const TopButtons = ({ campaign, setCampaign, className }) => {
             />
             <span>{campaign.analytics.stars.length}</span>
           </CustomIcontext>
-            {/** <CustomIcontext>
+          {/** <CustomIcontext>
             <img
               src='/Icons/Share.svg'
               alt=''
@@ -241,7 +241,7 @@ const TopButtons = ({ campaign, setCampaign, className }) => {
           </DeleteCampaign>
         </div>
 
-    {/**     <Button disabled={isLoading} onClick={downloadWorldMap} withIcon>
+        {/**     <Button disabled={isLoading} onClick={downloadWorldMap} withIcon>
           <img
             src='/Icons/Download.svg'
             className='h-5 w-5 opacity-75 invert'

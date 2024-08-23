@@ -88,6 +88,8 @@ export default function page() {
       characters={characters}
       mostLiked={campaigns}
       popular={popularCampaigns}
+      setPopularCampaigns={setPopularCampaigns}
+      setCampaigns={setCampaigns}
       recentlyPlayed={games}
     />
   );

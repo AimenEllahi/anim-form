@@ -11,6 +11,7 @@ export default function Campaign({
   isGame,
   games,
   className,
+  handleUpdateCampaigns,
 }) {
   const containerRef = useRef(null);
   const [canScrollLeft, setScrollLeft] = useState(false);
@@ -51,7 +52,7 @@ export default function Campaign({
     });
   };
 
- // console.log(games)
+  // console.log(games)
 
   return (
     <div
@@ -62,7 +63,7 @@ export default function Campaign({
     >
       <div
         className={cn(
-          "absolute top-[50%] left-0 ease-animate opacity-100   translate-y-[-50%] z-10  h-full hidden md:flex items-center justify-start px-10 w-[40vw] md:w-[20vw] ",
+          "absolute top-[50%] left-0 ease-animate opacity-100   translate-y-[-50%] z-10   hidden md:flex items-center justify-start px-10 w-[40vw] md:w-[20vw] ",
           !canScrollLeft && "pointer-events-none opacity-0"
         )}
       >
@@ -72,7 +73,7 @@ export default function Campaign({
       </div>
       <div
         className={cn(
-          "absolute top-[50%] right-0 !z-[30]  ease-animate  opacity-100 translate-y-[-50%]  h-full flex  items-center justify-end px-10 w-[64px] md:w-[270px]",
+          "absolute top-[50%] right-0 !z-[30]  ease-animate  opacity-100 translate-y-[-50%]   flex  items-center justify-end px-10 w-[64px] md:w-[270px]",
           !canScrollRight && "pointer-events-none opacity-0"
         )}
       >
@@ -98,6 +99,7 @@ export default function Campaign({
               <CampaignCard
                 campaign={campaign}
                 key={index}
+                handleUpdateCampaigns={handleUpdateCampaigns}
                 carousel
                 isLanding={isLanding}
                 className='snap-center'
