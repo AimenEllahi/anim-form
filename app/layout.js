@@ -73,7 +73,7 @@ function getMetaTags(pathname) {
     title = "DND AI | Home";
     description =
       "DnD AI, where Dungeons & Dragons meets cutting-edge AI! Create your hero, embark on epic quests, and let our AI Dungeon Master weave thrilling stories from your choices. Adventure awaits at dndai.app – dive in now!";
-    ogTitle = "DND AI | Create Character";
+    ogTitle = "DND AI | Home";
     ogDescription =
       "Enter the world of DnD AI – a fusion of Dungeons & Dragons and AI magic. Forge your hero, tackle epic quests, and let our AI DM craft unforgettable adventures from your choices. Start your legendary journey at dndai.app!";
     ogImage =
@@ -321,10 +321,43 @@ export default function RootLayout({ children }) {
     <html lang='en' suppressHydrationWarning className={inter.className}>
       <GoogleOAuthProvider clientId='1036030324483-ltg0nqpg0ectr5q3n7cfa66l7eq1ban8.apps.googleusercontent.com'>
         <head>
-          <meta
-            name='viewport'
-            content='width=device-width, initial-scale=1, maximum-scale=1'
-          />
+          <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1'/>
+          <meta charset="UTF-8" />
+          <title>{ogTitle}</title>
+          <meta name="author" content="dndai.app" />
+          <meta name="robots" content="index, follow" />
+          <meta name="language" content="English" />
+          <meta name="revisit-after" content="daily" />
+          <meta name="theme-color" content="#0A0A21" />
+
+          <meta property='og:title' content={ogTitle} /> 
+          <meta property='og:description' content={ogDescription} /> 
+          <meta property='og:url' content={ogUrl} /> 
+          <meta property='og:image' content={ogImage} /> 
+          <meta property='og:type' content='website' />
+          <meta property='og:site_name' content="DND AI" />
+          <meta property='og:locale' content='en_US' />
+          <meta property='og:image:width' content="1200" />
+          <meta property='og:image:height' content="630" />
+
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:title" content={ogTitle} />
+          <meta name="twitter:description" content={ogDescription} />
+          <meta name="twitter:image" content={ogImage} />
+          <meta name="twitter:site" content="@dndai_app" />
+          <meta name="twitter:creator" content="@dndai_app" />
+
+          <meta name='description' content={description} /> 
+          <meta name='keywords' content={keywords} /> 
+         
+          <meta name="apple-mobile-web-app-capable" content="yes" />
+          <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+          <meta name="apple-mobile-web-app-title" content="DND AI" />
+          <meta name="application-name" content="DND AI" />
+          <meta name="msapplication-TileColor" content="#0A0A21" />
+          <meta name="msapplication-TileImage" content={ogImage} />
+          
+          <link rel="canonical" href={ogUrl} />
           <link rel='icon' href='/favicon.ico' />
           <link
             rel='preload'
@@ -380,13 +413,6 @@ export default function RootLayout({ children }) {
             }}
             async
           />
-          <meta name='description' content={description} />
-          <meta name='keywords' content={keywords} />
-          <meta property='og:title' content={ogTitle} />
-          <meta property='og:description' content={ogDescription} />
-          <meta property='og:url' content={ogUrl} />
-          <meta property='og:image' content={ogImage} />
-          <meta property='og:type' content='website' />
         </head>
         <body className='w-screen hide-scrollbar relative max-w-screen overflow-x-hidden bg-russianViolet'>
           {showDiceGold && <div id='dice-box-gold' className='dice-box'></div>}
