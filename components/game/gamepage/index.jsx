@@ -132,7 +132,7 @@ export default function Index({
       setLoading(false);
 
       // Clear dice state if necessary
-      // Ensure this does not transfer control
+      // Ensure this does not transfer control again
       diceBox.clear();
     }
   };
