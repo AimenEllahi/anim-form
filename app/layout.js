@@ -335,13 +335,15 @@ export default function RootLayout({ children }) {
 
           <meta name='description' content={description} /> 
           <meta name='keywords' content={keywords} /> 
-          <meta name="canonical" content={ogUrl} />
+         
           <meta name="apple-mobile-web-app-capable" content="yes" />
           <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
           <meta name="apple-mobile-web-app-title" content="DND AI" />
           <meta name="application-name" content="DND AI" />
           <meta name="msapplication-TileColor" content="#0A0A21" />
           <meta name="msapplication-TileImage" content={ogImage} />
+          
+          <link rel="canonical" href={ogUrl} />
           <link rel='icon' href='/favicon.ico' />
           <link
             rel='preload'
