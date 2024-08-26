@@ -31,9 +31,26 @@ function getMetaTags(pathname) {
     "Dive into epic, story-driven adventures with free pen and paper games, powered by OpenAI’s cutting-edge artificial intelligence.";
   let ogImage =
     "https://dndai-images.s3.eu-central-1.amazonaws.com/Headers/Header.webp";
-  let ogUrl = "https://www.dndai.app";
+  let ogUrl = `https://dndai.app${pathname}`;
 
-  if (pathname.includes("/character/create")) {
+  if (pathname.includes("game/character-selection")) {
+    title = "DND AI | Hero Select";
+    description =
+      "Select your Hero to play on dndai.app See character progress, level and an overview of all of your DnD characters !";
+    keywords =
+      "fantasy characters, RPG character , custom character selection, AI character select, RPG classes and races, D&D character selection, role-playing game tools, characteroverview";
+    ogTitle = "DND AI | Hero Select";
+    ogDescription =
+      "Select your Hero to play on dndai.app See character progress, level and an overview of all of your DnD characters !";
+    ogImage =
+      "https://dndai-images.s3.eu-central-1.amazonaws.com/derpatron/1721593894794.webp";
+    ogUrl = `https://dndai.app${pathname}`;
+  }
+    else if (pathname.includes("/game/play")) {
+        title = "DND AI | Gameplay";
+        ogTitle = "DND AI | Gameplay";
+  } 
+  else if (pathname.includes("/character/create")) {
     title = "DND AI | Create Character";
     description =
       "Create your own unique fantasy character effortlessly. Choose from various races, classes, abilities, backgrounds, alignments, starting equipment, and more. Let our AI bring your character to life in seconds!";
@@ -45,7 +62,19 @@ function getMetaTags(pathname) {
     ogImage =
       "https://dndai-images.s3.eu-central-1.amazonaws.com/tutorial/tutorial-1.webp";
     ogUrl = `https://dndai.app${pathname}`;
-  } else if (pathname.includes("/character/my-characters")) {
+} 
+  else if (pathname.includes("/game/campaign-selection")) {
+    title = "DND AI | Campaign Select";
+    description =
+      "Select from a wide range from user generated Campaigns to start your game!";
+    keywords =
+      "fantasy DnD Campaigns, RPG campaign generator, custom game selection, AI games, RPG genres, D&D storys, role-playing games";
+    ogTitle = "DND AI | Campaign Select";
+    ogDescription =
+      "Select from a wide range from user generated Campaigns to start your game!";
+    ogUrl = `https://dndai.app${pathname}`;
+}
+  else if (pathname.includes("/character/my-characters")) {
     title = "DND AI | My Characters";
     description =
       "View your uniquely crafted characters or start creating a new one with our intuitive AI-powered generator. Manage existing characters or dive into the fun of character creation with endless customization options.";
