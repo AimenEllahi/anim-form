@@ -63,12 +63,7 @@ export default function Index({ character, setCharacter }) {
             />
           ) : (
             <div className='w-full h-[20vh]  md:h-[30vh] '>
-              <Scene
-                selectedFace={selectedFace}
-                setSelectedFace={setSelectedFace}
-                rolling={rolling}
-                setRolling={setRolling}
-              />
+              <Scene />
             </div>
           )}
           {selectedFace ? (

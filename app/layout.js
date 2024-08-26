@@ -346,7 +346,7 @@ export default function RootLayout({ children }) {
             href='/fonts/HelveticaNowDisplay-Medium.ttf'
             as='font'
             type='font/ttf'
-            crossorigin='anonymous'
+            crossOrigin='anonymous'
           />
           <link
             rel='stylesheet'

@@ -107,6 +107,7 @@ export default function Narrate({
     }
     try {
       audioRef?.current?.pause();
+      setAudio(null);
       setLoading(true);
       setOpen(false);
       setIsPlaying(false);

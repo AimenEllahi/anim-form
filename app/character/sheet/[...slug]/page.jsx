@@ -6,6 +6,7 @@ import Loader from "@/components/ui/Loader";
 import { useRouter } from "next/navigation";
 import useCustomToast from "@/hooks/useCustomToast";
 import useUserStore from "@/utils/userStore";
+import Cookie from "universal-cookie";
 const _character = {
   personal: {
     name: "Yuela Ashford",
@@ -68,10 +69,13 @@ export default function page({ params }) {
   const router = useRouter();
   const { invokeToast } = useCustomToast();
   const { user } = useUserStore();
+  const cookies = new Cookie();
 
   const handleGetCharacter = async () => {
     try {
-      const response = await getCharacter(params.slug, user?.token);
+      const token = user?.token || cookies.get("token");
+
+      const response = await getCharacter(params.slug, token);
       setCharacter(response.character);
     } catch (error) {
       invokeToast(
@@ -84,11 +88,11 @@ export default function page({ params }) {
   };
   useEffect(() => {
     handleGetCharacter();
-  }, []);
+  }, [user]);
 
   if (!character) return <Loader text={"loading character..."} />;
 
- // console.log(character);
+  // console.log(character);
   return (
     <div className='bg-gradient text-white'>
       <CharacterSheet character={character} setCharacter={setCharacter} />

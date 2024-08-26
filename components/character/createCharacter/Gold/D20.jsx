@@ -123,16 +123,7 @@ export function Model({ selectedFace, setSelectedFace, rolling, setRolling }) {
   });
 
   return (
-    <group
-      onClick={() => {
-        if (!rolling && !selectedFace) setRolling(true);
-      }}
-      onPointerEnter={() => (document.body.style.cursor = "pointer")}
-      onPointerLeave={() => (document.body.style.cursor = "auto")}
-      dispose={null}
-      ref={sceneRef}
-      rotation={[0.95, -0.44, 0]}
-    >
+    <group dispose={null} ref={sceneRef} rotation={[0.95, -0.44, 0]}>
       <primitive object={scene} />
     </group>
   );

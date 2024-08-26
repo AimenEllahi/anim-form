@@ -66,7 +66,7 @@ export default function Index({
   }, [gameCampaign]);
 
   const handleChat = async (text) => {
-    if (user.blueCredits < 1) {
+    if (user?.blueCredits < 1) {
       setShowCreditsDialogue(true);
       return;
     }
@@ -190,7 +190,7 @@ export default function Index({
                 disabled={loading}
                 onChange={(e) => setInput(e)}
                 onClick={() => {
-                  if (user.blueCredits < 1) {
+                  if (user?.blueCredits < 1) {
                     setTimeout(() => {
                       setShowCreditsDialogue(true);
                     }, 300);

@@ -17,7 +17,7 @@ export default function SignedInUserMenu() {
   const handleLogout = () => {
     cookies.set("token", "", { path: "/" });
     setUser(null);
-    router.refresh();
+    window.location.reload();
   };
 
   const handleRedirect = (path) => {
