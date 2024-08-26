@@ -10,7 +10,7 @@ import Delete from "@/components/ui/Icons/Delete";
 import useCustomToast from "@/hooks/useCustomToast";
 
 import { sendContact } from "@/actions/email";
-
+//bug component
 export default function bug() {
   const [files, setFiles] = useState([]);
   const [bugDescription, setBugDescription] = useState("");
