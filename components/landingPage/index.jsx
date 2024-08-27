@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React, { useRef, useState } from "react";
 import { ParallaxProvider } from "react-scroll-parallax";
 import Step from "@/components/landingPage/step";
 import ImageParallax from "@/components/landingPage/ImageParallax";
@@ -26,6 +26,11 @@ export default function Home() {
   const scrollRef = useRef(null);
   const locoScrollRef = useRef(null);
   const { isMobile } = useDeviceDetect();
+  const [videoError, setVideoError] = useState(false);
+
+  const handleVideoError = () => {
+    setVideoError(true);
+  };
 
   return (
     <>
@@ -36,18 +41,34 @@ export default function Home() {
         className="w-full h-full overflow-x-hidden bg-gradient-to-b px-0 py-0 m-0 !bg-russianViolet"
       >
         <div className="w-full h-screen relative">
-          <Image
-            src={
-              isMobile
-                ? "/images/Landing/Header-mobile.webp"
-                : "/images/Landing/Header.webp"
-            }
-            alt="Header Background"
-            className="absolute top-0 left-0"
-            fill
-            style={{ objectFit: "cover" }}
-            priority
-          />
+          {!videoError ? (
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="absolute top-0 left-0 w-full h-full object-cover"
+              onError={handleVideoError}
+            >
+              <source src="/videos/header.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          ) : (
+            <div className="absolute top-0 left-0 w-full h-full">
+              <Image
+                src={
+                  isMobile
+                    ? "/images/Landing/Header-mobile.webp"
+                    : "/images/Landing/Header.webp"
+                }
+                alt="Header Background"
+                className="absolute top-0 left-0"
+                fill
+                style={{ objectFit: "cover" }}
+                priority
+              />
+            </div>
+          )}
           <div className="absolute md:bottom-10 px-5 md:px-12 bottom-40 md:left-0 left-0 md:w-2/4 w-full">
             <h1 className="text-white w-full headline-3">
               EXPERIENCE GAMEPLAY WITHOUT CREATIVE BOUNDARIES, WHERE YOUR
