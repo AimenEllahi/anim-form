@@ -56,7 +56,7 @@ export default function Index() {
           name: fd.name,
         };
         const response = await updateUser(user?.token, payload);
-        console.log("updated", response);
+      //  console.log("updated", response);
         setUser({
           ...user,
           ...response,
@@ -198,7 +198,7 @@ export default function Index() {
           password,
         };
         const response = await updatePassword(user?.token, payload);
-        console.log("updated", response);
+      //  console.log("updated", response);
 
         invokeToast("Password Updated Successfully", "success");
       } catch (error) {

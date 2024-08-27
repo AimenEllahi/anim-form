@@ -15,7 +15,7 @@ export default function Step1({ setStep, user, setUser }) {
   const next = async () => {
     try {
       const response = await verifyEmailExists(user.email);
-      console.log(response);
+    //  console.log(response);
       if (response.exists) {
         setError("Email already exists");
       } else {

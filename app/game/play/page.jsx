@@ -109,7 +109,7 @@ function GameHandler() {
   const handleGetGame = async () => {
     try {
       const { game, character, campaign } = await getGame(id, user?.token);
-      console.log(game);
+   //   console.log(game);
       setGame(game);
       setResponse(game?.state);
       setChoices(game?.choices);
@@ -142,7 +142,7 @@ function GameHandler() {
     }
   }, [user?.token]);
 
-  console.log(choices);
+  //console.log(choices);
   if (!response) {
     return <Loader text='Loading Game ...' />;
   }

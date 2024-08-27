@@ -20,7 +20,7 @@ export default function Index({
   gameCampaign,
   choices,
 }) {
-  console.log(choices);
+//  console.log(choices);
   const { game, setGame } = useGameStore();
   const { user, setYellowCredits, setBlueCredits } = useUserStore();
   const { setShowCreditsDialogue } = useControlsStore();
@@ -110,7 +110,7 @@ export default function Index({
       } = await addChoice(payload, user?.token);
 
       setGame(_game);
-      console.log(choices);
+    //  console.log(choices);
       setChat((prev) => [
         ...prev,
         {
