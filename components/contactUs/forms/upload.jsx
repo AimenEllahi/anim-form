@@ -10,7 +10,7 @@ const upload = ({ files, setFiles }) => {
       const reader = new FileReader();
 
       if (!allowedTypes.includes(file.type)) {
-        console.log(`File type ${file.type} is not allowed.`);
+      //  console.log(`File type ${file.type} is not allowed.`);
         return; // Skip this file if it's not an allowed type
       }
 

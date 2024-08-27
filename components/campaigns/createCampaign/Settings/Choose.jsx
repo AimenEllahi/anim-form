@@ -22,7 +22,7 @@ export default function Choose({ campaign, handleSetCampaign }) {
             className='md:col-span-4 gap-3 flex flex-col lg:col-span-2  col-span-4  cursor-pointer'
           >
             <img
-              src={`https://dndai-images.s3.eu-central-1.amazonaws.com/settings/${setting
+              src={`https://dzjg7lvewk7ln.cloudfront.net/settings/${setting
                 .toLowerCase()
                 .replaceAll(" ", "-")
                 .replaceAll("'", "")}.webp`}

@@ -71,7 +71,6 @@ export default function Footer() {
               heading: "HELP AND SUPPORT",
               navlinks: [
                 "Contact Us",
-                "How To Play",
                 "Give us Feedback",
                 "Report a Bug",
               ],

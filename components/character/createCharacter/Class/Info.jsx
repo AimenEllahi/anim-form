@@ -12,7 +12,7 @@ export default function Info({ _class }) {
       <div className='flex h-full flex-col w-full'>
         <div className='w-full h-1/2'>
           <img
-            src={`https://dndai-images.s3.eu-central-1.amazonaws.com/class/${_class?.name
+            src={`https://dzjg7lvewk7ln.cloudfront.net/class/${_class?.name
               ?.toLowerCase()
               .replaceAll(" ", "-")}.webp`}
             alt={_class?.name}

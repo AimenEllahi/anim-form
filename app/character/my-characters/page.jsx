@@ -16,10 +16,10 @@ const dummy = [
       class: "Blood Hunter",
       backgroundUrl: "",
       portraitUrl:
-        "https://dndai-images.s3.eu-central-1.amazonaws.com/portrait/1718882791838.webp",
+        "https://dzjg7lvewk7ln.cloudfront.net/portrait/1718882791838.webp",
       gender: "male",
       portraits: [
-        "https://dndai-images.s3.eu-central-1.amazonaws.com/portrait/1718882791838.webp",
+        "https://dzjg7lvewk7ln.cloudfront.net/portrait/1718882791838.webp",
       ],
     },
     _id: "6669cdbde871880bbe8e2db9",

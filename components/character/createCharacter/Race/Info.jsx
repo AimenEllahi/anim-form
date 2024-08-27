@@ -22,7 +22,7 @@ export default function Info({ race, handleSelectRace }) {
         <div className='w-full h-auto relative'>
           {race?.name && (
             <Image
-              src={`https://dndai-images.s3.eu-central-1.amazonaws.com/race/${race.name
+              src={`https://dzjg7lvewk7ln.cloudfront.net/race/${race.name
                 .toLowerCase()
                 .replace(" ", "-")}.webp`}
               alt={race?.name}

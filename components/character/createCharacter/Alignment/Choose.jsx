@@ -27,7 +27,7 @@ export default function Choose({ handleAlignmentChange, alignment }) {
               handleAlignmentChange({ name, description });
               setSelectedCharacteristic({
                 name,
-                image: `https://dndai-images.s3.eu-central-1.amazonaws.com/alignments/${name
+                image: `https://dzjg7lvewk7ln.cloudfront.net/alignments/${name
                   .toLowerCase()
                   .replace(" ", "-")}.webp`,
                 description: description,
@@ -45,7 +45,7 @@ export default function Choose({ handleAlignmentChange, alignment }) {
               />
 
               <img
-                src={`https://dndai-images.s3.eu-central-1.amazonaws.com/alignments/${name
+                src={`https://dzjg7lvewk7ln.cloudfront.net/alignments/${name
                   .toLowerCase()
                   .replaceAll(" ", "-")}.webp
 

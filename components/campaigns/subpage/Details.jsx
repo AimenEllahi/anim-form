@@ -24,7 +24,7 @@ export default function Details({ details, setting }) {
           <span className='running-text md:hidden '>{setting}</span>
 
           <img
-            src={`https://dndai-images.s3.eu-central-1.amazonaws.com/settings/${setting
+            src={`https://dzjg7lvewk7ln.cloudfront.net/settings/${setting
               .toLowerCase()
               .replaceAll(" ", "-")
               .replaceAll("'", "")}.webp`}

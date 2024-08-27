@@ -14,7 +14,7 @@ export default function GenerateNew({ style, setStyle }) {
           }}
         >
           <img
-            src={`https://dndai-images.s3.eu-central-1.amazonaws.com/art-styles/${avatar
+            src={`https://dzjg7lvewk7ln.cloudfront.net/art-styles/${avatar
               .toLowerCase()
               .replaceAll(" ", "-")}.webp`}
             alt='avatar'

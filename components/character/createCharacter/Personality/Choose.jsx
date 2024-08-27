@@ -54,7 +54,7 @@ export default function Choose({ handleSetPersonality, personalities }) {
           <Card
             key={index}
             name={item.name}
-            img={`https://dndai-images.s3.eu-central-1.amazonaws.com/personality/${item.name
+            img={`https://dzjg7lvewk7ln.cloudfront.net/personality/${item.name
               .toLowerCase()
               .replaceAll(" ", "-")}.webp`}
             optionArray={item.optionArray}

@@ -38,7 +38,7 @@ export default function GameCard({ game, className }) {
           <div className='flex items-center gap-3'>
             {" "}
             <img
-              src={`https://dndai-images.s3.eu-central-1.amazonaws.com/class/${game.character?.class
+              src={`https://dzjg7lvewk7ln.cloudfront.net/class/${game.character?.class
                 .toLowerCase()
                 .replaceAll(" ", "-")}.webp`}
               className='rounded-full h-8 w-8'

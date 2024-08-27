@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React, { useRef, useState } from "react";
 import { ParallaxProvider } from "react-scroll-parallax";
 import Step from "@/components/landingPage/step";
 import ImageParallax from "@/components/landingPage/ImageParallax";
@@ -26,6 +26,11 @@ export default function Home() {
   const scrollRef = useRef(null);
   const locoScrollRef = useRef(null);
   const { isMobile } = useDeviceDetect();
+  const [videoError, setVideoError] = useState(false);
+
+  const handleVideoError = () => {
+    setVideoError(true);
+  };
 
   return (
     <>
@@ -36,22 +41,36 @@ export default function Home() {
         className="w-full h-full overflow-x-hidden bg-gradient-to-b px-0 py-0 m-0 !bg-russianViolet"
       >
         <div className="w-full h-screen relative">
-          <Image
-            src={
-              isMobile
-                ? "/images/Landing/Header-mobile.webp"
-                : "/images/Landing/Header.webp"
-            }
-            alt="Header Background"
-            className="absolute top-0 left-0"
-            fill
-            style={{ objectFit: "cover" }}
-            priority
-          />
+          {!videoError ? (
+            <video
+              autoPlay
+              loop
+              muted
+              className="absolute top-0 left-0 w-full h-full object-cover"
+              onError={handleVideoError}
+            >
+              <source src="/videos/header.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          ) : (
+            <div className="absolute top-0 left-0 w-full h-full">
+              <Image
+                src={
+                  isMobile
+                    ? "/images/Landing/Header-mobile.webp"
+                    : "/images/Landing/Header.webp"
+                }
+                alt="Header Background"
+                className="absolute top-0 left-0"
+                fill
+                style={{ objectFit: "cover" }}
+                priority
+              />
+            </div>
+          )}
           <div className="absolute md:bottom-10 px-5 md:px-12 bottom-40 md:left-0 left-0 md:w-2/4 w-full">
             <h1 className="text-white w-full headline-3">
-              EXPERIENCE GAMEPLAY WITHOUT CREATIVE BOUNDARIES, WHERE YOUR
-              IMAGINATION IS THE ONLY LIMIT.
+            UNLEASH YOUR IMAGINATION WITH LIMITLESS GAMEPLAY!
             </h1>
             <div
               className={cn(
@@ -78,7 +97,7 @@ export default function Home() {
               "You can easily create your own character by selecting from a wide range of races, classes, backgrounds, starting gear, and more. This allows you to venture into your own unique stories, shaping your character's journey as you progress and level up!"
             }
             image={
-              "https://dndai-images.s3.eu-central-1.amazonaws.com/tutorial/tutorial-1.webp"
+              "https://dzjg7lvewk7ln.cloudfront.net/tutorial/tutorial-1.webp"
             }
             loading="lazy"
           />
@@ -89,7 +108,7 @@ export default function Home() {
               "Unleash your creativity and effortlessly craft your own campaign. You have the freedom to set the main plot, establish the setting, create a timeline, and add a special hook. There are no limits to what you can create!"
             }
             image={
-              "https://dndai-images.s3.eu-central-1.amazonaws.com/tutorial/tutorial-2.webp"
+              "https://dzjg7lvewk7ln.cloudfront.net/tutorial/tutorial-2.webp"
             }
             loading="lazy"
           />
@@ -100,7 +119,7 @@ export default function Home() {
               "Immerse yourself in the journey of your character's growth. Progress through your own campaigns or those created by others, both privately and publicly, for an unforgettable gaming experience!"
             }
             image={
-              "https://dndai-images.s3.eu-central-1.amazonaws.com/tutorial/tutorial-3.webp"
+              "https://dzjg7lvewk7ln.cloudfront.net/tutorial/tutorial-3.webp"
             }
             loading="lazy"
           />

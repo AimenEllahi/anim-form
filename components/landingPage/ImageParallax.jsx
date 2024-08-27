@@ -29,7 +29,7 @@ export default function ImageParallax() {
               style={{
                 mixBlendMode: "exclusion",
               }}
-              src="https://dndai-images.s3.eu-central-1.amazonaws.com/parallax/parallax-1.webp"
+              src="https://dzjg7lvewk7ln.cloudfront.net/parallax/parallax-1.webp"
               alt="Parallax Image 1"
               width={256}
               height={256}
@@ -45,7 +45,7 @@ export default function ImageParallax() {
               style={{
                 mixBlendMode: "exclusion",
               }}
-              src="https://dndai-images.s3.eu-central-1.amazonaws.com/parallax/parallax-2.webp"
+              src="https://dzjg7lvewk7ln.cloudfront.net/parallax/parallax-2.webp"
               alt="Parallax Image 2"
               width={768}
               height={512}
@@ -61,7 +61,7 @@ export default function ImageParallax() {
               style={{
                 mixBlendMode: "exclusion",
               }}
-              src="https://dndai-images.s3.eu-central-1.amazonaws.com/parallax/parallax-3.webp"
+              src="https://dzjg7lvewk7ln.cloudfront.net/parallax/parallax-3.webp"
               alt="Parallax Image 3"
               width={768}
               height={512}
@@ -77,7 +77,7 @@ export default function ImageParallax() {
               style={{
                 mixBlendMode: "exclusion",
               }}
-              src="https://dndai-images.s3.eu-central-1.amazonaws.com/parallax/parallax-6.webp"
+              src="https://dzjg7lvewk7ln.cloudfront.net/parallax/parallax-6.webp"
               alt="Parallax Image 4"
               width={1024}
               height={768}
@@ -93,7 +93,7 @@ export default function ImageParallax() {
               style={{
                 mixBlendMode: "exclusion",
               }}
-              src="https://dndai-images.s3.eu-central-1.amazonaws.com/parallax/parallax-4.webp"
+              src="https://dzjg7lvewk7ln.cloudfront.net/parallax/parallax-4.webp"
               alt="Parallax Image 5"
               width={512}
               height={384}
@@ -109,7 +109,7 @@ export default function ImageParallax() {
               style={{
                 mixBlendMode: "exclusion",
               }}
-              src="https://dndai-images.s3.eu-central-1.amazonaws.com/parallax/parallax-5.webp"
+              src="https://dzjg7lvewk7ln.cloudfront.net/parallax/parallax-5.webp"
               alt="Parallax Image 6"
               width={512}
               height={384}
@@ -128,7 +128,7 @@ export default function ImageParallax() {
               style={{
                 mixBlendMode: "exclusion",
               }}
-              src="https://dndai-images.s3.eu-central-1.amazonaws.com/parallax/parallax-2.webp"
+              src="https://dzjg7lvewk7ln.cloudfront.net/parallax/parallax-2.webp"
               alt="Parallax Image 2"
               width={768}
               height={512}
@@ -144,7 +144,7 @@ export default function ImageParallax() {
               style={{
                 mixBlendMode: "exclusion",
               }}
-              src="https://dndai-images.s3.eu-central-1.amazonaws.com/parallax/parallax-1.webp"
+              src="https://dzjg7lvewk7ln.cloudfront.net/parallax/parallax-1.webp"
               alt="Parallax Image 1"
               width={512}
               height={384}
@@ -157,7 +157,7 @@ export default function ImageParallax() {
               style={{
                 mixBlendMode: "exclusion",
               }}
-              src="https://dndai-images.s3.eu-central-1.amazonaws.com/parallax/parallax-3.webp"
+              src="https://dzjg7lvewk7ln.cloudfront.net/parallax/parallax-3.webp"
               alt="Parallax Image 3"
               width={1024}
               height={768}
@@ -177,7 +177,7 @@ export default function ImageParallax() {
               style={{
                 mixBlendMode: "exclusion",
               }}
-              src="https://dndai-images.s3.eu-central-1.amazonaws.com/parallax/parallax-4.webp"
+              src="https://dzjg7lvewk7ln.cloudfront.net/parallax/parallax-4.webp"
               alt="Parallax Image 5"
               width={1024}
               height={768}
@@ -193,7 +193,7 @@ export default function ImageParallax() {
               style={{
                 mixBlendMode: "exclusion",
               }}
-              src="https://dndai-images.s3.eu-central-1.amazonaws.com/parallax/parallax-5.webp"
+              src="https://dzjg7lvewk7ln.cloudfront.net/parallax/parallax-5.webp"
               alt="Parallax Image 6"
               width={512}
               height={384}
@@ -205,7 +205,7 @@ export default function ImageParallax() {
               style={{
                 mixBlendMode: "exclusion",
               }}
-              src="https://dndai-images.s3.eu-central-1.amazonaws.com/parallax/parallax-6.webp"
+              src="https://dzjg7lvewk7ln.cloudfront.net/parallax/parallax-6.webp"
               alt="Parallax Image 4"
               width={1024}
               height={768}

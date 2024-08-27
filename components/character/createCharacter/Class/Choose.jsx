@@ -32,7 +32,7 @@ export default function Choose({ _class, handleSelectClass }) {
               handleSelectClass({ name: name, description: description });
               setSelectedCharacteristic({
                 name,
-                image: `https://dndai-images.s3.eu-central-1.amazonaws.com/class/${name
+                image: `https://dzjg7lvewk7ln.cloudfront.net/class/${name
                   .toLowerCase()
                   .replace(" ", "-")}.webp`,
                 description: description,
@@ -50,7 +50,7 @@ export default function Choose({ _class, handleSelectClass }) {
               />
 
               <img
-                src={`https://dndai-images.s3.eu-central-1.amazonaws.com/class/${name
+                src={`https://dzjg7lvewk7ln.cloudfront.net/class/${name
                   .toLowerCase()
                   .replaceAll(" ", "-")}.webp`}
                 alt={name}

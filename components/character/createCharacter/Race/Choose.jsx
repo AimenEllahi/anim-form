@@ -51,7 +51,7 @@ export default function Choose({ race, handleSelectRace }) {
               });
               setSelectedCharacteristic({
                 name,
-                image: `https://dndai-images.s3.eu-central-1.amazonaws.com/race/${name
+                image: `https://dzjg7lvewk7ln.cloudfront.net/race/${name
                   .toLowerCase()
                   .replace(" ", "-")}.webp`,
                 description: description,
@@ -61,7 +61,7 @@ export default function Choose({ race, handleSelectRace }) {
           >
             <div className='relative w-full  '>
               <img
-                src={`https://dndai-images.s3.eu-central-1.amazonaws.com/race/${name
+                src={`https://dzjg7lvewk7ln.cloudfront.net/race/${name
                   .toLowerCase()
                   .replace(" ", "-")}.webp`}
                 alt={name}

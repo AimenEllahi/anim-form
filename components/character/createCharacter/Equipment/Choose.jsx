@@ -41,7 +41,7 @@ export default function Choose({ equipments, handleSetEquipments }) {
             key={index}
             name={item.name}
             img={
-              `https://dndai-images.s3.eu-central-1.amazonaws.com/equipment/${item.name
+              `https://dzjg7lvewk7ln.cloudfront.net/equipment/${item.name
                 .toLowerCase()
                 .replaceAll(" ", "-")
                 .replace("&", "and")}.webp` || item.img

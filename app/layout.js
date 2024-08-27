@@ -30,10 +30,27 @@ function getMetaTags(pathname) {
   let ogDescription =
     "Dive into epic, story-driven adventures with free pen and paper games, powered by OpenAI’s cutting-edge artificial intelligence.";
   let ogImage =
-    "https://dndai-images.s3.eu-central-1.amazonaws.com/Headers/Header.webp";
-  let ogUrl = "https://www.dndai.app";
+    "https://dzjg7lvewk7ln.cloudfront.net/Headers/Header.webp";
+  let ogUrl = `https://dndai.app${pathname}`;
 
-  if (pathname.includes("/character/create")) {
+  if (pathname.includes("game/character-selection")) {
+    title = "DND AI | Hero Select";
+    description =
+      "Select your Hero to play on dndai.app See character progress, level and an overview of all of your DnD characters !";
+    keywords =
+      "fantasy characters, RPG character , custom character selection, AI character select, RPG classes and races, D&D character selection, role-playing game tools, characteroverview";
+    ogTitle = "DND AI | Hero Select";
+    ogDescription =
+      "Select your Hero to play on dndai.app See character progress, level and an overview of all of your DnD characters !";
+    ogImage =
+      "https://dzjg7lvewk7ln.cloudfront.net/derpatron/1721593894794.webp";
+    ogUrl = `https://dndai.app${pathname}`;
+  }
+    else if (pathname.includes("/game/play")) {
+        title = "DND AI | Gameplay";
+        ogTitle = "DND AI | Gameplay";
+  } 
+  else if (pathname.includes("/character/create")) {
     title = "DND AI | Create Character";
     description =
       "Create your own unique fantasy character effortlessly. Choose from various races, classes, abilities, backgrounds, alignments, starting equipment, and more. Let our AI bring your character to life in seconds!";
@@ -43,9 +60,21 @@ function getMetaTags(pathname) {
     ogDescription =
       "Build your perfect fantasy character with ease! Select your race, class, abilities, and more—our AI does the rest. Start your RPG adventure now!";
     ogImage =
-      "https://dndai-images.s3.eu-central-1.amazonaws.com/tutorial/tutorial-1.webp";
+      "https://dzjg7lvewk7ln.cloudfront.net/tutorial/tutorial-1.webp";
     ogUrl = `https://dndai.app${pathname}`;
-  } else if (pathname.includes("/character/my-characters")) {
+} 
+  else if (pathname.includes("/game/campaign-selection")) {
+    title = "DND AI | Campaign Select";
+    description =
+      "Select from a wide range from user generated Campaigns to start your game!";
+    keywords =
+      "fantasy DnD Campaigns, RPG campaign generator, custom game selection, AI games, RPG genres, D&D storys, role-playing games";
+    ogTitle = "DND AI | Campaign Select";
+    ogDescription =
+      "Select from a wide range from user generated Campaigns to start your game!";
+    ogUrl = `https://dndai.app${pathname}`;
+}
+  else if (pathname.includes("/character/my-characters")) {
     title = "DND AI | My Characters";
     description =
       "View your uniquely crafted characters or start creating a new one with our intuitive AI-powered generator. Manage existing characters or dive into the fun of character creation with endless customization options.";
@@ -55,7 +84,7 @@ function getMetaTags(pathname) {
     ogDescription =
       "Explore your uniquely created characters or kickstart the creation of a new one with our easy-to-use AI character generator. Manage your personas or begin a new adventure today!";
     ogImage =
-      "https://dndai-images.s3.eu-central-1.amazonaws.com/Headers/Header.webp";
+      "https://dzjg7lvewk7ln.cloudfront.net/Headers/Header.webp";
     ogUrl = `https://dndai.app${pathname}`;
   } else if (pathname.includes("/character/sheet/")) {
     title = "DND AI | Character Overview";
@@ -67,7 +96,7 @@ function getMetaTags(pathname) {
     ogDescription =
       "Full details of your character with our detailed Character Sheet. Check stats, items, images, XP, HP, levels, more... and monitor progress";
     ogImage =
-      "https://dndai-images.s3.eu-central-1.amazonaws.com/Headers/Header.webp";
+      "https://dzjg7lvewk7ln.cloudfront.net/Headers/Header.webp";
     ogUrl = `https://dndai.app${pathname}`;
   } else if (pathname === "/") {
     title = "DND AI | Home";
@@ -77,7 +106,7 @@ function getMetaTags(pathname) {
     ogDescription =
       "Enter the world of DnD AI – a fusion of Dungeons & Dragons and AI magic. Forge your hero, tackle epic quests, and let our AI DM craft unforgettable adventures from your choices. Start your legendary journey at dndai.app!";
     ogImage =
-      "https://dndai-images.s3.eu-central-1.amazonaws.com/Headers/Header.webp";
+      "https://dzjg7lvewk7ln.cloudfront.net/Headers/Header.webp";
     ogUrl = `https://dndai.app${pathname}`;
     keywords =
       "DnD AI adventure, Dungeons & Dragons online, AI Dungeon Master, create RPG characters, epic quests, dynamic storytelling, solo RPG, multiplayer RPG, quest generator, DnD adventures";
@@ -90,7 +119,7 @@ function getMetaTags(pathname) {
     ogTitle = "DND AI | Create Campaign";
     ogDescription = "Dive into detailed campaigns and epic stories.";
     ogImage =
-      "https://dndai-images.s3.eu-central-1.amazonaws.com/tutorial/tutorial-2.webp";
+      "https://dzjg7lvewk7ln.cloudfront.net/tutorial/tutorial-2.webp";
     ogUrl = `https://dndai.app${pathname}`;
   } else if (pathname.includes("/campaign/my-campaigns")) {
     title = "DND AI | My Campaigns";
@@ -102,7 +131,7 @@ function getMetaTags(pathname) {
     ogDescription =
       "Explore your epic DnD campaigns on DnD AI! Browse through your custom creations or kickstart a new adventure with our AI-powered campaign generator. Your next legendary tale begins at dndai.app!";
     ogImage =
-      "https://dndai-images.s3.eu-central-1.amazonaws.com/Headers/Header.webp";
+      "https://dzjg7lvewk7ln.cloudfront.net/Headers/Header.webp";
     ogUrl = `https://dndai.app${pathname}`;
   }
 
@@ -117,7 +146,7 @@ function getMetaTags(pathname) {
     ogDescription =
       "See details of your epic campaign on DnD AI! Explore your plot, hook, and settings in depth, and watch as our AI enhances your custom adventure with vivid storytelling.";
     ogImage =
-      "https://dndai-images.s3.eu-central-1.amazonaws.com/derpatron/1721941622500.webp";
+      "https://dzjg7lvewk7ln.cloudfront.net/derpatron/1721941622500.webp";
     ogUrl = `https://dndai.app${pathname}`;
   } else if (pathname.match(/^\/campaign\/public(\?page=\d+)?$/)) {
     title = "DND AI | Public Campaigns";
@@ -129,7 +158,7 @@ function getMetaTags(pathname) {
     ogDescription =
       "Uncover a world of public campaigns on DnD AI! Browse captivating adventures with rich images, select and expand for detailed exploration, and embark on thrilling quests. Discover epic stories at dndai.app!";
     ogImage =
-      "https://dndai-images.s3.eu-central-1.amazonaws.com/Headers/Header.webp";
+      "https://dzjg7lvewk7ln.cloudfront.net/Headers/Header.webp";
     ogUrl = `https://dndai.app${pathname}`;
   } else if (pathname.includes("/auth")) {
     title = "DND AI | Authentication";
@@ -140,7 +169,7 @@ function getMetaTags(pathname) {
     ogDescription =
       "Authenticate to access your DNDAI account and continue your adventures.";
     ogImage =
-      "https://dndai-images.s3.eu-central-1.amazonaws.com/Headers/Header.webp";
+      "https://dzjg7lvewk7ln.cloudfront.net/Headers/Header.webp";
     ogUrl = `https://dndai.app${pathname}`;
   } else if (pathname.match(/^\/discover\/gallery(\?page=\d+)?$/)) {
     title = "DND AI | Gallery";
@@ -152,7 +181,7 @@ function getMetaTags(pathname) {
     ogDescription =
       "Unveil stunning images in the DnD AI Image Gallery! Explore captivating visuals created during gameplay, all free to use and copyright-free. Ignite your imagination and download your favorites";
     ogImage =
-      "https://dndai-images.s3.eu-central-1.amazonaws.com/Headers/Header.webp";
+      "https://dzjg7lvewk7ln.cloudfront.net/Headers/Header.webp";
     ogUrl = `https://dndai.app${pathname}`;
   } else if (pathname.includes("/discover")) {
     title = "DND AI | Discover";
@@ -164,7 +193,7 @@ function getMetaTags(pathname) {
     ogDescription =
       "Dive into the DnD AI Image Gallery! Browse and download stunning, copyright-free images created during gameplay. Perfect for igniting your imagination and enhancing your adventures. Explore now at dndai.app!";
     ogImage =
-      "https://dndai-images.s3.eu-central-1.amazonaws.com/Headers/Header.webp";
+      "https://dzjg7lvewk7ln.cloudfront.net/Headers/Header.webp";
     ogUrl = `https://dndai.app${pathname}`;
   } else if (pathname.includes("/about-us")) {
     title = "DND AI | About Us";
@@ -176,7 +205,7 @@ function getMetaTags(pathname) {
     ogDescription =
       "Get to know DnD AI! Discover our vision, mission, and the passionate team committed to blending AI with the magic of Dungeons & Dragons. Join us on our epic journey at dndai.app!";
     ogImage =
-      "https://dndai-images.s3.eu-central-1.amazonaws.com/Headers/Header.webp";
+      "https://dzjg7lvewk7ln.cloudfront.net/Headers/Header.webp";
     ogUrl = `https://dndai.app${pathname}`;
   } else if (pathname.includes("/pricing")) {
     title = "DND AI | Premium";
@@ -188,7 +217,7 @@ function getMetaTags(pathname) {
     ogDescription =
       "Pricing options at DnD AI! Unlock the magic with Legendary and Mythic Gems – perfect for generating stunning images, custom campaigns, and diving into epic quests.";
     ogImage =
-      "https://dndai-images.s3.eu-central-1.amazonaws.com/Headers/Header.webp";
+      "https://dzjg7lvewk7ln.cloudfront.net/Headers/Header.webp";
     ogUrl = `https://dndai.app${pathname}`;
   } else if (pathname.includes("/imprint")) {
     title = "DND AI | Imprint";
@@ -200,7 +229,7 @@ function getMetaTags(pathname) {
     ogDescription =
       "Find important legal information and contact details for DnD AI on our Imprint page. Get to know the company behind the platform, including address, regulatory details, and how to reach us for inquiries. ";
     ogImage =
-      "https://dndai-images.s3.eu-central-1.amazonaws.com/Headers/Header.webp";
+      "https://dzjg7lvewk7ln.cloudfront.net/Headers/Header.webp";
     ogUrl = `https://dndai.app${pathname}`;
   } else if (pathname.includes("/privacy")) {
     title = "DND AI | Privacy";
@@ -212,7 +241,7 @@ function getMetaTags(pathname) {
     ogDescription =
       "Learn how DnD AI safeguards your personal information. Our Privacy Policy outlines data collection, usage, and protection measures, ensuring your privacy and security. Read more at dndai.app.";
     ogImage =
-      "https://dndai-images.s3.eu-central-1.amazonaws.com/Headers/Header.webp";
+      "https://dzjg7lvewk7ln.cloudfront.net/Headers/Header.webp";
     ogUrl = `https://dndai.app${pathname}`;
   } else if (pathname.includes("/cookies")) {
     title = "DND AI | Cookies";
@@ -224,7 +253,7 @@ function getMetaTags(pathname) {
     ogDescription =
       "Discover how DnD AI uses cookies to improve your experience. Our Cookies Policy provides details on what cookies are, how we use them, and how you can manage your settings. Learn more at dndai.app.";
     ogImage =
-      "https://dndai-images.s3.eu-central-1.amazonaws.com/Headers/Header.webp";
+      "https://dzjg7lvewk7ln.cloudfront.net/Headers/Header.webp";
     ogUrl = `https://dndai.app${pathname}`;
   } else if (pathname.includes("/terms")) {
     title = "DND AI | Terms and Conditions";
@@ -236,7 +265,7 @@ function getMetaTags(pathname) {
     ogDescription =
       "erms and Conditions for using DnD AI. Understand the rules, user responsibilities, and legal agreements that govern our platform. Stay informed at dndai.app.";
     ogImage =
-      "https://dndai-images.s3.eu-central-1.amazonaws.com/Headers/Header.webp";
+      "https://dzjg7lvewk7ln.cloudfront.net/Headers/Header.webp";
     ogUrl = `https://dndai.app${pathname}`;
   }
 

@@ -25,14 +25,14 @@ const NoSubscription = () => {
 
 export default function Payment() {
   const { user } = useUserStore();
-  console.log(user.paymentHistory);
+ // console.log(user.paymentHistory);
   let subscription = {};
   if (user.paymentHistory?.length > 0)
     subscription = user?.paymentHistory
       .filter((data) => data.mode === "subscription")
       .slice(-1)[0];
 
-  console.log(subscription);
+ // console.log(subscription);
   const formatDate = (_date) => {
     const date = new Date(_date);
     // Format the date as DD.MM.YYYY
