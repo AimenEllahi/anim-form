@@ -31,18 +31,18 @@ export const IMAGE_TYPES = [
     name: "My Character in play",
     type: "characterImage",
     image:
-      "https://dndai-images.s3.eu-central-1.amazonaws.com/imagetocreate/character-in-action.webp",
+      "https://dzjg7lvewk7ln.cloudfront.net/imagetocreate/character-in-action.webp",
   },
   {
     name: "Other Npcs in play",
     type: "enemyImage",
     image:
-      "https://dndai-images.s3.eu-central-1.amazonaws.com/imagetocreate/dungeon-map.webp",
+      "https://dzjg7lvewk7ln.cloudfront.net/imagetocreate/dungeon-map.webp",
   },
   {
     name: "Dungeon map",
     type: "campaignImage",
     image:
-      "https://dndai-images.s3.eu-central-1.amazonaws.com/imagetocreate/enemy.webp",
+      "https://dzjg7lvewk7ln.cloudfront.net/imagetocreate/enemy.webp",
   },
 ];

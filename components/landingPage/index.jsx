@@ -50,7 +50,7 @@ export default function Home() {
               className="absolute top-0 left-0 w-full h-full object-cover"
               onError={handleVideoError}
             >
-              <source src="/videos/header.mp4" type="video/mp4" />
+              <source src="https://dzjg7lvewk7ln.cloudfront.net/abilities/header.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           ) : (
@@ -99,7 +99,7 @@ export default function Home() {
               "You can easily create your own character by selecting from a wide range of races, classes, backgrounds, starting gear, and more. This allows you to venture into your own unique stories, shaping your character's journey as you progress and level up!"
             }
             image={
-              "https://dndai-images.s3.eu-central-1.amazonaws.com/tutorial/tutorial-1.webp"
+              "https://dzjg7lvewk7ln.cloudfront.net/tutorial/tutorial-1.webp"
             }
             loading="lazy"
           />
@@ -110,7 +110,7 @@ export default function Home() {
               "Unleash your creativity and effortlessly craft your own campaign. You have the freedom to set the main plot, establish the setting, create a timeline, and add a special hook. There are no limits to what you can create!"
             }
             image={
-              "https://dndai-images.s3.eu-central-1.amazonaws.com/tutorial/tutorial-2.webp"
+              "https://dzjg7lvewk7ln.cloudfront.net/tutorial/tutorial-2.webp"
             }
             loading="lazy"
           />
@@ -121,7 +121,7 @@ export default function Home() {
               "Immerse yourself in the journey of your character's growth. Progress through your own campaigns or those created by others, both privately and publicly, for an unforgettable gaming experience!"
             }
             image={
-              "https://dndai-images.s3.eu-central-1.amazonaws.com/tutorial/tutorial-3.webp"
+              "https://dzjg7lvewk7ln.cloudfront.net/tutorial/tutorial-3.webp"
             }
             loading="lazy"
           />

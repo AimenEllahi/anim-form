@@ -11,7 +11,7 @@ export default function Info({ background }) {
       <div className='flex h-full flex-col'>
         <div className='w-full h-auto'>
           <img
-            src={`https://dndai-images.s3.eu-central-1.amazonaws.com/backgrounds/${background?.name
+            src={`https://dzjg7lvewk7ln.cloudfront.net/backgrounds/${background?.name
               ?.toLowerCase()
               .replaceAll(" ", "-")}.webp`}
             alt={background?.name}

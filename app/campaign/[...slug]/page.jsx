@@ -21,7 +21,7 @@ const dummy = {
   _id: "669671cae47442f55baaae46",
   userId: "66680e88336d28219dfc93bc",
   worldMapUrl:
-    "https://dndai-images.s3.eu-central-1.amazonaws.com/portrait/1721135561330.webp",
+    "https://dzjg7lvewk7ln.cloudfront.net/portrait/1721135561330.webp",
   isPublished: false,
   title: "Hey",
   time: "Paleolithic Time",

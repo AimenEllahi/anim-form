@@ -63,7 +63,7 @@ export default function ProfileButtons({ character }) {
                         className={`flex cursor-pointer running-text-mono uppercase justify-start items-center gap-3  `}
                       >
                         <img
-                          src={`https://dndai-images.s3.eu-central-1.amazonaws.com/abilities/${key}.webp`}
+                          src={`https://dzjg7lvewk7ln.cloudfront.net/abilities/${key}.webp`}
                           className={`w-12 h-12 ease-animate object-cover rounded-[10px] `}
                         />
                         <span>{key}</span>

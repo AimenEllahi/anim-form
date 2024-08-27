@@ -4,7 +4,7 @@
       remotePatterns: [
         {
           protocol: 'https',
-          hostname: 'dndai-images.s3.eu-central-1.amazonaws.com',
+          hostname: 'dzjg7lvewk7ln.cloudfront.net',
           pathname: '/**',
         },
       ],

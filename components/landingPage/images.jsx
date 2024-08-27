@@ -62,7 +62,7 @@ const Images = ({ direction }) => {
             className="min-w-64 w-64 h-64 bg-transparent rounded-md"
           >
             <Image
-              src={`https://dndai-images.s3.eu-central-1.amazonaws.com/marquee/rowLower${
+              src={`https://dzjg7lvewk7ln.cloudfront.net/marquee/rowLower${
                 index + 1
               }.webp`}
               alt={`Image ${index}`}
@@ -86,7 +86,7 @@ const Images = ({ direction }) => {
             className="min-w-64 w-64 h-64 bg-transparent rounded-md"
           >
             <Image
-              src={`https://dndai-images.s3.eu-central-1.amazonaws.com/marquee/rowUpper${
+              src={`https://dzjg7lvewk7ln.cloudfront.net/marquee/rowUpper${
                 index + 1
               }.webp`}
               alt={`Image ${index}`}

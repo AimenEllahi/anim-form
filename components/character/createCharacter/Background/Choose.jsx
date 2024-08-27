@@ -48,7 +48,7 @@ export default function Choose({ background, handleSelectBackground }) {
               handleSelectBackground({ name, description });
               setSelectedCharacteristic({
                 name,
-                image: `https://dndai-images.s3.eu-central-1.amazonaws.com/backgrounds/${name
+                image: `https://dzjg7lvewk7ln.cloudfront.net/backgrounds/${name
                   .toLowerCase()
                   .replace(" ", "-")}.webp`,
                 description,
@@ -66,7 +66,7 @@ export default function Choose({ background, handleSelectBackground }) {
               />
 
               <img
-                src={`https://dndai-images.s3.eu-central-1.amazonaws.com/backgrounds/${name
+                src={`https://dzjg7lvewk7ln.cloudfront.net/backgrounds/${name
                   .toLowerCase()
                   .replaceAll(" ", "-")}.webp`}
                 alt={name}

@@ -13,7 +13,7 @@ export default function Info({ alignment }) {
       <div className='flex h-full flex-col'>
         <div className='w-full h-auto'>
           <img
-            src={`https://dndai-images.s3.eu-central-1.amazonaws.com/alignments/${alignment?.name
+            src={`https://dzjg7lvewk7ln.cloudfront.net/alignments/${alignment?.name
               ?.toLowerCase()
               .replaceAll(" ", "-")}.webp
 
