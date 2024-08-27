@@ -184,6 +184,9 @@ export default function ImageParallax() {
               src="https://dzjg7lvewk7ln.cloudfront.net/parallax/parallax-3.mp4"
               width={1024}
               height={768}
+              autoPlay
+              loop
+              muted
               className="w-full object-contain rounded-[10px] z-10"
             />
           </Parallax>
@@ -230,7 +233,7 @@ export default function ImageParallax() {
             />
           </Parallax>
           <Parallax translateY={15} speed={-10} className="w-full z-10">
-            <Image
+            <video
               style={{
                 mixBlendMode: "exclusion",
               }}
