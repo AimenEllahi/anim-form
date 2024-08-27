@@ -49,13 +49,17 @@ export default function index() {
           <span className="headline-3">Our Team</span>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <ImgCard
-              src="/team/alex.png"
+              src="/team/DND-AI-Portraits-Alex.webp"
               name="Alexander Ksela"
               job="development"
             />
-            <ImgCard src="/team/lucas.png" name="Lucas Rossmann" job="design" />
             <ImgCard
-              src="/team/aimen.png"
+              src="/team/DND-AI-Portraits-Luci.webp"
+              name="Lucas Rossmann"
+              job="design"
+            />
+            <ImgCard
+              src="/team/DND-AI-Portraits-Aimen.webp"
               name="Aimen Qaiser"
               job="development"
             />
