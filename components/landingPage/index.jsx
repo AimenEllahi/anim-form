@@ -38,39 +38,41 @@ export default function Home() {
       <div
         data-scroll-container
         ref={scrollRef}
-        className="w-full h-full overflow-x-hidden bg-gradient-to-b px-0 py-0 m-0 !bg-russianViolet"
+        className='w-full h-full overflow-x-hidden bg-gradient-to-b px-0 py-0 m-0 !bg-russianViolet'
       >
-        <div className="w-full h-screen relative">
+        <div className='w-full h-screen relative'>
           {!videoError ? (
             <video
               autoPlay
               loop
+              //inline
+              playsInline
               muted
-              className="absolute top-0 left-0 w-full h-full object-cover"
+              className='absolute top-0 left-0 w-full h-full object-cover'
               onError={handleVideoError}
             >
-              <source src="/videos/header.mp4" type="video/mp4" />
+              <source src='/videos/header.mp4' type='video/mp4' />
               Your browser does not support the video tag.
             </video>
           ) : (
-            <div className="absolute top-0 left-0 w-full h-full">
+            <div className='absolute top-0 left-0 w-full h-full'>
               <Image
                 src={
                   isMobile
                     ? "/images/Landing/Header-mobile.webp"
                     : "/images/Landing/Header.webp"
                 }
-                alt="Header Background"
-                className="absolute top-0 left-0"
+                alt='Header Background'
+                className='absolute top-0 left-0'
                 fill
                 style={{ objectFit: "cover" }}
                 priority
               />
             </div>
           )}
-          <div className="absolute md:bottom-10 px-5 md:px-12 bottom-40 md:left-0 left-0 md:w-2/4 w-full">
-            <h1 className="text-white w-full headline-3">
-            UNLEASH YOUR IMAGINATION WITH LIMITLESS GAMEPLAY!
+          <div className='absolute md:bottom-10 px-5 md:px-12 bottom-40 md:left-0 left-0 md:w-2/4 w-full'>
+            <h1 className='text-white w-full headline-3'>
+              UNLEASH YOUR IMAGINATION WITH LIMITLESS GAMEPLAY!
             </h1>
             <div
               className={cn(
@@ -84,12 +86,12 @@ export default function Home() {
           </div>
         </div>
         <ParallaxProvider>
-          <div className="w-screen md:h-[200vh] py-10 h-full flex flex-col justify-center items-center bg-russianViolet">
+          <div className='w-screen md:h-[200vh] py-10 h-full flex flex-col justify-center items-center bg-russianViolet'>
             <ImageParallax />
           </div>
         </ParallaxProvider>
 
-        <div className="h-full flex flex-col justify-center items-center bg-transparent md:py-32 px-5 md:px-12">
+        <div className='h-full flex flex-col justify-center items-center bg-transparent md:py-32 px-5 md:px-12'>
           <Step
             number={1}
             title={"CRAFT YOUR OWN CHARACTER"}
@@ -99,7 +101,7 @@ export default function Home() {
             image={
               "https://dzjg7lvewk7ln.cloudfront.net/tutorial/tutorial-1.webp"
             }
-            loading="lazy"
+            loading='lazy'
           />
           <Step
             number={2}
@@ -110,7 +112,7 @@ export default function Home() {
             image={
               "https://dzjg7lvewk7ln.cloudfront.net/tutorial/tutorial-2.webp"
             }
-            loading="lazy"
+            loading='lazy'
           />
           <Step
             number={3}
@@ -121,12 +123,12 @@ export default function Home() {
             image={
               "https://dzjg7lvewk7ln.cloudfront.net/tutorial/tutorial-3.webp"
             }
-            loading="lazy"
+            loading='lazy'
           />
         </div>
 
         <ImagesVisual />
-        <div className="w-s h-full flex flex-col justify-center items-center bg-transparent">
+        <div className='w-s h-full flex flex-col justify-center items-center bg-transparent'>
           <Campaigns />
         </div>
       </div>
