@@ -460,14 +460,6 @@ export default function RootLayout({ children }) {
             characterSheet={characterSheet}
             variant={isTransparentNavbar ? "transparent" : "glass"}
           />
-                  <div class="gradient-blur">
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-            </div>
           <main className='z-[1]'>{children}</main>
           {showFooter && <MemoizedFooter />}
           <Suspense fallback={null}>
