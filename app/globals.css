@@ -411,11 +411,13 @@ audio::-webkit-media-controls-enclosure {
   }
 }
 
+
+
 .gradient-blur {
   position: fixed;
   z-index: 19;
   inset: 0 0 auto 0; /* Adjusted to place it at the bottom */
-  height: 220px;
+  height: 420px;
   pointer-events: none;
 }
 .gradient-blur > div,
@@ -510,6 +512,12 @@ audio::-webkit-media-controls-enclosure {
     rgba(0, 0, 0, 0) 87.5%,
     rgba(0, 0, 0, 1) 100%
   );
+}
+
+@media (max-width: 764px) {
+  .gradient-blur {
+    height: 192px;
+  }
 }
 
 
