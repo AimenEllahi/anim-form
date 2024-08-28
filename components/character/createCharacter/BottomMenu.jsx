@@ -112,8 +112,6 @@ export default function BottomMenu({ character, setCharacter }) {
   };
 
   const handleSubmit = async () => {
-    //  console.log(character);
-
     if (!character.name) {
       setCharacterNameError(true);
       return;
