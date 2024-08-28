@@ -25,12 +25,15 @@ export default function ImageParallax() {
             speed={-8}
             className="absolute w-1/12 top-[15%] left-[14%]"
           >
-            <Image
+            <video
               style={{
                 mixBlendMode: "exclusion",
               }}
-              src="https://dzjg7lvewk7ln.cloudfront.net/parallax/parallax-1.webp"
+              src="https://dzjg7lvewk7ln.cloudfront.net/parallax/parallax-2.mp4"
               alt="Parallax Image 1"
+              autoPlay
+              loop
+              muted
               width={256}
               height={256}
               className="w-full object-contain rounded-[10px]"
@@ -41,12 +44,15 @@ export default function ImageParallax() {
             speed={-10}
             className="absolute w-3/12 top-[10%] right-[16%]"
           >
-            <Image
+            <video
               style={{
                 mixBlendMode: "exclusion",
               }}
-              src="https://dzjg7lvewk7ln.cloudfront.net/parallax/parallax-2.webp"
+              src="https://dzjg7lvewk7ln.cloudfront.net/parallax/parallax-1.mp4"
               alt="Parallax Image 2"
+              autoPlay
+              loop
+              muted
               width={768}
               height={512}
               className="w-full object-contain rounded-[10px]"
@@ -57,12 +63,15 @@ export default function ImageParallax() {
             speed={-10}
             className="absolute w-3/12 top-[30%] left-0"
           >
-            <Image
+            <video
               style={{
                 mixBlendMode: "exclusion",
               }}
-              src="https://dzjg7lvewk7ln.cloudfront.net/parallax/parallax-3.webp"
+              src="https://dzjg7lvewk7ln.cloudfront.net/parallax/parallax-3.mp4"
               alt="Parallax Image 3"
+              autoPlay
+              loop
+              muted
               width={768}
               height={512}
               className="w-full object-contain rounded-[10px]"
@@ -73,12 +82,15 @@ export default function ImageParallax() {
             speed={-10}
             className="absolute w-4/12 top-[60%] right-[0%]"
           >
-            <Image
+            <video
               style={{
                 mixBlendMode: "exclusion",
               }}
-              src="https://dzjg7lvewk7ln.cloudfront.net/parallax/parallax-6.webp"
+              src="https://dzjg7lvewk7ln.cloudfront.net/parallax/parallax-4.mp4"
               alt="Parallax Image 4"
+              autoPlay
+              loop
+              muted
               width={1024}
               height={768}
               className="w-full object-contain rounded-[10px]"
@@ -89,12 +101,15 @@ export default function ImageParallax() {
             speed={-8}
             className="absolute w-2/12 top-[50%] left-[50%]"
           >
-            <Image
+            <video
               style={{
                 mixBlendMode: "exclusion",
               }}
-              src="https://dzjg7lvewk7ln.cloudfront.net/parallax/parallax-4.webp"
+              src="https://dzjg7lvewk7ln.cloudfront.net/parallax/parallax-5.mp4"
               alt="Parallax Image 5"
+              autoPlay
+              loop
+              muted
               width={512}
               height={384}
               className="w-full object-contain rounded-[10px] z-10 translate-x-[-50%]"
@@ -105,12 +120,15 @@ export default function ImageParallax() {
             speed={-10}
             className="absolute w-2/12 top-[65%] left-[8%]"
           >
-            <Image
+            <video
               style={{
                 mixBlendMode: "exclusion",
               }}
-              src="https://dzjg7lvewk7ln.cloudfront.net/parallax/parallax-5.webp"
+              src="https://dzjg7lvewk7ln.cloudfront.net/parallax/parallax-6.mp4"
               alt="Parallax Image 6"
+              autoPlay
+              loop
+              muted
               width={512}
               height={384}
               className="w-full object-contain rounded-[10px]"
@@ -124,12 +142,15 @@ export default function ImageParallax() {
             speed={-10}
             className="w-full flex justify-start z-10"
           >
-            <Image
+            <video
               style={{
                 mixBlendMode: "exclusion",
               }}
-              src="https://dzjg7lvewk7ln.cloudfront.net/parallax/parallax-2.webp"
+              src="https://dzjg7lvewk7ln.cloudfront.net/parallax/parallax-1.mp4"
               alt="Parallax Image 2"
+              autoPlay
+              loop
+              muted
               width={768}
               height={512}
               className="w-2/3 object-contain rounded-[10px] z-10"
@@ -140,12 +161,15 @@ export default function ImageParallax() {
             speed={-10}
             className="w-full flex justify-end z-10"
           >
-            <Image
+            <video
               style={{
                 mixBlendMode: "exclusion",
               }}
-              src="https://dzjg7lvewk7ln.cloudfront.net/parallax/parallax-1.webp"
+              src="https://dzjg7lvewk7ln.cloudfront.net/parallax/parallax-2.mp4"
               alt="Parallax Image 1"
+              autoPlay
+              loop
+              muted
               width={512}
               height={384}
               className="w-1/3 object-contain rounded-[10px] z-10"
@@ -153,14 +177,16 @@ export default function ImageParallax() {
           </Parallax>
 
           <Parallax translateY={15} speed={-10} className="w-full z-10">
-            <Image
+            <video
               style={{
                 mixBlendMode: "exclusion",
               }}
-              src="https://dzjg7lvewk7ln.cloudfront.net/parallax/parallax-3.webp"
-              alt="Parallax Image 3"
+              src="https://dzjg7lvewk7ln.cloudfront.net/parallax/parallax-3.mp4"
               width={1024}
               height={768}
+              autoPlay
+              loop
+              muted
               className="w-full object-contain rounded-[10px] z-10"
             />
           </Parallax>
@@ -173,12 +199,15 @@ export default function ImageParallax() {
             DISCOVER ENDLESS CREATIVE POSSIBILITIES.
           </h1>
           <Parallax translateY={15} speed={-10} className="w-full z-10">
-            <Image
+            <video
               style={{
                 mixBlendMode: "exclusion",
               }}
-              src="https://dzjg7lvewk7ln.cloudfront.net/parallax/parallax-4.webp"
+              src="https://dzjg7lvewk7ln.cloudfront.net/parallax/parallax-4.mp4"
               alt="Parallax Image 5"
+              autoPlay
+              loop
+              muted
               width={1024}
               height={768}
               className="w-1/2 object-contain rounded-[10px] z-10"
@@ -189,24 +218,30 @@ export default function ImageParallax() {
             speed={-10}
             className="w-full flex justify-end z-10"
           >
-            <Image
+            <video
               style={{
                 mixBlendMode: "exclusion",
               }}
-              src="https://dzjg7lvewk7ln.cloudfront.net/parallax/parallax-5.webp"
+              src="https://dzjg7lvewk7ln.cloudfront.net/parallax/parallax-5.mp4"
               alt="Parallax Image 6"
+              autoPlay
+              loop
+              muted
               width={512}
               height={384}
               className="w-1/3 object-contain rounded-[10px] z-10"
             />
           </Parallax>
           <Parallax translateY={15} speed={-10} className="w-full z-10">
-            <Image
+            <video
               style={{
                 mixBlendMode: "exclusion",
               }}
-              src="https://dzjg7lvewk7ln.cloudfront.net/parallax/parallax-6.webp"
+              src="https://dzjg7lvewk7ln.cloudfront.net/parallax/parallax-6.mp4"
               alt="Parallax Image 4"
+              autoPlay
+              loop
+              muted
               width={1024}
               height={768}
               className="w-full object-contain rounded-[10px] z-10"
