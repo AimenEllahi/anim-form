@@ -26,7 +26,7 @@ import Discover from "@/components/ui/Icons/Discover";
 
 const NavLinks = () => {
   return (
-    <ul className='flex gap-4'>
+    <ul className='flex gap-6'>
       <li>
         <Link
           href='/discover/gallery'
