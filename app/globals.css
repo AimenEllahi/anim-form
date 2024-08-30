@@ -411,6 +411,178 @@ audio::-webkit-media-controls-enclosure {
   }
 }
 
+
+
+.gradient-blur {
+  position: fixed;
+  z-index: 19;
+  inset: 0 0 auto 0; /* Adjusted to place it at the bottom */
+  height: 420px;
+  pointer-events: none;
+  transform: translateZ(0); /* Enable hardware acceleration */
+}
+.gradient-blur > div,
+.gradient-blur::before,
+.gradient-blur::after {
+  position: absolute;
+  inset: 0;
+}
+.gradient-blur::before {
+  content: "";
+  z-index: 1;
+  -webkit-backdrop-filter: blur(0.5px); /* WebKit prefix */
+  backdrop-filter: blur(0.5px);
+  -webkit-mask: linear-gradient(
+    to top, /* Changed direction */
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 1) 12.5%,
+    rgba(0, 0, 0, 1) 25%,
+    rgba(0, 0, 0, 0) 37.5%
+  );
+  mask: linear-gradient(
+    to top, /* Changed direction */
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 1) 12.5%,
+    rgba(0, 0, 0, 1) 25%,
+    rgba(0, 0, 0, 0) 37.5%
+  );
+}
+.gradient-blur > div:nth-of-type(1) {
+  z-index: 2;
+  -webkit-backdrop-filter: blur(1px); /* WebKit prefix */
+  backdrop-filter: blur(1px);
+  -webkit-mask: linear-gradient(
+    to top, /* Changed direction */
+    rgba(0, 0, 0, 0) 12.5%,
+    rgba(0, 0, 0, 1) 25%,
+    rgba(0, 0, 0, 1) 37.5%,
+    rgba(0, 0, 0, 0) 50%
+  );
+  mask: linear-gradient(
+    to top, /* Changed direction */
+    rgba(0, 0, 0, 0) 12.5%,
+    rgba(0, 0, 0, 1) 25%,
+    rgba(0, 0, 0, 1) 37.5%,
+    rgba(0, 0, 0, 0) 50%
+  );
+}
+.gradient-blur > div:nth-of-type(2) {
+  z-index: 3;
+  -webkit-backdrop-filter: blur(2px); /* WebKit prefix */
+  backdrop-filter: blur(2px);
+  -webkit-mask: linear-gradient(
+    to top, /* Changed direction */
+    rgba(0, 0, 0, 0) 25%,
+    rgba(0, 0, 0, 1) 37.5%,
+    rgba(0, 0, 0, 1) 50%,
+    rgba(0, 0, 0, 0) 62.5%
+  );
+  mask: linear-gradient(
+    to top, /* Changed direction */
+    rgba(0, 0, 0, 0) 25%,
+    rgba(0, 0, 0, 1) 37.5%,
+    rgba(0, 0, 0, 1) 50%,
+    rgba(0, 0, 0, 0) 62.5%
+  );
+}
+.gradient-blur > div:nth-of-type(3) {
+  z-index: 4;
+  -webkit-backdrop-filter: blur(4px); /* WebKit prefix */
+  backdrop-filter: blur(4px);
+  -webkit-mask: linear-gradient(
+    to top, /* Changed direction */
+    rgba(0, 0, 0, 0) 37.5%,
+    rgba(0, 0, 0, 1) 50%,
+    rgba(0, 0, 0, 1) 62.5%,
+    rgba(0, 0, 0, 0) 75%
+  );
+  mask: linear-gradient(
+    to top, /* Changed direction */
+    rgba(0, 0, 0, 0) 37.5%,
+    rgba(0, 0, 0, 1) 50%,
+    rgba(0, 0, 0, 1) 62.5%,
+    rgba(0, 0, 0, 0) 75%
+  );
+}
+.gradient-blur > div:nth-of-type(4) {
+  z-index: 5;
+  -webkit-backdrop-filter: blur(8px); /* WebKit prefix */
+  backdrop-filter: blur(8px);
+  -webkit-mask: linear-gradient(
+    to top, /* Changed direction */
+    rgba(0, 0, 0, 0) 50%,
+    rgba(0, 0, 0, 1) 62.5%,
+    rgba(0, 0, 0, 1) 75%,
+    rgba(0, 0, 0, 0) 87.5%
+  );
+  mask: linear-gradient(
+    to top, /* Changed direction */
+    rgba(0, 0, 0, 0) 50%,
+    rgba(0, 0, 0, 1) 62.5%,
+    rgba(0, 0, 0, 1) 75%,
+    rgba(0, 0, 0, 0) 87.5%
+  );
+}
+.gradient-blur > div:nth-of-type(5) {
+  z-index: 6;
+  -webkit-backdrop-filter: blur(16px); /* WebKit prefix */
+  backdrop-filter: blur(16px);
+  -webkit-mask: linear-gradient(
+    to top, /* Changed direction */
+    rgba(0, 0, 0, 0) 62.5%,
+    rgba(0, 0, 0, 1) 75%,
+    rgba(0, 0, 0, 1) 87.5%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  mask: linear-gradient(
+    to top, /* Changed direction */
+    rgba(0, 0, 0, 0) 62.5%,
+    rgba(0, 0, 0, 1) 75%,
+    rgba(0, 0, 0, 1) 87.5%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+.gradient-blur > div:nth-of-type(6) {
+  z-index: 7;
+  -webkit-backdrop-filter: blur(32px); /* WebKit prefix */
+  backdrop-filter: blur(32px);
+  -webkit-mask: linear-gradient(
+    to top, /* Changed direction */
+    rgba(0, 0, 0, 0) 75%,
+    rgba(0, 0, 0, 1) 87.5%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  mask: linear-gradient(
+    to top, /* Changed direction */
+    rgba(0, 0, 0, 0) 75%,
+    rgba(0, 0, 0, 1) 87.5%,
+    rgba(0, 0, 0, 1) 100%
+  );
+}
+.gradient-blur::after {
+  content: "";
+  z-index: 8;
+  -webkit-backdrop-filter: blur(64px); /* WebKit prefix */
+  backdrop-filter: blur(64px);
+  -webkit-mask: linear-gradient(
+    to top, /* Changed direction */
+    rgba(0, 0, 0, 0) 87.5%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  mask: linear-gradient(
+    to top, /* Changed direction */
+    rgba(0, 0, 0, 0) 87.5%,
+    rgba(0, 0, 0, 1) 100%
+  );
+}
+
+@media (max-width: 764px) {
+  .gradient-blur {
+    height: 192px;
+  }
+}
+
+
 .dice-box {
   position: absolute;
   top: 0;

@@ -35,6 +35,7 @@ export default function ImageParallax() {
               loop
               playsInline
               muted
+              playsInline
               width={256}
               height={256}
               className='w-full object-contain rounded-[10px]'
@@ -55,6 +56,7 @@ export default function ImageParallax() {
               loop
               playsInline
               muted
+              playsInline
               width={768}
               height={512}
               className='w-full object-contain rounded-[10px]'
@@ -75,6 +77,7 @@ export default function ImageParallax() {
               playsInline
               loop
               muted
+              playsInline
               width={768}
               height={512}
               className='w-full object-contain rounded-[10px]'
@@ -95,6 +98,7 @@ export default function ImageParallax() {
               playsInline
               loop
               muted
+              playsInline
               width={1024}
               height={768}
               className='w-full object-contain rounded-[10px]'
@@ -115,6 +119,7 @@ export default function ImageParallax() {
               playsInline
               loop
               muted
+              playsInline
               width={512}
               height={384}
               className='w-full object-contain rounded-[10px] z-10 translate-x-[-50%]'
@@ -135,6 +140,7 @@ export default function ImageParallax() {
               playsInline
               loop
               muted
+              playsInline
               width={512}
               height={384}
               className='w-full object-contain rounded-[10px]'
@@ -158,6 +164,7 @@ export default function ImageParallax() {
               loop
               playsInline
               muted
+              playsInline
               width={768}
               height={512}
               className='w-2/3 object-contain rounded-[10px] z-10'
@@ -178,6 +185,7 @@ export default function ImageParallax() {
               loop
               playsInline
               muted
+              playsInline
               width={512}
               height={384}
               className='w-1/3 object-contain rounded-[10px] z-10'
@@ -195,6 +203,7 @@ export default function ImageParallax() {
               autoPlay
               playsInline
               loop
+              playsInline
               muted
               className='w-full object-contain rounded-[10px] z-10'
             />
@@ -216,6 +225,7 @@ export default function ImageParallax() {
               alt='Parallax Image 5'
               autoPlay
               loop
+              playsInline
               muted
               playsInline
               width={1024}
@@ -236,6 +246,7 @@ export default function ImageParallax() {
               alt='Parallax Image 6'
               autoPlay
               loop
+              playsInline
               muted
               playsInline
               width={512}
@@ -251,6 +262,7 @@ export default function ImageParallax() {
               src='https://dzjg7lvewk7ln.cloudfront.net/parallax/parallax-6.mp4'
               alt='Parallax Image 4'
               autoPlay
+              playsInline
               loop
               muted
               playsInline

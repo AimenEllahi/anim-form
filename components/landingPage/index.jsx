@@ -34,6 +34,14 @@ export default function Home() {
 
   return (
     <>
+        <div class="gradient-blur">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
       <LocomotiveScroll scrollRef={scrollRef} locoScrollRef={locoScrollRef} />
       <div
         data-scroll-container
@@ -51,7 +59,7 @@ export default function Home() {
               className='absolute top-0 left-0 w-full h-full object-cover'
               onError={handleVideoError}
             >
-              <source src='/videos/header.mp4' type='video/mp4' />
+              <source src="/videos/header.mp4" type='video/mp4' />
               Your browser does not support the video tag.
             </video>
           ) : (

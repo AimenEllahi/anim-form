@@ -24,7 +24,7 @@ export default function SignedInUserMenu() {
     router.push(path);
   };
   return (
-    <DropdownMenuContent className='uppercase flex flex-col mt-4 bg-white/10 !px-0 py-2 border border-white/10 z-[10] bg-blur menu-shadow text-white running-text-mono rounded-[16px] mr-5'>
+    <DropdownMenuContent className='uppercase flex flex-col mt-4 bg-white/10 !px-0 py-2 border border-white/10 z-[21] bg-blur menu-shadow text-white running-text-mono rounded-[16px] mr-5'>
       <div className='gap-5 px-6 py-4 pb-3 flex flex-col'>
         <div className='flex flex-col gap-2'>
           <span className=' headline-4'>{user.username}</span>
