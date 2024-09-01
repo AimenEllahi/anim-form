@@ -47,8 +47,9 @@ const NavMenu = ({ menu, disable }) => {
               }`}
               target={(link === "Discord" || link === "Twitter") && "_blank"}
               rel={
-                (link === "Discord" || link === "Twitter") &&
-                "noopener noreferrer"
+                link === "Discord" || link === "Twitter"
+                  ? "noopener noreferrer"
+                  : "false"
               }
             >
               {link}
@@ -69,17 +70,18 @@ export default function Footer() {
           <NavMenu
             menu={{
               heading: "HELP AND SUPPORT",
-              navlinks: [
-                "Contact Us",
-                "Give us Feedback",
-                "Report a Bug",
-              ],
+              navlinks: ["Contact Us", "Give us Feedback", "Report a Bug"],
             }}
           />
           <NavMenu
             menu={{
               heading: "LEGAL",
-              navlinks: ["Imprint", "Terms and Conditions", "Privacy", "Cookies"],
+              navlinks: [
+                "Imprint",
+                "Terms and Conditions",
+                "Privacy",
+                "Cookies",
+              ],
             }}
           />
           <NavMenu

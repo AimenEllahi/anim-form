@@ -168,11 +168,21 @@ export default function chatbox({
                         }}
                         className='flex transition-all ease-in-out hover:duration-300 active:duration-100 group cursor-pointer flex-col gap-2 md:gap-4'
                       >
-                        <span className='flex group-hover:text-[#B1B2FF]  group-active:text-white items-center gap-2 running-text-mono uppercase text-irisPurpleLight'>
+                        <span
+                          className={cn(
+                            "flex group-hover:text-[#B1B2FF]  group-active:text-white items-center gap-2 running-text-mono uppercase text-irisPurpleLight",
+                            TEXT_SIZES[textSize]
+                          )}
+                        >
                           {choice.title}{" "}
                           <Tab className='h-5 w-5 fill-irisPurpleLight group-hover:fill-[#B1B2FF] group-active:fill-white ' />
                         </span>
-                        <span className='running-text group-hover:text-gray1 group-active:text-gray1'>
+                        <span
+                          className={cn(
+                            "running-text group-hover:text-gray1 group-active:text-gray1",
+                            TEXT_SIZES[textSize]
+                          )}
+                        >
                           {choice.description}
                         </span>
                       </div>

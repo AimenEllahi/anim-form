@@ -89,7 +89,7 @@ const UpgradeButton = () => {
       withIcon={true}
       aria-label='Upgrade'
     >
-      <Diamond className='h-5 w-5 fill-irisPurpleLight hover:!fill-irisPurpleLight/80 active:!fill-irisPurpleLight/90' />
+      <Diamond className='h-5 w-5 fill-irisPurpleLight ' />
       Upgrade
     </CustomButton>
   );
@@ -176,7 +176,7 @@ export default function Navbar({ variant, characterSheet }) {
       if (hasSingleCharacter) {
         const { character } = await getCharacter(characterId, user?.token);
 
-      //  console.log("Has single character", character);
+        //  console.log("Has single character", character);
         setCurrentCharacter(character);
         router.push("/game/play");
         return;

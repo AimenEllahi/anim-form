@@ -51,6 +51,7 @@ function PublicCampaignsContainer() {
   return (
     <PublicCampaigns
       campaigns={campaigns}
+      setCampaigns={setCampaigns}
       totalPages={totalPages}
       totalRecords={totalRecords}
     />

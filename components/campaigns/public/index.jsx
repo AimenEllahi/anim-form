@@ -6,11 +6,12 @@ import ArrowLeft from "@/components/ui/Icons/ArrowLeft";
 import { usePathname } from "next/navigation";
 import { useSearchParams } from "next/navigation";
 import Campaign from "@/components/ui/Shared/Card/campaign";
-
+import _ from "lodash";
 export default function PublicCampaigns({
   campaigns,
   totalPages,
   totalRecords,
+  setCampaigns,
 }) {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -27,6 +28,14 @@ export default function PublicCampaigns({
     router.replace(pathname + `?page=${newPage}`);
   };
 
+  const handleUpdateCampaigns = (campaign) => {
+    let _campaigns = campaigns.filter((c) => c._id !== campaign._id);
+    _campaigns.push(campaign);
+    _campaigns = _.sortBy(_campaigns, ["createdAt"]);
+    //reverse
+    _campaigns = _campaigns.reverse();
+    setCampaigns(_campaigns);
+  };
   return (
     <div className='h-full  text-white w-full flex flex-col pt-[98px] md:pt-[128px] px-5 lg:px-12 pb-32 '>
       <div className='flex flex-col w-full gap-2.5'>
@@ -44,9 +53,13 @@ export default function PublicCampaigns({
           {campaigns.map((campaign, i) => (
             <div
               key={i}
-              className='col-span-12 sm:col-span-6 md:col-span-4 xl:col-span-3 2xl:col-span-2 w-full min-w-full max-w-full'
+              className='col-span-12 sm:col-span-6 md:col-span-4 xl:col-span-3  w-full min-w-full max-w-full'
             >
-              <Campaign campaign={campaign} className={"!w-full !min-w-full"} />
+              <Campaign
+                handleUpdateCampaigns={handleUpdateCampaigns}
+                campaign={campaign}
+                className={"!w-full !min-w-full"}
+              />
             </div>
           ))}
         </div>

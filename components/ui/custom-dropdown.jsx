@@ -23,7 +23,10 @@ export default function CustomDropdown({
     <Select open={show} onOpenChange={(e) => setShow(e)}>
       <div
         onClick={() => setShow(true)}
-        className='w-full !h-[48px]   max-h-[48px]  relative   flex  running-text-mono uppercase overflow-visible !ring-offset-0 outline-none  focus:!border-none focus:!ring-0'
+        className={cn(
+          "w-full !h-[48px] relative  max-h-[48px]  relative   flex  running-text-mono uppercase overflow-visible !ring-offset-0 outline-none  focus:!border-none focus:!ring-0",
+          className
+        )}
       >
         <input
           disabled={true}
@@ -68,8 +71,12 @@ export default function CustomDropdown({
             {placeholder}
           </legend>
         </fieldset>
+        <SelectTrigger
+          className={"w-20 h-0 bottom-0 right-0 !absolute"}
+          onClick={() => setShow(true)}
+        ></SelectTrigger>
       </div>
-      <SelectTrigger onClick={() => setShow(true)}></SelectTrigger>
+
       <SelectContent
         className={cn(
           "!bg-blur flex text-white  overflow-y-scroll hide-scrollbar !rounded-[16px]   !w-auto  !border !border-white/10  flex-col gap-2 shadow-lg mt-2 !p-2  uppercase   transition-all duration-300 ease-in-out !z-[50] "

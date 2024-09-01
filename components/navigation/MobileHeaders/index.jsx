@@ -200,7 +200,7 @@ export default function index() {
     } else if (imprint) {
       return <span className='headline-3  '>Imprint</span>;
     } else if (about) {
-      return <span className='headline-3  '>Imprint</span>;
+      return <span className='headline-3  '>About Us</span>;
     } else if (contact) {
       return <span className='headline-3  '>Contact</span>;
     } else if (settings)

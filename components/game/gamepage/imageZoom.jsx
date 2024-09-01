@@ -31,7 +31,7 @@ export default function imageZoom({ setOpen, setImageDialog }) {
         </CustomIconbutton>
         <img
           src={image}
-          className='w-full md:h-[500px]  ease-animate object-cover rounded-[10px] '
+          className='w-full md:h-[80vh]  ease-animate object-contain rounded-[10px] '
         />
       </div>
 
