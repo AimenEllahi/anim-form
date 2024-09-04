@@ -453,7 +453,7 @@ export default function RootLayout({ children }) {
             src='/images/bg.png'
             alt='Background'
             style={{ objectFit: "cover" }}
-            priority
+            priority="true"
             className='fixed w-screen h-screen top-0 left-0 z-0'
           />
           <MemoizedNavbar
