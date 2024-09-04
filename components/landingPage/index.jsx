@@ -34,7 +34,7 @@ export default function Home() {
 
   return (
     <>
-        <div class="gradient-blur">
+        <div className="gradient-blur">
     <div></div>
     <div></div>
     <div></div>
