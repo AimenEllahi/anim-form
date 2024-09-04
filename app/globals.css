@@ -606,3 +606,7 @@ audio::-webkit-media-controls-enclosure {
   height: 100vh;
 
 }
+
+.chat-box {
+  -webkit-overflow-scrolling: touch;
+}

@@ -83,7 +83,7 @@ export default function chatbox({
     <div
       ref={chatboxRef}
       className={cn(
-        "relative chat-box w-full lg:w-[65%]  min-h-1/2 flex-1  overflow-y-scroll hide-scrollbar  flex flex-col  pb-40 pt-12 lg:py-12 lg:pt-32  ",
+        "relative chat-box w-full lg:w-[65%]  min-h-1/2 flex-1  overflow-y-auto hide-scrollbar  flex flex-col  pb-40 pt-12 lg:py-12 lg:pt-32  ",
         narrate && "pb-48"
       )}
     >
