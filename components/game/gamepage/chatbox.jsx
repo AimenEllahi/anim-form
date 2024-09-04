@@ -90,7 +90,7 @@ export default function chatbox({
       <div className='flex relative w-full flex-col justify-end mt-auto gap-8'>
         <CustomIconbutton
           className={cn(
-            "fixed  left-1/2  -translate-x-1/2 lg:translate-x-[0%] bottom-44 lg:bottom-52",
+            "sticky  left-1/2  -translate-x-1/2 lg:translate-x-[0%] bottom-44 lg:bottom-52",
             !isScrollLeft && "opacity-0 pointer-events-none",
             narrate && "bottom-60"
           )}
