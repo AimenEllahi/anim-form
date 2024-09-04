@@ -350,7 +350,7 @@ export default function RootLayout({ children }) {
     <html lang='en' suppressHydrationWarning className={inter.className}>
       <GoogleOAuthProvider clientId='1036030324483-ltg0nqpg0ectr5q3n7cfa66l7eq1ban8.apps.googleusercontent.com'>
         <head>
-          <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1'/>
+          <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
           <meta charset="UTF-8" />
           <title>{ogTitle}</title>
           <meta name="author" content="dndai.app" />
