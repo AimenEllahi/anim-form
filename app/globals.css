@@ -610,3 +610,20 @@ audio::-webkit-media-controls-enclosure {
 .chat-box {
   -webkit-overflow-scrolling: touch;
 }
+
+
+.custom-markdown-text {
+  background-color: rgba(255, 255, 255, 0.08); /* White with 8% opacity */
+  border: 1px solid rgba(255, 255, 255, 0.08); /* White border with 8% opacity */
+  padding: 20px; /* Equivalent to p-4 */
+  border-radius: 10px; /* Equivalent to rounded-lg */
+  color: rgba(255, 255, 255); /* Text color white with 80% opacity */
+}
+
+.custom-markdown-text-player1 {
+  background-color: rgba(143, 145, 255, 0.3); /* Purple with 8% opacity */
+  border: 1px solid rgba(143, 145, 255, 0.3); /* White border with 8% opacity */
+  padding: 20px; /* Equivalent to p-4 */
+  border-radius: 10px; /* Equivalent to rounded-lg */
+  color: rgba(255, 255, 255); /* Text color white with 80% opacity */
+}

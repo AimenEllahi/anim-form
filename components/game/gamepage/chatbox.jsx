@@ -150,18 +150,11 @@ export default function Chatbox({
                 <>
                   <ReactMarkdown
                     className={cn(
-                      "markdown-text bg-gray-800 p-4 rounded-lg text-gray-300",
+                      "custom-markdown-text running-text text-white",
                       TEXT_SIZES[textSize]
                     )}
                     remarkPlugins={[remarkGfm, remarkBreaks]} // Added remarkBreaks to handle line breaks
                     rehypePlugins={[rehypeRaw]}
-                    components={{
-                      p: ({ node, children }) => (
-                        <p className="mb-4 leading-relaxed text-gray-200">
-                          {children}
-                        </p>
-                      ),
-                    }}
                   >
                     {item.text}
                   </ReactMarkdown>
@@ -209,7 +202,7 @@ export default function Chatbox({
               ) : (
                 <span
                   className={cn(
-                    "bg-irisPurpleLight text-white p-4 rounded-lg",
+                    "custom-markdown-text-player1  running-text text-white",
                     TEXT_SIZES[textSize]
                   )}
                 >
