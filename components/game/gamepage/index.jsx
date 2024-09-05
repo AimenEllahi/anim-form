@@ -213,7 +213,7 @@ export default function Index({
                 textAreaClassName={
                   "h-[64px] lg:h-[80px] pt-[22px] lg:py-[28px]"
                 }
-                placeholder="What Would You Do?"
+                placeholder="What will you do?"
                 icon={
                   <img
                     src="/Icons/ArrowUp.svg"
