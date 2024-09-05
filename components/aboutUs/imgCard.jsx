@@ -6,7 +6,7 @@ export default function imgCard({ src, name, job }) {
       <img
         src={src}
         alt=''
-        className='w-full h-full object-cover shadow-custom-1 rounded-[16px]'
+        className='w-full images-glow h-full object-cover  rounded-[16px]'
       />
       <div className='flex flex-col gap-3 bg-transparent'>
         <span className='headline-4'>{name}</span>

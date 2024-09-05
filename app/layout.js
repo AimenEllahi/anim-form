@@ -29,8 +29,7 @@ function getMetaTags(pathname) {
     "DND AI | Play an AI driven Story game and create breathtaking images in the process";
   let ogDescription =
     "Dive into epic, story-driven adventures with free pen and paper games, powered by OpenAI’s cutting-edge artificial intelligence.";
-  let ogImage =
-    "https://dzjg7lvewk7ln.cloudfront.net/Headers/Header.webp";
+  let ogImage = "https://dzjg7lvewk7ln.cloudfront.net/Headers/Header.webp";
   let ogUrl = `https://dndai.app${pathname}`;
 
   if (pathname.includes("game/character-selection")) {
@@ -45,12 +44,10 @@ function getMetaTags(pathname) {
     ogImage =
       "https://dzjg7lvewk7ln.cloudfront.net/derpatron/1721593894794.webp";
     ogUrl = `https://dndai.app${pathname}`;
-  }
-    else if (pathname.includes("/game/play")) {
-        title = "DND AI | Gameplay";
-        ogTitle = "DND AI | Gameplay";
-  } 
-  else if (pathname.includes("/character/create")) {
+  } else if (pathname.includes("/game/play")) {
+    title = "DND AI | Gameplay";
+    ogTitle = "DND AI | Gameplay";
+  } else if (pathname.includes("/character/create")) {
     title = "DND AI | Create Character";
     description =
       "Create your own unique fantasy character effortlessly. Choose from various races, classes, abilities, backgrounds, alignments, starting equipment, and more. Let our AI bring your character to life in seconds!";
@@ -59,11 +56,9 @@ function getMetaTags(pathname) {
     ogTitle = "DND AI | Create Character";
     ogDescription =
       "Build your perfect fantasy character with ease! Select your race, class, abilities, and more—our AI does the rest. Start your RPG adventure now!";
-    ogImage =
-      "https://dzjg7lvewk7ln.cloudfront.net/tutorial/tutorial-1.webp";
+    ogImage = "https://dzjg7lvewk7ln.cloudfront.net/tutorial/tutorial-1.webp";
     ogUrl = `https://dndai.app${pathname}`;
-} 
-  else if (pathname.includes("/game/campaign-selection")) {
+  } else if (pathname.includes("/game/campaign-selection")) {
     title = "DND AI | Campaign Select";
     description =
       "Select from a wide range from user generated Campaigns to start your game!";
@@ -73,8 +68,7 @@ function getMetaTags(pathname) {
     ogDescription =
       "Select from a wide range from user generated Campaigns to start your game!";
     ogUrl = `https://dndai.app${pathname}`;
-}
-  else if (pathname.includes("/character/my-characters")) {
+  } else if (pathname.includes("/character/my-characters")) {
     title = "DND AI | My Characters";
     description =
       "View your uniquely crafted characters or start creating a new one with our intuitive AI-powered generator. Manage existing characters or dive into the fun of character creation with endless customization options.";
@@ -83,8 +77,7 @@ function getMetaTags(pathname) {
     ogTitle = "DND AI | My Characters";
     ogDescription =
       "Explore your uniquely created characters or kickstart the creation of a new one with our easy-to-use AI character generator. Manage your personas or begin a new adventure today!";
-    ogImage =
-      "https://dzjg7lvewk7ln.cloudfront.net/Headers/Header.webp";
+    ogImage = "https://dzjg7lvewk7ln.cloudfront.net/Headers/Header.webp";
     ogUrl = `https://dndai.app${pathname}`;
   } else if (pathname.includes("/character/sheet/")) {
     title = "DND AI | Character Overview";
@@ -95,8 +88,7 @@ function getMetaTags(pathname) {
     ogTitle = "DND AI | Create Character";
     ogDescription =
       "Full details of your character with our detailed Character Sheet. Check stats, items, images, XP, HP, levels, more... and monitor progress";
-    ogImage =
-      "https://dzjg7lvewk7ln.cloudfront.net/Headers/Header.webp";
+    ogImage = "https://dzjg7lvewk7ln.cloudfront.net/Headers/Header.webp";
     ogUrl = `https://dndai.app${pathname}`;
   } else if (pathname === "/") {
     title = "DND AI | Home";
@@ -105,8 +97,7 @@ function getMetaTags(pathname) {
     ogTitle = "DND AI | Home";
     ogDescription =
       "Enter the world of DnD AI – a fusion of Dungeons & Dragons and AI magic. Forge your hero, tackle epic quests, and let our AI DM craft unforgettable adventures from your choices. Start your legendary journey at dndai.app!";
-    ogImage =
-      "https://dzjg7lvewk7ln.cloudfront.net/Headers/Header.webp";
+    ogImage = "https://dzjg7lvewk7ln.cloudfront.net/Headers/Header.webp";
     ogUrl = `https://dndai.app${pathname}`;
     keywords =
       "DnD AI adventure, Dungeons & Dragons online, AI Dungeon Master, create RPG characters, epic quests, dynamic storytelling, solo RPG, multiplayer RPG, quest generator, DnD adventures";
@@ -118,8 +109,7 @@ function getMetaTags(pathname) {
       "create DnD campaign, AI campaign creation, custom RPG plot, campaign hook, campaign scene setting, AI-driven adventures, RPG campaign generator, dynamic storytelling, Dungeons & Dragons campaigns";
     ogTitle = "DND AI | Create Campaign";
     ogDescription = "Dive into detailed campaigns and epic stories.";
-    ogImage =
-      "https://dzjg7lvewk7ln.cloudfront.net/tutorial/tutorial-2.webp";
+    ogImage = "https://dzjg7lvewk7ln.cloudfront.net/tutorial/tutorial-2.webp";
     ogUrl = `https://dndai.app${pathname}`;
   } else if (pathname.includes("/campaign/my-campaigns")) {
     title = "DND AI | My Campaigns";
@@ -130,8 +120,7 @@ function getMetaTags(pathname) {
     ogTitle = "DND AI | My Campaigns";
     ogDescription =
       "Explore your epic DnD campaigns on DnD AI! Browse through your custom creations or kickstart a new adventure with our AI-powered campaign generator. Your next legendary tale begins at dndai.app!";
-    ogImage =
-      "https://dzjg7lvewk7ln.cloudfront.net/Headers/Header.webp";
+    ogImage = "https://dzjg7lvewk7ln.cloudfront.net/Headers/Header.webp";
     ogUrl = `https://dndai.app${pathname}`;
   }
 
@@ -157,8 +146,7 @@ function getMetaTags(pathname) {
     ogTitle = "DND AI | Public Campaigns";
     ogDescription =
       "Uncover a world of public campaigns on DnD AI! Browse captivating adventures with rich images, select and expand for detailed exploration, and embark on thrilling quests. Discover epic stories at dndai.app!";
-    ogImage =
-      "https://dzjg7lvewk7ln.cloudfront.net/Headers/Header.webp";
+    ogImage = "https://dzjg7lvewk7ln.cloudfront.net/Headers/Header.webp";
     ogUrl = `https://dndai.app${pathname}`;
   } else if (pathname.includes("/auth")) {
     title = "DND AI | Authentication";
@@ -168,8 +156,7 @@ function getMetaTags(pathname) {
     ogTitle = "DND AI | Authentication";
     ogDescription =
       "Authenticate to access your DNDAI account and continue your adventures.";
-    ogImage =
-      "https://dzjg7lvewk7ln.cloudfront.net/Headers/Header.webp";
+    ogImage = "https://dzjg7lvewk7ln.cloudfront.net/Headers/Header.webp";
     ogUrl = `https://dndai.app${pathname}`;
   } else if (pathname.match(/^\/discover\/gallery(\?page=\d+)?$/)) {
     title = "DND AI | Gallery";
@@ -180,8 +167,7 @@ function getMetaTags(pathname) {
     ogTitle = "DND AI | Gallery";
     ogDescription =
       "Unveil stunning images in the DnD AI Image Gallery! Explore captivating visuals created during gameplay, all free to use and copyright-free. Ignite your imagination and download your favorites";
-    ogImage =
-      "https://dzjg7lvewk7ln.cloudfront.net/Headers/Header.webp";
+    ogImage = "https://dzjg7lvewk7ln.cloudfront.net/Headers/Header.webp";
     ogUrl = `https://dndai.app${pathname}`;
   } else if (pathname.includes("/discover")) {
     title = "DND AI | Discover";
@@ -192,8 +178,7 @@ function getMetaTags(pathname) {
     ogTitle = "DND AI | Discover";
     ogDescription =
       "Dive into the DnD AI Image Gallery! Browse and download stunning, copyright-free images created during gameplay. Perfect for igniting your imagination and enhancing your adventures. Explore now at dndai.app!";
-    ogImage =
-      "https://dzjg7lvewk7ln.cloudfront.net/Headers/Header.webp";
+    ogImage = "https://dzjg7lvewk7ln.cloudfront.net/Headers/Header.webp";
     ogUrl = `https://dndai.app${pathname}`;
   } else if (pathname.includes("/about-us")) {
     title = "DND AI | About Us";
@@ -204,8 +189,7 @@ function getMetaTags(pathname) {
     ogTitle = "DND AI | About Us";
     ogDescription =
       "Get to know DnD AI! Discover our vision, mission, and the passionate team committed to blending AI with the magic of Dungeons & Dragons. Join us on our epic journey at dndai.app!";
-    ogImage =
-      "https://dzjg7lvewk7ln.cloudfront.net/Headers/Header.webp";
+    ogImage = "https://dzjg7lvewk7ln.cloudfront.net/Headers/Header.webp";
     ogUrl = `https://dndai.app${pathname}`;
   } else if (pathname.includes("/pricing")) {
     title = "DND AI | Premium";
@@ -216,8 +200,7 @@ function getMetaTags(pathname) {
     ogTitle = "DND AI | Premium";
     ogDescription =
       "Pricing options at DnD AI! Unlock the magic with Legendary and Mythic Gems – perfect for generating stunning images, custom campaigns, and diving into epic quests.";
-    ogImage =
-      "https://dzjg7lvewk7ln.cloudfront.net/Headers/Header.webp";
+    ogImage = "https://dzjg7lvewk7ln.cloudfront.net/Headers/Header.webp";
     ogUrl = `https://dndai.app${pathname}`;
   } else if (pathname.includes("/imprint")) {
     title = "DND AI | Imprint";
@@ -228,8 +211,7 @@ function getMetaTags(pathname) {
     ogTitle = "DND AI | Imprint";
     ogDescription =
       "Find important legal information and contact details for DnD AI on our Imprint page. Get to know the company behind the platform, including address, regulatory details, and how to reach us for inquiries. ";
-    ogImage =
-      "https://dzjg7lvewk7ln.cloudfront.net/Headers/Header.webp";
+    ogImage = "https://dzjg7lvewk7ln.cloudfront.net/Headers/Header.webp";
     ogUrl = `https://dndai.app${pathname}`;
   } else if (pathname.includes("/privacy")) {
     title = "DND AI | Privacy";
@@ -240,8 +222,7 @@ function getMetaTags(pathname) {
     ogTitle = "DND AI | Privacy";
     ogDescription =
       "Learn how DnD AI safeguards your personal information. Our Privacy Policy outlines data collection, usage, and protection measures, ensuring your privacy and security. Read more at dndai.app.";
-    ogImage =
-      "https://dzjg7lvewk7ln.cloudfront.net/Headers/Header.webp";
+    ogImage = "https://dzjg7lvewk7ln.cloudfront.net/Headers/Header.webp";
     ogUrl = `https://dndai.app${pathname}`;
   } else if (pathname.includes("/cookies")) {
     title = "DND AI | Cookies";
@@ -252,8 +233,7 @@ function getMetaTags(pathname) {
     ogTitle = "DND AI | Cookies";
     ogDescription =
       "Discover how DnD AI uses cookies to improve your experience. Our Cookies Policy provides details on what cookies are, how we use them, and how you can manage your settings. Learn more at dndai.app.";
-    ogImage =
-      "https://dzjg7lvewk7ln.cloudfront.net/Headers/Header.webp";
+    ogImage = "https://dzjg7lvewk7ln.cloudfront.net/Headers/Header.webp";
     ogUrl = `https://dndai.app${pathname}`;
   } else if (pathname.includes("/terms")) {
     title = "DND AI | Terms and Conditions";
@@ -264,8 +244,7 @@ function getMetaTags(pathname) {
     ogTitle = "DND AI | Terms and Conditions";
     ogDescription =
       "erms and Conditions for using DnD AI. Understand the rules, user responsibilities, and legal agreements that govern our platform. Stay informed at dndai.app.";
-    ogImage =
-      "https://dzjg7lvewk7ln.cloudfront.net/Headers/Header.webp";
+    ogImage = "https://dzjg7lvewk7ln.cloudfront.net/Headers/Header.webp";
     ogUrl = `https://dndai.app${pathname}`;
   }
 
@@ -350,43 +329,49 @@ export default function RootLayout({ children }) {
     <html lang='en' suppressHydrationWarning className={inter.className}>
       <GoogleOAuthProvider clientId='1036030324483-ltg0nqpg0ectr5q3n7cfa66l7eq1ban8.apps.googleusercontent.com'>
         <head>
-          <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1'/>
-          <meta charset="UTF-8" />
+          <meta
+            name='viewport'
+            content='width=device-width, initial-scale=1, maximum-scale=1'
+          />
+          <meta charset='UTF-8' />
           <title>{ogTitle}</title>
-          <meta name="author" content="dndai.app" />
-          <meta name="robots" content="index, follow" />
-          <meta name="language" content="English" />
-          <meta name="revisit-after" content="daily" />
-          <meta name="theme-color" content="#0A0A21" />
+          <meta name='author' content='dndai.app' />
+          <meta name='robots' content='index, follow' />
+          <meta name='language' content='English' />
+          <meta name='revisit-after' content='daily' />
+          <meta name='theme-color' content='#0A0A21' />
 
-          <meta property='og:title' content={ogTitle} /> 
-          <meta property='og:description' content={ogDescription} /> 
-          <meta property='og:url' content={ogUrl} /> 
-          <meta property='og:image' content={ogImage} /> 
+          <meta property='og:title' content={ogTitle} />
+          <meta property='og:description' content={ogDescription} />
+          <meta property='og:url' content={ogUrl} />
+          <meta property='og:image' content={ogImage} />
           <meta property='og:type' content='website' />
-          <meta property='og:site_name' content="DND AI" />
+          <meta property='og:site_name' content='DND AI' />
           <meta property='og:locale' content='en_US' />
-          <meta property='og:image:width' content="1200" />
-          <meta property='og:image:height' content="630" />
+          <meta property='og:image:width' content='1200' />
+          <meta property='og:image:height' content='630' />
 
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:title" content={ogTitle} />
-          <meta name="twitter:description" content={ogDescription} />
-          <meta name="twitter:image" content={ogImage} />
-          <meta name="twitter:site" content="@dndai_app" />
-          <meta name="twitter:creator" content="@dndai_app" />
+          <meta name='twitter:card' content='summary_large_image' />
+          <meta name='twitter:title' content={ogTitle} />
+          <meta name='twitter:description' content={ogDescription} />
+          <meta name='twitter:image' content={ogImage} />
+          <meta name='twitter:site' content='@dndai_app' />
+          <meta name='twitter:creator' content='@dndai_app' />
 
-          <meta name='description' content={description} /> 
-          <meta name='keywords' content={keywords} /> 
-         
-          <meta name="apple-mobile-web-app-capable" content="yes" />
-          <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-          <meta name="apple-mobile-web-app-title" content="DND AI" />
-          <meta name="application-name" content="DND AI" />
-          <meta name="msapplication-TileColor" content="#0A0A21" />
-          <meta name="msapplication-TileImage" content={ogImage} />
-          
-          <link rel="canonical" href={ogUrl} />
+          <meta name='description' content={description} />
+          <meta name='keywords' content={keywords} />
+
+          <meta name='apple-mobile-web-app-capable' content='yes' />
+          <meta
+            name='apple-mobile-web-app-status-bar-style'
+            content='black-translucent'
+          />
+          <meta name='apple-mobile-web-app-title' content='DND AI' />
+          <meta name='application-name' content='DND AI' />
+          <meta name='msapplication-TileColor' content='#0A0A21' />
+          <meta name='msapplication-TileImage' content={ogImage} />
+
+          <link rel='canonical' href={ogUrl} />
           <link rel='icon' href='/favicon.ico' />
           <link
             rel='preload'

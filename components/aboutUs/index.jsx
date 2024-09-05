@@ -9,8 +9,8 @@ export default function index() {
           <span className='headline-3 z-[10] hidden md:block '>About us</span>
         </div>
 
-        <div className=' text-white flex flex-col gap-8 justify-end items-end'>
-          <div className='flex running-text-large flex-col gap-5 md:w-[711px] w-full'>
+        <div className=' text-white grid grid-cols-1 md:grid-cols-12  gap-8 justify-end items-end'>
+          <div className='flex running-text-small md:running-text-large flex-col md:col-start-5 gap-5  md:col-span-7 w-full'>
             <span>
               Welcome to{" "}
               <span className='text-irisPurpleLight'> dndai.app!</span>

@@ -39,7 +39,7 @@ const emoticons = [
     id: 5,
     label: "Very Happy",
     filledIcon: <GreatFilled />,
-    icon: "/Icons/great.svg",
+    icon: "/Icons/Great.svg",
   },
 ];
 
@@ -70,11 +70,11 @@ export default function Feedback() {
   };
 
   return (
-    <div className="flex w-full flex-col gap-6 justify-center items-center">
-      <div className="w-full flex flex-col gap-4">
+    <div className='flex w-full flex-col gap-6 justify-center items-center'>
+      <div className='w-full flex flex-col gap-4'>
         <span>How would you rate DNDai?</span>
-        <div className="flex flex-col items-start">
-          <div className="flex justify-start space-x-4">
+        <div className='flex flex-col items-start'>
+          <div className='flex justify-start space-x-4'>
             {emoticons.map((emoticon) => (
               <div
                 key={emoticon.id}
@@ -87,12 +87,12 @@ export default function Feedback() {
                 onClick={() => handleSelect(emoticon.id)}
               >
                 {selected === emoticon.id ? (
-                  <div className="h-5 w-5">{emoticon.filledIcon}</div>
+                  <div className='h-5 w-5'>{emoticon.filledIcon}</div>
                 ) : (
                   <img
                     src={emoticon.icon}
                     alt={emoticon.label}
-                    className="h-5 w-5"
+                    className='h-5 w-5'
                   />
                 )}
               </div>
@@ -100,12 +100,12 @@ export default function Feedback() {
           </div>
         </div>
       </div>
-      <div className="w-full flex flex-col gap-4">
+      <div className='w-full flex flex-col gap-4'>
         <span>Do you have any thoughts you’d like to share?</span>
         <CustomTextArea
           value={thoughts}
           onChange={(e) => setThoughts(e)}
-          placeholder="Your thoughts"
+          placeholder='Your thoughts'
         />
         <CustomButton
           variant={"primary"}
@@ -115,7 +115,7 @@ export default function Feedback() {
           className={"focus:bg-white focus:text-black self-end"}
         >
           <span>Send</span>
-          <ArrowRight className="h-5 w-5 fill-russianViolet opacity-70" />
+          <ArrowRight className='h-5 w-5 fill-russianViolet opacity-70' />
         </CustomButton>
       </div>
     </div>

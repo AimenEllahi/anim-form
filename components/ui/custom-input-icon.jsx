@@ -28,39 +28,7 @@ export default function CustomInputIcon({
     textAreaRef.current?.focus();
     setInFocus(true);
   }, [focusTrigger]);
-  const handleOutsideClick = (e) => {
-    if (!isSafariMobile || window.innerWidth > 450) return;
-    if (
-      blurOnOutsideClick &&
-      textAreaRef.current &&
-      !textAreaRef.current.contains(e.target)
-    ) {
-      setInFocus(false);
-      textAreaRef.current.blur();
-    }
-  };
 
-  const hideKeyboard = () => {
-    if (!isSafariMobile || window.innerWidth > 450) return;
-    if (blurOnOutsideClick && inFocus) {
-      setInFocus(false);
-      textAreaRef.current.blur();
-    }
-  };
-
-  useEffect(() => {
-    if (!isSafariMobile || window.innerWidth > 450) return;
-    if (blurOnOutsideClick) {
-      window.addEventListener("click", handleOutsideClick);
-      window.addEventListener("touchstart", handleOutsideClick);
-    }
-    return () => {
-      if (blurOnOutsideClick) {
-        window.removeEventListener("click", handleOutsideClick);
-        window.removeEventListener("touchstart", handleOutsideClick);
-      }
-    };
-  }, [blurOnOutsideClick, textAreaRef.current]);
   return (
     <div
       className={cn(
@@ -69,7 +37,7 @@ export default function CustomInputIcon({
         className
       )}
     >
-      <div className='absolute inset-y-0 end-0 flex z-20 items-center pe-5 ps-[14px] '>
+      <div className='absolute icon inset-y-0 end-0 flex z-20 items-center pe-5 ps-[14px] '>
         {isSubtle ? (
           <CustomButton
             onClick={onClick}
@@ -93,8 +61,6 @@ export default function CustomInputIcon({
       <textarea
         type='text'
         id={placeholder}
-        onClick={hideKeyboard}
-        onTouchStart={hideKeyboard}
         // on enter
         onKeyDown={(e) => {
           if (e.key === "Enter") {

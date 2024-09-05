@@ -43,9 +43,11 @@ export default function chatbox({
   const [isScrollLeft, setIsScrollLeft] = useState(false);
 
   useEffect(() => {
-    //focus on last obj
-    const lastObj = chatboxRef.current.querySelector(".last-obj");
-    lastObj?.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (window.innerWidth > 1024) {
+      //focus on last obj
+      const lastObj = chatboxRef.current.querySelector(".last-obj");
+      lastObj?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   }, [chat]);
 
   useEffect(() => {
@@ -83,7 +85,7 @@ export default function chatbox({
     <div
       ref={chatboxRef}
       className={cn(
-        "relative chat-box w-full lg:w-[65%]  min-h-1/2 flex-1  overflow-y-scroll hide-scrollbar  flex flex-col  pb-40 pt-12 lg:py-12 lg:pt-32  ",
+        "relative chat-box w-full lg:w-[65%]  min-h-1/2  flex-1   overflow-y-scroll hide-scrollbar  flex flex-col  pb-40 pt-24 lg:py-12 lg:pt-32  ",
         narrate && "pb-48"
       )}
     >
@@ -102,7 +104,7 @@ export default function chatbox({
         {chat.map((item, index) => {
           return item.type === "image" ? (
             <div
-              key={index + "dnd-master"}
+              key={index + "dnd-master-img"}
               className={cn(
                 "h-[223px] w-full",
                 index === chat.length - 1 && "last-obj"
@@ -116,7 +118,7 @@ export default function chatbox({
             </div>
           ) : (
             <div
-              key={index}
+              key={index + "dnd-master"}
               className={cn(
                 "flex flex-col gap-4 justify-start items-start  w-full ",
                 index === chat.length - 1 && "last-obj"
@@ -159,7 +161,7 @@ export default function chatbox({
                   >
                     {item?.choices?.map((choice, _index) => (
                       <div
-                        key={index}
+                        key={_index + "dnd-master-choice"}
                         onClick={() => {
                           if (choice.title.toLowerCase() === "free choice") {
                             setInput("");

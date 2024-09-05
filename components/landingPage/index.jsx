@@ -34,19 +34,19 @@ export default function Home() {
 
   return (
     <>
-        <div class="gradient-blur">
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
+      <div class='gradient-blur'>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
       <LocomotiveScroll scrollRef={scrollRef} locoScrollRef={locoScrollRef} />
       <div
         data-scroll-container
         ref={scrollRef}
-        className='w-full h-full overflow-x-hidden bg-gradient-to-b px-0 py-0 m-0 !bg-russianViolet'
+        className='w-full h-full overflow-x-hidden bg-gradient-to-b px-0 py-0 m-0 '
       >
         <div className='w-full h-screen relative'>
           {!videoError ? (
@@ -59,7 +59,7 @@ export default function Home() {
               className='absolute top-0 left-0 w-full h-full object-cover'
               onError={handleVideoError}
             >
-              <source src="/videos/header.mp4" type='video/mp4' />
+              <source src='/videos/header.mp4' type='video/mp4' />
               Your browser does not support the video tag.
             </video>
           ) : (
@@ -94,7 +94,7 @@ export default function Home() {
           </div>
         </div>
         <ParallaxProvider>
-          <div className='w-screen md:h-[200vh] py-10 h-full flex flex-col justify-center items-center bg-russianViolet'>
+          <div className='w-screen md:h-[200vh] py-10 h-full flex flex-col justify-center items-center '>
             <ImageParallax />
           </div>
         </ParallaxProvider>
