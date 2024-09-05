@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-
 import CustomIconbutton from "@/components/ui/custom-iconbutton";
 import useGameStore from "@/utils/gameStore";
 import ReactMarkdown from "react-markdown";
@@ -7,7 +6,11 @@ import { cn } from "@/lib/utils";
 import ArrowRight from "@/components/ui/Icons/ArrowRight";
 import Loader from "@/components/ui/Loader";
 import Tab from "@/components/ui/Icons/Tab";
-//text sizes for chatbox
+import remarkGfm from "remark-gfm";
+import rehypeRaw from "rehype-raw";
+import remarkBreaks from "remark-breaks"; // Added to handle line breaks correctly
+
+// Text sizes for chatbox
 const TEXT_SIZES = {
   17: "text-xs",
   18: "text-sm",
@@ -19,15 +22,15 @@ const TEXT_SIZES = {
 
 const TypingIndicator = () => {
   return (
-    <div className='flex items-center space-x-1'>
-      <div className='w-1.5 h-1.5 bg-gray-300 rounded-full animate-bounce'></div>
-      <div className='w-1.5 h-1.5 bg-gray-300 rounded-full animate-bounce delay-150'></div>
-      <div className='w-1.5 h-1.5 bg-gray-300 rounded-full animate-bounce delay-300'></div>
+    <div className="flex items-center space-x-1">
+      <div className="w-1.5 h-1.5 bg-gray-300 rounded-full animate-bounce"></div>
+      <div className="w-1.5 h-1.5 bg-gray-300 rounded-full animate-bounce delay-150"></div>
+      <div className="w-1.5 h-1.5 bg-gray-300 rounded-full animate-bounce delay-300"></div>
     </div>
   );
 };
 
-export default function chatbox({
+export default function Chatbox({
   chat,
   character,
   loading,
@@ -43,7 +46,7 @@ export default function chatbox({
   const [isScrollLeft, setIsScrollLeft] = useState(false);
 
   useEffect(() => {
-    //focus on last obj
+    // Focus on last object
     const lastObj = chatboxRef.current.querySelector(".last-obj");
     lastObj?.scrollIntoView({ behavior: "smooth", block: "start" });
   }, [chat]);
@@ -75,7 +78,7 @@ export default function chatbox({
   const scrollToBottom = () => {
     chatboxRef.current.scrollTo({
       top: chatboxRef.current.scrollHeight,
-      behavior: "smooth", // You can also use 'auto' for an immediate scroll
+      behavior: "smooth",
     });
   };
 
@@ -83,22 +86,23 @@ export default function chatbox({
     <div
       ref={chatboxRef}
       className={cn(
-        "relative chat-box w-full lg:w-[65%]  min-h-1/2 flex-1  overflow-y-auto hide-scrollbar  flex flex-col  pb-40 pt-12 lg:py-12 lg:pt-32  ",
+        "relative chat-box w-full lg:w-[65%] min-h-1/2 flex-1 overflow-y-auto hide-scrollbar flex flex-col pb-40 pt-12 lg:py-12 lg:pt-32",
         narrate && "pb-48"
       )}
     >
-      <div className='flex relative w-full flex-col justify-end mt-auto gap-8'>
+      <div className="flex relative w-full flex-col justify-end mt-auto gap-8">
         <CustomIconbutton
           className={cn(
-            "sticky  left-1/2  -translate-x-1/2 lg:translate-x-[0%] bottom-44 lg:bottom-52",
+            "sticky left-1/2 -translate-x-1/2 lg:translate-x-[0%] bottom-44 lg:bottom-52",
             !isScrollLeft && "opacity-0 pointer-events-none",
             narrate && "bottom-60"
           )}
           variant={"primary"}
           onClick={scrollToBottom}
         >
-          <ArrowRight className='h-5 w-5 rotate-90 fill-russianViolet' />
+          <ArrowRight className="h-5 w-5 rotate-90 fill-russianViolet" />
         </CustomIconbutton>
+
         {chat.map((item, index) => {
           return item.type === "image" ? (
             <div
@@ -111,14 +115,14 @@ export default function chatbox({
               <img
                 onClick={() => handleViewImage(item.url)}
                 src={item.url}
-                className=' h-full cursor-pointer object-contain rounded-[16px] border border-white/10 hover:shadow-custom-1 cursor-pointe ease-animate '
+                className="h-full cursor-pointer object-contain rounded-[16px] border border-white/10 hover:shadow-custom-1 ease-animate"
               />
             </div>
           ) : (
             <div
               key={index}
               className={cn(
-                "flex flex-col gap-4 justify-start items-start  w-full ",
+                "flex flex-col gap-4 justify-start items-start w-full",
                 index === chat.length - 1 && "last-obj"
               )}
             >
@@ -131,8 +135,8 @@ export default function chatbox({
                         : character?.personal?.portraitUrl ||
                           "/images/CreateCharacter/CharacterName/CharacterName.png"
                     }
-                    alt='logo'
-                    className='h-full w-full rounded-full object-cover'
+                    alt="logo"
+                    className="h-full w-full rounded-full object-cover"
                   />
                 </CustomIconbutton>
                 <span className={"running-text-mono uppercase text-gray2"}>
@@ -141,10 +145,23 @@ export default function chatbox({
                     : character?.personal.name}
                 </span>
               </div>
+
               {item.type === "system" ? (
                 <>
                   <ReactMarkdown
-                    className={cn("markdown-text ", TEXT_SIZES[textSize])}
+                    className={cn(
+                      "markdown-text bg-gray-800 p-4 rounded-lg text-gray-300",
+                      TEXT_SIZES[textSize]
+                    )}
+                    remarkPlugins={[remarkGfm, remarkBreaks]} // Added remarkBreaks to handle line breaks
+                    rehypePlugins={[rehypeRaw]}
+                    components={{
+                      p: ({ node, children }) => (
+                        <p className="mb-4 leading-relaxed text-gray-200">
+                          {children}
+                        </p>
+                      ),
+                    }}
                   >
                     {item.text}
                   </ReactMarkdown>
@@ -166,16 +183,16 @@ export default function chatbox({
                           } else setInput(choice.title);
                           setFocusTrigger((prev) => !prev);
                         }}
-                        className='flex transition-all ease-in-out hover:duration-300 active:duration-100 group cursor-pointer flex-col gap-2 md:gap-4'
+                        className="flex transition-all ease-in-out hover:duration-300 active:duration-100 group cursor-pointer flex-col gap-2 md:gap-4"
                       >
                         <span
                           className={cn(
-                            "flex group-hover:text-[#B1B2FF]  group-active:text-white items-center gap-2 running-text-mono uppercase text-irisPurpleLight",
+                            "flex group-hover:text-[#B1B2FF] group-active:text-white items-center gap-2 running-text-mono uppercase text-irisPurpleLight",
                             TEXT_SIZES[textSize]
                           )}
                         >
                           {choice.title}{" "}
-                          <Tab className='h-5 w-5 fill-irisPurpleLight group-hover:fill-[#B1B2FF] group-active:fill-white ' />
+                          <Tab className="h-5 w-5 fill-irisPurpleLight group-hover:fill-[#B1B2FF] group-active:fill-white" />
                         </span>
                         <span
                           className={cn(
@@ -192,7 +209,7 @@ export default function chatbox({
               ) : (
                 <span
                   className={cn(
-                    "font-helvetica-now-display",
+                    "bg-irisPurpleLight text-white p-4 rounded-lg",
                     TEXT_SIZES[textSize]
                   )}
                 >
@@ -204,15 +221,13 @@ export default function chatbox({
         })}
 
         {loading && (
-          <div
-            className={"flex flex-col gap-4 justify-start items-start  w-full"}
-          >
+          <div className={"flex flex-col gap-4 justify-start items-start w-full"}>
             <div className={"flex gap-2 justify-start items-center"}>
               <CustomIconbutton variant={"primary"} className={"h-6 w-6"}>
                 <img
                   src={"/Icons/logo-profile.svg"}
-                  alt='logo'
-                  className='h-full w-full rounded-full object-cover'
+                  alt="logo"
+                  className="h-full w-full rounded-full object-cover"
                 />
               </CustomIconbutton>
               <span className={"running-text-mono uppercase text-gray2"}>
@@ -224,15 +239,15 @@ export default function chatbox({
         )}
 
         {isImageLoading && (
-          <div className='relative h-[223px] w-fit rounded-[16px] overflow-hidden'>
+          <div className="relative h-[223px] w-fit rounded-[16px] overflow-hidden">
             <Loader
-              text='Generating Image...'
-              className='absolute top-0 left-0 w-full h-full bg-blur flex items-center justify-center'
+              text="Generating Image..."
+              className="absolute top-0 left-0 w-full h-full bg-blur flex items-center justify-center"
             />
             <img
-              src='/images/CreateCharacter/CharacterName/CharacterName.png'
-              alt='gradient'
-              className=' h-full object-contain'
+              src="/images/CreateCharacter/CharacterName/CharacterName.png"
+              alt="gradient"
+              className="h-full object-contain"
             />
           </div>
         )}
