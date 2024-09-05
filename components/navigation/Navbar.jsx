@@ -30,7 +30,7 @@ const NavLinks = () => {
       <li>
         <Link
           href='/discover/gallery'
-          className='text-white hover:text-gray1 transition-all duration-300 ease-in-out'
+          className='text-white hover:text-gray1 transition-all duration-300 ease-in-out keychainify-checked'
           aria-label='Gallery'
         >
           GALLERY
@@ -39,7 +39,7 @@ const NavLinks = () => {
       <li>
         <Link
           href='/about-us'
-          className='text-white hover:text-gray1 transition-all duration-300 ease-in-out'
+          className='text-white hover:text-gray1 transition-all duration-300 ease-in-out keychainify-checked'
           aria-label='About'
         >
           ABOUTS US
@@ -48,7 +48,7 @@ const NavLinks = () => {
       <li>
         <Link
           href='/pricing'
-          className='text-white hover:text-gray1 transition-all duration-300 ease-in-out'
+          className='text-white hover:text-gray1 transition-all duration-300 ease-in-out keychainify-checked'
           aria-label='support us'
         >
           SUPPORT US
@@ -278,7 +278,7 @@ export default function Navbar({ variant, characterSheet }) {
         >
           <Link
             href='/'
-            className='text-white hover:text-gray1 transition-all duration-300 ease-in-out'
+            className='text-white hover:text-gray1 transition-all duration-300 ease-in-out keychainify-checked'
             aria-label='Home'
           >
             <img
@@ -305,7 +305,7 @@ export default function Navbar({ variant, characterSheet }) {
           <div className='flex justify-center items-center gap-6'>
             <Link
               href='/'
-              className='text-white me-2 hover:text-gray1 transition-all duration-300 ease-in-out'
+              className='text-white me-2 hover:text-gray1 transition-all duration-300 ease-in-out keychainify-checked'
               aria-label='Home'
             >
               <img src='/Icons/Logo.svg' alt='logo' className='h-10' />
