@@ -275,7 +275,7 @@ export default function DrawerMenu({ characterCreatePage, handlePlay }) {
       >
         <Link
           href='/'
-          className='text-white hover:text-gray2 transition-all duration-300 ease-in-out'
+          className='text-white hover:text-gray2 transition-all duration-300 ease-in-out keychainify-checked'
         >
           <img
             src='/Icons/Logo.svg'

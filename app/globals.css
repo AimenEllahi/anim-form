@@ -613,3 +613,7 @@ input::-ms-clear {
   height: 100vh;
 
 }
+
+.chat-box {
+  -webkit-overflow-scrolling: touch;
+}

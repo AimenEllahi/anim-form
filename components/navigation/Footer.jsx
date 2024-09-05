@@ -45,12 +45,9 @@ const NavMenu = ({ menu, disable }) => {
               className={`text-white ease-animate hover:text-gray2 running-text ${
                 disable ? "pointer-events-none text-gray-400" : ""
               }`}
-              target={(link === "Discord" || link === "Twitter") && "_blank"}
-              rel={
-                link === "Discord" || link === "Twitter"
-                  ? "noopener noreferrer"
-                  : "false"
-              }
+              target={(link === "Discord" || link === "Twitter") ? "_blank" : undefined}
+              rel={(link === "Discord" || link === "Twitter") ? "noopener noreferrer" : undefined}
+
             >
               {link}
             </Link>

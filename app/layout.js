@@ -331,9 +331,9 @@ export default function RootLayout({ children }) {
         <head>
           <meta
             name='viewport'
-            content='width=device-width, initial-scale=1, maximum-scale=1'
+            content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover'
           />
-          <meta charset='UTF-8' />
+          <meta charSet='UTF-8' />
           <title>{ogTitle}</title>
           <meta name='author' content='dndai.app' />
           <meta name='robots' content='index, follow' />
@@ -438,7 +438,7 @@ export default function RootLayout({ children }) {
             src='/images/bg.png'
             alt='Background'
             style={{ objectFit: "cover" }}
-            priority
+            priority='true'
             className='fixed w-screen h-screen top-0 left-0 z-0'
           />
           <MemoizedNavbar

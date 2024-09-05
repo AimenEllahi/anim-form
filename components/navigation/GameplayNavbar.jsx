@@ -76,7 +76,7 @@ export default function GameplayNavbar({ loading, setLoading }) {
         >
           <Link
             href='#'
-            className='text-white hover:text-gray1 transition-all duration-300 ease-in-out'
+            className='text-white hover:text-gray1 transition-all duration-300 ease-in-out keychainify-checked'
           >
             <img
               src='/Icons/Logo.svg'
