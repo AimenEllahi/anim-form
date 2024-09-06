@@ -22,10 +22,10 @@ const TEXT_SIZES = {
 
 const TypingIndicator = () => {
   return (
-    <div className='flex items-center space-x-1'>
-      <div className='w-1.5 h-1.5 bg-gray-300 rounded-full animate-bounce'></div>
-      <div className='w-1.5 h-1.5 bg-gray-300 rounded-full animate-bounce delay-150'></div>
-      <div className='w-1.5 h-1.5 bg-gray-300 rounded-full animate-bounce delay-300'></div>
+    <div className="flex items-center space-x-1">
+      <div className="w-1.5 h-1.5 bg-gray-300 rounded-full animate-bounce"></div>
+      <div className="w-1.5 h-1.5 bg-gray-300 rounded-full animate-bounce delay-150"></div>
+      <div className="w-1.5 h-1.5 bg-gray-300 rounded-full animate-bounce delay-300"></div>
     </div>
   );
 };
@@ -92,7 +92,7 @@ export default function Chatbox({
         narrate && "pb-48"
       )}
     >
-      <div className='flex relative w-full flex-col justify-end mt-auto gap-8'>
+      <div className="flex relative w-full flex-col justify-end mt-auto gap-8">
         <CustomIconbutton
           className={cn(
             "sticky left-1/2 -translate-x-1/2 lg:translate-x-[0%] bottom-44 lg:bottom-52",
@@ -102,7 +102,7 @@ export default function Chatbox({
           variant={"primary"}
           onClick={scrollToBottom}
         >
-          <ArrowRight className='h-5 w-5 rotate-90 fill-russianViolet' />
+          <ArrowRight className="h-5 w-5 rotate-90 fill-russianViolet" />
         </CustomIconbutton>
 
         {chat.map((item, index) => {
@@ -117,7 +117,7 @@ export default function Chatbox({
               <img
                 onClick={() => handleViewImage(item.url)}
                 src={item.url}
-                className='h-full cursor-pointer object-contain rounded-[16px] border border-white/10 hover:shadow-custom-1 ease-animate'
+                className="h-full cursor-pointer object-contain rounded-[16px] border border-white/10 hover:shadow-custom-1 ease-animate"
               />
             </div>
           ) : (
@@ -137,8 +137,8 @@ export default function Chatbox({
                         : character?.personal?.portraitUrl ||
                           "/images/CreateCharacter/CharacterName/CharacterName.png"
                     }
-                    alt='logo'
-                    className='h-full w-full rounded-full object-cover'
+                    alt="logo"
+                    className="h-full w-full rounded-full object-cover"
                   />
                 </CustomIconbutton>
                 <span className={"running-text-mono uppercase text-gray2"}>
@@ -152,14 +152,14 @@ export default function Chatbox({
                 <>
                   <ReactMarkdown
                     className={cn(
-                      "markdown-text bg-gray-800 p-4 rounded-lg text-gray-300",
+                      "custom-markdown-text running-text text-white",
                       TEXT_SIZES[textSize]
                     )}
                     remarkPlugins={[remarkGfm, remarkBreaks]} // Added remarkBreaks to handle line breaks
                     rehypePlugins={[rehypeRaw]}
                     components={{
                       p: ({ node, children }) => (
-                        <p className='mb-4 leading-relaxed text-gray-200'>
+                        <p className="mb-4 leading-relaxed text-gray-200">
                           {children}
                         </p>
                       ),
@@ -185,7 +185,7 @@ export default function Chatbox({
                           } else setInput(choice.title);
                           setFocusTrigger((prev) => !prev);
                         }}
-                        className='flex transition-all ease-in-out hover:duration-300 active:duration-100 group cursor-pointer flex-col gap-2 md:gap-4'
+                        className="flex transition-all ease-in-out hover:duration-300 active:duration-100 group cursor-pointer flex-col gap-2 md:gap-4"
                       >
                         <span
                           className={cn(
@@ -194,7 +194,7 @@ export default function Chatbox({
                           )}
                         >
                           {choice.title}{" "}
-                          <Tab className='h-5 w-5 fill-irisPurpleLight group-hover:fill-[#B1B2FF] group-active:fill-white' />
+                          <Tab className="h-5 w-5 fill-irisPurpleLight group-hover:fill-[#B1B2FF] group-active:fill-white" />
                         </span>
                         <span
                           className={cn(
@@ -211,7 +211,7 @@ export default function Chatbox({
               ) : (
                 <span
                   className={cn(
-                    "bg-irisPurpleLight text-white p-4 rounded-lg",
+                    "custom-markdown-text-player1  running-text text-white",
                     TEXT_SIZES[textSize]
                   )}
                 >
@@ -230,8 +230,8 @@ export default function Chatbox({
               <CustomIconbutton variant={"primary"} className={"h-6 w-6"}>
                 <img
                   src={"/Icons/logo-profile.svg"}
-                  alt='logo'
-                  className='h-full w-full rounded-full object-cover'
+                  alt="logo"
+                  className="h-full w-full rounded-full object-cover"
                 />
               </CustomIconbutton>
               <span className={"running-text-mono uppercase text-gray2"}>
@@ -243,15 +243,15 @@ export default function Chatbox({
         )}
 
         {isImageLoading && (
-          <div className='relative h-[223px] w-fit rounded-[16px] overflow-hidden'>
+          <div className="relative h-[223px] w-fit rounded-[16px] overflow-hidden">
             <Loader
-              text='Generating Image...'
-              className='absolute top-0 left-0 w-full h-full bg-blur flex items-center justify-center'
+              text="Generating Image..."
+              className="absolute top-0 left-0 w-full h-full bg-blur flex items-center justify-center"
             />
             <img
-              src='/images/CreateCharacter/CharacterName/CharacterName.png'
-              alt='gradient'
-              className='h-full object-contain'
+              src="/images/CreateCharacter/CharacterName/CharacterName.png"
+              alt="gradient"
+              className="h-full object-contain"
             />
           </div>
         )}

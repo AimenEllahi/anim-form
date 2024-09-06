@@ -13,7 +13,7 @@ export default function Index() {
   const [character, setCharacter] = useState(INITIAL_CHARACTER);
 
   useEffect(() => {
-    //height 100 vh  not scrollable when and show modal
+    //height 100 vh  not scrollable when show modal
     if (showModal) {
       document.body.style.overflowY = "hidden ";
     }
