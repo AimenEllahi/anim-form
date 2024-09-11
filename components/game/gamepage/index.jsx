@@ -138,7 +138,7 @@ export default function Index({
   };
 
   const handleNewGame = () => {
-    // Implement the new game logic here
+    // Implement the new game logic here 
     console.log("Starting a new game!");
   };
 
