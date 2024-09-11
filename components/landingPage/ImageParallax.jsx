@@ -231,7 +231,7 @@ export default function ImageParallax() {
               style={{
                 mixBlendMode: "exclusion",
               }}
-              src='https://dzjg7lvewk7ln.cloudfront.net/parallax/parallax-5.mp4'
+              src='https://dzjg7lvewk7ln.cloudfront.net/parallax/parallax-6.mp4'
               alt='Parallax Image 6'
               autoPlay
               loop
@@ -247,7 +247,7 @@ export default function ImageParallax() {
               style={{
                 mixBlendMode: "exclusion",
               }}
-              src='https://dzjg7lvewk7ln.cloudfront.net/parallax/parallax-6.mp4'
+              src='https://dzjg7lvewk7ln.cloudfront.net/parallax/parallax-5.mp4'
               alt='Parallax Image 4'
               autoPlay
               playsInline
