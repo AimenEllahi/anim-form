@@ -9,6 +9,7 @@ import GreatFilled from "@/components/ui/Icons/Great";
 import SuperFilled from "@/components/ui/Icons/Super";
 import NeutralFilled from "@/components/ui/Icons/Neutral";
 import BadFilled from "@/components/ui/Icons/Bad";
+import { sendContact } from "@/actions/email";
 
 const emoticons = [
   {
@@ -58,7 +59,8 @@ export default function Feedback() {
         type: "feedback",
       });
       invokeToast("Email sent successfully", "success");
-    } catch {
+    } catch (err) {
+      console.log(err);
       invokeToast("Failed to send email", "error");
     } finally {
       setIsLoading(false);
