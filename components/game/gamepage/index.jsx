@@ -1,5 +1,4 @@
-"use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Card from "@/components/ui/Shared/Card/character";
 import CustomInputIcon from "@/components/ui/custom-input-icon";
 import Chatbox from "./chatbox";
@@ -12,6 +11,7 @@ import useCustomToast from "@/hooks/useCustomToast";
 import useControlsStore from "@/utils/controlsStore";
 import DiceBox from "@3d-dice/dice-box";
 import { getCredits } from "@/actions/character";
+import GameCompletionPopup from "./GameCompletionPopup"; // Adjust the import path as needed
 
 export default function Index({
   response,
@@ -20,7 +20,6 @@ export default function Index({
   gameCampaign,
   choices,
 }) {
-  //  console.log(choices);
   const { game, setGame } = useGameStore();
   const { user, setYellowCredits, setBlueCredits } = useUserStore();
   const { setShowCreditsDialogue } = useControlsStore();
@@ -44,14 +43,18 @@ export default function Index({
     },
   ]);
 
+  // New state for popup and completion check
+  const [isGameCompleted, setIsGameCompleted] = useState(false);
+  const [completionMessage, setCompletionMessage] = useState("");
+
   useEffect(() => {
     const rollSound = new Audio("/audio/dice-roll.mp3");
     setRollSound(rollSound);
     const _diceBox = new DiceBox("#dice-box-game", {
-      assetPath: "/assets/dice-box", // required
-      theme: "default", //optional
-      enableShadows: true, // optional
-      themeColor: "#242e9e", // optional
+      assetPath: "/assets/dice-box",
+      theme: "default",
+      enableShadows: true,
+      themeColor: "#242e9e",
       scale: 8,
       lightIntensity: 1,
       shadowIntensity: 2,
@@ -67,24 +70,22 @@ export default function Index({
 
   const handleChat = async (text) => {
     if (user?.blueCredits < 1) {
+      console.log("Not enough credits to proceed.");
       setShowCreditsDialogue(true);
       return;
     }
 
     try {
-      // Initialize the dice box if not already initialized
       if (!diceBox.initialized) {
         await diceBox.init();
-        diceBox.initialized = true; // Mark as initialized to prevent re-initialization
+        diceBox.initialized = true;
       }
 
       setTimeout(() => {
         rollSound.play();
       }, 1000);
-      // Roll the dice
-      const result = await diceBox.roll("1d20");
 
-      // Get the roll result
+      const result = await diceBox.roll("1d20");
       const roll = result[0].value;
 
       const payload = {
@@ -94,25 +95,20 @@ export default function Index({
         gameId: game._id,
       };
 
-      setLoading(true);
-      if (window.innerWidth > 1024) {
-        const element = document.querySelector(".chat-box");
-        setTimeout(() => {
-          element.scrollTo({
-            top: element.scrollHeight,
-            behavior: "smooth", // You can also use 'auto' for an immediate scroll
-          });
-        }, 500);
-      }
-
       const {
         game: _game,
         responseText,
         choices,
+        isCompleted, // Expect this flag in the response
       } = await addChoice(payload, user?.token);
 
       setGame(_game);
-      //  console.log(choices);
+
+      if (isCompleted) {
+        setIsGameCompleted(true);
+        setCompletionMessage(responseText); // Set the final congratulatory message
+      }
+
       setChat((prev) => [
         ...prev,
         {
@@ -122,7 +118,7 @@ export default function Index({
         },
       ]);
     } catch (error) {
-      console.log(error);
+      console.log("Error in handleChat:", error);
       invokeToast(
         error?.response?.data?.error || "Something Went Wrong",
         "error"
@@ -132,11 +128,18 @@ export default function Index({
       setYellowCredits(credits.yellowCredits);
       setBlueCredits(credits.blueCredits);
       setLoading(false);
-
-      // Clear dice state if necessary
-      // Ensure this does not transfer control again
       diceBox.clear();
     }
+  };
+
+  const handleSaveCharacter = () => {
+    // Implement the save character logic here
+    console.log("Character saved!");
+  };
+
+  const handleNewGame = () => {
+    // Implement the new game logic here
+    console.log("Starting a new game!");
   };
 
   return (
@@ -144,36 +147,45 @@ export default function Index({
       {saveCharacterLoading && (
         <Loader
           text={"Saving Character..."}
-          className='absolute top-0 z-[40] left-0 max-h-screen h-screen w-screen bg-blur-bottom-menu flex items-center justify-center'
+          className="absolute top-0 z-[40] left-0 max-h-screen h-screen w-screen bg-blur-bottom-menu flex items-center justify-center"
         />
       )}
 
-      <div className='absolute pointer-events-none top-0 left-0 ease-animate z-[9] flex items-center justify-start w-screen'>
+      {/* Show Game Completion Popup */}
+      {isGameCompleted && (
+        <GameCompletionPopup
+          message={completionMessage}
+          onClose={() => setIsGameCompleted(false)}
+          action={handleSaveCharacter} // Pass the save character action
+        />
+      )}
+
+      <div className="absolute pointer-events-none top-0 left-0 ease-animate z-[9] flex items-center justify-start w-screen">
         <img
-          src='/images/Game/gradient.png'
-          alt='gradient'
-          className='hidden lg:block w-full lg:h-full lg:object-contain'
+          src="/images/Game/gradient.png"
+          alt="gradient"
+          className="hidden lg:block w-full lg:h-full lg:object-contain"
         />
         <img
-          src='/images/Gradient-Mobile.png'
-          alt='gradient'
-          className='block lg:hidden w-full'
+          src="/images/Gradient-Mobile.png"
+          alt="gradient"
+          className="block lg:hidden w-full"
         />
       </div>
 
       <div
         suppressHydrationWarning
-        className='w-full flex gap-10 px-6 lg:px-12 pb-32 lg:pb-12 h-screen fixed z-[8] overflow-y-scroll hide-scrollbar text-white'
+        className="w-full flex gap-10 px-6 lg:px-12 pb-32 lg:pb-12 h-screen fixed z-[8] overflow-y-scroll hide-scrollbar text-white"
       >
-        <div className='w-1/4 b h-full hidden lg:flex flex-col gap-3 z-30 pt-[40px] lg:pt-[128px]'>
-          <span className='running-text-mono text-gray2'>CAMPAIGN</span>
-          <span className='headline-4 mb-3'>{gameCampaign?.title}</span>
+        <div className="w-1/4 b h-full hidden lg:flex flex-col gap-3 z-30 pt-[40px] lg:pt-[128px]">
+          <span className="running-text-mono text-gray2">CAMPAIGN</span>
+          <span className="headline-4 mb-3">{gameCampaign?.title}</span>
           <Card hideMenu={true} isGamePage={true} character={gameCharacter} />
         </div>
-        <div className='w-full lg:w-3/4 z-10 h-full'>
-          <div className='flex relative flex-col h-full gap-3 w-full '>
+        <div className="w-full lg:w-3/4 z-10 h-full">
+          <div className="flex relative flex-col h-full gap-3 w-full ">
             {showMobileMenu && (
-              <div className='fixed z-[10] top-0 left-0 w-screen h-screen bg-russianViolet/20'></div>
+              <div className="fixed z-[10] top-0 left-0 w-screen h-screen bg-russianViolet/20"></div>
             )}
             <Chatbox
               isImageLoading={isImageLoading}
@@ -186,7 +198,7 @@ export default function Index({
               narrate={narrate}
               setFocusTrigger={setFocusTrigger}
             />
-            <div className='z-[20] flex flex-col-reverse lg:flex-col gap-4 lg:gap-5 fixed bottom-0 left-0 w-screen bg-blur-bottom-menu lg:bg-transparent lg:backdrop-filter-none px-5 lg:p-0 lg:pt-2 pb-5 pt-4 lg:relative lg:w-full'>
+            <div className="z-[20] flex flex-col-reverse lg:flex-col gap-4 lg:gap-5 fixed bottom-0 left-0 w-screen bg-blur-bottom-menu lg:bg-transparent lg:backdrop-filter-none px-5 lg:p-0 lg:pt-2 pb-5 pt-4 lg:relative lg:w-full">
               <CustomInputIcon
                 focusTrigger={focusTrigger}
                 blurOnOutsideClick={true}
@@ -212,15 +224,13 @@ export default function Index({
                   handleChat(input);
                 }}
                 className={"w-full lg:w-[65%] h-[64px] lg:h-[80px]"}
-                textAreaClassName={
-                  "h-[64px] lg:h-[80px] pt-[22px] lg:py-[28px]"
-                }
-                placeholder='What will you do?'
+                textAreaClassName={"h-[64px] lg:h-[80px] pt-[22px] lg:py-[28px]"}
+                placeholder="What will you do?"
                 icon={
                   <img
-                    src='/Icons/ArrowUp.svg'
-                    alt='chat'
-                    className='h-5 w-5'
+                    src="/Icons/ArrowUp.svg"
+                    alt="chat"
+                    className="h-5 w-5"
                   />
                 }
               />
