@@ -133,12 +133,12 @@ export default function Index({
   };
 
   const handleSaveCharacter = () => {
-    // Implement the save character logic here
+    // Implement the save character logic
     console.log("Character saved!");
   };
 
   const handleNewGame = () => {
-    // Implement the new game logic here 
+    // Implement the new game logic here
     console.log("Starting a new game!");
   };
 
@@ -224,7 +224,9 @@ export default function Index({
                   handleChat(input);
                 }}
                 className={"w-full lg:w-[65%] h-[64px] lg:h-[80px]"}
-                textAreaClassName={"h-[64px] lg:h-[80px] pt-[22px] lg:py-[28px]"}
+                textAreaClassName={
+                  "h-[64px] lg:h-[80px] pt-[22px] lg:py-[28px]"
+                }
                 placeholder="What will you do?"
                 icon={
                   <img
