@@ -75,27 +75,54 @@ export default function Index({
       setShowCreditsDialogue(true);
       return;
     }
-
+  
     try {
-      if (!diceBox.initialized) {
-        await diceBox.init();
-        diceBox.initialized = true;
+      let rollResults = null;
+      let diceExpression = null;
+      const triggerWords = ["Roll", "Investigate", "Check"];
+      const diceTypes = ["d4", "d6", "d8", "d10", "d12", "d20", "d100"];
+      
+      // Check if the input contains any trigger words
+      const containsTriggerWord = triggerWords.some((word) =>
+        text.toLowerCase().includes(word.toLowerCase())
+      );
+  
+      // Regular expression to match dice expressions like "2d6", "3d10", etc.
+      const diceRegex = /(\d*)d(\d+)/i;
+      const diceMatch = text.match(diceRegex);
+  
+      if (containsTriggerWord) {
+        if (!diceBox.initialized) {
+          await diceBox.init();
+          diceBox.initialized = true;
+        }
+  
+        setTimeout(() => {
+          rollSound.play();
+        }, 1000);
+  
+        // Determine the dice expression to roll
+        if (diceMatch) {
+          const numberOfDice = diceMatch[1] ? parseInt(diceMatch[1], 10) : 1;
+          const diceType = diceMatch[2];
+          diceExpression = `${numberOfDice}d${diceType}`;
+        } else if (text.toLowerCase().includes("roll") || text.toLowerCase().includes("investigate") || text.toLowerCase().includes("check")) {
+          diceExpression = "1d20";
+        }
+  
+        if (diceExpression) {
+          const result = await diceBox.roll(diceExpression);
+          rollResults = result.map(r => r.value).join(", ");
+        }
       }
-
-      setTimeout(() => {
-        rollSound.play();
-      }, 1000);
-
-      const result = await diceBox.roll("1d20");
-      const roll = result[0].value;
-
+  
       const payload = {
-        userInput: `${text}, Roll: ${roll}`,
+        userInput: containsTriggerWord ? `${text}, Roll: ${rollResults}` : text,
         characterId: game.characterId,
         campaignId: game.campaignId,
         gameId: game._id,
       };
-
+  
       setLoading(true);
       if (window.innerWidth > 1024) {
         const element = document.querySelector(".chat-box");
@@ -106,22 +133,21 @@ export default function Index({
           });
         }, 500);
       }
-
-
+  
       const {
         game: _game,
         responseText,
         choices,
         isCompleted, // Expect this flag in the response
       } = await addChoice(payload, user?.token);
-
+  
       setGame(_game);
-
+  
       if (isCompleted) {
         setIsGameCompleted(true);
         setCompletionMessage(responseText); // Set the final congratulatory message
       }
-
+  
       setChat((prev) => [
         ...prev,
         {
@@ -141,11 +167,11 @@ export default function Index({
       setYellowCredits(credits.yellowCredits);
       setBlueCredits(credits.blueCredits);
       setLoading(false);
-      diceBox.clear();
+      if (diceBox.initialized) {
+        diceBox.clear();
+      }
     }
   };
-
-
 
   return (
     <>
