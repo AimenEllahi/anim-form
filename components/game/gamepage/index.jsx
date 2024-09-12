@@ -1,3 +1,4 @@
+'use client'
 import React, { useEffect, useState } from "react";
 import Card from "@/components/ui/Shared/Card/character";
 import CustomInputIcon from "@/components/ui/custom-input-icon";
@@ -94,6 +95,18 @@ export default function Index({
         campaignId: game.campaignId,
         gameId: game._id,
       };
+
+      setLoading(true);
+      if (window.innerWidth > 1024) {
+        const element = document.querySelector(".chat-box");
+        setTimeout(() => {
+          element.scrollTo({
+            top: element.scrollHeight,
+            behavior: "smooth", // You can also use 'auto' for an immediate scroll
+          });
+        }, 500);
+      }
+
 
       const {
         game: _game,
