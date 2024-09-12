@@ -30,7 +30,17 @@ export default function GameCompletionPopup({ message, onClose, action }) {
             <span style={{ color: '#05D381' }}>Campaign Completed!</span> 
             <p>Ready for your next Adventure?</p>
           </h2>
-          <p dangerouslySetInnerHTML={{ __html: formatMessage(message) }}></p>
+
+          {/* Add a scrollable container for long messages */}
+          <div 
+            style={{ 
+              maxHeight: '50vh',  // Use relative height for mobile responsiveness
+              overflowY: 'auto',  // Enable vertical scrolling
+              paddingRight: '8px', // Optional, add some padding for the scrollbar
+            }}
+          >
+            <p dangerouslySetInnerHTML={{ __html: formatMessage(message) }}></p>
+          </div>
         </div>
         
         <DialogFooter className='!flex gap-4 border-t border-white/10 p-6'>
