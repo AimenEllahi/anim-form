@@ -133,7 +133,8 @@ export default function Index({
   };
 
   const handleSaveCharacter = () => {
-    // Implement the save character logic
+    // Implement the save character logic here
+
     console.log("Character saved!");
   };
 
