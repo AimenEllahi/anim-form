@@ -132,16 +132,7 @@ export default function Index({
     }
   };
 
-  const handleSaveCharacter = () => {
-    // Implement the save character logic here
 
-    console.log("Character saved!");
-  };
-
-  const handleNewGame = () => {
-    // Implement the new game logic here
-    console.log("Starting a new game!");
-  };
 
   return (
     <>
@@ -157,7 +148,6 @@ export default function Index({
         <GameCompletionPopup
           message={completionMessage}
           onClose={() => setIsGameCompleted(false)}
-          action={handleSaveCharacter} // Pass the save character action
         />
       )}
 
