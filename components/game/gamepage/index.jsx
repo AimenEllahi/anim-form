@@ -79,19 +79,18 @@ export default function Index({
     try {
       let rollResults = null;
       let diceExpression = null;
-      const triggerWords = ["Roll", "Investigate", "Check"];
+      const triggerWords = ["Roll", "Investigate", "Check", "Examine", "Cast", "Persuade", "Charm", "attack", "Loot"];
       const diceTypes = ["d4", "d6", "d8", "d10", "d12", "d20", "d100"];
       
-      // Check if the input contains any trigger words
-      const containsTriggerWord = triggerWords.some((word) =>
-        text.toLowerCase().includes(word.toLowerCase())
-      );
-  
       // Regular expression to match dice expressions like "2d6", "3d10", etc.
       const diceRegex = /(\d*)d(\d+)/i;
       const diceMatch = text.match(diceRegex);
   
-      if (containsTriggerWord) {
+      if (text.toLowerCase().includes("loot")) {
+        diceExpression = "1d100";
+      } 
+      // Check if the input contains any other trigger words
+      else if (triggerWords.some((word) => text.toLowerCase().includes(word.toLowerCase()))) {
         if (!diceBox.initialized) {
           await diceBox.init();
           diceBox.initialized = true;
@@ -106,18 +105,18 @@ export default function Index({
           const numberOfDice = diceMatch[1] ? parseInt(diceMatch[1], 10) : 1;
           const diceType = diceMatch[2];
           diceExpression = `${numberOfDice}d${diceType}`;
-        } else if (text.toLowerCase().includes("roll") || text.toLowerCase().includes("investigate") || text.toLowerCase().includes("check")) {
+        } else if (text.toLowerCase().includes("roll") || text.toLowerCase().includes("investigate") || text.toLowerCase().includes("examine") || text.toLowerCase().includes("charm") || text.toLowerCase().includes("cast") || text.toLowerCase().includes("persuade") || text.toLowerCase().includes("attack") || text.toLowerCase().includes("check")) {
           diceExpression = "1d20";
-        }
-  
-        if (diceExpression) {
-          const result = await diceBox.roll(diceExpression);
-          rollResults = result.map(r => r.value).join(", ");
         }
       }
   
+      if (diceExpression) {
+        const result = await diceBox.roll(diceExpression);
+        rollResults = result.map(r => r.value).join(", ");
+      }
+  
       const payload = {
-        userInput: containsTriggerWord ? `${text}, Roll: ${rollResults}` : text,
+        userInput: diceExpression ? `${text}, Roll: ${rollResults}` : text,
         characterId: game.characterId,
         campaignId: game.campaignId,
         gameId: game._id,
@@ -129,7 +128,7 @@ export default function Index({
         setTimeout(() => {
           element.scrollTo({
             top: element.scrollHeight,
-            behavior: "smooth", // You can also use 'auto' for an immediate scroll
+            behavior: "smooth",
           });
         }, 500);
       }
@@ -138,14 +137,14 @@ export default function Index({
         game: _game,
         responseText,
         choices,
-        isCompleted, // Expect this flag in the response
+        isCompleted,
       } = await addChoice(payload, user?.token);
   
       setGame(_game);
   
       if (isCompleted) {
         setIsGameCompleted(true);
-        setCompletionMessage(responseText); // Set the final congratulatory message
+        setCompletionMessage(responseText);
       }
   
       setChat((prev) => [
@@ -172,7 +171,7 @@ export default function Index({
       }
     }
   };
-
+  
   return (
     <>
       {saveCharacterLoading && (
