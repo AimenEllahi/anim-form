@@ -10,21 +10,40 @@ import { updatePassword, updateUser } from "@/actions/user";
 import useCustomToast from "@/hooks/useCustomToast";
 import { isPasswordValid } from "@/lib/Helpers/auth";
 import CustomValidationtext from "@/components/ui/custom-validationtext";
+import { useDebounce } from "@/hooks/useDebounce";
+import { verifyUserNameExists } from "@/actions/auth";
 export default function Index() {
   const { user, setUser } = useUserStore();
   const [isLoading, setIsLoading] = useState(false);
-  const { invokeToast } = useCustomToast();
   const [fd, setFd] = useState({
     name: user.name,
     username: user.username,
     email: user.email,
   });
+  const [usernameExists, setUsernameExists] = useState(false);
+  const debounceUsername = useDebounce(fd.username, 150);
+  const { invokeToast } = useCustomToast();
+
   const [isEditing, setIsEditing] = useState({
     personalData: false,
     email: false,
     password: false,
   });
 
+  useEffect(() => {
+    const checkUsername = async () => {
+      try {
+        const exists = await verifyUserNameExists(debounceUsername);
+        setUsernameExists(exists);
+      } catch (error) {
+        invokeToast(
+          error?.response?.data?.message || "Something Went Wrong",
+          "error"
+        );
+      }
+    };
+    if (debounceUsername?.length > 2) checkUsername();
+  }, [debounceUsername]);
   const handleEditClick = (section) => {
     setIsEditing((prev) => ({
       ...prev,
@@ -56,7 +75,7 @@ export default function Index() {
           name: fd.name,
         };
         const response = await updateUser(user?.token, payload);
-      //  console.log("updated", response);
+        //  console.log("updated", response);
         setUser({
           ...user,
           ...response,
@@ -74,16 +93,35 @@ export default function Index() {
     return isEditing.personalData ? (
       <div>
         <div className='p-4 flex flex-col gap-8'>
-          <CustomInput
-            value={fd.username}
-            onChange={(e) =>
-              setFd((prev) => ({
-                ...prev,
-                username: e,
-              }))
-            }
-            placeholder='Username'
-          />
+          <div>
+            <CustomInput
+              placeholder='USERNAME'
+              value={fd.username}
+              onChange={(e) =>
+                setFd((prev) => ({
+                  ...prev,
+                  username: e,
+                }))
+              }
+              error={usernameExists}
+              icon={
+                !usernameExists &&
+                user.username.length > 2 && (
+                  <img
+                    src='/Icons/Success.svg'
+                    alt='Success'
+                    className=' h-5 w-5'
+                  />
+                )
+              }
+            />
+            {usernameExists && user.username.length > 2 && (
+              <CustomValidationtext
+                validator={!usernameExists}
+                text={"Username is already taken"}
+              />
+            )}
+          </div>
           <CustomInput
             value={fd.name}
             onChange={(e) =>
@@ -107,7 +145,7 @@ export default function Index() {
           </CustomButton>
           <CustomButton
             onClick={handleUpdateUser}
-            disabled={isLoading}
+            disabled={isLoading || usernameExists}
             withIcon
             variant={"primary"}
           >
@@ -198,7 +236,7 @@ export default function Index() {
           password,
         };
         const response = await updatePassword(user?.token, payload);
-      //  console.log("updated", response);
+        //  console.log("updated", response);
 
         invokeToast("Password Updated Successfully", "success");
       } catch (error) {

@@ -59,9 +59,12 @@ export default function Feedback() {
         type: "feedback",
       });
       invokeToast("Email sent successfully", "success");
-    } catch (err) {
+    } catch (error) {
       console.log(err);
-      invokeToast("Failed to send email", "error");
+      invokeToast(
+        error?.response?.data?.message || "Failed to send email",
+        "error"
+      );
     } finally {
       setIsLoading(false);
     }
