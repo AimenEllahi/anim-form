@@ -1,4 +1,5 @@
-'use client'
+'use client';
+
 import React, { useEffect, useState } from "react";
 import Card from "@/components/ui/Shared/Card/character";
 import CustomInputIcon from "@/components/ui/custom-input-icon";
@@ -13,6 +14,9 @@ import useControlsStore from "@/utils/controlsStore";
 import DiceBox from "@3d-dice/dice-box";
 import { getCredits } from "@/actions/character";
 import GameCompletionPopup from "./GameCompletionPopup"; // Adjust the import path as needed
+
+// Import the Google Analytics event function
+import { event as gaEvent } from '@/utils/gtag';
 
 export default function Index({
   response,
@@ -43,7 +47,6 @@ export default function Index({
       choices,
     },
   ]);
-
   // New state for popup and completion check
   const [isGameCompleted, setIsGameCompleted] = useState(false);
   const [completionMessage, setCompletionMessage] = useState("");
@@ -70,58 +73,77 @@ export default function Index({
   }, [gameCampaign]);
 
   const handleChat = async (text) => {
+    // Track the user input event
+    gaEvent({
+      action: 'submit_input',
+      category: 'Game Interaction',
+      label: 'User Submitted Input',
+      value: text.length,
+    });
+
     if (user?.blueCredits < 1) {
       console.log("Not enough credits to proceed.");
       setShowCreditsDialogue(true);
       return;
     }
-  
     try {
       let rollResults = null;
       let diceExpression = null;
       const triggerWords = ["Roll", "Investigate", "Check", "Examine", "Cast", "Persuade", "Charm", "attack", "Loot"];
       const diceTypes = ["d4", "d6", "d8", "d10", "d12", "d20", "d100"];
-      
       // Regular expression to match dice expressions like "2d6", "3d10", etc.
       const diceRegex = /(\d*)d(\d+)/i;
       const diceMatch = text.match(diceRegex);
-  
+
       if (text.toLowerCase().includes("loot")) {
         diceExpression = "1d100";
-      } 
+      }
       // Check if the input contains any other trigger words
-      else if (triggerWords.some((word) => text.toLowerCase().includes(word.toLowerCase()))) {
+      else if (
+        triggerWords.some((word) =>
+          text.toLowerCase().includes(word.toLowerCase())
+        )
+      ) {
         if (!diceBox.initialized) {
           await diceBox.init();
           diceBox.initialized = true;
         }
-  
         setTimeout(() => {
           rollSound.play();
         }, 1000);
-  
         // Determine the dice expression to roll
         if (diceMatch) {
           const numberOfDice = diceMatch[1] ? parseInt(diceMatch[1], 10) : 1;
           const diceType = diceMatch[2];
           diceExpression = `${numberOfDice}d${diceType}`;
-        } else if (text.toLowerCase().includes("roll") || text.toLowerCase().includes("investigate") || text.toLowerCase().includes("examine") || text.toLowerCase().includes("charm") || text.toLowerCase().includes("cast") || text.toLowerCase().includes("persuade") || text.toLowerCase().includes("attack") || text.toLowerCase().includes("check")) {
+        } else if (
+          text.toLowerCase().includes("roll") ||
+          text.toLowerCase().includes("investigate") ||
+          text.toLowerCase().includes("examine") ||
+          text.toLowerCase().includes("charm") ||
+          text.toLowerCase().includes("cast") ||
+          text.toLowerCase().includes("persuade") ||
+          text.toLowerCase().includes("attack") ||
+          text.toLowerCase().includes("check")
+        ) {
           diceExpression = "1d20";
         }
       }
-  
+
       if (diceExpression) {
         const result = await diceBox.roll(diceExpression);
-        rollResults = result.map(r => r.value).join(", ");
+        rollResults = result.map((r) => r.value).join(", ");
       }
-  
+
       const payload = {
-        userInput: diceExpression ? `${text}, Roll: ${rollResults}` : text,
+        userInput: diceExpression
+          ? `${text}, Roll: ${rollResults}`
+          : text,
         characterId: game.characterId,
         campaignId: game.campaignId,
         gameId: game._id,
       };
-  
+
       setLoading(true);
       if (window.innerWidth > 1024) {
         const element = document.querySelector(".chat-box");
@@ -132,21 +154,27 @@ export default function Index({
           });
         }, 500);
       }
-  
+
       const {
         game: _game,
         responseText,
         choices,
         isCompleted,
       } = await addChoice(payload, user?.token);
-  
       setGame(_game);
-  
+
       if (isCompleted) {
         setIsGameCompleted(true);
         setCompletionMessage(responseText);
+
+        // Track game completion event
+        gaEvent({
+          action: 'game_completed',
+          category: 'Game Interaction',
+          label: 'User Completed Game',
+        });
       }
-  
+
       setChat((prev) => [
         ...prev,
         {
@@ -171,7 +199,7 @@ export default function Index({
       }
     }
   };
-  
+
   return (
     <>
       {saveCharacterLoading && (
@@ -180,7 +208,6 @@ export default function Index({
           className="absolute top-0 z-[40] left-0 max-h-screen h-screen w-screen bg-blur-bottom-menu flex items-center justify-center"
         />
       )}
-
       {/* Show Game Completion Popup */}
       {isGameCompleted && (
         <GameCompletionPopup
@@ -188,7 +215,6 @@ export default function Index({
           onClose={() => setIsGameCompleted(false)}
         />
       )}
-
       <div className="absolute pointer-events-none top-0 left-0 ease-animate z-[9] flex items-center justify-start w-screen">
         <img
           src="/images/Game/gradient.png"
@@ -201,7 +227,6 @@ export default function Index({
           className="block lg:hidden w-full"
         />
       </div>
-
       <div
         suppressHydrationWarning
         className="w-full flex gap-10 px-6 lg:px-12 pb-32 lg:pb-12 h-screen fixed z-[8] overflow-y-scroll hide-scrollbar text-white"
@@ -209,7 +234,11 @@ export default function Index({
         <div className="w-1/4 b h-full hidden lg:flex flex-col gap-3 z-30 pt-[40px] lg:pt-[128px]">
           <span className="running-text-mono text-gray2">CAMPAIGN</span>
           <span className="headline-4 mb-3">{gameCampaign?.title}</span>
-          <Card hideMenu={true} isGamePage={true} character={gameCharacter} />
+          <Card
+            hideMenu={true}
+            isGamePage={true}
+            character={gameCharacter}
+          />
         </div>
         <div className="w-full lg:w-3/4 z-10 h-full">
           <div className="flex relative flex-col h-full gap-3 w-full ">
@@ -241,6 +270,14 @@ export default function Index({
                     }, 300);
                     return;
                   }
+
+                  // Track submit button click event
+                  gaEvent({
+                    action: 'click_submit',
+                    category: 'User Interaction',
+                    label: 'User Clicked Submit',
+                  });
+
                   setChat((prev) => [
                     ...prev,
                     {
@@ -248,11 +285,12 @@ export default function Index({
                       text: input,
                     },
                   ]);
-
                   setInput("");
                   handleChat(input);
                 }}
-                className={"w-full lg:w-[65%] h-[64px] lg:h-[80px]"}
+                className={
+                  "w-full lg:w-[65%] h-[64px] lg:h-[80px]"
+                }
                 textAreaClassName={
                   "h-[64px] lg:h-[80px] pt-[22px] lg:py-[28px]"
                 }
@@ -265,7 +303,6 @@ export default function Index({
                   />
                 }
               />
-
               <BottomMenu
                 setChat={setChat}
                 textSize={textSize}

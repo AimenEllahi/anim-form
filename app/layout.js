@@ -412,21 +412,24 @@ export default function RootLayout({ children }) {
             src={`https://www.googletagmanager.com/gtag/js?id=G-BTHMYX7TZ9`}
             async
           />
-          <Script
-            id='google-analytics'
-            strategy='afterInteractive'
-            dangerouslySetInnerHTML={{
-              __html: `
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', 'G-BTHMYX7TZ9', {
-                  page_path: window.location.pathname,
-                });
-              `,
-            }}
-            async
-          />
+            <Script
+              strategy='afterInteractive'
+              src={`https://www.googletagmanager.com/gtag/js?id='G-BTHMYX7TZ9`}
+            />
+            <Script
+              id='google-analytics'
+              strategy='afterInteractive'
+              dangerouslySetInnerHTML={{
+                __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', 'G-BTHMYX7TZ9', {
+                    page_path: window.location.pathname,
+                  });
+                `,
+              }}
+            />
         </head>
         <body className='w-screen hide-scrollbar relative max-w-screen overflow-x-hidden bg-russianViolet'>
           {showDiceGold && <div id='dice-box-gold' className='dice-box'></div>}
