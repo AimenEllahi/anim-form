@@ -30,9 +30,9 @@ const BackButton = ({ activeStep, isChoosingRandom, handleBack }) => {
       withIcon={true}
     >
       <img
-        src="/Icons/ArrowLeft.svg"
-        alt="logo"
-        className="h-5 w-5 invert opacity-70"
+        src='/Icons/ArrowLeft.svg'
+        alt='logo'
+        className='h-5 w-5 invert opacity-70'
       />
       Back
     </CustomButton>
@@ -68,9 +68,9 @@ const NextButton = ({
     >
       {formComplete ? "Finish And Start" : "Next step"}
       {formComplete ? (
-        <Check className="h-5 w-5 fill-black" />
+        <Check className='h-5 w-5 fill-black' />
       ) : (
-        <ArrowRight className="h-5 w-5 fill-black" />
+        <ArrowRight className='h-5 w-5 fill-black' />
       )}
     </CustomButton>
   );
@@ -112,7 +112,18 @@ export default function BottomMenu({ character, setCharacter }) {
   };
 
   const handleSubmit = async () => {
-    //  console.log(character);
+    if (!user) {
+      //create new id for character
+      const id = Math.random().toString(36).slice(2, 9);
+      const _char = { ...character, _id: id };
+      //save character to local storage
+      localStorage.setItem("character", JSON.stringify(_char));
+      router.push("/auth/sign-in?redirect=/character/sheet&&id=" + id);
+      invokeToast(
+        "Selection Saved, Please Sign In to save your character",
+        "Info"
+      );
+    }
 
     if (!character.name) {
       setCharacterNameError(true);
@@ -200,19 +211,19 @@ export default function BottomMenu({ character, setCharacter }) {
     return (
       <Loader
         className={"fixed top-0 h-screen w-screen left-0 z-[20] bg-blur"}
-        text="Creating Character..."
+        text='Creating Character...'
       />
     );
 
   return (
     <>
       {/* For Desktop */}
-      <div className="text-white hidden     md:flex justify-between items-center w-full py-12  left-0 z-[20]   ">
+      <div className='text-white hidden     md:flex justify-between items-center w-full py-12  left-0 z-[20]   '>
         <CustomButton withIcon onClick={handleRandomCharacterName}>
-          <img src="/Icons/Random.svg" alt="logo" className="h-5 w-5 " />
+          <img src='/Icons/Random.svg' alt='logo' className='h-5 w-5 ' />
           RANDOM CHARACTER Name
         </CustomButton>
-        <div className="flex w-1/4 relative flex-col gap-1">
+        <div className='flex w-1/4 relative flex-col gap-1'>
           <CustomInput
             focusOnError={true}
             value={character.name}
@@ -220,9 +231,9 @@ export default function BottomMenu({ character, setCharacter }) {
             icon={
               character.name && (
                 <img
-                  src="/Icons/Success.svg"
-                  alt="Success"
-                  className=" h-5 w-5"
+                  src='/Icons/Success.svg'
+                  alt='Success'
+                  className=' h-5 w-5'
                 />
               )
             }
@@ -233,17 +244,17 @@ export default function BottomMenu({ character, setCharacter }) {
               if (value.length <= 32)
                 setCharacter((prev) => ({ ...prev, name: value }));
             }}
-            placeholder="CHARACTER NAME"
+            placeholder='CHARACTER NAME'
             className={"w-full"}
           />
           {characterNameError && (
-            <span className="text-errorRed uppercase font-roboto-mono -bottom-6 left-1 text-[10px] absolute">
+            <span className='text-errorRed uppercase font-roboto-mono -bottom-6 left-1 text-[10px] absolute'>
               Please enter a character name
             </span>
           )}
         </div>
 
-        <div className="flex items-center gap-x-6">
+        <div className='flex items-center gap-x-6'>
           <BackButton
             activeStep={activeStep}
             isChoosingRandom={isChoosingRandom}
@@ -267,7 +278,7 @@ export default function BottomMenu({ character, setCharacter }) {
           activeStep >= 7 ? "!bg-transparent " : "bg-blur-bottom-menu"
         )}
       >
-        <div className=" flex items-center justify-between p-5  ">
+        <div className=' flex items-center justify-between p-5  '>
           {searchMode ? (
             <SearchInput
               autoFocus={true}
@@ -277,12 +288,12 @@ export default function BottomMenu({ character, setCharacter }) {
             />
           ) : (
             <>
-              <div className="flex items-center gap-5">
+              <div className='flex items-center gap-5'>
                 <CustomIconbutton onClick={toggleSound}>
                   <img
                     src={isSoundOn ? "/Icons/Sound.svg" : "/Icons/SoundOff.svg"}
-                    alt="Sound Toggle"
-                    className="h-5 w-5 invert"
+                    alt='Sound Toggle'
+                    className='h-5 w-5 invert'
                   />
                 </CustomIconbutton>
                 <CustomIconbutton
@@ -294,12 +305,12 @@ export default function BottomMenu({ character, setCharacter }) {
                 >
                   <img
                     src={"/Icons/Search.svg"}
-                    alt="Search Toggle"
-                    className="h-5 w-5  "
+                    alt='Search Toggle'
+                    className='h-5 w-5  '
                   />
                 </CustomIconbutton>
               </div>
-              <div className="flex items-center gap-x-6">
+              <div className='flex items-center gap-x-6'>
                 <BackButton
                   activeStep={activeStep}
                   isChoosingRandom={isChoosingRandom}
