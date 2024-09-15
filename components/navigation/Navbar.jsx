@@ -42,7 +42,7 @@ const NavLinks = () => {
           className='text-white hover:text-gray1 transition-all duration-300 ease-in-out keychainify-checked'
           aria-label='About'
         >
-          ABOUTS US
+          ABOUT US
         </Link>
       </li>
       <li>
