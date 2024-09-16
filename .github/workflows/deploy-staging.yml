@@ -1,4 +1,4 @@
-name: Deploy to staging EC2
+name: Deploy to EC2
 
 on:
   push:
@@ -57,10 +57,10 @@ jobs:
 
       - name: Build the project
         run: |
-            ssh -i ssh_key.pem ec2-user@$EC2_HOSTNAME "export NEXT_PUBLIC_BACKEND_URL=3.73.50.246 NEXT_PUBLIC_BASE_URL=http://localhost:4000 && cd ~/dndaiFrontEnd && npm run build"
+          ssh -i ssh_key.pem ec2-user@$EC2_HOSTNAME "export NEXT_PUBLIC_BACKEND_URL=https://dndai.app && cd ~/dndaiFrontEnd && npm run build"
         env:
-            EC2_HOSTNAME: ${{ secrets.STAGING_HOST }}
-    
+          EC2_HOSTNAME: ${{ secrets.STAGING_HOST }}
+
       - name: Restart the server
         run: |
           ssh -i ssh_key.pem ec2-user@$EC2_HOSTNAME "pm2 delete frontend || true"
