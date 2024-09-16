@@ -1,0 +1,69 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches:
+      - staging
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up SSH key
+        run: |
+          echo "$SSH_PRIVATE_KEY" > ssh_key.pem
+          chmod 600 ssh_key.pem
+          mkdir -p $HOME/.ssh
+          ssh-keyscan -H $EC2_HOSTNAME >> ~/.ssh/known_hosts
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          EC2_HOSTNAME: ${{ secrets.STAGING_HOST}}
+
+      - name: Copy files to EC2
+        run: |
+          ssh -i ssh_key.pem ec2-user@$EC2_HOSTNAME << 'EOF'
+            if [ -d ~/dndaiFrontEnd ]; then
+              rm -rf ~/dndaiFrontEnd/*
+            fi
+          EOF
+          scp -i ssh_key.pem -r ${GITHUB_WORKSPACE}/* ec2-user@$EC2_HOSTNAME:~/dndaiFrontEnd/
+        env:
+          EC2_HOSTNAME: ${{ secrets.STAGING_HOST }}
+
+      - name: Set up swap space on EC2
+        run: |
+          ssh -i ssh_key.pem ec2-user@$EC2_HOSTNAME << 'EOF'
+            if ! grep -q '/swapfile' /etc/fstab; then
+              sudo fallocate -l 1G /swapfile
+              sudo chmod 600 /swapfile
+              sudo mkswap /swapfile
+              sudo swapon /swapfile
+              echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
+            fi
+            df -h
+          EOF
+        env:
+          EC2_HOSTNAME: ${{ secrets.STAGING_HOST }}
+
+      - name: Install Node.js dependencies
+        run: |
+          ssh -i ssh_key.pem ec2-user@$EC2_HOSTNAME "export NODE_OPTIONS='--max-old-space-size=1536' && cd ~/dndaiFrontEnd && npm install"
+        env:
+          EC2_HOSTNAME: ${{ secrets.STAGING_HOST }}
+
+      - name: Build the project
+        run: |
+          ssh -i ssh_key.pem ec2-user@$EC2_HOSTNAME "export NEXT_PUBLIC_BACKEND_URL=https://dndai.app && cd ~/dndaiFrontEnd && npm run build"
+        env:
+          EC2_HOSTNAME: ${{ secrets.STAGING_HOST }}
+
+      - name: Restart the server
+        run: |
+          ssh -i ssh_key.pem ec2-user@$EC2_HOSTNAME "pm2 delete frontend || true"
+          ssh -i ssh_key.pem ec2-user@$EC2_HOSTNAME "cd ~/dndaiFrontEnd && pm2 start npm --name frontend -- start"
+        env:
+          EC2_HOSTNAME: ${{ secrets.STAGING_HOST }}
