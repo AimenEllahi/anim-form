@@ -40,7 +40,7 @@ export const IMAGE_TYPES = [
       "https://dzjg7lvewk7ln.cloudfront.net/imagetocreate/dungeon-map.webp",
   },
   {
-    name: "Dungeon map",
+    name: "Environment",
     type: "campaignImage",
     image:
       "https://dzjg7lvewk7ln.cloudfront.net/imagetocreate/enemy.webp",
