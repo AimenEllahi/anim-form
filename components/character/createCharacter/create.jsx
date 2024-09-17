@@ -14,7 +14,7 @@ import CharacterName from "@/components/character/createCharacter/CharacterName/
 import Stepper from "./stepper";
 import { cn } from "@/lib/utils";
 
-//create character
+//create character component
 export default function create({ character, setCharacter }) {
   const { activeStep } = useStepperStore();
 
