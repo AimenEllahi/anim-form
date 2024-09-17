@@ -14,6 +14,7 @@ import CharacterName from "@/components/character/createCharacter/CharacterName/
 import Stepper from "./stepper";
 import { cn } from "@/lib/utils";
 
+//create character
 export default function create({ character, setCharacter }) {
   const { activeStep } = useStepperStore();
 
@@ -37,7 +38,7 @@ export default function create({ character, setCharacter }) {
         ${activeStep >= 7 && "max-h-screen "}`
       )}
     >
-      <div className='text-white w-auto h-full '>
+      <div className="text-white w-auto h-full ">
         <Stepper />
       </div>
 
