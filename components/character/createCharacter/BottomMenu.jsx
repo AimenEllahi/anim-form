@@ -112,21 +112,18 @@ export default function BottomMenu({ character, setCharacter }) {
   };
 
   const handleSubmit = async () => {
-    if (!user) {
-      //create new id for character
-      const id = Math.random().toString(36).slice(2, 9);
-      const _char = { ...character, _id: id };
-      //save character to local storage
-      localStorage.setItem("character", JSON.stringify(_char));
-      router.push("/auth/sign-in?redirect=/character/sheet&&id=" + id);
-      invokeToast(
-        "Selection Saved, Please Sign In to save your character",
-        "Info"
-      );
-    }
-
     if (!character.name) {
       setCharacterNameError(true);
+      return;
+    }
+
+    if (!user?.token) {
+      //create new id for character
+      const id = Math.random().toString(36).slice(2, 9);
+      //save character to local storage
+      localStorage.setItem(id, JSON.stringify(character));
+      router.push("/auth/sign-in?redirect=/character/create&&id=" + id);
+      invokeToast("Please Sign In to save your character", "Info");
       return;
     }
 

@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import Step1 from "./Step1";
 import Step2 from "./Step2";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
+
 const INITIAL_USER = {
   username: "",
   email: "",
@@ -13,7 +15,10 @@ const INITIAL_USER = {
 export default function signup() {
   const [step, setStep] = useState(1);
   const [user, setUser] = useState(INITIAL_USER);
+  const searchParams = useSearchParams();
 
+  const redirect = searchParams.get("redirect");
+  const id = searchParams.get("id");
   const reset = () => {
     setUser(INITIAL_USER);
   };
@@ -28,7 +33,13 @@ export default function signup() {
         <h1 className='headline-3 '>Sign Up</h1>
         <span className='text-gray2 running-text-small '>
           Already have an account?{" "}
-          <Link className='text-white' href={"/auth/sign-in"}>
+          <Link
+            className='text-white'
+            href={
+              "/auth/sign-in" +
+              (redirect ? `?redirect=${redirect}&&id=${id}` : "")
+            }
+          >
             Sign in
           </Link>
         </span>

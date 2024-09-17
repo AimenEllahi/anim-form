@@ -23,17 +23,17 @@ export default function Index({ character, setCharacter }) {
       lightIntensity: 1,
       shadowIntensity: 2,
     });
+    //init
+    _diceBox.init();
     setDiceBox(_diceBox);
   }, []);
 
   const handleRollDice = () => {
-    diceBox.init().then(() => {
-      setTimeout(() => {
-        rollSound.play();
-      }, 1000);
-      diceBox.roll("1d20").then((result) => {
-        setSelectedFace(result[0].value);
-      });
+    setTimeout(() => {
+      rollSound.play();
+    }, 1000);
+    diceBox.roll("1d20").then((result) => {
+      setSelectedFace(result[0].value);
     });
   };
 

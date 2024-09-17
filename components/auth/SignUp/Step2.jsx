@@ -12,6 +12,8 @@ import { isPasswordValid } from "@/lib/Helpers/auth";
 import CustomValidationtext from "@/components/ui/custom-validationtext";
 import { useRouter } from "next/navigation";
 import { useDebounce } from "@/hooks/useDebounce";
+import { useSearchParams } from "next/navigation";
+
 export default function Step2({ setStep, user, setUser, reset }) {
   const router = useRouter();
   const [isPasswordFocused, setIsPasswordFocused] = useState(false);
@@ -22,12 +24,15 @@ export default function Step2({ setStep, user, setUser, reset }) {
   const debounceUsername = useDebounce(user.username, 150);
   const [usernameExists, setUsernameExists] = useState(false);
   const [usernameFocused, setUsernameFocused] = useState(false);
+  const searchParams = useSearchParams();
 
+  const redirect = searchParams.get("redirect");
+  const id = searchParams.get("id");
   useEffect(() => {
     const checkUsername = async () => {
       try {
         const exists = await verifyUserNameExists(debounceUsername);
-     //   console.log(exists);
+        //   console.log(exists);
         setUsernameExists(exists);
       } catch (error) {
         invokeToast(
@@ -62,7 +67,10 @@ export default function Step2({ setStep, user, setUser, reset }) {
         password: user.password,
       });
 
-      router.push("/auth/sign-up/email-confirmation");
+      router.push(
+        "/auth/sign-up/email-confirmation" +
+          (redirect ? `?redirect=${redirect}&&id=${id}` : "")
+      );
       reset();
     } catch (error) {
       invokeToast(

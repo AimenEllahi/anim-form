@@ -11,6 +11,7 @@ import useCustomToast from "@/hooks/useCustomToast";
 import useUserStore from "@/utils/userStore";
 import Cookie from "universal-cookie";
 import { useRouter } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 
 export default function SignIn() {
   const cookies = new Cookie();
@@ -22,6 +23,11 @@ export default function SignIn() {
   const [isLoading, setIsLoading] = useState(false);
   const [isEmailValid, setIsEmailValid] = useState(false);
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+  const searchParams = useSearchParams();
+
+
+  const redirect = searchParams.get("redirect");
+  const id = searchParams.get("id");
 
   const togglePasswordVisibility = () => {
     setIsPasswordVisible(!isPasswordVisible);
@@ -42,7 +48,12 @@ export default function SignIn() {
         sameSite: "Strict",
       });
       invokeToast("Login Successful", "Success");
-      router.push("/discover");
+
+      if (redirect) {
+        router.push(redirect + (id ? `?id=${id}` : ""));
+      } else {
+        router.push("/discover");
+      }
     } catch (error) {
       invokeToast(
         error?.response?.data?.message || "Something Went Wrong",
@@ -68,7 +79,13 @@ export default function SignIn() {
         <h1 className='headline-3'>Sign in</h1>
         <span className='text-gray2 running-text-small'>
           No account yet?{" "}
-          <Link className='text-white' href={"/auth/sign-up"}>
+          <Link
+            className='text-white'
+            href={
+              "/auth/sign-up" +
+              (redirect ? `?redirect=${redirect}&&id=${id}` : "")
+            }
+          >
             Create an account
           </Link>
         </span>

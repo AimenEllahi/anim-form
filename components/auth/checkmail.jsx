@@ -2,6 +2,8 @@
 import React from "react";
 import CustomButton from "../ui/custom-button";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
+
 const _text =
   " We have sent you a link to reset your password by E-Mail. You may need to check your spam folder.";
 
@@ -10,7 +12,11 @@ export default function Checkmail({
   isLoading,
   subtext = _text,
 }) {
- // console.log(subtext);
+  const searchParams = useSearchParams();
+
+  const redirect = searchParams.get("redirect");
+  const id = searchParams.get("id");
+  // console.log(subtext);
   return (
     <div className='  z-10 relative text-white h-[278px] w-[345px] flex text-center flex-col justify-between items-center gap-8  '>
       <img
@@ -32,7 +38,13 @@ export default function Checkmail({
         >
           RESEND LINK
         </CustomButton>
-        <Link href={"/auth/sign-up"} className='running-text-small'>
+        <Link
+          href={
+            "/auth/sign-in" +
+            (redirect ? `?redirect=${redirect}&&id=${id}` : "")
+          }
+          className='running-text-small'
+        >
           Back to sign up
         </Link>
       </div>
