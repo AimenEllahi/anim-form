@@ -152,7 +152,8 @@ export default function Navbar({ variant, characterSheet }) {
     pathname === "/" ||
     pathname.includes("auth") ||
     pathname.includes("discover/gallery") ||
-    pathname.includes("pricing");
+    pathname.includes("pricing") ||
+    pathname.includes("about");
   const showDiscoverButton =
     !isGamePage && !pathname.includes("character/create") && !showNavLinks;
   const showUpgradeButton =

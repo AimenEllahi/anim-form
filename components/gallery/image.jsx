@@ -1,5 +1,5 @@
 import React from "react";
-import { DialogContent } from "@/components/ui/dialog";
+import { DialogContent, DialogTitle } from "@/components/ui/dialog";
 import CustomButton from "@/components/ui/custom-button";
 import Download from "@/components/ui/Icons/Download";
 import Cancel from "@/components/ui/Icons/Cancel";
@@ -16,6 +16,7 @@ export default function Image({ setOpen, image }) {
 
   return (
     <DialogContent className=' text-white bg-transparent border-none p-5 md:p-0 !shadow-none !gap-6'>
+      <DialogTitle className='text-white text-center'></DialogTitle>
       <>
         <div className='grid relative grid-cols-1 gap-4  '>
           <CustomIconbutton
@@ -24,7 +25,11 @@ export default function Image({ setOpen, image }) {
             }}
             className={"absolute top-4 right-4 bg-blur-icon-button md:hidden"}
           >
-            <img src='/Icons/Cancel.svg' alt='imagestyle' className='h-5 w-5 ' />
+            <img
+              src='/Icons/Cancel.svg'
+              alt='imagestyle'
+              className='h-5 w-5 '
+            />
           </CustomIconbutton>
           <img
             src={image}

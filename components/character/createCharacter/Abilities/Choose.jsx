@@ -13,6 +13,7 @@ import useStepperStore from "@/utils/characterStore";
 import CustomDropdown from "@/components/ui/custom-dropdown";
 import RolledDice from "@/components/ui/Icons/RolledDice";
 import { cn } from "@/lib/utils";
+import Information from "@/components/ui/Icons/Information";
 
 const _ABILITIES = [
   {
@@ -74,14 +75,8 @@ const DiceResults = ({ results, value }) => {
     </div>
   );
 };
-export default function Choose({
-  abilities,
-  handleChangeAbilities,
-  _pointsToSpend,
-}) {
+export default function Choose({ abilities, handleChangeAbilities }) {
   const {
-    setAbilitiesRoll,
-    abilitiesRoll,
     isRollingAbilities,
     setIsRollingAbilities,
     finalRollResults,
@@ -262,7 +257,38 @@ export default function Choose({
 
   return (
     <div className='md:rounded-[16px] flex flex-col gap-6 w-full md:w-fit max-h-full h-fit md:p-5 md:pt-6 md:border border-white/10 md:bg-white/[8%]  '>
-      <h1 className='headline-4 hidden md:block'>Abilities</h1>
+      <div className='flex items-center justify-between'>
+        <h1 className='headline-4 hidden md:block'>Abilities</h1>
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger>
+              <div className='flex items-center gap-2 running-text-mono uppercase'>
+                <Information
+                  src='/Icons/'
+                  className={cn("h-6 w-6   ease-animate   ")}
+                />
+                help
+              </div>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>Add your message here</p>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
+
+        {showRollAll && (
+          <CustomButton
+            disabled={isRollingAbilities}
+            className='w-fit md:hidden'
+            variant={"subtle"}
+            onClick={handleRollAll}
+            withIcon={true}
+          >
+            <Dice className='h-5 opacity-70 w-5' />
+            Roll All Dice
+          </CustomButton>
+        )}
+      </div>
 
       <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-start gap-6  w-full hide-scrollbar overflow-y-scroll'>
         {_ABILITIES.map((ability, index) => {
@@ -319,7 +345,7 @@ export default function Choose({
           {showRollAll && (
             <CustomButton
               disabled={isRollingAbilities}
-              className='w-fit'
+              className='w-fit hidden md:flex'
               variant={"subtle"}
               onClick={handleRollAll}
               withIcon={true}

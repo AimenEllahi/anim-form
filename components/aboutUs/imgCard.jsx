@@ -2,13 +2,13 @@ import React from "react";
 
 export default function imgCard({ src, name, job }) {
   return (
-    <div className='flex flex-col gap-6 w-full  bg-transparent'>
+    <div className='flex flex-col gap-6 w-full images-glow '>
       <img
         src={src}
         alt='Images about the developers of dndai.app'
-        className='w-full images-glow h-full object-cover  rounded-[16px]'
+        className='w-full  h-full object-cover  rounded-[16px] border border-irisPurpleLight/20'
       />
-      <div className='flex flex-col gap-3 bg-transparent'>
+      <div className='flex flex-col gap-3 '>
         <span className='headline-4'>{name}</span>
         <span className='running-text-mono text-irisPurpleLight uppercase'>
           {job}

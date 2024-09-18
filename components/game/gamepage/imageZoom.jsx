@@ -1,5 +1,5 @@
 import React from "react";
-import { DialogContent } from "@/components/ui/dialog";
+import { DialogContent, DialogTitle } from "@/components/ui/dialog";
 import CustomButton from "@/components/ui/custom-button";
 import Generate from "@/components/ui/Icons/Generate";
 import Download from "@/components/ui/Icons/Download";
@@ -19,7 +19,9 @@ export default function imageZoom({ setOpen, setImageDialog }) {
   };
 
   return (
-    <DialogContent className=' text-white bg-transparent border-none p-5 md:p-0 !max-w-screen !w-screen  md:!w-full'>
+    <DialogContent className=' text-white bg-transparent border-none p-5 md:p-0 !max-w-screen md:!w-full max-h-[90%] '>
+      <DialogTitle className='text-white text-center'></DialogTitle>
+
       <div className='grid grid-cols-1 gap-4 relative '>
         <CustomIconbutton
           onClick={() => {
@@ -27,7 +29,11 @@ export default function imageZoom({ setOpen, setImageDialog }) {
           }}
           className={"absolute md:hidden top-4 right-4 bg-blur-icon-button"}
         >
-          <img src='/Icons/Cancel.svg' alt='close button' className='h-5 w-5 ' />
+          <img
+            src='/Icons/Cancel.svg'
+            alt='close button'
+            className='h-5 w-5 '
+          />
         </CustomIconbutton>
         <img
           src={image}
