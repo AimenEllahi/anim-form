@@ -38,7 +38,7 @@ const UserLoggedIn = ({ handleRedirect, handlePlay }) => {
           <CustomIcontext>
             <img
               src='/gems/Mythic.webp'
-              alt=''
+              alt='Mythic gem image'
               className='h-[18px] object-contain '
             />
             {user.blueCredits}
@@ -46,7 +46,7 @@ const UserLoggedIn = ({ handleRedirect, handlePlay }) => {
           <CustomIcontext>
             <img
               src='/gems/Legendary.webp'
-              alt=''
+              alt='Legendary gem'
               className='h-[18px] object-contain '
             />
             {user.yellowCredits}
@@ -82,7 +82,7 @@ const UserLoggedIn = ({ handleRedirect, handlePlay }) => {
         >
           <img
             src='/Icons/UserCircle.svg'
-            alt=''
+            alt='My character button'
             className='h-5 w-5 opacity-70'
           />
           <span>My characters</span>
@@ -95,7 +95,7 @@ const UserLoggedIn = ({ handleRedirect, handlePlay }) => {
         >
           <img
             src='/Icons/ImageLibrary.svg'
-            alt=''
+            alt='My images button'
             className='h-5 w-5  opacity-70'
           />
           <span>My images</span>
@@ -108,7 +108,7 @@ const UserLoggedIn = ({ handleRedirect, handlePlay }) => {
         >
           <img
             src='/Icons/Campaign.svg'
-            alt=''
+            alt='My campaigns button'
             className='h-5 w-5  opacity-70'
           />
           <span>My campaigns</span>
@@ -192,7 +192,7 @@ const UserLoggedOut = ({ handleRedirect }) => {
       >
         <img
           src='/Icons/UserCircle.svg'
-          alt=''
+          alt='Discover button'
           className='h-5 w-5 opacity-70'
         />
         <span>Discover</span>
@@ -203,7 +203,7 @@ const UserLoggedOut = ({ handleRedirect }) => {
       >
         <img
           src='/Icons/ImageLibrary.svg'
-          alt=''
+          alt='My images button'
           className='h-5 w-5  opacity-70'
         />
         <span>My images</span>
@@ -212,7 +212,7 @@ const UserLoggedOut = ({ handleRedirect }) => {
         onClick={() => handleRedirect("/campaign/my-campaigns")}
         className='flex gap-3 hover:bg-transparent focus:bg-transparent focus:text-white  transition-all duration-300 ease-linear cursor-pointer'
       >
-        <img src='/Icons/Campaign.svg' alt='' className='h-5 w-5  opacity-70' />
+        <img src='/Icons/Campaign.svg' alt='My campaigns button' className='h-5 w-5  opacity-70' />
         <span>My campaigns</span>
       </div>
       <hr className='border-white/10 ' />

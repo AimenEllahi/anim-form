@@ -76,7 +76,7 @@ export default function index({
               {" "}
               <img
                 src='/gems/Mythic.webp'
-                alt=''
+                alt='mythic gem'
                 className='h-[18px] object-contain '
               />
               {user.blueCredits}
@@ -84,7 +84,7 @@ export default function index({
             <div className='flex  items-center gap-1'>
               <img
                 src='/gems/Legendary.webp'
-                alt=''
+                alt='legendary gem'
                 className='h-[18px] object-contain '
               />
               {user.yellowCredits}

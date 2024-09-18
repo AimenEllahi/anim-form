@@ -164,7 +164,7 @@ export default function NarrationControls({
             Text will be read aloud. Costs
             <img
               src='/gems/Mythic.webp'
-              alt=''
+              alt='Mythic gem, gem to narrate the game'
               className='h-5  mx-1 object-contain'
               style={{ display: "inline", verticalAlign: "middle" }}
             />

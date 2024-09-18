@@ -26,11 +26,11 @@ export default function ImageModal() {
           }}
           className={"absolute top-4 right-4 bg-blur-icon-button"}
         >
-          <img src='/Icons/Cancel.svg' alt='' className='h-5 w-5 ' />
+          <img src='/Icons/Cancel.svg' alt='cancle icon' className='h-5 w-5 ' />
         </CustomIconbutton>
         <img
           src={selectedCharacteristic?.image}
-          alt=''
+          alt='cancle icon'
           className='rounded-[16px]'
         />
         <div className='flex flex-col gap-4'>

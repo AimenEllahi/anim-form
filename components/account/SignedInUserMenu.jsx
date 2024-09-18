@@ -36,7 +36,7 @@ export default function SignedInUserMenu() {
           <CustomIcontext>
             <img
               src='/gems/Mythic.webp'
-              alt=''
+              alt='Mythic gem, Gems to make turns in the game.'
               className='h-[18px] object-contain '
             />
             {user.blueCredits}
@@ -44,7 +44,7 @@ export default function SignedInUserMenu() {
           <CustomIcontext>
             <img
               src='/gems/Legendary.webp'
-              alt=''
+              alt='Legendary Coin, Coin to generate Images on the website'
               className='h-[18px] object-contain '
             />
             {user.yellowCredits}
@@ -66,7 +66,7 @@ export default function SignedInUserMenu() {
           >
             <img
               src='/Icons/UserCircle.svg'
-              alt=''
+              alt='Button to get to the user created characters; heroes'
               className='h-5 w-5  opacity-70'
             />
             <span>My characters</span>
@@ -79,7 +79,7 @@ export default function SignedInUserMenu() {
           <CustomMenuItem>
             <img
               src='/Icons/ImageLibrary.svg'
-              alt=''
+              alt='Private image gallery of the user'
               className='h-5 w-5  opacity-70'
             />
             <span>My images</span>
@@ -91,7 +91,7 @@ export default function SignedInUserMenu() {
           >
             <img
               src='/Icons/Campaign.svg'
-              alt=''
+              alt='user generated campaigns'
               className='h-5 w-5  opacity-70'
             />
             <span>My campaigns</span>
@@ -103,7 +103,7 @@ export default function SignedInUserMenu() {
           >
             <img
               src='/Icons/StarFilled.svg'
-              alt=''
+              alt='Icon to get to favourite  Campaigns page'
               className='h-5 w-5  opacity-70'
             />
             <span>Favorites</span>
@@ -118,7 +118,7 @@ export default function SignedInUserMenu() {
           >
             <img
               src='/Icons/Settings.svg'
-              alt=''
+              alt='Button to get to the account settings'
               className='h-5 w-5  opacity-70'
             />
             <span>Account Settings</span>
@@ -128,7 +128,7 @@ export default function SignedInUserMenu() {
           <CustomMenuItem onClick={handleLogout}>
             <img
               src='/Icons/Logout.svg'
-              alt=''
+              alt='Logout button'
               className='h-5 w-5  opacity-70'
             />
             <span>Logout</span>

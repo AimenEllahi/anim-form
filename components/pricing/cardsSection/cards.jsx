@@ -92,7 +92,7 @@ export default function cards({ plan, selectedPlan, stripe }) {
           <li className='flex gap-2 justify-start items-center'>
             <img
               src='/gems/Legendary.webp'
-              alt=''
+              alt='Legendary Gem'
               className='h-[18px] object-contain'
             />
             <span className='text-white running-text-mono'>
@@ -102,7 +102,7 @@ export default function cards({ plan, selectedPlan, stripe }) {
           <li className='flex gap-2 justify-start items-center'>
             <img
               src='/gems/Mythic.webp'
-              alt=''
+              alt='Mythic Gem'
               className='h-[18px] object-contain'
             />
             <span className='text-white running-text-mono'> {blueCredits}</span>

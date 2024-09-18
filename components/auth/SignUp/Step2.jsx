@@ -224,7 +224,7 @@ export default function Step2({ setStep, user, setUser, reset }) {
           ) : (
             <>
               CREATE ACCOUNT{" "}
-              <img src='/Icons/ArrowRight.svg' alt='' className='h-5 w-5' />
+              <img src='/Icons/ArrowRight.svg' alt='Arrow pointing right' className='h-5 w-5' />
             </>
           )}
         </CustomButton>

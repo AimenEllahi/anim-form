@@ -88,7 +88,7 @@ export default function GameplayNavbar({ loading, setLoading }) {
             <CustomIcontext>
               <img
                 src='/gems/Mythic.webp'
-                alt=''
+                alt='Mythic gem'
                 className='h-[18px] object-contain '
               />
               {user.blueCredits}
@@ -96,7 +96,7 @@ export default function GameplayNavbar({ loading, setLoading }) {
             <CustomIcontext>
               <img
                 src='/gems/Legendary.webp'
-                alt=''
+                alt='Legendary Gem'
                 className='h-[18px] object-contain '
               />
               {user.yellowCredits}

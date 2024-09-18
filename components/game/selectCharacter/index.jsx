@@ -28,7 +28,7 @@ export default function index({ characters }) {
           onClick={handleRedirection}
           className={"hidden md:flex absolute top-1/2 -translate-y-1/2 right-0"}
         >
-          <img src='/Icons/CreateCharacter.svg' alt='' />
+          <img src='/Icons/CreateCharacter.svg' alt='Create character button' />
           Create character
         </CustomButton>
       </div>

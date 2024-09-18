@@ -156,7 +156,7 @@ export default function bottomMenu({
               <button className='running-text-mono flex items-center pe-5 ps-[20px] gap-2 h-[48px] px-6 bg-white/10 hover:bg-white/10 uppercase border border-white/10 hover:border-white/20 active:bg-white/20 active:border-white/40 disabled:opacity-30 rounded-[10px]  cursor-pointer z-[10] ease-animate  hover:!duration-200 active:!duration-100'>
                 <img
                   src='/Icons/Narrate.svg'
-                  alt=''
+                  alt='Button to open the narrate options'
                   className='h-5 w-5 opacity-70'
                 />
                 Start Narrate

@@ -13,7 +13,7 @@ export default function changedPass() {
     <div className=' text-white h-[278px] w-[345px] flex text-center flex-col justify-between items-center gap-8 z-[10] '>
       <img
         src='/images/auth/Shield.png'
-        alt=''
+        alt='Sucessfully changed password icon, a metal shield'
         className='w-[128px]   object-contain icon-glow'
       />
       <div className='flex flex-col justify-center items-center gap-4'>
@@ -28,7 +28,7 @@ export default function changedPass() {
           variant={"primary"}
           className={"w-full font-bold"}
         >
-          SIGN IN <img src='/Icons/ArrowRight.svg' alt='' className='h-5 w-5' />
+          SIGN IN <img src='/Icons/ArrowRight.svg' alt='sign in button' className='h-5 w-5' />
         </CustomButton>
       </div>
     </div>

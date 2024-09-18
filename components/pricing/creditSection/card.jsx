@@ -74,7 +74,7 @@ export default function card({ _package, stripe }) {
                   ? "/gems/Legendary.webp"
                   : "/gems/Mythic.webp"
               }
-              alt=''
+              alt='Gem'
               className='h-[18px] object-contain'
             />
             <span className='text-white running-text-mono'>

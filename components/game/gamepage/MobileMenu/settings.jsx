@@ -49,7 +49,7 @@ export default function SettingsMenu({
                 gameCharacter?.personal?.portraitUrl ||
                 "/images/CreateCharacter/CharacterName/CharacterName.png"
               }
-              alt=''
+              alt='user generated image of the character'
               className='h-8 w-8 rounded-full'
             />
             <div className='running-text-mono uppercase'>
@@ -92,7 +92,7 @@ export default function SettingsMenu({
           >
             <img
               src='/Icons/Narrate.svg'
-              alt=''
+              alt='narrate icon'
               className='h-5 w-5 opacity-70'
             />
             Narrate

@@ -61,7 +61,7 @@ export default function GuestUser({ children, action }) {
                   5{" "}
                   <img
                     src='/gems/Legendary.webp'
-                    alt=''
+                    alt='Legendary Gem'
                     className='h-[18px] object-contain '
                   />
                 </span>
@@ -73,7 +73,7 @@ export default function GuestUser({ children, action }) {
                   500{" "}
                   <img
                     src='/gems/Mythic.webp'
-                    alt=''
+                    alt='Mythic Gem'
                     className='h-[18px] object-contain '
                   />
                 </span>

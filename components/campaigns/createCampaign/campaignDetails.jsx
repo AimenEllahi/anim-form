@@ -16,7 +16,7 @@ export default function campaignDetails({ campaign, handleSetCampaign }) {
       />
       <CustomDropdown
         className={"min-w-full !w-full !m-0"}
-        placeholder={"dropdown"}
+        placeholder={"Time"}
         options={TIMES}
         selectedOption={campaign.time}
         setSelectedOption={(e) => handleSetCampaign("time", e)}

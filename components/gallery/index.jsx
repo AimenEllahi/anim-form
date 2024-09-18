@@ -46,7 +46,7 @@ const GalleryImage = ({ src, className }) => {
           </CustomIconbutton>
           <img
             src={src}
-            alt=''
+            alt='arrow down icon, to download '
             className={cn(
               "rounded-[16px] border h-full w-full border-transparent   hover:border-white/10 hover:shadow-custom-1 ease-animate cursor-pointer"
             )}
@@ -88,7 +88,7 @@ export default function Gallery({
             {rowImages.map((src, i) => (
               <GalleryImage
                 src={src}
-                alt=''
+                alt='user generated image from the story'
                 className='col-span-2 row-span-2'
                 key={src}
               />
@@ -108,7 +108,7 @@ export default function Gallery({
             {rowImages.map((src, i) => (
               <GalleryImage
                 src={src}
-                alt=''
+                alt='user generated image from the story'
                 className='col-span-4 row-span-4'
                 key={src}
               />
@@ -128,7 +128,7 @@ export default function Gallery({
             {rowImages.map((src, i) => (
               <GalleryImage
                 src={src}
-                alt=''
+                alt='user generated image from the story'
                 className='col-span-2 row-span-2'
                 key={src}
               />
@@ -148,14 +148,14 @@ export default function Gallery({
           >
             <GalleryImage
               src={firstImage}
-              alt=''
+              alt='user generated image from the story'
               className='col-span-4 row-span-4'
               key={firstImage}
             />
             {nextFourImages.map((src, i) => (
               <GalleryImage
                 src={src}
-                alt=''
+                alt='user generated image from the story'
                 className='col-span-2 row-span-2'
                 key={src}
               />
@@ -175,7 +175,7 @@ export default function Gallery({
             {rowImages.map((src, i) => (
               <GalleryImage
                 src={src}
-                alt=''
+                alt='user generated image from the story'
                 className='col-span-2 row-span-2'
                 key={src}
               />

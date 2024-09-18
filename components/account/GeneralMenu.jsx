@@ -42,7 +42,7 @@ export default function GeneralMenu({ setOpen }) {
         <CustomMenuItem>
           <img
             src='/Icons/UserCircle.svg'
-            alt=''
+            alt='Button to get to My Characters page'
             className='h-5 w-5  opacity-70'
           />
           <span>My characters</span>
@@ -55,7 +55,7 @@ export default function GeneralMenu({ setOpen }) {
         <CustomMenuItem>
           <img
             src='/Icons/ImageLibrary.svg'
-            alt=''
+            alt='Button to get to the private image gallery of the user'
             className='h-5 w-5  opacity-70'
           />
           <span>My images</span>
@@ -67,7 +67,7 @@ export default function GeneralMenu({ setOpen }) {
         >
           <img
             src='/Icons/Campaign.svg'
-            alt=''
+            alt='Button to get to the user created campaigns'
             className='h-5 w-5  opacity-70'
           />
           <span>My campaigns</span>

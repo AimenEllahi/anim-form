@@ -5,7 +5,7 @@ export default function imgCard({ src, name, job }) {
     <div className='flex flex-col gap-6 w-full  bg-transparent'>
       <img
         src={src}
-        alt=''
+        alt='Images about the developers of dndai.app'
         className='w-full images-glow h-full object-cover  rounded-[16px]'
       />
       <div className='flex flex-col gap-3 bg-transparent'>

@@ -27,7 +27,7 @@ export default function imageZoom({ setOpen, setImageDialog }) {
           }}
           className={"absolute md:hidden top-4 right-4 bg-blur-icon-button"}
         >
-          <img src='/Icons/Cancel.svg' alt='' className='h-5 w-5 ' />
+          <img src='/Icons/Cancel.svg' alt='close button' className='h-5 w-5 ' />
         </CustomIconbutton>
         <img
           src={image}

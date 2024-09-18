@@ -102,7 +102,7 @@ export default function card({
               character?.personal?.portraitUrl ||
               "/images/CreateCharacter/CharacterName/CharacterName.png"
             }
-            alt=''
+            alt='user generated character portrait'
             className=' w-full object-contain'
           />
           <div

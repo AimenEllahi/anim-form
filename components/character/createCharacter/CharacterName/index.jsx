@@ -17,7 +17,7 @@ export default function index({ character, setCharacter }) {
     <div className='flex h-screen fixed top-[156px] left-0 px-6 w-full flex-col gap-5'>
       <img
         src={`/images/CreateCharacter/CharacterName/CharacterName.png`}
-        alt=''
+        alt='user generated character image'
         className='w-full h-[248px] rounded-[16px]  object-cover'
       />
       <div className='flex flex-col gap-1'>

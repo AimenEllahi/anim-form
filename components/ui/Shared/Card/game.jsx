@@ -27,7 +27,7 @@ export default function GameCard({ game, className }) {
           <img
             onClick={handleRedirect}
             src={game.campaign?.worldMapUrl || "/images/Header.webp"}
-            alt=''
+            alt='user generated worldmap of the campaign'
             className='h-[248px] w-full object-cover'
           />
         </div>

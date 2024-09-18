@@ -24,7 +24,7 @@ export default function Image({ setOpen, image }) {
             }}
             className={"absolute top-4 right-4 bg-blur-icon-button md:hidden"}
           >
-            <img src='/Icons/Cancel.svg' alt='' className='h-5 w-5 ' />
+            <img src='/Icons/Cancel.svg' alt='imagestyle' className='h-5 w-5 ' />
           </CustomIconbutton>
           <img
             src={image}

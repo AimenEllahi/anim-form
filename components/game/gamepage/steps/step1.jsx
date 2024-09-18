@@ -164,7 +164,7 @@ export default function StepDialog({
         <CustomButton disabled={loading} withIcon onClick={handleCancel}>
           <Image
             src='/Icons/Cancel.svg'
-            alt=''
+            alt='cancle icon'
             width={20}
             height={20}
             className='opacity-70'
@@ -183,7 +183,7 @@ export default function StepDialog({
           {step === 1 ? (
             <Image
               src='/Icons/ArrowRight.svg'
-              alt=''
+              alt='arrow right icon'
               width={20}
               height={20}
               className='opacity-70'
@@ -193,7 +193,7 @@ export default function StepDialog({
               (
               <Image
                 src='/gems/Legendary.webp'
-                alt=''
+                alt='Legendary gem '
                 width={15}
                 height={18}
               />{" "}

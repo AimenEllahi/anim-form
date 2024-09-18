@@ -34,7 +34,7 @@ export default function characterInfo({
               currentPortrait ||
               "/images/CreateCharacter/CharacterName/CharacterName.png"
             }
-            alt=''
+            alt='custom character portrait'
             className=' w-full object-contain aspect-square rounded-t-[10px] '
           />
           <div

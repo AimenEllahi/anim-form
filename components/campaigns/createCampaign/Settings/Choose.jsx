@@ -9,7 +9,7 @@ export default function Choose({ campaign, handleSetCampaign }) {
     >
       {/* For PC */}
       <h1 className='headline-4 hidden md:block'>Setting</h1>
-      <h1 className='headline-4 md:hidden block'>Campaign Details</h1>
+      <h1 className='headline-4 md:hidden block'>Setting</h1>
 
       {/* Ends */}
       <div className='grid grid-cols-12  gap-4 md:gap-5 w-full '>

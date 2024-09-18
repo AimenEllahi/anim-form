@@ -99,7 +99,7 @@ export default function Payment() {
                 <div className='running-text-mono flex gap-2 justify-satrt items-center'>
                   <img
                     src='/Gems/Legendary.webp'
-                    alt=''
+                    alt='Legendary Coin, Coin to generate Images on the website'
                     className='h-5 w-5 object-contain'
                   />
                   <span>{subscription.reward.yellowCredits}</span>
@@ -107,7 +107,7 @@ export default function Payment() {
                 <div className='running-text-mono flex gap-2 justify-satrt items-center'>
                   <img
                     src='/Gems/Mythic.webp'
-                    alt=''
+                    alt='Mityc coins, to make turns in the game'
                     className='h-5 w-5 object-contain'
                   />
                   <span>{subscription.reward.blueCredits}</span>

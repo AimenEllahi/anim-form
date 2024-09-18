@@ -143,7 +143,7 @@ export default function card({
           <img
             onClick={handleRedirect}
             src={campaign?.worldMapUrl || "/images/Header.webp"}
-            alt=''
+            alt='image of the specific worldmap, user generated'
             className='h-[248px] w-full object-cover'
           />
           <div

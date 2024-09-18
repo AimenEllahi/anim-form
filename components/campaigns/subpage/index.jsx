@@ -15,7 +15,7 @@ const TabButtons = ({ activeTab, onClick, icon, text }) => {
       className={"bg-transparent"}
       active={activeTab === text.toLowerCase()}
     >
-      <img src={icon} className='h-5 w-5 opacity-75 invert' alt='' />{" "}
+      <img src={icon} className='h-5 w-5 opacity-75 invert' alt='Button ' />{" "}
       <span>{text}</span>
     </Button>
   );

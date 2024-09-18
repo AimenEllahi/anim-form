@@ -58,7 +58,7 @@ export default function Index({ character, setCharacter }) {
           {selectedFace ? (
             <img
               src={`/images/CreateCharacter/Gold/Gold.png `}
-              alt=''
+              alt='Pile of gold'
               className='w-[231px] md:w-[200px] object-contain '
             />
           ) : (
@@ -85,7 +85,7 @@ export default function Index({ character, setCharacter }) {
                 </span>
                 <img
                   src={`/images/CreateCharacter/Gold/gold-coin.png`}
-                  alt=''
+                  alt='Gold coins'
                   className=' w-[30px] object-contain'
                 />
               </div>
@@ -101,7 +101,7 @@ export default function Index({ character, setCharacter }) {
               >
                 <img
                   src='/Icons/Click.svg'
-                  alt=''
+                  alt='A d20 dice, 20 sided Dice'
                   className='text-gray2 w-[16px] h-[16px] invert opacity-75'
                 />
                 <span className='running-text   text-gray2'>

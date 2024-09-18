@@ -189,7 +189,7 @@ export default function Narrate({
         Text will be read aloud by voice of choice. Costs (
         <img
           src='/gems/Mythic.webp'
-          alt=''
+          alt='mythic gems, to read the text with custom voice aloud'
           className='h-[18px] mx-1 object-contain '
           style={{ display: "inline", verticalAlign: "middle" }}
         />
@@ -213,7 +213,7 @@ export default function Narrate({
         >
           <img
             src='/Icons/Narrate.svg'
-            alt=''
+            alt='Icon to start Narration'
             className='h-4 w-4 opacity-70 invert'
           />
           <span className='running-text-mono text-black hidden md:block'>
