@@ -200,7 +200,7 @@ export default function Gallery({
   };
 
   return (
-    <div className='h-full  text-white w-full flex flex-col pt-[154px] md:pt-[128px] px-5 lg:px-12 pb-32 '>
+    <div className='h-full  text-white w-full flex flex-col pt-[154px] md:pt-[9rem] px-5 lg:px-12 pb-32 '>
       <div className='flex flex-col w-full gap-2.5'>
         <div className=' flex justify-between text-white  z-[10]  w-full md:w-auto'>
           {/* desktop */}

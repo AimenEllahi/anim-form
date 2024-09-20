@@ -12,7 +12,7 @@ export default function index({ campaigns, setCampaigns }) {
   };
 
   return (
-    <div className='h-screen w-full flex flex-col pt-[118px] px-5 lg:px-12  pb-10 md:pt-[128px] '>
+    <div className='h-screen w-full flex flex-col pt-[118px] px-5 lg:px-12  pb-10 md:pt-[9rem] '>
       <div className='hidden md:flex flex-col  gap-x-2.5 '>
         <div className='text-center flex justify-start text-white headline-3 z-[10] '>
           <span className='headline-3 z-[10] relative '>

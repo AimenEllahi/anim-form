@@ -155,7 +155,7 @@ const UserLoggedIn = ({ handleRedirect, handlePlay }) => {
         onClick={() => handleRedirect("/discover/gallery?page=1")}
         className='flex gap-3 hover:bg-transparent focus:bg-transparent   transition-all duration-300 ease-linear cursor-pointer'
       >
-        <span>Gallery</span>
+        <span>Community Gallery</span>
       </div>
       <div
         onClick={() => handleRedirect("/pricing")}
@@ -224,7 +224,7 @@ const UserLoggedOut = ({ handleRedirect }) => {
         onClick={() => handleRedirect("/discover/gallery?page=1")}
         className='flex gap-3 hover:bg-transparent focus:bg-transparent focus:text-white  transition-all duration-300 ease-linear cursor-pointer'
       >
-        <span>Gallery</span>
+        <span>Community Gallery</span>
       </div>
       <div
         onClick={() => handleRedirect("/pricing")}

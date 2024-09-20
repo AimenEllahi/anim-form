@@ -28,7 +28,7 @@ export default function index({
   };
 
   return (
-    <div className=' pt-[128px] w-full h-full relative text-white  '>
+    <div className=' pt-[9rem] w-full h-full relative text-white  '>
       <span className='headline-3 !z-[20] px-5 md:px-12 hidden md:block'>
         Discover
       </span>

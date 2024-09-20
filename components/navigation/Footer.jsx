@@ -21,6 +21,8 @@ const NavMenu = ({ menu, disable }) => {
         return `/contact-us?type=support`; // Contact page URL
       case "Give us Feedback":
         return `/contact-us?type=feedback`; // Feedback page URL
+      case "News":
+        return `/news`;
       case "Report a Bug":
         return `/contact-us?type=bug`; // Bug report page URL
       default:
@@ -72,7 +74,7 @@ export default function Footer() {
           <NavMenu
             menu={{
               heading: "HELP AND SUPPORT",
-              navlinks: ["Contact Us", "Give us Feedback", "Report a Bug"],
+              navlinks: ["News","Contact Us", "Give us Feedback", "Report a Bug"],
             }}
           />
           <NavMenu
