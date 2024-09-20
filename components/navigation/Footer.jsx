@@ -29,7 +29,7 @@ const NavMenu = ({ menu, disable }) => {
   };
 
   return (
-    <div className="w-auto md:w-1/2 lg:w-1/4 p-2 flex flex-col gap-9 z-10 ">
+    <div className='w-auto md:w-1/2 lg:w-1/4 py-2 flex flex-col gap-9 z-10 '>
       <h3
         className={`text-irisPurpleLight running-text-mono ${
           disable ? "opacity-50" : ""
@@ -37,7 +37,7 @@ const NavMenu = ({ menu, disable }) => {
       >
         {menu.heading}
       </h3>
-      <ul className="flex flex-col gap-4">
+      <ul className='flex flex-col gap-4'>
         {menu.navlinks.map((link, index) => (
           <li key={index}>
             <Link
@@ -65,9 +65,9 @@ const NavMenu = ({ menu, disable }) => {
 
 export default function Footer() {
   return (
-    <footer className="bg-russianViolet w-full text-white pt-0 pb-16 md:px-12 px-5 md:py-16 ">
-      <div className="w-full">
-        <div className="w-full md:w-1/2 flex flex-wrap md:gap-8 gap-3 gap-y-12 justify-between ">
+    <footer className='bg-russianViolet w-full  text-white pt-0 pb-16 md:px-12 px-5 md:py-16  '>
+      <div className='w-full border'>
+        <div className='w-full md:w-1/2 flex flex-wrap md:gap-8  gap-y-12 justify-between '>
           {/* Help / Support Section */}
           <NavMenu
             menu={{
@@ -95,8 +95,8 @@ export default function Footer() {
           />
         </div>
         {/* Copyright Notice */}
-        <div className="text-left relative !z-10 mt-14 running-text-mono ">
-          <p className="z-10 text-white">DND AI © 2024 All rights reserved</p>
+        <div className='text-left relative !z-10 mt-14 running-text-mono '>
+          <p className='z-10 text-white'>DND AI © 2024 All rights reserved</p>
         </div>
       </div>
     </footer>

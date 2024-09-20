@@ -7,6 +7,12 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+
 import Dice from "@/components/ui/Icons/Dice";
 import DiceBox from "@3d-dice/dice-box";
 import useStepperStore from "@/utils/characterStore";
@@ -55,10 +61,11 @@ const ABILITIES = [
 ];
 
 const DiceResults = ({ results, value }) => {
+  const _results = results.reverse();
   return (
     <div className='flex items-center justify-between'>
       <div className='flex items-center gap-2 py-3.5'>
-        {results.reverse().map((result, index) => {
+        {_results.map((result, index) => {
           return (
             <RolledDice
               roll={result}
@@ -259,7 +266,36 @@ export default function Choose({ abilities, handleChangeAbilities }) {
     <div className='md:rounded-[16px] flex flex-col gap-6 w-full md:w-fit max-h-full h-fit md:p-5 md:pt-6 md:border border-white/10 md:bg-white/[8%]  '>
       <div className='flex items-center justify-between'>
         <h1 className='headline-4 hidden md:block'>Abilities</h1>
-        <TooltipProvider>
+        <Popover>
+          <PopoverTrigger>
+            <div className='flex items-center gap-2 running-text-mono uppercase'>
+              <Information
+                src='/Icons/'
+                className={cn("h-6 w-6   ease-animate   ")}
+              />
+              help
+            </div>
+          </PopoverTrigger>
+          <PopoverContent>
+            <p style={{ marginBottom: "10px" }}>
+              Here, you can roll for your ability scores. When you press the
+              "Roll" button, four 6-sided dice will be rolled.
+            </p>
+            <p style={{ marginBottom: "10px" }}>
+              The lowest result will be dropped, and the remaining three will be
+              added together to give you a total. You can then assign that total
+              to an ability score.
+            </p>
+            <p style={{ marginBottom: "10px" }}>
+              {" "}
+              You also have the option to roll for all your ability scores at
+              once by clicking "Roll All Dice." In this case, the scores will be
+              randomly assigned to each ability, but you can swap them around if
+              you'd like.
+            </p>
+          </PopoverContent>
+        </Popover>
+        {/* <TooltipProvider>
           <Tooltip>
             <TooltipTrigger>
               <div className='flex items-center gap-2 running-text-mono uppercase'>
@@ -271,12 +307,25 @@ export default function Choose({ abilities, handleChangeAbilities }) {
               </div>
             </TooltipTrigger>
             <TooltipContent>
-              < p style={{ marginBottom: '10px' }}>Here, you can roll for your ability scores. When you press the "Roll" button, four 6-sided dice will be rolled.</p>
-              < p style={{ marginBottom: '10px' }}>The lowest result will be dropped, and the remaining three will be added together to give you a total. You can then assign that total to an ability score.</p>  
-              < p style={{ marginBottom: '10px' }}> You also have the option to roll for all your ability scores at once by clicking "Roll All Dice." In this case, the scores will be randomly assigned to each ability, but you can swap them around if you'd like.</p>  
+              <p style={{ marginBottom: "10px" }}>
+                Here, you can roll for your ability scores. When you press the
+                "Roll" button, four 6-sided dice will be rolled.
+              </p>
+              <p style={{ marginBottom: "10px" }}>
+                The lowest result will be dropped, and the remaining three will
+                be added together to give you a total. You can then assign that
+                total to an ability score.
+              </p>
+              <p style={{ marginBottom: "10px" }}>
+                {" "}
+                You also have the option to roll for all your ability scores at
+                once by clicking "Roll All Dice." In this case, the scores will
+                be randomly assigned to each ability, but you can swap them
+                around if you'd like.
+              </p>
             </TooltipContent>
           </Tooltip>
-        </TooltipProvider>
+        </TooltipProvider> */}
 
         {showRollAll && (
           <CustomButton

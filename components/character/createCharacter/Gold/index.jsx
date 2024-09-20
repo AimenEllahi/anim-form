@@ -62,7 +62,12 @@ export default function Index({ character, setCharacter }) {
               className='w-[231px] md:w-[200px] object-contain '
             />
           ) : (
-            <div className='w-full h-[20vh]  md:h-[30vh] '>
+            <div
+              onClick={() => {
+                handleRollDice();
+              }}
+              className='w-full h-[20vh]  md:h-[30vh] cursor-pointer'
+            >
               <Scene />
             </div>
           )}

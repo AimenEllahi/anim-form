@@ -15,7 +15,7 @@ export default function Image({ setOpen, image }) {
   };
 
   return (
-    <DialogContent className=' text-white bg-transparent border-none p-5 md:p-0 !shadow-none !gap-6'>
+    <DialogContent className='text-white bg-transparent border-none p-5 md:p-0 !max-w-screen md:!w-full max-h-[90%] !shadow-none !gap-6'>
       <DialogTitle className='text-white text-center'></DialogTitle>
       <>
         <div className='grid relative grid-cols-1 gap-4  '>

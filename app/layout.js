@@ -361,7 +361,7 @@ export default function RootLayout({ children }) {
           <meta name='description' content={description} />
           <meta name='keywords' content={keywords} />
 
-          <meta name="mobile-web-app-capable" content="yes"/>          
+          <meta name='mobile-web-app-capable' content='yes' />
           <meta
             name='apple-mobile-web-app-status-bar-style'
             content='black-translucent'
@@ -412,15 +412,15 @@ export default function RootLayout({ children }) {
             src={`https://www.googletagmanager.com/gtag/js?id=G-BTHMYX7TZ9`}
             async
           />
-            <Script
-              strategy='afterInteractive'
-              src={`https://www.googletagmanager.com/gtag/js?id='G-BTHMYX7TZ9`}
-            />
-            <Script
-              id='google-analytics'
-              strategy='afterInteractive'
-              dangerouslySetInnerHTML={{
-                __html: `
+          <Script
+            strategy='afterInteractive'
+            src={`https://www.googletagmanager.com/gtag/js?id='G-BTHMYX7TZ9`}
+          />
+          <Script
+            id='google-analytics'
+            strategy='afterInteractive'
+            dangerouslySetInnerHTML={{
+              __html: `
                   window.dataLayer = window.dataLayer || [];
                   function gtag(){dataLayer.push(arguments);}
                   gtag('js', new Date());
@@ -428,12 +428,12 @@ export default function RootLayout({ children }) {
                     page_path: window.location.pathname,
                   });
                 `,
-              }}
-            />
+            }}
+          />
         </head>
         <body className='w-screen hide-scrollbar relative max-w-screen overflow-x-hidden bg-russianViolet'>
           {showDiceGold && <div id='dice-box-gold' className='dice-box'></div>}
-          {showDiceGame && <div id='dice-box-game' className='dice-box'></div>}
+          {showDiceGame && <div id='dice-box-game' className='dice-box '></div>}
           {showDiceAbilities && (
             <div id='dice-box-abilities' className='dice-box'></div>
           )}

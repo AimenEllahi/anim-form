@@ -46,6 +46,7 @@ export default function Chatbox({
   const [isScrollLeft, setIsScrollLeft] = useState(false);
 
   useEffect(() => {
+    if (chat.length === 1) return;
     const lastObj = chatboxRef.current.querySelector(".last-obj");
     lastObj?.scrollIntoView({ behavior: "smooth", block: "start" });
   }, [chat]);
