@@ -36,7 +36,6 @@ export default function GameplayNavbar({ loading, setLoading }) {
 
   const { setCurrentCharacter, game, currentCharacter } = useGameStore();
 
-  //saving character
   const handleSaveCharacter = async () => {
     try {
       setLoading(true);
