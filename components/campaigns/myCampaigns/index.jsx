@@ -23,7 +23,7 @@ export default function index({ campaigns, setCampaigns }) {
 
   return (
     <div
-      className='min-h-screen relative h-full w-full flex flex-col pt-[118px] md:pt-[128spx] px-5 lg:px-12 pb-32 md:pb-64 '
+      className='min-h-screen relative h-full w-full flex flex-col pt-[118px] md:pt-[9rem] px-5 lg:px-12 pb-32 md:pb-64 '
       suppressHydrationWarning
     >
       <div className='flex flex-col gap-2.5 '>

@@ -26,7 +26,7 @@ export default function Index({ campaign, setCampaign }) {
 
   return (
     <>
-      <div className='min-h-screen h-full w-full flex flex-col pt-[86px] md:pt-[128px] lg:px-12 md:pb-20'>
+      <div className='min-h-screen h-full w-full flex flex-col pt-[86px] md:pt-[9rem] lg:px-12 md:pb-20'>
         <div className='flex flex-col gap-5 z-[10] px-5 md:px-0'>
           <span className='headline-3 text-white capitalize'>
             {campaign.title}

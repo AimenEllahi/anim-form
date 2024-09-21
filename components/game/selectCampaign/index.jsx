@@ -56,7 +56,7 @@ export default function index({
     }
   }, [debouncedQuery]);
   return (
-    <div className='!z-[10] text-white relative w-full h-full   pb-12 pt-[86px] md:pt-[128px] '>
+    <div className='!z-[10] text-white relative w-full h-full   pb-12 pt-[86px] md:pt-[9rem] '>
       <div className='  flex justify-center items-center relative flex-col mx-12 '>
         <h1 className='headline-3 text-center '>
           Forge your destiny <br />
