@@ -97,9 +97,13 @@ export default function Footer() {
           />
         </div>
         {/* Copyright Notice */}
-        <div className='text-left relative !z-10 mt-14 running-text-mono '>
-          <p className='z-10 text-white'>DND AI © 2024 All rights reserved</p>
-        </div>
+        <div className='!z-10 mt-14 running-text-mono '>
+          <p className='text-left relative z-10 text-white'>DND AI © 2024 ALL RIGHTS RESERVED</p>
+          <p className='text-right relative z-10 text-white'>
+          DESIGNED WITH ♥ BY 
+          <a href="https://www.nexene.at" target="_blank" > NEXENE</a>
+        </p>
+        </div>    
       </div>
     </footer>
   );
