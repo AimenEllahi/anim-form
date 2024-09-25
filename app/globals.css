@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Roboto+Mono:wght@500&display=swap");
 
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -13,9 +12,9 @@
   font-display: fallback;
 }
 
-
 body {
-  font-family: 'Instrument Sans', 'Helvetica Now Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: "Instrument Sans", "Helvetica Now Display", -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   width: 100vw;
   overflow-x: hidden;
 }
@@ -204,8 +203,9 @@ body {
 
 /* styles.css */
 .squircle {
-  clip-path: path("M0.5,0 C0.776,0 1,0.224 1,0.5 C1,0.776 0.776,1 0.5,1 C0.224,1 0,0.776 0,0.5 C0,0.224 0.224,0 0.5,0 Z"
-    );
+  clip-path: path(
+    "M0.5,0 C0.776,0 1,0.224 1,0.5 C1,0.776 0.776,1 0.5,1 C0.224,1 0,0.776 0,0.5 C0,0.224 0.224,0 0.5,0 Z"
+  );
 }
 
 .bg-blur-1 {
@@ -256,24 +256,30 @@ body {
 }
 
 .rtl-gradient {
-  background: linear-gradient(90deg,
-      rgba(10, 10, 33, 0) 0%,
-      rgba(10, 10, 33, 0.5) 40.5%,
-      #0a0a21 80.5%);
+  background: linear-gradient(
+    90deg,
+    rgba(10, 10, 33, 0) 0%,
+    rgba(10, 10, 33, 0.5) 40.5%,
+    #0a0a21 80.5%
+  );
 }
 
 .ltr-gradient {
-  background: linear-gradient(270deg,
-      rgba(10, 10, 33, 0) 0%,
-      rgba(10, 10, 33, 0.5) 40.5%,
-      #0a0a21 80.5%);
+  background: linear-gradient(
+    270deg,
+    rgba(10, 10, 33, 0) 0%,
+    rgba(10, 10, 33, 0.5) 40.5%,
+    #0a0a21 80.5%
+  );
 }
 
 .top-gradient {
-  background: linear-gradient(220deg,
-      rgba(10, 10, 33, 0) 0%,
-      rgba(10, 10, 33, 0.5) 40.5%,
-      #0a0a21 80.5%);
+  background: linear-gradient(
+    220deg,
+    rgba(10, 10, 33, 0) 0%,
+    rgba(10, 10, 33, 0.5) 40.5%,
+    #0a0a21 80.5%
+  );
 }
 
 .game-mobile-menu-shadow {
@@ -281,7 +287,7 @@ body {
 }
 
 .images-glow {
-  box-shadow: 0px 20px 250px -100px #8F91FF99;
+  box-shadow: 0px 20px 250px -100px #8f91ff99;
 }
 
 .icon-glow {
@@ -407,15 +413,12 @@ input::-ms-clear {
 
 /* width */
 @media screen and (-webkit-min-device-pixel-ratio: 0) and (max-width: 764px) {
-
   select,
   textarea,
   input {
     font-size: 16px;
   }
 }
-
-
 
 .gradient-blur {
   position: fixed;
@@ -428,7 +431,7 @@ input::-ms-clear {
   /* Enable hardware acceleration */
 }
 
-.gradient-blur>div,
+.gradient-blur > div,
 .gradient-blur::before,
 .gradient-blur::after {
   position: absolute;
@@ -441,130 +444,144 @@ input::-ms-clear {
   -webkit-backdrop-filter: blur(0.5px);
   /* WebKit prefix */
   backdrop-filter: blur(0.5px);
-  -webkit-mask: linear-gradient(to top,
-      /* Changed direction */
-      rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 1) 12.5%,
-      rgba(0, 0, 0, 1) 25%,
-      rgba(0, 0, 0, 0) 37.5%);
-  mask: linear-gradient(to top,
-      /* Changed direction */
-      rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 1) 12.5%,
-      rgba(0, 0, 0, 1) 25%,
-      rgba(0, 0, 0, 0) 37.5%);
+  -webkit-mask: linear-gradient(
+    to top,
+    /* Changed direction */ rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 1) 12.5%,
+    rgba(0, 0, 0, 1) 25%,
+    rgba(0, 0, 0, 0) 37.5%
+  );
+  mask: linear-gradient(
+    to top,
+    /* Changed direction */ rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 1) 12.5%,
+    rgba(0, 0, 0, 1) 25%,
+    rgba(0, 0, 0, 0) 37.5%
+  );
 }
 
-.gradient-blur>div:nth-of-type(1) {
+.gradient-blur > div:nth-of-type(1) {
   z-index: 2;
   -webkit-backdrop-filter: blur(1px);
   /* WebKit prefix */
   backdrop-filter: blur(1px);
-  -webkit-mask: linear-gradient(to top,
-      /* Changed direction */
-      rgba(0, 0, 0, 0) 12.5%,
-      rgba(0, 0, 0, 1) 25%,
-      rgba(0, 0, 0, 1) 37.5%,
-      rgba(0, 0, 0, 0) 50%);
-  mask: linear-gradient(to top,
-      /* Changed direction */
-      rgba(0, 0, 0, 0) 12.5%,
-      rgba(0, 0, 0, 1) 25%,
-      rgba(0, 0, 0, 1) 37.5%,
-      rgba(0, 0, 0, 0) 50%);
+  -webkit-mask: linear-gradient(
+    to top,
+    /* Changed direction */ rgba(0, 0, 0, 0) 12.5%,
+    rgba(0, 0, 0, 1) 25%,
+    rgba(0, 0, 0, 1) 37.5%,
+    rgba(0, 0, 0, 0) 50%
+  );
+  mask: linear-gradient(
+    to top,
+    /* Changed direction */ rgba(0, 0, 0, 0) 12.5%,
+    rgba(0, 0, 0, 1) 25%,
+    rgba(0, 0, 0, 1) 37.5%,
+    rgba(0, 0, 0, 0) 50%
+  );
 }
 
-.gradient-blur>div:nth-of-type(2) {
+.gradient-blur > div:nth-of-type(2) {
   z-index: 3;
   -webkit-backdrop-filter: blur(2px);
   /* WebKit prefix */
   backdrop-filter: blur(2px);
-  -webkit-mask: linear-gradient(to top,
-      /* Changed direction */
-      rgba(0, 0, 0, 0) 25%,
-      rgba(0, 0, 0, 1) 37.5%,
-      rgba(0, 0, 0, 1) 50%,
-      rgba(0, 0, 0, 0) 62.5%);
-  mask: linear-gradient(to top,
-      /* Changed direction */
-      rgba(0, 0, 0, 0) 25%,
-      rgba(0, 0, 0, 1) 37.5%,
-      rgba(0, 0, 0, 1) 50%,
-      rgba(0, 0, 0, 0) 62.5%);
+  -webkit-mask: linear-gradient(
+    to top,
+    /* Changed direction */ rgba(0, 0, 0, 0) 25%,
+    rgba(0, 0, 0, 1) 37.5%,
+    rgba(0, 0, 0, 1) 50%,
+    rgba(0, 0, 0, 0) 62.5%
+  );
+  mask: linear-gradient(
+    to top,
+    /* Changed direction */ rgba(0, 0, 0, 0) 25%,
+    rgba(0, 0, 0, 1) 37.5%,
+    rgba(0, 0, 0, 1) 50%,
+    rgba(0, 0, 0, 0) 62.5%
+  );
 }
 
-.gradient-blur>div:nth-of-type(3) {
+.gradient-blur > div:nth-of-type(3) {
   z-index: 4;
   -webkit-backdrop-filter: blur(4px);
   /* WebKit prefix */
   backdrop-filter: blur(4px);
-  -webkit-mask: linear-gradient(to top,
-      /* Changed direction */
-      rgba(0, 0, 0, 0) 37.5%,
-      rgba(0, 0, 0, 1) 50%,
-      rgba(0, 0, 0, 1) 62.5%,
-      rgba(0, 0, 0, 0) 75%);
-  mask: linear-gradient(to top,
-      /* Changed direction */
-      rgba(0, 0, 0, 0) 37.5%,
-      rgba(0, 0, 0, 1) 50%,
-      rgba(0, 0, 0, 1) 62.5%,
-      rgba(0, 0, 0, 0) 75%);
+  -webkit-mask: linear-gradient(
+    to top,
+    /* Changed direction */ rgba(0, 0, 0, 0) 37.5%,
+    rgba(0, 0, 0, 1) 50%,
+    rgba(0, 0, 0, 1) 62.5%,
+    rgba(0, 0, 0, 0) 75%
+  );
+  mask: linear-gradient(
+    to top,
+    /* Changed direction */ rgba(0, 0, 0, 0) 37.5%,
+    rgba(0, 0, 0, 1) 50%,
+    rgba(0, 0, 0, 1) 62.5%,
+    rgba(0, 0, 0, 0) 75%
+  );
 }
 
-.gradient-blur>div:nth-of-type(4) {
+.gradient-blur > div:nth-of-type(4) {
   z-index: 5;
   -webkit-backdrop-filter: blur(8px);
   /* WebKit prefix */
   backdrop-filter: blur(8px);
-  -webkit-mask: linear-gradient(to top,
-      /* Changed direction */
-      rgba(0, 0, 0, 0) 50%,
-      rgba(0, 0, 0, 1) 62.5%,
-      rgba(0, 0, 0, 1) 75%,
-      rgba(0, 0, 0, 0) 87.5%);
-  mask: linear-gradient(to top,
-      /* Changed direction */
-      rgba(0, 0, 0, 0) 50%,
-      rgba(0, 0, 0, 1) 62.5%,
-      rgba(0, 0, 0, 1) 75%,
-      rgba(0, 0, 0, 0) 87.5%);
+  -webkit-mask: linear-gradient(
+    to top,
+    /* Changed direction */ rgba(0, 0, 0, 0) 50%,
+    rgba(0, 0, 0, 1) 62.5%,
+    rgba(0, 0, 0, 1) 75%,
+    rgba(0, 0, 0, 0) 87.5%
+  );
+  mask: linear-gradient(
+    to top,
+    /* Changed direction */ rgba(0, 0, 0, 0) 50%,
+    rgba(0, 0, 0, 1) 62.5%,
+    rgba(0, 0, 0, 1) 75%,
+    rgba(0, 0, 0, 0) 87.5%
+  );
 }
 
-.gradient-blur>div:nth-of-type(5) {
+.gradient-blur > div:nth-of-type(5) {
   z-index: 6;
   -webkit-backdrop-filter: blur(16px);
   /* WebKit prefix */
   backdrop-filter: blur(16px);
-  -webkit-mask: linear-gradient(to top,
-      /* Changed direction */
-      rgba(0, 0, 0, 0) 62.5%,
-      rgba(0, 0, 0, 1) 75%,
-      rgba(0, 0, 0, 1) 87.5%,
-      rgba(0, 0, 0, 0) 100%);
-  mask: linear-gradient(to top,
-      /* Changed direction */
-      rgba(0, 0, 0, 0) 62.5%,
-      rgba(0, 0, 0, 1) 75%,
-      rgba(0, 0, 0, 1) 87.5%,
-      rgba(0, 0, 0, 0) 100%);
+  -webkit-mask: linear-gradient(
+    to top,
+    /* Changed direction */ rgba(0, 0, 0, 0) 62.5%,
+    rgba(0, 0, 0, 1) 75%,
+    rgba(0, 0, 0, 1) 87.5%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  mask: linear-gradient(
+    to top,
+    /* Changed direction */ rgba(0, 0, 0, 0) 62.5%,
+    rgba(0, 0, 0, 1) 75%,
+    rgba(0, 0, 0, 1) 87.5%,
+    rgba(0, 0, 0, 0) 100%
+  );
 }
 
-.gradient-blur>div:nth-of-type(6) {
+.gradient-blur > div:nth-of-type(6) {
   z-index: 7;
   -webkit-backdrop-filter: blur(32px);
   /* WebKit prefix */
   backdrop-filter: blur(32px);
-  -webkit-mask: linear-gradient(to top,
-      /* Changed direction */
-      rgba(0, 0, 0, 0) 75%,
-      rgba(0, 0, 0, 1) 87.5%,
-      rgba(0, 0, 0, 1) 100%);
-  mask: linear-gradient(to top,
-      /* Changed direction */
-      rgba(0, 0, 0, 0) 75%,
-      rgba(0, 0, 0, 1) 87.5%,
-      rgba(0, 0, 0, 1) 100%);
+  -webkit-mask: linear-gradient(
+    to top,
+    /* Changed direction */ rgba(0, 0, 0, 0) 75%,
+    rgba(0, 0, 0, 1) 87.5%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  mask: linear-gradient(
+    to top,
+    /* Changed direction */ rgba(0, 0, 0, 0) 75%,
+    rgba(0, 0, 0, 1) 87.5%,
+    rgba(0, 0, 0, 1) 100%
+  );
 }
 
 .gradient-blur::after {
@@ -573,14 +590,16 @@ input::-ms-clear {
   -webkit-backdrop-filter: blur(64px);
   /* WebKit prefix */
   backdrop-filter: blur(64px);
-  -webkit-mask: linear-gradient(to top,
-      /* Changed direction */
-      rgba(0, 0, 0, 0) 87.5%,
-      rgba(0, 0, 0, 1) 100%);
-  mask: linear-gradient(to top,
-      /* Changed direction */
-      rgba(0, 0, 0, 0) 87.5%,
-      rgba(0, 0, 0, 1) 100%);
+  -webkit-mask: linear-gradient(
+    to top,
+    /* Changed direction */ rgba(0, 0, 0, 0) 87.5%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  mask: linear-gradient(
+    to top,
+    /* Changed direction */ rgba(0, 0, 0, 0) 87.5%,
+    rgba(0, 0, 0, 1) 100%
+  );
 }
 
 @media (max-width: 764px) {
@@ -588,7 +607,6 @@ input::-ms-clear {
     height: 192px;
   }
 }
-
 
 .dice-box {
   position: absolute;
@@ -611,13 +629,11 @@ input::-ms-clear {
   left: 0;
   width: 100vw;
   height: 100%;
-
 }
 
 .chat-box {
   -webkit-overflow-scrolling: touch;
 }
-
 
 .custom-markdown-text {
   background-color: rgba(255, 255, 255, 0.08);
@@ -643,4 +659,13 @@ input::-ms-clear {
   /* Equivalent to rounded-lg */
   color: rgba(255, 255, 255);
   /* Text color white with 80% opacity */
+}
+
+.no-games-bg {
+  background-image: url("/images/Background.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh; /* This ensures the background image fills the viewport height */
 }
