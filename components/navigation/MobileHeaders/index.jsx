@@ -75,7 +75,7 @@ export default function index() {
         </div>
       );
     } else if (discover) {
-      return <span className='headline-3  '>Discover</span>;
+      return <span className='headline-3  '>Discover Campaigns</span>;
     } else if (myCharacters) {
       return (
         <div

@@ -14,6 +14,9 @@ import Star from "@/components/ui/Icons/Star";
 import Settings from "@/components/ui/Icons/Settings";
 import Logout from "@/components/ui/Icons/Logout";
 import Cookie from "universal-cookie";
+import CampaignAdd from "@/components/ui/Icons/CampaignAdd";
+import Adventure from "@/components/ui/Icons/Adventure";
+import Support from "@/components/ui/Icons/Support";
 
 const UserLoggedIn = ({ handleRedirect, handlePlay }) => {
   const { showMenu, setShowMenu } = useControlsStore();
@@ -66,16 +69,42 @@ const UserLoggedIn = ({ handleRedirect, handlePlay }) => {
       <hr className='border-white/10 ' />
       <div className='flex flex-col gap-6'>
         <CustomMenuItem
-          onClick={() => handleRedirect("/discover")}
+          onClick={() => handleRedirect("/games")}
           className={
             "p-0 hover:bg-transparent active:bg-transparent hover:border-transparent active:border-transparent"
           }
         >
           <Discover className='h-5 w-5 opacity-70 fill-white' />
-          <span>Discover</span>
+          <span>Games</span>
         </CustomMenuItem>
         <CustomMenuItem
-          onClick={() => handleRedirect("/character/my-characters")}
+          onClick={() => handleRedirect("/discover")}
+          className={
+            "p-0 hover:bg-transparent active:bg-transparent hover:border-transparent active:border-transparent"
+          }
+        >
+          <CampaignAdd className='h-5 w-5 opacity-70 fill-white' />
+          <span>Campaigns</span>
+        </CustomMenuItem>
+        <CustomMenuItem
+          onClick={() => handleRedirect("/discover/gallery?page=1")}
+          className={
+            "p-0 hover:bg-transparent active:bg-transparent hover:border-transparent active:border-transparent"
+          }
+        >
+          <img
+            src='/Icons/ImageLibrary.svg'
+            alt='My images button'
+            className='h-5 w-5  opacity-70'
+          />
+          <span>Gallery</span>
+        </CustomMenuItem>
+      </div>
+
+      <hr className='border-white/10 ' />
+      <div className='flex flex-col gap-6'>
+        <CustomMenuItem
+          onClick={() => handleRedirect("/my-account/settings")}
           className={
             "p-0 hover:bg-transparent active:bg-transparent hover:border-transparent active:border-transparent"
           }
@@ -85,6 +114,15 @@ const UserLoggedIn = ({ handleRedirect, handlePlay }) => {
             alt='My character button'
             className='h-5 w-5 opacity-70'
           />
+          <span>Profile</span>
+        </CustomMenuItem>
+        <CustomMenuItem
+          onClick={() => handleRedirect("/character/my-characters")}
+          className={
+            "p-0 hover:bg-transparent active:bg-transparent hover:border-transparent active:border-transparent"
+          }
+        >
+          <Adventure className='h-5 w-5 opacity-70 fill-white' />
           <span>My characters</span>
         </CustomMenuItem>
         <CustomMenuItem
@@ -137,6 +175,16 @@ const UserLoggedIn = ({ handleRedirect, handlePlay }) => {
         </CustomMenuItem>
 
         <CustomMenuItem
+          onClick={() => handleRedirect("/pricing")}
+          className={
+            "p-0 hover:bg-transparent active:bg-transparent hover:border-transparent active:border-transparent"
+          }
+        >
+          <Support className='h-5 w-5 opacity-70 fill-white' />
+          <span>Support Us</span>
+        </CustomMenuItem>
+
+        <CustomMenuItem
           onClick={handleLogout}
           className={
             "p-0 hover:bg-transparent active:bg-transparent hover:border-transparent active:border-transparent"
@@ -146,23 +194,10 @@ const UserLoggedIn = ({ handleRedirect, handlePlay }) => {
           <span>Logout</span>
         </CustomMenuItem>
       </div>
-      <hr className='border-white/10 ' />
 
       {/* <div className='flex gap-3  hover:bg-transparent focus:bg-transparent   transition-all duration-300 ease-linear cursor-pointer'>
         <span>How to play</span>
       </div> */}
-      <div
-        onClick={() => handleRedirect("/discover/gallery?page=1")}
-        className='flex gap-3 hover:bg-transparent focus:bg-transparent   transition-all duration-300 ease-linear cursor-pointer'
-      >
-        <span>Community Gallery</span>
-      </div>
-      <div
-        onClick={() => handleRedirect("/pricing")}
-        className='flex gap-3 hover:bg-transparent focus:bg-transparent   transition-all duration-300 ease-linear cursor-pointer'
-      >
-        <span>Pricing</span>
-      </div>
     </div>
   );
 };
@@ -198,6 +233,17 @@ const UserLoggedOut = ({ handleRedirect }) => {
         <span>Discover</span>
       </div>
       <div
+        onClick={() => handleRedirect("/campaign/my-campaigns")}
+        className='flex gap-3 hover:bg-transparent focus:bg-transparent focus:text-white  transition-all duration-300 ease-linear cursor-pointer'
+      >
+        <img
+          src='/Icons/Campaign.svg'
+          alt='My campaigns button'
+          className='h-5 w-5  opacity-70'
+        />
+        <span>Campaigns</span>
+      </div>
+      <div
         onClick={() => handleRedirect("/my-account/gallery?page=1")}
         className='flex gap-3 hover:bg-transparent focus:bg-transparent focus:text-white  transition-all duration-300 ease-linear cursor-pointer'
       >
@@ -206,32 +252,13 @@ const UserLoggedOut = ({ handleRedirect }) => {
           alt='My images button'
           className='h-5 w-5  opacity-70'
         />
-        <span>My images</span>
+        <span>Gallery</span>
       </div>
-      <div
-        onClick={() => handleRedirect("/campaign/my-campaigns")}
-        className='flex gap-3 hover:bg-transparent focus:bg-transparent focus:text-white  transition-all duration-300 ease-linear cursor-pointer'
-      >
-        <img src='/Icons/Campaign.svg' alt='My campaigns button' className='h-5 w-5  opacity-70' />
-        <span>My campaigns</span>
-      </div>
-      <hr className='border-white/10 ' />
 
       {/* <div className='flex gap-3  hover:bg-transparent focus:bg-transparent focus:text-white  transition-all duration-300 ease-linear cursor-pointer'>
         <span>How to play</span>
       </div> */}
-      <div
-        onClick={() => handleRedirect("/discover/gallery?page=1")}
-        className='flex gap-3 hover:bg-transparent focus:bg-transparent focus:text-white  transition-all duration-300 ease-linear cursor-pointer'
-      >
-        <span>Community Gallery</span>
-      </div>
-      <div
-        onClick={() => handleRedirect("/pricing")}
-        className='flex gap-3 hover:bg-transparent focus:bg-transparent focus:text-white  transition-all duration-300 ease-linear cursor-pointer'
-      >
-        <span>Pricing</span>
-      </div>
+
       <Button
         onClick={() => handleRedirect("/game/character-selection")}
         className='mt-3 w-40'

@@ -16,23 +16,6 @@ export default function page() {
 
   const [campaigns, setCampaigns] = useState([]);
   const [popularCampaigns, setPopularCampaigns] = useState([]);
-  const [characters, setCharacters] = useState([]);
-  const [games, setGames] = useState([]);
-
-  const handleGetRecentlyPlayed = async () => {
-    try {
-      const response = await getGames(user?.token);
-
-      setGames(response.games);
-    } catch (error) {
-      invokeToast(
-        error?.response?.data?.error || "Error fetching Recently Played",
-        "Error"
-      );
-      setGames([]);
-      console.error("Error:", error);
-    }
-  };
 
   const handleGetPopularCampaigns = async () => {
     try {
@@ -63,34 +46,16 @@ export default function page() {
     }
   };
 
-  const getAllCharacters = async () => {
-    try {
-      const response = await getCharacters(user?.token);
-
-      setCharacters(response.characters);
-    } catch (error) {
-      invokeToast(
-        error?.response?.data?.error || "Error fetching Characters",
-        "Error"
-      );
-      setCharacters([]);
-      console.error("Error:", error);
-    }
-  };
   useEffect(() => {
     handleGetPopularCampaigns();
     handleGetMostLikedCampaigns();
-    getAllCharacters();
-    handleGetRecentlyPlayed();
   }, [user]);
   return (
     <Discover
-      characters={characters}
       mostLiked={campaigns}
       popular={popularCampaigns}
       setPopularCampaigns={setPopularCampaigns}
       setCampaigns={setCampaigns}
-      recentlyPlayed={games}
     />
   );
 }

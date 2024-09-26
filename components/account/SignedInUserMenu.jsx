@@ -8,7 +8,9 @@ import useUserStore from "@/utils/userStore";
 import CustomIcontext from "@/components/ui/custom-icontext";
 import Cookie from "universal-cookie";
 import { useRouter } from "next/navigation";
-import Discover from "@/components/ui/Icons/Discover";
+
+import Support from "@/components/ui/Icons/Support";
+import Adventure from "../ui/Icons/Adventure";
 export default function SignedInUserMenu() {
   const router = useRouter();
   const { user, setUser } = useUserStore();
@@ -55,20 +57,23 @@ export default function SignedInUserMenu() {
       <hr className='w-full border-white/5 my-2' />
       <div className='w-full px-2 gap-2 flex flex-col'>
         <DropdownMenuItem className='flex !p-0 gap-2 w-full focus:bg-transparent focus:text-white  transition-all duration-300 ease-linear cursor-pointer'>
-          <CustomMenuItem onClick={() => handleRedirect("/discover")}>
-            <Discover className='h-5 w-5  opacity-70 fill-white' />
-            <span>Discover</span>
-          </CustomMenuItem>
-        </DropdownMenuItem>
-        <DropdownMenuItem className='flex !p-0 gap-2 w-full focus:bg-transparent focus:text-white  transition-all duration-300 ease-linear cursor-pointer'>
           <CustomMenuItem
-            onClick={() => handleRedirect("/character/my-characters")}
+            onClick={() => handleRedirect("/my-account/settings")}
           >
             <img
               src='/Icons/UserCircle.svg'
               alt='Button to get to the user created characters; heroes'
               className='h-5 w-5  opacity-70'
             />
+            <span>Profile</span>
+          </CustomMenuItem>
+        </DropdownMenuItem>
+
+        <DropdownMenuItem className='flex !p-0 gap-2 w-full focus:bg-transparent focus:text-white  transition-all duration-300 ease-linear cursor-pointer'>
+          <CustomMenuItem
+            onClick={() => handleRedirect("/character/my-characters")}
+          >
+            <Adventure className='h-5 w-5 fill-white opacity-70' />
             <span>My characters</span>
           </CustomMenuItem>
         </DropdownMenuItem>
@@ -124,6 +129,14 @@ export default function SignedInUserMenu() {
             <span>Account Settings</span>
           </CustomMenuItem>
         </DropdownMenuItem>
+
+        <DropdownMenuItem className='flex gap-2 !p-0   focus:bg-transparent focus:text-white  transition-all duration-300 ease-linear cursor-pointer'>
+          <CustomMenuItem onClick={() => handleRedirect("/pricing")}>
+            <Support className='h-5 w-5 fill-white opacity-70' />
+            <span>Support Us</span>
+          </CustomMenuItem>
+        </DropdownMenuItem>
+
         <DropdownMenuItem className='flex gap-2 !p-0   focus:bg-transparent focus:text-white  transition-all duration-300 ease-linear cursor-pointer'>
           <CustomMenuItem onClick={handleLogout}>
             <img
