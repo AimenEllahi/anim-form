@@ -6,10 +6,24 @@ import SearchInput from "@/components/ui/search-input";
 import React, { useState } from "react";
 import OptionCard from "./OptionCard";
 
-export default function LeftSection() {
+export default function LeftSection({ selectedTab }) {
   const [selectedCardIndex, setSelectedCardIndex] = useState(null);
-
   const options = [
+    {
+      imageSrc: "/images/Header.png",
+      title: "Campaign name, Character name",
+      desc: "Played 31 minutes ago",
+    },
+    {
+      imageSrc: "/images/Header.png",
+      title: "Campaign name, Character name",
+      desc: "Played 31 minutes ago",
+    },
+    {
+      imageSrc: "/images/Header.png",
+      title: "Campaign name, Character name",
+      desc: "Played 31 minutes ago",
+    },
     {
       imageSrc: "/images/Header.png",
       title: "Campaign name, Character name",
@@ -46,7 +60,7 @@ export default function LeftSection() {
           <img src="/Icons/DownArrow.svg" alt="" />
         </CustomButton>
       </div>
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-3 h-[65vh] overflow-auto hide-scrollbar">
         {options.map((option, index) => (
           <OptionCard
             key={index}
@@ -55,6 +69,8 @@ export default function LeftSection() {
             desc={option.desc}
             isSelected={selectedCardIndex === index}
             onClick={() => setSelectedCardIndex(index)}
+            isCompleted={selectedTab === "completed"} // Pass down the tab state
+            selectedTab={selectedTab} // Pass down the selectedTab for correct styling
           />
         ))}
       </div>
