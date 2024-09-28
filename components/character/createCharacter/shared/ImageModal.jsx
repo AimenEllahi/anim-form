@@ -3,6 +3,7 @@ import useCharacterStore from "@/utils/characterStore";
 import { cn } from "@/lib/utils";
 import { IconButton } from "@/components/ui/iconButton";
 import CustomIconbutton from "@/components/ui/custom-iconbutton";
+import CustomButton from "@/components/ui/custom-button";
 
 export default function ImageModal() {
   const {
@@ -14,20 +15,21 @@ export default function ImageModal() {
   return (
     <div
       className={cn(
-        "bg-blur-bottom-menu ease-animate md:hidden flex items-center justify-center fixed w-screen h-screen !z-[100] left-0 top-0 p-5 opacity-0 pointer-events-none",
+        "bg-blur-bottom-menu ease-animate md:hidden flex justify-center fixed w-screen h-screen !z-[100] left-0 top-0 p-5 pt-32 opacity-0 pointer-events-none",
         showModal && "opacity-100 pointer-events-auto"
       )}
     >
+      <CustomButton
+        onClick={() => {
+          setSelectedCharacteristic(null);
+          setShowModal(false);
+        }}
+        className={"absolute bottom-5 right-5"}
+      >
+        <img src='/Icons/Cancel.svg' alt='cancle icon' className='h-5 w-5 ' />
+        Close
+      </CustomButton>
       <div className='flex flex-col gap-5 relative'>
-        <CustomIconbutton
-          onClick={() => {
-            setSelectedCharacteristic(null);
-            setShowModal(false);
-          }}
-          className={"absolute top-4 right-4 bg-blur-icon-button"}
-        >
-          <img src='/Icons/Cancel.svg' alt='cancle icon' className='h-5 w-5 ' />
-        </CustomIconbutton>
         <img
           src={selectedCharacteristic?.image}
           alt='cancle icon'

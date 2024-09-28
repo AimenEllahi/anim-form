@@ -62,8 +62,11 @@ export default function index({
         />
         <div className='flex items-center justify-between w-full'>
           <div className='flex items-center gap-5'>
-            <CustomIconbutton onClick={() => setImageDialog(true)}>
-              <Generate className='h-5 w-5 fill-white' />
+            <CustomIconbutton
+              variant={"primary"}
+              onClick={() => setImageDialog(true)}
+            >
+              <Generate className='h-5 w-5 ' />
             </CustomIconbutton>
             <SoundButton />
 

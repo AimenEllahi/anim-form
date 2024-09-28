@@ -19,7 +19,7 @@ export default function Card({
 
   return (
     <div className='w-full h-auto gap-6 md:gap-0 flex flex-col hide-scrollbar md:bg-white/[2%] md:border border-white/5 rounded-[10px] overflow-y-scroll'>
-      <div className='w-full h-[353px]  md:w-full md:h-auto'>
+      <div className='w-full h-[192px]  md:w-full md:h-auto'>
         <img
           src={img}
           alt='Personality'
