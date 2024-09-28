@@ -1,7 +1,7 @@
 import api from "./index";
 
 export const initiateGame = async (payload, token) => {
- // console.log(payload);
+  // console.log(payload);
   try {
     const response = await api.post("/gpt4/chat", payload, {
       headers: {
@@ -41,7 +41,7 @@ export const textToSpeech = async (payload, token) => {
 
     const blob = new Blob([response.data], { type: "audio/mpeg" });
     const url = URL.createObjectURL(blob);
-   // console.log(url);
+    // console.log(url);
     return url;
   } catch (error) {
     console.error("Error:", error);
@@ -97,6 +97,21 @@ export const getGame = async (id, token) => {
 export const getGames = async (token) => {
   try {
     const response = await api.get("/games", {
+      headers: {
+        Authorization: token,
+      },
+    });
+
+    return response.data;
+  } catch (error) {
+    console.error("Error:", error);
+    throw error;
+  }
+};
+
+export const deleteGame = async (gameId, token) => {
+  try {
+    const response = await api.delete(`/games/${gameId}`, {
       headers: {
         Authorization: token,
       },

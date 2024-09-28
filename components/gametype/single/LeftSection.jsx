@@ -6,69 +6,37 @@ import SearchInput from "@/components/ui/search-input";
 import React, { useState } from "react";
 import OptionCard from "./OptionCard";
 
-export default function LeftSection({ selectedTab }) {
-  const [selectedCardIndex, setSelectedCardIndex] = useState(null);
-  const options = [
-    {
-      imageSrc: "/images/Header.png",
-      title: "Campaign name, Character name",
-      desc: "Played 31 minutes ago",
-    },
-    {
-      imageSrc: "/images/Header.png",
-      title: "Campaign name, Character name",
-      desc: "Played 31 minutes ago",
-    },
-    {
-      imageSrc: "/images/Header.png",
-      title: "Campaign name, Character name",
-      desc: "Played 31 minutes ago",
-    },
-    {
-      imageSrc: "/images/Header.png",
-      title: "Campaign name, Character name",
-      desc: "Played 31 minutes ago",
-    },
-    {
-      imageSrc: "/images/Header.png",
-      title: "Campaign name, Character name",
-      desc: "Played 31 minutes ago",
-    },
-    {
-      imageSrc: "/images/Header.png",
-      title: "Campaign name, Character name",
-      desc: "Played 31 minutes ago",
-    },
-    {
-      imageSrc: "/images/Header.png",
-      title: "Campaign name, Character name",
-      desc: "Played 31 minutes ago",
-    },
-  ];
+export default function LeftSection({
+  selectedTab,
+  games,
+  selectedGame,
+  setSelectedGame,
+}) {
   return (
-    <div className="h-full p-4 flex flex-col gap-4 ">
-      <div className=" flex gap-4">
+    <div className='h-full md:p-4 flex flex-col gap-4 '>
+      <div className=' flex gap-4'>
         <SearchInput
           //   query={query}
           //   setQuery={setQuery}
-          placeholder="Search"
+          placeholder='Search'
           className={"w-full "}
         />
         <CustomButton className={"h-full"}>
-          <img src="/Icons/Sort.svg" alt="" />
+          <img src='/Icons/Sort.svg' alt='' />
           newest to oldest
-          <img src="/Icons/DownArrow.svg" alt="" />
+          <img src='/Icons/DownArrow.svg' alt='' />
         </CustomButton>
       </div>
-      <div className="flex flex-col gap-3 h-[65vh] overflow-auto hide-scrollbar">
-        {options.map((option, index) => (
+      <div className='flex flex-col gap-3 h-[65vh] overflow-auto hide-scrollbar'>
+        {games.map((option, index) => (
           <OptionCard
             key={index}
-            imageSrc={option.imageSrc}
-            title={option.title}
-            desc={option.desc}
-            isSelected={selectedCardIndex === index}
-            onClick={() => setSelectedCardIndex(index)}
+            imageSrc={option.campaign.worldMapUrl}
+            characterName={option.character.name}
+            campaignName={option.campaign.title}
+            updatedAt={option.game.updatedAt}
+            isSelected={selectedGame?.game._id === option.game._id}
+            onClick={() => setSelectedGame(option)}
             isCompleted={selectedTab === "completed"} // Pass down the tab state
             selectedTab={selectedTab} // Pass down the selectedTab for correct styling
           />

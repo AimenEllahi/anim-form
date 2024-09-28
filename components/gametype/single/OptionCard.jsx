@@ -1,5 +1,6 @@
 import React from "react";
 import { cn } from "@/lib/utils";
+import moment from "moment";
 
 export default function OptionCard({
   imageSrc,
@@ -9,6 +10,9 @@ export default function OptionCard({
   onClick,
   isCompleted,
   selectedTab, // Add this prop to handle "Public Games"
+  characterName,
+  campaignName,
+  updatedAt,
 }) {
   return (
     <div
@@ -49,21 +53,25 @@ export default function OptionCard({
         }
       )}
     >
-      <div className="flex gap-4">
+      <div className='flex gap-4'>
         <img
           src={imageSrc}
           alt={title}
-          className="w-14 h-14 rounded-[6px] object-cover"
+          className='w-14 h-14 rounded-[6px] object-cover'
         />
-        <div className="flex flex-col justify-center gap-1 items-start">
-          <span className="running-text">{title}</span>
-          <span className="text-gray2 running-text-mono uppercase">{desc}</span>
+        <div className='flex flex-col justify-center gap-1 items-start'>
+          <span className='running-text'>
+            {campaignName}, {characterName}
+          </span>
+          <span className='text-gray2 description uppercase text'>
+            Played {moment(updatedAt).fromNow()}
+          </span>
         </div>
       </div>
       <img
-        src="/Icons/DownArrow.svg"
-        alt=""
-        className="mr-4 transform -rotate-90"
+        src='/Icons/DownArrow.svg'
+        alt=''
+        className='mr-4 transform -rotate-90'
       />
     </div>
   );

@@ -1,0 +1,122 @@
+"use client";
+import React, { useEffect, useState } from "react";
+import CustomButton from "@/components/ui/custom-button";
+import { cn } from "@/lib/utils";
+import Switch from "../ui/Shared/Switch";
+import LeftSection from "./single/LeftSection";
+import RightSection from "./single/RightSection";
+import useCustomToast from "@/hooks/useCustomToast";
+import { deleteGame } from "@/actions/game";
+import useUserStore from "@/utils/userStore";
+
+export default function Index({ gameType, games, setGames }) {
+  const [selectedTab, setSelectedTab] = useState("inProgress");
+  const [selectedGame, setSelectedGame] = useState(null);
+  const [selectedCompletedGame, setSelectedCompletedGame] = useState(null);
+  const [loadingDelete, setLoadingDelete] = useState(false);
+  const { invokeToast } = useCustomToast();
+  const { user } = useUserStore();
+  const [completedGames, setCompletedGames] = useState([]);
+  const [inProgressGames, setInProgressGames] = useState([]);
+
+  useEffect(() => {
+    if (games.length > 0) {
+      console.log("Games", games);
+      const completed = games.filter(({ game }) => game.isCompleted);
+      const inProgress = games.filter(({ game }) => !game.isCompleted);
+
+      setCompletedGames(completed);
+      setInProgressGames(inProgress);
+      if (window.innerWidth > 768) {
+      }
+      setSelectedGame(inProgress[0] || null);
+      setSelectedCompletedGame(completed[0] || null);
+    }
+  }, [games]);
+  const handleDeleteGame = async (id) => {
+    try {
+      setLoadingDelete(true);
+      const response = await deleteGame(id, user?.token);
+
+      const newGames = games.filter(({ game }) => game._id !== id);
+      console.log("New Games", newGames);
+      setGames(newGames);
+      setSelectedGame(newGames[0]);
+
+      invokeToast("Game Deleted Successfully", "Success");
+    } catch (error) {
+      invokeToast(
+        error?.response?.data?.error || "Error Deleting Game",
+        "Error"
+      );
+      console.error("Error:", error);
+    } finally {
+      setLoadingDelete(false);
+    }
+  };
+
+  return (
+    <div className='h-full z-[10] w-full flex flex-col px-5 lg:px-12'>
+      {/* Title Section */}
+      <div
+        className={`flex flex-col md:flex-row gap-2.5 ${
+          gameType === "multiPlayer"
+            ? "md:flex-col justify-start items-start"
+            : ""
+        }`}
+      >
+        <h1 className='text-center hidden md:flex justify-start text-white headline-3 z-[10]'>
+          {gameType === "multiPlayer"
+            ? "Games"
+            : selectedTab === "inProgress"
+            ? "Games in Progress"
+            : selectedTab === "publicGames"
+            ? "Public Games"
+            : "Completed Games"}
+        </h1>
+
+        {/* Switch Buttons */}
+        <div className={gameType === "multiPlayer" ? "mt-2" : ""}>
+          <Switch
+            selectedTab={selectedTab}
+            setSelectedTab={setSelectedTab}
+            gameType={gameType} // Pass game type here
+          />
+        </div>
+      </div>
+
+      {/* Desktop */}
+      <div className='flex md:border text-white md:bg-white/[8%] rounded-[16px] border-white/10 h-full justify-end items-end my-6  w-full'>
+        <div className='md:w-1/2 h-full md:border-r border-white/[8%]'>
+          {selectedTab === "inProgress" ? (
+            <LeftSection
+              selectedGame={selectedGame}
+              setSelectedGame={setSelectedGame}
+              games={inProgressGames}
+              selectedTab={selectedTab}
+            />
+          ) : (
+            <LeftSection
+              selectedGame={selectedCompletedGame}
+              setSelectedGame={setSelectedCompletedGame}
+              games={completedGames}
+              selectedTab={selectedTab}
+            />
+          )}
+        </div>
+        <div className='h-screen w-screen fixed md:relative bg-blur-bottom-menu md:blur-none md:bg-transparent left-0 top-0 md:w-1/2 md:h-full !z-[100] md:z-auto '>
+          <RightSection
+            selectedGame={
+              selectedTab === "inProgress"
+                ? selectedGame
+                : selectedCompletedGame
+            }
+            handleDeleteGame={handleDeleteGame}
+            selectedTab={selectedTab}
+            loadingDelete={loadingDelete}
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
