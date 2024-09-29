@@ -3,15 +3,18 @@ import CustomButton from "../custom-button";
 import Progress from "../Icons/Progress";
 import Completed from "../Icons/Completed";
 import Globe from "../Icons/Globe";
+import { cn } from "@/lib/utils";
 
 export default function Switch({ selectedTab, setSelectedTab, gameType }) {
   return (
     <div
-      className={
-        gameType === "multiPlayer" ? "flex z-[10]" : "flex z-[10] px-20"
-      }
+      className={cn(
+        gameType === "multiPlayer"
+          ? "flex z-[10]"
+          : "flex w-full z-[10] md:px-20 "
+      )}
     >
-      <div className="flex p-2 bg-white/[8%] rounded-[16px]">
+      <div className='flex p-2 bg-white/[8%] rounded-[16px] '>
         {/* In Progress Tab */}
         <CustomButton
           withIcon

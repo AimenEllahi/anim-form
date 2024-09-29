@@ -48,7 +48,7 @@ const GalleryImage = ({ src, className }) => {
             src={src}
             alt='arrow down icon, to download '
             className={cn(
-              "rounded-[16px] border h-full w-full border-transparent   hover:border-white/10 hover:shadow-custom-1 ease-animate cursor-pointer"
+              "rounded-[16px] border h-full w-full border-transparent   hover:border-white/10 hover:shadow-custom-2 ease-animate cursor-pointer"
             )}
           />
         </div>

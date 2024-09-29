@@ -4,6 +4,9 @@ import Delete from "@/components/ui/Icons/Delete";
 import Continue from "@/components/ui/Icons/Continue";
 import { cn } from "@/lib/utils";
 import { useRouter } from "next/navigation";
+import ArrowLeft from "@/components/ui/Icons/ArrowLeft";
+import useControlsStore from "@/utils/controlsStore";
+import DeleteGame from "@/components/ui/Shared/Dialogue/DeleteGame";
 
 export default function RightSection({
   selectedTab,
@@ -12,6 +15,7 @@ export default function RightSection({
   loadingDelete,
 }) {
   const [readMore, setReadMore] = useState(false);
+  const { setSelectedCompletedGame, setSelectedGame } = useControlsStore();
   const router = useRouter();
 
   const handleRedirect = (path) => {
@@ -19,8 +23,9 @@ export default function RightSection({
   };
   if (!selectedGame) return null;
 
-  const gameState = selectedGame.game.state;
+  const gameState = selectedGame.game.state || "";
   const gameId = selectedGame.game._id;
+
   return (
     <div className='flex flex-col justify-between h-full z-[100] '>
       <div className='flex flex-col p-5 pt-20 md:pt-5  h-screen md:h-full overflow-y-scroll hide-scrollbar'>
@@ -61,7 +66,7 @@ export default function RightSection({
         <div className='mt-3 w-full flex justify-between'>
           <div className='flex gap-4 border border-white/[8%] p-2 pe-4 rounded-[10px] bg-white/[8%] items-center'>
             <img
-              src={"/images/Header.png"}
+              src={selectedGame.character.imgUrl || "/images/Header.png"}
               className='w-16 h-16 rounded-[6px] object-cover'
             />
             <div className='flex flex-col justify-center gap-3.5 py-2 items-start'>
@@ -86,24 +91,28 @@ export default function RightSection({
             {selectedGame.game.__v === 0 ? "turn" : "turns"} played
           </span>
         </div>
-        <div className='flex gap-2 mt-3 uppercase'>
-          <img src='/Icons/Watch.svg' alt='' className='h-5 w-5 ' />
-          <span className='text-gray2 running-text-mono'>
-            ~{(selectedGame.game.__v + 1) * 2} min. playtime
-          </span>
+        <div className='flex flex-col gap-6'>
+          <div className='flex gap-2 mt-3 uppercase'>
+            <img src='/Icons/Watch.svg' alt='' className='h-5 w-5 ' />
+            <span className='text-gray2 running-text-mono'>
+              ~{(selectedGame.game.__v + 1) * 2} min. playtime
+            </span>
+          </div>
+          {selectedTab === "inProgress" && (
+            <DeleteGame action={() => handleDeleteGame(gameId)}>
+              <CustomButton
+                disabled={loadingDelete}
+                withIcon
+                className={"md:hidden me-auto"}
+              >
+                <Delete className='h-5 w-5 fill-errorRed' />
+                delete game
+              </CustomButton>
+            </DeleteGame>
+          )}
         </div>
-        {selectedTab === "inProgress" && (
-          <CustomButton
-            disabled={loadingDelete}
-            withIcon
-            className={"mt-6 md:hidden me-auto"}
-            onClick={() => handleDeleteGame(gameId)}
-          >
-            <Delete className='h-5 w-5 fill-errorRed' />
-            delete game
-          </CustomButton>
-        )}
       </div>
+      {/* Desktop */}
       <div
         className={cn(
           "md:flex p-4 justify-between border-t border-white/[10%] hidden",
@@ -112,15 +121,12 @@ export default function RightSection({
       >
         {/* Show delete button only if the "inProgress" tab is selected */}
         {selectedTab === "inProgress" && (
-          <CustomButton
-            disabled={loadingDelete}
-            withIcon
-            onClick={() => handleDeleteGame(gameId)}
-            variant={"subtle"}
-          >
-            <Delete className='h-5 w-5 fill-errorRed' />
-            delete game
-          </CustomButton>
+          <DeleteGame action={() => handleDeleteGame(gameId)}>
+            <CustomButton disabled={loadingDelete} withIcon variant={"subtle"}>
+              <Delete className='h-5 w-5 fill-errorRed' />
+              delete game
+            </CustomButton>
+          </DeleteGame>
         )}
         <CustomButton
           onClick={() => handleRedirect("/game/play?id=" + gameId)}
@@ -131,6 +137,32 @@ export default function RightSection({
               ? "ml-auto"
               : ""
           }
+        >
+          <Continue className='h-5 w-5 fill-russianViolet' />
+          continue
+        </CustomButton>
+      </div>
+
+      {/* Mobile */}
+      <div
+        className={cn(
+          "md:hidden p-5 justify-end gap-4 bg-blur-bottom-menu flex"
+        )}
+      >
+        <CustomButton
+          onClick={() => {
+            setSelectedGame(null);
+            setSelectedCompletedGame(null);
+          }}
+          withIcon
+        >
+          <ArrowLeft className='h-5 w-5 fill-white opacity-70' />
+          Back
+        </CustomButton>
+        <CustomButton
+          onClick={() => handleRedirect("/game/play?id=" + gameId)}
+          withIcon
+          variant={"primary"}
         >
           <Continue className='h-5 w-5 fill-russianViolet' />
           continue

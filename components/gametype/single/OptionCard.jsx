@@ -37,7 +37,7 @@ export default function OptionCard({
           // Selected state for "In Progress" and "Completed"
           "bg-[#05D38133] border-[1px] border-[#05D381] shadow-[0_0_30px_0_rgba(5,211,129,0.3)]":
             isSelected && isCompleted && selectedTab !== "publicGames",
-          "bg-irisPurpleLight/[20%] border border-irisPurpleLight shadow-[0_0_30px_0_rgba(143,145,255,0.3)]":
+          "bg-irisPurpleLight/[20%] border border-irisPurpleLight shadow-text-area":
             isSelected && !isCompleted && selectedTab !== "publicGames",
         },
         {
@@ -46,7 +46,7 @@ export default function OptionCard({
             selectedTab === "publicGames",
 
           // Hover state for "In Progress" and "Completed"
-          "hover:bg-[#8F91FF33] hover:border-[1px] hover:border-irisPurpleLight hover:shadow-[0_0_30px_0_rgba(143,145,255,0.3)]":
+          "hover:bg-[#8F91FF33] hover:border-[1px] hover:border-irisPurpleLight hover:shadow-text-area":
             !isCompleted && selectedTab !== "publicGames",
           "hover:bg-[#05D38133] hover:border-[1px] hover:border-[#05D381] hover:shadow-[0_0_30px_0_rgba(5,211,129,0.3)]":
             isCompleted && selectedTab !== "publicGames",

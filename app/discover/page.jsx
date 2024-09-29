@@ -1,16 +1,15 @@
 "use client";
 import useUserStore from "@/utils/userStore";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import Discover from "@/components/discover";
-import { getCharacters } from "@/actions/character";
 import {
   getMostLikedCampaigns,
   getPopularCampaigns,
 } from "@/actions/campaigns";
 import useCustomToast from "@/hooks/useCustomToast";
-import { getGames } from "@/actions/game";
+import { useSearchParams } from "next/navigation";
 
-export default function page() {
+const DiscoverContainer = () => {
   const { user } = useUserStore();
   const { invokeToast } = useCustomToast();
 
@@ -48,6 +47,9 @@ export default function page() {
 
   useEffect(() => {
     handleGetPopularCampaigns();
+  }, []);
+
+  useEffect(() => {
     handleGetMostLikedCampaigns();
   }, [user]);
   return (
@@ -57,5 +59,12 @@ export default function page() {
       setPopularCampaigns={setPopularCampaigns}
       setCampaigns={setCampaigns}
     />
+  );
+};
+export default function page() {
+  return (
+    <Suspense>
+      <DiscoverContainer />
+    </Suspense>
   );
 }

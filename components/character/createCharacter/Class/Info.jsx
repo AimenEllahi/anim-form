@@ -21,7 +21,7 @@ export default function Info({ _class }) {
         </div>
 
         <div className='p-5 pb-0 flex flex-col justify-around gap-4 '>
-          <span className='headline-4'>{_class?.name}</span>
+          <span className='running-text-large '>{_class?.name}</span>
           <span className='text-gray2 running-text '>
             {_class?.description}
           </span>

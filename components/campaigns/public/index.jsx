@@ -6,26 +6,31 @@ import ArrowLeft from "@/components/ui/Icons/ArrowLeft";
 import { usePathname } from "next/navigation";
 import { useSearchParams } from "next/navigation";
 import Campaign from "@/components/ui/Shared/Card/campaign";
+import CustomDropdown from "@/components/ui/custom-dropdown";
 import _ from "lodash";
 export default function PublicCampaigns({
   campaigns,
   totalPages,
   totalRecords,
   setCampaigns,
+  options,
+  sortBy,
+  setSortBy,
 }) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const page = parseInt(searchParams.get("page")) || 1;
+  const sort = searchParams.get("sort") || "newest-to-oldest";
   const pathname = usePathname();
 
   const nextPage = () => {
     const newPage = page + 1;
-    router.replace(pathname + `?page=${newPage}`);
+    router.replace(pathname + `?page=${newPage}&sort=${sort}`);
   };
 
   const prevPage = () => {
     const newPage = page - 1;
-    router.replace(pathname + `?page=${newPage}`);
+    router.replace(pathname + `?page=${newPage}&sort=${sort}`);
   };
 
   const handleUpdateCampaigns = (campaign) => {
@@ -36,8 +41,16 @@ export default function PublicCampaigns({
     _campaigns = _campaigns.reverse();
     setCampaigns(_campaigns);
   };
+
+  useEffect(() => {
+    const urlString = `${pathname}?page=${page}&sort=${sortBy
+      .toLowerCase()
+      .replace(" ", "-")}`;
+    router.replace(urlString);
+  }, [sortBy]);
+
   return (
-    <div className='h-full  text-white w-full flex flex-col pt-[98px] md:pt-[9rem] px-5 lg:px-12 pb-32 '>
+    <div className='h-full  text-white w-full flex flex-col pt-[130px] md:pt-[9rem] px-5 lg:px-12 pb-32 '>
       <div className='flex flex-col w-full gap-2.5'>
         <div className=' flex justify-between text-white  z-[10]  w-full md:w-auto'>
           {/* desktop */}
@@ -47,6 +60,13 @@ export default function PublicCampaigns({
               ({totalRecords})
             </span>
           </span>
+          <CustomDropdown
+            className={"md:w-fit"}
+            placeholder={"Sort by"}
+            options={options}
+            selectedOption={sortBy}
+            setSelectedOption={setSortBy}
+          />
         </div>
 
         <div className='w-full text-white  z-[9] grid grid-cols-12 lg:grid-cols-12 gap-4 pt-9 md:pt-8'>

@@ -21,7 +21,7 @@ export default function GenerateNew({ style, setStyle }) {
             style={{ aspectRatio: "1/1" }}
             className={cn(
               " cursor-pointer ease-animate rounded-[16px]",
-              style === avatar && "border-2 border-irisPurple"
+              style === avatar && "border-2 border-irisPurple shadow-custom-1"
             )}
           />
           <span className='uppercase running-text-mono'>{avatar}</span>

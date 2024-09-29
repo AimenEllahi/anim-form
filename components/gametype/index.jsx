@@ -8,11 +8,19 @@ import RightSection from "./single/RightSection";
 import useCustomToast from "@/hooks/useCustomToast";
 import { deleteGame } from "@/actions/game";
 import useUserStore from "@/utils/userStore";
+import useControlsStore from "@/utils/controlsStore";
+import GameTabbar from "../ui/Shared/TabBar/games";
 
 export default function Index({ gameType, games, setGames }) {
-  const [selectedTab, setSelectedTab] = useState("inProgress");
-  const [selectedGame, setSelectedGame] = useState(null);
-  const [selectedCompletedGame, setSelectedCompletedGame] = useState(null);
+  const {
+    selectedTab,
+    setSelectedTab,
+    selectedCompletedGame,
+    setSelectedCompletedGame,
+    selectedGame,
+    setSelectedGame,
+  } = useControlsStore();
+
   const [loadingDelete, setLoadingDelete] = useState(false);
   const { invokeToast } = useCustomToast();
   const { user } = useUserStore();
@@ -21,16 +29,15 @@ export default function Index({ gameType, games, setGames }) {
 
   useEffect(() => {
     if (games.length > 0) {
-      console.log("Games", games);
       const completed = games.filter(({ game }) => game.isCompleted);
       const inProgress = games.filter(({ game }) => !game.isCompleted);
 
       setCompletedGames(completed);
       setInProgressGames(inProgress);
       if (window.innerWidth > 768) {
+        setSelectedGame(inProgress[0] || null);
+        setSelectedCompletedGame(completed[0] || null);
       }
-      setSelectedGame(inProgress[0] || null);
-      setSelectedCompletedGame(completed[0] || null);
     }
   }, [games]);
   const handleDeleteGame = async (id) => {
@@ -87,7 +94,7 @@ export default function Index({ gameType, games, setGames }) {
 
       {/* Desktop */}
       <div className='flex md:border text-white md:bg-white/[8%] rounded-[16px] border-white/10 h-full justify-end items-end my-6  w-full'>
-        <div className='md:w-1/2 h-full md:border-r border-white/[8%]'>
+        <div className='w-full md:w-1/2 h-full md:border-r border-white/[8%]'>
           {selectedTab === "inProgress" ? (
             <LeftSection
               selectedGame={selectedGame}
@@ -104,7 +111,13 @@ export default function Index({ gameType, games, setGames }) {
             />
           )}
         </div>
-        <div className='h-screen w-screen fixed md:relative bg-blur-bottom-menu md:blur-none md:bg-transparent left-0 top-0 md:w-1/2 md:h-full !z-[100] md:z-auto '>
+        <div
+          className={cn(
+            "h-screen w-screen fixed md:relative bg-blur-bottom-menu md:blur-none md:bg-transparent left-0 top-0 md:w-1/2 md:h-full !z-[100] md:z-auto ",
+            selectedTab === "inProgress" && !selectedGame && "hidden",
+            selectedTab === "completed" && !selectedCompletedGame && "hidden"
+          )}
+        >
           <RightSection
             selectedGame={
               selectedTab === "inProgress"
@@ -117,6 +130,7 @@ export default function Index({ gameType, games, setGames }) {
           />
         </div>
       </div>
+      <GameTabbar />
     </div>
   );
 }

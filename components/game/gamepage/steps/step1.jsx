@@ -84,7 +84,7 @@ export default function StepDialog({
   };
 
   return (
-    <DialogContent className='bg-white/[8%]  overflow-hidden !gap-0 text-white lg:border  !p-0 !pt-[52px] md:!pt-0 border-0 md:border-1 lg:border-white/10 !rounded-[16px] h-full md:h-auto bg-russianViolet md:bg-white/10'>
+    <DialogContent className='bg-white/[8%]  overflow-hidden !gap-0 text-white lg:border  !p-0 !pt-[52px] md:!pt-0 border-0 md:border-1 lg:border-white/10 !rounded-[16px] h-full md:h-auto bg-gradient  md:!bg-white/10'>
       {isMobile && <Navbar />}
       {step === 1 && (
         <div className='flex flex-col'>

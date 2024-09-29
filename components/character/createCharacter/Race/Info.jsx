@@ -42,7 +42,7 @@ export default function Info({ race, handleSelectRace }) {
             className={"flex flex-row flex-wrap"}
             onChange={handleSelect}
           />
-          <span className='headline-4'>{race?.name}</span>
+          <span className='running-text-large '>{race?.name}</span>
           <span className='text-gray2 running-text'>{race?.description}</span>
         </div>
       </div>

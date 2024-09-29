@@ -19,15 +19,21 @@ export default function index() {
     totalPublicImages,
     totalPublicCampaigns,
   } = useUserStore();
-
+  const { selectedTab, selectedCompletedGame, selectedGame, gamesLength } =
+    useControlsStore();
   const { activeStep, gender, setGender } = useStepperStore();
+
+  const games = pathname.includes("/games");
 
   const noHeading =
     pathname === "/" ||
     pathname.includes("pricing") ||
     campaignSubpageRegex.test(pathname) ||
     pathname.includes("character/sheet") ||
-    pathname.includes("game");
+    (pathname.includes("game") && !pathname.includes("games")) ||
+    (selectedTab === "inProgress" && selectedGame) ||
+    (selectedTab === "completed" && selectedCompletedGame) ||
+    (gamesLength === 0 && games);
   const signIn = pathname.includes("sign-in");
   const signUp = pathname.includes("sign-up");
   const discover = pathname === "/discover";
@@ -203,8 +209,19 @@ export default function index() {
       return <span className='headline-3  '>About Us</span>;
     } else if (contact) {
       return <span className='headline-3  '>Contact</span>;
-    } else if (settings)
+    } else if (settings) {
       return <span className='headline-3  '> Account settings</span>;
+    } else if (games) {
+      return (
+        <span className='headline-3  '>
+          {selectedTab === "inProgress"
+            ? "Games in Progress"
+            : selectedTab === "publicGames"
+            ? "Public Games"
+            : "Completed Games"}
+        </span>
+      );
+    }
   };
 
   return <div className='  text-white md:hidden'>{renderHeader()}</div>;

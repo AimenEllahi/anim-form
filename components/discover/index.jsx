@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Row from "@/components/ui/Shared/DiscoverRow";
 import Star from "@/components/ui/Icons/Star";
 import World from "@/components/ui/Icons/World";
+import { useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 import _ from "lodash";
 export default function index({

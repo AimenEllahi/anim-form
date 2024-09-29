@@ -10,22 +10,31 @@ import { useSearchParams } from "next/navigation";
 import PublicCampaigns from "@/components/campaigns/public";
 import { getPublicCampaigns } from "@/actions/campaigns";
 
+const sortOptions = [
+  "Newest to oldest",
+  "Oldest to newest",
+  "Most liked",
+  "Most Played",
+  "Most starred",
+];
 function PublicCampaignsContainer() {
   const [campaigns, setCampaigns] = useState();
   const { user, setTotalPublicCampaigns } = useUserStore();
   const [totalPages, setTotalPages] = useState(1);
   const [totalRecords, setTotalRecords] = useState(0);
+  const [sortBy, setSortBy] = useState(sortOptions[0]);
 
   const router = useRouter();
   const { invokeToast } = useCustomToast();
   const searchParams = useSearchParams();
   const pathname = usePathname();
 
+  const sort = searchParams.get("sort") || "newest-to-oldest";
   const page = parseInt(searchParams.get("page")) || 1;
 
   const handleGetCampaigns = async () => {
     try {
-      const response = await getPublicCampaigns(page);
+      const response = await getPublicCampaigns(page, sort);
       setCampaigns(response.campaigns);
       setTotalPages(response.totalPages);
       setTotalRecords(response.totalRecords);
@@ -41,11 +50,12 @@ function PublicCampaignsContainer() {
 
   useEffect(() => {
     handleGetCampaigns();
-  }, [page]);
+  }, [page, sort]);
 
   if (!searchParams.get("page")) {
     router.push(pathname + "?page=1");
   }
+
   if (!campaigns) return <Loader text='Loading Campaigns...' />;
 
   return (
@@ -54,6 +64,9 @@ function PublicCampaignsContainer() {
       setCampaigns={setCampaigns}
       totalPages={totalPages}
       totalRecords={totalRecords}
+      options={sortOptions}
+      sortBy={sortBy}
+      setSortBy={setSortBy}
     />
   );
 }

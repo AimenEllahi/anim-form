@@ -54,7 +54,7 @@ export default function card({
       setIsLoading(true);
 
       const response = await starCampaign(campaign._id, user?.token);
-     // console.log(response);
+      // console.log(response);
       handleUpdateCampaigns({
         ...campaign,
         analytics: {
@@ -105,7 +105,7 @@ export default function card({
         hasSingleCharacter,
         characterId,
       } = await getCampaignBySlug(campaignId, user?.token);
-     // console.log(hasSingleCharacter, characterId);
+      // console.log(hasSingleCharacter, characterId);
       setCurrentCampaign(_campaign);
 
       if (hasSingleCharacter) {
@@ -134,7 +134,7 @@ export default function card({
   return (
     <div
       className={cn(
-        "rounded-[16px] cursor-pointer bg-white/[8%] hover:bg-white/10   h-full group hover:!shadow-custom-1 min-w-[292px] w-[292px] max-w-[292px] ease-animate  overflow-hidden md:min-w-[345px] md:w-[345px]  border-white/[8%] border hover:border-white/20 running-text-mono   ",
+        "rounded-[16px] cursor-pointer bg-white/[8%] hover:bg-white/10   h-full group hover:!shadow-custom-2 min-w-[292px] w-[292px] max-w-[292px] ease-animate  overflow-hidden md:min-w-[345px] md:w-[345px]  border-white/[8%] border hover:border-white/20 running-text-mono   ",
         className
       )}
     >
@@ -162,7 +162,7 @@ export default function card({
               {campaign?.playerName}
             </div> */}
             <div className='flex justify-center items-center gap-2  prevent-redirect'>
-           {/*   <IconButton className='bg-blur group   opacity-0 group-hover:opacity-100   prevent-redirect'>
+              {/*   <IconButton className='bg-blur group   opacity-0 group-hover:opacity-100   prevent-redirect'>
                 <img
                   src='/Icons/Share.svg'
                   alt=''

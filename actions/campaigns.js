@@ -216,9 +216,9 @@ export const getMostLikedCampaigns = async () => {
   }
 };
 
-export const getPopularCampaigns = async () => {
+export const getPopularCampaigns = async (sort) => {
   try {
-    const response = await api.get("/campaign/popular");
+    const response = await api.get("/campaign/popular?sort=" + sort);
     return response.data;
   } catch (error) {
     console.error("Error:", error);
@@ -236,9 +236,11 @@ export const searchCampaigns = async (query) => {
   }
 };
 
-export const getPublicCampaigns = async (page) => {
+export const getPublicCampaigns = async (page, sort) => {
   try {
-    const response = await api.get(`/campaign/public?page=${page}`);
+    const response = await api.get(
+      `/campaign/public?page=${page}&sort=${sort}`
+    );
     return response.data;
   } catch (error) {
     console.error("Error:", error);

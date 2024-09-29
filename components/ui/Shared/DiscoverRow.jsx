@@ -4,6 +4,7 @@ import CustomButton from "../custom-button";
 import ArrowRight from "../Icons/ArrowRight";
 import { useRouter } from "next/navigation";
 import Card from "@/components/ui/Shared/Card/campaign";
+import CustomDropdown from "../custom-dropdown";
 
 // import { useRouter } from "next/router";
 export default function row({
@@ -11,8 +12,6 @@ export default function row({
   icon,
   campaigns,
   showMore,
-  isGame,
-  games,
   handleUpdateCampaigns,
 }) {
   const router = useRouter();
@@ -22,6 +21,7 @@ export default function row({
         {icon}
         {text}
       </div>
+
       <div className='w-full text-white  z-[9] grid grid-cols-12 lg:grid-cols-12 gap-4 pt-9 md:pt-8'>
         {campaigns.map((campaign, i) => (
           <div

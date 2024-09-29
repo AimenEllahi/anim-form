@@ -24,7 +24,7 @@ export default function Info({ alignment }) {
         </div>
 
         <div className='p-4 flex flex-col justify-around gap-4 '>
-          <span className='headline-4'>{alignment?.name}</span>
+          <span className='running-text-large '>{alignment?.name}</span>
           <span className='text-gray2 running-text '>
             {alignment?.description}
           </span>

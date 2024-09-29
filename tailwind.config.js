@@ -23,8 +23,9 @@ module.exports = {
       },
 
       boxShadow: {
-        "custom-1": "0px 0px 60px 0px rgba(110, 109, 255, 0.149)",
-        "text-area": "0px 0px 30px -7px #8F91FF1A",
+        "custom-1": "0px 0px 40px 0px rgba(143, 145, 255, 0.4)",
+        "custom-2": "0px 0px 60px 0px rgba(143, 145, 255, 0.3)",
+        "text-area": "0px 0px 30px 0px rgba(143, 145, 255, 0.3)",
         "step-images": "0px 20px 250px -100px #8F91FF99",
       },
       colors: {

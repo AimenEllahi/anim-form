@@ -22,9 +22,9 @@ export default function Choose({ race, handleSelectRace }) {
     setShowModal(true);
   };
   return (
-    <div className='md:rounded-[16px] flex flex-col gap-5 w-full md:w-3/5 h-full md:p-5  md:pt-6 md:border md:border-white/10 md:bg-white/[8%] md:pb-0'>
+    <div className='md:rounded-[16px] flex flex-col gap-5 w-full md:w-3/5 h-full md:p-5  md:pt-3.5 md:border md:border-white/10 md:bg-white/[8%] md:pb-0'>
       {/* For PC */}
-      <h1 className='headline-4 hidden md:block'>Race</h1>
+      <h1 className='running-text-large hidden md:block'>Race</h1>
       <SearchInput
         query={raceQuery}
         setQuery={setRaceQuery}
@@ -65,8 +65,9 @@ export default function Choose({ race, handleSelectRace }) {
                   .toLowerCase()
                   .replace(" ", "-")}.webp`}
                 alt={name}
-                className={` w-full relative object-contain ease-animate rounded-[10px] ${
-                  race?.name === name && "border-2 border-irisPurpleLight"
+                className={` w-full relative box-border object-contain ease-animate rounded-[10px] ${
+                  race?.name === name &&
+                  "border-2 border-irisPurpleLight shadow-custom-1"
                 }`}
               />
               <Information

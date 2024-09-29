@@ -23,6 +23,9 @@ import Diamond from "@/components/ui/Icons/Diamond";
 import CustomIcontext from "@/components/ui/custom-icontext";
 import CreateMenu from "@/components/ui/Shared/CreateMenu";
 import Discover from "@/components/ui/Icons/Discover";
+import CampaignAdd from "@/components/ui/Icons/CampaignAdd";
+import Game from "@/components/ui/Icons/Game";
+import CustomNavtab from "../ui/custom-navtab";
 
 const NavLinks = () => {
   return (
@@ -58,20 +61,52 @@ const NavLinks = () => {
   );
 };
 
-const DiscoverButton = () => {
+const CampaignLinks = () => {
   const router = useRouter();
+  const pathname = usePathname();
   return (
-    <CustomButton
-      onClick={() => {
-        router.push("/discover");
-      }}
-      variant={"subtle"}
-      withIcon={true}
-      aria-label='Discover'
-    >
-      <Discover className='h-5 w-5 fill-white opacity-70 ' />
-      Discover
-    </CustomButton>
+    <div className='flex items-center gap-2'>
+      <CustomNavtab
+        onClick={() => {
+          router.push("/games");
+        }}
+        variant={"subtle"}
+        withIcon={true}
+        aria-label='Games'
+        className={cn(pathname === "/games" && "bg-white/10")}
+      >
+        <Game className='h-5 w-5 fill-white opacity-70 ' />
+        Games
+      </CustomNavtab>
+      <CustomNavtab
+        onClick={() => {
+          router.push("/discover");
+        }}
+        variant={"subtle"}
+        withIcon={true}
+        aria-label='Discover'
+        className={cn(pathname === "/discover" && "bg-white/10")}
+      >
+        <CampaignAdd className='h-5 w-5 fill-white opacity-70 ' />
+        Campaigns
+      </CustomNavtab>
+      <CustomNavtab
+        onClick={() => {
+          router.push("/discover/gallery?page=1");
+        }}
+        variant={"subtle"}
+        withIcon={true}
+        aria-label='Images'
+        className={cn(pathname.includes("/discover/gallery") && "bg-white/10")}
+      >
+        <img
+          src='/Icons/ImageLibrary.svg'
+          alt='My images button'
+          className='h-5 w-5  opacity-70'
+        />
+        Community Gallery
+      </CustomNavtab>
+    </div>
   );
 };
 
@@ -144,20 +179,18 @@ export default function Navbar({ variant, characterSheet }) {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const pathname = usePathname();
+  const { gamesLength } = useControlsStore();
   const isSignUp = pathname.includes("/auth/sign-up");
   const isGamePage = pathname.includes("/game/play");
   const mobileBlurNotAllowed = pathname === "/" || isGamePage;
 
   const showNavLinks =
-    pathname === "/" ||
     pathname.includes("auth") ||
-    pathname.includes("discover/gallery") ||
     pathname.includes("pricing") ||
     pathname.includes("about");
-  const showDiscoverButton =
+  const showCampaignLinks =
     !isGamePage && !pathname.includes("character/create") && !showNavLinks;
-  const showUpgradeButton =
-    !showNavLinks && !pathname.includes("character/create");
+  const isNoGamesPage = pathname.includes("/games") && gamesLength === 0;
 
   const characterCreatePage = pathname.includes("/character/create");
   const regex = /^\/campaign\/[a-fA-F0-9]{24}$/;
@@ -259,7 +292,8 @@ export default function Navbar({ variant, characterSheet }) {
           !mobileBlurNotAllowed &&
           !showMenu &&
           "bg-blur-bottom-menu md:bg-auto ",
-        characterCreatePage && "pt-5"
+        characterCreatePage && "pt-5",
+        isNoGamesPage && "bg-transparent"
       )}
     >
       <div
@@ -312,8 +346,7 @@ export default function Navbar({ variant, characterSheet }) {
               <img src='/Icons/Logo.svg' alt='logo' className='h-10' />
             </Link>
             {showNavLinks && <NavLinks />}
-            {showDiscoverButton && <DiscoverButton />}
-            {showUpgradeButton && <UpgradeButton />}
+            {showCampaignLinks && <CampaignLinks />}
           </div>
           <div className='flex justify-center items-center gap-5'>
             <span

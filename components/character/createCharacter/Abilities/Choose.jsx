@@ -1,12 +1,6 @@
 import React, { useState, useEffect } from "react";
 import CustomButton from "@/components/ui/custom-button";
-import CustomIconbutton from "@/components/ui/custom-iconbutton";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
+
 import {
   Popover,
   PopoverContent,
@@ -146,7 +140,7 @@ export default function Choose({ abilities, handleChangeAbilities }) {
         [index]: {
           ...prev[index],
           value,
-          result: result.map((dice) => dice.value).sort((a, b) => a - b),
+          result: result.map((dice) => dice.value).sort((a, b) => b - a),
         },
       }));
 
@@ -263,9 +257,9 @@ export default function Choose({ abilities, handleChangeAbilities }) {
   };
 
   return (
-    <div className='md:rounded-[16px] flex flex-col gap-6 w-full md:w-fit max-h-full h-fit md:p-5 md:pt-6 md:border border-white/10 md:bg-white/[8%]  '>
+    <div className='md:rounded-[16px] flex flex-col gap-6 w-full md:w-fit max-h-full h-fit md:p-5 md:pt-3.5 md:border border-white/10 md:bg-white/[8%]  '>
       <div className='flex items-center justify-between'>
-        <h1 className='headline-4 hidden md:block'>Abilities</h1>
+        <h1 className='running-text-large  hidden md:block'>Abilities</h1>
         <Popover>
           <PopoverTrigger>
             <div className='flex items-center gap-2 running-text-mono uppercase'>

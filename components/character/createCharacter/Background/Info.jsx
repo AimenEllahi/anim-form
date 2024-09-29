@@ -20,7 +20,7 @@ export default function Info({ background }) {
         </div>
 
         <div className='p-5 pb-0 flex flex-col justify-around gap-4 '>
-          <span className='headline-4'>{background?.name}</span>
+          <span className='running-text-large '>{background?.name}</span>
           <span className='text-gray2 running-text '>
             {background?.description}
           </span>

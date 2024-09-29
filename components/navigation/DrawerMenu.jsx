@@ -222,18 +222,15 @@ const UserLoggedOut = ({ handleRedirect }) => {
       </div>
 
       <div
-        onClick={() => handleRedirect("/discover")}
+        onClick={() => handleRedirect("/games")}
         className='flex gap-3  hover:bg-transparent focus:bg-transparent focus:text-white  transition-all duration-300 ease-linear cursor-pointer'
       >
-        <img
-          src='/Icons/UserCircle.svg'
-          alt='Discover button'
-          className='h-5 w-5 opacity-70'
-        />
-        <span>Discover</span>
+        <Discover className='h-5 w-5 opacity-70 fill-white' />
+
+        <span>Games</span>
       </div>
       <div
-        onClick={() => handleRedirect("/campaign/my-campaigns")}
+        onClick={() => handleRedirect("/discover")}
         className='flex gap-3 hover:bg-transparent focus:bg-transparent focus:text-white  transition-all duration-300 ease-linear cursor-pointer'
       >
         <img
@@ -244,7 +241,7 @@ const UserLoggedOut = ({ handleRedirect }) => {
         <span>Campaigns</span>
       </div>
       <div
-        onClick={() => handleRedirect("/my-account/gallery?page=1")}
+        onClick={() => handleRedirect("/discover/gallery?page=1")}
         className='flex gap-3 hover:bg-transparent focus:bg-transparent focus:text-white  transition-all duration-300 ease-linear cursor-pointer'
       >
         <img
