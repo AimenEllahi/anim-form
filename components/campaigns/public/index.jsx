@@ -55,7 +55,7 @@ export default function PublicCampaigns({
         <div className=' flex justify-between text-white  z-[10]  w-full md:w-auto'>
           {/* desktop */}
           <span className='headline-3 z-[10] hidden md:block '>
-            Public Games
+            Public Campaigns
             <span className='text-gray2 ms-3 md:ms-4 font-roboto-mono transform translate-up text-[17px] md:text-[24px] translate-y-[-15px] md:translate-y-[-20px]'>
               ({totalRecords})
             </span>

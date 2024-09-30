@@ -39,7 +39,7 @@ export default function index({
           icon={<Star isfilled={"true"} className='h-5 w-5 fill-gray2' />}
         />
         <Row
-          text={"Public games"}
+          text={"Public Campaigns"}
           handleUpdateCampaigns={handleUpdatePublicCampaigns}
           campaigns={popular}
           icon={<World className='h-5 w-5 fill-gray2' />}
