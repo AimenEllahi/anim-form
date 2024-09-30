@@ -8,7 +8,7 @@ import GeneralTabbar from "@/components/ui/Shared/TabBar/general";
 export default function ArticlesPage() {
   const router = useRouter();
 
-  // Handle redirection method
+  // Handle redirection
   const handleRedirect = (path) => {
     router.push(path);
   };
