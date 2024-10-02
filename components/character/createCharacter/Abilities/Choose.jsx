@@ -55,11 +55,10 @@ const ABILITIES = [
 ];
 
 const DiceResults = ({ results, value }) => {
-  const _results = results.reverse();
   return (
     <div className='flex items-center justify-between'>
       <div className='flex items-center gap-2 py-3.5'>
-        {_results.map((result, index) => {
+        {results.map((result, index) => {
           return (
             <RolledDice
               roll={result}
@@ -134,13 +133,18 @@ export default function Choose({ abilities, handleChangeAbilities }) {
         .sort((a, b) => b - a)
         .slice(0, 3)
         .reduce((a, b) => a + b, 0);
+
+      const resultPattern = result
+        .map((dice) => dice.value)
+        .sort((a, b) => a - b);
+
       //loop through result and get all the values, drop the lowest
       setRollResults((prev) => ({
         ...prev,
         [index]: {
           ...prev[index],
           value,
-          result: result.map((dice) => dice.value).sort((a, b) => b - a),
+          result: resultPattern,
         },
       }));
 

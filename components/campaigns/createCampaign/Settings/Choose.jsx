@@ -5,7 +5,7 @@ export default function Choose({ campaign, handleSetCampaign }) {
   return (
     <div
       className='md:rounded-[16px] flex flex-col gap-5 w-full md:w-full
-     h-full md:p-5  md:pt-6 pt-6 md:border md:border-white/10 overflow-auto hide-scrollbar'
+     h-full md:p-5  md:pt-3.5 pt-6 md:border md:border-white/10 overflow-auto hide-scrollbar'
     >
       {/* For PC */}
       <h1 className='running-text-large '>Setting</h1>

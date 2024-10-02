@@ -46,7 +46,7 @@ export default function page() {
 
   const handleGetMostLikedCampaigns = async () => {
     try {
-      const response = await getMostLikedCampaigns();
+      const response = await getMostLikedCampaigns(12);
       setCampaigns(response.campaigns);
     } catch (error) {
       invokeToast(

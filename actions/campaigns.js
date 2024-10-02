@@ -206,9 +206,9 @@ export const deleteComment = async (commentId, token) => {
   }
 };
 
-export const getMostLikedCampaigns = async () => {
+export const getMostLikedCampaigns = async (limit) => {
   try {
-    const response = await api.get("/campaign/mostLiked");
+    const response = await api.get("/campaign/mostLiked?limit=" + limit);
     return response.data;
   } catch (error) {
     console.error("Error:", error);

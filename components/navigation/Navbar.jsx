@@ -73,7 +73,9 @@ const CampaignLinks = () => {
         variant={"subtle"}
         withIcon={true}
         aria-label='Games'
-        className={cn(pathname === "/games" && "bg-white/10")}
+        className={cn(
+          pathname === "/games" && "bg-white/10 hover:bg-white/[8%]"
+        )}
       >
         <Game className='h-5 w-5 fill-white opacity-70 ' />
         Games
@@ -85,7 +87,9 @@ const CampaignLinks = () => {
         variant={"subtle"}
         withIcon={true}
         aria-label='Discover'
-        className={cn(pathname === "/discover" && "bg-white/10")}
+        className={cn(
+          pathname === "/discover" && "bg-white/10 hover:bg-white/[8%]"
+        )}
       >
         <CampaignAdd className='h-5 w-5 fill-white opacity-70 ' />
         Campaigns
@@ -97,7 +101,10 @@ const CampaignLinks = () => {
         variant={"subtle"}
         withIcon={true}
         aria-label='Images'
-        className={cn(pathname.includes("/discover/gallery") && "bg-white/10")}
+        className={cn(
+          pathname.includes("/discover/gallery") &&
+            "bg-white/10 hover:bg-white/[8%]"
+        )}
       >
         <img
           src='/Icons/ImageLibrary.svg'
@@ -107,26 +114,6 @@ const CampaignLinks = () => {
         Community Gallery
       </CustomNavtab>
     </div>
-  );
-};
-
-const UpgradeButton = () => {
-  const router = useRouter();
-  return (
-    <CustomButton
-      onClick={() => {
-        router.push("/pricing");
-      }}
-      variant={"subtle"}
-      className={
-        " text-irisPurpleLight hover:!text-irisPurpleLight/80 active:!text-irisPurpleLight/90"
-      }
-      withIcon={true}
-      aria-label='Upgrade'
-    >
-      <Diamond className='h-5 w-5 fill-irisPurpleLight ' />
-      Upgrade
-    </CustomButton>
   );
 };
 
@@ -182,12 +169,11 @@ export default function Navbar({ variant, characterSheet }) {
   const { gamesLength } = useControlsStore();
   const isSignUp = pathname.includes("/auth/sign-up");
   const isGamePage = pathname.includes("/game/play");
-  const mobileBlurNotAllowed = pathname === "/" || isGamePage;
+  const isLandingPage = pathname === "/";
+  const mobileBlurNotAllowed = isLandingPage || isGamePage;
 
   const showNavLinks =
-    pathname.includes("auth") ||
-    pathname.includes("pricing") ||
-    pathname.includes("about");
+    pathname.includes("pricing") || pathname.includes("about");
   const showCampaignLinks =
     !isGamePage && !pathname.includes("character/create") && !showNavLinks;
   const isNoGamesPage = pathname.includes("/games") && gamesLength === 0;
@@ -395,7 +381,12 @@ export default function Navbar({ variant, characterSheet }) {
                 className={cn(isGamePage && "hidden")}
                 aria-label='Play for Free'
               >
-                PLAY FOR FREE
+                <Play className='h-5 w-5 fill-russianViolet opacity-70' />
+                {isLandingPage
+                  ? "PLAY NOW"
+                  : user?.token
+                  ? "Start new Game"
+                  : "PLAY FOR FREE"}
               </CustomButton>
             )}
           </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import useCharacterStore from "@/utils/characterStore";
 import { cn } from "@/lib/utils";
 import { IconButton } from "@/components/ui/iconButton";
@@ -12,10 +12,11 @@ export default function ImageModal() {
     setShowModal,
     setSelectedCharacteristic,
   } = useCharacterStore();
+
   return (
     <div
       className={cn(
-        "bg-blur-bottom-menu ease-animate md:hidden flex justify-center fixed w-screen h-screen !z-[100] left-0 top-0 p-5 pt-32 opacity-0 pointer-events-none",
+        "bg-blur-bottom-menu ease-animate md:hidden flex justify-center fixed w-screen h-full !z-[100] left-0 top-0 p-5 pt-32 opacity-0 pointer-events-none",
         showModal && "opacity-100 pointer-events-auto"
       )}
     >

@@ -8,6 +8,8 @@ import CustomMenuItem from "../ui/custom-menu-item";
 import { useRouter } from "next/navigation";
 import Login from "@/components/ui/Icons/Login";
 import Discover from "@/components/ui/Icons/Discover";
+import AddUser from "../ui/Icons/AddUser";
+import SignUp from "@/components/ui/Icons/SignUp";
 export default function GeneralMenu({ setOpen }) {
   const router = useRouter();
 
@@ -21,20 +23,14 @@ export default function GeneralMenu({ setOpen }) {
         <Login className='h-5 w-5  opacity-70 fill-white' />
         SIGN IN
       </CustomButton>
-
-      <DropdownMenuItem
-        onClick={() => handleRedirect("/character/my-characters")}
-        className='flex !p-0  !my-0 w-full focus:bg-transparent focus:text-white  transition-all duration-300 ease-linear cursor-pointer'
+      <CustomButton
+        variant={"subtle"}
+        withIcon
+        onClick={() => handleRedirect("/auth/sign-in")}
       >
-        <CustomMenuItem>
-          <img
-            src='/Icons/UserCircle.svg'
-            alt='Button to get to My Characters page'
-            className='h-5 w-5  opacity-70'
-          />
-          <span>My characters</span>
-        </CustomMenuItem>
-      </DropdownMenuItem>
+        <SignUp className='h-5 w-5   fill-white' />
+        SIGN IN
+      </CustomButton>
     </DropdownMenuContent>
   );
 }
