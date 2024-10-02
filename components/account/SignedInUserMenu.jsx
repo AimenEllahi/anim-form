@@ -56,18 +56,20 @@ export default function SignedInUserMenu() {
 
       <hr className='w-full border-white/5 my-2' />
       <div className='w-full px-2 gap-2 flex flex-col'>
-        <DropdownMenuItem className='flex !p-0 gap-2 w-full focus:bg-transparent focus:text-white  transition-all duration-300 ease-linear cursor-pointer'>
-          <CustomMenuItem
-            onClick={() => handleRedirect("/my-account/settings")}
-          >
-            <img
-              src='/Icons/UserCircle.svg'
-              alt='Button to get to the user created characters; heroes'
-              className='h-5 w-5  opacity-70'
-            />
-            <span>Profile</span>
-          </CustomMenuItem>
-        </DropdownMenuItem>
+{/* 
+  <DropdownMenuItem className='flex !p-0 gap-2 w-full focus:bg-transparent focus:text-white  transition-all duration-300 ease-linear cursor-pointer'>
+    <CustomMenuItem
+      onClick={() => handleRedirect("/my-account/settings")}
+    >
+      <img
+        src='/Icons/UserCircle.svg'
+        alt='Button to get to the user created characters; heroes'
+        className='h-5 w-5  opacity-70'
+      />
+      <span>Emblems & Achievements</span>
+    </CustomMenuItem>
+  </DropdownMenuItem> 
+*/}
 
         <DropdownMenuItem className='flex !p-0 gap-2 w-full focus:bg-transparent focus:text-white  transition-all duration-300 ease-linear cursor-pointer'>
           <CustomMenuItem

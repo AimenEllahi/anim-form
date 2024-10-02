@@ -191,7 +191,7 @@ export default function index() {
     } else if (publicCampaigns) {
       return (
         <span className='headline-3  '>
-          Public Games
+          Public Campaigns
           {totalPublicCampaigns && !showMenu && (
             <span className='text-gray2 ms-3  font-roboto-mono transform translate-up text-[17px]  translate-y-[-15px]'>
               ({totalPublicCampaigns})
