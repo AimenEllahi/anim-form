@@ -1,6 +1,6 @@
 "use client";
 import useUserStore from "@/utils/userStore";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { getCharacters } from "@/actions/character";
 import {
   getMostLikedCampaigns,
@@ -63,12 +63,14 @@ export default function page() {
     handleGetMostLikedCampaigns();
   }, [user]);
   return (
-    <SelectCampaign
-      mostLiked={campaigns}
-      popular={popularCampaigns}
-      characters={characters}
-      setPopularCampaigns={setPopularCampaigns}
-      setCampaigns={setCampaigns}
-    />
+    <Suspense>
+      <SelectCampaign
+        mostLiked={campaigns}
+        popular={popularCampaigns}
+        characters={characters}
+        setPopularCampaigns={setPopularCampaigns}
+        setCampaigns={setCampaigns}
+      />
+    </Suspense>
   );
 }

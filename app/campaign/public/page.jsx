@@ -10,7 +10,13 @@ import { useSearchParams } from "next/navigation";
 import PublicCampaigns from "@/components/campaigns/public";
 import { getPublicCampaigns } from "@/actions/campaigns";
 
-
+const sortOptions = [
+  "newest to oldest",
+  "oldest to newest",
+  "most liked",
+  "most played",
+  "most starred",
+];
 function PublicCampaignsContainer() {
   const [campaigns, setCampaigns] = useState();
   const { user, setTotalPublicCampaigns } = useUserStore();
