@@ -647,3 +647,27 @@ input::-ms-clear {
   color: rgba(255, 255, 255);
   /* Text color white with 80% opacity */
 }
+
+
+/* for shadow */
+
+.shadow-wrapper {
+  position: relative;
+}
+
+.shadow-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 10px;
+  /* Match the image border radius */
+  box-shadow: 0px 0px 40px 0px rgba(143, 145, 255, 0.4);
+  /* Customize your shadow */
+  pointer-events: none;
+  /* Prevent it from interfering with interactions */
+  z-index: 100;
+  /* Ensure the shadow stays behind the content */
+}

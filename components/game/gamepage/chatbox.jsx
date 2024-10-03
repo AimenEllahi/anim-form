@@ -47,8 +47,18 @@ export default function Chatbox({
 
   useEffect(() => {
     if (chat.length === 1) return;
+
     const lastObj = chatboxRef.current.querySelector(".last-obj");
-    lastObj?.scrollIntoView({ behavior: "smooth", block: "start" });
+    // Calculate the exact position to scroll to
+    const offsetPosition = lastObj.offsetTop - 20;
+
+    const element = document.querySelector(".chat-box");
+
+    // Smoothly scroll to the calculated position
+    element.scrollTo({
+      top: offsetPosition,
+      behavior: "smooth",
+    });
   }, [chat]);
 
   useEffect(() => {

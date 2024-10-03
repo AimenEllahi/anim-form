@@ -15,11 +15,21 @@ const DiscoverContainer = () => {
 
   const [campaigns, setCampaigns] = useState([]);
   const [popularCampaigns, setPopularCampaigns] = useState([]);
+  const [showMoreCampaigns, setShowMoreCampaigns] = useState(true);
+  const [loadingCampaigns, setLoadingCampaigns] = useState(false);
+  const [query, setQuery] = useState("");
+  const [limit, setLimit] = useState(12);
+  const searchParams = useSearchParams();
+  const sort = searchParams.get("sort") || "newest-to-oldest";
+  const page = parseInt(searchParams.get("page")) || 1;
 
   const handleGetPopularCampaigns = async () => {
     try {
-      const response = await getPopularCampaigns();
-
+      setLoadingCampaigns(true);
+      const response = await getPopularCampaigns(sort, limit, query);
+      if (response.campaigns.length >= response.totalCampaigns) {
+        setShowMoreCampaigns(false);
+      }
       setPopularCampaigns(response.campaigns);
     } catch (error) {
       invokeToast(
@@ -47,8 +57,12 @@ const DiscoverContainer = () => {
 
   useEffect(() => {
     handleGetPopularCampaigns();
-  }, []);
+  }, [limit, sort, query]);
 
+  useEffect(() => {
+    const element = document.querySelector(".public-campaigns");
+    element.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, [sort]);
   useEffect(() => {
     handleGetMostLikedCampaigns();
   }, [user]);
@@ -58,6 +72,10 @@ const DiscoverContainer = () => {
       popular={popularCampaigns}
       setPopularCampaigns={setPopularCampaigns}
       setCampaigns={setCampaigns}
+      showMoreCampaigns={showMoreCampaigns}
+      setLimit={setLimit}
+      loadingCampaigns={loadingCampaigns}
+      setQuery={setQuery}
     />
   );
 };

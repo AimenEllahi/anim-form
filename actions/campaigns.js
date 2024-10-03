@@ -216,9 +216,11 @@ export const getMostLikedCampaigns = async (limit) => {
   }
 };
 
-export const getPopularCampaigns = async (sort) => {
+export const getPopularCampaigns = async (sort, limit, query) => {
   try {
-    const response = await api.get("/campaign/popular?sort=" + sort);
+    const response = await api.get(
+      "/campaign/popular?sort=" + sort + "&limit=" + limit + "&search=" + query
+    );
     return response.data;
   } catch (error) {
     console.error("Error:", error);

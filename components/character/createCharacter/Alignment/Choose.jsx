@@ -11,9 +11,11 @@ export default function Choose({ handleAlignmentChange, alignment }) {
     setShowModal(true);
   };
   return (
-    <div className='md:rounded-[16px] flex flex-col gap-5 w-full md:w-3/5 lg:w-2/5  h-fit max-h-full md:p-5  md:pt-3.5 md:border md:border-white/10 md:bg-white/[8%] md:pb-0  '>
-      <h1 className='running-text-large  hidden md:block'>Alignment</h1>
-      <div className='grid grid-cols-12  gap-4 md:gap-5 w-full overflow-auto hide-scrollbar md:pb-5'>
+    <div className='md:rounded-[16px] flex flex-col w-full md:w-3/5 lg:w-2/5  h-fit max-h-full  md:border md:border-white/10 md:bg-white/[8%] md:pb-0  '>
+      <h1 className='running-text-large  hidden md:block md:px-5  md:pt-3.5'>
+        Alignment
+      </h1>
+      <div className='grid grid-cols-12  gap-4 md:gap-5 w-full overflow-auto md:p-5 hide-scrollbar md:pb-5'>
         {ALIGNMENT.filter(({ name }) => {
           if (query) {
             return name.toLowerCase().includes(query.toLowerCase());

@@ -18,7 +18,7 @@ export default function OptionCard({
     <div
       onClick={onClick}
       className={cn(
-        "border p-2 flex justify-between rounded-[16px] cursor-pointer transition-all duration-300 ease-in-out",
+        "border p-2 flex justify-between rounded-[16px] cursor-pointer transition-all duration-300 ease-in-out overflow-visible",
         {
           // Initial state for "Public Games"
           "bg-[#FFB37114] border-[#FFB37114]":
@@ -35,9 +35,9 @@ export default function OptionCard({
             selectedTab === "publicGames" && isSelected,
 
           // Selected state for "In Progress" and "Completed"
-          "bg-[#05D38133] border-[1px] border-[#05D381] shadow-[0_0_30px_0_rgba(5,211,129,0.3)]":
+          "bg-successGreen/20 border-[1px] border-successGreen shadow-[0_0_30px_0_rgba(5,211,129,0.3)]":
             isSelected && isCompleted && selectedTab !== "publicGames",
-          "bg-irisPurpleLight/[20%] border border-irisPurpleLight shadow-text-area":
+          "bg-irisPurpleLight/20 border border-irisPurpleLight shadow-[0_0_20px_0_rgba(5,211,129,0.8)]":
             isSelected && !isCompleted && selectedTab !== "publicGames",
         },
         {
@@ -46,20 +46,20 @@ export default function OptionCard({
             selectedTab === "publicGames",
 
           // Hover state for "In Progress" and "Completed"
-          "hover:bg-[#8F91FF33] hover:border-[1px] hover:border-irisPurpleLight hover:shadow-text-area":
-            !isCompleted && selectedTab !== "publicGames",
-          "hover:bg-[#05D38133] hover:border-[1px] hover:border-[#05D381] hover:shadow-[0_0_30px_0_rgba(5,211,129,0.3)]":
+          "hover:bg-white/10 hover:border-[1px] hover:border-white/20 ":
+            !isCompleted && selectedTab !== "publicGames" && !isSelected,
+          "hover:bg-successGreen/10 hover:border-[1px] hover:border-successGreen/20 ":
             isCompleted && selectedTab !== "publicGames",
         }
       )}
     >
-      <div className='flex gap-4'>
+      <div className='flex gap-3  items-center w-full'>
         <img
           src={imageSrc}
           alt={title}
-          className='w-14 h-14 rounded-[6px] object-cover'
+          className='w-14 h-14 rounded-[6px] object-contain'
         />
-        <div className='flex flex-col justify-center gap-1 items-start'>
+        <div className='flex flex-col justify-center gap-1.5  items-start'>
           <span className='running-text'>
             {campaignName}, {characterName}
           </span>
@@ -68,10 +68,14 @@ export default function OptionCard({
           </span>
         </div>
       </div>
+
       <img
         src='/Icons/DownArrow.svg'
         alt=''
-        className='mr-4 transform -rotate-90'
+        className={cn(
+          "mr-4 transform hidden md:block -rotate-90 opacity-0 transition-opacity duration-200 ease-in-out",
+          { "opacity-100": isSelected }
+        )}
       />
     </div>
   );

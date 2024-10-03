@@ -9,28 +9,23 @@ export default function Switch({ selectedTab, setSelectedTab, gameType }) {
   return (
     <div
       className={cn(
-        gameType === "multiPlayer"
-          ? "flex z-[10]"
-          : "flex w-full z-[10] md:px-20 "
+        gameType === "multiPlayer" ? "flex z-[10]" : "flex w-full z-[10] "
       )}
     >
-      <div className='flex p-2 bg-white/[8%] rounded-[16px] '>
+      <div className='flex p-2 gap-2 bg-white/[8%] rounded-[16px] '>
         {/* In Progress Tab */}
         <CustomButton
           withIcon
-          variant={selectedTab === "inProgress" ? "primary" : "secondary"}
           className={
             selectedTab === "inProgress"
-              ? "text-russianViolet"
-              : "text-[#05D381] border-none bg-transparent hover:bg-transparent"
+              ? "text-russianViolet !border !border-white/10 bg-white hover:bg-white "
+              : "text-gray2 border-transparent bg-transparent hover:border  "
           }
           onClick={() => setSelectedTab("inProgress")}
         >
           <Progress
             className={`h-5 w-5 ${
-              selectedTab === "inProgress"
-                ? "fill-russianViolet"
-                : "fill-[#05D381]"
+              selectedTab === "inProgress" ? "fill-russianViolet" : "fill-gray2"
             }`}
           />
           In Progress
@@ -43,7 +38,7 @@ export default function Switch({ selectedTab, setSelectedTab, gameType }) {
             variant={selectedTab === "publicGames" ? "primary" : "secondary"}
             className={
               selectedTab === "publicGames"
-                ? "text-russianViolet"
+                ? "text-russianViolet border-[1px] border-white/10"
                 : "text-[#05D381] border-none bg-transparent hover:bg-transparent"
             }
             onClick={() => setSelectedTab("publicGames")}
@@ -62,11 +57,10 @@ export default function Switch({ selectedTab, setSelectedTab, gameType }) {
         {/* Completed Tab */}
         <CustomButton
           withIcon
-          variant={selectedTab === "completed" ? "primary" : "secondary"}
           className={
             selectedTab === "completed"
-              ? "text-russianViolet"
-              : "text-[#05D381] border-none bg-transparent hover:bg-transparent"
+              ? "text-russianViolet !border !border-white/10 bg-white hover:bg-white "
+              : "text-[#05D381] border-transparent bg-transparent hover:border  "
           }
           onClick={() => setSelectedTab("completed")}
         >

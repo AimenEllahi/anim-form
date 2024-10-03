@@ -11,6 +11,10 @@ export default function index({
   mostLiked,
   setCampaigns,
   setPopularCampaigns,
+  showMoreCampaigns,
+  loadingCampaigns,
+  setLimit,
+  setQuery,
 }) {
   const handleUpdateMostLikedCampaigns = (campaign) => {
     let _campaigns = mostLiked.filter((c) => c._id !== campaign._id);
@@ -24,6 +28,10 @@ export default function index({
     _campaigns.push(campaign);
     _campaigns = _.sortBy(_campaigns, ["createdAt"]);
     setPopularCampaigns(_campaigns);
+  };
+
+  const onClickShowMore = () => {
+    setLimit((prev) => prev + 12);
   };
 
   return (
@@ -42,8 +50,13 @@ export default function index({
           text={"Public Campaigns"}
           handleUpdateCampaigns={handleUpdatePublicCampaigns}
           campaigns={popular}
+          sort={true}
+          isPublicCampaign={true}
           icon={<World className='h-5 w-5 fill-gray2' />}
-          showMore={true}
+          onClickShowMore={onClickShowMore}
+          showMore={showMoreCampaigns}
+          disabled={loadingCampaigns}
+          setQueryProp={setQuery}
         />
       </div>
     </div>

@@ -69,7 +69,7 @@ export default function Index({ gameType, games, setGames }) {
         className={`flex flex-col md:flex-row gap-2.5 ${
           gameType === "multiPlayer"
             ? "md:flex-col justify-start items-start"
-            : ""
+            : "justify-between"
         }`}
       >
         <h1 className='text-center hidden md:flex justify-start text-white headline-3 z-[10]'>
@@ -83,17 +83,27 @@ export default function Index({ gameType, games, setGames }) {
         </h1>
 
         {/* Switch Buttons */}
-        <div className={gameType === "multiPlayer" ? "mt-2" : ""}>
+        <div className={cn("", gameType === "multiPlayer" ? "mt-2" : "")}>
           <Switch
             selectedTab={selectedTab}
             setSelectedTab={setSelectedTab}
             gameType={gameType} // Pass game type here
           />
         </div>
+        <div className='hidden md:block opacity-0 pointer-events-none headline-3 '>
+          {" "}
+          {gameType === "multiPlayer"
+            ? "Games"
+            : selectedTab === "inProgress"
+            ? "Games in Progress"
+            : selectedTab === "publicGames"
+            ? "Public Games"
+            : "Completed Games"}
+        </div>
       </div>
 
       {/* Desktop */}
-      <div className='flex md:border text-white md:bg-white/[8%] rounded-[16px] border-white/10 h-full justify-end items-end my-6  w-full'>
+      <div className='flex md:border text-white md:bg-white/[8%] rounded-[16px] border-white/10 h-full justify-end items-end my-6  w-full md:overflow-hidden'>
         <div className='w-full md:w-1/2 h-full md:border-r border-white/[8%]'>
           {selectedTab === "inProgress" ? (
             <LeftSection
@@ -113,7 +123,7 @@ export default function Index({ gameType, games, setGames }) {
         </div>
         <div
           className={cn(
-            "h-screen w-screen fixed md:relative bg-blur-bottom-menu md:blur-none md:bg-transparent left-0 top-0 md:w-1/2 md:h-full !z-[100] md:z-auto ",
+            " w-screen fixed md:relative bg-blur-bottom-menu md:blur-none md:bg-transparent left-0 top-0 md:w-1/2 h-full !z-[100] md:z-auto ",
             selectedTab === "inProgress" && !selectedGame && "hidden",
             selectedTab === "completed" && !selectedCompletedGame && "hidden"
           )}
