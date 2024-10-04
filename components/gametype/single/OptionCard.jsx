@@ -37,7 +37,7 @@ export default function OptionCard({
           // Selected state for "In Progress" and "Completed"
           "bg-successGreen/20 border-[1px] border-successGreen shadow-[0_0_30px_0_rgba(5,211,129,0.3)]":
             isSelected && isCompleted && selectedTab !== "publicGames",
-          "bg-irisPurpleLight/20 border border-irisPurpleLight shadow-[0_0_20px_0_rgba(5,211,129,0.8)]":
+          "bg-irisPurpleLight/20 border border-irisPurpleLight shadow-[0_0_20px_0_rgba(143,145,255,0.8)]":
             isSelected && !isCompleted && selectedTab !== "publicGames",
         },
         {
