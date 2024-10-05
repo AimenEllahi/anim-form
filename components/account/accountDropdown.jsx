@@ -29,8 +29,8 @@ export default function accountDropdown() {
             open && "border-white/40 bg-white/20 cursor-pointer"
           )}
         >
-          <img src='/Icons/User.svg' className='h-5 w-5 invert' />
-        </div>
+<img src='/Icons/User.svg' className='h-5 w-5 invert' alt='User icon' title='User icon'/>
+</div>
       </DropdownMenuTrigger>
 
       {user?.token ? (

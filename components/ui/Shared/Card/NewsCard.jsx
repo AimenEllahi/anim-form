@@ -24,6 +24,7 @@ export default function Card({ article, className }) {
           <img
             src={article.imageUrl || "/images/default_article.jpg"}
             alt='Article Image'
+            title='News Article Image'
             className='h-[248px] w-full object-cover'
           />
         </div>

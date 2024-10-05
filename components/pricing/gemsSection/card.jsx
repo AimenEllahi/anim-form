@@ -7,6 +7,7 @@ export default function Card({ imgSrc, benefits, children }) {
       <div className='w-full md:w-1/2 h-auto md:h-full 2xl:max-h-[450px]'>
         <img
           src={imgSrc}
+          title='User generated Image'
           alt='user generated iamge'
           className='w-full h-full md:rounded-l-xl object-contain md:object-cover'
         />

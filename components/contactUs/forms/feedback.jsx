@@ -97,6 +97,7 @@ export default function Feedback() {
                   <img
                     src={emoticon.icon}
                     alt={emoticon.label}
+                    title={emoticon.label}
                     className='h-5 w-5'
                   />
                 )}

@@ -22,7 +22,7 @@ export default function Step({ number, title, description, image }) {
          z-10 overflow-hidden border-[1px] border-[#8F91FF]/20 l md:w-2/3 w-full'
         >
           {/* Render the image using an img tag */}
-          <img src={image} alt={title} className='w-full  object-contain' />
+          <img src={image} title={title} alt={title} className='w-full  object-contain' />
         </div>
       </div>
     </div>

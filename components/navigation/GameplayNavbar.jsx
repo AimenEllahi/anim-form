@@ -81,6 +81,7 @@ export default function GameplayNavbar({ loading, setLoading }) {
             <img
               src="/Icons/Logo.svg"
               alt="logo"
+              title='logo'
               className="h-8 object-contain"
             />
           </Link>
@@ -89,6 +90,7 @@ export default function GameplayNavbar({ loading, setLoading }) {
               <img
                 src="/gems/Mythic.webp"
                 alt="Mythic gem"
+                title='Mythic Gem'
                 className="h-[18px] object-contain "
               />
               {user.blueCredits}
@@ -97,6 +99,7 @@ export default function GameplayNavbar({ loading, setLoading }) {
               <img
                 src="/gems/Legendary.webp"
                 alt="Legendary Gem"
+                title='Legendary Gem'
                 className="h-[18px] object-contain "
               />
               {user.yellowCredits}

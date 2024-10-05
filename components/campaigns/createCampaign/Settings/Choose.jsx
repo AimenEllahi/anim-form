@@ -26,6 +26,7 @@ export default function Choose({ campaign, handleSetCampaign }) {
                 .replaceAll(" ", "-")
                 .replaceAll("'", "")}.webp`}
               alt='setting'
+              title='Icon'
               className={cn(
                 ` w-full aspect-square ease-animate object-contain   rounded-[10px]`,
                 campaign?.setting === setting &&

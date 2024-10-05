@@ -15,6 +15,7 @@ export default function Info({ background }) {
               ?.toLowerCase()
               .replaceAll(" ", "-")}.webp`}
             alt={background?.name}
+            title={background?.name}
             className=' w-full object-contain '
           />
         </div>

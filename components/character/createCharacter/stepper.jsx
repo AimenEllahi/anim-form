@@ -30,7 +30,7 @@ export default function Stepper() {
                 )}
               >
                 {activeStep > index ? (
-                  <img src='/Icons/Check.svg' className='w-2.5  ' />
+                  <img src='/Icons/Check.svg' title='Check icon' alt='Check icon' className='w-2.5  ' />
                 ) : (
                   index + 1
                 )}

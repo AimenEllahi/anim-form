@@ -11,7 +11,7 @@ export default function ArticleImage({ image }) {
         shadow-step-images
          z-10 overflow-hidden border-[1px] border-[#8F91FF]/20 l md:w-[711px] w-full'
         >
-          <img src={image} alt={""} className='w-full  object-contain' />
+          <img src={image} title='News Article Image' alt={"News article image of dndai"} className='w-full  object-contain' />
         </div>
       </div>
     </div>

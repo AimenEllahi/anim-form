@@ -109,6 +109,7 @@ const CampaignLinks = () => {
         <img
           src='/Icons/ImageLibrary.svg'
           alt='My images button'
+          title='My images button'
           className='h-5 w-5  opacity-70'
         />
         Community Gallery
@@ -130,6 +131,7 @@ const CreditsDisplay = () => {
         <img
           src='/gems/Mythic.webp'
           alt='Blue Credits'
+          title='blue credits'
           className='h-[18px] object-contain '
         />
         {user?.blueCredits}
@@ -141,6 +143,7 @@ const CreditsDisplay = () => {
         <img
           src='/gems/Legendary.webp'
           alt='Yellow Credits'
+          title='Legendary Credits'
           className='h-[18px] object-contain '
         />
         {user?.yellowCredits}
@@ -305,6 +308,7 @@ export default function Navbar({ variant, characterSheet }) {
             <img
               src='/Icons/Logo.svg'
               alt='logo'
+              title='Logo icon'
               className='h-8 object-contain'
             />
           </Link>
@@ -329,7 +333,7 @@ export default function Navbar({ variant, characterSheet }) {
               className='text-white me-2 hover:text-gray1 transition-all duration-300 ease-in-out keychainify-checked'
               aria-label='Home'
             >
-              <img src='/Icons/Logo.svg' alt='logo' className='h-10' />
+              <img src='/Icons/Logo.svg' title='Logo icon' alt='logo' className='h-10' />
             </Link>
             {showNavLinks && <NavLinks />}
             {showCampaignLinks && <CampaignLinks />}

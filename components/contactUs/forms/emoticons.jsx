@@ -17,7 +17,7 @@ export default function emoticons({ selected, setSelected, emoticons }) {
             title={emoticon.label}
             onClick={() => handleSelect(emoticon.id)}
           >
-            <img src={emoticon.icon} alt={emoticon.label} />
+            <img src={emoticon.icon} title='emoticon' alt={emoticon.label} />
           </div>
         ))}
       </div>

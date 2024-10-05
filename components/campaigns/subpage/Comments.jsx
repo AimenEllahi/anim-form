@@ -88,7 +88,7 @@ const Comment = ({ comment, handleUpdateComments, handleRemoveComment }) => {
                   open && "border-white/40"
                 )}
               >
-                <img src="/Icons/Dots.png" alt="" />
+                <img src="/Icons/Dots.png" title='three dots' alt="dots" />
               </CustomIconbutton>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="bg-transparent uppercase flex flex-col mt-4 p-2 !px-[9px]  border border-white/10 z-[10] bg-blur menu-shadow text-white running-text-mono rounded-[16px] !gap-y-2">

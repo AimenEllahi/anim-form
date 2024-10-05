@@ -84,7 +84,7 @@ export const getMetaTags = (pathname) => {
   } else if (pathname === "/") {
     title = "DND AI | Home";
     description =
-      "DnD AI, where Dungeons & Dragons meets cutting-edge AI! Create your hero, embark on epic quests, and let our AI Dungeon Master weave thrilling stories from your choices. Adventure awaits at dndai.app – dive in now!";
+      "DnD AI, where Dungeons & Dragons meets AI! Create your hero, embark on epic quests, and let our AI Dungeon Master weave thrilling stories from your choices.";
     ogTitle = "DND AI | Home";
     ogDescription =
       "Enter the world of DnD AI – a fusion of Dungeons & Dragons and AI magic. Forge your hero, tackle epic quests, and let our AI DM craft unforgettable adventures from your choices. Start your legendary journey at dndai.app!";

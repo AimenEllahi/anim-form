@@ -42,6 +42,7 @@ const UserLoggedIn = ({ handleRedirect, handlePlay }) => {
             <img
               src='/gems/Mythic.webp'
               alt='Mythic gem image'
+              title='Mythic Gem'
               className='h-[18px] object-contain '
             />
             {user.blueCredits}
@@ -50,6 +51,7 @@ const UserLoggedIn = ({ handleRedirect, handlePlay }) => {
             <img
               src='/gems/Legendary.webp'
               alt='Legendary gem'
+              title='Legendary Gem'
               className='h-[18px] object-contain '
             />
             {user.yellowCredits}
@@ -95,6 +97,7 @@ const UserLoggedIn = ({ handleRedirect, handlePlay }) => {
           <img
             src='/Icons/ImageLibrary.svg'
             alt='My images button'
+            title='My images'
             className='h-5 w-5  opacity-70'
           />
           <span>Gallery</span>
@@ -112,6 +115,7 @@ const UserLoggedIn = ({ handleRedirect, handlePlay }) => {
           <img
             src='/Icons/UserCircle.svg'
             alt='My character button'
+            title='My Character icon'
             className='h-5 w-5 opacity-70'
           />
           <span>Profile</span>
@@ -134,6 +138,7 @@ const UserLoggedIn = ({ handleRedirect, handlePlay }) => {
           <img
             src='/Icons/ImageLibrary.svg'
             alt='My images button'
+            title='My images Icon'
             className='h-5 w-5  opacity-70'
           />
           <span>My images</span>
@@ -147,6 +152,7 @@ const UserLoggedIn = ({ handleRedirect, handlePlay }) => {
           <img
             src='/Icons/Campaign.svg'
             alt='My campaigns button'
+            title='My Campaigns Icon'
             className='h-5 w-5  opacity-70'
           />
           <span>My campaigns</span>
@@ -209,6 +215,7 @@ const UserLoggedOut = ({ handleRedirect }) => {
           <img
             src='/Icons/Login.svg'
             alt='logo'
+            title='Login Icon'
             className='h-5 w-5 opacity-70 '
           />
           SIGN IN
@@ -235,6 +242,7 @@ const UserLoggedOut = ({ handleRedirect }) => {
       >
         <img
           src='/Icons/Campaign.svg'
+          title='My campaigns Button'
           alt='My campaigns button'
           className='h-5 w-5  opacity-70'
         />
@@ -247,6 +255,7 @@ const UserLoggedOut = ({ handleRedirect }) => {
         <img
           src='/Icons/ImageLibrary.svg'
           alt='My images button'
+          title='My images button'
           className='h-5 w-5  opacity-70'
         />
         <span>Gallery</span>
@@ -304,6 +313,7 @@ export default function DrawerMenu({ characterCreatePage, handlePlay }) {
           <img
             src='/Icons/Logo.svg'
             alt='logo'
+            title='logo'
             className='h-[32px] object-contain'
           />
         </Link>

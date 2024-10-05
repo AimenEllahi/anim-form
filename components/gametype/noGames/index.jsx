@@ -11,7 +11,7 @@ export default function index() {
   return (
     <div className='fixed  flex w-full h-screen justify-center items-center md:relative z-10'>
       <div className=' flex flex-col justify-center items-center gap-4 mb-4 z-10 '>
-        <img src='/images/PurpleDice.svg' alt='' className='h-full w-1/5' />
+        <img src='/images/PurpleDice.svg' title='dice' alt='dice' className='h-full w-1/5' />
         <span className='headline-3 text-white text-center '>
           Ready to start your{" "}
           <span className='text-irisPurpleLight'>first adventure?</span>

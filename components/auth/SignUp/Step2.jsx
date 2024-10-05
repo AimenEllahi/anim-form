@@ -100,6 +100,7 @@ export default function Step2({ setStep, user, setUser, reset }) {
             user.username.length > 2 && (
               <img
                 src='/Icons/Success.svg'
+                title='Success Icon'
                 alt='Success'
                 className=' h-5 w-5'
               />
@@ -120,7 +121,7 @@ export default function Step2({ setStep, user, setUser, reset }) {
         onChange={(value) => {}}
         icon={
           user.email && (
-            <img src='/Icons/Success.svg' alt='Success' className=' h-5 w-5' />
+            <img src='/Icons/Success.svg' title='Sucess Icon' alt='Success' className=' h-5 w-5' />
           )
         }
       />
@@ -130,7 +131,7 @@ export default function Step2({ setStep, user, setUser, reset }) {
         onChange={(value) => onChange("name", value)}
         icon={
           user.name.length > 2 && (
-            <img src='/Icons/Success.svg' alt='Success' className=' h-5 w-5' />
+            <img src='/Icons/Success.svg' title='Sucess Icon' alt='Success' className=' h-5 w-5' />
           )
         }
       />
@@ -140,7 +141,7 @@ export default function Step2({ setStep, user, setUser, reset }) {
         onChange={(value) => onChange("surname", value)}
         icon={
           user.surname.length > 2 && (
-            <img src='/Icons/Success.svg' alt='Success' className=' h-5 w-5' />
+            <img src='/Icons/Success.svg' title='Sucess Icon' alt='Success' className=' h-5 w-5' />
           )
         }
       />
@@ -158,6 +159,7 @@ export default function Step2({ setStep, user, setUser, reset }) {
               <img
                 src='/Icons/Eye.svg'
                 onClick={() => setShowPassword(false)}
+                title='Sucess Icon'
                 alt='Success'
                 className=' h-5 w-5 cursor-pointer invert'
               />
@@ -165,6 +167,7 @@ export default function Step2({ setStep, user, setUser, reset }) {
               <img
                 src='/Icons/EyeClosed.svg'
                 onClick={() => setShowPassword(true)}
+                title='Sucess Icon'
                 alt='Success'
                 className=' h-5 w-5 cursor-pointer invert'
               />
@@ -224,7 +227,7 @@ export default function Step2({ setStep, user, setUser, reset }) {
           ) : (
             <>
               CREATE ACCOUNT{" "}
-              <img src='/Icons/ArrowRight.svg' alt='Arrow pointing right' className='h-5 w-5' />
+              <img src='/Icons/ArrowRight.svg' title='Arrow Icon' alt='Arrow pointing right' className='h-5 w-5' />
             </>
           )}
         </CustomButton>

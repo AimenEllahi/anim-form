@@ -68,7 +68,7 @@ export default function Campaign({
         )}
       >
         <CustomIconbutton onClick={scrollLeft} variant='primary'>
-          <img src='/Icons/ArrowLeft.svg' alt='arrow lef icon' className='w-5 h-5' />
+          <img src='/Icons/ArrowLeft.svg' alt='arrow left icon' title='arrow left icon' className='w-5 h-5' />
         </CustomIconbutton>
       </div>
       <div
@@ -82,7 +82,7 @@ export default function Campaign({
           variant='primary'
           className={"hidden md:flex"}
         >
-          <img src='/Icons/ArrowRight.svg' alt='arrow right icon' className='w-5 h-5' />
+          <img src='/Icons/ArrowRight.svg' alt='arrow right icon' title='arrow right icon' className='w-5 h-5' />
         </CustomIconbutton>
       </div>
       <div

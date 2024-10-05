@@ -56,6 +56,7 @@ export default function Choose({ _class, handleSelectClass }) {
                   .toLowerCase()
                   .replaceAll(" ", "-")}.webp`}
                 alt={name}
+                title={name}
                 className={` w-full object-contain ease-animate rounded-[10px] ${
                   _class?.name === name &&
                   "border-2 border-irisPurpleLight shadow-custom-1"

@@ -99,6 +99,7 @@ export default function SignIn() {
             isEmailValid && (
               <img
                 src='/Icons/Success.svg'
+                title='Sucess icon'
                 alt='Success'
                 className=' h-5 w-5'
               />
@@ -119,6 +120,7 @@ export default function SignIn() {
                 src={
                   isPasswordVisible ? "/Icons/Eye.svg" : "/Icons/EyeClosed.svg"
                 }
+                title='Show password Icon'
                 alt='Toggle Password Visibility'
                 className='h-5 w-5 invert cursor-pointer '
               />

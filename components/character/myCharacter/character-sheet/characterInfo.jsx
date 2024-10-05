@@ -35,6 +35,7 @@ export default function characterInfo({
               "/images/CreateCharacter/CharacterName/CharacterName.png"
             }
             alt='custom character portrait'
+            title='Custom Character Portrait'
             className=' w-full object-contain aspect-square rounded-t-[10px] '
           />
           <div
@@ -59,6 +60,8 @@ export default function characterInfo({
                 .toLowerCase()
                 .replaceAll(" ", "-")}.webp`}
               className='rounded-full h-[32px] w-[32px]'
+              title='Characters Class'
+              alt='class of the Character'
             />
           </div>
           <div className='flex flex-col running-text-mono'>

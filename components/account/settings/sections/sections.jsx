@@ -109,6 +109,7 @@ export default function Index() {
                 user.username.length > 2 && (
                   <img
                     src='/Icons/Success.svg'
+                    title='Success Icon'
                     alt='Success'
                     className=' h-5 w-5'
                   />
@@ -271,6 +272,7 @@ export default function Index() {
                       ? "/Icons/Eye.svg"
                       : "/Icons/EyeClosed.svg"
                   }
+                  title='Show password icon'
                   alt='Toggle Password Visibility'
                   className='h-5 w-5 invert cursor-pointer '
                 />
@@ -308,6 +310,7 @@ export default function Index() {
                       ? "/Icons/Eye.svg"
                       : "/Icons/EyeClosed.svg"
                   }
+                  title='show password icon'
                   alt='Toggle Password Visibility'
                   className='h-5 w-5 invert cursor-pointer '
                 />

@@ -46,7 +46,8 @@ const GalleryImage = ({ src, className }) => {
           </CustomIconbutton>
           <img
             src={src}
-            alt='arrow down icon, to download '
+            alt='arrow down icon, to download'
+            title='Arrow icon'
             className={cn(
               "rounded-[16px] border h-full w-full border-transparent   hover:border-white/10 hover:shadow-custom-2 ease-animate cursor-pointer"
             )}

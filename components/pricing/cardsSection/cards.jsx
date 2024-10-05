@@ -93,6 +93,7 @@ export default function cards({ plan, selectedPlan, stripe }) {
             <img
               src='/gems/Legendary.webp'
               alt='Legendary Gem'
+              title='Legendary Gem'
               className='h-[18px] object-contain'
             />
             <span className='text-white running-text-mono'>
@@ -103,6 +104,7 @@ export default function cards({ plan, selectedPlan, stripe }) {
             <img
               src='/gems/Mythic.webp'
               alt='Mythic Gem'
+              title='Mythic Gem'
               className='h-[18px] object-contain'
             />
             <span className='text-white running-text-mono'> {blueCredits}</span>

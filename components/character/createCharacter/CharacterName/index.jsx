@@ -17,6 +17,7 @@ export default function index({ character, setCharacter }) {
     <div className='flex h-screen fixed top-[156px] left-0 px-6 w-full flex-col gap-5'>
       <img
         src={`/images/CreateCharacter/CharacterName/CharacterName.png`}
+        title='user generated Image'
         alt='user generated character image'
         className='w-full h-[248px] rounded-[16px]  object-cover'
       />
@@ -29,6 +30,7 @@ export default function index({ character, setCharacter }) {
             character.name && (
               <img
                 src='/Icons/Success.svg'
+                title='Success Icon'
                 alt='Success'
                 className=' h-4 w-4'
               />
@@ -51,7 +53,7 @@ export default function index({ character, setCharacter }) {
       </div>
 
       <CustomButton withIcon onClick={handleRandomCharacterName}>
-        <img src='/Icons/Random.svg' alt='logo' className='h-5 w-5 ' />
+        <img src='/Icons/Random.svg' title='Random Icon' alt='random button' className='h-5 w-5 ' />
         RANDOM CHARACTER Name
       </CustomButton>
     </div>

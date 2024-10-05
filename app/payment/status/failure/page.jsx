@@ -13,7 +13,7 @@ export default function page() {
   return (
     <div className='fixed  flex items-center justify-center text-white z-10 top-0 left-0 min-h-full w-screen px-11 md:px-0'>
       <div className=' w-full md:w-1/4 text-center flex items-center flex-col '>
-        <img src='/images/payment/Error.svg' alt='success' className='' />
+        <img src='/images/payment/Error.svg'title='sucess icon' alt='success' className='' />
         <div className='flex flex-col gap-4 items-center '>
           <span className='headline-3 '>
             Oh no! It seems something{" "}

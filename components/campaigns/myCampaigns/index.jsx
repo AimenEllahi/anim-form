@@ -43,6 +43,8 @@ export default function index({ campaigns, setCampaigns }) {
           >
             <img
               src='/Icons/Campaign.svg'
+              title='icon'
+              alt='icon'
               className='h-5 w-5 fill-white opacity-70'
             />
             <span>Create Campaign</span>

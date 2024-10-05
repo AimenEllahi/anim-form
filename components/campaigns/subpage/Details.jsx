@@ -28,6 +28,8 @@ export default function Details({ details, setting }) {
               .toLowerCase()
               .replaceAll(" ", "-")
               .replaceAll("'", "")}.webp`}
+            title='setting icon'
+            alt='settings icon'
             className=' rounded-[16px] object-contain w-full'
           />
         </div>

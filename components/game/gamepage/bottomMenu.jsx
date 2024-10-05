@@ -157,6 +157,7 @@ export default function bottomMenu({
                 <img
                   src='/Icons/Narrate.svg'
                   alt='Button to open the narrate options'
+                  title='Narrate button'
                   className='h-5 w-5 opacity-70'
                 />
                 Start Narrate

@@ -89,7 +89,7 @@ export default function Index() {
           disabled={!isValid() || loading}
           onClick={handleCreateCampaign}
         >
-          Create campaign ( <img src='/gems/Legendary.webp' alt='Legendary Coin, Coin to generate Images on the website' className='h-[18px] object-contain ' /> 1)
+          Create campaign ( <img src='/gems/Legendary.webp' title='Legandary Gem' alt='Legendary Coin, Coin to generate Images on the website' className='h-[18px] object-contain ' /> 1)
         </CustomButton>
       </div>
 
@@ -105,6 +105,7 @@ export default function Index() {
             Create campaign ({" "}
             <img
               src='/gems/Legendary.webp'
+              title='Legendary Gem'
               className='h-[18px] object-contain'
               alt='Legendary Coin, Coin to generate Images on the website'
             />{" "}
