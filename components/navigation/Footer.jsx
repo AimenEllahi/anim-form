@@ -32,13 +32,13 @@ const NavMenu = ({ menu, disable }) => {
 
   return (
     <div className='w-auto md:w-1/2 lg:w-1/4 py-2 flex flex-col gap-9 z-10 '>
-      <h5
+      <footer
         className={`text-irisPurpleLight running-text-mono ${
           disable ? "opacity-50" : ""
         }`}
       >
         {menu.heading}
-      </h5>
+      </footer>
       <ul className='flex flex-col gap-4'>
         {menu.navlinks.map((link, index) => (
           <li key={index}>
