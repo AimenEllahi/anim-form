@@ -91,7 +91,7 @@ export default function RootLayout({ children }) {
         <head>
           <meta
             name='viewport'
-            content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover'
+            content='width=device-width, viewport-fit=cover'
           />
           <meta charSet='UTF-8' />
           <title>{ogTitle}</title>
@@ -132,7 +132,7 @@ export default function RootLayout({ children }) {
           <meta name='msapplication-TileImage' content={ogImage} />
 
           <link rel='canonical' href={ogUrl} />
-          <link rel='icon' href='/favicon.ico' />
+          <link rel="shortcut icon" href="favicon.ico" sizes="144x144" />
           <link
             rel='preload'
             href='https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;700&display=swap'
