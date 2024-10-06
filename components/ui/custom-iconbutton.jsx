@@ -13,7 +13,7 @@ export default function CustomIconButton({
   return (
     <IconButton
       disabled={disabled}
-      aria-label={ariaLabel} // Inform screen readers
+      aria-label="Button for Menus" // Inform screen readers
       aria-disabled={disabled} // Inform screen readers of disabled state
       title={ariaLabel} // Tooltip for better clarity
       role="button"
