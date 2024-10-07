@@ -20,6 +20,46 @@ const TEXT_SIZES = {
   22: "text-2xl",
 };
 
+// Function to intelligently split text into paragraphs using \n\n
+const splitIntoParagraphs = (text) => {
+  // Split by \n\n to create blocks of text, then strip excess whitespace
+  const rawParagraphs = text.split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean);
+
+  // If there are no paragraphs, return an empty array
+  if (rawParagraphs.length === 0) return [];
+
+  // Process each raw paragraph to further split into sentences if needed
+  const paragraphs = rawParagraphs.map((paragraph) => {
+    // Split by common sentence endings and strip excess whitespace
+    const sentences = paragraph.split(/(?<=[.!?])\s+/);
+
+    // Group sentences into paragraphs based on some logic
+    const groupedSentences = [];
+    let currentGroup = [];
+
+    sentences.forEach((sentence) => {
+      currentGroup.push(sentence.trim());
+
+      // Example logic: every 3 sentences create a new paragraph
+      if (currentGroup.length >= 3) {
+        groupedSentences.push(currentGroup.join(" "));
+        currentGroup = [];
+      }
+    });
+
+    // Push any remaining sentences as the last group
+    if (currentGroup.length > 0) {
+      groupedSentences.push(currentGroup.join(" "));
+    }
+
+    // Return the formatted paragraph as a single string
+    return groupedSentences.join("\n\n"); // Separate grouped sentences with double newlines
+  });
+
+  return paragraphs;
+};
+
+
 const TypingIndicator = () => {
   return (
     <div className='flex items-center space-x-1'>
@@ -49,12 +89,10 @@ export default function Chatbox({
     if (chat.length === 1) return;
 
     const lastObj = chatboxRef.current.querySelector(".last-obj");
-    // Calculate the exact position to scroll to
     const offsetPosition = lastObj.offsetTop - 20;
 
     const element = document.querySelector(".chat-box");
 
-    // Smoothly scroll to the calculated position
     element.scrollTo({
       top: offsetPosition,
       behavior: "smooth",
@@ -96,7 +134,7 @@ export default function Chatbox({
     <div
       ref={chatboxRef}
       className={cn(
-        "relative chat-box w-full lg:w-[65%]  min-h-1/2  flex-1   overflow-y-scroll hide-scrollbar  flex flex-col  pb-40 pt-24 lg:py-12 lg:pt-32  ",
+        "relative chat-box w-full lg:w-[65%] min-h-1/2 flex-1 overflow-y-scroll hide-scrollbar flex flex-col pb-40 pt-24 lg:py-12 lg:pt-32",
         narrate && "pb-48"
       )}
     >
@@ -158,23 +196,27 @@ export default function Chatbox({
 
               {item.type === "system" ? (
                 <>
-                  <ReactMarkdown
-                    className={cn(
-                      "custom-markdown-text running-text text-white",
-                      TEXT_SIZES[textSize]
-                    )}
-                    remarkPlugins={[remarkGfm, remarkBreaks]} // Added remarkBreaks to handle line breaks
-                    rehypePlugins={[rehypeRaw]}
-                    components={{
-                      p: ({ node, children }) => (
-                        <p className='mb-4 leading-relaxed text-gray-200'>
-                          {children}
-                        </p>
-                      ),
-                    }}
-                  >
-                    {item.text}
-                  </ReactMarkdown>
+                 {splitIntoParagraphs(item.text).map((paragraph, pIndex) => (
+                <ReactMarkdown
+                  key={pIndex}
+                  className={cn(
+                    "custom-markdown-text running-text text-white",
+                    TEXT_SIZES[textSize]
+                  )}
+                  remarkPlugins={[remarkGfm, remarkBreaks]}
+                  rehypePlugins={[rehypeRaw]}
+                  components={{
+                    p: ({ node, children }) => (
+                      <p className='mb-4 leading-relaxed text-gray-200'>
+                        {children}
+                      </p>
+                    ),
+                  }}
+                >
+                  {paragraph}
+                </ReactMarkdown>
+              ))}
+
                   <div
                     className={cn(
                       "flex flex-col gap-5 mt-8 md:gap-8",
@@ -219,7 +261,7 @@ export default function Chatbox({
               ) : (
                 <span
                   className={cn(
-                    "custom-markdown-text-player1  running-text text-white",
+                    "custom-markdown-text-player1 running-text text-white",
                     TEXT_SIZES[textSize]
                   )}
                 >
