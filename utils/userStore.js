@@ -27,6 +27,8 @@ const useUserStore = create(
       setTotalPublicImages: (totalPublicImages) => set({ totalPublicImages }),
       setTotalPublicCampaigns: (totalPublicCampaigns) =>
         set({ totalPublicCampaigns }),
+      updatePaymentHistory: (paymentHistory) =>
+        set({ user: { ...get().user, paymentHistory } }),
     }),
     {
       name: "user-storage", // name of the item in the storage (must be unique)

@@ -2061,7 +2061,7 @@ export default function page() {
   if (!games) return <Loader text='Loading games...' />;
   if (games.length === 0) return <NoGames />;
   return (
-    <div className='h-full md:h-screen w-full fixed md:relative z-[10] pt-[130px] md:pt-[144px] md:pb-[48px]'>
+    <div className='h-full md:h-screen w-full fixed md:relative z-[10] pt-[122px] md:pt-[144px] md:pb-[48px]'>
       {/* <Games gameType={"multiPlayer"} /> */}
       <Games gameType={"singlePlayer"} games={games} setGames={setGames} />
     </div>

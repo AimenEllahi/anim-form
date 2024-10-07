@@ -17,3 +17,34 @@ export const createCheckoutSession = async (payload, token) => {
     throw error;
   }
 };
+
+export const getPaymentHistory = async (token) => {
+  try {
+    const response = await api.get("/payment/payment-history", {
+      headers: {
+        Authorization: token,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error:", error);
+    throw error;
+  }
+};
+
+export const cancelSubscription = async (subsId, token) => {
+  try {
+    const response = await api.delete(
+      `/payment/subscriptions/${subsId}/cancel`,
+      {
+        headers: {
+          Authorization: token,
+        },
+      }
+    );
+    return response.data;
+  } catch (error) {
+    console.error("Error:", error);
+    throw error;
+  }
+};

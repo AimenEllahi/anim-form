@@ -73,7 +73,7 @@ export default function Choose({ race, handleSelectRace }) {
                 alt={name}
                 className={` w-full relative box-border object-contain ease-animate rounded-[10px] ${
                   race?.name === name &&
-                  "border-2 border-irisPurpleLight shadow-custom-1 z-[100]"
+                  "border-2 border-irisPurpleLight shadow-custom-1 "
                 }`}
               />
               <Information

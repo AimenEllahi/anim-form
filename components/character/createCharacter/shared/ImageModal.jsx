@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
 import useCharacterStore from "@/utils/characterStore";
 import { cn } from "@/lib/utils";
-import { IconButton } from "@/components/ui/iconButton";
-import CustomIconbutton from "@/components/ui/custom-iconbutton";
+
 import CustomButton from "@/components/ui/custom-button";
 
 export default function ImageModal() {
@@ -13,10 +12,20 @@ export default function ImageModal() {
     setSelectedCharacteristic,
   } = useCharacterStore();
 
+  useEffect(() => {
+    if (showModal) {
+      document.body.style.height = "100vh";
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+      document.body.style.height = "auto";
+    }
+  }, [showModal]);
+
   return (
     <div
       className={cn(
-        "bg-blur-bottom-menu ease-animate md:hidden flex justify-center fixed w-screen h-full !z-[100] left-0 top-0 p-5 pt-32 opacity-0 pointer-events-none",
+        "bg-blur-bottom-menu ease-animate md:hidden flex justify-center fixed w-screen h-full !z-[100] left-0 top-0 p-5 pt-24 opacity-0 pointer-events-none",
         showModal && "opacity-100 pointer-events-auto"
       )}
     >

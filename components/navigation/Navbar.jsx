@@ -153,7 +153,8 @@ const CreditsDisplay = () => {
 export default function Navbar({ variant, characterSheet }) {
   const { isMobile } = useDeviceDetect();
   const { invokeToast } = useCustomToast();
-  const { showMenu, setShowMenu } = useControlsStore();
+  const { showMenu, setShowMenu, selectedCompletedGame, selectedGame } =
+    useControlsStore();
   const { user } = useUserStore();
   const {
     setCurrentCharacter,
@@ -172,10 +173,8 @@ export default function Navbar({ variant, characterSheet }) {
   const isLandingPage = pathname === "/";
   const mobileBlurNotAllowed = isLandingPage || isGamePage;
 
-  const showNavLinks =
-    pathname.includes("pricing") || pathname.includes("about");
   const showCampaignLinks =
-    !isGamePage && !pathname.includes("character/create") && !showNavLinks;
+    !isGamePage && !pathname.includes("character/create");
   const isNoGamesPage = pathname.includes("/games") && gamesLength === 0;
 
   const characterCreatePage = pathname.includes("/character/create");
@@ -279,7 +278,8 @@ export default function Navbar({ variant, characterSheet }) {
           !showMenu &&
           "bg-blur-bottom-menu md:bg-auto ",
         characterCreatePage && "pt-5",
-        isNoGamesPage && "bg-transparent"
+        isNoGamesPage && "bg-transparent",
+        (selectedGame || selectedCompletedGame) && "hidden md:flex"
       )}
     >
       <div
@@ -331,7 +331,7 @@ export default function Navbar({ variant, characterSheet }) {
             >
               <img src='/Icons/Logo.svg' alt='logo' className='h-10' />
             </Link>
-            {showNavLinks && <NavLinks />}
+
             {showCampaignLinks && <CampaignLinks />}
           </div>
           <div className='flex justify-center items-center gap-5'>

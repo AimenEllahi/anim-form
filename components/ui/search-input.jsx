@@ -9,7 +9,9 @@ export default function SearchInput({
   placeholder = "SEARCH",
   autoFocus,
   inputClassName,
+  iconClassName,
   onClick,
+
   clearInputTrigger,
 }) {
   const [input, setInput] = useState("");
@@ -31,7 +33,12 @@ export default function SearchInput({
       onClick={onClick}
       className={cn("relative h-[40px]  running-text-mono", className)}
     >
-      <div className='absolute inset-y-0 start-0 flex items-center  ps-3 pointer-events-none'>
+      <div
+        className={cn(
+          "absolute inset-y-0 inset-x-0 start-0 flex items-center  ps-3 pointer-events-none",
+          iconClassName
+        )}
+      >
         <Search className='h-5 w-5 opacity-70 fill-gray2' />
       </div>
       <input
@@ -39,7 +46,7 @@ export default function SearchInput({
         type='text'
         id='default-search'
         className={cn(
-          "block h-full uppercase  w-full p-4 ps-[38px] md:text-sm md:placeholder:!text-sm placeholder:font-medium placeholder:opacity-100 text-white border border-gray3 rounded-[10px] bg-transparent hover:border-gray2 duration-300 transition-all focus:outline-0 focus:ring-offset-0 focus:ring-inset-irisPurpleLight focus:!ring-irisPurpleLight focus:!border-irisPurpleLight  placeholder:text-gray2  ",
+          "block h-full uppercase  w-full p-4 ps-[38px] md:text-sm md:placeholder:!text-sm placeholder:font-medium placeholder:opacity-100 text-white border border-gray3 rounded-[10px] bg-transparent hover:border-gray2 duration-300 transition-all focus:outline-0 focus:ring-offset-0 focus:outline-none focus:!ring-irisPurpleLight focus:!border-irisPurpleLight  placeholder:text-gray2 !outline-none !ring-0   ",
           input && "border-white",
           inputClassName
         )}

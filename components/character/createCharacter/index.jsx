@@ -1,21 +1,33 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Create from "@/components/character/createCharacter/create";
-import useStepperStore from "@/utils/characterStore";
+
+import useCharacterStore from "@/utils/characterStore";
 import useDeviceDetect from "@/hooks/useDeviceDetect";
 import { INITIAL_CHARACTER } from "./constants";
 import ImageModal from "./shared/ImageModal";
 import BottomMenu from "./BottomMenu";
 import { useSearchParams } from "next/navigation";
+
 export default function Index() {
   const { isMobile } = useDeviceDetect();
 
-  const { activeStep, showModal, setActiveStep } = useStepperStore();
+  const { showModal, setActiveStep } = useCharacterStore();
   const searchParams = useSearchParams();
 
   const id = searchParams.get("id");
 
   const [character, setCharacter] = useState(INITIAL_CHARACTER);
+
+  useEffect(() => {
+    if (showModal) {
+      document.body.style.height = "100vh";
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+      document.body.style.height = "auto";
+    }
+  }, [showModal]);
 
   //get item from local storage with this id
   useEffect(() => {

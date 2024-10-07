@@ -35,10 +35,15 @@ export default function LeftSection({
   }, [isSearchOpen]);
 
   return (
-    <div className='h-full md:p-5 !pb-0 flex flex-col gap-5  w-full '>
+    <div
+      className={cn(
+        "h-full md:p-5 !pb-0 flex flex-col gap-5  w-full  ",
+        isMobile && "overflow-y-auto overflow-x-hidden hide-scrollbar pt-1.5"
+      )}
+    >
       <div
         className={cn(
-          " flex gap-4 flex-row-reverse md:flex-row transition-all duration-500 ease-in-out items-center",
+          " flex gap-4 flex-row-reverse md:flex-row   transition-all duration-300 ease-in-out items-start justify-start",
           isSearchOpen && "gap-0 md:gap-4"
         )}
       >
@@ -49,13 +54,14 @@ export default function LeftSection({
           setQuery={setQuery}
           placeholder={isMobile ? "" : "Search"}
           className={cn(
-            "md:w-full search-input transition-all duration-300 h-12 ease-in-out",
+            "md:w-full  search-input transition-all origin-right  duration-[1000ms] h-12 ease-in-out",
             isSearchOpen && "w-full"
           )}
           inputClassName={cn(
-            "ps-0 w-12 md:w-full md:ps-[38px]",
-            isSearchOpen && "ps-[38px] w-full"
+            "ps-0 w-12  md:w-full md:ps-[38px] origin-right transition-all duration-300 ease-in-out",
+            isSearchOpen && "ps-[38px] w-full "
           )}
+          iconClassName={!isSearchOpen && "justify-center ps-0"}
         />
 
         <CustomDropdown
@@ -63,14 +69,19 @@ export default function LeftSection({
           selectedOption={sortBy}
           setSelectedOption={setSortBy}
           className={cn(
-            "w-full md:w-fit transition-all duration-300 ease-in-out",
+            "w-full md:w-fit transition-all duration-[1000ms] ease-in-out",
             isSearchOpen &&
               "w-0 opacity-0 pointer-events-none md:w-fit md:pointer-events-auto md:opacity-100"
           )}
           placeholder={"Sort By"}
         />
       </div>
-      <div className='flex flex-col gap-4 h-full  overflow-y-auto overflow-x-hidden hide-scrollbar pb-52 md:pb-0  '>
+      <div
+        className={cn(
+          "flex flex-col gap-4 h-full  pb-52 md:pb-0  ",
+          !isMobile && "overflow-y-auto overflow-x-hidden hide-scrollbar"
+        )}
+      >
         {games
           .filter(({ campaign, character }) => {
             if (!query) return true;

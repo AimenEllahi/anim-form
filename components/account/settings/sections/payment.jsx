@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import CustomButton from "@/components/ui/custom-button";
 import Download from "@/components/ui/Icons/Download";
 import Edit from "@/components/ui/Icons/Edit";
@@ -6,6 +6,8 @@ import Delete from "@/components/ui/Icons/Delete";
 import useUserStore from "@/utils/userStore";
 import Diamond from "@/components/ui/Icons/Diamond";
 import { useRouter } from "next/navigation";
+import useCustomToast from "@/hooks/useCustomToast";
+import { cancelSubscription, getPaymentHistory } from "@/actions/payment";
 
 const NoSubscription = () => {
   const router = useRouter();
@@ -24,15 +26,30 @@ const NoSubscription = () => {
 };
 
 export default function Payment() {
-  const { user } = useUserStore();
-  // console.log(user.paymentHistory);
+  const { user, updatePaymentHistory } = useUserStore();
+  const [loading, setLoading] = useState(false);
+  const { invokeToast } = useCustomToast();
+
   let subscription = {};
   if (user.paymentHistory?.length > 0)
     subscription = user?.paymentHistory
       .filter((data) => data.mode === "subscription")
       .slice(-1)[0];
 
-  // console.log(subscription);
+  const handleUpdatePaymentHistory = async () => {
+    try {
+      const { paymentHistory } = await getPaymentHistory(user?.token);
+
+      updatePaymentHistory(paymentHistory);
+    } catch (error) {
+      console.error("Error Updating Payment History", error);
+    }
+  };
+  useEffect(() => {
+    handleUpdatePaymentHistory();
+  }, [user?.token]);
+
+  /// console.log(subscription);
   const formatDate = (_date) => {
     const date = new Date(_date);
     // Format the date as DD.MM.YYYY
@@ -66,6 +83,25 @@ export default function Payment() {
     return formatDate(nextRenewalDate);
   };
 
+  const handleCancelSubbscription = async (subsId) => {
+    try {
+      setLoading(true);
+      const { paymentHistory } = await cancelSubscription(subsId, user?.token);
+      // console.log(response);
+
+      handleUpdatePaymentHistory();
+
+      invokeToast("Subscription Cancelled Successfully", "Success");
+    } catch (error) {
+      invokeToast(
+        error?.response?.data?.error || "Error Cancelling Subscription",
+        "Error"
+      );
+      console.error("Error:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
   return (
     <div className='w-full md:w-4/5  md:px-28 flex flex-col gap-4'>
       <div className='w-full border border-white/[8%] rounded-[16px] bg-white/[8%]'>
@@ -124,6 +160,10 @@ export default function Payment() {
                   <span> change subscription</span>
                 </CustomButton>
                 <CustomButton
+                  onClick={() =>
+                    handleCancelSubbscription(subscription.subscriptionId)
+                  }
+                  disabled={loading}
                   withIcon={true}
                   className={"hidden md:flex justify-start  "}
                 >

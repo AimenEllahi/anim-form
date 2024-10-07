@@ -66,17 +66,17 @@ export default function GameTabbar({ className }) {
               <Add className='h-5 w-5 fill-white' />
             </CustomIconbutton>
           </div>
+          <CustomButton
+            onClick={() => handleRedirect("/game/character-selection")}
+            variant={"primary"}
+            withIcon={true}
+            className={""}
+          >
+            <Play className='h-5 w-5 fill-russianViolet ' />
+            Start New Game
+          </CustomButton>
         </div>
       </div>
-      <CustomButton
-        onClick={() => handleRedirect("/game/character-selection")}
-        variant={"primary"}
-        withIcon={true}
-        className={""}
-      >
-        <Play className='h-5 w-5 fill-russianViolet ' />
-        Start New Game
-      </CustomButton>
     </div>
   );
 }

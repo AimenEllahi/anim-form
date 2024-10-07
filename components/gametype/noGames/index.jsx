@@ -20,7 +20,12 @@ export default function index() {
           You're just moments away from unlocking endless creative power, ready
           to explode into infinite possibilities!
         </span>
-        <CustomButton onClick={handleRedirect} withIcon variant={"primary"}>
+        <CustomButton
+          onClick={handleRedirect}
+          className={" hidden md:flex"}
+          withIcon
+          variant={"primary"}
+        >
           <Play className={`h-5 w-5 fill-russianViolet`} />
           Start Now
         </CustomButton>
