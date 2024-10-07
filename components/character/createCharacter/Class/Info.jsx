@@ -16,6 +16,7 @@ export default function Info({ _class }) {
               ?.toLowerCase()
               .replaceAll(" ", "-")}.webp`}
             alt={_class?.name}
+            title={_class?.name}
             className=' w-full object-contain '
           />
         </div>

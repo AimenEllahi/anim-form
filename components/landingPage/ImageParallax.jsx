@@ -10,14 +10,14 @@ export default function ImageParallax() {
     <div className='h-full w-[99%] me-auto relative flex flex-col gap-y-10 px-4 md:px-12 justify-center items-center'>
       {!isMobile ? (
         <div className='relative h-full flex items-center justify-center'>
-          <h1
+          <h2
             style={{
               mixBlendMode: "exclusion",
             }}
             className='headline-1 text-center text-white z-[10]'
           >
             DISCOVER ENDLESS CREATIVE POSSIBILITIES.
-          </h1>
+          </h2>
 
           <Parallax
             translateY={5}
@@ -198,14 +198,14 @@ export default function ImageParallax() {
               className='w-full object-contain rounded-[10px] z-10'
             />
           </Parallax>
-          <h1
+          <h2
             style={{
               mixBlendMode: "difference",
             }}
             className='headline-1 top-[50%] translate-y-[-50%] self-center text-center text-white absolute !z-[11]'
           >
             DISCOVER ENDLESS CREATIVE POSSIBILITIES.
-          </h1>
+          </h2>
           <Parallax translateY={15} speed={-10} className='w-full z-10'>
             <video
               style={{

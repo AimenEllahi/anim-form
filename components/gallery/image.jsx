@@ -28,11 +28,14 @@ export default function Image({ setOpen, image }) {
             <img
               src='/Icons/Cancel.svg'
               alt='imagestyle'
+              title='Image Styles'
               className='h-5 w-5 '
             />
           </CustomIconbutton>
           <img
             src={image}
+            title='Icon'
+            alt='Icon'
             className=' ease-animate object-contain rounded-[16px] '
           />
         </div>

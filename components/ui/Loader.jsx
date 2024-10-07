@@ -13,7 +13,7 @@ export default function Loader({ text = "", className }) {
       <div className='flex relative h-full items-center justify-center    flex-col gap-5'>
         <div className='relative w-full flex-col gap-5  flex items-center justify-center'>
           <div className='outer-ring flex items-center justify-center'>
-            <img src='/Icons/Logo-2.svg' alt='logo' className='w-20  ' />
+            <img src='/Icons/Logo-2.svg' title='Logo' alt='logo' className='w-20  ' />
           </div>
           <div className='inner-ring absolute top-0'></div>
 

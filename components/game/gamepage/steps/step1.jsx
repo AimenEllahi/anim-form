@@ -184,6 +184,7 @@ export default function StepDialog({
             <Image
               src='/Icons/ArrowRight.svg'
               alt='arrow right icon'
+              title='arrow right icon'
               width={20}
               height={20}
               className='opacity-70'

@@ -36,6 +36,7 @@ const CurrentAvatarsList = ({
           <img
             src={avatar}
             alt='avatar'
+            title='Avatar'
             className={cn(
               "w-full h-[169px] md:h-[223px] cursor-pointer ease-animate rounded-[16px] ",
               avatar === selectedPortrait && "border-2 border-irisPurple"
@@ -245,7 +246,7 @@ export default function Avatar({
                   <>
                     Generate
                     <div className='flex  items-center gap-1 '>
-                      (<img src='/gems/Legendary.webp' className='p-0 w-3' />
+                      (<img src='/gems/Legendary.webp' title='Legenadary Gem' alt='Legendary Gem' className='p-0 w-3' />
                       1)
                     </div>
                   </>
@@ -271,6 +272,8 @@ export default function Avatar({
                 <span className='text-white md:flex items-center gap-1 hidden'>
                   <img
                     src='/gems/Legendary.webp'
+                    title='Legendary Gem'
+                    alt='Legendary Gem'
                     className='w-[15px] object-contain'
                   />
                   {user.yellowCredits}{" "}
@@ -342,7 +345,7 @@ export default function Avatar({
                   <>
                     Generate
                     <div className='flex  items-center gap-1 '>
-                      (<img src='/gems/Legendary.webp' className='p-0 w-3' />
+                      (<img src='/gems/Legendary.webp' title='Legendary gem' alt='Legendary Gem' className='p-0 w-3' />
                       1)
                     </div>
                   </>

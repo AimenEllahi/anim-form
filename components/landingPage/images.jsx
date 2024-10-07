@@ -65,7 +65,8 @@ const Images = ({ direction }) => {
               src={`https://dzjg7lvewk7ln.cloudfront.net/marquee/rowLower${
                 index + 1
               }.webp`}
-              alt={`Image ${index}`}
+              alt={`Image of the Marquee ${index}`}
+              title={`Image ${index}`}
               width={256}
               height={256}
               className="w-full h-full object-cover bg-transparent rounded-md"
@@ -90,6 +91,7 @@ const Images = ({ direction }) => {
                 index + 1
               }.webp`}
               alt={`Image ${index}`}
+              title={`Image ${index}`}
               width={256}
               height={256}
               className="w-full h-full object-cover bg-transparent rounded-md"

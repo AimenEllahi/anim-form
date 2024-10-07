@@ -21,6 +21,7 @@ export default function Checkmail({
     <div className='  z-10 relative text-white h-[278px] w-[345px] flex text-center flex-col justify-between items-center gap-8  '>
       <img
         src='/images/auth/Paper-plane.png'
+        title='Paper plane'
         alt='Paper airplane in very old classical style, icon to check your emails'
         className='w-[215px] object-contain icon-glow'
       />

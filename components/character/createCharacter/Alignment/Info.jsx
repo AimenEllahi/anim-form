@@ -19,6 +19,7 @@ export default function Info({ alignment }) {
 
 `}
             alt={alignment}
+            title={alignment}
             className='w-full object-contain '
           />
         </div>

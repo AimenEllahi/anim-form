@@ -40,6 +40,7 @@ export default function Step1({ setStep, user, setUser }) {
             !error && (
               <img
                 src='/Icons/Success.svg'
+                title='Success Icon'
                 alt='Success'
                 className=' h-5 w-5'
               />
@@ -55,7 +56,7 @@ export default function Step1({ setStep, user, setUser }) {
         }
         onClick={next}
       >
-        NEXT <img src='/Icons/ArrowRight.svg' alt='Icon with a arrow pointing right' className='h-5 w-5' />
+        NEXT <img src='/Icons/ArrowRight.svg' title='Arrow right icon' alt='Icon with a arrow pointing right' className='h-5 w-5' />
       </CustomButton>
 
       <div className='flex items-center justify-center w-full running-text-mono uppercase'>

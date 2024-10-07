@@ -65,6 +65,8 @@ export default function ProfileButtons({ character }) {
                         <img
                           src={`https://dzjg7lvewk7ln.cloudfront.net/abilities/${key}.webp`}
                           className={`w-12 h-12 ease-animate object-cover rounded-[10px] `}
+                          title='Icon'
+                          alt='icon'
                         />
                         <span>{key}</span>
                       </div>

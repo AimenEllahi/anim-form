@@ -74,6 +74,7 @@ export default function newPass() {
                 src={
                   isPasswordVisible ? "/Icons/Eye.svg" : "/Icons/EyeClosed.svg"
                 }
+                title='Show password icon'
                 alt='Toggle Password Visibility'
                 className='h-5 w-5 invert cursor-pointer '
               />
@@ -111,6 +112,7 @@ export default function newPass() {
                     ? "/Icons/Eye.svg"
                     : "/Icons/EyeClosed.svg"
                 }
+                title='Show password icon'
                 alt='Toggle Password Visibility'
                 className='h-5 w-5 invert cursor-pointer '
               />

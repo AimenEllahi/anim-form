@@ -33,6 +33,8 @@ export default function Index({ campaign, setCampaign }) {
           </span>
           <img
             src={campaign?.worldMapUrl || "/campaignheader.png"}
+            title='campaign header image'
+            alt='campaigns headers'
             className='md:hidden object-contain w-full rounded-[16px]'
           />
           <TopButtons

@@ -53,6 +53,7 @@ export default function Choose({ handleAlignmentChange, alignment }) {
 
 `}
                 alt={name}
+                title={name}
                 className={` w-full object-contain ease-animate rounded-[10px] ${
                   alignment?.name === name &&
                   "border-2 border-irisPurpleLight shadow-custom-1"

@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 import { IconButton } from "../ui/iconButton";
 import CustomIconbutton from "../ui/custom-iconbutton";
 
-export default function accountDropdown() {
+export default function AccountDropdown() {
   const [open, setOpen] = useState(false);
   const { user } = useUserStore();
 
@@ -21,22 +21,45 @@ export default function accountDropdown() {
       onOpenChange={(e) => setOpen(e)}
       open={open}
     >
-      <DropdownMenuTrigger asChild={true} className='outline-0 hidden md:block'>
+      {/* Accessible Trigger with keyboard and aria support */}
+      <DropdownMenuTrigger 
+        asChild={true} 
+        className="outline-0 hidden md:block"
+        aria-haspopup="menu" 
+        aria-expanded={open}
+        tabIndex={0}
+      >
         <div
-          //  onClick={() => setOpen((prev) => !prev)}
+          // onClick={() => setOpen((prev) => !prev)}
           className={cn(
-            "bg-white/10 p-2 border bg-blur flex items-center justify-center box-border ease-animate rounded-full border-white/[8%] cursor-pointer hover:border-white/20 hover:bg-white/10 active:bg-white/20  active:border-white/40 disabled:opacity-30% disabled:pointer-events-none hover:!duration-200 active:!duration-100",
+            "bg-white/10 p-2 border bg-blur flex items-center justify-center box-border ease-animate rounded-full border-white/[8%] cursor-pointer hover:border-white/20 hover:bg-white/10 active:bg-white/20 active:border-white/40 disabled:opacity-30% disabled:pointer-events-none hover:!duration-200 active:!duration-100",
             open && "border-white/40 bg-white/20 cursor-pointer"
           )}
+          role="button" // Make it identifiable as a button
+          aria-label="User account options" // Add descriptive label
         >
-          <img src='/Icons/User.svg' className='h-5 w-5 invert' />
+          {/* Accessible image with alt text */}
+          <img 
+            src="/Icons/User.svg" 
+            className="h-5 w-5 invert" 
+            alt="User icon" 
+            title="User account icon" 
+            aria-hidden="true" // Decorative image, screen readers can ignore
+          />
         </div>
       </DropdownMenuTrigger>
 
+      {/* Dropdown content with ARIA roles */}
       {user?.token ? (
-        <SignedInUserMenu setOpen={setOpen} />
+        <SignedInUserMenu 
+          setOpen={setOpen} 
+          role="menu" // Role for dropdown content
+        />
       ) : (
-        <GeneralMenu setOpen={setOpen} />
+        <GeneralMenu 
+          setOpen={setOpen} 
+          role="menu" // Role for dropdown content
+        />
       )}
     </DropdownMenu>
   );

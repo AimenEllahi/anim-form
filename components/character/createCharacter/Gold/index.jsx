@@ -59,6 +59,7 @@ export default function Index({ character, setCharacter }) {
             <img
               src={`/images/CreateCharacter/Gold/Gold.png `}
               alt='Pile of gold'
+              title='pile of gold'
               className='w-[231px] md:w-[200px] object-contain '
             />
           ) : (
@@ -91,6 +92,7 @@ export default function Index({ character, setCharacter }) {
                 <img
                   src={`/images/CreateCharacter/Gold/gold-coin.png`}
                   alt='Gold coins'
+                  title='golden coins'
                   className=' w-[30px] object-contain'
                 />
               </div>
@@ -107,6 +109,7 @@ export default function Index({ character, setCharacter }) {
                 <img
                   src='/Icons/Click.svg'
                   alt='A d20 dice, 20 sided Dice'
+                  title='A D20'
                   className='text-gray2 w-[16px] h-[16px] invert opacity-75'
                 />
                 <span className='running-text   text-gray2'>

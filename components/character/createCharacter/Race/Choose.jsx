@@ -71,6 +71,7 @@ export default function Choose({ race, handleSelectRace }) {
                   .toLowerCase()
                   .replace(" ", "-")}.webp`}
                 alt={name}
+                title={name}
                 className={` w-full relative box-border object-contain ease-animate rounded-[10px] ${
                   race?.name === name &&
                   "border-2 border-irisPurpleLight shadow-custom-1 "

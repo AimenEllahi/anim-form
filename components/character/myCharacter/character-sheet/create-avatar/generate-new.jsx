@@ -18,6 +18,7 @@ export default function GenerateNew({ style, setStyle }) {
               .toLowerCase()
               .replaceAll(" ", "-")}.webp`}
             alt='avatar'
+            title='Avatar Image'
             style={{ aspectRatio: "1/1" }}
             className={cn(
               " cursor-pointer ease-animate rounded-[16px]",

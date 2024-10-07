@@ -23,6 +23,7 @@ export default function Card({
         <img
           src={img}
           alt='Personality'
+          title='Image symbolying personality'
           className=' h-full w-full object-cover  rounded-[10px]  md:rounded-none'
         />
       </div>

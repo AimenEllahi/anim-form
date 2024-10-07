@@ -21,14 +21,20 @@ export default function SoundButton() {
 
   return (
     <>
-      <CustomIconbutton onClick={toggleSound}>
+      <CustomIconbutton
+        onClick={toggleSound}
+        aria-label={isSoundOn ? "Mute sound" : "Unmute sound"}
+        aria-pressed={isSoundOn} // Indicates the toggle state
+      >
         {isSoundOn ? (
           <Sound className='h-5 w-5 fill-white' />
         ) : (
           <SoundOff className='h-5 w-5 fill-white' />
         )}
       </CustomIconbutton>
-      <audio loop ref={audioRef} src='/audio/ambient.mp3' />
+
+      {/* Hidden audio element for sound playback */}
+      <audio loop ref={audioRef} src='/audio/ambient.mp3' aria-hidden="true" />
     </>
   );
 }

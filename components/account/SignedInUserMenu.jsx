@@ -38,6 +38,7 @@ export default function SignedInUserMenu() {
           <CustomIcontext>
             <img
               src='/gems/Mythic.webp'
+              title='Mytich Gem'
               alt='Mythic gem, Gems to make turns in the game.'
               className='h-[18px] object-contain '
             />
@@ -46,6 +47,7 @@ export default function SignedInUserMenu() {
           <CustomIcontext>
             <img
               src='/gems/Legendary.webp'
+              title='Legendary Gem'
               alt='Legendary Coin, Coin to generate Images on the website'
               className='h-[18px] object-contain '
             />
@@ -86,6 +88,7 @@ export default function SignedInUserMenu() {
           <CustomMenuItem>
             <img
               src='/Icons/ImageLibrary.svg'
+              title='My Image Gallery'
               alt='Private image gallery of the user'
               className='h-5 w-5  opacity-70'
             />
@@ -98,6 +101,7 @@ export default function SignedInUserMenu() {
           >
             <img
               src='/Icons/Campaign.svg'
+              title='Campaigns'
               alt='user generated campaigns'
               className='h-5 w-5  opacity-70'
             />
@@ -110,6 +114,7 @@ export default function SignedInUserMenu() {
           >
             <img
               src='/Icons/StarFilled.svg'
+              title='Star Icon'
               alt='Icon to get to favourite  Campaigns page'
               className='h-5 w-5  opacity-70'
             />
@@ -125,6 +130,7 @@ export default function SignedInUserMenu() {
           >
             <img
               src='/Icons/Settings.svg'
+              title='Settings icon'
               alt='Button to get to the account settings'
               className='h-5 w-5  opacity-70'
             />
@@ -143,6 +149,7 @@ export default function SignedInUserMenu() {
           <CustomMenuItem onClick={handleLogout}>
             <img
               src='/Icons/Logout.svg'
+              title='Logout Icon'
               alt='Logout button'
               className='h-5 w-5  opacity-70'
             />

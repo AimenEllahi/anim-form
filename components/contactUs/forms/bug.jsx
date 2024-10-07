@@ -68,6 +68,7 @@ export default function bug() {
                 key={index}
                 src={image.url}
                 alt={image.filename}
+                title='Bug image'
                 className='h-[150px] w-[150px] object-fill rounded-[10px]'
               />
             </div>

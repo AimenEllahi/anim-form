@@ -43,6 +43,7 @@ export default function ImageModal() {
         <img
           src={selectedCharacteristic?.image}
           alt='cancle icon'
+          title='Cancle Icon'
           className='rounded-[16px]'
         />
         <div className='flex flex-col gap-4'>

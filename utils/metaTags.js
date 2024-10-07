@@ -37,7 +37,19 @@ export const getMetaTags = (pathname) => {
       "Build your perfect fantasy character with ease! Select your race, class, abilities, and more—our AI does the rest. Start your RPG adventure now!";
     ogImage = "https://dzjg7lvewk7ln.cloudfront.net/tutorial/tutorial-1.webp";
     ogUrl = `https://dndai.app${pathname}`;
-  } else if (pathname.includes("/game/campaign-selection")) {
+  } else if (pathname.includes("/games")) {
+  title = "DND AI | Games";
+  description =
+    "Continue your games played on dnd ai. You can either continue a recent game or check out what games you finished and what you got for it";
+  keywords =
+    "fantasy game, RPG game, AI DM, AI character creation, RPG classes and races, D&D character game, role-playing game, Dungeonmaster AI";
+  ogTitle = "DND AI | Create Character";
+  ogDescription =
+    "Continue or start a new Game on dndai.app!";
+  ogImage = "https://dzjg7lvewk7ln.cloudfront.net/tutorial/tutorial-1.webp";
+  ogUrl = `https://dndai.app${pathname}`;
+}
+  else if (pathname.includes("/game/campaign-selection")) {
     title = "DND AI | Campaign Select";
     description =
       "Select from a wide range from user generated Campaigns to start your game!";
@@ -72,7 +84,7 @@ export const getMetaTags = (pathname) => {
   } else if (pathname === "/") {
     title = "DND AI | Home";
     description =
-      "DnD AI, where Dungeons & Dragons meets cutting-edge AI! Create your hero, embark on epic quests, and let our AI Dungeon Master weave thrilling stories from your choices. Adventure awaits at dndai.app – dive in now!";
+      "DnD AI, where Dungeons & Dragons meets AI! Create your hero, embark on epic quests, and let our AI Dungeon Master weave thrilling stories from your choices.";
     ogTitle = "DND AI | Home";
     ogDescription =
       "Enter the world of DnD AI – a fusion of Dungeons & Dragons and AI magic. Forge your hero, tackle epic quests, and let our AI DM craft unforgettable adventures from your choices. Start your legendary journey at dndai.app!";

@@ -387,6 +387,7 @@ export default function Choose({ abilities, handleChangeAbilities }) {
             <img
               src='/Icons/Reset.svg'
               alt='logo'
+              title='reset icon'
               className='h-5 w-5 invert opacity-70'
             />
             Reset Points

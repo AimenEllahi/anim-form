@@ -11,6 +11,7 @@ export default function CustomValidationtext({
       <img
         src={validator ? "/Icons/Success.svg" : "/Icons/Error.svg"}
         alt='Validation'
+        title='Validation'
         className='h-4 w-4 inline-block ml-2'
       />
       <span

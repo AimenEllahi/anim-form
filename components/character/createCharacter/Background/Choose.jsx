@@ -70,6 +70,7 @@ export default function Choose({ background, handleSelectBackground }) {
                   .toLowerCase()
                   .replaceAll(" ", "-")}.webp`}
                 alt={name}
+                title={name}
                 className={`  w-full object-contain ease-animate rounded-[10px] ${
                   background?.name === name &&
                   "border-2 border-irisPurpleLight shadow-custom-1"

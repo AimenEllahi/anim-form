@@ -38,6 +38,8 @@ export default function CustomDropdown({
         />
         <img
           src='/Icons/DropdownArrow.svg'
+          title='Dropwdon button'
+          alt='drowpdown button'
           className='absolute z-[9] h-1 w-2  right-4 top-1/2 transform -translate-y-1/2 text-white pointer-events-none'
         />
 

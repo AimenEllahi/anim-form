@@ -144,6 +144,7 @@ export default function General({ showSearch = true }) {
                   <img
                     src={"/Icons/Search.svg"}
                     alt="Search Toggle"
+                    title='Search icon'
                     className="h-5 w-5  "
                   />
                 </CustomIconbutton>

@@ -20,6 +20,7 @@ export default function Card({
       <div className='w-full h-[192px]  md:w-full md:h-auto'>
         <img
           src={img}
+          title='Custom image specific to the card'
           alt='Custom image specific to the card'
           className='h-full w-full object-cover   rounded-[10px]  md:rounded-none'
         />
