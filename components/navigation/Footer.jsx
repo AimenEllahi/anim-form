@@ -16,7 +16,9 @@ const NavMenu = ({ menu, disable }) => {
       case "Imprint":
         return `/imprint`; // Imprint page URL
       case "Cookies":
-        return `/cookies`; // Imprint page URL
+        return `/cookies`;
+        case "About Us":
+          return `/about-us`; // Imprint page URL
       case "Contact Us":
         return `/contact-us?type=support`; // Contact page URL
       case "Give us Feedback":
@@ -74,7 +76,7 @@ export default function Footer() {
           <NavMenu
             menu={{
               heading: "HELP AND SUPPORT",
-              navlinks: ["News","Contact Us", "Give us Feedback", "Report a Bug"],
+              navlinks: ["About Us","News","Contact Us", "Give us Feedback", "Report a Bug"],
             }}
           />
           <NavMenu
