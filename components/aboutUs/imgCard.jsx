@@ -20,13 +20,6 @@ export default function ImgCard({ src, name, job }) {
       <Styledborder cornerRadius={16}  >
         <Squircle
           cornerRadius={16}
-          style={{
-            width: '100%',
-            height: '100%',
-            display: 'flex', /* Use flex to center image */
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
         >
           <img
             src={src}
