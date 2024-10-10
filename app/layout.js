@@ -15,6 +15,7 @@ import Image from "next/image";
 import useUserStore from "@/utils/userStore";
 import Cookie from "universal-cookie";
 import { getMetaTags } from "@/utils/metaTags";
+import { cn } from "@/lib/utils";
 const inter = Inter({ subsets: ["latin"] });
 
 const MemoizedNavbar = memo(Navbar);
@@ -132,7 +133,7 @@ export default function RootLayout({ children }) {
           <meta name='msapplication-TileImage' content={ogImage} />
 
           <link rel='canonical' href={ogUrl} />
-          <link rel="shortcut icon" href="favicon.ico" sizes="144x144" />
+          <link rel='shortcut icon' href='favicon.ico' sizes='144x144' />
           <link
             rel='preload'
             href='https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;700&display=swap'
@@ -209,7 +210,14 @@ export default function RootLayout({ children }) {
             characterSheet={characterSheet}
             variant={isTransparentNavbar ? "transparent" : "glass"}
           />
-          <main className='z-[1]'>{children}</main>
+          <main
+            className={cn(
+              "z-[1]",
+              pathname !== "/" && "mx-auto max-w-[1440px]"
+            )}
+          >
+            {children}
+          </main>
           {showFooter && <MemoizedFooter />}
           <Suspense fallback={null}>
             <CreditsDialogue />

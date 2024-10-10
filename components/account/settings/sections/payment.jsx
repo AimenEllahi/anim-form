@@ -7,7 +7,12 @@ import useUserStore from "@/utils/userStore";
 import Diamond from "@/components/ui/Icons/Diamond";
 import { useRouter } from "next/navigation";
 import useCustomToast from "@/hooks/useCustomToast";
-import { cancelSubscription, getPaymentHistory } from "@/actions/payment";
+import {
+  cancelSubscription,
+  getInvoicePdf,
+  getPaymentHistory,
+} from "@/actions/payment";
+import CancelSubscription from "@/components/ui/Shared/Dialogue/CancelSubscription";
 
 const NoSubscription = () => {
   const router = useRouter();
@@ -28,6 +33,7 @@ const NoSubscription = () => {
 export default function Payment() {
   const { user, updatePaymentHistory } = useUserStore();
   const [loading, setLoading] = useState(false);
+  const [loadingDownload, setLoadingDownload] = useState(false);
   const { invokeToast } = useCustomToast();
 
   let subscription = {};
@@ -102,25 +108,43 @@ export default function Payment() {
       setLoading(false);
     }
   };
+
+  const handleGetInvoice = async (subscriptionId) => {
+    try {
+      setLoadingDownload(true);
+      const { pdfUrl } = await getInvoicePdf(subscriptionId, user?.token);
+      if (pdfUrl) {
+        //download the pdf
+        window.open(pdfUrl, "_blank");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    } finally {
+      setLoadingDownload(false);
+    }
+  };
+
   return (
     <div className='w-full md:w-4/5  md:px-28 flex flex-col gap-4'>
       <div className='w-full border border-white/[8%] rounded-[16px] bg-white/[8%]'>
         <div className='p-4 flex justify-between items-center'>
           <span className='headline-4'>Active payment</span>
-          <span
-            className='running-text-mono flex justify-center items-center gap-2 cursor-pointer uppercase'
-            onClick={() => handleEditClick("email")}
+          <CustomButton
+            disabled={loadingDownload}
+            className=' hidden md:flex'
+            onClick={() => handleGetInvoice(subscription.subscriptionId)}
+            variant={"subtle"}
           >
             <Download className='h-5 w-5 opacity-70 fill-white' />
             Download invoice
-          </span>
+          </CustomButton>
         </div>
         <hr className='border border-white/[8%] ' />
         {!subscription?.reward ? (
           <NoSubscription />
         ) : (
-          <div className='p-4 flex justify-start items-center gap-6 '>
-            <div className='bg-white/[8%] uppercase border border-white/10 rounded-[16px] w-[267px]'>
+          <div className='p-4 flex justify-start items-center gap-6 flex-col md:flex-row'>
+            <div className='bg-white/[8%] uppercase border border-white/10 rounded-[16px] w-full md:w-[267px]'>
               <div className='p-4 flex flex-col gap-4'>
                 <span className='running-text-mono  text-gray2'>
                   {subscription?.plan?.title || "NA"}
@@ -156,25 +180,28 @@ export default function Payment() {
                 <CustomButton
                   withIcon={true}
                   variant={"primary"}
-                  className={"hidden md:flex justify-start  "}
+                  className={"flex justify-start  "}
                 >
                   <Edit className='h-5 w-5 opacity-70 fill-black' />
                   <span> change subscription</span>
                 </CustomButton>
-                <CustomButton
-                  onClick={() =>
+                <CancelSubscription
+                  action={() =>
                     handleCancelSubbscription(subscription.subscriptionId)
                   }
-                  disabled={loading}
-                  withIcon={true}
-                  className={"hidden md:flex justify-start  "}
                 >
-                  <Delete className='h-5 w-5 opacity-70 fill-red-500' />
-                  <span> cancel subscription</span>
-                </CustomButton>
+                  <CustomButton
+                    disabled={loading}
+                    withIcon={true}
+                    className={"hidden md:flex justify-start  "}
+                  >
+                    <Delete className='h-5 w-5 opacity-70 fill-red-500' />
+                    <span> cancel subscription</span>
+                  </CustomButton>
+                </CancelSubscription>
               </div>
             </div>
-            <div className='uppercase flex flex-col gap-8 self-start '>
+            <div className='uppercase flex flex-col gap-8 self-start   w-full   h-[135px] md:h-full flex-wrap'>
               <div className='flex flex-col gap-4'>
                 <span className=' text-irisPurpleLight font-roboto-mono text-[10px]'>
                   Debit interval
@@ -208,6 +235,15 @@ export default function Payment() {
                 </span>
               </div>
             </div>
+            <CustomButton
+              disabled={loadingDownload}
+              onClick={() => handleGetInvoice(subscription.subscriptionId)}
+              variant={"subtle"}
+              className={"md:hidden self-start"}
+            >
+              <Download className='h-5 w-5 opacity-70 fill-white' />
+              Download invoice
+            </CustomButton>
           </div>
         )}
       </div>

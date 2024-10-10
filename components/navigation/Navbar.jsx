@@ -19,47 +19,12 @@ import { isSelectionValid } from "@/lib/Helpers/shared";
 import SoundButton from "@/components/ui/Shared/SoundButton";
 import MobileHeader from "@/components/navigation/MobileHeaders/index";
 import useCustomToast from "@/hooks/useCustomToast";
-import Diamond from "@/components/ui/Icons/Diamond";
+
 import CustomIcontext from "@/components/ui/custom-icontext";
 import CreateMenu from "@/components/ui/Shared/CreateMenu";
-import Discover from "@/components/ui/Icons/Discover";
 import CampaignAdd from "@/components/ui/Icons/CampaignAdd";
 import Game from "@/components/ui/Icons/Game";
 import CustomNavtab from "../ui/custom-navtab";
-
-const NavLinks = () => {
-  return (
-    <ul className='flex gap-6'>
-      <li>
-        <Link
-          href='/discover/gallery'
-          className='text-white hover:text-gray1 transition-all duration-300 ease-in-out keychainify-checked'
-          aria-label='Gallery'
-        >
-          GALLERY
-        </Link>
-      </li>
-      <li>
-        <Link
-          href='/about-us'
-          className='text-white hover:text-gray1 transition-all duration-300 ease-in-out keychainify-checked'
-          aria-label='About'
-        >
-          ABOUT US
-        </Link>
-      </li>
-      <li>
-        <Link
-          href='/pricing'
-          className='text-white hover:text-gray1 transition-all duration-300 ease-in-out keychainify-checked'
-          aria-label='support us'
-        >
-          SUPPORT US
-        </Link>
-      </li>
-    </ul>
-  );
-};
 
 const CampaignLinks = () => {
   const router = useRouter();
@@ -173,11 +138,11 @@ export default function Navbar({ variant, characterSheet }) {
   const { gamesLength } = useControlsStore();
   const isSignUp = pathname.includes("/auth/sign-up");
   const isGamePage = pathname.includes("/game/play");
+  const showGems = isGamePage || pathname.includes("/character/create");
   const isLandingPage = pathname === "/";
   const mobileBlurNotAllowed = isLandingPage || isGamePage;
 
-  const showCampaignLinks =
-    !isGamePage && !pathname.includes("character/create");
+  const showCampaignLinks = !isGamePage;
   const isNoGamesPage = pathname.includes("/games") && gamesLength === 0;
 
   const characterCreatePage = pathname.includes("/character/create");
@@ -333,7 +298,12 @@ export default function Navbar({ variant, characterSheet }) {
               className='text-white me-2 hover:text-gray1 transition-all duration-300 ease-in-out keychainify-checked'
               aria-label='Home'
             >
-              <img src='/Icons/Logo.svg' title='Logo icon' alt='logo' className='h-10' />
+              <img
+                src='/Icons/Logo.svg'
+                title='Logo icon'
+                alt='logo'
+                className='h-10'
+              />
             </Link>
 
             {showCampaignLinks && <CampaignLinks />}
@@ -356,7 +326,7 @@ export default function Navbar({ variant, characterSheet }) {
                 </Link>
               )}
             </span>
-            {isGamePage && <CreditsDisplay />}
+            {showGems && <CreditsDisplay />}
             {user?.token && <CreateMenu aria-label='Create Menu' />}
             <AccountDropdown aria-label='Account Dropdown' />
 

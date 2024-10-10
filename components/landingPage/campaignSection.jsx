@@ -11,8 +11,8 @@ export default function CampaignSection() {
   const router = useRouter();
   const handleGetCampaigns = async () => {
     try {
-      const response = await getMostLikedCampaigns();
-     // console.log("response", response);
+      const response = await getMostLikedCampaigns(12);
+      // console.log("response", response);
       setCampaigns(response.campaigns);
     } catch (error) {
       console.error("Error:", error);
