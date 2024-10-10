@@ -71,7 +71,7 @@ export default function Index({ gameType, games, setGames }) {
             : "justify-between"
         }`}
       >
-        <h1 className='text-center hidden md:flex justify-start text-white headline-3 z-[10]'>
+        <h1 className='  hidden md:flex justify-start text-white headline-3 z-[10]'>
           {gameType === "multiPlayer"
             ? "Games"
             : selectedTab === "inProgress"

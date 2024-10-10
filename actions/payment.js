@@ -48,3 +48,17 @@ export const cancelSubscription = async (subsId, token) => {
     throw error;
   }
 };
+
+export const getInvoicePdf = async (subscriptionId, token) => {
+  try {
+    const response = await api.get(`/payment/invoice/${subscriptionId}`, {
+      headers: {
+        Authorization: token,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error:", error);
+    throw error;
+  }
+};
