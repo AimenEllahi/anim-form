@@ -55,7 +55,7 @@ export default function bottomMenu({
     }
     try {
       setLoading(true);
-     // console.log(game);
+      // console.log(game);
       const payload = {
         characterId: game.characterId,
         gameId: game._id,
@@ -109,7 +109,7 @@ export default function bottomMenu({
           setShowMenu={setShowMenu}
         />
       )}
-      <div className='hidden lg:flex  justify-between items-center relative '>
+      <div className="hidden lg:flex  justify-between items-center relative ">
         {!isMobile && (
           <NarrationControls
             audio={audio}
@@ -118,14 +118,14 @@ export default function bottomMenu({
             loading={audioLoading}
           />
         )}
-        <div className='flex justify-start items-center gap-3'>
+        <div className="flex justify-start items-center gap-3">
           <Dialog
             open={imageDialog}
             onOpenChange={(isOpen) => setImageDialog(isOpen)}
           >
             <DialogTrigger asChild suppressHydrationWarning>
-              <button className='running-text-mono flex items-center pe-5 ps-[20px] gap-2 h-[48px] px-6 bg-white/10 hover:bg-white/10 uppercase border border-white/10 hover:border-white/20 active:bg-white/20 active:border-white/40 disabled:opacity-30 rounded-[10px]  cursor-pointer z-[10] ease-animate  hover:!duration-200 active:!duration-100'>
-                <Generate className='h-5 w-5 fill-white opacity-70' />
+              <button className="running-text-mono flex items-center pe-5 ps-[20px] gap-2 h-[48px] px-6 bg-white/10 hover:bg-white/10 uppercase border border-white/10 hover:border-white/20 active:bg-white/20 active:border-white/40 disabled:opacity-30 rounded-[10px]  cursor-pointer z-[10] ease-animate  hover:!duration-200 active:!duration-100">
+                <Generate className="h-5 w-5 fill-white opacity-70" />
                 Generate image
               </button>
             </DialogTrigger>
@@ -153,12 +153,12 @@ export default function bottomMenu({
             onOpenChange={(isOpen) => setNarrateDialog(isOpen)}
           >
             <DialogTrigger asChild>
-              <button className='running-text-mono flex items-center pe-5 ps-[20px] gap-2 h-[48px] px-6 bg-white/10 hover:bg-white/10 uppercase border border-white/10 hover:border-white/20 active:bg-white/20 active:border-white/40 disabled:opacity-30 rounded-[10px]  cursor-pointer z-[10] ease-animate  hover:!duration-200 active:!duration-100'>
+              <button className="running-text-mono flex items-center pe-5 ps-[20px] gap-2 h-[48px] px-6 bg-white/10 hover:bg-white/10 uppercase border border-white/10 hover:border-white/20 active:bg-white/20 active:border-white/40 disabled:opacity-30 rounded-[10px]  cursor-pointer z-[10] ease-animate  hover:!duration-200 active:!duration-100">
                 <img
-                  src='/Icons/Narrate.svg'
-                  alt='Button to open the narrate options'
-                  title='Narrate button'
-                  className='h-5 w-5 opacity-70'
+                  src="/Icons/Narrate.svg"
+                  alt="Button to open the narrate options"
+                  title="Narrate button"
+                  className="h-5 w-5 opacity-70"
                 />
                 Start Narrate
               </button>
@@ -175,7 +175,7 @@ export default function bottomMenu({
           </Dialog>
           <SaveCharacterDialogue action={handleSaveCharacter}>
             <CustomButton>
-              <Save className='h-5 w-5 fill-white opacity-70 ' />
+              <Save className="h-5 w-5 fill-white opacity-70 " />
               Save Character
             </CustomButton>
           </SaveCharacterDialogue>

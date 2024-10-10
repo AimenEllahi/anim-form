@@ -35,16 +35,16 @@ export default function index({
   };
 
   return (
-    <div className=' py-[9rem] w-full h-full relative text-white  '>
-      <span className='headline-3 !z-[20] px-5 md:px-12 hidden md:block'>
+    <div className=" py-[9rem] w-full h-full relative text-white  ">
+      <span className="headline-3 !z-[20] px-5 md:px-12 hidden md:block">
         Discover Campaigns
       </span>
-      <div className='flex flex-col h-full gap-16 w-full mt-5 md:mt-9'>
+      <div className="flex flex-col h-full gap-16 w-full mt-5 md:mt-9">
         <Row
           text={"Community Favorites"}
           campaigns={mostLiked}
           handleUpdateCampaigns={handleUpdateMostLikedCampaigns}
-          icon={<Star isfilled={"true"} className='h-5 w-5 fill-gray2' />}
+          icon={<Star isfilled={"true"} className="h-5 w-5 fill-gray2" />}
         />
         <Row
           text={"Public Campaigns"}
@@ -52,7 +52,7 @@ export default function index({
           campaigns={popular}
           sort={true}
           isPublicCampaign={true}
-          icon={<World className='h-5 w-5 fill-gray2' />}
+          icon={<World className="h-5 w-5 fill-gray2" />}
           onClickShowMore={onClickShowMore}
           showMore={showMoreCampaigns}
           disabled={loadingCampaigns}
