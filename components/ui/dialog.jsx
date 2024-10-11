@@ -98,11 +98,11 @@ const DialogClose = React.forwardRef(({ className, ...props }, ref) => (
     )}
     {...props}
   >
-    <Button className='text-white bg-blur-1 flex gap-2 justify-center items-center'>
+    <Button className="text-white bg-blur-1 flex gap-2 justify-center items-center">
       <X size={20} />
       CANCEL
     </Button>
-    <span className='sr-only'>Close</span>
+    <span className="sr-only">Close</span>
   </DialogPrimitive.Close>
 ));
 DialogClose.displayName = DialogPrimitive.Close.displayName;
