@@ -49,7 +49,7 @@ export default function Card({ campaign }) {
             )}
           >
             <div className='h-9 w-9 rounded-full bg-white/[8%] border border-white/[8%] flex justify-center items-center'>
-              <img src='/icons/toolip.svg' alt='Info' className='h-4 w-4' />
+              <img src='/Icons/toolip.svg' alt='Info' className='h-4 w-4' />
             </div>
           </div>
         </PopoverTrigger>
