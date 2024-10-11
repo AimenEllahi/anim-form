@@ -101,22 +101,23 @@ export default function Chatbox({
 
   useEffect(() => {
     const handleScroll = () => {
-      if (
-        chatboxRef.current.scrollHeight - chatboxRef.current.scrollTop ===
-        chatboxRef.current.clientHeight
-      ) {
-        setIsScrollLeft(false);
-      } else {
-        setIsScrollLeft(true);
-      }
+      // Get the current scroll position, height, and client height
+      const { scrollHeight, scrollTop, clientHeight } = chatboxRef.current;
+  
+      // Check if the user has scrolled to the bottom
+      const isAtBottom = Math.abs(scrollHeight - scrollTop - clientHeight) < 1;
+  
+      // Update the isScrollLeft state based on the scroll position
+      setIsScrollLeft(!isAtBottom);
     };
-
+  
     chatboxRef.current?.addEventListener("scroll", handleScroll);
-
+  
     return () => {
       chatboxRef.current?.removeEventListener("scroll", handleScroll);
     };
   }, []);
+  
 
   const handleViewImage = (url) => {
     setGameImage(url);
@@ -139,17 +140,6 @@ export default function Chatbox({
       )}
     >
       <div className='flex relative w-full flex-col justify-end mt-auto gap-8'>
-        <CustomIconbutton
-          className={cn(
-            "sticky left-1/2 -translate-x-1/2 lg:translate-x-[0%] bottom-44 lg:bottom-52",
-            !isScrollLeft && "opacity-0 pointer-events-none",
-            narrate && "bottom-60"
-          )}
-          variant={"primary"}
-          onClick={scrollToBottom}
-        >
-          <ArrowRight className='h-5 w-5 rotate-90 fill-russianViolet' />
-        </CustomIconbutton>
 
         {chat.map((item, index) => {
           return item.type === "image" ? (
@@ -306,6 +296,21 @@ export default function Chatbox({
           </div>
         )}
       </div>
+      <CustomIconbutton
+
+      className={cn(
+        "fixed left-1/2 transform -translate-x-1/2 z-10", // Base styles
+        // Adjusting position based on screen size
+        "bottom-[10rem] md:bottom-[15rem]", // Bottom position for desktop and mobile
+        !isScrollLeft && "opacity-0 pointer-events-none", // Hide when scrolled to bottom
+        narrate && "bottom-[13rem]" // Adjust position when narrating
+      )}
+      variant={"primary"}
+      onClick={scrollToBottom}
+      >
+      <ArrowRight className='h-5 w-5 rotate-90 fill-russianViolet' />
+      </CustomIconbutton>
+
     </div>
   );
 }
