@@ -86,7 +86,8 @@ export default function GameplayNavbar({ loading, setLoading }) {
             />
           </Link>
           <div className="flex gap-5 items-center">
-            <CustomIcontext>
+          <CustomIcontext  onClick={() => handleRedirect("/pricing")}
+          >
               <img
                 src="/gems/Mythic.webp"
                 alt="Mythic gem"
@@ -95,7 +96,8 @@ export default function GameplayNavbar({ loading, setLoading }) {
               />
               {user.blueCredits}
             </CustomIcontext>
-            <CustomIcontext>
+            <CustomIcontext  onClick={() => handleRedirect("/pricing")}
+          >
               <img
                 src="/gems/Legendary.webp"
                 alt="Legendary Gem"

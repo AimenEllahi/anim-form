@@ -38,7 +38,8 @@ const UserLoggedIn = ({ handleRedirect, handlePlay }) => {
           </span>
         </div>
         <div className='flex gap-5'>
-          <CustomIcontext>
+        <CustomIcontext  onClick={() => handleRedirect("/pricing")}
+          >
             <img
               src='/gems/Mythic.webp'
               alt='Mythic gem image'

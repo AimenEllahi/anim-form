@@ -35,7 +35,8 @@ export default function SignedInUserMenu() {
           </span>
         </div>
         <div className='flex gap-5'>
-          <CustomIcontext>
+          <CustomIcontext  onClick={() => handleRedirect("/pricing")}
+          >
             <img
               src='/gems/Mythic.webp'
               title='Mytich Gem'
@@ -44,7 +45,8 @@ export default function SignedInUserMenu() {
             />
             {user.blueCredits}
           </CustomIcontext>
-          <CustomIcontext>
+          <CustomIcontext  onClick={() => handleRedirect("/pricing")}
+          >
             <img
               src='/gems/Legendary.webp'
               title='Legendary Gem'

@@ -640,7 +640,7 @@ input::-ms-clear {
   /* White with 8% opacity */
   border: 1px solid rgba(255, 255, 255, 0.08);
   /* White border with 8% opacity */
-  padding: 20px;
+  padding: 16px;
   /* Equivalent to p-4 */
   border-radius: 10px;
   /* Equivalent to rounded-lg */
