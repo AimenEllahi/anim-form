@@ -158,7 +158,7 @@ export default function Payment() {
               <div className='p-4 flex flex-col gap-4'>
                 <div className='running-text-mono flex gap-2 justify-satrt items-center'>
                   <img
-                    src='/Gems/Legendary.webp'
+                    src='/gems/Legendary.webp'
                     title='Legendary Gem'
                     alt='Legendary Coin, Coin to generate Images on the website'
                     className='h-5 w-5 object-contain'
@@ -167,7 +167,7 @@ export default function Payment() {
                 </div>
                 <div className='running-text-mono flex gap-2 justify-satrt items-center'>
                   <img
-                    src='/Gems/Mythic.webp'
+                    src='/gems/Mythic.webp'
                     title='Mythic Gem'
                     alt='Mythic coins, to make turns in the game'
                     className='h-5 w-5 object-contain'

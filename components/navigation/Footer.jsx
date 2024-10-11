@@ -16,7 +16,9 @@ const NavMenu = ({ menu, disable }) => {
       case "Imprint":
         return `/imprint`; // Imprint page URL
       case "Cookies":
-        return `/cookies`; // Imprint page URL
+        return `/cookies`;
+        case "About Us":
+          return `/about-us`; // Imprint page URL
       case "Contact Us":
         return `/contact-us?type=support`; // Contact page URL
       case "Give us Feedback":
@@ -64,17 +66,16 @@ const NavMenu = ({ menu, disable }) => {
     </div>
   );
 };
-
 export default function Footer() {
   return (
-    <footer className='bg-russianViolet w-full  text-white pt-0 pb-16 md:px-12 px-5 md:py-16  '>
+    <footer className='bg-russianViolet w-full text-white pt-0 pb-16 md:px-12 px-5 md:py-16'>
       <div className='w-full border'>
-        <div className='w-full md:w-1/2 flex flex-wrap md:gap-8  gap-y-12 justify-between '>
+        <div className='w-full md:w-1/2 flex flex-wrap md:gap-8 gap-y-12 justify-between'>
           {/* Help / Support Section */}
           <NavMenu
             menu={{
               heading: "HELP AND SUPPORT",
-              navlinks: ["News","Contact Us", "Give us Feedback", "Report a Bug"],
+              navlinks: ["About Us", "News", "Contact Us", "Give us Feedback", "Report a Bug"],
             }}
           />
           <NavMenu
@@ -97,13 +98,13 @@ export default function Footer() {
           />
         </div>
         {/* Copyright Notice */}
-        <div className='!z-10 mt-14 running-text-mono '>
+        <div className='!z-10 mt-14 running-text-mono'>
           <p className='text-left relative z-10 text-white'>DND AI © 2024 ALL RIGHTS RESERVED</p>
-          <p className='text-right relative z-10 text-white'>
-          DESIGNED WITH ♥ BY 
-          <a href="https://www.nexene.at" target="_blank" > NEXENE</a>
-        </p>
-        </div>    
+          <p className='text-left md:text-right relative z-10 text-white pt-4 md:pt-0'>
+            DESIGNED WITH ♥ BY 
+            <a href="https://www.nexene.at" target="_blank" > NEXENE</a>
+          </p>
+        </div>
       </div>
     </footer>
   );
