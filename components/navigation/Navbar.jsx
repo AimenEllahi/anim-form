@@ -124,7 +124,7 @@ const CreditsDisplay = () => {
   return (
     <>
       {" "}
-      <CustomIcontext
+      <CustomIcontext  onClick={() => handleRedirect("/pricing")}
         className={"pointer-events-none"}
         aria-label='Blue Credits'
       >
@@ -136,7 +136,7 @@ const CreditsDisplay = () => {
         />
         {user?.blueCredits}
       </CustomIcontext>
-      <CustomIcontext
+      <CustomIcontext  onClick={() => handleRedirect("/pricing")}
         className={"pointer-events-none"}
         aria-label='Yellow Credits'
       >
