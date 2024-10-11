@@ -8,6 +8,7 @@ const useGameStore = create(
       currentCampaign: null,
       startNewGame: false,
       responseText: "",
+      step: 1,
       game: null,
       image: null,
 
@@ -17,6 +18,8 @@ const useGameStore = create(
       setGameImage: (image) => set({ image }),
       setGame: (game) => set({ game }),
       setStartNewGame: (startNewGame) => set({ startNewGame }),
+      setStep: (step) => set({ step }),
+
       reset: () =>
         set({
           currentCharacter: null,

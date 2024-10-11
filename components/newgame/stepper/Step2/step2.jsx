@@ -15,18 +15,10 @@ export default function Step2({ characters }) {
   };
 
   const myCharacters = [
-    // {
-    //   title: "Valhein Kicklighter",
-    //   description: "Level 31 - Drow Rogue",
-    // },
-    // {
-    //   title: "Bentøx",
-    //   description: "Level 16 - Fire Genassi Sorcerer",
-    // },
-    // {
-    //   title: "Limewax",
-    //   description: "Level 11 - Half Elf Druid",
-    // },
+    ...characters,
+    ...characters,
+    ...characters,
+    ...characters,
   ];
 
   const premadeCharacters = [];
@@ -34,7 +26,7 @@ export default function Step2({ characters }) {
   return (
     <div
       className={cn(
-        "flex flex-col gap-5 pb-4 pt-5",
+        "flex flex-col gap-5 pb-4 pt-5 h-[483px] overflow-y-scroll hide-scrollbar ",
         characters.length <= 0 && "flex-col-reverse"
       )}
     >
@@ -46,8 +38,8 @@ export default function Step2({ characters }) {
         </div>
 
         {characters.length > 0 ? (
-          <div className='grid grid-cols-2 gap-4'>
-            {characters.map((card, index) => (
+          <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
+            {myCharacters.map((card, index) => (
               <Card
                 key={index}
                 character={card}
@@ -58,7 +50,7 @@ export default function Step2({ characters }) {
           </div>
         ) : (
           <div className='flex flex-col items-center justify-center h-[180px] gap-4 bg-white/10 border border-white/10 rounded-[10px]'>
-            <p className='text-white running-text-large'>
+            <p className='text-white running-text-large text-center'>
               You’re ready to create your first character!
             </p>
             <CustomButton withIcon={true}>
@@ -76,7 +68,7 @@ export default function Step2({ characters }) {
             <h3 className='running-text-mono text-gray2'>Premade Characters</h3>
           </div>
 
-          <div className='grid grid-cols-2 gap-4'>
+          <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
             {premadeCharacters.map((card, index) => (
               <Card
                 key={index}

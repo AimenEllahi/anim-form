@@ -17,6 +17,7 @@ import Cookie from "universal-cookie";
 import CampaignAdd from "@/components/ui/Icons/CampaignAdd";
 import Adventure from "@/components/ui/Icons/Adventure";
 import Support from "@/components/ui/Icons/Support";
+import useGameStore from "@/utils/gameStore";
 
 const UserLoggedIn = ({ handleRedirect, handlePlay }) => {
   const { showMenu, setShowMenu } = useControlsStore();
@@ -38,8 +39,7 @@ const UserLoggedIn = ({ handleRedirect, handlePlay }) => {
           </span>
         </div>
         <div className='flex gap-5'>
-        <CustomIcontext  onClick={() => handleRedirect("/pricing")}
-          >
+          <CustomIcontext onClick={() => handleRedirect("/pricing")}>
             <img
               src='/gems/Mythic.webp'
               alt='Mythic gem image'
@@ -276,9 +276,14 @@ const UserLoggedOut = ({ handleRedirect }) => {
     </div>
   );
 };
-export default function DrawerMenu({ characterCreatePage, handlePlay }) {
+export default function DrawerMenu({
+  characterCreatePage,
+  handlePlay,
+  newGameStepper = false,
+}) {
   const { user } = useUserStore();
   const { showMenu, setShowMenu } = useControlsStore();
+  const { setStartNewGame } = useGameStore();
 
   const router = useRouter();
 
@@ -290,6 +295,7 @@ export default function DrawerMenu({ characterCreatePage, handlePlay }) {
   const handleRedirect = (path) => {
     router.push(path);
     setShowMenu(false);
+    if (newGameStepper) setStartNewGame(false);
   };
 
   return (
@@ -330,6 +336,7 @@ export default function DrawerMenu({ characterCreatePage, handlePlay }) {
             setShowMenu(false);
             handlePlay();
           }}
+          newGameStepper={newGameStepper}
           handleRedirect={handleRedirect}
         />
       ) : (
@@ -338,6 +345,7 @@ export default function DrawerMenu({ characterCreatePage, handlePlay }) {
             setShowMenu(false);
             handlePlay();
           }}
+          newGameStepper={newGameStepper}
           handleRedirect={handleRedirect}
         />
       )}

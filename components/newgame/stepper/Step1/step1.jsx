@@ -1,11 +1,11 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import SearchInput from "@/components/ui/search-input";
 import CustomDropdown from "@/components/ui/custom-dropdown";
-import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 import useDeviceDetect from "@/hooks/useDeviceDetect";
 import Card from "./Card";
+import { useDebounce } from "@/hooks/useDebounce";
 
 const sortOptions = [
   "newest to oldest",
@@ -16,27 +16,51 @@ const sortOptions = [
 ];
 export default function Step1({ setQuery, query, campaigns, sort, setSort }) {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-
+  const [_query, _setQuery] = useState("");
+  const debouncedQuery = useDebounce(_query, 500);
   const { isMobile } = useDeviceDetect();
 
+  const detectClickOutside = (e) => {
+    if (e.target.classList.contains("search-input")) {
+      return;
+    }
+
+    setIsSearchOpen(false);
+  };
+
+  useEffect(() => {
+    setQuery(debouncedQuery);
+  }, [debouncedQuery]);
+
+  useEffect(() => {
+    document.addEventListener("click", detectClickOutside);
+
+    return () => {
+      document.removeEventListener("click", detectClickOutside);
+    };
+  }, [isSearchOpen]);
+
   return (
-    <div className=' flex flex-col  pt-5'>
+    <div className=' flex flex-col gap-5 pt-5 max-h-auto overflow-auto '>
       <div
         className={cn(
-          " flex gap-4 px-5 flex-row-reverse md:flex-row   transition-all duration-300 ease-in-out items-center justify-start"
+          " flex gap-4 px-5 flex-row-reverse md:flex-row   transition-all duration-300 ease-in-out items-center justify-start",
+          isSearchOpen && "gap-0 md:gap-4"
         )}
       >
         <SearchInput
-          query={query}
-          // clearInputTrigger={isSearchOpen}
-          // onClick={() => setIsSearchOpen(true)}
-          setQuery={setQuery}
+          query={_query}
+          clearInputTrigger={isSearchOpen}
+          onClick={() => setIsSearchOpen(true)}
+          setQuery={_setQuery}
           placeholder={isMobile ? "" : "Search"}
           className={cn(
-            " h-12 md:w-full  search-input transition-all origin-right  duration-[1000ms] ease-in-out"
+            " search-input transition-all duration-300 h-12 ease-in-out md:w-full",
+            isSearchOpen && "w-full"
           )}
           inputClassName={cn(
-            "ps-0 w-12  md:w-full md:ps-[38px] origin-right transition-all duration-300 ease-in-out"
+            "ps-0 w-12 search-input md:w-full md:ps-[38px] border-gray2",
+            isSearchOpen && "ps-[38px] w-full"
           )}
         />
 
@@ -48,11 +72,13 @@ export default function Step1({ setQuery, query, campaigns, sort, setSort }) {
             setSort(_sort.replaceAll(" ", "-"));
           }}
           className={cn(
-            "w-full md:w-fit transition-all duration-[1000ms] ease-in-out "
+            "w-full md:w-fit transition-all duration-[1000ms] ease-in-out ",
+            isSearchOpen &&
+              "w-0 opacity-0 pointer-events-none md:w-fit md:pointer-events-auto md:opacity-100"
           )}
         />
       </div>
-      <div className='space-y-4 h-[300px] overflow-auto hide-scrollbar p-5 '>
+      <div className='space-y-4 h-full md:h-[300px] overflow-auto hide-scrollbar p-5 pt-0 '>
         {campaigns.map((campaign, index) => (
           <Card key={index} campaign={campaign} />
         ))}

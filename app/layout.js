@@ -45,7 +45,7 @@ export default function RootLayout({ children }) {
   const showDiceGame = pathname.includes("/game/play");
 
   const characterSheet = pathname.includes("/character/sheet");
-
+  const noMaxWidth = pathname.includes("/game/play") || pathname === "/";
   const {
     title,
     description,
@@ -212,10 +212,7 @@ export default function RootLayout({ children }) {
           />
 
           <main
-            className={cn(
-              "z-[1]",
-              pathname !== "/" && "mx-auto max-w-[1440px]"
-            )}
+            className={cn("z-[1]", !noMaxWidth && "mx-auto max-w-[1440px]")}
           >
             <NewGameModal />
             {children}

@@ -7,10 +7,13 @@ import useStepperStore from "@/utils/characterStore";
 import { cn } from "@/lib/utils";
 import useControlsStore from "@/utils/controlsStore";
 import CustomRadioButton from "@/components/ui/custom-radio-button";
+import useGameStore from "@/utils/gameStore";
 const campaignSubpageRegex = /^\/campaign\/[a-fA-F0-9]{24}$/;
+
+const STEP_NAMES_NEW_GAME = ["Select campaign", "Select character", "Summary"];
 export default function index() {
   const pathname = usePathname();
-  const { showMenu } = useControlsStore();
+
   const {
     totalCharacters,
     totalCampaigns,
@@ -19,9 +22,16 @@ export default function index() {
     totalPublicImages,
     totalPublicCampaigns,
   } = useUserStore();
-  const { selectedTab, selectedCompletedGame, selectedGame, gamesLength } =
-    useControlsStore();
+
+  const {
+    showMenu,
+    selectedTab,
+    selectedCompletedGame,
+    selectedGame,
+    gamesLength,
+  } = useControlsStore();
   const { activeStep, gender, setGender } = useStepperStore();
+  const { startNewGame, step: newGameStep } = useGameStore();
 
   const games = pathname.includes("/games");
 
@@ -54,6 +64,23 @@ export default function index() {
   const settings = pathname.includes("my-account/settings");
 
   if (noHeading) return null;
+
+  if (startNewGame) {
+    return (
+      <div className={"flex flex-col gap-2 w-full    md:hidden   justify-end"}>
+        <h1 className='text-center flex justify-start text-white headline-3 -z-1 '>
+          Start New Game
+        </h1>
+        <div className=' headline-4   w-full '>
+          <span className='text-gray2'>Step {newGameStep}/3</span>
+          <span className='text-white'>
+            {" "}
+            {STEP_NAMES_NEW_GAME[newGameStep - 1]}
+          </span>
+        </div>
+      </div>
+    );
+  }
 
   const renderHeader = () => {
     if (signUp) {

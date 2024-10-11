@@ -79,7 +79,7 @@ export default function Choose({ race, handleSelectRace }) {
               />
               <Information
                 onClick={handleShowModal}
-                src='/Icons/'
+                
                 className={cn(
                   "h-6 w-6  left-2 bottom-2 md:hidden ease-animate  absolute ",
                   race?.name !== name && "opacity-0 pointer-events-none"
