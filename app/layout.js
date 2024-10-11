@@ -8,14 +8,14 @@ import { usePathname } from "next/navigation";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import Script from "next/script";
 import "./globals.css";
-import useGameStore from "@/utils/gameStore";
 import CreditsDialogue from "@/components/ui/Shared/Dialogue/GetCredits";
 import useStepperStore from "@/utils/characterStore";
-import Image from "next/image";
+
 import useUserStore from "@/utils/userStore";
 import Cookie from "universal-cookie";
 import { getMetaTags } from "@/utils/metaTags";
 import { cn } from "@/lib/utils";
+import NewGameModal from "@/components/newgame/index";
 const inter = Inter({ subsets: ["latin"] });
 
 const MemoizedNavbar = memo(Navbar);
@@ -210,12 +210,14 @@ export default function RootLayout({ children }) {
             characterSheet={characterSheet}
             variant={isTransparentNavbar ? "transparent" : "glass"}
           />
+
           <main
             className={cn(
               "z-[1]",
               pathname !== "/" && "mx-auto max-w-[1440px]"
             )}
           >
+            <NewGameModal />
             {children}
           </main>
           {showFooter && <MemoizedFooter />}

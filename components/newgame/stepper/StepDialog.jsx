@@ -1,15 +1,26 @@
 "use client";
 import React, { useState } from "react";
 import { DialogContent } from "@/components/ui/dialog";
-import Stepper from "./Stepper"; // Import the new stepper component
+import StepRenderer from "./StepRenderer"; // Import the new stepper component
 import Cancel from "@/components/ui/Icons/Cancel";
 import CustomButton from "@/components/ui/custom-button";
 import ArrowLeft from "@/components/ui/Icons/ArrowLeft";
 import ArrowRight from "@/components/ui/Icons/ArrowRight";
 import Tick from "@/components/ui/Icons/Tick";
+import Stepper from "./Stepper";
+import useGameStore from "@/utils/gameStore";
 
-export default function StepDialog({ setOpen }) {
+export default function StepDialog({
+  setOpen,
+  characters,
+  setQuery,
+  query,
+  sort,
+  campaigns,
+  setSort,
+}) {
   const [step, setStep] = useState(1);
+  const { currentCharacter, currentCampaign } = useGameStore();
 
   const nextStep = () => {
     if (step < 3) {
@@ -24,88 +35,44 @@ export default function StepDialog({ setOpen }) {
   };
 
   return (
-    <DialogContent className="bg-white/[8%] flex flex-col overflow-hidden !gap-0 text-white !p-0 !pt-[52px] md:!pt-0 border-0 !rounded-[16px] h-full md:h-auto bg-gradient md:bg-white/10">
-      <div className="p-6 pb-5">
-        <h2 className="text-white text-lg font-bold">Start new game</h2>
+    <DialogContent className='!bg-white/[8%] flex flex-col overflow-hidden !gap-0 text-white !p-0  md:!pt-0 border-white/[8%] !rounded-[16px] h-full md:h-auto  md:bg-white/10 min-w-[824px]'>
+      <div className='p-6 pb-5 pt-4 flex flex-col gap-4'>
+        <h2 className='running-text-large'>Start new game</h2>
 
-        {/* Render the Stepper Header */}
-        <div className="flex justify-between items-center mt-4">
-          <div className="flex items-center gap-2">
-            <div
-              className={`w-8 h-8 flex items-center justify-center rounded-full border-2 ${
-                step >= 1
-                  ? "border-blue-500 bg-blue-500 text-white"
-                  : "border-gray-500 text-gray-500"
-              }`}
-            >
-              1
-            </div>
-            <span
-              className={`${step >= 1 ? "text-blue-500" : "text-gray-500"}`}
-            >
-              Select Campaign
-            </span>
-          </div>
-          <div className="flex-1 h-1 bg-gray-500 mx-2"></div> {/* Line */}
-          <div className="flex items-center gap-2">
-            <div
-              className={`w-8 h-8 flex items-center justify-center rounded-full border-2 ${
-                step >= 2
-                  ? "border-blue-500 bg-blue-500 text-white"
-                  : "border-gray-500 text-gray-500"
-              }`}
-            >
-              2
-            </div>
-            <span
-              className={`${step >= 2 ? "text-blue-500" : "text-gray-500"}`}
-            >
-              Select Character
-            </span>
-          </div>
-          <div className="flex-1 h-1 bg-gray-500 mx-2"></div> {/* Line */}
-          <div className="flex items-center gap-2">
-            <div
-              className={`w-8 h-8 flex items-center justify-center rounded-full border-2 ${
-                step === 3
-                  ? "border-blue-500 bg-blue-500 text-white"
-                  : "border-gray-500 text-gray-500"
-              }`}
-            >
-              3
-            </div>
-            <span
-              className={`${step === 3 ? "text-blue-500" : "text-gray-500"}`}
-            >
-              Summary
-            </span>
-          </div>
-        </div>
+        <Stepper step={step} setStep={setStep} />
       </div>
 
-      <div className="p-6 pb-0 h-full border-y border-white/10">
+      <div className=' pb-0 h-full border-y border-white/10'>
         {/* Pass the current step and navigation functions to the Stepper */}
-        <Stepper step={step} />
+        <StepRenderer
+          step={step}
+          characters={characters}
+          setQuery={setQuery}
+          campaigns={campaigns}
+          query={query}
+          sort={sort}
+          setSort={setSort}
+        />
       </div>
 
-      <div className="p-6 pb-5 flex justify-between">
+      <div className='p-6 pb-5 flex justify-between'>
         <CustomButton
           withIcon
           className={"me-auto"}
           onClick={() => setOpen(false)}
         >
-          <Cancel className="h-4 w-4 fill-white" />
+          <Cancel className='h-4 w-4 fill-white' />
           cancel
         </CustomButton>
         {/* Navigation Buttons */}
-        <div className="stepper-navigation flex gap-4">
+        <div className='stepper-navigation flex gap-4'>
           {step > 1 && (
             <CustomButton
               withIcon
               className={"me-auto bg-transparent border-none"}
               onClick={prevStep}
             >
-              <ArrowLeft className="h-5 w-5 fill-white" />
+              <ArrowLeft className='h-5 w-5 fill-white' />
               Back
             </CustomButton>
           )}
@@ -113,11 +80,15 @@ export default function StepDialog({ setOpen }) {
             <CustomButton
               onClick={nextStep}
               withIcon
+              disabled={
+                (step === 1 && !currentCampaign) ||
+                (step === 2 && !currentCharacter)
+              }
               className={"me-auto"}
               variant={"primary"}
             >
               Next Step
-              <ArrowRight className="h-5 w-5 fill-russianViolet" />
+              <ArrowRight className='h-5 w-5 fill-russianViolet' />
             </CustomButton>
           )}
           {step === 3 && (
@@ -127,7 +98,7 @@ export default function StepDialog({ setOpen }) {
               variant={"primary"}
             >
               Finish and Start Game
-              <Tick className="h-4 w-4 fill-russianViolet" />
+              <Tick className='h-4 w-4 fill-russianViolet' />
             </CustomButton>
           )}
         </div>

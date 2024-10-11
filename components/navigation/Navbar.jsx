@@ -30,19 +30,19 @@ const CampaignLinks = () => {
   const router = useRouter();
   const pathname = usePathname();
   return (
-    <div className="flex items-center gap-2">
+    <div className='flex items-center gap-2'>
       <CustomNavtab
         onClick={() => {
           router.push("/games");
         }}
         variant={"subtle"}
         withIcon={true}
-        aria-label="Games"
+        aria-label='Games'
         className={cn(
           pathname === "/games" && "bg-white/10 hover:bg-white/[8%]"
         )}
       >
-        <Game className="h-5 w-5 fill-white opacity-70 " />
+        <Game className='h-5 w-5 fill-white opacity-70 ' />
         Games
       </CustomNavtab>
       <CustomNavtab
@@ -51,12 +51,12 @@ const CampaignLinks = () => {
         }}
         variant={"subtle"}
         withIcon={true}
-        aria-label="Discover"
+        aria-label='Discover'
         className={cn(
           pathname === "/discover" && "bg-white/10 hover:bg-white/[8%]"
         )}
       >
-        <CampaignAdd className="h-5 w-5 fill-white opacity-70 " />
+        <CampaignAdd className='h-5 w-5 fill-white opacity-70 ' />
         Campaigns
       </CustomNavtab>
       <CustomNavtab
@@ -65,17 +65,17 @@ const CampaignLinks = () => {
         }}
         variant={"subtle"}
         withIcon={true}
-        aria-label="Images"
+        aria-label='Images'
         className={cn(
           pathname.includes("/discover/gallery") &&
             "bg-white/10 hover:bg-white/[8%]"
         )}
       >
         <img
-          src="/Icons/ImageLibrary.svg"
-          alt="My images button"
-          title="My images button"
-          className="h-5 w-5  opacity-70"
+          src='/Icons/ImageLibrary.svg'
+          alt='My images button'
+          title='My images button'
+          className='h-5 w-5  opacity-70'
         />
         Community Gallery
       </CustomNavtab>
@@ -91,25 +91,25 @@ const CreditsDisplay = () => {
       {" "}
       <CustomIcontext
         className={"pointer-events-none"}
-        aria-label="Blue Credits"
+        aria-label='Blue Credits'
       >
         <img
-          src="/gems/Mythic.webp"
-          alt="Blue Credits"
-          title="blue credits"
-          className="h-[18px] object-contain "
+          src='/gems/Mythic.webp'
+          alt='Blue Credits'
+          title='blue credits'
+          className='h-[18px] object-contain '
         />
         {user?.blueCredits}
       </CustomIcontext>
       <CustomIcontext
         className={"pointer-events-none"}
-        aria-label="Yellow Credits"
+        aria-label='Yellow Credits'
       >
         <img
-          src="/gems/Legendary.webp"
-          alt="Yellow Credits"
-          title="Legendary Credits"
-          className="h-[18px] object-contain "
+          src='/gems/Legendary.webp'
+          alt='Yellow Credits'
+          title='Legendary Credits'
+          className='h-[18px] object-contain '
         />
         {user?.yellowCredits}
       </CustomIcontext>
@@ -127,10 +127,8 @@ export default function Navbar({ variant, characterSheet }) {
   const {
     setCurrentCharacter,
     setCurrentCampaign,
-    currentCharacter,
-    currentCampaign,
-    characterSelectTime,
-    campaignSelectTime,
+
+    setStartNewGame,
   } = useGameStore();
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
@@ -165,14 +163,10 @@ export default function Navbar({ variant, characterSheet }) {
 
         //  console.log("Has single character", character);
         setCurrentCharacter(character);
-        router.push("/game/play");
+        setStartNewGame(true);
         return;
       }
-      if (!isSelectionValid(currentCharacter, characterSelectTime)) {
-        router.push("/game/character-selection");
-      } else {
-        router.push("/game/play");
-      }
+      setStartNewGame(true);
     } catch (error) {
       invokeToast(
         error?.response?.data?.error || "Error playing campaign",
@@ -192,11 +186,7 @@ export default function Navbar({ variant, characterSheet }) {
       const { character } = await getCharacter(characterId, user?.token);
 
       setCurrentCharacter(character);
-      if (!isSelectionValid(currentCampaign, campaignSelectTime)) {
-        router.push("/game/campaign-selection");
-      } else {
-        router.push("/game/play");
-      }
+      setStartNewGame(true);
     } catch (error) {
       invokeToast(
         error?.response?.data?.error || "Error playing with character",
@@ -209,6 +199,7 @@ export default function Navbar({ variant, characterSheet }) {
   };
   const handlePlay = async () => {
     try {
+      console.log("here");
       setIsLoading(true);
       const { characters } = await getCharacters(user?.token);
       if (characters.length === 0) {
@@ -216,14 +207,10 @@ export default function Navbar({ variant, characterSheet }) {
         return;
       } else if (characters.length === 1) {
         setCurrentCharacter(characters[0]);
-        if (!isSelectionValid(currentCampaign, campaignSelectTime)) {
-          router.push("/game/campaign-selection");
-        } else {
-          router.push("/game/play");
-        }
+        setStartNewGame(true);
         return;
       } else {
-        router.push("/games/new-game");
+        setStartNewGame(true);
       }
     } catch (error) {
       invokeToast(
@@ -266,23 +253,23 @@ export default function Navbar({ variant, characterSheet }) {
           }
         >
           <Link
-            href="/"
-            className="text-white hover:text-gray1 transition-all duration-300 ease-in-out keychainify-checked"
-            aria-label="Home"
+            href='/'
+            className='text-white hover:text-gray1 transition-all duration-300 ease-in-out keychainify-checked'
+            aria-label='Home'
           >
             <img
-              src="/Icons/Logo.svg"
-              alt="logo"
-              title="Logo icon"
-              className="h-8 object-contain"
+              src='/Icons/Logo.svg'
+              alt='logo'
+              title='Logo icon'
+              className='h-8 object-contain'
             />
           </Link>
           <button
             onClick={() => setShowMenu(true)}
-            className="w-10"
-            aria-label="Menu"
+            className='w-10'
+            aria-label='Menu'
           >
-            <Menu fill="#9A9AC1" />
+            <Menu fill='#9A9AC1' />
           </button>
 
           <DrawerMenu
@@ -291,24 +278,24 @@ export default function Navbar({ variant, characterSheet }) {
           />
         </div>
         {/* Desktop */}
-        <div className=" w-full hidden h-full text-white  md:flex justify-between items-center">
-          <div className="flex justify-center items-center gap-6">
+        <div className=' w-full hidden h-full text-white  md:flex justify-between items-center'>
+          <div className='flex justify-center items-center gap-6'>
             <Link
-              href="/"
-              className="text-white me-2 hover:text-gray1 transition-all duration-300 ease-in-out keychainify-checked"
-              aria-label="Home"
+              href='/'
+              className='text-white me-2 hover:text-gray1 transition-all duration-300 ease-in-out keychainify-checked'
+              aria-label='Home'
             >
               <img
-                src="/Icons/Logo.svg"
-                title="Logo icon"
-                alt="logo"
-                className="h-10"
+                src='/Icons/Logo.svg'
+                title='Logo icon'
+                alt='logo'
+                className='h-10'
               />
             </Link>
 
             {showCampaignLinks && <CampaignLinks />}
           </div>
-          <div className="flex justify-center items-center gap-5">
+          <div className='flex justify-center items-center gap-5'>
             <span
               className={cn(
                 "running-text-mono uppercase cursor-pointer",
@@ -317,20 +304,20 @@ export default function Navbar({ variant, characterSheet }) {
               aria-label={isSignUp ? "Sign In" : "Sign Up"}
             >
               {isSignUp ? (
-                <Link href={"/auth/sign-in"} aria-label="Sign In">
+                <Link href={"/auth/sign-in"} aria-label='Sign In'>
                   Sign In
                 </Link>
               ) : (
-                <Link href={"/auth/sign-up"} aria-label="Sign Up">
+                <Link href={"/auth/sign-up"} aria-label='Sign Up'>
                   Sign Up
                 </Link>
               )}
             </span>
             {showGems && <CreditsDisplay />}
-            {user?.token && <CreateMenu aria-label="Create Menu" />}
-            <AccountDropdown aria-label="Account Dropdown" />
+            {user?.token && <CreateMenu aria-label='Create Menu' />}
+            <AccountDropdown aria-label='Account Dropdown' />
 
-            <SoundButton aria-label="Sound Button" />
+            <SoundButton aria-label='Sound Button' />
 
             {characterSheet || isCampaignSubpage ? (
               <CustomButton
@@ -344,7 +331,7 @@ export default function Navbar({ variant, characterSheet }) {
                 }
                 aria-label={isCampaignSubpage ? "Play Campaign" : "Play Now"}
               >
-                <Play className="h-5 w-5 fill-russianViolet opacity-70" />
+                <Play className='h-5 w-5 fill-russianViolet opacity-70' />
                 {isCampaignSubpage ? "Play Campaign" : "PLAY Now"}
               </CustomButton>
             ) : (
@@ -353,9 +340,9 @@ export default function Navbar({ variant, characterSheet }) {
                 onClick={handlePlay}
                 variant={"primary"}
                 className={cn(isGamePage && "hidden")}
-                aria-label="Play for Free"
+                aria-label='Play for Free'
               >
-                <Play className="h-5 w-5 fill-russianViolet opacity-70" />
+                <Play className='h-5 w-5 fill-russianViolet opacity-70' />
                 {isLandingPage
                   ? "PLAY NOW"
                   : user?.token
@@ -366,7 +353,7 @@ export default function Navbar({ variant, characterSheet }) {
           </div>
         </div>
       </div>
-      <MobileHeader aria-label="Mobile Header" />
+      <MobileHeader aria-label='Mobile Header' />
     </nav>
   );
 }

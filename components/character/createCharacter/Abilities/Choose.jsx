@@ -293,37 +293,6 @@ export default function Choose({ abilities, handleChangeAbilities }) {
             </p>
           </PopoverContent>
         </Popover>
-        {/* <TooltipProvider>
-          <Tooltip>
-            <TooltipTrigger>
-              <div className='flex items-center gap-2 running-text-mono uppercase'>
-                <Information
-                  src='/Icons/'
-                  className={cn("h-6 w-6   ease-animate   ")}
-                />
-                help
-              </div>
-            </TooltipTrigger>
-            <TooltipContent>
-              <p style={{ marginBottom: "10px" }}>
-                Here, you can roll for your ability scores. When you press the
-                "Roll" button, four 6-sided dice will be rolled.
-              </p>
-              <p style={{ marginBottom: "10px" }}>
-                The lowest result will be dropped, and the remaining three will
-                be added together to give you a total. You can then assign that
-                total to an ability score.
-              </p>
-              <p style={{ marginBottom: "10px" }}>
-                {" "}
-                You also have the option to roll for all your ability scores at
-                once by clicking "Roll All Dice." In this case, the scores will
-                be randomly assigned to each ability, but you can swap them
-                around if you'd like.
-              </p>
-            </TooltipContent>
-          </Tooltip>
-        </TooltipProvider> */}
 
         {showRollAll && (
           <CustomButton

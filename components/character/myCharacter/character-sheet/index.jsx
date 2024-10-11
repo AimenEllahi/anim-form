@@ -28,8 +28,8 @@ export default function characterSheet({ character, setCharacter }) {
   const {
     currentCharacter,
     setCurrentCharacter,
-    currentCampaign,
-    campaignSelectTime,
+
+    setStartNewGame,
   } = useGameStore();
   const { invokeToast } = useCustomToast();
   const containerRef = useRef();
@@ -85,11 +85,7 @@ export default function characterSheet({ character, setCharacter }) {
       );
 
       setCurrentCharacter(_character);
-      if (!isSelectionValid(currentCampaign, campaignSelectTime)) {
-        router.push("/game/campaign-selection");
-      } else {
-        router.push("/game/play");
-      }
+      setStartNewGame(true);
     } catch (error) {
       invokeToast(
         error?.response?.data?.error || "Error playing character",

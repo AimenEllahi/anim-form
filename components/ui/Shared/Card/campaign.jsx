@@ -14,7 +14,7 @@ import {
 import useUserStore from "@/utils/userStore";
 import Star from "@/components/ui/Icons/Star";
 import useGameStore from "@/utils/gameStore";
-import { extractSection, isSelectionValid } from "@/lib/Helpers/shared";
+import { isSelectionValid } from "@/lib/Helpers/shared";
 import Like from "@/components/ui/Icons/Like";
 import { getCharacter } from "@/actions/character";
 import useCustomToast from "@/hooks/useCustomToast";
@@ -32,9 +32,10 @@ export default function card({
   const { invokeToast } = useCustomToast();
   const {
     setCurrentCampaign,
-    currentCharacter,
+
     setCurrentCharacter,
-    characterSelectTime,
+
+    setStartNewGame,
   } = useGameStore();
 
   const handleRedirect = (event) => {
@@ -54,7 +55,7 @@ export default function card({
       setIsLoading(true);
 
       const response = await starCampaign(campaign._id, user?.token);
-      // console.log(response);
+
       handleUpdateCampaigns({
         ...campaign,
         analytics: {
@@ -105,22 +106,15 @@ export default function card({
         hasSingleCharacter,
         characterId,
       } = await getCampaignBySlug(campaignId, user?.token);
-      // console.log(hasSingleCharacter, characterId);
+
       setCurrentCampaign(_campaign);
 
       if (hasSingleCharacter) {
         const { character } = await getCharacter(characterId, user?.token);
         setCurrentCharacter(character);
-        router.push("/game/play");
-        return;
       }
-      if (!isSelectionValid(currentCharacter, characterSelectTime)) {
-        router.push("/game/character-selection");
-      } else {
-        router.push("/game/play");
-      }
+      setStartNewGame(true);
     } catch (error) {
-      console.log(error);
       invokeToast(
         error?.response?.data?.error || "Something went wrong",
         "error"

@@ -6,19 +6,17 @@ const useGameStore = create(
     (set, get) => ({
       currentCharacter: null,
       currentCampaign: null,
+      startNewGame: false,
       responseText: "",
       game: null,
       image: null,
-      characterSelectTime: null,
-      campaignSelectTime: null,
 
-      setCurrentCharacter: (currentCharacter) =>
-        set({ currentCharacter, characterSelectTime: new Date() }),
-      setCurrentCampaign: (currentCampaign) =>
-        set({ currentCampaign, campaignSelectTime: new Date() }),
+      setCurrentCharacter: (currentCharacter) => set({ currentCharacter }),
+      setCurrentCampaign: (currentCampaign) => set({ currentCampaign }),
       setResponseText: (responseText) => set({ responseText }),
       setGameImage: (image) => set({ image }),
       setGame: (game) => set({ game }),
+      setStartNewGame: (startNewGame) => set({ startNewGame }),
       reset: () =>
         set({
           currentCharacter: null,

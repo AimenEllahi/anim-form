@@ -17,18 +17,21 @@ import SearchInput from "@/components/ui/search-input";
 import { getCharacters } from "@/actions/character";
 import useUserStore from "@/utils/userStore";
 import useCustomToast from "@/hooks/useCustomToast";
-import { isSelectionValid } from "@/lib/Helpers/shared";
+
 export default function General({ showSearch = true }) {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const { invokeToast } = useCustomToast();
   const { user } = useUserStore();
-  const { setCurrentCharacter, currentCampaign, campaignSelectTime } =
-    useGameStore();
+  const {
+    setCurrentCharacter,
+
+    setStartNewGame,
+  } = useGameStore();
   const [searchMode, setSearchMode] = useState(false);
   const [showButtons, setShowButtons] = useState(false);
   const [query, setQuery] = useState("");
-  
+
   const detectClickOutside = (e) => {
     if (showButtons || (searchMode && !e.target.closest(".search"))) {
       if (!e.target.closest(".btns-menu")) {
@@ -65,14 +68,10 @@ export default function General({ showSearch = true }) {
         return;
       } else if (characters.length === 1) {
         setCurrentCharacter(characters[0]);
-        if (!isSelectionValid(currentCampaign, campaignSelectTime)) {
-          router.push("/game/campaign-selection");
-        } else {
-          router.push("/game/play");
-        }
+        setStartNewGame(true);
         return;
       } else {
-        router.push("/game/character-selection");
+        setStartNewGame(true);
       }
     } catch (error) {
       invokeToast("Error fetching characters", "Error");
@@ -87,9 +86,9 @@ export default function General({ showSearch = true }) {
   };
 
   return (
-    <div className="z-[10]  text-white fixed bottom-0 left-0 bg-blur-bottom-menu w-full flex  justify-center items-center  md:hidden ">
+    <div className='z-[10]  text-white fixed bottom-0 left-0 bg-blur-bottom-menu w-full flex  justify-center items-center  md:hidden '>
       {searchMode ? (
-        <div className="p-5 w-full">
+        <div className='p-5 w-full'>
           <SearchInput
             query={query}
             setQuery={setQuery}
@@ -98,7 +97,7 @@ export default function General({ showSearch = true }) {
           />
         </div>
       ) : (
-        <div className="flex flex-col items-center gap-4 w-full relative p-5">
+        <div className='flex flex-col items-center gap-4 w-full relative p-5'>
           <hr
             className={cn(
               "w-9 border-[1px] rounded-sm border-gray1 text-gray1",
@@ -116,7 +115,7 @@ export default function General({ showSearch = true }) {
                 onClick={() => handleRedirect("/character/create")}
                 variant={"subtle"}
               >
-                <AddUser className="h-5 w-5 fill-white opacity-70" />
+                <AddUser className='h-5 w-5 fill-white opacity-70' />
                 Create Character
               </CustomButton>
             </div>
@@ -125,17 +124,17 @@ export default function General({ showSearch = true }) {
                 onClick={() => handleRedirect("/campaign/create")}
                 variant={"subtle"}
               >
-                <CampaignAdd className="h-5 w-5 fill-white opacity-70" />
+                <CampaignAdd className='h-5 w-5 fill-white opacity-70' />
                 Create Campaign
               </CustomButton>
             </div>
           </div>
 
-          <div className="flex justify-between items-center w-full ">
-            <div className="flex items-center gap-5">
+          <div className='flex justify-between items-center w-full '>
+            <div className='flex items-center gap-5'>
               <SoundButton />
               <CustomIconbutton onClick={() => setShowButtons((prev) => !prev)}>
-                <Add className="h-5 w-5 fill-white" />
+                <Add className='h-5 w-5 fill-white' />
               </CustomIconbutton>
               {showSearch && (
                 <CustomIconbutton
@@ -143,9 +142,9 @@ export default function General({ showSearch = true }) {
                 >
                   <img
                     src={"/Icons/Search.svg"}
-                    alt="Search Toggle"
+                    alt='Search Toggle'
                     title='Search icon'
-                    className="h-5 w-5  "
+                    className='h-5 w-5  '
                   />
                 </CustomIconbutton>
               )}
@@ -156,7 +155,7 @@ export default function General({ showSearch = true }) {
               disabled={isLoading}
               // onClick={handleCreateCampaign}
             >
-              <Play className="h-5 w-5 fill-russianViolet" />
+              <Play className='h-5 w-5 fill-russianViolet' />
               Play Now
             </CustomButton>
           </div>

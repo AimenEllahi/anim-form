@@ -30,8 +30,11 @@ export default function card({
 }) {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
-  const { setCurrentCharacter, currentCampaign, campaignSelectTime } =
-    useGameStore();
+  const {
+    setCurrentCharacter,
+
+    setStartNewGame,
+  } = useGameStore();
   const { user } = useUserStore();
   const { invokeToast } = useCustomToast();
 
@@ -47,11 +50,7 @@ export default function card({
       );
 
       setCurrentCharacter(_character);
-      if (!isSelectionValid(currentCampaign, campaignSelectTime)) {
-        router.push("/game/campaign-selection");
-      } else {
-        router.push("/game/play");
-      }
+      setStartNewGame(true);
     } catch (error) {
       invokeToast(
         error?.response?.data?.error || "Error playing with character",

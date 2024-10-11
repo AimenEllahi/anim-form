@@ -8,7 +8,6 @@ import ArrowLeft from "@/components/ui/Icons/ArrowLeft";
 import useControlsStore from "@/utils/controlsStore";
 import DeleteGame from "@/components/ui/Shared/Dialogue/DeleteGame";
 import Note from "@/components/ui/Icons/Note";
-import Sword from "@/components/ui/Icons/Sword";
 import Turns from "@/components/ui/Icons/Turns";
 import Watch from "@/components/ui/Icons/Watch";
 import Adventure from "@/components/ui/Icons/Adventure";
@@ -124,8 +123,12 @@ export default function RightSection({
                   Level {selectedGame.character.level}
                 </span>
                 <span className='flex gap-1 description uppercase'>
-                  <span className='text-irisPurpleLight'>Drow</span>
-                  <span className='text-sandyOrange'>Rogue</span>
+                  <span className='text-irisPurpleLight'>
+                    {selectedGame.character.race}
+                  </span>
+                  <span className='text-sandyOrange'>
+                    {selectedGame.character.class}
+                  </span>
                 </span>
               </div>
             </div>

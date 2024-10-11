@@ -21,8 +21,8 @@ export default function CampaignTabBar({ campaign }) {
   const {
     setCurrentCharacter,
     setCurrentCampaign,
-    currentCharacter,
-    characterSelectTime,
+
+    setStartNewGame,
   } = useGameStore();
   const { user } = useUserStore();
   const pathname = usePathname();
@@ -52,17 +52,11 @@ export default function CampaignTabBar({ campaign }) {
         const { character } = await getCharacter(characterId, user?.token);
 
         setCurrentCharacter(character);
-        router.push("/game/play");
-        return;
       }
-      if (!isSelectionValid(currentCharacter, characterSelectTime)) {
-        router.push("/game/character-selection");
-      } else {
-        router.push("/game/play");
-      }
+      setStartNewGame(true);
     } catch (error) {
       invokeToast(error?.response?.data || "Error playing campaign", "Error");
-     // console.log("Error:", error);
+      // console.log("Error:", error);
     } finally {
       setIsLoading(false);
     }
