@@ -8,7 +8,8 @@ import useCustomToast from "@/hooks/useCustomToast";
 import useGameStore from "@/utils/gameStore";
 import useUserStore from "@/utils/userStore";
 export default function index() {
-  const { startNewGame, setStartNewGame, currentCampaign } = useGameStore();
+  const { startNewGame, setStartNewGame, currentCampaign, setStep } =
+    useGameStore();
 
   const { user } = useUserStore();
   const [characters, setCharacters] = useState([]);
@@ -72,6 +73,10 @@ export default function index() {
   useEffect(() => {
     getAllCharacters();
   }, [user]);
+
+  useEffect(() => {
+    setStep(1);
+  }, [startNewGame]);
 
   return (
     <div className='h-full z-[10] w-full flex flex-col px-5 lg:px-12'>

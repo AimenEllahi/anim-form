@@ -9,6 +9,8 @@ import ArrowRight from "@/components/ui/Icons/ArrowRight";
 import Tick from "@/components/ui/Icons/Tick";
 import Stepper from "./Stepper";
 import useGameStore from "@/utils/gameStore";
+import { useRouter } from "next/navigation";
+import MobileStepper from "./MobileStepper";
 
 export default function StepDialog({
   setOpen,
@@ -19,8 +21,9 @@ export default function StepDialog({
   campaigns,
   setSort,
 }) {
-  const [step, setStep] = useState(1);
-  const { currentCharacter, currentCampaign } = useGameStore();
+  const { step, setStep, currentCharacter, currentCampaign, setStartNewGame } =
+    useGameStore();
+  const router = useRouter();
 
   const nextStep = () => {
     if (step < 3) {
@@ -34,15 +37,23 @@ export default function StepDialog({
     }
   };
 
-  return (
-    <DialogContent className='!bg-white/[8%] flex flex-col overflow-hidden !gap-0 text-white !p-0  md:!pt-0 border-white/[8%] !rounded-[16px] h-full md:h-auto  md:bg-white/10 min-w-[824px]'>
-      <div className='p-6 pb-5 pt-4 flex flex-col gap-4'>
-        <h2 className='running-text-large'>Start new game</h2>
+  const startGame = () => {
+    setStartNewGame(false);
+    router.push("/game/play");
+  };
 
+  return (
+    <DialogContent className='!bg-white/[8%] flex flex-col overflow-hidden !gap-0 text-white !p-0  !pt-[136px] md:!pt-0 !border-0 md:border border-white/[8%] !rounded-[16px] h-full md:h-auto   !bg-russianViolet md:!bg-white/10 min-w-full md:min-w-[824px]'>
+      {/* Desktop */}
+      <div className='p-6 pb-5 pt-4 hidden md:flex flex-col gap-4 '>
+        <h2 className='running-text-large'>Start new game</h2>
         <Stepper step={step} setStep={setStep} />
       </div>
 
-      <div className=' pb-0 h-full border-y border-white/10'>
+      {/* Mobile */}
+      <MobileStepper step={step} setStep={setStep} />
+
+      <div className=' pb-0 h-full overflow-scroll md:overflow-hidden md:h-full border-y border-white/10'>
         {/* Pass the current step and navigation functions to the Stepper */}
         <StepRenderer
           step={step}
@@ -55,10 +66,10 @@ export default function StepDialog({
         />
       </div>
 
-      <div className='p-6 pb-5 flex justify-between'>
+      <div className='p-5 h-fit md:p-6 pb-5 flex justify-end md:justify-between bg-blur-bottom-menu md:blur-0'>
         <CustomButton
           withIcon
-          className={"me-auto"}
+          className={"me-auto hidden md:flex"}
           onClick={() => setOpen(false)}
         >
           <Cancel className='h-4 w-4 fill-white' />
@@ -93,6 +104,7 @@ export default function StepDialog({
           )}
           {step === 3 && (
             <CustomButton
+              onClick={startGame}
               withIcon
               className={"me-auto bg-[#05D381] hover:bg-[#05D381]"}
               variant={"primary"}

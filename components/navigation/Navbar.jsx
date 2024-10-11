@@ -15,7 +15,6 @@ import { getCharacter, getCharacters } from "@/actions/character";
 import useGameStore from "@/utils/gameStore";
 import { useRouter } from "next/navigation";
 import { getCampaignBySlug } from "@/actions/campaigns";
-import { isSelectionValid } from "@/lib/Helpers/shared";
 import SoundButton from "@/components/ui/Shared/SoundButton";
 import MobileHeader from "@/components/navigation/MobileHeaders/index";
 import useCustomToast from "@/hooks/useCustomToast";
@@ -25,6 +24,7 @@ import CreateMenu from "@/components/ui/Shared/CreateMenu";
 import CampaignAdd from "@/components/ui/Icons/CampaignAdd";
 import Game from "@/components/ui/Icons/Game";
 import CustomNavtab from "../ui/custom-navtab";
+import Exit from "../ui/Icons/Exit";
 
 const CampaignLinks = () => {
   const router = useRouter();
@@ -89,7 +89,8 @@ const CreditsDisplay = () => {
   return (
     <>
       {" "}
-      <CustomIcontext  onClick={() => handleRedirect("/pricing")}
+      <CustomIcontext
+        onClick={() => handleRedirect("/pricing")}
         className={"pointer-events-none"}
         aria-label='Blue Credits'
       >
@@ -101,7 +102,8 @@ const CreditsDisplay = () => {
         />
         {user?.blueCredits}
       </CustomIcontext>
-      <CustomIcontext  onClick={() => handleRedirect("/pricing")}
+      <CustomIcontext
+        onClick={() => handleRedirect("/pricing")}
         className={"pointer-events-none"}
         aria-label='Yellow Credits'
       >
@@ -117,8 +119,32 @@ const CreditsDisplay = () => {
   );
 };
 
+const ExitGameButton = () => {
+  const { setStartNewGame } = useGameStore();
+  const router = useRouter();
+  const handleExitGame = () => {
+    setStartNewGame(false);
+    router.push("/discover");
+  };
+  return (
+    <CustomButton
+      onClick={handleExitGame}
+      aria-label='Exit Game'
+      variant='subtle'
+      className={"h-fit w-fit"}
+    >
+      <Exit className='h-5 w-5 fill-white opacity-70' />
+      Exit Game
+    </CustomButton>
+  );
+};
+
 //navbar
-export default function Navbar({ variant, characterSheet }) {
+export default function Navbar({
+  variant,
+  characterSheet,
+  newGameStepper = false,
+}) {
   const { isMobile } = useDeviceDetect();
   const { invokeToast } = useCustomToast();
   const { showMenu, setShowMenu, selectedCompletedGame, selectedGame } =
@@ -273,6 +299,7 @@ export default function Navbar({ variant, characterSheet }) {
           </button>
 
           <DrawerMenu
+            newGameStepper={newGameStepper}
             handlePlay={handlePlay}
             characterCreatePage={characterCreatePage}
           />
@@ -294,6 +321,7 @@ export default function Navbar({ variant, characterSheet }) {
             </Link>
 
             {showCampaignLinks && <CampaignLinks />}
+            {isGamePage && <ExitGameButton />}
           </div>
           <div className='flex justify-center items-center gap-5'>
             <span
