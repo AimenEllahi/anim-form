@@ -209,6 +209,7 @@ const UserLoggedIn = ({ handleRedirect, handlePlay }) => {
   );
 };
 const UserLoggedOut = ({ handleRedirect }) => {
+  const { setStartNewGame } = useGameStore();
   return (
     <div className='mx-[20px] mt-10 gap-[34px] flex flex-col running-text-mono uppercase '>
       <div className={cn("flex items-center gap-6 ")}>
@@ -267,7 +268,7 @@ const UserLoggedOut = ({ handleRedirect }) => {
       </div> */}
 
       <Button
-        onClick={() => handleRedirect("/game/character-selection")}
+        onClick={() => setStartNewGame(true)}
         className='mt-3 w-40'
         variant='primary'
       >
