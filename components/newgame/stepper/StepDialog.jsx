@@ -69,7 +69,7 @@ export default function StepDialog({
       <div className='p-5 h-fit md:p-6 pb-5 flex justify-end md:justify-between bg-blur-bottom-menu md:blur-0'>
         <CustomButton
           withIcon
-          className={"me-auto hidden md:flex"}
+          className={"me-auto "}
           onClick={() => setOpen(false)}
         >
           <Cancel className='h-4 w-4 fill-white' />

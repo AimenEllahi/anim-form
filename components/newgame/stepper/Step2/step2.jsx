@@ -14,12 +14,7 @@ export default function Step2({ characters }) {
     setSelectedCard(index);
   };
 
-  const myCharacters = [
-    ...characters,
-    ...characters,
-    ...characters,
-    ...characters,
-  ];
+  const myCharacters = [];
 
   const premadeCharacters = [];
 
@@ -39,7 +34,7 @@ export default function Step2({ characters }) {
 
         {characters.length > 0 ? (
           <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
-            {myCharacters.map((card, index) => (
+            {characters.map((card, index) => (
               <Card
                 key={index}
                 character={card}
