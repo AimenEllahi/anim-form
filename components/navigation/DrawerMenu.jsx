@@ -315,6 +315,10 @@ export default function DrawerMenu({
       >
         <Link
           href='/'
+          onClick={() => {
+            setShowMenu(false);
+            if (newGameStepper) setStartNewGame(false);
+          }}
           className='text-white hover:text-gray2 transition-all duration-300 ease-in-out keychainify-checked'
         >
           <img

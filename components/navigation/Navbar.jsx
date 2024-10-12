@@ -225,7 +225,6 @@ export default function Navbar({
   };
   const handlePlay = async () => {
     try {
-      console.log("here");
       setIsLoading(true);
       const { characters } = await getCharacters(user?.token);
       if (characters.length === 0) {

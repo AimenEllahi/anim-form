@@ -63,8 +63,6 @@ export default function index() {
   const contact = pathname.includes("/contact");
   const settings = pathname.includes("my-account/settings");
 
-  if (noHeading) return null;
-
   if (startNewGame) {
     return (
       <div className={"flex flex-col gap-2 w-full    md:hidden   justify-end"}>
@@ -81,6 +79,7 @@ export default function index() {
       </div>
     );
   }
+  if (noHeading) return null;
 
   const renderHeader = () => {
     if (signUp) {

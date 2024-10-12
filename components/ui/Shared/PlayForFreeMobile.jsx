@@ -12,8 +12,11 @@ export default function PlayForFreeMobile({ playNow }) {
   const { user } = useUserStore();
   const { invokeToast } = useCustomToast();
 
-  const { setCurrentCharacter, currentCampaign, campaignSelectTime } =
-    useGameStore();
+  const {
+    setCurrentCharacter,
+
+    setStartNewGame,
+  } = useGameStore();
   const [isLoading, setIsLoading] = useState(false);
   const handlePlay = async () => {
     try {
@@ -24,14 +27,10 @@ export default function PlayForFreeMobile({ playNow }) {
         return;
       } else if (characters.length === 1) {
         setCurrentCharacter(characters[0]);
-        if (!isSelectionValid(currentCampaign, campaignSelectTime)) {
-          router.push("/game/campaign-selection");
-        } else {
-          router.push("/game/play");
-        }
+        setStartNewGame(true);
         return;
       } else {
-        router.push("/game/character-selection");
+        setStartNewGame(true);
       }
     } catch (error) {
       invokeToast("Error fetching characters", "Error");
