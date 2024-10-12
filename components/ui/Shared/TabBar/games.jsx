@@ -10,9 +10,11 @@ import AddUser from "@/components/ui/Icons/AddUser";
 import { cn } from "@/lib/utils";
 import SoundButton from "@/components/ui/Shared/SoundButton";
 import Play from "@/components/ui/Icons/Play";
+import useGameStore from "@/utils/gameStore";
 
 export default function GameTabbar({ className }) {
   const router = useRouter();
+  const { setStartNewGame } = useGameStore();
   const [showButtons, setShowButtons] = useState(false);
 
   const handleRedirect = (path) => {
@@ -67,7 +69,7 @@ export default function GameTabbar({ className }) {
             </CustomIconbutton>
           </div>
           <CustomButton
-            onClick={() => handleRedirect("/game/character-selection")}
+            onClick={() => setStartNewGame(true)}
             variant={"primary"}
             withIcon={true}
             className={""}

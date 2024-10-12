@@ -267,7 +267,7 @@ export default function Navbar({
           " running-text-mono w-full rounded-2xl md:border border-white/10 top-0 md:top-8 left-0 translate-x-[0] flex h-auto md:h-[64px]  justify-center md:p-[8px] md:ps-4 ",
           variant === "transparent" && "bg-transparent border-none",
           variant === "glass" && "md:bg-blur",
-          isMobile && "bg-transparent border-0"
+          isMobile && "!bg-transparent !border-none"
           //scrollFromTop.current > 100 && "bg-white/10 border-white/10 bg-blur"
         )}
       >
@@ -278,6 +278,12 @@ export default function Navbar({
           }
         >
           <Link
+            onClick={() => {
+              setShowMenu(false);
+              if (newGameStepper) {
+                setStartNewGame(false);
+              }
+            }}
             href='/'
             className='text-white hover:text-gray1 transition-all duration-300 ease-in-out keychainify-checked'
             aria-label='Home'
