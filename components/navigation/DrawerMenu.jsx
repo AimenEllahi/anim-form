@@ -316,6 +316,7 @@ export default function DrawerMenu({
         <Link
           href='/'
           onClick={() => {
+            console.log("clicked");
             setShowMenu(false);
             if (newGameStepper) setStartNewGame(false);
           }}
