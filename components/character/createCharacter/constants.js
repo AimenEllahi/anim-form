@@ -633,6 +633,50 @@ export const EQUIPMENTS = {
   ],
 };
 
+export const EQUIPMENT_BY_CLASS = {
+  Artificer: {
+    weapon: ["Giant Pen", "Wooden Club", "Battered Axe", "Staff"],
+    secondaryweapon: ["Shield", "War Drum"],
+    armour: ["Wooden Armor", "Leather Armor"],
+    "tool&ammo": ["Horse", "Simple Compass"],
+  },
+  Barbarian: {
+    weapon: ["Novice Wand", "Staff"],
+    secondaryweapon: ["Book of Shadows", "Tarot Deck"],
+    armour: ["Cloth Armor"],
+    "tool&ammo": ["Health Potion", "Herbalism Kit"],
+  },
+  Bard: {
+    weapon: ["Battered Dagger", "Rusty Handcannon"],
+    secondaryweapon: ["Thieves' Tools"],
+    armour: ["Leather Armor"],
+    "tool&ammo": ["Thieves' Tools", "Disguise Kit"],
+  },
+  // Add other classes as needed
+};
+
+export const EQUIPMENT_BY_RACE = {
+  Arakocra: {
+    weapon: ["Wooden Bow", "Novice Wand"],
+    secondaryweapon: ["Harp"],
+    armour: ["Cloth Armor", "Leather Armor"],
+    "tool&ammo": ["Simple Compass", "Disguise Kit"],
+  },
+  Aasimar: {
+    weapon: ["Wooden Hammer", "Battered Axe"],
+    secondaryweapon: ["Shield"],
+    armour: ["Wooden Armor", "Plate Armor"],
+    "tool&ammo": ["Herbalism Kit", "Holy Water"],
+  },
+  "Air Genasi": {
+    weapon: ["Big Fish", "Wooden Club"],
+    secondaryweapon: ["Fishing Rod"],
+    armour: ["Cloth Armor", "Leather Armor"],
+    "tool&ammo": ["Horse", "Health Potion"],
+  },
+  // Add other races as needed
+};
+
 export const INITIAL_CHARACTER = {
   race: {
     name: RACE[0].name,
