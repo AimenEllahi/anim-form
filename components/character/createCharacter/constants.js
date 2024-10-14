@@ -599,14 +599,14 @@ export const PERSONALITIES = {
 };
 
 export const EQUIPMENTS = {
-  weapon: [
+  weapon: [ "Wooden Club", "Dagger"
     
   ],
-  secondaryweapon: [
+  secondaryweapon: ["Short Sword", "Buckler"
     
   ],
-  armour: [],
-  "tool&ammo": [
+  armour: ["No Armor", "Simple Shirt"],
+  "tool&ammo": ["Dice Set", "Healing Potion"
     
   ],
 };
