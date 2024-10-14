@@ -8,8 +8,14 @@ import useCustomToast from "@/hooks/useCustomToast";
 import useGameStore from "@/utils/gameStore";
 import useUserStore from "@/utils/userStore";
 export default function index() {
-  const { startNewGame, setStartNewGame, currentCampaign, setStep } =
-    useGameStore();
+  const {
+    startNewGame,
+    setStartNewGame,
+    currentCampaign,
+    setStep,
+    setCurrentCampaign,
+    
+  } = useGameStore();
 
   const { user } = useUserStore();
   const [characters, setCharacters] = useState([]);
@@ -45,6 +51,8 @@ export default function index() {
         if (!campaign) {
           setCampaigns([currentCampaign, ...response.campaigns]);
         }
+      } else {
+        setCurrentCampaign(response.campaigns[0]);
       }
     } catch (error) {
       invokeToast(

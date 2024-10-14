@@ -12,33 +12,13 @@ export default function ImageModal() {
     setSelectedCharacteristic,
   } = useCharacterStore();
 
-  useEffect(() => {
-    if (showModal) {
-      document.body.style.height = "100vh";
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-      document.body.style.height = "auto";
-    }
-  }, [showModal]);
-
   return (
     <div
       className={cn(
-        "bg-blur-bottom-menu ease-animate md:hidden flex justify-center fixed w-screen h-full !z-[100] left-0 top-0 p-5 pt-24 opacity-0 pointer-events-none",
+        "bg-blur-bottom-menu ease-animate md:hidden flex-col flex justify-center fixed w-screen h-full !z-[100] left-0 top-0 p-5 pt-24 opacity-0 pointer-events-none",
         showModal && "opacity-100 pointer-events-auto"
       )}
     >
-      <CustomButton
-        onClick={() => {
-          setSelectedCharacteristic(null);
-          setShowModal(false);
-        }}
-        className={"absolute bottom-5 right-5"}
-      >
-        <img src='/Icons/Cancel.svg' alt='cancle icon' className='h-5 w-5 ' />
-        Close
-      </CustomButton>
       <div className='flex flex-col gap-5 relative'>
         <img
           src={selectedCharacteristic?.image}
@@ -56,6 +36,16 @@ export default function ImageModal() {
           </span>
         </div>
       </div>
+      <CustomButton
+        onClick={() => {
+          setSelectedCharacteristic(null);
+          setShowModal(false);
+        }}
+        className={"w-fit ms-auto mt-auto"}
+      >
+        <img src='/Icons/Cancel.svg' alt='cancle icon' className='h-5 w-5 ' />
+        Close
+      </CustomButton>
     </div>
   );
 }

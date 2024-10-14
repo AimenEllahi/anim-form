@@ -36,7 +36,7 @@ export default function Choose({ race, handleSelectRace }) {
       </div>
 
       {/* Ends */}
-      <div className='grid grid-cols-12 md:grid-cols-8 lg:grid-cols-12 xl:grid-cols-10 2xl:grid-cols-12 gap-4 md:gap-5 w-full overflow-y-scroll md:p-5  overflow-visible hide-scrollbar md:pb-5'>
+      <div className='grid grid-cols-12 md:grid-cols-8 lg:grid-cols-12 xl:grid-cols-10 gap-4 md:gap-5 w-full overflow-y-scroll md:p-5  overflow-visible hide-scrollbar md:pb-5'>
         {RACE.filter(({ name }) => {
           if (raceQuery) {
             return name.toLowerCase().includes(raceQuery.toLowerCase());
@@ -79,7 +79,6 @@ export default function Choose({ race, handleSelectRace }) {
               />
               <Information
                 onClick={handleShowModal}
-                
                 className={cn(
                   "h-6 w-6  left-2 bottom-2 md:hidden ease-animate  absolute ",
                   race?.name !== name && "opacity-0 pointer-events-none"

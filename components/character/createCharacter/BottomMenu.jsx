@@ -218,7 +218,12 @@ export default function BottomMenu({ character, setCharacter }) {
       {/* For Desktop */}
       <div className='text-white hidden     md:flex justify-between items-center w-full py-12  left-0 z-[20]   '>
         <CustomButton withIcon onClick={handleRandomCharacterName}>
-          <img src='/Icons/Random.svg' title='random icon' alt='icon' className='h-5 w-5 ' />
+          <img
+            src='/Icons/Random.svg'
+            title='random icon'
+            alt='icon'
+            className='h-5 w-5 '
+          />
           RANDOM CHARACTER Name
         </CustomButton>
         <div className='flex w-1/4 relative flex-col gap-1'>

@@ -212,7 +212,7 @@ export default function RootLayout({ children }) {
           />
 
           <main
-            className={cn("z-[1]", !noMaxWidth && "mx-auto max-w-[1440px]")}
+            className={cn("z-[1]", !noMaxWidth && "mx-auto max-w-[1536px]")}
           >
             <NewGameModal />
             {children}

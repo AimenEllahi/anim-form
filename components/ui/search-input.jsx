@@ -22,12 +22,6 @@ export default function SearchInput({
     }
   }, [autoFocus]);
 
-  useEffect(() => {
-    if (!clearInputTrigger) {
-      setQuery("");
-      inputRef.current.value = "";
-    }
-  }, [clearInputTrigger]);
   return (
     <div
       onClick={onClick}
@@ -53,6 +47,7 @@ export default function SearchInput({
         placeholder={placeholder}
         value={query}
         onChange={(e) => {
+          console.log(e.target.value);
           setQuery(e.target.value);
         }}
       />

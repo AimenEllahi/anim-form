@@ -13,7 +13,7 @@ export default function LeftSection({
   setSelectedGame,
 }) {
   const { isMobile } = useDeviceDetect();
-  const [query, setQuery] = useState();
+  const [query, setQuery] = useState("");
   const [sortBy, setSortBy] = useState("Newest to Oldest");
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
@@ -32,7 +32,7 @@ export default function LeftSection({
     return () => {
       document.removeEventListener("click", detectClickOutside);
     };
-  }, [isSearchOpen]);
+  }, [isSearchOpen, query]);
 
   return (
     <div
@@ -49,7 +49,6 @@ export default function LeftSection({
       >
         <SearchInput
           query={query}
-          clearInputTrigger={isSearchOpen}
           onClick={() => setIsSearchOpen(true)}
           setQuery={setQuery}
           placeholder={isMobile ? "" : "Search"}

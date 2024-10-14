@@ -8,6 +8,7 @@ import { INITIAL_CHARACTER } from "./constants";
 import ImageModal from "./shared/ImageModal";
 import BottomMenu from "./BottomMenu";
 import { useSearchParams } from "next/navigation";
+import { cn } from "@/lib/utils";
 
 export default function Index() {
   const { isMobile } = useDeviceDetect();
@@ -18,16 +19,6 @@ export default function Index() {
   const id = searchParams.get("id");
 
   const [character, setCharacter] = useState(INITIAL_CHARACTER);
-
-  useEffect(() => {
-    if (showModal) {
-      document.body.style.height = "100vh";
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-      document.body.style.height = "auto";
-    }
-  }, [showModal]);
 
   //get item from local storage with this id
   useEffect(() => {
@@ -54,7 +45,12 @@ export default function Index() {
     };
   }, [showModal]);
   return (
-    <div className='h-full md:h-screen md:max-h-screen box-border  w-full flex flex-col bg-gradient pt-[136px] md:pt-[120px] px-6 lg:px-12  '>
+    <div
+      className={cn(
+        "h-full md:h-screen md:max-h-screen box-border  w-full flex flex-col bg-gradient pt-[136px] md:pt-[120px]  px-6 lg:px-12  ",
+        showModal && "h-screen overflow-hidden"
+      )}
+    >
       <ImageModal />
       {/* Desktop */}
       <div className='hidden md:flex flex-col gap-2.5 '>
@@ -63,7 +59,7 @@ export default function Index() {
         </h1>
       </div>
 
-      <div className='w-full flex z-[10] h-1/2 flex-1   '>
+      <div className='w-full flex z-[10] h-1/2 flex-1     '>
         <Create setCharacter={setCharacter} character={character} />
       </div>
       <BottomMenu setCharacter={setCharacter} character={character} />

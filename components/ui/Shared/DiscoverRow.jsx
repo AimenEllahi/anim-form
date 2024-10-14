@@ -59,7 +59,7 @@ export default function row({
     return () => {
       document.removeEventListener("click", detectClickOutside);
     };
-  }, [isSearchOpen]);
+  }, [isSearchOpen, query]);
   return (
     <div
       className={twMerge(
@@ -112,7 +112,7 @@ export default function row({
         )}
       </div>
 
-      <div className='w-full text-white  z-[9] grid grid-cols-12 lg:grid-cols-12 gap-4 pt-9 md:pt-4'>
+      <div className='w-full text-white  z-[9] grid grid-cols-12 lg:grid-cols-12 gap-4 pt-4'>
         {campaigns.map((campaign, i) => (
           <div
             key={i}

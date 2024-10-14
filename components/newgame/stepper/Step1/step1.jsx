@@ -21,6 +21,7 @@ export default function Step1({ setQuery, query, campaigns, sort, setSort }) {
   const { isMobile } = useDeviceDetect();
 
   const detectClickOutside = (e) => {
+    if (_query) return;
     if (e.target.classList.contains("search-input")) {
       return;
     }
@@ -38,10 +39,10 @@ export default function Step1({ setQuery, query, campaigns, sort, setSort }) {
     return () => {
       document.removeEventListener("click", detectClickOutside);
     };
-  }, [isSearchOpen]);
+  }, [isSearchOpen, _query]);
 
   return (
-    <div className=' flex flex-col gap-5 pt-5 max-h-auto overflow-auto '>
+    <div className=' flex flex-col gap-5 pt-5 max-h-auto md:h-[483px] md:max-h-[483px]  overflow-auto '>
       <div
         className={cn(
           " flex gap-4 px-5 flex-row-reverse md:flex-row   transition-all duration-300 ease-in-out items-center justify-start",
@@ -78,7 +79,7 @@ export default function Step1({ setQuery, query, campaigns, sort, setSort }) {
           )}
         />
       </div>
-      <div className='space-y-4 h-full md:h-[300px] overflow-auto hide-scrollbar p-5 pt-0 '>
+      <div className='space-y-4 h-full md:h-auto overflow-auto hide-scrollbar p-5 pt-0 '>
         {campaigns.map((campaign, index) => (
           <Card key={index} campaign={campaign} />
         ))}

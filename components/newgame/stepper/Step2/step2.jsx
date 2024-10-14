@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Card from "./Card";
 import CustomButton from "@/components/ui/custom-button";
 
@@ -6,14 +6,24 @@ import Adventure from "@/components/ui/Icons/Adventure";
 import PremadeCharacter from "@/components/ui/Icons/PremadeCharacter";
 import AddUser from "@/components/ui/Icons/AddUser";
 import { cn } from "@/lib/utils";
+import useGameStore from "@/utils/gameStore";
 
 export default function Step2({ characters }) {
-  const [selectedCard, setSelectedCard] = useState(null);
+  const { currentCharacter, setCurrentCharacter } = useGameStore();
 
-  const handleCardSelect = (index) => {
-    setSelectedCard(index);
-  };
-
+  useEffect(() => {
+    if (!currentCharacter && characters.length > 0) {
+      setCurrentCharacter(characters[0]);
+    } else {
+      //check if characters array have current character
+      const character = characters.find(
+        (character) => character._id === currentCharacter?._id
+      );
+      if (!character) {
+        setCurrentCharacter(characters[0]);
+      }
+    }
+  }, [characters]);
   const myCharacters = [];
 
   const premadeCharacters = [];
@@ -35,12 +45,7 @@ export default function Step2({ characters }) {
         {characters.length > 0 ? (
           <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
             {characters.map((card, index) => (
-              <Card
-                key={index}
-                character={card}
-                selected={selectedCard === index}
-                onSelect={() => handleCardSelect(index)}
-              />
+              <Card key={index} character={card} />
             ))}
           </div>
         ) : (
@@ -69,8 +74,6 @@ export default function Step2({ characters }) {
                 key={index}
                 title={card.title}
                 description={card.description}
-                selected={selectedCard === `premade-${index}`}
-                onSelect={() => handleCardSelect(`premade-${index}`)}
               />
             ))}
           </div>

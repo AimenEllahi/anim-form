@@ -33,7 +33,7 @@ export default function Choose({ background, handleSelectBackground }) {
       <div className='px-5 hidden md:block '>
         <SearchInput query={backgroundQuery} setQuery={setBackgroundQuery} />
       </div>
-      <div className='grid grid-cols-12 md:grid-cols-8 lg:grid-cols-12 xl:grid-cols-10 2xl:grid-cols-12 gap-4 md:gap-5 w-full overflow-auto hide-scrollbar md:px-5 md:pt-5 md:pb-5'>
+      <div className='grid grid-cols-12 md:grid-cols-8 lg:grid-cols-12 xl:grid-cols-10  gap-4 md:gap-5 w-full overflow-auto hide-scrollbar md:px-5 md:pt-5 md:pb-5'>
         {BACKGROUND.filter(({ name }) => {
           if (backgroundQuery) {
             return name.toLowerCase().includes(backgroundQuery.toLowerCase());

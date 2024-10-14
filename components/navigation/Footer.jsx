@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
-
+import { usePathname } from "next/navigation";
+import { cn } from "@/lib/utils";
 const NavMenu = ({ menu, disable }) => {
   const getLinkHref = (link) => {
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
@@ -17,8 +18,8 @@ const NavMenu = ({ menu, disable }) => {
         return `/imprint`; // Imprint page URL
       case "Cookies":
         return `/cookies`;
-        case "About Us":
-          return `/about-us`; // Imprint page URL
+      case "About Us":
+        return `/about-us`; // Imprint page URL
       case "Contact Us":
         return `/contact-us?type=support`; // Contact page URL
       case "Give us Feedback":
@@ -67,15 +68,29 @@ const NavMenu = ({ menu, disable }) => {
   );
 };
 export default function Footer() {
+  const pathname = usePathname();
+
   return (
-    <footer className='bg-russianViolet w-full text-white pt-0 pb-16 md:px-12 px-5 md:py-16'>
+    <footer
+      className={cn(
+        "bg-russianViolet w-full text-white pt-0 pb-16 md:px-12 px-5 md:py-16",
+        pathname === "/discover" && "hidden md:block",
+        pathname !== "/" && "max-w-[1536px] mx-auto"
+      )}
+    >
       <div className='w-full border'>
         <div className='w-full md:w-1/2 flex flex-wrap md:gap-8 gap-y-12 justify-between'>
           {/* Help / Support Section */}
           <NavMenu
             menu={{
               heading: "HELP AND SUPPORT",
-              navlinks: ["About Us", "News", "Contact Us", "Give us Feedback", "Report a Bug"],
+              navlinks: [
+                "About Us",
+                "News",
+                "Contact Us",
+                "Give us Feedback",
+                "Report a Bug",
+              ],
             }}
           />
           <NavMenu
@@ -99,10 +114,15 @@ export default function Footer() {
         </div>
         {/* Copyright Notice */}
         <div className='!z-10 mt-14 running-text-mono'>
-          <p className='text-left relative z-10 text-white'>DND AI © 2024 ALL RIGHTS RESERVED</p>
+          <p className='text-left relative z-10 text-white'>
+            DND AI © 2024 ALL RIGHTS RESERVED
+          </p>
           <p className='text-left md:text-right relative z-10 text-white pt-4 md:pt-0'>
-            DESIGNED WITH ♥ BY 
-            <a href="https://www.nexene.at" target="_blank" > NEXENE</a>
+            DESIGNED WITH ♥ BY
+            <a href='https://www.nexene.at' target='_blank'>
+              {" "}
+              NEXENE
+            </a>
           </p>
         </div>
       </div>

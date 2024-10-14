@@ -43,7 +43,7 @@ export default function StepDialog({
   };
 
   return (
-    <DialogContent className='!bg-white/[8%] flex flex-col overflow-hidden !gap-0 text-white !p-0  !pt-[136px] md:!pt-0 !border-0 md:border border-white/[8%] !rounded-[16px] h-full md:h-auto   !bg-russianViolet md:!bg-white/10 min-w-full md:min-w-[824px]'>
+    <DialogContent className='!bg-white/[8%] flex flex-col overflow-hidden !gap-0 text-white !p-0  !pt-[136px] md:!pt-0 !border-0 md:border border-white/[8%] !rounded-[16px] h-full    !bg-russianViolet md:!bg-white/10 min-w-full md:min-w-[824px] md:h-[696px]'>
       {/* Desktop */}
       <div className='p-6 pb-5 pt-4 hidden md:flex flex-col gap-4 '>
         <h2 className='running-text-large'>Start new game</h2>
@@ -53,7 +53,7 @@ export default function StepDialog({
       {/* Mobile */}
       <MobileStepper step={step} setStep={setStep} />
 
-      <div className=' pb-0 h-full overflow-scroll md:overflow-hidden md:h-full border-y border-white/10'>
+      <div className=' pb-0 h-full overflow-scroll md:overflow-hidden md:h-full md:border-y border-white/10'>
         {/* Pass the current step and navigation functions to the Stepper */}
         <StepRenderer
           step={step}
@@ -76,13 +76,9 @@ export default function StepDialog({
           cancel
         </CustomButton>
         {/* Navigation Buttons */}
-        <div className='stepper-navigation flex gap-4'>
+        <div className='stepper-navigation flex gap-6'>
           {step > 1 && (
-            <CustomButton
-              withIcon
-              className={"me-auto bg-transparent border-none"}
-              onClick={prevStep}
-            >
+            <CustomButton withIcon variant={"subtle"} onClick={prevStep}>
               <ArrowLeft className='h-5 w-5 fill-white' />
               Back
             </CustomButton>
@@ -103,12 +99,7 @@ export default function StepDialog({
             </CustomButton>
           )}
           {step === 3 && (
-            <CustomButton
-              onClick={startGame}
-              withIcon
-              className={"me-auto bg-[#05D381] hover:bg-[#05D381]"}
-              variant={"primary"}
-            >
+            <CustomButton onClick={startGame} withIcon variant={"success"}>
               Finish and Start Game
               <Tick className='h-4 w-4 fill-russianViolet' />
             </CustomButton>

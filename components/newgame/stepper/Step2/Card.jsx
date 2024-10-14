@@ -13,7 +13,7 @@ export default function Card({ character, summary = false }) {
         "border w-full border-white/[8%] bg-white/[8%] p-2 flex justify-between rounded-[10px] cursor-pointer transition-all duration-300 ease-in-out overflow-visible ",
         !summary &&
           (currentCharacter?._id === character?._id
-            ? "bg-[#8F91FF33] border-[#8F91FF] shadow-[0_0_20px_0_rgba(143,145,255,0.8)]"
+            ? "bg-[#8F91FF33] border-[#8F91FF] shadow-[0_0_20px_0_rgba(143,145,255,0.3)]"
             : "hover:bg-white/10 hover:border-white/20")
       )}
     >

@@ -25,7 +25,7 @@ export default function Choose({ _class, handleSelectClass }) {
         Class
       </h1>
 
-      <div className='grid grid-cols-12 md:grid-cols-8 lg:grid-cols-12 xl:grid-cols-10 2xl:grid-cols-12 gap-4 md:gap-5 md:p-5 w-full overflow-auto hide-scrollbar md:pb-5'>
+      <div className='grid grid-cols-12 md:grid-cols-8 lg:grid-cols-12 xl:grid-cols-10  gap-4 md:gap-5 md:p-5 w-full overflow-auto hide-scrollbar md:pb-5'>
         {CLASSES.map(({ name, description }, index) => (
           <div
             key={index}

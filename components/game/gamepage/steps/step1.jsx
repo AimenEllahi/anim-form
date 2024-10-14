@@ -12,6 +12,7 @@ import useControlsStore from "@/utils/controlsStore";
 import Navbar from "@/components/navigation/Navbar";
 import useDeviceDetect from "@/hooks/useDeviceDetect";
 import Image from "next/image";
+import CustomIcontext from "@/components/ui/custom-icontext";
 
 export default function StepDialog({
   setOpen,
@@ -89,9 +90,20 @@ export default function StepDialog({
       {step === 1 && (
         <div className='flex flex-col'>
           <div className='flex p-6 pb-5 flex-col h-fit gap-2 '>
-            <span className='running-text-mono text-irisPurpleLight'>
-              STEP 1/2
-            </span>
+            <div className='flex items-center justify-between'>
+              <span className='running-text-mono text-irisPurpleLight'>
+                STEP 1/2
+              </span>
+              <CustomIcontext>
+                <img
+                  src='/gems/Legendary.webp'
+                  title='Legendary Gem'
+                  alt='Legendary Coin, Coin to generate Images on the website'
+                  className='h-[18px] object-contain '
+                />
+                {user.yellowCredits}
+              </CustomIcontext>
+            </div>
             <span className='running-text-large'>
               Choose what kind of image you want to create
             </span>
@@ -123,9 +135,20 @@ export default function StepDialog({
       {step === 2 && (
         <>
           <div className='flex p-6 pb-5  flex-col gap-2'>
-            <span className='running-text-mono text-irisPurpleLight'>
-              STEP 2/2
-            </span>
+            <div className='flex items-center justify-between'>
+              <span className='running-text-mono text-irisPurpleLight'>
+                STEP 2/2
+              </span>
+              <CustomIcontext>
+                <img
+                  src='/gems/Legendary.webp'
+                  title='Legendary Gem'
+                  alt='Legendary Coin, Coin to generate Images on the website'
+                  className='h-[18px] object-contain '
+                />
+                {user.yellowCredits}
+              </CustomIcontext>
+            </div>
             <span className='running-text-large'>
               Select an art style you want to use
             </span>
