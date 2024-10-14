@@ -9,7 +9,7 @@ import { deleteGame } from "@/actions/game";
 import useUserStore from "@/utils/userStore";
 import useControlsStore from "@/utils/controlsStore";
 import GameTabbar from "../ui/Shared/TabBar/games";
-
+import NoGames from "@/components/gametype/noGames/index";
 export default function Index({ gameType, games, setGames }) {
   const {
     selectedTab,
@@ -39,6 +39,8 @@ export default function Index({ gameType, games, setGames }) {
       }
     }
   }, [games]);
+
+  console.log(completedGames);
   const handleDeleteGame = async (id) => {
     try {
       setLoadingDelete(true);
@@ -101,44 +103,53 @@ export default function Index({ gameType, games, setGames }) {
         </div>
       </div>
 
-      {/* Desktop */}
-      <div className='flex md:border text-white md:bg-white/[8%] rounded-[16px] border-white/10 h-full justify-end items-end my-6  w-full md:overflow-hidden'>
-        <div className='w-full md:w-1/2 h-full md:border-r border-white/[8%]'>
-          {selectedTab === "inProgress" ? (
-            <LeftSection
-              selectedGame={selectedGame}
-              setSelectedGame={setSelectedGame}
-              games={inProgressGames}
+      {selectedTab === "inProgress" && inProgressGames.length <= 0 ? (
+        <NoGames />
+      ) : selectedTab === "completed" && completedGames.length <= 0 ? (
+        <NoGames
+        completedGames = {true}
+        
+        />
+      ) : (
+        <div className='flex md:border text-white md:bg-white/[8%] rounded-[16px] border-white/10 h-full justify-end items-end my-6  w-full md:overflow-hidden'>
+          <div className='w-full md:w-1/2 h-full md:border-r border-white/[8%]'>
+            {selectedTab === "inProgress" ? (
+              <LeftSection
+                selectedGame={selectedGame}
+                setSelectedGame={setSelectedGame}
+                games={inProgressGames}
+                selectedTab={selectedTab}
+              />
+            ) : (
+              <LeftSection
+                selectedGame={selectedCompletedGame}
+                setSelectedGame={setSelectedCompletedGame}
+                games={completedGames}
+                selectedTab={selectedTab}
+              />
+            )}
+          </div>
+          <div
+            className={cn(
+              " w-screen fixed md:relative bg-blur-bottom-menu md:blur-none md:bg-transparent left-0 top-0 md:w-1/2 h-full !z-[100] md:z-auto ",
+              selectedTab === "inProgress" && !selectedGame && "hidden",
+              selectedTab === "completed" && !selectedCompletedGame && "hidden"
+            )}
+          >
+            <RightSection
+              selectedGame={
+                selectedTab === "inProgress"
+                  ? selectedGame
+                  : selectedCompletedGame
+              }
+              handleDeleteGame={handleDeleteGame}
               selectedTab={selectedTab}
+              loadingDelete={loadingDelete}
             />
-          ) : (
-            <LeftSection
-              selectedGame={selectedCompletedGame}
-              setSelectedGame={setSelectedCompletedGame}
-              games={completedGames}
-              selectedTab={selectedTab}
-            />
-          )}
+          </div>
         </div>
-        <div
-          className={cn(
-            " w-screen fixed md:relative bg-blur-bottom-menu md:blur-none md:bg-transparent left-0 top-0 md:w-1/2 h-full !z-[100] md:z-auto ",
-            selectedTab === "inProgress" && !selectedGame && "hidden",
-            selectedTab === "completed" && !selectedCompletedGame && "hidden"
-          )}
-        >
-          <RightSection
-            selectedGame={
-              selectedTab === "inProgress"
-                ? selectedGame
-                : selectedCompletedGame
-            }
-            handleDeleteGame={handleDeleteGame}
-            selectedTab={selectedTab}
-            loadingDelete={loadingDelete}
-          />
-        </div>
-      </div>
+      )}
+
       <GameTabbar />
     </div>
   );

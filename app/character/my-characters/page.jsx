@@ -67,9 +67,11 @@ export default function page() {
   const getAllCharacters = async () => {
     try {
       const response = await getCharacters(user?.token);
-    //  console.log("response", response);
-      setCharacters(response.characters);
-      setTotalCharacters(response.characters.length);
+      //  console.log("response", response);
+      setCharacters([...response.characters, ...response.premadeCharacters]);
+      setTotalCharacters(
+        response.characters.length + response.premadeCharacters.length
+      );
     } catch (error) {
       invokeToast(
         error?.response?.data?.error || "Error fetching characters",

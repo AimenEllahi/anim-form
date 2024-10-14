@@ -14,12 +14,12 @@ export default function index() {
     currentCampaign,
     setStep,
     setCurrentCampaign,
-    
   } = useGameStore();
 
   const { user } = useUserStore();
   const [characters, setCharacters] = useState([]);
   const [campaigns, setCampaigns] = useState([]);
+  const [premadeCharacters, setPremadeCharacters] = useState([]);
   const { invokeToast } = useCustomToast();
 
   const [query, setQuery] = useState("");
@@ -29,12 +29,14 @@ export default function index() {
       const response = await getCharacters(user?.token);
 
       setCharacters(response.characters);
+      setPremadeCharacters(response.premadeCharacters);
     } catch (error) {
       invokeToast(
         error?.response?.data?.error || "Error fetching Characters",
         "Error"
       );
       setCharacters([]);
+      setPremadeCharacters([]);
       console.error("Error:", error);
     }
   };
@@ -98,6 +100,7 @@ export default function index() {
           query={query}
           sort={sort}
           setSort={setSort}
+          premadeCharacters={premadeCharacters}
         />
       </Dialog>
     </div>

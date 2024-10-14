@@ -56,10 +56,10 @@ export default function LeftSection({
             "md:w-full  search-input transition-all origin-right  duration-[1000ms] h-12 ease-in-out",
             isSearchOpen && "w-full"
           )}
-          inputClassName={cn(
-            "ps-0 w-12  md:w-full md:ps-[38px] origin-right transition-all duration-300 ease-in-out",
-            isSearchOpen && "ps-[38px] w-full "
-          )}
+          inputClassName={cn()
+          // "ps-0 w-12  md:w-full md:ps-[38px] origin-right transition-all duration-300 ease-in-out",
+          // isSearchOpen && "ps-[38px] w-full "
+          }
           iconClassName={!isSearchOpen && "justify-center ps-0"}
         />
 
@@ -77,7 +77,7 @@ export default function LeftSection({
       </div>
       <div
         className={cn(
-          "flex flex-col gap-4 h-full  pb-52 md:pb-0  ",
+          "flex flex-col gap-4 h-full  pb-52 md:pb-5  ",
           !isMobile && "overflow-y-auto overflow-x-hidden hide-scrollbar"
         )}
       >

@@ -20,6 +20,7 @@ export default function StepDialog({
   sort,
   campaigns,
   setSort,
+  premadeCharacters,
 }) {
   const { step, setStep, currentCharacter, currentCampaign, setStartNewGame } =
     useGameStore();
@@ -63,6 +64,7 @@ export default function StepDialog({
           query={query}
           sort={sort}
           setSort={setSort}
+          premadeCharacters={premadeCharacters}
         />
       </div>
 

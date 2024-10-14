@@ -108,7 +108,7 @@ export default function StepDialog({
               Choose what kind of image you want to create
             </span>
           </div>
-          <div className='grid grid-cols-2 md:grid-cols-3 gap-4  content-start items-start justify-start  p-6 pb-28 md:pb-4  pt-0 overflow-y-scroll hide-scrollbar h-full max-h-[76vh] md:max-h-[50vh]'>
+          <div className='grid grid-cols-2 md:grid-cols-3 gap-4  content-start items-start justify-start  p-6 pb-32 md:pb-4  pt-0 overflow-y-scroll hide-scrollbar h-full max-h-[76vh] md:max-h-[50vh]'>
             {IMAGE_TYPES.map((type, i) => (
               <div
                 onClick={() => setImageType(type.type)}

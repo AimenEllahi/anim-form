@@ -2053,15 +2053,15 @@ export default function page() {
     if (user?.token) {
       handleGetGames();
     } else {
-      setGames(_response);
+      setGames([]);
       setGamesLength(0);
     }
   }, [user?.token]);
 
   if (!games) return <Loader text='Loading games...' />;
-  if (games.length === 0) return <NoGames />;
+
   return (
-    <div className='h-full md:h-screen w-full fixed md:relative z-[10] pt-[122px] md:pt-[144px] md:pb-[48px]'>
+    <div className='h-full md:h-screen w-full fixed md:relative z-[10] pt-[122px] md:pt-[144px] md:pb-[24px]'>
       {/* <Games gameType={"multiPlayer"} /> */}
       <Games gameType={"singlePlayer"} games={games} setGames={setGames} />
     </div>

@@ -29,7 +29,7 @@ export default function SearchInput({
     >
       <div
         className={cn(
-          "absolute inset-y-0 inset-x-0 start-0 flex items-center  ps-3 pointer-events-none",
+          "absolute inset-y-0 inset-x-0 md:left-3 md:right-auto start-0 flex items-center  ps-3 pointer-events-none",
           iconClassName
         )}
       >

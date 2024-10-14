@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from "react";
 import Card from "./Card";
 import CustomButton from "@/components/ui/custom-button";
-
+import { useRouter } from "next/navigation";
 import Adventure from "@/components/ui/Icons/Adventure";
 import PremadeCharacter from "@/components/ui/Icons/PremadeCharacter";
 import AddUser from "@/components/ui/Icons/AddUser";
 import { cn } from "@/lib/utils";
 import useGameStore from "@/utils/gameStore";
 
-export default function Step2({ characters }) {
-  const { currentCharacter, setCurrentCharacter } = useGameStore();
+export default function Step2({ characters, premadeCharacters }) {
+  const { currentCharacter, setCurrentCharacter, setStartNewGame } =
+    useGameStore();
+  const router = useRouter();
 
   useEffect(() => {
     if (!currentCharacter && characters.length > 0) {
@@ -19,14 +21,11 @@ export default function Step2({ characters }) {
       const character = characters.find(
         (character) => character._id === currentCharacter?._id
       );
-      if (!character) {
+      if (!character && characters.length > 0) {
         setCurrentCharacter(characters[0]);
       }
     }
   }, [characters]);
-  const myCharacters = [];
-
-  const premadeCharacters = [];
 
   return (
     <div
@@ -53,7 +52,13 @@ export default function Step2({ characters }) {
             <p className='text-white running-text-large text-center'>
               You’re ready to create your first character!
             </p>
-            <CustomButton withIcon={true}>
+            <CustomButton
+              onClick={() => {
+                router.push("/character/create");
+                setStartNewGame(false);
+              }}
+              withIcon={true}
+            >
               <AddUser className='h-5 w-5 fill-white opacity-70' />
               create character
             </CustomButton>
@@ -70,11 +75,7 @@ export default function Step2({ characters }) {
 
           <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
             {premadeCharacters.map((card, index) => (
-              <Card
-                key={index}
-                title={card.title}
-                description={card.description}
-              />
+              <Card key={index} character={card} />
             ))}
           </div>
         </div>

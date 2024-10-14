@@ -131,19 +131,19 @@ body {
 
   /* Headline 1 */
   .headline-1 {
-    @apply font-helvetica-now-display font-medium uppercase text-[34px] leading-[32px] md:text-[100px] md:leading-[88px] !tracking-[0.03em] 2xl:text-[120px] 2xl:leading-[100px];
+    @apply font-helvetica-now-display font-medium uppercase text-[34px] leading-[32px] md:text-[100px] md:leading-[88px] !tracking-[0.03em];
   }
 
   /* Headline 2 */
   .headline-2 {
-    @apply font-roboto-mono md:font-helvetica-now-display font-medium uppercase md:text-[44px] md:leading-[42px] text-[22px] leading-[22px] tracking-[0.03em] 2xl:text-[60px] 2xl:leading-[60px];
+    @apply font-roboto-mono md:font-helvetica-now-display font-medium uppercase md:text-[44px] md:leading-[42px] text-[22px] leading-[22px] tracking-[0.03em];
 
     /* Specify font family */
   }
 
   /* Headline 3 */
   .headline-3 {
-    @apply font-helvetica-now-display font-medium text-[28px] leading-[34px] md:text-[44px] md:leading-[45px] tracking-[0.02em] md:tracking-[0.01em] 2xl:text-[60px] 2xl:leading-[60px];
+    @apply font-helvetica-now-display font-medium text-[28px] leading-[34px] md:text-[44px] md:leading-[45px] tracking-[0.02em] md:tracking-[0.01em];
   }
 
   /* Headline 4 */

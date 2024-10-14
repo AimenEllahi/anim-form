@@ -11,6 +11,7 @@ export default function StepRenderer({
   sort,
   setSort,
   campaigns,
+  premadeCharacters,
 }) {
   return (
     <div className='stepper-container'>
@@ -23,7 +24,9 @@ export default function StepRenderer({
           setSort={setSort}
         />
       )}
-      {step === 2 && <Step2 characters={characters} />}
+      {step === 2 && (
+        <Step2 characters={characters} premadeCharacters={premadeCharacters} />
+      )}
       {step === 3 && <Step3 />}
     </div>
   );

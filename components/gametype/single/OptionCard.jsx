@@ -49,29 +49,29 @@ export default function OptionCard({
           "hover:bg-white/10 hover:border-[1px] hover:border-white/20 ":
             !isCompleted && selectedTab !== "publicGames" && !isSelected,
           "hover:bg-successGreen/10 hover:border-[1px] hover:border-successGreen/20 ":
-            isCompleted && selectedTab !== "publicGames",
+            isCompleted && selectedTab !== "publicGames" && !isSelected,
         }
       )}
     >
-      <div className="flex gap-3  items-center w-full">
+      <div className='flex gap-3  items-center w-full'>
         <img
           src={imageSrc}
           alt={title}
-          className="w-14 h-14 rounded-[6px] object-contain"
+          className='w-14 h-14 rounded-[6px] object-contain'
         />
-        <div className="flex flex-col justify-center gap-1.5  items-start">
-          <span className="running-text">
+        <div className='flex flex-col justify-center gap-1.5  items-start'>
+          <span className='running-text max-h-10 overflow-hidden'>
             {campaignName}, {characterName}
           </span>
-          <span className="text-gray2 description uppercase text">
+          <span className='text-gray2 description uppercase text'>
             Played {moment(updatedAt).fromNow()}
           </span>
         </div>
       </div>
 
       <img
-        src="/Icons/DownArrow.svg"
-        alt=""
+        src='/Icons/DownArrow.svg'
+        alt=''
         className={cn(
           "mr-4 transform hidden md:block -rotate-90 opacity-0 transition-opacity duration-200 ease-in-out",
           { "opacity-100": isSelected }
