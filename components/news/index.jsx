@@ -21,7 +21,16 @@ export default function ArticlesPage() {
       description: "Patch 1.0",
       imageUrl: "https://dzjg7lvewk7ln.cloudfront.net/articles/article_1.webp",
     },
-    //{
+    {
+     id: 2,
+      title: "Offical Release of Patch 1.1",
+      description:
+        "New Start Game Wizard, Navbar Rework, Conditional start Equipment logic and more..",
+      imageUrl: "https://dzjg7lvewk7ln.cloudfront.net/articles/article_2.webp",
+      },
+    // Add more articles as needed
+
+        //{
     // id: 2,
     //  title: "Health Update: Benefits of a Balanced Diet",
     //  description:
