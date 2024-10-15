@@ -54,6 +54,8 @@ export default function RootLayout({ children }) {
     ogDescription,
     ogImage,
     ogUrl,
+    ogVideo,
+    ogWebsite,
   } = getMetaTags(pathname);
 
   useEffect(() => {
@@ -106,7 +108,8 @@ export default function RootLayout({ children }) {
           <meta property='og:description' content={ogDescription} />
           <meta property='og:url' content={ogUrl} />
           <meta property='og:image' content={ogImage} />
-          <meta property='og:type' content='website' />
+          <meta property='og:video' content={ogVideo} />
+          <meta property='og:type' content={ogWebsite} />
           <meta property='og:site_name' content='DND AI' />
           <meta property='og:locale' content='en_US' />
           <meta property='og:image:width' content='1200' />
