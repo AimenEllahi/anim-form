@@ -7,7 +7,7 @@
 @font-face {
   font-family: "Helvetica Now Display";
   src: local("Helvetica Now Display"),
-        url("/fonts/HelveticaNowDisplay-Medium.woff2") format("woff");
+        url("/fonts/HelveticaNowDisplay-Medium.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
