@@ -140,33 +140,6 @@ export default function RootLayout({ children }) {
           <link rel="icon" href="/favicon.ico" sizes="32x32"/>
           <link rel="icon" href="/icon.svg" type="image/svg+xml"/>
           <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
-          <link
-            rel='preload'
-            href='https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;700&display=swap'
-            as='style'
-          />
-          <link
-            rel='preload'
-            href='https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap'
-            as='style'
-          />
-          <link
-            rel='preload'
-            href='https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap'
-            as='style'
-          />
-          <link
-            rel='stylesheet'
-            href='https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;700&display=swap'
-          />
-          <link
-            rel='stylesheet'
-            href='https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap'
-          />
-          <link
-            rel='stylesheet'
-            href='https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap'
-          />
           <Script
             strategy='afterInteractive'
             src={`https://www.googletagmanager.com/gtag/js?id=G-BTHMYX7TZ9`}
