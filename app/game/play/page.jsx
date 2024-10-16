@@ -128,17 +128,17 @@ function GameHandler() {
     if (id) {
       handleGetGame();
     } else {
-      setGame(dummyGame);
-      setResponse(dummyGame.state);
-      setGameCharacter({
-        value: {},
-        personal: {
-          race: "",
-          class: "",
-        },
-      });
+   //   setGame(dummyGame);
+   //  setResponse(dummyGame.state);
+   //   setGameCharacter({
+    //    value: {},
+     //   personal: {
+    //      race: "",
+      //    class: "",
+    //    },
+    //  });
 
-      //handleInitiateGame();
+      handleInitiateGame();
     }
   }, [user?.token]);
 

@@ -10,6 +10,8 @@ export const getMetaTags = (pathname) => {
     "Dive into epic, story-driven adventures with free pen and paper games, powered by OpenAI’s cutting-edge artificial intelligence.";
   let ogImage = "https://dzjg7lvewk7ln.cloudfront.net/Headers/Header.webp";
   let ogUrl = `https://dndai.app${pathname}`;
+  let ogVideo ='https://dzjg7lvewk7ln.cloudfront.net/videos/header.mp4'
+  let ogWebsite ='website'
 
   if (pathname.includes("game/character-selection")) {
     title = "DND AI | Hero Select";
@@ -26,6 +28,22 @@ export const getMetaTags = (pathname) => {
   } else if (pathname.includes("/game/play")) {
     title = "DND AI | Gameplay";
     ogTitle = "DND AI | Gameplay";
+  } 
+  else if (pathname.includes("/news")) {
+    title = "DND AI | News";
+    ogTitle = "DND AI | News";
+  }
+  else if (pathname.includes("/article")) {
+    title = "DND AI | Article";
+    ogTitle = "DND AI | Article";
+    description =
+      "News about dndai.app The platform to play dnd with Ai. The perfect place to let your imagination run wild";
+    keywords =
+      "News, Game Patch, Articles, Openai, AI characters, RPG classes and races, D&D character selection, role-playing game tools, hero, story, gampeplay news, Patchnotes, News about dndai, D&D News";
+    ogTitle = "DND AI | News";
+    ogDescription =
+      "News about dndai.app The platform to play dnd with Ai. The perfect place to let your imagination run wild";
+    ogWebsite ='article';
   } else if (pathname.includes("/character/create")) {
     title = "DND AI | Create Character";
     description =
@@ -234,7 +252,7 @@ export const getMetaTags = (pathname) => {
       "DnD AI terms and conditions, usage policies, user guidelines, platform rules, legal agreements, user responsibilities, DnD AI rules, terms of service, DnD AI policies";
     ogTitle = "DND AI | Terms and Conditions";
     ogDescription =
-      "erms and Conditions for using DnD AI. Understand the rules, user responsibilities, and legal agreements that govern our platform. Stay informed at dndai.app.";
+      "Terms and Conditions for using DnD AI. Understand the rules, user responsibilities, and legal agreements that govern our platform. Stay informed at dndai.app.";
     ogImage = "https://dzjg7lvewk7ln.cloudfront.net/Headers/Header.webp";
     ogUrl = `https://dndai.app${pathname}`;
   }
@@ -247,5 +265,7 @@ export const getMetaTags = (pathname) => {
     ogDescription,
     ogImage,
     ogUrl,
+    ogVideo,
+    ogWebsite,
   };
 };

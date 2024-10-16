@@ -54,6 +54,8 @@ export default function RootLayout({ children }) {
     ogDescription,
     ogImage,
     ogUrl,
+    ogVideo,
+    ogWebsite,
   } = getMetaTags(pathname);
 
   useEffect(() => {
@@ -106,7 +108,8 @@ export default function RootLayout({ children }) {
           <meta property='og:description' content={ogDescription} />
           <meta property='og:url' content={ogUrl} />
           <meta property='og:image' content={ogImage} />
-          <meta property='og:type' content='website' />
+          <meta property='og:video' content={ogVideo} />
+          <meta property='og:type' content={ogWebsite} />
           <meta property='og:site_name' content='DND AI' />
           <meta property='og:locale' content='en_US' />
           <meta property='og:image:width' content='1200' />
@@ -133,49 +136,14 @@ export default function RootLayout({ children }) {
           <meta name='msapplication-TileImage' content={ogImage} />
 
           <link rel='canonical' href={ogUrl} />
-          <link rel='shortcut icon' href='favicon.ico' sizes='144x144' />
-          <link
-            rel='preload'
-            href='https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;700&display=swap'
-            as='style'
-          />
-          <link
-            rel='preload'
-            href='https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap'
-            as='style'
-          />
-          <link
-            rel='preload'
-            href='https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap'
-            as='style'
-          />
-          <link
-            rel='preload'
-            href='/fonts/HelveticaNowDisplay-Medium.ttf'
-            as='font'
-            type='font/ttf'
-            crossOrigin='anonymous'
-          />
-          <link
-            rel='stylesheet'
-            href='https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;700&display=swap'
-          />
-          <link
-            rel='stylesheet'
-            href='https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap'
-          />
-          <link
-            rel='stylesheet'
-            href='https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap'
-          />
+          <link rel="manifest" href="/manifest.webmanifest"/>
+          <link rel="icon" href="/favicon.ico" sizes="32x32"/>
+          <link rel="icon" href="/icon.svg" type="image/svg+xml"/>
+          <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
           <Script
             strategy='afterInteractive'
             src={`https://www.googletagmanager.com/gtag/js?id=G-BTHMYX7TZ9`}
             async
-          />
-          <Script
-            strategy='afterInteractive'
-            src={`https://www.googletagmanager.com/gtag/js?id='G-BTHMYX7TZ9`}
           />
           <Script
             id='google-analytics'

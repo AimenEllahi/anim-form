@@ -4,10 +4,8 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import CustomIconbutton from "../custom-iconbutton";
-import Plus from "@/components/ui/Icons/Plus";
+import CustomIconButton from "../custom-iconbutton";
 import Add from "@/components/ui/Icons/Add";
-import CustomButton from "@/components/ui/custom-button";
 import AddUser from "@/components/ui/Icons/AddUser";
 import CampaignAdd from "@/components/ui/Icons/CampaignAdd";
 import { useRouter } from "next/navigation";
@@ -24,17 +22,29 @@ export default function CreateMenu() {
   const handleNavigation = (path) => {
     router.push(path);
   };
+
   return (
     <Popover open={open} onOpenChange={(open) => setOpen(open)}>
-      <PopoverTrigger>
-        <CustomIconbutton
-          className={cn(
-            open &&
-              "bg-white/20 border-white/40 hover:bg-white/20 active:bg-white/20 active:border-white/40 hover:border-white/40"
-          )}
+      <PopoverTrigger asChild>
+        <div
+          role="button"
+          tabIndex={0}
+          onClick={() => setOpen(!open)}
+          onKeyPress={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              setOpen(!open);
+            }
+          }}
         >
-          <Add className='h-5 w-5 fill-white' />
-        </CustomIconbutton>
+          <CustomIconButton
+            className={cn(
+              open &&
+                "bg-white/20 border-white/40 hover:bg-white/20 active:bg-white/20 active:border-white/40 hover:border-white/40"
+            )}
+          >
+            <Add className='h-5 w-5 fill-white' />
+          </CustomIconButton>
+        </div>
       </PopoverTrigger>
       <PopoverContent
         className={cn(

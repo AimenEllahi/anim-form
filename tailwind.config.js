@@ -18,8 +18,10 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        "helvetica-now-display": ['"Helvetica Now Display"', "sans-serif"],
-        "roboto-mono": ['"Roboto Mono"', "monospace"],
+        'helvetica-now-display': ['"Helvetica Now Display"', 'sans-serif'],
+        'roboto-mono': ['"Roboto Mono"', 'monospace'],
+        'dm-mono': ['"DM Mono"', 'monospace'],
+        'instrument-sans': ['"Instrument Sans"', 'sans-serif'],
       },
 
       boxShadow: {
