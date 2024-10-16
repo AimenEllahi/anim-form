@@ -156,13 +156,6 @@ export default function RootLayout({ children }) {
             as='style'
           />
           <link
-            rel='preload'
-            href='/fonts/HelveticaNowDisplay-Medium.ttf'
-            as='font'
-            type='font/ttf'
-            crossOrigin='anonymous'
-          />
-          <link
             rel='stylesheet'
             href='https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;700&display=swap'
           />

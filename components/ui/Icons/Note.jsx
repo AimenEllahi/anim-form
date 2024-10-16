@@ -13,7 +13,7 @@ export default function Note(props) {
     >
       <path
         d='M3,3v14h14V3H3ZM16,16H4V4h12v12ZM14,7H6v-1h8v1ZM14,10H6v-1h8v1ZM12,13h-6v-1h6v1Z'
-        stroke-width='0'
+        strokeWidth='0'
       />
     </svg>
   );
