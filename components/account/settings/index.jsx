@@ -10,15 +10,15 @@ import Card from "@/components/ui/Icons/Card";
 export default function Index() {
   const [active, setActive] = useState("account");
   return (
-    <div className='h-full md:h-full min-h-screen text-white w-full flex flex-col pt-[108px] md:pt-[9rem] px-5 lg:px-12 pb-32'>
+    <div className='h-full md:h-full min-h-screen text-white w-full flex flex-col pt-[108px] md:pt-[9rem] px-5 lg:px-12 pb-32 relative'>
       <div className='flex flex-col w-full gap-2.5'>
         <div className='hidden md:flex justify-between text-white z-[10] w-full md:w-auto'>
           <span className='headline-3 z-[10] '>Account settings</span>
         </div>
 
-        <div className=' my-4 w-full  z-[20] h-full flex flex-col md:flex-row gap-5'>
+        <div className=' my-4 w-full  z-[2] h-full flex flex-col md:flex-row gap-5'>
           {/* Desktop */}
-          <div className='  w-full h-full md:w-1/5 z-[10] hidden md:flex md:flex-col gap-3'>
+          <div className='  w-full h-full md:w-1/5 z-[1] hidden md:flex md:flex-col gap-3'>
             <CustomButton
               withIcon={true}
               onClick={() => setActive("account")}

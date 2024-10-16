@@ -33,8 +33,10 @@ export default function Card({ campaign }) {
         />
         {/* Left section for title and description */}
         <div className='flex flex-col'>
-          <h3 className='running-text text-white'>{campaign.title}</h3>
-          <p className='text-gray2 running-text-small'>
+          <h3 className='running-text h-6 overflow-hidden text-white'>
+            {campaign.title}
+          </h3>
+          <p className='text-gray2 h-6  overflow-hidden running-text-small'>
             {campaign.plot.slice(0, 80)}...
           </p>
         </div>

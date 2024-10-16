@@ -236,7 +236,7 @@ export default function index() {
     } else if (contact) {
       return <span className='headline-3  '>Contact</span>;
     } else if (settings) {
-      return <span className='headline-3  '> Account settings</span>;
+      return <span className='headline-3   '> Account settings</span>;
     } else if (games) {
       return (
         <span className='headline-3  '>

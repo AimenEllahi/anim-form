@@ -49,6 +49,7 @@ export default function LeftSection({
       >
         <SearchInput
           query={query}
+          triggerOnBlur={setIsSearchOpen}
           onClick={() => setIsSearchOpen(true)}
           setQuery={setQuery}
           placeholder={isMobile ? "" : "Search"}
@@ -56,10 +57,10 @@ export default function LeftSection({
             "md:w-full  search-input transition-all origin-right  duration-[1000ms] h-12 ease-in-out",
             isSearchOpen && "w-full"
           )}
-          inputClassName={cn()
-          // "ps-0 w-12  md:w-full md:ps-[38px] origin-right transition-all duration-300 ease-in-out",
-          // isSearchOpen && "ps-[38px] w-full "
-          }
+          inputClassName={cn(
+            "ps-0 w-12  md:w-full md:ps-[38px] origin-right transition-all duration-300 ease-in-out",
+            isSearchOpen && "ps-[38px] w-full "
+          )}
           iconClassName={!isSearchOpen && "justify-center ps-0"}
         />
 

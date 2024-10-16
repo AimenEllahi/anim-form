@@ -11,6 +11,8 @@ import Stepper from "./Stepper";
 import useGameStore from "@/utils/gameStore";
 import { useRouter } from "next/navigation";
 import MobileStepper from "./MobileStepper";
+import useDeviceDetect from "@/hooks/useDeviceDetect";
+import { twMerge } from "tailwind-merge";
 
 export default function StepDialog({
   setOpen,
@@ -22,6 +24,7 @@ export default function StepDialog({
   setSort,
   premadeCharacters,
 }) {
+  const { isMobile } = useDeviceDetect();
   const { step, setStep, currentCharacter, currentCampaign, setStartNewGame } =
     useGameStore();
   const router = useRouter();
@@ -44,7 +47,17 @@ export default function StepDialog({
   };
 
   return (
-    <DialogContent className='!bg-white/[8%] flex flex-col overflow-hidden !gap-0 text-white !p-0  !pt-[136px] md:!pt-0 !border-0 md:border border-white/[8%] !rounded-[16px] h-full    !bg-russianViolet md:!bg-white/10 min-w-full md:min-w-[824px] md:h-[696px]'>
+    <DialogContent className='md:!bg-white/[8%] flex flex-col overflow-hidden !gap-0 text-white !p-0  !pt-[136px] md:!pt-0 !border-0 md:!border border-white/[8%] !rounded-[16px] h-full    !bg-transparent  min-w-full md:min-w-[824px] md:h-[696px]'>
+      {isMobile && (
+        <img
+          src='/images/bg.png'
+          alt='Background'
+          priority='true'
+          title='Background Gradient'
+          className='fixed w-screen h-screen top-0 left-0 z-1 object-cover'
+        />
+      )}
+
       {/* Desktop */}
       <div className='p-6 pb-5 pt-4 hidden md:flex flex-col gap-4 '>
         <h2 className='running-text-large'>Start new game</h2>
@@ -54,7 +67,7 @@ export default function StepDialog({
       {/* Mobile */}
       <MobileStepper step={step} setStep={setStep} />
 
-      <div className=' pb-0 h-full overflow-scroll md:overflow-hidden md:h-full md:border-y border-white/10'>
+      <div className='z-10 pb-0 h-full overflow-scroll md:overflow-hidden md:h-full md:border-y border-white/10'>
         {/* Pass the current step and navigation functions to the Stepper */}
         <StepRenderer
           step={step}
@@ -68,15 +81,33 @@ export default function StepDialog({
         />
       </div>
 
-      <div className='p-5 h-fit md:p-6 pb-5 flex justify-end md:justify-between bg-blur-bottom-menu md:blur-0'>
+      <div
+        className={twMerge(
+          "p-5 h-fit md:p-6 pb-5 flex justify-end md:justify-between ",
+          isMobile && "bg-blur-bottom-menu"
+        )}
+      >
+        {/* Desktop */}
         <CustomButton
           withIcon
-          className={"me-auto "}
+          className={twMerge("me-auto hidden md:flex")}
           onClick={() => setOpen(false)}
         >
           <Cancel className='h-4 w-4 fill-white' />
           cancel
         </CustomButton>
+        {/* Mobile */}
+        {step === 1 && (
+          <CustomButton
+            withIcon
+            className={twMerge("me-auto  md:hidden")}
+            onClick={() => setOpen(false)}
+          >
+            <ArrowLeft className='h-5 w-5 fill-white' />
+            Back
+          </CustomButton>
+        )}
+
         {/* Navigation Buttons */}
         <div className='stepper-navigation flex gap-6'>
           {step > 1 && (

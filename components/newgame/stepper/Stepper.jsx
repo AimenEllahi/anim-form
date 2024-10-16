@@ -25,8 +25,12 @@ export default function Stepper({ step, setStep }) {
               className='flex h-full items-center gap-2'
             >
               <CustomIconButton
-                variant={index + 1 === step ? "primary" : "outlined"}
-                className={cn()}
+                className={cn(
+                  " h-8 w-8 opacity-70 text-gray2 pointer-events-auto",
+                  step - 1 === index &&
+                    "opacity-100 bg-white text-russianViolet hover:bg-white active:bg-white",
+                  step > index ? "!border-gray1 !border-[1px] " : "border-none"
+                )}
               >
                 {step > index + 1 ? (
                   <img

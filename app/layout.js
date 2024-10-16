@@ -201,10 +201,9 @@ export default function RootLayout({ children }) {
           <img
             src='/images/bg.png'
             alt='Background'
-            style={{ objectFit: "cover" }}
             priority='true'
             title='Background Gradient'
-            className='fixed w-screen h-screen top-0 left-0 z-0'
+            className='fixed w-screen h-screen top-0 left-0 z-0 object-cover'
           />
           <MemoizedNavbar
             characterSheet={characterSheet}

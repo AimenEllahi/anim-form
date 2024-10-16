@@ -84,7 +84,7 @@ export default function Home() {
             </div>
           )}
           <div className='absolute md:bottom-10 px-5 md:px-12 bottom-40 md:left-0 left-0 md:w-2/4 w-full'>
-            <h1 className='text-white w-full headline-3'>
+            <h1 className='text-white w-full headline-2'>
               UNLEASH YOUR IMAGINATION WITH LIMITLESS GAMEPLAY!
             </h1>
             <div

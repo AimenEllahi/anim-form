@@ -2035,8 +2035,6 @@ export default function page() {
 
       const response = await getGames(user?.token);
 
-      console.log(response);
-
       setGames(response.games);
       setGamesLength(response.games.length);
     } catch (error) {
@@ -2053,7 +2051,7 @@ export default function page() {
     if (user?.token) {
       handleGetGames();
     } else {
-      setGames([]);
+      setGames(_response);
       setGamesLength(0);
     }
   }, [user?.token]);

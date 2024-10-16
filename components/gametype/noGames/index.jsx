@@ -4,13 +4,20 @@ import Play from "@/components/ui/Icons/Play";
 import { useRouter } from "next/navigation";
 import GameTabbar from "@/components/ui/Shared/TabBar/games";
 import { cn } from "@/lib/utils";
-export default function index({ completedGames }) {
+import { twMerge } from "tailwind-merge";
+
+export default function index({ completedGames, removePadding }) {
   const router = useRouter();
   const handleRedirect = () => {
     router.push("/discover");
   };
   return (
-    <div className='fixed  flex w-full h-screen justify-center items-center md:relative z-10'>
+    <div
+      className={twMerge(
+        " flex w-full h-full justify-center items-center relative z-10",
+        removePadding && "-translate-y-[122px]"
+      )}
+    >
       <div className=' flex flex-col justify-center items-center gap-4 mb-4 z-10 '>
         {!completedGames && (
           <img
@@ -72,8 +79,6 @@ export default function index({ completedGames }) {
           />
         </>
       )}
-
-      <GameTabbar className='bg-transparent' />
     </div>
   );
 }

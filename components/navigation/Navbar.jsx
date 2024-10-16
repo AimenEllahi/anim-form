@@ -346,7 +346,7 @@ export default function Navbar({
                 </Link>
               )}
             </span>
-            {showGems && <CreditsDisplay />}
+            {user?.token && <CreditsDisplay />}
             {user?.token && <CreateMenu aria-label='Create Menu' />}
             <AccountDropdown aria-label='Account Dropdown' />
 

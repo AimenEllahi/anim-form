@@ -39,7 +39,10 @@ export default function Payment() {
   let subscription = {};
   if (user.paymentHistory?.length > 0)
     subscription = user?.paymentHistory
-      .filter((data) => data.mode === "subscription")
+      .filter(
+        (data) => data.mode === "subscription" && data.status !== "canceled"
+      )
+
       .slice(-1)[0];
 
   const handleUpdatePaymentHistory = async () => {
@@ -180,7 +183,7 @@ export default function Payment() {
                 <CustomButton
                   withIcon={true}
                   variant={"primary"}
-                  className={"flex justify-start  "}
+                  className={"flex justify-start hidden "}
                 >
                   <Edit className='h-5 w-5 opacity-70 fill-black' />
                   <span> change subscription</span>
@@ -193,7 +196,7 @@ export default function Payment() {
                   <CustomButton
                     disabled={loading}
                     withIcon={true}
-                    className={"hidden md:flex justify-start  "}
+                    className={"flex justify-start  "}
                   >
                     <Delete className='h-5 w-5 opacity-70 fill-red-500' />
                     <span> cancel subscription</span>
