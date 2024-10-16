@@ -136,7 +136,10 @@ export default function RootLayout({ children }) {
           <meta name='msapplication-TileImage' content={ogImage} />
 
           <link rel='canonical' href={ogUrl} />
-          <link rel='shortcut icon' href='favicon.ico' sizes='144x144' />
+          <link rel="manifest" href="/manifest.webmanifest"/>
+          <link rel="icon" href="/favicon.ico" sizes="32x32"/>
+          <link rel="icon" href="/icon.svg" type="image/svg+xml"/>
+          <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
           <link
             rel='preload'
             href='https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;700&display=swap'
