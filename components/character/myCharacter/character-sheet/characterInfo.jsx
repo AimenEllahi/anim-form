@@ -23,27 +23,27 @@ export default function characterInfo({
   const { user } = useUserStore();
 
   return (
-    <div className=" w-[345px] h-auto p-4 border border-white/10 bg-white/10 rounded-[16px] overflow-hidden flex flex-col justify-start">
-      <div className="">
-        <div className="h-auto w-full relative flex flex-col gap-4">
+    <div className=' w-[345px] h-auto p-4 border border-white/10 bg-white/10 rounded-[16px] overflow-hidden flex flex-col justify-start'>
+      <div className=''>
+        <div className='h-auto w-full relative flex flex-col gap-4'>
           {loadingAvatar && (
             <Loader
-              text="Generating Image..."
-              className="absolute top-0 left-0 w-full h-full bg-blur flex items-center justify-center"
+              text='Generating Image...'
+              className='absolute top-0 left-0 w-full h-full bg-blur flex items-center justify-center'
             />
           )}
-          <div className="flex justify-between">
-            <span className="running-text-large">Character portrait</span>
-            <img src="/Icons/Info-button.svg" alt="" />
+          <div className='flex justify-between'>
+            <span className='running-text-large'>Character portrait</span>
+            <img src='/Icons/Info-button.svg' alt='' />
           </div>
           <img
             src={
               currentPortrait ||
               "/images/CreateCharacter/CharacterName/CharacterName.png"
             }
-            alt="custom character portrait"
-            title="Custom Character Portrait"
-            className=" w-full object-contain aspect-square rounded-[10px] "
+            alt='custom character portrait'
+            title='Custom Character Portrait'
+            className=' w-full object-contain aspect-square rounded-[10px] '
           />
           <CustomButton variant={"primary"} withIcon>
             <CampaignAdd className={cn("h-4 w-4 fill-russianViolet")} />

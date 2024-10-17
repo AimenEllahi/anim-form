@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import CharacterInfo from "@/components/character/myCharacter/character-sheet/characterInfo";
-import AbilitiesInfo from "@/components/character/myCharacter/character-sheet/abilitiesInfo";
+import Appearance from "@/components/character/myCharacter/character-sheet/Appearance";
 import GeneralInfo from "@/components/character/myCharacter/character-sheet/general";
 import CustomButton from "@/components/ui/custom-button";
 import Play from "@/components/ui/Icons/Play";
@@ -22,9 +22,11 @@ import Loader from "@/components/ui/Loader";
 import useGameStore from "@/utils/gameStore";
 import GuestUser from "@/components/ui/Shared/Dialogue/GuestUser";
 import Switch from "./Switch";
+import Abilities from "./Abilities";
+import Inventory from "./Inventory";
 
 export default function characterSheet({ character, setCharacter }) {
-  const [selectedTab, setSelectedTab] = useState("appearance");
+  const [selectedTab, setSelectedTab] = useState("inventory");
   const router = useRouter();
   const pathname = usePathname();
   const { user } = useUserStore();
@@ -105,18 +107,28 @@ export default function characterSheet({ character, setCharacter }) {
   return (
     <div
       ref={containerRef}
-      className="h-full min-h-full w-full pt-[94px] px-5 pb-32 md:pt-[120px] md:pb-[104px] md:px-12 flex flex-col gap-[24px]"
+      className='h-full min-h-full w-full pt-[94px] px-5 pb-32 md:pt-[120px] md:pb-[104px] md:px-12 flex flex-col gap-[24px]'
     >
       <GuestUser />
-      <div className="hidden md:flex md:justify-between gap-[32px]">
-        <div className="z-10 flex justify-start items-center gap-5">
-          <span className="text-white headline-3">Antichristus</span>
-          <img src="/images/starsword.png" alt="" className="h-10 w-10" />
-          <div className="flex flex-col running-text-mono">
-            <span className="text-white ">LEVEL 32</span>
-            <span className=" text-irisPurpleLight uppercase">
-              Fire genassi
-              <span className=" text-sandyOrange uppercase">Sorcerer</span>
+      <div className='hidden md:flex md:justify-between gap-[32px]'>
+        <div className='z-10 flex justify-start items-center gap-5'>
+          <span className='text-white headline-3'>Antichristus</span>
+          <img
+            src={`https://dzjg7lvewk7ln.cloudfront.net/class/${character?.personal?.class
+              .toLowerCase()
+              .replaceAll(" ", "-")}.webp`}
+            className='rounded-full h-[32px] w-[32px]'
+            title='Characters Class'
+            alt='class of the Character'
+          />
+          <div className='flex flex-col running-text-mono'>
+            <span className='text-white '>LEVEL {character.value.level}</span>
+            <span className=' text-irisPurpleLight uppercase'>
+              {character.value.race}{" "}
+              <span className=' text-sandyOrange uppercase'>
+                {" "}
+                {character.value.class}
+              </span>
             </span>
           </div>
         </div>
@@ -145,17 +157,17 @@ export default function characterSheet({ character, setCharacter }) {
         <DeleteCharacter action={handleDeleteCharacter}>
           <CustomButton
             withIcon={true}
-            variant="secondary"
+            variant='secondary'
             className={cn(!isCreator && "hidden")}
           >
-            <Delete className="h-5 w-5 opacity-70 fill-errorRed" />
+            <Delete className='h-5 w-5 opacity-70 fill-errorRed' />
             Delete character
           </CustomButton>
         </DeleteCharacter>
       </div>
       <Switch selectedTab={selectedTab} setSelectedTab={setSelectedTab} />
       {selectedTab === "appearance" && (
-        <div className=" h-full gap-5  z-10 flex">
+        <div className=' h-full gap-5  z-10 flex'>
           <div>
             <CharacterInfo
               loadingAvatar={loadingAvatar}
@@ -163,23 +175,26 @@ export default function characterSheet({ character, setCharacter }) {
               character={character}
             />
           </div>
-          <div className="">
-            <AbilitiesInfo character={character} />
+          <div className=''>
+            <Appearance character={character} />
           </div>
 
-          <div className="   ">
+          <div className='   '>
             <GeneralInfo character={character} />
           </div>
         </div>
       )}
 
+      {selectedTab === "abilities" && <Abilities character={character} />}
+      {selectedTab === "inventory" && <Inventory character={character} />}
+
       <DeleteCharacter action={handleDeleteCharacter}>
         <CustomButton
           withIcon={true}
-          variant="subtle"
+          variant='subtle'
           className={cn("w-fit self-start md:hidden", !isCreator && "hidden")}
         >
-          <Delete className="h-5 w-5 opacity-70 fill-errorRed" />
+          <Delete className='h-5 w-5 opacity-70 fill-errorRed' />
           Delete
         </CustomButton>
       </DeleteCharacter>
@@ -196,8 +211,8 @@ export default function characterSheet({ character, setCharacter }) {
         setCharacter={setCharacter}
         avatars={character?.personal?.portraits || []}
       />
-      <div className="md:hidden z-[10] flex items-center justify-between bg-blur-bottom-menu fixed bottom-0 w-screen left-0 p-5 ">
-        <div className="flex items-center gap-4">
+      <div className='md:hidden z-[10] flex items-center justify-between bg-blur-bottom-menu fixed bottom-0 w-screen left-0 p-5 '>
+        <div className='flex items-center gap-4'>
           <SoundButton />
           <CustomIconbutton
             onClick={() => {
@@ -205,7 +220,7 @@ export default function characterSheet({ character, setCharacter }) {
               router.push(pathname);
             }}
           >
-            <Edit fill="white" className="h-5 w-5  " />
+            <Edit fill='white' className='h-5 w-5  ' />
           </CustomIconbutton>
         </div>
         <CustomButton
@@ -213,7 +228,7 @@ export default function characterSheet({ character, setCharacter }) {
           onClick={handlePlayWithCharacter}
           variant={"primary"}
         >
-          <Play className="h-5 w-5 opacity-70" />
+          <Play className='h-5 w-5 opacity-70' />
           Play Now
         </CustomButton>
       </div>
