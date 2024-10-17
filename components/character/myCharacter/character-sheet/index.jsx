@@ -21,7 +21,10 @@ import { deleteCharacter, getCharacter } from "@/actions/character";
 import Loader from "@/components/ui/Loader";
 import useGameStore from "@/utils/gameStore";
 import GuestUser from "@/components/ui/Shared/Dialogue/GuestUser";
+import Switch from "./Switch";
+
 export default function characterSheet({ character, setCharacter }) {
+  const [selectedTab, setSelectedTab] = useState("appearance");
   const router = useRouter();
   const pathname = usePathname();
   const { user } = useUserStore();
@@ -102,11 +105,22 @@ export default function characterSheet({ character, setCharacter }) {
   return (
     <div
       ref={containerRef}
-      className='h-full min-h-full w-full pt-[94px] px-5 pb-32 md:pt-[120px] md:pb-[104px] md:px-12 flex flex-col gap-[24px]'
+      className="h-full min-h-full w-full pt-[94px] px-5 pb-32 md:pt-[120px] md:pb-[104px] md:px-12 flex flex-col gap-[24px]"
     >
       <GuestUser />
-      <div className='hidden md:flex justify-start gap-[32px]'>
-        <CustomButton
+      <div className="hidden md:flex md:justify-between gap-[32px]">
+        <div className="z-10 flex justify-start items-center gap-5">
+          <span className="text-white headline-3">Antichristus</span>
+          <img src="/images/starsword.png" alt="" className="h-10 w-10" />
+          <div className="flex flex-col running-text-mono">
+            <span className="text-white ">LEVEL 32</span>
+            <span className=" text-irisPurpleLight uppercase">
+              Fire genassi
+              <span className=" text-sandyOrange uppercase">Sorcerer</span>
+            </span>
+          </div>
+        </div>
+        {/* <CustomButton
           onClick={() => {
             setOpen(true);
             if (character?.personal?.portraits?.length > 0) {
@@ -117,13 +131,13 @@ export default function characterSheet({ character, setCharacter }) {
           }}
         >
           {character?.personal?.portraits?.length > 0 ? (
-            <Edit fill='white' className='h-5 w-5 opacity-70' />
+            <Edit fill="white" className="h-5 w-5 opacity-70" />
           ) : (
-            <Generate className='h-5 w-5 opacity-70 fill-white' />
+            <Generate className="h-5 w-5 opacity-70 fill-white" />
           )}
           {character?.personal?.portraits?.length > 0 ? "Change " : "Create "}
           character portrait
-        </CustomButton>
+        </CustomButton> */}
         {/**       <CustomButton variant='subtle'>
          <Download fill='white' className='h-5 w-5 opacity-70 text-white' />
           Download character sheet
@@ -131,37 +145,41 @@ export default function characterSheet({ character, setCharacter }) {
         <DeleteCharacter action={handleDeleteCharacter}>
           <CustomButton
             withIcon={true}
-            variant='subtle'
+            variant="secondary"
             className={cn(!isCreator && "hidden")}
           >
-            <Delete className='h-5 w-5 opacity-70 fill-errorRed' />
-            Delete
+            <Delete className="h-5 w-5 opacity-70 fill-errorRed" />
+            Delete character
           </CustomButton>
         </DeleteCharacter>
       </div>
-      <div className=' h-full grid grid-cols-8 gap-5 '>
-        <div className='col-span-8 md:col-span-2 relative'>
-          <CharacterInfo
-            loadingAvatar={loadingAvatar}
-            currentPortrait={currentPortrait}
-            character={character}
-          />
-        </div>
-        <div className=' col-span-8 md:col-span-4 w-auto gap-[24px] flex flex-col'>
-          <GeneralInfo character={character} />
-        </div>
+      <Switch selectedTab={selectedTab} setSelectedTab={setSelectedTab} />
+      {selectedTab === "appearance" && (
+        <div className=" h-full gap-5  z-10 flex">
+          <div>
+            <CharacterInfo
+              loadingAvatar={loadingAvatar}
+              currentPortrait={currentPortrait}
+              character={character}
+            />
+          </div>
+          <div className="">
+            <AbilitiesInfo character={character} />
+          </div>
 
-        <div className=' col-span-8 md:col-span-2  flex flex-col gap-[24px]'>
-          <AbilitiesInfo character={character} />
+          <div className="   ">
+            <GeneralInfo character={character} />
+          </div>
         </div>
-      </div>
+      )}
+
       <DeleteCharacter action={handleDeleteCharacter}>
         <CustomButton
           withIcon={true}
-          variant='subtle'
+          variant="subtle"
           className={cn("w-fit self-start md:hidden", !isCreator && "hidden")}
         >
-          <Delete className='h-5 w-5 opacity-70 fill-errorRed' />
+          <Delete className="h-5 w-5 opacity-70 fill-errorRed" />
           Delete
         </CustomButton>
       </DeleteCharacter>
@@ -178,8 +196,8 @@ export default function characterSheet({ character, setCharacter }) {
         setCharacter={setCharacter}
         avatars={character?.personal?.portraits || []}
       />
-      <div className='md:hidden z-[10] flex items-center justify-between bg-blur-bottom-menu fixed bottom-0 w-screen left-0 p-5 '>
-        <div className='flex items-center gap-4'>
+      <div className="md:hidden z-[10] flex items-center justify-between bg-blur-bottom-menu fixed bottom-0 w-screen left-0 p-5 ">
+        <div className="flex items-center gap-4">
           <SoundButton />
           <CustomIconbutton
             onClick={() => {
@@ -187,7 +205,7 @@ export default function characterSheet({ character, setCharacter }) {
               router.push(pathname);
             }}
           >
-            <Edit fill='white' className='h-5 w-5  ' />
+            <Edit fill="white" className="h-5 w-5  " />
           </CustomIconbutton>
         </div>
         <CustomButton
@@ -195,7 +213,7 @@ export default function characterSheet({ character, setCharacter }) {
           onClick={handlePlayWithCharacter}
           variant={"primary"}
         >
-          <Play className='h-5 w-5 opacity-70' />
+          <Play className="h-5 w-5 opacity-70" />
           Play Now
         </CustomButton>
       </div>

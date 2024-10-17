@@ -6,20 +6,20 @@ const RenderData = ({ title, data, className, containerClassName }) => {
   return (
     <div
       className={cn(
-        " h-full  overflow-hidden py-6 px-5 bg-white/10 border border-white/10 rounded-[16px]",
+        " h-auto  overflow-hidden py-6 px-5 bg-white/10 border border-white/10 rounded-[16px]",
         className
       )}
     >
-      <div className=' flex flex-col gap-6'>
-        <span className='headline-4 w-full truncate'>{title}</span>
+      <div className=" flex flex-col gap-6">
+        <span className="headline-4 w-full truncate">{title}</span>
         <div className={cn("flex flex-col gap-6", containerClassName)}>
           {data.map((item, index) => (
             <div
               key={index}
-              className='flex flex-col justify-center items-start gap-4 '
+              className="flex flex-col justify-center items-start gap-4 "
             >
-              <span className='text-gray2 description'>{item.key}</span>
-              <span className='running-text-mono'>{item.value}</span>
+              <span className="text-gray2 description">{item.key}</span>
+              <span className="running-text-mono">{item.value}</span>
             </div>
           ))}
         </div>
@@ -76,10 +76,10 @@ export default function general({ character }) {
   const [generalInfo, setGeneralInfo] = useState(INITIAL_STATE);
 
   return (
-    <div className='flex flex-col gap-4 md:gap-5 z-[1]'>
-      <div className='grid grid-cols-4 md:grid-cols-3 gap-4 md:gap-5 uppercase'>
+    <div className=" gap-4 md:gap-5 z-[10]">
+      <div className="gap-4 flex md:gap-5 uppercase">
         <RenderData
-          title='General'
+          title="General"
           data={[
             {
               key: "gender",
@@ -101,7 +101,7 @@ export default function general({ character }) {
           className={"col-span-2 md:col-span-1"}
         />
         <RenderData
-          title='Personality'
+          title="Personality"
           data={[
             {
               key: "Personality",
@@ -126,8 +126,8 @@ export default function general({ character }) {
           className={"col-span-2 md:col-span-1"}
         />
 
-        <RenderData
-          title='Defence'
+        {/* <RenderData
+          title="Defence"
           data={[
             {
               key: "Hit Point",
@@ -139,15 +139,15 @@ export default function general({ character }) {
             },
           ]}
           className={"col-span-4 md:col-span-1"}
-          containerClassName='flex-row md:flex-col'
-        />
+          containerClassName="flex-row md:flex-col"
+        /> */}
       </div>
 
-      <div className=' h-auto  p-5 pt-6 bg-white/10 border border-white/10 rounded-[16px] uppercase'>
-        <div className=' flex flex-col '>
-          <div className='flex w-full flex-col gap-4 items-start justify-between '>
-            <span className='headline-4'>Inventory</span>
-            <div className='w-full grid-cols-2 grid gap-x-5 '>
+      {/* <div className=" h-auto  p-5 pt-6 bg-white/10 border border-white/10 rounded-[16px] uppercase">
+        <div className=" flex flex-col ">
+          <div className="flex w-full flex-col gap-4 items-start justify-between ">
+            <span className="headline-4">Inventory</span>
+            <div className="w-full grid-cols-2 grid gap-x-5 ">
               <RenderEquipmentData
                 value={character.value.gold + " Gold"}
                 index={0}
@@ -166,7 +166,7 @@ export default function general({ character }) {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
