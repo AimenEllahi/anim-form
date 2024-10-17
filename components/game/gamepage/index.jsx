@@ -236,7 +236,7 @@ export default function Index({
       </div>
       <div
         suppressHydrationWarning
-        className='w-full flex gap-10 px-6 lg:px-12 pb-32 lg:pb-12 h-screen fixed z-[8] overflow-y-scroll hide-scrollbar text-white'
+        className='w-full flex gap-10 px-5 lg:px-12 pb-32 lg:pb-12 h-screen fixed z-[8] overflow-y-scroll hide-scrollbar text-white'
       >
         <div className='w-1/4 b h-full hidden lg:flex flex-col gap-3 z-30 pt-[40px] lg:pt-[128px]'>
           <span className='running-text-mono text-gray2'>CAMPAIGN</span>
