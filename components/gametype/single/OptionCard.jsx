@@ -18,7 +18,7 @@ export default function OptionCard({
     <div
       onClick={onClick}
       className={cn(
-        "border p-2 flex justify-between rounded-[16px] cursor-pointer transition-all duration-300 ease-in-out overflow-visible",
+        "border p-2 flex justify-between rounded-[10px] cursor-pointer transition-all duration-300 ease-in-out overflow-visible",
         {
           // Initial state for "Public Games"
           "bg-[#FFB37114] border-[#FFB37114]":

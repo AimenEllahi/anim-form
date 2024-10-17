@@ -108,7 +108,7 @@ export default function Index({ gameType, games, setGames }) {
       ) : selectedTab === "completed" && completedGames.length <= 0 ? (
         <NoGames completedGames={true} />
       ) : (
-        <div className='flex md:border text-white md:bg-white/[8%] rounded-[16px] border-white/10 h-full justify-end items-end my-6  w-full md:overflow-hidden px-5 lg:px-12'>
+        <div className='flex md:border text-white md:bg-white/[8%] rounded-[16px] border-white/10 h-full justify-end items-end my-6  w-full md:overflow-hidden px-5 lg:px-0'>
           <div className='w-full md:w-1/2 h-full md:border-r border-white/[8%]'>
             {selectedTab === "inProgress" ? (
               <LeftSection
