@@ -34,11 +34,12 @@ jobs:
         env:
           EC2_HOSTNAME: ${{ secrets.HOST }}
 
+      # Optional: Increase swap space to 2GB to help with memory during npm install
       - name: Set up swap space on EC2
         run: |
           ssh -i ssh_key.pem ec2-user@$EC2_HOSTNAME << 'EOF'
             if ! grep -q '/swapfile' /etc/fstab; then
-              sudo fallocate -l 1G /swapfile
+              sudo fallocate -l 2G /swapfile
               sudo chmod 600 /swapfile
               sudo mkswap /swapfile
               sudo swapon /swapfile
@@ -49,15 +50,36 @@ jobs:
         env:
           EC2_HOSTNAME: ${{ secrets.HOST }}
 
-      - name: Install Node.js dependencies
+      - name: Install Node.js dependencies (production only)
         run: |
-          ssh -i ssh_key.pem ec2-user@$EC2_HOSTNAME "export NODE_OPTIONS='--max-old-space-size=1536' && cd ~/dndaiFrontEnd && npm install"
+          ssh -i ssh_key.pem ec2-user@$EC2_HOSTNAME "export NODE_OPTIONS='--max-old-space-size=1536' && cd ~/dndaiFrontEnd && npm install --production"
+        env:
+          EC2_HOSTNAME: ${{ secrets.HOST }}
+
+      # Optional: Clean npm cache to free up space after installation
+      - name: Clean npm cache after install
+        run: |
+          ssh -i ssh_key.pem ec2-user@$EC2_HOSTNAME "cd ~/dndaiFrontEnd && npm cache clean --force"
+        env:
+          EC2_HOSTNAME: ${{ secrets.HOST }}
+
+      # Optional: Check disk usage after npm install to troubleshoot space issues
+      - name: Check for large files after npm install
+        run: |
+          ssh -i ssh_key.pem ec2-user@$EC2_HOSTNAME "cd ~/dndaiFrontEnd && du -ah . | sort -rh | head -n 20"
         env:
           EC2_HOSTNAME: ${{ secrets.HOST }}
 
       - name: Build the project
         run: |
           ssh -i ssh_key.pem ec2-user@$EC2_HOSTNAME "export NEXT_PUBLIC_BACKEND_URL=https://dndai.app && cd ~/dndaiFrontEnd && npm run build"
+        env:
+          EC2_HOSTNAME: ${{ secrets.HOST }}
+
+      # Optional: Prune unnecessary dependencies after the build
+      - name: Prune Node.js dependencies after build
+        run: |
+          ssh -i ssh_key.pem ec2-user@$EC2_HOSTNAME "cd ~/dndaiFrontEnd && npm prune --production"
         env:
           EC2_HOSTNAME: ${{ secrets.HOST }}
 
