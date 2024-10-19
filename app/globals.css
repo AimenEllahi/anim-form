@@ -12,6 +12,14 @@
   font-style: normal;
   font-display: optional;
 }
+@font-face {
+  font-family: "Roboto Mono";
+  src: local("Roboto Mono"),
+        url("/fonts/RobotoMono-VariableFont_wght.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: optional;
+}
 
 body {
   font-family: "Instrument Sans", "Helvetica Now Display", -apple-system,

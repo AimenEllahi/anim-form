@@ -141,6 +141,13 @@ export default function RootLayout({ children }) {
             type="font/woff2" 
             crossOrigin="anonymous"
           />
+          <link 
+            rel="preload" 
+            href="/fonts/RobotoMono-VariableFont_wght.woff2" 
+            as="font" 
+            type="font/woff2" 
+            crossOrigin="anonymous"
+          />
           <link rel='canonical' href={ogUrl} />
           <link rel="manifest" href="/manifest.webmanifest"/>
           <link rel="icon" href="/favicon.ico" sizes="32x32"/>
