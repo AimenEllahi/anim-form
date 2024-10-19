@@ -77,7 +77,7 @@ export default function RootLayout({ children }) {
     }
   }, [pathname, title]);
   useEffect(() => {
-    //get token
+    //  get token
     const token = cookies.get("token");
     if (!token && user?.token) {
       cookies.set("token", user.token, {
