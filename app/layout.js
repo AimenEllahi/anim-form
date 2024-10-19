@@ -134,7 +134,13 @@ export default function RootLayout({ children }) {
           <meta name='application-name' content='DND AI' />
           <meta name='msapplication-TileColor' content='#0A0A21' />
           <meta name='msapplication-TileImage' content={ogImage} />
-
+          <link 
+            rel="preload" 
+            href="/fonts/HelveticaNowDisplay-Medium.woff2" 
+            as="font" 
+            type="font/woff2" 
+            crossOrigin="anonymous"
+          />
           <link rel='canonical' href={ogUrl} />
           <link rel="manifest" href="/manifest.webmanifest"/>
           <link rel="icon" href="/favicon.ico" sizes="32x32"/>
