@@ -25,6 +25,7 @@ import CampaignAdd from "@/components/ui/Icons/CampaignAdd";
 import Game from "@/components/ui/Icons/Game";
 import CustomNavtab from "../ui/custom-navtab";
 import Exit from "../ui/Icons/Exit";
+import Notification from "../news/Notification";
 
 const CampaignLinks = () => {
   const router = useRouter();
@@ -302,8 +303,8 @@ export default function Navbar({
           >
             <Menu fill='#9A9AC1' />
           </button>
-
           <DrawerMenu
+          
             newGameStepper={newGameStepper}
             handlePlay={handlePlay}
             characterCreatePage={characterCreatePage}
@@ -347,8 +348,10 @@ export default function Navbar({
               )}
             </span>
             {user?.token && <CreditsDisplay />}
+            {user?.token && <Notification />}
             {user?.token && <CreateMenu aria-label='Create Menu' />}
             <AccountDropdown aria-label='Account Dropdown' />
+
 
             <SoundButton aria-label='Sound Button' />
 
