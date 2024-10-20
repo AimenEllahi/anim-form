@@ -97,11 +97,11 @@ const UserLoggedIn = ({ handleRedirect, handlePlay }) => {
         >
           <img
             src='/Icons/ImageLibrary.svg'
-            alt='My images button'
-            title='My images'
+            alt='Gallery'
+            title='gallery'
             className='h-5 w-5  opacity-70'
           />
-          <span>Gallery</span>
+          <span>Community Gallery</span>
         </CustomMenuItem>
       </div>
 
