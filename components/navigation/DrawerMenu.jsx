@@ -128,7 +128,7 @@ const UserLoggedIn = ({ handleRedirect, handlePlay }) => {
           }
         >
           <Adventure className='h-5 w-5 opacity-70 fill-white' />
-          <span>My characters</span>
+          <span>My Adventurers</span>
         </CustomMenuItem>
         <CustomMenuItem
           onClick={() => handleRedirect("/my-account/gallery?page=1")}

@@ -58,7 +58,7 @@ export default function CreateMenu() {
           variant='subtle'
         >
           <AddUser className='h-5 w-5 fill-white' />
-          Create Character
+          Create Adventurer
         </CustomMenuItem>
         <CustomMenuItem
           onClick={() => handleNavigation("/campaign/create")}

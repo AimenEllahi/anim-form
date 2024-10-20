@@ -28,7 +28,7 @@ export const IMAGE_STYLES = [
 
 export const IMAGE_TYPES = [
   {
-    name: "My Character in play",
+    name: "My Adventurer in play",
     type: "characterImage",
     image:
       "https://dzjg7lvewk7ln.cloudfront.net/imagetocreate/character-in-action.webp",

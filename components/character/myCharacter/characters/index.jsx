@@ -22,7 +22,7 @@ export default function characters({ characters = [], className }) {
       <div className=' flex flex-col gap-[20px] justify-start pt-8 md:pt-0 '>
         <div className='md:flex w-full items-center justify-between hidden'>
           <span className='headline-3 z-[10]  '>
-            My characters
+            My Adventurers
             <span className='text-gray2 ms-3 md:ms-4 font-roboto-mono transform translate-up text-[17px] md:text-[24px] translate-y-[-15px] md:translate-y-[-20px]'>
               ({characters.length})
             </span>
@@ -34,7 +34,7 @@ export default function characters({ characters = [], className }) {
             className={"hidden md:flex"}
           >
             <AddUser className='h-5 w-5 opacity-70 fill-white' />
-            Create character
+            Create Adventurer
           </CustomButton>
         </div>
         <div className=' w-full grid grid-cols-12 gap-[20px]'>

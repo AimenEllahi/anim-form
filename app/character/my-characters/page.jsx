@@ -86,7 +86,7 @@ export default function page() {
     getAllCharacters();
   }, [user?.token]);
 
-  if (!characters) return <Loader text={"Loading Characters ..."} />;
+  if (!characters) return <Loader text={"Loading Adventurers ..."} />;
   if (characters.length <= 0) return <CharacterPlaceholder />;
   return (
     <div className=' text-white'>

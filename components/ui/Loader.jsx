@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import React from "react";
 
-export default function Loader({ text = "", className }) {
+export default function ({ text = "", className }) {
   return (
     <div
       role='status'
