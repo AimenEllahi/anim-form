@@ -7,7 +7,8 @@ import {
 } from '@/components/ui/dropdown-menu';
 import CustomIconButton from '../ui/custom-iconbutton';
 import { cn } from '@/lib/utils';
-
+import Notifactions from "@/components/ui/Icons/Notification";
+import CustomMenuItem from '../ui/custom-menu-item';
 const Notification = () => {
   const defaultNotifications = [
     { id: 1, message: 'Notification system added ♥', read: false },
@@ -48,7 +49,9 @@ const Notification = () => {
               'outline-none bg-white/10 h-9 w-9 border border-white/10 hover:border-white/20 active:border-white/40 transition-all duration-300 flex items-center justify-center rounded-full'
             )}
           >
-            <img src='/Icons/Watch.svg' title='Notification bell' alt='bell icon' />
+            <Notifactions  
+            className='h-5 w-5'
+          />
             {unreadCount > 0 && (
               <span
                 className='absolute bg-red-500 text-white rounded-full text-xs px-1'
@@ -66,7 +69,7 @@ const Notification = () => {
           <div className='running-text-mono text-gray2'>No notifications</div>
         ) : (
           notifications.map((notification) => (
-            <DropdownMenuItem
+            <CustomMenuItem
               key={notification.id}
               className={cn(
                 'flex gap-2 p-2 cursor-pointer rounded-md transition-all duration-300 ease-linear'
@@ -85,7 +88,7 @@ const Notification = () => {
                 )}
               </span>
               {!notification.read}
-            </DropdownMenuItem>
+            </CustomMenuItem>
           ))
         )}
       </DropdownMenuContent>
