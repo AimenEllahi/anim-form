@@ -75,7 +75,7 @@ const Notification = () => {
       </DropdownMenuTrigger>
 
       {/* Dropdown content with ARIA roles */}
-      <DropdownMenuContent className='bg-transparent flex flex-col mt-4 p-2 !px-[9px] border border-white/10 z-[21] bg-blur menu-shadow text-white running-text-mono rounded-[16px] !gap-y-2'>
+      <DropdownMenuContent className='bg-transparent flex flex-col mt-5 p-2 !px-[9px] border border-white/10 z-[21] bg-blur menu-shadow text-white running-text-mono rounded-[16px] !gap-y-2'>
         {notifications.length === 0 ? (
           <div className='running-text-mono text-gray2'>No notifications</div>
         ) : (
