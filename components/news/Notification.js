@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   DropdownMenu,
   DropdownMenuTrigger,
   DropdownMenuContent,
   DropdownMenuItem,
 } from '@/components/ui/dropdown-menu';
-import CustomIconButton from '../ui/custom-iconbutton';
 import { cn } from '@/lib/utils';
-import Notifications from "@/components/ui/Icons/Notification";
+import Notifications from '@/components/ui/Icons/Notification';
 
 const Notification = () => {
+  const [open, setOpen] = useState(false);
   const defaultNotifications = [
     { id: 1, message: 'Notification system added ♥', read: false },
-    { id: 2, message: 'Official Release of Patch 1.1', link: "https://dndai.app/article/2", read: false },
-    { id: 3, message: 'Official Release of Patch 1.0', link: "https://dndai.app/article/1", read: false },
+    { id: 2, message: 'Official Release of Patch 1.1', link: 'https://dndai.app/article/2', read: false },
+    { id: 3, message: 'Official Release of Patch 1.0', link: 'https://dndai.app/article/1', read: false },
   ];
 
   const [notifications, setNotifications] = useState(defaultNotifications);
@@ -41,13 +41,25 @@ const Notification = () => {
   const unreadCount = notifications.filter((notification) => !notification.read).length;
 
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger>
-        <div className='relative'>
-          <CustomIconButton
-            className={cn(
-              'outline-none bg-white/10 h-9 w-9 border border-white/10 hover:border-white/20 active:border-white/40 transition-all duration-300 flex items-center justify-center rounded-full'
-            )}
+    <DropdownMenu suppressHydrationWarning open={open} onOpenChange={setOpen}>
+      {/* Accessible Trigger with keyboard and aria support */}
+      <DropdownMenuTrigger
+        asChild
+        className='outline-0 hidden md:block'
+        aria-haspopup='menu'
+        aria-expanded={open}
+        tabIndex={0}
+      >
+        <div
+          className='relative cursor-pointer'
+          role='button' // Make it identifiable as a button
+          aria-label='Notifications' // Add descriptive label
+        >
+          <div
+          className={cn(
+            "bg-white/10 w-9 h-9  border bg-blur !flex !items-center !justify-center box-border ease-animate rounded-full border-white/[8%] cursor-pointer hover:border-white/20 hover:bg-white/10 active:bg-white/20 active:border-white/40 disabled:opacity-30% disabled:pointer-events-none hover:!duration-200 active:!duration-100",
+            open && "border-white/40 bg-white/20 cursor-pointer"
+          )}
           >
             <Notifications />
             {unreadCount > 0 && (
@@ -58,11 +70,12 @@ const Notification = () => {
                 {unreadCount}
               </span>
             )}
-          </CustomIconButton>
+          </div>
         </div>
       </DropdownMenuTrigger>
 
-      <DropdownMenuContent className='bg-transparent  flex flex-col mt-4 p-2 !px-[9px]  border border-white/10 z-[21] bg-blur menu-shadow text-white running-text-mono rounded-[16px] !gap-y-2'>
+      {/* Dropdown content with ARIA roles */}
+      <DropdownMenuContent className='bg-transparent flex flex-col mt-4 p-2 !px-[9px] border border-white/10 z-[21] bg-blur menu-shadow text-white running-text-mono rounded-[16px] !gap-y-2'>
         {notifications.length === 0 ? (
           <div className='running-text-mono text-gray2'>No notifications</div>
         ) : (
@@ -70,22 +83,23 @@ const Notification = () => {
             <DropdownMenuItem
               key={notification.id}
               className={cn(
-                'flex gap-2 p-2 cursor-pointer rounded-md transition-all duration-300 ease-linear'
-
+                'flex gap-2 p-2 cursor-pointer rounded-[10px] transition-all duration-300 ease-linear'
               )}
               onMouseEnter={() => handleRead(notification.id)} // Trigger read on hover
             >
               <span>
                 {notification.message}
-                <p></p>
-                {/* Check if the notification has a link and render an anchor tag if it does */}
+                <br></br>
                 {notification.link && (
-                  <a href={notification.link} target="_blank" rel="noopener noreferrer" className="text-blue-500 underline ">
+                  <a
+                    href={notification.link}
+                    target='_blank'
+                    className='text-blue-500 underline'
+                  >
                     {notification.link}
                   </a>
                 )}
               </span>
-              {!notification.read}
             </DropdownMenuItem>
           ))
         )}
