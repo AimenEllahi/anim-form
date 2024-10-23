@@ -55,7 +55,7 @@ export default function characterInfo({
           <div className='relative'>
             {loadingAvatar && (
               <Loader
-                text='Generating Image...'
+                text='Weaving illusions...'
                 className='absolute top-0 left-0 rounded-[10px] w-full h-full bg-blur flex items-center justify-center'
               />
             )}
@@ -81,13 +81,9 @@ export default function characterInfo({
             }}
             variant={"primary"}
             withIcon
+            className={cn(!isCreator && "hidden")}
           >
-            <Edit
-              className={cn(
-                "h-5 w-5 fill-russianViolet",
-                !isCreator && "hidden"
-              )}
-            />
+            <Edit className={cn("h-5 w-5 fill-russianViolet")} />
             change character potrait
           </CustomButton>
           {/* <div

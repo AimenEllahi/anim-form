@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 export default function Switch({ selectedTab, setSelectedTab }) {
   return (
     <div className='flex w-full z-[10]'>
-      <div className=' w-full overflow-x-scroll hide-scrollbar flex p-2 gap-2 md:bg-white/[8%] rounded-[16px] md:border border-white/10'>
+      <div className=' w-full md:w-fit overflow-x-scroll hide-scrollbar flex p-2 gap-2 md:bg-white/[8%] rounded-[16px] md:border border-white/10'>
         {/* Appearance Tab */}
         <CustomButton
           withIcon

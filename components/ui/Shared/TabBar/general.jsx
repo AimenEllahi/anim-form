@@ -116,7 +116,7 @@ export default function General({ showSearch = true }) {
                 variant={"subtle"}
               >
                 <AddUser className='h-5 w-5 fill-white opacity-70' />
-                Create Character
+                Create Adventurer
               </CustomButton>
             </div>
             <div>

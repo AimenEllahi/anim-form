@@ -12,16 +12,17 @@ export default function Article2() {
             <div className='flex flex-col gap-5 md:w-[711px] w-full '>
               <p className='running-text-large'>Major Updates:</p>
               <ul className='list-disc list-inside'>
-                <li><strong>Rework of Game Start Process:</strong>
+                <strong>Rework of Game Start Process:</strong>
                 <p></p>
                  Implemented a new "Start Game Wizard" that streamlines the game initiation process into three simple steps:
-                  <ul className='list-disc list-inside ml-5'>
-                    <li>Select Campaign: Choose from various campaigns with a summary of each.</li>
-                    <li>Select Character: Pick your character for the adventure.</li>
-                    <li>Review Selection: Confirm your choices with a summary and proceed with a Finish button.</li>
-                  </ul>
-                </li>
-                <li><strong>Navbar Redesign:</strong>
+                 <ol className='list-decimal list-inside ml-5'>
+                  <li>Select Campaign: Choose from various campaigns with a summary of each.</li>
+                  <li>Select Character: Pick your character for the adventure.</li>
+                  <li>Review Selection: Confirm your choices with a summary and proceed with a Finish button.</li>
+                   </ol>
+                  <br></br>
+                
+                <strong>Navbar Redesign:</strong>
                 <p></p>
                 The navbar has been updated to include three main sections:
                   <ul className='list-disc list-inside ml-5'>
@@ -42,7 +43,7 @@ export default function Article2() {
                       <p></p>
                       A collection of all images generated from character portraits or game scenes. These images are free to use for any purpose.</li>
                   </ul>
-                </li>
+                
               </ul>
   
               <p className='running-text-large'>Character Creation Updates:</p>

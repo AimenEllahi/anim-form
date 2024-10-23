@@ -10,7 +10,15 @@
         url("/fonts/HelveticaNowDisplay-Medium.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
-  font-display: swap;
+  font-display: optional;
+}
+@font-face {
+  font-family: "Roboto Mono";
+  src: local("Roboto Mono"),
+        url("/fonts/RobotoMono-VariableFont_wght.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: optional;
 }
 
 body {
@@ -137,7 +145,7 @@ body {
 
   /* Headline 2 */
   .headline-2 {
-    @apply font-roboto-mono md:font-helvetica-now-display font-medium uppercase md:text-[44px] md:leading-[42px] text-[22px] leading-[22px] tracking-[0.03em];
+    @apply font-helvetica-now-display  md:font-helvetica-now-display font-medium uppercase md:text-[44px] md:leading-[42px] text-[22px] leading-[22px] tracking-[0.03em];
 
     /* Specify font family */
   }
@@ -599,6 +607,7 @@ input::-ms-clear {
     height: 192px;
   }
 
+
   .bg-gradient {
     background-image: url("/images/bg.png");
     background-position: center;
@@ -608,6 +617,7 @@ input::-ms-clear {
     /* This ensures the background image fills the viewport height */
   }
 }
+
 
 .dice-box {
   position: absolute;
@@ -642,6 +652,7 @@ input::-ms-clear {
   border: 1px solid rgba(255, 255, 255, 0.08);
   /* White border with 8% opacity */
   padding: 16px;
+  padding-bottom:0px;
   /* Equivalent to p-4 */
   border-radius: 10px;
   /* Equivalent to rounded-lg */

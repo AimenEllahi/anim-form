@@ -158,7 +158,7 @@ export default function characterSheet({ character, setCharacter }) {
           <CustomButton
             withIcon={true}
             variant='secondary'
-            className={cn("hidden md:flex", !isCreator && "hidden")}
+            className={cn("hidden md:flex", !isCreator && "hidden md:hidden")}
           >
             <Delete className='h-5 w-5 opacity-70 fill-errorRed' />
             Delete character

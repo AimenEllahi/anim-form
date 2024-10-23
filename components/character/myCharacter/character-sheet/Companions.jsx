@@ -24,7 +24,7 @@ const Card = ({
         <div className='relative'>
           {loadingAvatar && selectedCompanion.name === title && (
             <Loader
-              text='Generating Image...'
+              text='Weaving illusions...'
               className='absolute top-0 left-0 rounded-[10px] w-full h-full bg-blur flex items-center justify-center'
             />
           )}

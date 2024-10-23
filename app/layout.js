@@ -77,7 +77,7 @@ export default function RootLayout({ children }) {
     }
   }, [pathname, title]);
   useEffect(() => {
-    //get token
+    //  get token
     const token = cookies.get("token");
     if (!token && user?.token) {
       cookies.set("token", user.token, {
@@ -134,7 +134,20 @@ export default function RootLayout({ children }) {
           <meta name='application-name' content='DND AI' />
           <meta name='msapplication-TileColor' content='#0A0A21' />
           <meta name='msapplication-TileImage' content={ogImage} />
-
+          <link 
+            rel="preload" 
+            href="/fonts/HelveticaNowDisplay-Medium.woff2" 
+            as="font" 
+            type="font/woff2" 
+            crossOrigin="anonymous"
+          />
+          <link 
+            rel="preload" 
+            href="/fonts/RobotoMono-VariableFont_wght.woff2" 
+            as="font" 
+            type="font/woff2" 
+            crossOrigin="anonymous"
+          />
           <link rel='canonical' href={ogUrl} />
           <link rel="manifest" href="/manifest.webmanifest"/>
           <link rel="icon" href="/favicon.ico" sizes="32x32"/>

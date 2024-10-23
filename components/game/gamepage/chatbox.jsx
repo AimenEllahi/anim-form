@@ -285,7 +285,7 @@ export default function Chatbox({
         {isImageLoading && (
           <div className='relative h-[223px] w-fit rounded-[16px] overflow-hidden'>
             <Loader
-              text='Generating Image...'
+              text='Weaving illusions...'
               className='absolute top-0 left-0 w-full h-full bg-blur flex items-center justify-center'
             />
             <img
