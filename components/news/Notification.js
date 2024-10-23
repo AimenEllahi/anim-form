@@ -78,13 +78,13 @@ const Notification = () => {
       {/* Dropdown content with ARIA roles */}
       <DropdownMenuContent className='bg-transparent flex flex-col mt-5 p-2 !px-[9px] border border-white/10 z-[21] bg-blur menu-shadow text-white running-text-mono rounded-[16px] !gap-y-2'>
         {notifications.length === 0 ? (
-          <div className='running-text-mono text-gray2'>No notifications</div>
+          <div className='running-text-mono text-gray2 '>No notifications</div>
         ) : (
           notifications.map((notification) => (
             <DropdownMenuItem
               key={notification.id}
               className={cn(
-                'flex gap-2 p-2 cursor-pointer rounded-[10px] transition-all duration-300 ease-linear'
+                'flex gap-2 p-2 cursor-pointer rounded-[10px] transition-all duration-300 ease-linear pt-4  pl-4'
               )}
               onMouseEnter={() => handleRead(notification.id)} // Trigger read on hover
             >
