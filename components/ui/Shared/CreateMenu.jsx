@@ -48,7 +48,7 @@ export default function CreateMenu() {
       </PopoverTrigger>
       <PopoverContent
         className={cn(
-          "mt-5  !bg-white/10 p-5 py-2 running-text-mono uppercase flex flex-col gap-2  !px-2 border !border-white/10 !rounded-[16px] ",
+          "mt-4  !bg-white/10 p-5 py-2 running-text-mono uppercase flex flex-col gap-2  !px-2 border !border-white/10 !rounded-[16px] ",
           isGamePage && "mt-3.5"
         )}
       >
