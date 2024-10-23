@@ -30,7 +30,6 @@ export default function AccountDropdown() {
         tabIndex={0}
       >
         <div
-          // onClick={() => setOpen((prev) => !prev)}
           className={cn(
             "bg-white/10 w-9 h-9  border bg-blur !flex !items-center !justify-center box-border ease-animate rounded-full border-white/[8%] cursor-pointer hover:border-white/20 hover:bg-white/10 active:bg-white/20 active:border-white/40 disabled:opacity-30% disabled:pointer-events-none hover:!duration-200 active:!duration-100",
             open && "border-white/40 bg-white/20 cursor-pointer"

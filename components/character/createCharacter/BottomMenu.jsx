@@ -67,7 +67,7 @@ const NextButton = ({
       }}
       className={"ps-5 pe-3.5"}
     >
-      {formComplete ? "Finish And Start" : "Next step"}
+      {formComplete ? "Summon my Adventurer" : "Next step"}
       {formComplete ? (
         <Check className='h-5 w-5 fill-black' />
       ) : (
@@ -209,7 +209,7 @@ export default function BottomMenu({ character, setCharacter }) {
     return (
       <Loader
         className={"fixed top-0 h-screen w-screen left-0 z-[20] bg-blur"}
-        text='Creating Character...'
+        text='Summoning Adventurer...'
       />
     );
 

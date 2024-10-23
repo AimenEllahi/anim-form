@@ -117,7 +117,7 @@ export default function index() {
           )}
         >
           <span className='headline-3   '>
-            My characters
+            My Adventurers
             {totalCharacters && !showMenu && (
               <span className='text-gray2 ms-3   font-roboto-mono transform translate-up text-[17px]  translate-y-[-15px] '>
                 ({totalCharacters})
@@ -150,7 +150,7 @@ export default function index() {
           className={"flex flex-col gap-2 w-full    md:hidden   justify-end"}
         >
           <h1 className='text-center flex justify-start text-white headline-3 -z-1 '>
-            Create your character
+            Create your Adventurer
           </h1>
           <div className=' headline-4   w-full '>
             <span className='text-gray2'>Step {activeStep + 1}/9</span>

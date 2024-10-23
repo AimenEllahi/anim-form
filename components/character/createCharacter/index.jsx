@@ -55,7 +55,7 @@ export default function Index() {
       {/* Desktop */}
       <div className='hidden md:flex flex-col gap-2.5 '>
         <h1 className='text-center flex justify-start text-white headline-3 z-[10] '>
-          Create your character
+          Create your Adventurer
         </h1>
       </div>
 

@@ -131,7 +131,7 @@ export default function page({ params }) {
     handleGetCharacter();
   }, [user]);
 
-  if (!character) return <Loader text={"loading character..."} />;
+  if (!character) return <Loader text={"Loading Adventurer..."} />;
 
   // console.log(character);
   return (

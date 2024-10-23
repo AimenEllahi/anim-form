@@ -45,12 +45,12 @@ export const getMetaTags = (pathname) => {
       "News about dndai.app The platform to play dnd with Ai. The perfect place to let your imagination run wild";
     ogWebsite ='article';
   } else if (pathname.includes("/character/create")) {
-    title = "DND AI | Create Character";
+    title = "DND AI | Create Adventurer";
     description =
       "Create your own unique fantasy character effortlessly. Choose from various races, classes, abilities, backgrounds, alignments, starting equipment, and more. Let our AI bring your character to life in seconds!";
     keywords =
       "fantasy character creation, RPG character generator, custom character builder, AI character creation, RPG classes and races, D&D character generator, role-playing game tools, character background generator";
-    ogTitle = "DND AI | Create Character";
+    ogTitle = "DND AI | Create Adventurer";
     ogDescription =
       "Build your perfect fantasy character with ease! Select your race, class, abilities, and more—our AI does the rest. Start your RPG adventure now!";
     ogImage = "https://dzjg7lvewk7ln.cloudfront.net/tutorial/tutorial-1.webp";
@@ -61,7 +61,7 @@ export const getMetaTags = (pathname) => {
     "Continue your games played on dnd ai. You can either continue a recent game or check out what games you finished and what you got for it";
   keywords =
     "fantasy game, RPG game, AI DM, AI character creation, RPG classes and races, D&D character game, role-playing game, Dungeonmaster AI";
-  ogTitle = "DND AI | Create Character";
+  ogTitle = "DND AI | Create Adventurer";
   ogDescription =
     "Continue or start a new Game on dndai.app!";
   ogImage = "https://dzjg7lvewk7ln.cloudfront.net/tutorial/tutorial-1.webp";
@@ -78,23 +78,23 @@ export const getMetaTags = (pathname) => {
       "Select from a wide range from user generated Campaigns to start your game!";
     ogUrl = `https://dndai.app${pathname}`;
   } else if (pathname.includes("/character/my-characters")) {
-    title = "DND AI | My Characters";
+    title = "DND AI | My Adventurer";
     description =
       "View your uniquely crafted characters or start creating a new one with our intuitive AI-powered generator. Manage existing characters or dive into the fun of character creation with endless customization options.";
     keywords =
       "view created characters, manage characters, create new character, character management, AI character generator, RPG character builder, game character customization, character creation tool, custom characters";
-    ogTitle = "DND AI | My Characters";
+    ogTitle = "DND AI | My Adventurers";
     ogDescription =
       "Explore your uniquely created characters or kickstart the creation of a new one with our easy-to-use AI character generator. Manage your personas or begin a new adventure today!";
     ogImage = "https://dzjg7lvewk7ln.cloudfront.net/Headers/Header.webp";
     ogUrl = `https://dndai.app${pathname}`;
   } else if (pathname.includes("/character/sheet/")) {
-    title = "DND AI | Character Overview";
+    title = "DND AI | Adventurer Overview";
     description =
       "Check out in-depth details of your character with our comprehensive Character Sheet. View stats, items, images, XP, HP, level, and track your character's progress with ease. ";
     keywords =
       "character overview, character details, character sheet, RPG Character stats, character items, character image, XP, HP, level, character progress, character management, RPG character details, gaming character sheet";
-    ogTitle = "DND AI | Create Character";
+    ogTitle = "DND AI | Adventurer Overview";
     ogDescription =
       "Full details of your character with our detailed Character Sheet. Check stats, items, images, XP, HP, levels, more... and monitor progress";
     ogImage = "https://dzjg7lvewk7ln.cloudfront.net/Headers/Header.webp";

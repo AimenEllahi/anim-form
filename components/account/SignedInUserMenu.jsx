@@ -80,7 +80,7 @@ export default function SignedInUserMenu() {
             onClick={() => handleRedirect("/character/my-characters")}
           >
             <Adventure className='h-5 w-5 fill-white opacity-70' />
-            <span>My characters</span>
+            <span>My Adventurers</span>
           </CustomMenuItem>
         </DropdownMenuItem>
         <DropdownMenuItem

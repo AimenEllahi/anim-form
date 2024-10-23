@@ -28,7 +28,7 @@ export default function characterInfo({
         <div className='h-auto w-full relative flex flex-col gap-4'>
           {loadingAvatar && (
             <Loader
-              text='Generating Image...'
+              text='Weaving illusions...'
               className='absolute top-0 left-0 w-full h-full bg-blur flex items-center justify-center'
             />
           )}
