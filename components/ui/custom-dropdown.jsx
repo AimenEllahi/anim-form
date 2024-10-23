@@ -24,7 +24,7 @@ export default function CustomDropdown({
       <div
         onClick={() => setShow(true)}
         className={cn(
-          "w-full !h-[48px] relative  max-h-[48px]  relative   flex  running-text-mono uppercase overflow-visible !ring-offset-0 outline-none  focus:!border-none focus:!ring-0",
+          "w-full !h-[48px] relative  max-h-[48px]     flex  running-text-mono uppercase overflow-visible !ring-offset-0 outline-none  focus:!border-none focus:!ring-0",
           className
         )}
       >
@@ -81,7 +81,7 @@ export default function CustomDropdown({
 
       <SelectContent
         className={cn(
-          "!bg-blur flex text-white  overflow-y-scroll hide-scrollbar !rounded-[16px]   !w-auto  !border !border-white/10  flex-col gap-2 shadow-lg mt-2 !p-2  uppercase   transition-all duration-300 ease-in-out !z-[50] "
+          "!bg-blur flex text-white  overflow-y-scroll hide-scrollbar !rounded-[16px]   !w-auto  !border !border-white/10  flex-col  shadow-lg mt-2 !p-[3px] uppercase   transition-all duration-300 ease-in-out !z-[50] "
         )}
       >
         {options.map((option, index) => (
@@ -94,7 +94,7 @@ export default function CustomDropdown({
                 setShow(false);
               }, 500);
             }}
-            className='    ease-animate z-[11] '
+            className={cn("    ease-animate z-[11]   ", index !== 0 && "mt-2")}
           >
             {option}
           </CustomMenuItem>

@@ -153,7 +153,7 @@ export default function BottomMenu({ character, setCharacter }) {
         payload,
         user?.token || null
       );
-
+      console.log(newCharacter);
       if (user?.token) {
         router.push("/character/sheet/" + newCharacter._id);
       } else {

@@ -12,7 +12,7 @@ import Information from "@/components/ui/Icons/Information";
 
 export default function Card({ campaign }) {
   const { currentCampaign, setCurrentCampaign } = useGameStore();
-  const [showOverlay, setShowOverlay] = React.useState(false);
+  const { showOverlay, setShowOverlay } = useGameStore();
   return (
     <div
       onClick={() => {

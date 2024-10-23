@@ -1,52 +1,93 @@
 import React, { useEffect, useState } from "react";
-import dynamic from "next/dynamic";
 import useUserStore from "@/utils/userStore";
-import Info from "@/components/ui/Icons/Info";
 import { cn } from "@/lib/utils";
 import Loader from "@/components/ui/Loader";
 import CustomButton from "@/components/ui/custom-button";
-import CampaignAdd from "@/components/ui/Icons/CampaignAdd";
-
-import { extractSection } from "@/lib/Helpers/shared";
-
-const ProfileButtons = dynamic(() =>
-  import("@/components/character/myCharacter/character-sheet/profile-buttons", {
-    ssr: false,
-  })
-);
+import Edit from "@/components/ui/Icons/Edit";
+import { useRouter, usePathname } from "next/navigation";
+import Information from "@/components/ui/Icons/Information";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 
 export default function characterInfo({
   character,
   currentPortrait,
   loadingAvatar,
+  isCreator,
+  setOpen,
 }) {
   const { user } = useUserStore();
-
+  const router = useRouter();
+  const pathname = usePathname();
   return (
-    <div className=' w-[345px] h-auto p-4 border border-white/10 bg-white/10 rounded-[16px] overflow-hidden flex flex-col justify-start'>
+    <div className='w-full md:w-[345px] h-auto p-4 border border-white/10 bg-white/10 rounded-[16px] overflow-hidden flex flex-col justify-start'>
       <div className=''>
         <div className='h-auto w-full relative flex flex-col gap-4'>
-          {loadingAvatar && (
-            <Loader
-              text='Generating Image...'
-              className='absolute top-0 left-0 w-full h-full bg-blur flex items-center justify-center'
-            />
-          )}
           <div className='flex justify-between'>
             <span className='running-text-large'>Character portrait</span>
-            <img src='/Icons/Info-button.svg' alt='' />
+            <Popover>
+              <PopoverTrigger>
+                <Information className={cn("h-6 w-6   ")} />
+              </PopoverTrigger>
+              <PopoverContent>
+                <p style={{ marginBottom: "10px" }}>
+                  Here, you can roll for your ability scores. When you press the
+                  "Roll" button, four 6-sided dice will be rolled.
+                </p>
+                <p style={{ marginBottom: "10px" }}>
+                  The lowest result will be dropped, and the remaining three
+                  will be added together to give you a total. You can then
+                  assign that total to an ability score.
+                </p>
+                <p style={{ marginBottom: "10px" }}>
+                  {" "}
+                  You also have the option to roll for all your ability scores
+                  at once by clicking "Roll All Dice." In this case, the scores
+                  will be randomly assigned to each ability, but you can swap
+                  them around if you'd like.
+                </p>
+              </PopoverContent>
+            </Popover>
           </div>
-          <img
-            src={
-              currentPortrait ||
-              "/images/CreateCharacter/CharacterName/CharacterName.png"
-            }
-            alt='custom character portrait'
-            title='Custom Character Portrait'
-            className=' w-full object-contain aspect-square rounded-[10px] '
-          />
-          <CustomButton variant={"primary"} withIcon>
-            <CampaignAdd className={cn("h-4 w-4 fill-russianViolet")} />
+          <div className='relative'>
+            {loadingAvatar && (
+              <Loader
+                text='Generating Image...'
+                className='absolute top-0 left-0 rounded-[10px] w-full h-full bg-blur flex items-center justify-center'
+              />
+            )}
+            <img
+              src={
+                currentPortrait ||
+                "/images/CreateCharacter/CharacterName/CharacterName.png"
+              }
+              alt='custom character portrait'
+              title='Custom Character Portrait'
+              className=' w-full object-contain aspect-square rounded-[10px] '
+            />
+          </div>
+          <CustomButton
+            disabled={loadingAvatar}
+            onClick={() => {
+              setOpen(true);
+              if (character?.personal?.portraits?.length > 0) {
+                router.push(pathname);
+              } else {
+                router.push(pathname + "?generateAvatar=true");
+              }
+            }}
+            variant={"primary"}
+            withIcon
+          >
+            <Edit
+              className={cn(
+                "h-5 w-5 fill-russianViolet",
+                !isCreator && "hidden"
+              )}
+            />
             change character potrait
           </CustomButton>
           {/* <div

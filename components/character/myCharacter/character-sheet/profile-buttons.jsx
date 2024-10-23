@@ -7,24 +7,11 @@ import {
 
 import CustomIconbutton from "@/components/ui/custom-iconbutton";
 import Sheet from "@/components/ui/Icons/Sheet";
-import { extractSection } from "@/lib/Helpers/shared";
 import Appearance from "@/components/ui/Icons/Appearance";
 import Info from "@/components/ui/Icons/Info";
-const INITIAL_STATE = {
-  appearance: "",
-  abilityScores: {
-    strength: 0,
-    dexterity: 0,
-    constitution: 0,
-    intelligence: 0,
-    wisdom: 0,
-    charisma: 0,
-  },
-  abbilities: "",
-};
-export default function ProfileButtons({ character }) {
-  const [generalInfo, setGeneralInfo] = useState(INITIAL_STATE);
 
+export default function ProfileButtons({ character }) {
+ 
   return (
     <div className='absolute top-4 left-4 w-full flex justify-start gap-4 '>
       <Popover>

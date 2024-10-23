@@ -153,7 +153,7 @@ export default function Navbar({
   const {
     setCurrentCharacter,
     setCurrentCampaign,
-
+    showOverlay,
     setStartNewGame,
   } = useGameStore();
   const router = useRouter();
@@ -259,7 +259,8 @@ export default function Navbar({
           "bg-blur-bottom-menu md:bg-auto ",
         characterCreatePage && "pt-5",
         isNoGamesPage && "bg-transparent",
-        (selectedGame || selectedCompletedGame) && "hidden md:flex"
+        (selectedGame || selectedCompletedGame || showOverlay) &&
+          "hidden md:flex"
       )}
     >
       <div
@@ -329,23 +330,6 @@ export default function Navbar({
             {isGamePage && <ExitGameButton />}
           </div>
           <div className='flex justify-center items-center gap-5'>
-            <span
-              className={cn(
-                "running-text-mono uppercase cursor-pointer",
-                user && "hidden"
-              )}
-              aria-label={isSignUp ? "Sign In" : "Sign Up"}
-            >
-              {isSignUp ? (
-                <Link href={"/auth/sign-in"} aria-label='Sign In'>
-                  Sign In
-                </Link>
-              ) : (
-                <Link href={"/auth/sign-up"} aria-label='Sign Up'>
-                  Sign Up
-                </Link>
-              )}
-            </span>
             {user?.token && <CreditsDisplay />}
             {user?.token && <CreateMenu aria-label='Create Menu' />}
             <AccountDropdown aria-label='Account Dropdown' />

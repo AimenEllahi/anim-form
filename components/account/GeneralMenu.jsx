@@ -18,7 +18,7 @@ export default function GeneralMenu({ setOpen }) {
     setOpen(false);
   };
   return (
-    <DropdownMenuContent className='bg-transparent uppercase flex flex-col mt-4 p-2 !px-[9px]  border border-white/10 z-[21] bg-blur menu-shadow text-white running-text-mono rounded-[16px] !gap-y-2'>
+    <DropdownMenuContent className='bg-transparent uppercase flex flex-col mt-4 p-2 !px-[9px]  w-[192px] border border-white/10 z-[21] bg-blur menu-shadow text-white running-text-mono rounded-[16px] !gap-y-2'>
       <CustomButton withIcon onClick={() => handleRedirect("/auth/sign-in")}>
         <Login className='h-5 w-5  opacity-70 fill-white' />
         SIGN IN
@@ -26,10 +26,10 @@ export default function GeneralMenu({ setOpen }) {
       <CustomButton
         variant={"subtle"}
         withIcon
-        onClick={() => handleRedirect("/auth/sign-in")}
+        onClick={() => handleRedirect("/auth/sign-up")}
       >
         <SignUp className='h-5 w-5   fill-white' />
-        SIGN IN
+        SIGN UP
       </CustomButton>
     </DropdownMenuContent>
   );

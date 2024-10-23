@@ -90,17 +90,20 @@ export default function Avatar({
   const { user, setBlueCredits, setYellowCredits } = useUserStore();
   const { setShowCreditsDialogue } = useControlsStore();
   const generateAvatar = params.get("generateAvatar");
+  const isCompanion = params.get("companion") === "true";
   const [style, setStyle] = useState(IMAGE_STYLES[0]);
 
   const [selectedPortrait, setSelectedPortrait] = useState(
-    character?.personal?.portraitUrl
+    isCompanion ? payload.selectedPortrait : character?.personal?.portraitUrl
   );
 
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    setSelectedPortrait(character?.personal?.portraitUrl);
-  }, [character]);
+    setSelectedPortrait(
+      isCompanion ? payload.selectedPortrait : character?.personal?.portraitUrl
+    );
+  }, [character, isCompanion, payload]);
 
   const _handleGenerateAvatar = async () => {
     if (user.yellowCredits < 1) {
@@ -112,17 +115,25 @@ export default function Avatar({
       setLoadingAvatar(true);
       setOpen(false);
       payload.appearance += " in the visual art of " + style;
-      const { avatarUrl } = await handleGenerateAvatar(payload, user?.token);
+
+      const { avatarUrl, updatedCharacter } = await handleGenerateAvatar(
+        payload,
+        user?.token
+      );
       const { credits } = await getCredits(user?.token);
-      setCurrentPortrait(avatarUrl);
-      setSelectedPortrait(avatarUrl);
-      setCharacter((prev) => ({
-        ...prev,
-        personal: {
-          ...prev.personal,
-          portraits: [...prev.personal.portraits, avatarUrl],
-        },
-      }));
+      if (isCompanion) {
+        setCharacter(updatedCharacter);
+      } else {
+        setCurrentPortrait(avatarUrl);
+        setSelectedPortrait(avatarUrl);
+        setCharacter((prev) => ({
+          ...prev,
+          personal: {
+            ...prev.personal,
+            portraits: [...prev.personal.portraits, avatarUrl],
+          },
+        }));
+      }
       setBlueCredits(credits.blueCredits);
       setYellowCredits(credits.yellowCredits);
     } catch (error) {
@@ -140,23 +151,39 @@ export default function Avatar({
 
   const _handleUpdateAvatar = async () => {
     try {
-      const payload = {
+      const _payload = {
         newSelection: selectedPortrait,
         id: character._id,
+        name: payload.name,
+        isCompanion,
       };
-      setCurrentPortrait(selectedPortrait);
+      if (!isCompanion) {
+        setCurrentPortrait(selectedPortrait);
+      }
 
-      await handleUpdateAvatar(payload, user?.token);
+      const { updatedCharacter } = await handleUpdateAvatar(
+        _payload,
+        user?.token
+      );
+
+      setCharacter(updatedCharacter);
     } catch (error) {
       invokeToast(
         error?.response?.data?.error || "Error updating avatar",
         "Error"
       );
+
+      console.log(error);
     }
   };
   const handleAvatarClick = () => {
-    router.push(path + "?generateAvatar=true");
+    let url = path + "?generateAvatar=true";
+    if (isCompanion) {
+      url += "&companion=true";
+    }
+    router.push(url);
   };
+
   return (
     <Dialog
       open={open}
@@ -165,7 +192,7 @@ export default function Avatar({
     >
       {isMobile ? (
         // Mobile
-        <DialogContent className='bg-gradient !p-0 flex-col !gap-0 border-none h-full  max-w-screen md:!hidden  !pt-[46px] '>
+        <DialogContent className='bg-gradient !p-0 flex-col !gap-0 border-none h-full  max-w-screen md:!hidden  !pt-[46px] z-20 '>
           <Navbar />
 
           <div className='flex gap-5 flex-col bg-blur-bottom-menu items-start p-6 pt-4 !pb-0'>
@@ -246,7 +273,13 @@ export default function Avatar({
                   <>
                     Generate
                     <div className='flex  items-center gap-1 '>
-                      (<img src='/gems/Legendary.webp' title='Legenadary Gem' alt='Legendary Gem' className='p-0 w-3' />
+                      (
+                      <img
+                        src='/gems/Legendary.webp'
+                        title='Legenadary Gem'
+                        alt='Legendary Gem'
+                        className='p-0 w-3'
+                      />
                       1)
                     </div>
                   </>
@@ -345,7 +378,13 @@ export default function Avatar({
                   <>
                     Generate
                     <div className='flex  items-center gap-1 '>
-                      (<img src='/gems/Legendary.webp' title='Legendary gem' alt='Legendary Gem' className='p-0 w-3' />
+                      (
+                      <img
+                        src='/gems/Legendary.webp'
+                        title='Legendary gem'
+                        alt='Legendary Gem'
+                        className='p-0 w-3'
+                      />
                       1)
                     </div>
                   </>

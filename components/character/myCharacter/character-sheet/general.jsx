@@ -1,38 +1,10 @@
 import React, { useState } from "react";
 import RenderCharacteristics from "./RenderCharacteristics";
 
-const INITIAL_STATE = {
-  background: "",
-  alignment: "",
-  xpPoints: 0,
-  personality: "",
-  ideal: {
-    value: "",
-    description: "",
-  },
-  bond: {
-    value: "",
-    description: "",
-  },
-  flaw: {
-    value: "",
-    description: "",
-  },
-  hitPoints: 0,
-  armorClass: 0,
-  gold: 0,
-  equipment: [],
-  weapon: "",
-  secondary: "",
-  armor: "",
-  toolAndAmmo: "",
-};
 export default function general({ character }) {
-  const [generalInfo, setGeneralInfo] = useState(INITIAL_STATE);
-
   return (
     <div className=' gap-4 md:gap-5 z-[10]'>
-      <div className='gap-4 flex md:gap-5 '>
+      <div className='gap-4 flex flex-col md:flex-row md:gap-5 '>
         <RenderCharacteristics
           title='General'
           data={[

@@ -103,7 +103,7 @@ const ch = {
   __v: 4,
 };
 export default function page({ params }) {
-  const [character, setCharacter] = useState(ch);
+  const [character, setCharacter] = useState();
   const router = useRouter();
   const { invokeToast } = useCustomToast();
   const { user } = useUserStore();
@@ -111,11 +111,10 @@ export default function page({ params }) {
 
   const handleGetCharacter = async () => {
     try {
-      setCharacter(ch);
-      return;
-      const token = user?.token || cookies.get("token");
+      // setCharacter(ch);
+      // return;
 
-      const response = await getCharacter(params.slug, token);
+      const response = await getCharacter(params.slug);
       console.log(response.character);
       setCharacter(response.character);
     } catch (error) {

@@ -5,13 +5,10 @@ import GeneralInfo from "@/components/character/myCharacter/character-sheet/gene
 import CustomButton from "@/components/ui/custom-button";
 import Play from "@/components/ui/Icons/Play";
 import Edit from "@/components/ui/Icons/Edit";
-import Download from "@/components/ui/Icons/Download";
 import Avatar from "./create-avatar/avatar";
-import { usePathname, useRouter } from "next/navigation";
-import { extractSection, isSelectionValid } from "@/lib/Helpers/shared";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import CustomIconbutton from "@/components/ui/custom-iconbutton";
 import SoundButton from "@/components/ui/Shared/SoundButton";
-import Generate from "@/components/ui/Icons/Generate";
 import Delete from "@/components/ui/Icons/Delete";
 import useUserStore from "@/utils/userStore";
 import { cn } from "@/lib/utils";
@@ -24,25 +21,24 @@ import GuestUser from "@/components/ui/Shared/Dialogue/GuestUser";
 import Switch from "./Switch";
 import Abilities from "./Abilities";
 import Inventory from "./Inventory";
+import Companions from "./Companions";
 
 export default function characterSheet({ character, setCharacter }) {
-  const [selectedTab, setSelectedTab] = useState("inventory");
+  const [selectedTab, setSelectedTab] = useState("appearance");
   const router = useRouter();
   const pathname = usePathname();
   const { user } = useUserStore();
-  const {
-    currentCharacter,
-    setCurrentCharacter,
-
-    setStartNewGame,
-  } = useGameStore();
+  const params = useSearchParams();
+  const { currentCharacter, setCurrentCharacter, setStartNewGame } =
+    useGameStore();
   const { invokeToast } = useCustomToast();
   const containerRef = useRef();
   const [open, setOpen] = useState(false);
-  const [appearance, setAppearance] = useState(false);
+  const [selectedCompanion, setSelectedCompanion] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [loadingAvatar, setLoadingAvatar] = useState(false);
   const [deleteCharacterLoading, setDeleteCharacterLoading] = useState(false);
+  const isCompanion = params.get("companion") === "true";
   const [currentPortrait, setCurrentPortrait] = useState(
     character.personal.portraitUrl
   );
@@ -107,29 +103,33 @@ export default function characterSheet({ character, setCharacter }) {
   return (
     <div
       ref={containerRef}
-      className='h-full min-h-full w-full pt-[94px] px-5 pb-32 md:pt-[120px] md:pb-[104px] md:px-12 flex flex-col gap-[24px]'
+      className='h-full min-h-full w-full pt-[94px] px-5 pb-32 md:pt-[120px] md:pb-[104px] md:px-12 flex flex-col gap-[24px] relative z-10'
     >
       <GuestUser />
-      <div className='hidden md:flex md:justify-between gap-[32px]'>
-        <div className='z-10 flex justify-start items-center gap-5'>
-          <span className='text-white headline-3'>Antichristus</span>
-          <img
-            src={`https://dzjg7lvewk7ln.cloudfront.net/class/${character?.personal?.class
-              .toLowerCase()
-              .replaceAll(" ", "-")}.webp`}
-            className='rounded-full h-[32px] w-[32px]'
-            title='Characters Class'
-            alt='class of the Character'
-          />
-          <div className='flex flex-col running-text-mono'>
-            <span className='text-white '>LEVEL {character.value.level}</span>
-            <span className=' text-irisPurpleLight uppercase'>
-              {character.value.race}{" "}
-              <span className=' text-sandyOrange uppercase'>
-                {" "}
-                {character.value.class}
+      <div className='flex  items-start justify-start md:justify-between  gap-1 md:gap-[32px]  '>
+        <div className='z-10 flex justify-start items-start md:items-center gap-1 md:gap-5 flex-col md:flex-row'>
+          <span className='text-white headline-3'>
+            {character.personal.name}
+          </span>
+          <div className='flex  items-center gap-2 md:gap-5'>
+            <img
+              src={`https://dzjg7lvewk7ln.cloudfront.net/class/${character?.personal?.class
+                .toLowerCase()
+                .replaceAll(" ", "-")}.webp`}
+              className='rounded-full h-[32px] w-[32px]'
+              title='Characters Class'
+              alt='class of the Character'
+            />
+            <div className='flex flex-col running-text-mono'>
+              <span className='text-white '>LEVEL {character.value.level}</span>
+              <span className=' text-irisPurpleLight uppercase'>
+                {character.value.race}{" "}
+                <span className=' text-sandyOrange uppercase'>
+                  {" "}
+                  {character.value.class}
+                </span>
               </span>
-            </span>
+            </div>
           </div>
         </div>
         {/* <CustomButton
@@ -158,7 +158,7 @@ export default function characterSheet({ character, setCharacter }) {
           <CustomButton
             withIcon={true}
             variant='secondary'
-            className={cn(!isCreator && "hidden")}
+            className={cn("hidden md:flex", !isCreator && "hidden")}
           >
             <Delete className='h-5 w-5 opacity-70 fill-errorRed' />
             Delete character
@@ -167,12 +167,14 @@ export default function characterSheet({ character, setCharacter }) {
       </div>
       <Switch selectedTab={selectedTab} setSelectedTab={setSelectedTab} />
       {selectedTab === "appearance" && (
-        <div className=' h-full gap-5  z-10 flex'>
+        <div className=' h-full gap-5  flex flex-col md:flex-row'>
           <div>
             <CharacterInfo
+              setOpen={setOpen}
               loadingAvatar={loadingAvatar}
               currentPortrait={currentPortrait}
               character={character}
+              isCreator={isCreator}
             />
           </div>
           <div className=''>
@@ -187,29 +189,50 @@ export default function characterSheet({ character, setCharacter }) {
 
       {selectedTab === "abilities" && <Abilities character={character} />}
       {selectedTab === "inventory" && <Inventory character={character} />}
+      {selectedTab === "companions" && (
+        <Companions
+          loadingAvatar={loadingAvatar}
+          character={character}
+          isCreator={isCreator}
+          selectedCompanion={selectedCompanion}
+          setOpen={setOpen}
+          setSelectedCompanion={setSelectedCompanion}
+        />
+      )}
 
       <DeleteCharacter action={handleDeleteCharacter}>
         <CustomButton
           withIcon={true}
-          variant='subtle'
-          className={cn("w-fit self-start md:hidden", !isCreator && "hidden")}
+          variant='secondary'
+          className={cn(" md:hidden", !isCreator && "hidden")}
         >
           <Delete className='h-5 w-5 opacity-70 fill-errorRed' />
-          Delete
+          Delete character
         </CustomButton>
       </DeleteCharacter>
       <Avatar
         open={open}
         setOpen={setOpen}
         payload={{
-          appearance: character.value.appearance,
+          appearance: isCompanion
+            ? selectedCompanion?.appearance
+            : character.value.appearance,
           id: character?._id,
+          selectedPortrait: isCompanion
+            ? selectedCompanion?.selectedPortrait
+            : "",
+          name: isCompanion ? selectedCompanion?.name : character.personal.name,
+          isCompanion,
         }}
         setCurrentPortrait={setCurrentPortrait}
         setLoadingAvatar={setLoadingAvatar}
         character={character}
         setCharacter={setCharacter}
-        avatars={character?.personal?.portraits || []}
+        avatars={
+          isCompanion
+            ? selectedCompanion?.portraits
+            : character?.personal?.portraits || []
+        }
       />
       <div className='md:hidden z-[10] flex items-center justify-between bg-blur-bottom-menu fixed bottom-0 w-screen left-0 p-5 '>
         <div className='flex items-center gap-4'>

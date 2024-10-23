@@ -21,11 +21,11 @@ const RenderEquipmentData = ({ value, className, length, index }) => {
 
 export default function Inventory({ character }) {
   return (
-    <div className=' w-[95%] h-auto z-10 relative  px-5 pt-4 pb-5  bg-white/10 border border-white/10 rounded-[16px] '>
+    <div className=' md:w-[95%] h-auto  relative  px-5 pt-4 pb-5  bg-white/10 border border-white/10 rounded-[16px] '>
       <div className=' flex flex-col '>
         <div className='flex w-full flex-col  items-start justify-between '>
           <span className='running-text-large'>Inventory</span>
-          <div className='w-full grid-cols-3 grid gap-x-5 '>
+          <div className='w-full grid-cols-1 md:grid-cols-3 grid gap-x-5 '>
             <RenderEquipmentData
               value={character.value.gold + " Gold"}
               index={0}

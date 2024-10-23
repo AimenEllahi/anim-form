@@ -5,8 +5,8 @@ import { cn } from "@/lib/utils";
 
 export default function Switch({ selectedTab, setSelectedTab }) {
   return (
-    <div className="flex w-full z-[10]">
-      <div className="flex p-2 gap-2 bg-white/[8%] rounded-[16px] border border-white/10">
+    <div className='flex w-full z-[10]'>
+      <div className=' w-full overflow-x-scroll hide-scrollbar flex p-2 gap-2 md:bg-white/[8%] rounded-[16px] md:border border-white/10'>
         {/* Appearance Tab */}
         <CustomButton
           withIcon
@@ -37,7 +37,7 @@ export default function Switch({ selectedTab, setSelectedTab }) {
           onClick={() => setSelectedTab("companions")}
         >
           <img
-            src="/Icons/Companions.svg"
+            src='/Icons/Companions.svg'
             className={cn(
               "h-5 w-5",
               selectedTab === "companions" ? "fill-russianViolet" : "fill-gray2"
@@ -57,7 +57,7 @@ export default function Switch({ selectedTab, setSelectedTab }) {
           onClick={() => setSelectedTab("abilities")}
         >
           <img
-            src="/Icons/Abilities.svg"
+            src='/Icons/Abilities.svg'
             className={cn(
               "h-5 w-5",
               selectedTab === "abilities" ? "fill-russianViolet" : "fill-gray2"
@@ -77,7 +77,7 @@ export default function Switch({ selectedTab, setSelectedTab }) {
           onClick={() => setSelectedTab("inventory")}
         >
           <img
-            src="/Icons/Inventory.svg"
+            src='/Icons/Inventory.svg'
             className={cn(
               "h-5 w-5",
               selectedTab === "inventory" ? "fill-russianViolet" : "fill-gray2"

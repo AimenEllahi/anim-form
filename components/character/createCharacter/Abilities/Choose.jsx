@@ -267,10 +267,7 @@ export default function Choose({ abilities, handleChangeAbilities }) {
         <Popover>
           <PopoverTrigger>
             <div className='flex items-center gap-2 running-text-mono uppercase'>
-              <Information
-                src='/Icons/'
-                className={cn("h-6 w-6   ease-animate   ")}
-              />
+              <Information className={cn("h-6 w-6   ease-animate   ")} />
               help
             </div>
           </PopoverTrigger>

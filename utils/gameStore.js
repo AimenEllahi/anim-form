@@ -4,6 +4,7 @@ const useGameStore = create((set, get) => ({
   currentCharacter: null,
   currentCampaign: null,
   startNewGame: false,
+  showOverlay: false,
   responseText: "",
   step: 1,
   game: null,
@@ -16,6 +17,7 @@ const useGameStore = create((set, get) => ({
   setGame: (game) => set({ game }),
   setStartNewGame: (startNewGame) => set({ startNewGame }),
   setStep: (step) => set({ step }),
+  setShowOverlay: (showOverlay) => set({ showOverlay }),
 
   reset: () =>
     set({
