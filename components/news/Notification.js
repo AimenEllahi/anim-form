@@ -11,9 +11,10 @@ import Notifications from '@/components/ui/Icons/Notification';
 const Notification = () => {
   const [open, setOpen] = useState(false);
   const defaultNotifications = [
-    { id: 1, message: 'Notification system added ♥', read: false },
-    { id: 2, message: 'Official Release of Patch 1.1', link: 'https://dndai.app/article/2', read: false },
-    { id: 3, message: 'Official Release of Patch 1.0', link: 'https://dndai.app/article/1', read: false },
+    { id: 1, message: 'Adventurer Overview Update 1.2', link: 'https://dndai.app/article/3', read: false },
+    { id: 2, message: 'Notification system added  ♥', read: true },
+    { id: 3, message: 'Official Release of Patch 1.1', link: 'https://dndai.app/article/2', read: true },
+    { id: 4, message: 'Official Release of Patch 1.0', link: 'https://dndai.app/article/1', read: true },
   ];
 
   const [notifications, setNotifications] = useState(defaultNotifications);
@@ -75,15 +76,15 @@ const Notification = () => {
       </DropdownMenuTrigger>
 
       {/* Dropdown content with ARIA roles */}
-      <DropdownMenuContent className='bg-transparent flex flex-col mt-5 p-2 !px-[9px] border border-white/10 z-[21] bg-blur menu-shadow text-white running-text-mono rounded-[16px] !gap-y-2'>
+      <DropdownMenuContent className='bg-transparent flex flex-col mt-4 p-2 !px-[9px] border border-white/10 z-[21] bg-blur menu-shadow text-white running-text-mono rounded-[16px] !gap-y-2'>
         {notifications.length === 0 ? (
-          <div className='running-text-mono text-gray2'>No notifications</div>
+          <div className='running-text-mono text-gray2 '>No notifications</div>
         ) : (
           notifications.map((notification) => (
             <DropdownMenuItem
               key={notification.id}
               className={cn(
-                'flex gap-2 p-2 cursor-pointer rounded-[10px] transition-all duration-300 ease-linear'
+                'flex gap-2 p-2 cursor-pointer rounded-[10px] transition-all duration-300 ease-linear pt-4  pl-4'
               )}
               onMouseEnter={() => handleRead(notification.id)} // Trigger read on hover
             >

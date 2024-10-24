@@ -28,6 +28,13 @@ export default function ArticlesPage() {
         "New Start Game Wizard, Navbar Rework, Conditional start Equipment logic and more..",
       imageUrl: "https://dzjg7lvewk7ln.cloudfront.net/articles/article_2.webp",
       },
+      {
+      id: 3,
+      title: "Adventurer Overview | Update Patch 1.2 ",
+      description:
+        "Major rework of the adventurer overview and more...",
+      imageUrl: "https://dzjg7lvewk7ln.cloudfront.net/der%20patron/1729688171168.webp",
+      },
     // Add more articles as needed
 
         //{
