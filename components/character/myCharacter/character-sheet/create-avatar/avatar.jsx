@@ -194,15 +194,8 @@ export default function Avatar({
         // Mobile
         <DialogContent className='bg-gradient   !p-0 flex-col !gap-0 border-none !h-full !w-full  max-w-screen flex  !pt-[46px]   '>
           <Navbar hideHeader={true} />
-          {isMobile && (
-            <img
-              src='/images/bg.png'
-              alt='Background'
-              priority='true'
-              title='Background Gradient'
-              className='fixed w-screen h-screen top-0 left-0 z-1 object-cover'
-            />
-          )}
+          
+          
           <div className='flex gap-5 relative flex-col bg-blur-bottom-menu items-start p-6 pt-5 !pb-0 !z-10'>
             {generateAvatar ? (
               <div className='flex justify-between items-start z-10'>
