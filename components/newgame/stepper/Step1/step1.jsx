@@ -51,7 +51,8 @@ export default function Step1({ setQuery, query, campaigns, sort, setSort }) {
       >
         <SearchInput
           query={_query}
-          clearInputTrigger={isSearchOpen}
+          isSearchOpen={isSearchOpen}
+          triggerOnBlur={setIsSearchOpen}
           onClick={() => setIsSearchOpen(true)}
           setQuery={_setQuery}
           placeholder={isMobile ? "" : "Search"}

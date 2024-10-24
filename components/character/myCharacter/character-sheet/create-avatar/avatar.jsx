@@ -38,7 +38,7 @@ const CurrentAvatarsList = ({
             alt='avatar'
             title='Avatar'
             className={cn(
-              "w-full h-[169px] md:h-[223px] cursor-pointer ease-animate rounded-[16px] ",
+              "w-full  md:h-[223px] cursor-pointer object-contain ease-animate rounded-[16px] ",
               avatar === selectedPortrait && "border-2 border-irisPurple"
             )}
           />
@@ -192,12 +192,12 @@ export default function Avatar({
     >
       {isMobile ? (
         // Mobile
-        <DialogContent className='bg-gradient !p-0 flex-col !gap-0 border-none h-full  max-w-screen md:!hidden  !pt-[46px] z-20 '>
+        <DialogContent className='bg-gradient   !p-0 flex-col !gap-0 border-none !h-full !w-full  max-w-screen flex  !pt-[46px]  '>
           <Navbar />
 
-          <div className='flex gap-5 flex-col bg-blur-bottom-menu items-start p-6 pt-4 !pb-0'>
+          <div className='flex gap-5 relative flex-col bg-blur-bottom-menu items-start p-6 pt-5 !pb-0 !z-10'>
             {generateAvatar ? (
-              <div className='flex justify-between items-start'>
+              <div className='flex justify-between items-start z-10'>
                 <div className='flex flex-col gap-2'>
                   <span className='text-white running-text-large '>
                     Generate new portrait
@@ -208,7 +208,7 @@ export default function Avatar({
                 </div>
               </div>
             ) : (
-              <span className='text-white running-text-large '>
+              <span className='text-white running-text-large z-10'>
                 Change character portrait
               </span>
             )}
@@ -230,7 +230,7 @@ export default function Avatar({
 
           <div
             className={cn(
-              "p-6 md:border-t border-white/10 justify-end w-screen fixed bottom-0 left-0 bg-blur-bottom-menu flex items-center  "
+              "p-6 md:border-t border-white/10 justify-end w-screen fixed bottom-0 left-0 bg-blur-bottom-menu flex items-center  !z-10  "
             )}
           >
             <div className='flex  items-center gap-4 justify-end '>
@@ -290,7 +290,7 @@ export default function Avatar({
         </DialogContent>
       ) : (
         // Desktop
-        <DialogContent className='bg-[#1b1b31] !rounded-[16px] !p-0 flex-col !gap-0 border border-white/10  !min-w-[757px] hidden md:flex   '>
+        <DialogContent className='bg-[#1b1b31] !rounded-[16px] !p-0 flex-col !gap-0 border border-white/10  !min-w-[757px] flex   '>
           <div className='flex gap-5 flex-col items-start p-6 pt-4  pb-0'>
             {generateAvatar ? (
               <div className='flex items-start w-full  justify-between'>
@@ -302,7 +302,7 @@ export default function Avatar({
                     Select an art style you want to use
                   </span>
                 </div>
-                <span className='text-white md:flex items-center gap-1 hidden'>
+                <span className='text-white running-text-mono md:flex items-center gap-1 hidden'>
                   <img
                     src='/gems/Legendary.webp'
                     title='Legendary Gem'

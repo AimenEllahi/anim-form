@@ -102,6 +102,7 @@ export default function StepDialog({
             withIcon
             className={twMerge("me-auto  md:hidden")}
             onClick={() => setOpen(false)}
+            variant='subtle'
           >
             <ArrowLeft className='h-5 w-5 fill-white' />
             Back

@@ -161,9 +161,9 @@ export default function Navbar({
   const [isLoading, setIsLoading] = useState(false);
   const pathname = usePathname();
   const { gamesLength } = useControlsStore();
-  const isSignUp = pathname.includes("/auth/sign-up");
+
   const isGamePage = pathname.includes("/game/play");
-  const showGems = isGamePage || pathname.includes("/character/create");
+
   const isLandingPage = pathname === "/";
   const mobileBlurNotAllowed = isLandingPage || isGamePage;
 
@@ -305,7 +305,6 @@ export default function Navbar({
             <Menu fill='#9A9AC1' />
           </button>
           <DrawerMenu
-          
             newGameStepper={newGameStepper}
             handlePlay={handlePlay}
             characterCreatePage={characterCreatePage}
@@ -335,7 +334,6 @@ export default function Navbar({
             {user?.token && <Notification />}
             {user?.token && <CreateMenu aria-label='Create Menu' />}
             <AccountDropdown aria-label='Account Dropdown' />
-
 
             <SoundButton aria-label='Sound Button' />
 

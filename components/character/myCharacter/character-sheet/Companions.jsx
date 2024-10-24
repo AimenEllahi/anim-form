@@ -3,6 +3,7 @@ import Edit from "@/components/ui/Icons/Edit";
 import React from "react";
 import { useRouter, usePathname } from "next/navigation";
 import Loader from "@/components/ui/Loader";
+import NoCompanions from "@/components/ui/Shared/Placeholder/character";
 const Card = ({
   title,
   description,
@@ -19,9 +20,9 @@ const Card = ({
 
   return (
     <div className='flex  col-span-4 rounded-[16px]  bg-white/10 border border-white/10  items-start justify-center flex-col md:flex-row  '>
-      <div className='border-b md:border-b-0 md:border-r flex flex-col p-5 pt-4 gap-4 border-white/10'>
+      <div className='border-b md:border-b-0 md:border-r flex flex-col h-full p-5 pt-4 gap-4 border-white/10'>
         <h3 className='running-text-large '>{title}</h3>
-        <div className='relative'>
+        <div className='relative overflow-hidden'>
           {loadingAvatar && selectedCompanion.name === title && (
             <Loader
               text='Weaving illusions...'
@@ -34,7 +35,7 @@ const Card = ({
               "/images/CreateCharacter/CharacterName/CharacterName.png"
             }
             alt={title}
-            className='w-full h-auto md:w-auto md:h-[182px] rounded-[10px] object-contain '
+            className=' md:h-[182px] rounded-[10px]   object-cover '
           />
         </div>
         {isCreator && (
@@ -63,7 +64,7 @@ const Card = ({
           </CustomButton>
         )}
       </div>
-      <div className='flex flex-col justify-start p-5 pt-4 gap-4'>
+      <div className='flex flex-col justify-start p-5 pt-3.5 gap-4'>
         <span className='running-text-large'>Appearance</span>
         <p className='running-text text-gray2'>{description}</p>
       </div>
@@ -78,6 +79,14 @@ export default function Companions({
   loadingAvatar,
   selectedCompanion,
 }) {
+  if (character?.companions?.length <= 0)
+    return (
+      <NoCompanions
+        className={" left-0  "}
+        isCompanion={true}
+        character={character}
+      />
+    );
   return (
     <div className='relative  grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 gap-5 '>
       {character?.companions?.map((companion, index) => (

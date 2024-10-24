@@ -102,50 +102,53 @@ export default function Index({ gameType, games, setGames }) {
             : "Completed Games"}
         </div>
       </div>
-
-      {selectedTab === "inProgress" && inProgressGames.length <= 0 ? (
-        <NoGames removePadding={inProgressGames.length === 0} />
-      ) : selectedTab === "completed" && completedGames.length <= 0 ? (
-        <NoGames completedGames={true} />
-      ) : (
-        <div className='flex md:border text-white md:bg-white/[8%] rounded-[16px] border-white/10 h-full justify-end items-end my-6  w-full md:overflow-hidden px-5 lg:px-0'>
-          <div className='w-full md:w-1/2 h-full md:border-r border-white/[8%]'>
-            {selectedTab === "inProgress" ? (
-              <LeftSection
-                selectedGame={selectedGame}
-                setSelectedGame={setSelectedGame}
-                games={inProgressGames}
+      <div className='lg:px-12 h-full  md:overflow-hidden my-6'>
+        {selectedTab === "inProgress" && inProgressGames.length <= 0 ? (
+          <NoGames removePadding={inProgressGames.length === 0} />
+        ) : selectedTab === "completed" && completedGames.length <= 0 ? (
+          <NoGames completedGames={true} />
+        ) : (
+          <div className='flex md:border text-white md:bg-white/[8%] rounded-[16px] border-white/10 h-full justify-end items-end   w-full md:overflow-hidden px-5 lg:px-0'>
+            <div className='w-full md:w-1/2 h-full md:border-r border-white/[8%]'>
+              {selectedTab === "inProgress" ? (
+                <LeftSection
+                  selectedGame={selectedGame}
+                  setSelectedGame={setSelectedGame}
+                  games={inProgressGames}
+                  selectedTab={selectedTab}
+                />
+              ) : (
+                <LeftSection
+                  selectedGame={selectedCompletedGame}
+                  setSelectedGame={setSelectedCompletedGame}
+                  games={completedGames}
+                  selectedTab={selectedTab}
+                />
+              )}
+            </div>
+            <div
+              className={cn(
+                " w-screen fixed md:relative bg-blur-bottom-menu md:blur-none md:bg-transparent left-0 top-0 md:w-1/2 h-full !z-[100] md:z-auto ",
+                selectedTab === "inProgress" && !selectedGame && "hidden",
+                selectedTab === "completed" &&
+                  !selectedCompletedGame &&
+                  "hidden"
+              )}
+            >
+              <RightSection
+                selectedGame={
+                  selectedTab === "inProgress"
+                    ? selectedGame
+                    : selectedCompletedGame
+                }
+                handleDeleteGame={handleDeleteGame}
                 selectedTab={selectedTab}
+                loadingDelete={loadingDelete}
               />
-            ) : (
-              <LeftSection
-                selectedGame={selectedCompletedGame}
-                setSelectedGame={setSelectedCompletedGame}
-                games={completedGames}
-                selectedTab={selectedTab}
-              />
-            )}
+            </div>
           </div>
-          <div
-            className={cn(
-              " w-screen fixed md:relative bg-blur-bottom-menu md:blur-none md:bg-transparent left-0 top-0 md:w-1/2 h-full !z-[100] md:z-auto ",
-              selectedTab === "inProgress" && !selectedGame && "hidden",
-              selectedTab === "completed" && !selectedCompletedGame && "hidden"
-            )}
-          >
-            <RightSection
-              selectedGame={
-                selectedTab === "inProgress"
-                  ? selectedGame
-                  : selectedCompletedGame
-              }
-              handleDeleteGame={handleDeleteGame}
-              selectedTab={selectedTab}
-              loadingDelete={loadingDelete}
-            />
-          </div>
-        </div>
-      )}
+        )}
+      </div>
 
       <GameTabbar />
     </div>

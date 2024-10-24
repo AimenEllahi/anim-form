@@ -103,10 +103,10 @@ export default function characterSheet({ character, setCharacter }) {
   return (
     <div
       ref={containerRef}
-      className='h-full min-h-full w-full pt-[94px] px-5 pb-32 md:pt-[120px] md:pb-[104px] md:px-12 flex flex-col gap-[24px] relative z-10'
+      className='h-full min-h-full w-full pt-[160px] px-5 pb-32 md:pt-[120px] md:pb-[104px] md:px-12 flex flex-col gap-[24px] relative z-10'
     >
       <GuestUser />
-      <div className='flex  items-start justify-start md:justify-between  gap-1 md:gap-[32px]  '>
+      <div className='hidden md:flex  items-start justify-start md:justify-between  gap-1 md:gap-[32px]  '>
         <div className='z-10 flex justify-start items-start md:items-center gap-1 md:gap-5 flex-col md:flex-row'>
           <span className='text-white headline-3'>
             {character.personal.name}
@@ -200,16 +200,18 @@ export default function characterSheet({ character, setCharacter }) {
         />
       )}
 
-      <DeleteCharacter action={handleDeleteCharacter}>
-        <CustomButton
-          withIcon={true}
-          variant='secondary'
-          className={cn(" md:hidden", !isCreator && "hidden")}
-        >
-          <Delete className='h-5 w-5 opacity-70 fill-errorRed' />
-          Delete character
-        </CustomButton>
-      </DeleteCharacter>
+      {selectedTab === "appearance" && (
+        <DeleteCharacter action={handleDeleteCharacter}>
+          <CustomButton
+            withIcon={true}
+            variant='secondary'
+            className={cn(" md:hidden", !isCreator && "hidden")}
+          >
+            <Delete className='h-5 w-5 opacity-70 fill-errorRed' />
+            Delete character
+          </CustomButton>
+        </DeleteCharacter>
+      )}
       <Avatar
         open={open}
         setOpen={setOpen}

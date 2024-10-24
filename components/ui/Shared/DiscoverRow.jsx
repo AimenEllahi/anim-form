@@ -81,7 +81,8 @@ export default function row({
           >
             <SearchInput
               query={query}
-              clearInputTrigger={isSearchOpen}
+              isSearchOpen={isSearchOpen}
+              triggerOnBlur={setIsSearchOpen}
               onClick={() => setIsSearchOpen(true)}
               setQuery={setQuery}
               placeholder={isMobile ? "" : "Search"}

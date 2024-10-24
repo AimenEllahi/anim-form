@@ -94,7 +94,7 @@ export default function StepDialog({
               <span className='running-text-mono text-irisPurpleLight'>
                 STEP 1/2
               </span>
-              <CustomIcontext>
+              <CustomIcontext className={"running-text-mono"}>
                 <img
                   src='/gems/Legendary.webp'
                   title='Legendary Gem'
@@ -139,7 +139,7 @@ export default function StepDialog({
               <span className='running-text-mono text-irisPurpleLight'>
                 STEP 2/2
               </span>
-              <CustomIcontext>
+              <CustomIcontext className={"running-text-mono"}>
                 <img
                   src='/gems/Legendary.webp'
                   title='Legendary Gem'
@@ -163,17 +163,17 @@ export default function StepDialog({
                   setStyle(avatar);
                 }}
               >
-                <Image
+                <img
                   src={`https://dzjg7lvewk7ln.cloudfront.net/art-styles/${avatar
                     .toLowerCase()
                     .replaceAll(" ", "-")}.webp`}
                   alt='avatar'
-                  width={224}
-                  height={224}
+                  title='Avatar Image'
+                  style={{ aspectRatio: "1/1" }}
                   className={cn(
-                    " cursor-pointer ease-animate rounded-[16px] w-[224px] ease-animate object-cover",
+                    " cursor-pointer ease-animate rounded-[16px]",
                     style === avatar &&
-                      "border border-irisPurpleLight shadow-custom-1"
+                      "border border-irisPurple shadow-custom-1"
                   )}
                 />
                 <span className='uppercase running-text-mono'>{avatar}</span>

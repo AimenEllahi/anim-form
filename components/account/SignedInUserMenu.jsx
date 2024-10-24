@@ -35,8 +35,7 @@ export default function SignedInUserMenu() {
           </span>
         </div>
         <div className='flex gap-5'>
-          <CustomIcontext  onClick={() => handleRedirect("/pricing")}
-          >
+          <CustomIcontext onClick={() => handleRedirect("/pricing")}>
             <img
               src='/gems/Mythic.webp'
               title='Mytich Gem'
@@ -45,8 +44,7 @@ export default function SignedInUserMenu() {
             />
             {user.blueCredits}
           </CustomIcontext>
-          <CustomIcontext  onClick={() => handleRedirect("/pricing")}
-          >
+          <CustomIcontext onClick={() => handleRedirect("/pricing")}>
             <img
               src='/gems/Legendary.webp'
               title='Legendary Gem'
@@ -60,7 +58,7 @@ export default function SignedInUserMenu() {
 
       <hr className='w-full border-white/5 my-2' />
       <div className='w-full px-2 gap-2 flex flex-col'>
-{/* 
+        {/* 
   <DropdownMenuItem className='flex !p-0 gap-2 w-full focus:bg-transparent focus:text-white  transition-all duration-300 ease-linear cursor-pointer'>
     <CustomMenuItem
       onClick={() => handleRedirect("/my-account/settings")}
@@ -75,7 +73,7 @@ export default function SignedInUserMenu() {
   </DropdownMenuItem> 
 */}
 
-        <DropdownMenuItem className='flex !p-0 gap-2 w-full focus:bg-transparent focus:text-white  transition-all duration-300 ease-linear cursor-pointer'>
+        <DropdownMenuItem className='flex !p-0 gap-2 w-full focus:bg-transparent hover:border-transparent focus:text-white  transition-all duration-300 ease-linear cursor-pointer'>
           <CustomMenuItem
             onClick={() => handleRedirect("/character/my-characters")}
           >
@@ -85,7 +83,7 @@ export default function SignedInUserMenu() {
         </DropdownMenuItem>
         <DropdownMenuItem
           onClick={() => handleRedirect("/my-account/gallery")}
-          className='flex gap-2 !p-0   focus:bg-transparent focus:text-white  transition-all duration-300 ease-linear cursor-pointer'
+          className='flex gap-2 !p-0   focus:bg-transparent focus:text-white hover:border-transparent  transition-all duration-300 ease-linear cursor-pointer'
         >
           <CustomMenuItem>
             <img
@@ -97,7 +95,7 @@ export default function SignedInUserMenu() {
             <span>My images</span>
           </CustomMenuItem>
         </DropdownMenuItem>
-        <DropdownMenuItem className='flex gap-2 !p-0   focus:bg-transparent focus:text-white  transition-all duration-300 ease-linear cursor-pointer'>
+        <DropdownMenuItem className='flex gap-2 !p-0   focus:bg-transparent hover:border-transparent focus:text-white  transition-all duration-300 ease-linear cursor-pointer'>
           <CustomMenuItem
             onClick={() => handleRedirect("/campaign/my-campaigns")}
           >
@@ -110,7 +108,7 @@ export default function SignedInUserMenu() {
             <span>My campaigns</span>
           </CustomMenuItem>
         </DropdownMenuItem>
-        <DropdownMenuItem className='flex gap-2 !p-0   focus:bg-transparent focus:text-white  transition-all duration-300 ease-linear cursor-pointer'>
+        <DropdownMenuItem className='flex gap-2 !p-0   focus:bg-transparent hover:border-transparent focus:text-white  transition-all duration-300 ease-linear cursor-pointer'>
           <CustomMenuItem
             onClick={() => handleRedirect("/campaign/my-campaigns/favorites")}
           >
@@ -126,7 +124,7 @@ export default function SignedInUserMenu() {
       </div>
       <hr className='w-full border-white/5 my-2' />
       <div className='w-full px-2 gap-2 flex flex-col'>
-        <DropdownMenuItem className='flex gap-2 !p-0   focus:bg-transparent focus:text-white  transition-all duration-300 ease-linear cursor-pointer'>
+        <DropdownMenuItem className='flex gap-2 !p-0   focus:bg-transparent focus:text-white hover:border-transparent  transition-all duration-300 ease-linear cursor-pointer'>
           <CustomMenuItem
             onClick={() => handleRedirect("/my-account/settings")}
           >
@@ -140,14 +138,14 @@ export default function SignedInUserMenu() {
           </CustomMenuItem>
         </DropdownMenuItem>
 
-        <DropdownMenuItem className='flex gap-2 !p-0   focus:bg-transparent focus:text-white  transition-all duration-300 ease-linear cursor-pointer'>
+        <DropdownMenuItem className='flex gap-2 !p-0   focus:bg-transparent hover:border-transparent focus:text-white  transition-all duration-300 ease-linear cursor-pointer'>
           <CustomMenuItem onClick={() => handleRedirect("/pricing")}>
             <Support className='h-5 w-5 fill-white opacity-70' />
             <span>Support Us</span>
           </CustomMenuItem>
         </DropdownMenuItem>
 
-        <DropdownMenuItem className='flex gap-2 !p-0   focus:bg-transparent focus:text-white  transition-all duration-300 ease-linear cursor-pointer'>
+        <DropdownMenuItem className='flex gap-2 !p-0   focus:bg-transparent hover:border-transparent focus:text-white  transition-all duration-300 ease-linear cursor-pointer'>
           <CustomMenuItem onClick={handleLogout}>
             <img
               src='/Icons/Logout.svg'

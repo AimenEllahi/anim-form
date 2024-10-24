@@ -30,7 +30,8 @@ export default function index() {
     selectedGame,
     gamesLength,
   } = useControlsStore();
-  const { activeStep, gender, setGender } = useStepperStore();
+  const { activeStep, gender, setGender, displayingCharacter } =
+    useStepperStore();
   const { startNewGame, step: newGameStep } = useGameStore();
 
   const games = pathname.includes("/games");
@@ -39,7 +40,6 @@ export default function index() {
     pathname === "/" ||
     pathname.includes("pricing") ||
     campaignSubpageRegex.test(pathname) ||
-    pathname.includes("character/sheet") ||
     (pathname.includes("game") && !pathname.includes("games")) ||
     (selectedTab === "inProgress" && selectedGame) ||
     (selectedTab === "completed" && selectedCompletedGame) ||
@@ -62,6 +62,7 @@ export default function index() {
   const about = pathname.includes("/about");
   const contact = pathname.includes("/contact");
   const settings = pathname.includes("my-account/settings");
+  const characterSheet = pathname.includes("character/sheet");
 
   if (startNewGame) {
     return (
@@ -80,6 +81,8 @@ export default function index() {
     );
   }
   if (noHeading) return null;
+
+  console.log(characterSheet);
 
   const renderHeader = () => {
     if (signUp) {
@@ -246,6 +249,38 @@ export default function index() {
             ? "Public Games"
             : "Completed Games"}
         </span>
+      );
+    } else if (characterSheet && displayingCharacter) {
+      return (
+        <div className='flex  items-start justify-start md:justify-between  gap-1 md:gap-[32px]  '>
+          <div className=' flex justify-start items-start md:items-center gap-1 md:gap-5 flex-col md:flex-row'>
+            <span className='text-white headline-3'>
+              {displayingCharacter?.personal.name}
+            </span>
+            <div className='flex  items-center gap-2 md:gap-5'>
+              <img
+                src={`https://dzjg7lvewk7ln.cloudfront.net/class/${displayingCharacter?.personal?.class
+                  .toLowerCase()
+                  .replaceAll(" ", "-")}.webp`}
+                className='rounded-full h-[32px] w-[32px]'
+                title='Characters Class'
+                alt='class of the Character'
+              />
+              <div className='flex flex-col running-text-mono'>
+                <span className='text-white '>
+                  LEVEL {displayingCharacter?.value.level}
+                </span>
+                <span className=' text-irisPurpleLight uppercase'>
+                  {displayingCharacter?.value.race}{" "}
+                  <span className=' text-sandyOrange uppercase'>
+                    {" "}
+                    {displayingCharacter?.value.class}
+                  </span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
       );
     }
   };

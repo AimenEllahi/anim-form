@@ -18,8 +18,7 @@ export default function LeftSection({
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   const detectClickOutside = (e) => {
-    if (query) return;
-    if (e.target.classList.contains("search-input")) {
+    if (query || e.target.classList.contains("search-input")) {
       return;
     }
 
@@ -49,6 +48,7 @@ export default function LeftSection({
       >
         <SearchInput
           query={query}
+          isSearchOpen={isSearchOpen}
           triggerOnBlur={setIsSearchOpen}
           onClick={() => setIsSearchOpen(true)}
           setQuery={setQuery}
@@ -58,7 +58,7 @@ export default function LeftSection({
             isSearchOpen && "w-full"
           )}
           inputClassName={cn(
-            "ps-0 w-12  md:w-full md:ps-[38px] transition-all duration-300 ease-in-out",
+            "ps-0 pe-0 w-12  md:w-full md:ps-[38px] transition-all duration-300 ease-in-out",
             isSearchOpen && "ps-[38px] w-full "
           )}
         />

@@ -36,8 +36,11 @@ export default function Card({ campaign }) {
           <h3 className='running-text h-6 overflow-hidden text-white'>
             {campaign.title}
           </h3>
-          <p className='text-gray2 h-6  overflow-hidden running-text-small'>
+          <p className='text-gray2 h-6  overflow-hidden running-text-small hidden md:block'>
             {campaign.plot.slice(0, 80)}...
+          </p>
+          <p className='text-gray2 max-h-6  truncate overflow-hidden running-text-small  md:hidden'>
+            {campaign.plot.slice(0, 30)}...
           </p>
         </div>
       </div>

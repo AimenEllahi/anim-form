@@ -7,7 +7,7 @@ const RenderEquipmentData = ({ value, className, length, index }) => {
   return (
     <span
       className={cn(
-        "running-text-mono  border-b border-white/10 py-5",
+        "running-text  border-b border-white/10 py-5",
         length % 3 === 0
           ? (index === length - 1 || index === length - 2) && "!pb-0 border-0"
           : index === length && "!pb-0 border-0",
@@ -21,7 +21,7 @@ const RenderEquipmentData = ({ value, className, length, index }) => {
 
 export default function Inventory({ character }) {
   return (
-    <div className=' md:w-[95%] h-auto  relative  px-5 pt-4 pb-5  bg-white/10 border border-white/10 rounded-[16px] '>
+    <div className='  h-auto  relative  px-5 pt-4 pb-5  bg-white/10 border border-white/10 rounded-[16px] '>
       <div className=' flex flex-col '>
         <div className='flex w-full flex-col  items-start justify-between '>
           <span className='running-text-large'>Inventory</span>

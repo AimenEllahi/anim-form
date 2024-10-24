@@ -7,15 +7,16 @@
 @font-face {
   font-family: "Helvetica Now Display";
   src: local("Helvetica Now Display"),
-        url("/fonts/HelveticaNowDisplay-Medium.woff2") format("woff2");
+    url("/fonts/HelveticaNowDisplay-Medium.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
   font-display: optional;
 }
+
 @font-face {
   font-family: "Roboto Mono";
   src: local("Roboto Mono"),
-        url("/fonts/RobotoMono-VariableFont_wght.woff2") format("woff2");
+    url("/fonts/RobotoMono-VariableFont_wght.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
   font-display: optional;
@@ -123,8 +124,8 @@ body {
   }
 
   .bg-blur-bottom-menu {
-    backdrop-filter: blur(60px);
-    -webkit-backdrop-filter: blur(60px);
+    backdrop-filter: blur(128px);
+    -webkit-backdrop-filter: blur(128px);
     background: #0a0a2166;
   }
 
@@ -145,7 +146,7 @@ body {
 
   /* Headline 2 */
   .headline-2 {
-    @apply font-helvetica-now-display  md:font-helvetica-now-display font-medium uppercase md:text-[44px] md:leading-[42px] text-[22px] leading-[22px] tracking-[0.03em];
+    @apply font-helvetica-now-display md:font-helvetica-now-display font-medium uppercase md:text-[44px] md:leading-[42px] text-[22px] leading-[22px] tracking-[0.03em];
 
     /* Specify font family */
   }
@@ -652,7 +653,7 @@ input::-ms-clear {
   border: 1px solid rgba(255, 255, 255, 0.08);
   /* White border with 8% opacity */
   padding: 16px;
-  padding-bottom:0px;
+  padding-bottom: 0px;
   /* Equivalent to p-4 */
   border-radius: 10px;
   /* Equivalent to rounded-lg */

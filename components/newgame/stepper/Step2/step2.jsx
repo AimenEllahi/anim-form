@@ -30,7 +30,7 @@ export default function Step2({ characters, premadeCharacters }) {
   return (
     <div
       className={cn(
-        "flex flex-col gap-5 pb-4 pt-5 h-[483px] overflow-y-scroll hide-scrollbar ",
+        "flex flex-col gap-5 pb-4 pt-5 md:h-[483px] overflow-y-scroll hide-scrollbar ",
         characters.length <= 0 && "flex-col-reverse"
       )}
     >

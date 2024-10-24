@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import useCustomToast from "@/hooks/useCustomToast";
 import useUserStore from "@/utils/userStore";
 import Cookie from "universal-cookie";
+import useCharaterStore from "@/utils/characterStore";
 
 const ch = {
   personal: {
@@ -107,15 +108,12 @@ export default function page({ params }) {
   const router = useRouter();
   const { invokeToast } = useCustomToast();
   const { user } = useUserStore();
-  const cookies = new Cookie();
+  const { setDisplayingCharacter } = useCharaterStore();
 
   const handleGetCharacter = async () => {
     try {
-      // setCharacter(ch);
-      // return;
-
       const response = await getCharacter(params.slug);
-      console.log(response.character);
+      setDisplayingCharacter(response.character);
       setCharacter(response.character);
     } catch (error) {
       invokeToast(

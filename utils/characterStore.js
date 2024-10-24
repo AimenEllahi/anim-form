@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-const useStepperStore = create((set) => ({
+const useCharaterStore = create((set) => ({
   // Existing states
   activeStep: 0,
   gender: "male",
@@ -30,6 +30,8 @@ const useStepperStore = create((set) => ({
     gold: 0,
     name: "",
   },
+
+  displayingCharacter: null,
 
   // Actions to update the existing states
   setBackgroundQuery: (backgroundQuery) => set({ backgroundQuery }),
@@ -101,6 +103,8 @@ const useStepperStore = create((set) => ({
     set((state) => ({
       character: { ...state.character, name },
     })),
+
+  setDisplayingCharacter: (displayingCharacter) => set({ displayingCharacter }),
 }));
 
-export default useStepperStore;
+export default useCharaterStore;
