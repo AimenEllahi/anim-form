@@ -79,30 +79,32 @@ export default function Companions({
   loadingAvatar,
   selectedCompanion,
 }) {
-  if (character?.companions?.length <= 0)
-    return (
-      <NoCompanions
-        className={" left-0  "}
-        isCompanion={true}
-        character={character}
-      />
-    );
+  const hasCompanions = character?.companions?.length > 0;
+
   return (
-    <div className='relative  grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 gap-5 '>
-      {character?.companions?.map((companion, index) => (
-        <Card
-          key={index}
-          title={companion.name}
-          description={companion.appearance}
-          images={companion?.images || []}
-          primaryImage={companion.primaryImage}
-          isCreator={isCreator}
-          setOpen={setOpen}
-          loadingAvatar={loadingAvatar}
-          selectedCompanion={selectedCompanion}
-          setSelectedCompanion={setSelectedCompanion}
+    <div className="relative grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 gap-5">
+      {hasCompanions ? (
+        character.companions.map((companion, index) => (
+          <Card
+            key={index}
+            title={companion.name}
+            description={companion.appearance}
+            images={companion?.images || []}
+            primaryImage={companion.primaryImage}
+            isCreator={isCreator}
+            setOpen={setOpen}
+            loadingAvatar={loadingAvatar}
+            selectedCompanion={selectedCompanion}
+            setSelectedCompanion={setSelectedCompanion}
+          />
+        ))
+      ) : (
+        <NoCompanions
+          className={"flex flex-col items-center justify-center h-full w-full"}
+          isCompanion={true}
+          character={character}
         />
-      ))}
+      )}
     </div>
   );
 }
