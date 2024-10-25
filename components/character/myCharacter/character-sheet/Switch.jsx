@@ -8,7 +8,7 @@ import Inventory from "@/components/ui/Icons/Inventory";
 
 export default function Switch({ selectedTab, setSelectedTab }) {
   return (
-    <div className='flex w-full z-[10]'>
+    <div className='flex w-full z-[20]'>
       <div className=' w-full md:w-fit overflow-x-scroll hide-scrollbar flex md:p-2 gap-2 md:bg-white/[8%] rounded-[16px] md:border border-white/10'>
         {/* Appearance Tab */}
         <CustomButton
