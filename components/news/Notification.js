@@ -20,12 +20,23 @@ const Notification = () => {
   const [notifications, setNotifications] = useState(defaultNotifications);
 
   // Retrieve the stored read statuses from localStorage when the component mounts
+  const currentVersion = '1.0'; // Update this version each time you change defaultNotifications
+
   useEffect(() => {
+    const storedVersion = localStorage.getItem('notificationsVersion');
     const storedNotifications = JSON.parse(localStorage.getItem('notifications'));
-    if (storedNotifications) {
+  
+    if (storedVersion !== currentVersion) {
+      // Clear localStorage if version mismatch and store the latest notifications
+      localStorage.setItem('notificationsVersion', currentVersion);
+      localStorage.setItem('notifications', JSON.stringify(defaultNotifications));
+      setNotifications(defaultNotifications); // Load default notifications in the state
+    } else if (storedNotifications) {
+      // Load existing notifications if version matches
       setNotifications(storedNotifications);
     }
   }, []);
+  
 
   // Function to handle marking a notification as read
   const handleRead = (id) => {
