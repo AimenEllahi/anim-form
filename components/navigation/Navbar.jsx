@@ -145,6 +145,7 @@ export default function Navbar({
   variant,
   characterSheet,
   newGameStepper = false,
+  hideHeader,
 }) {
   const { isMobile } = useDeviceDetect();
   const { invokeToast } = useCustomToast();
@@ -371,7 +372,7 @@ export default function Navbar({
           </div>
         </div>
       </div>
-      <MobileHeader aria-label='Mobile Header' />
+      {!hideHeader && <MobileHeader aria-label='Mobile Header' />}
     </nav>
   );
 }

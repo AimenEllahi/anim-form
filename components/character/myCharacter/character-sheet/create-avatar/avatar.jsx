@@ -192,9 +192,10 @@ export default function Avatar({
     >
       {isMobile ? (
         // Mobile
-        <DialogContent className='bg-gradient   !p-0 flex-col !gap-0 border-none !h-full !w-full  max-w-screen flex  !pt-[46px]  '>
-          <Navbar />
-
+        <DialogContent className='bg-gradient   !p-0 flex-col !gap-0 border-none !h-full !w-full  max-w-screen flex  !pt-[46px]   '>
+          <Navbar hideHeader={true} />
+          
+          
           <div className='flex gap-5 relative flex-col bg-blur-bottom-menu items-start p-6 pt-5 !pb-0 !z-10'>
             {generateAvatar ? (
               <div className='flex justify-between items-start z-10'>
