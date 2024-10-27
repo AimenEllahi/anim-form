@@ -68,7 +68,9 @@ export default function Card({ campaign }) {
 
       {currentCampaign?._id === campaign?._id && (
         <div
-          onClick={() => setShowOverlay(true)}
+          onClick={() => {
+            setShowOverlay(true);
+          }}
           className={cn("flex items-center md:hidden  ")}
         >
           <Information className='h-6 w-6  ease-animate  ' />
@@ -80,13 +82,15 @@ export default function Card({ campaign }) {
           <div className='fixed h-screen w-full top-0 left-0 bg-blur-bottom-menu z-[100] '>
             <div className='flex flex-col gap-4 h-full overflow-scroll p-5  pt-[96px]  pb-28   '>
               <img
-                src={campaign?.worldMapUrl || "/images/Header.webp"}
+                src={currentCampaign?.worldMapUrl || "/images/Header.webp"}
                 alt='Campaign'
                 className='w-full rounded-[10px] object-contain'
               />
 
-              <span className='headline-3'>{campaign.title}</span>
-              <span className='running-text text-gray2'>{campaign.plot}</span>
+              <span className='headline-3'>{currentCampaign.title}</span>
+              <span className='running-text text-gray2'>
+                {currentCampaign.plot}
+              </span>
             </div>
           </div>
 

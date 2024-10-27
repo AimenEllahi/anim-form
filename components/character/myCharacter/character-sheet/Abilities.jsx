@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 export default function Abilities({ character }) {
   return (
     <div className='relative  grid grid-cols-12 gap-5'>
-      <div className='flex flex-col gap-4 col-span-12 md:col-span-3 bg-white/10 border border-white/10 rounded-[16px] p-5 pt-4'>
+      <div className='flex flex-col gap-4 col-span-12 md:col-span-8 lg:col-span-3 bg-white/10 border border-white/10 rounded-[16px] p-5 pt-4'>
         <span className='running-text-large'>Abilitiy Scores</span>
         <div className='flex flex-col justify-start gap-5 w-full'>
           {Object.entries(character?.value?.ability_scores || {}).map(
@@ -37,7 +37,7 @@ export default function Abilities({ character }) {
           )}
         </div>
       </div>
-      <div className='col-span-12 md:col-span-2'>
+      <div className='col-span-12 md:col-span-4 lg:col-span-2'>
         <RenderCharacteristics
           title='Defence'
           data={[
@@ -54,13 +54,13 @@ export default function Abilities({ character }) {
           containerClassName='flex-row md:flex-col'
         />
       </div>
-      <div className=' h-fit col-span-12 md:col-span-4  py-4 px-5 flex flex-col gap-3 justify-start bg-white/10 rounded-[16px] border border-white/10'>
+      <div className=' h-fit col-span-12 md:col-span-6 lg:col-span-4  py-4 px-5 flex flex-col gap-3 justify-start bg-white/10 rounded-[16px] border border-white/10'>
         <span className='running-text-large'>Abilities</span>
         <span className='running-text text-gray2'>
           {character.value.abilities}
         </span>
       </div>
-      <div className='col-span-12 md:col-span-2'>
+      <div className='col-span-12 md:col-span-6 lg:col-span-4'>
         <div
           className={cn(
             " h-auto p-4 px-5  flex flex-col gap-3 justify-start bg-white/10 rounded-[16px] border border-white/10",

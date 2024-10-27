@@ -167,7 +167,7 @@ export default function characterSheet({ character, setCharacter }) {
       </div>
       <Switch selectedTab={selectedTab} setSelectedTab={setSelectedTab} />
       {selectedTab === "appearance" && (
-        <div className=' h-full gap-5  flex flex-col md:flex-row'>
+        <div className=' h-full gap-5  flex flex-col lg:flex-row'>
           <div>
             <CharacterInfo
               setOpen={setOpen}

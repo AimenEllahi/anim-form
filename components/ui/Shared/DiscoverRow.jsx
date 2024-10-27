@@ -117,7 +117,7 @@ export default function row({
         {campaigns.map((campaign, i) => (
           <div
             key={i}
-            className='col-span-12 sm:col-span-6 md:col-span-4 xl:col-span-3  w-full min-w-full max-w-full'
+            className='col-span-12 sm:col-span-6 lg:col-span-4 xl:col-span-3  w-full min-w-full max-w-full'
           >
             <Card
               handleUpdateCampaigns={handleUpdateCampaigns}

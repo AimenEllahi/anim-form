@@ -16,6 +16,7 @@ import Cookie from "universal-cookie";
 import { getMetaTags } from "@/utils/metaTags";
 import { cn } from "@/lib/utils";
 import NewGameModal from "@/components/newgame/index";
+import { getCredits } from "@/actions/character";
 const inter = Inter({ subsets: ["latin"] });
 
 const MemoizedNavbar = memo(Navbar);
@@ -24,7 +25,7 @@ const MemoizedFooter = memo(Footer);
 export default function RootLayout({ children }) {
   const pathname = usePathname();
   const { activeStep } = useStepperStore();
-  const { user } = useUserStore();
+  const { user, setYellowCredits, setBlueCredits } = useUserStore();
   const cookies = new Cookie();
 
   const isTransparentNavbar =
@@ -61,7 +62,7 @@ export default function RootLayout({ children }) {
   useEffect(() => {
     const setDocumentTitle = (url) => {
       document.title = title;
-      window.gtag("config", "G-BTHMYX7TZ9", {
+      window?.gtag("config", "G-BTHMYX7TZ9", {
         page_title: title,
         page_path: url,
         screen_name: title,
@@ -72,7 +73,7 @@ export default function RootLayout({ children }) {
     const handleRouteChange = (url) => {
       setDocumentTitle(url);
     };
-    if (window.gtag) {
+    if (window?.gtag) {
       handleRouteChange(pathname);
     }
   }, [pathname, title]);
@@ -88,6 +89,22 @@ export default function RootLayout({ children }) {
       });
     }
   }, [user]);
+
+  const handleGetCredits = async () => {
+    try {
+      const { credits } = await getCredits(user?.token);
+      setYellowCredits(credits.yellowCredits);
+      setBlueCredits(credits.blueCredits);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
+  useEffect(() => {
+    if (user?.token) {
+      handleGetCredits();
+    }
+  }, [pathname]);
   return (
     <html lang='en' suppressHydrationWarning className={inter.className}>
       <GoogleOAuthProvider clientId='1036030324483-ltg0nqpg0ectr5q3n7cfa66l7eq1ban8.apps.googleusercontent.com'>
@@ -134,25 +151,25 @@ export default function RootLayout({ children }) {
           <meta name='application-name' content='DND AI' />
           <meta name='msapplication-TileColor' content='#0A0A21' />
           <meta name='msapplication-TileImage' content={ogImage} />
-          <link 
-            rel="preload" 
-            href="/fonts/HelveticaNowDisplay-Medium.woff2" 
-            as="font" 
-            type="font/woff2" 
-            crossOrigin="anonymous"
+          <link
+            rel='preload'
+            href='/fonts/HelveticaNowDisplay-Medium.woff2'
+            as='font'
+            type='font/woff2'
+            crossOrigin='anonymous'
           />
-          <link 
-            rel="preload" 
-            href="/fonts/RobotoMono-VariableFont_wght.woff2" 
-            as="font" 
-            type="font/woff2" 
-            crossOrigin="anonymous"
+          <link
+            rel='preload'
+            href='/fonts/RobotoMono-VariableFont_wght.woff2'
+            as='font'
+            type='font/woff2'
+            crossOrigin='anonymous'
           />
           <link rel='canonical' href={ogUrl} />
-          <link rel="manifest" href="/manifest.webmanifest"/>
-          <link rel="icon" href="/favicon.ico" sizes="32x32"/>
-          <link rel="icon" href="/icon.svg" type="image/svg+xml"/>
-          <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+          <link rel='manifest' href='/manifest.webmanifest' />
+          <link rel='icon' href='/favicon.ico' sizes='32x32' />
+          <link rel='icon' href='/icon.svg' type='image/svg+xml' />
+          <link rel='apple-touch-icon' href='/apple-touch-icon.png' />
           <Script
             strategy='afterInteractive'
             src={`https://www.googletagmanager.com/gtag/js?id=G-BTHMYX7TZ9`}

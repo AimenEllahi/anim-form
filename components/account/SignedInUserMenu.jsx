@@ -26,7 +26,7 @@ export default function SignedInUserMenu() {
     router.push(path);
   };
   return (
-    <DropdownMenuContent className='uppercase flex flex-col mt-4 bg-white/10 !px-0 py-2 border border-white/10 z-[21] bg-blur menu-shadow text-white running-text-mono rounded-[16px] mr-5'>
+    <DropdownMenuContent className='uppercase flex flex-col mt-4 bg-white/10 !px-0 py-2 border border-white/10 z-[21] bg-blur menu-shadow text-white running-text-mono rounded-[16px] '>
       <div className='gap-5 px-6 py-4 pb-3 flex flex-col'>
         <div className='flex flex-col gap-2'>
           <span className=' headline-4'>{user.username}</span>
@@ -73,89 +73,72 @@ export default function SignedInUserMenu() {
   </DropdownMenuItem> 
 */}
 
-        <DropdownMenuItem className='flex !p-0 gap-2 w-full focus:bg-transparent hover:border-transparent focus:text-white  transition-all duration-300 ease-linear cursor-pointer'>
-          <CustomMenuItem
-            onClick={() => handleRedirect("/character/my-characters")}
-          >
-            <Adventure className='h-5 w-5 fill-white opacity-70' />
-            <span>My Adventurers</span>
-          </CustomMenuItem>
-        </DropdownMenuItem>
-        <DropdownMenuItem
-          onClick={() => handleRedirect("/my-account/gallery")}
-          className='flex gap-2 !p-0   focus:bg-transparent focus:text-white hover:border-transparent  transition-all duration-300 ease-linear cursor-pointer'
+        <CustomMenuItem
+          onClick={() => handleRedirect("/character/my-characters")}
         >
-          <CustomMenuItem>
-            <img
-              src='/Icons/ImageLibrary.svg'
-              title='My Image Gallery'
-              alt='Private image gallery of the user'
-              className='h-5 w-5  opacity-70'
-            />
-            <span>My images</span>
-          </CustomMenuItem>
-        </DropdownMenuItem>
-        <DropdownMenuItem className='flex gap-2 !p-0   focus:bg-transparent hover:border-transparent focus:text-white  transition-all duration-300 ease-linear cursor-pointer'>
-          <CustomMenuItem
-            onClick={() => handleRedirect("/campaign/my-campaigns")}
-          >
-            <img
-              src='/Icons/Campaign.svg'
-              title='Campaigns'
-              alt='user generated campaigns'
-              className='h-5 w-5  opacity-70'
-            />
-            <span>My campaigns</span>
-          </CustomMenuItem>
-        </DropdownMenuItem>
-        <DropdownMenuItem className='flex gap-2 !p-0   focus:bg-transparent hover:border-transparent focus:text-white  transition-all duration-300 ease-linear cursor-pointer'>
-          <CustomMenuItem
-            onClick={() => handleRedirect("/campaign/my-campaigns/favorites")}
-          >
-            <img
-              src='/Icons/StarFilled.svg'
-              title='Star Icon'
-              alt='Icon to get to favourite  Campaigns page'
-              className='h-5 w-5  opacity-70'
-            />
-            <span>Favorites</span>
-          </CustomMenuItem>
-        </DropdownMenuItem>
+          <Adventure className='h-5 w-5 fill-white opacity-70' />
+          <span>My Adventurers</span>
+        </CustomMenuItem>
+        <CustomMenuItem onClick={() => handleRedirect("/my-account/gallery")}>
+          <img
+            src='/Icons/ImageLibrary.svg'
+            title='My Image Gallery'
+            alt='Private image gallery of the user'
+            className='h-5 w-5  opacity-70'
+          />
+          <span>My images</span>
+        </CustomMenuItem>
+
+        <CustomMenuItem
+          onClick={() => handleRedirect("/campaign/my-campaigns")}
+        >
+          <img
+            src='/Icons/Campaign.svg'
+            title='Campaigns'
+            alt='user generated campaigns'
+            className='h-5 w-5  opacity-70'
+          />
+          <span>My campaigns</span>
+        </CustomMenuItem>
+
+        <CustomMenuItem
+          onClick={() => handleRedirect("/campaign/my-campaigns/favorites")}
+        >
+          <img
+            src='/Icons/StarFilled.svg'
+            title='Star Icon'
+            alt='Icon to get to favourite  Campaigns page'
+            className='h-5 w-5  opacity-70'
+          />
+          <span>Favorites</span>
+        </CustomMenuItem>
       </div>
       <hr className='w-full border-white/5 my-2' />
       <div className='w-full px-2 gap-2 flex flex-col'>
-        <DropdownMenuItem className='flex gap-2 !p-0   focus:bg-transparent focus:text-white hover:border-transparent  transition-all duration-300 ease-linear cursor-pointer'>
-          <CustomMenuItem
-            onClick={() => handleRedirect("/my-account/settings")}
-          >
-            <img
-              src='/Icons/Settings.svg'
-              title='Settings icon'
-              alt='Button to get to the account settings'
-              className='h-5 w-5  opacity-70'
-            />
-            <span>Account Settings</span>
-          </CustomMenuItem>
-        </DropdownMenuItem>
+        <CustomMenuItem onClick={() => handleRedirect("/my-account/settings")}>
+          <img
+            src='/Icons/Settings.svg'
+            title='Settings icon'
+            alt='Button to get to the account settings'
+            className='h-5 w-5  opacity-70'
+          />
+          <span>Account Settings</span>
+        </CustomMenuItem>
 
-        <DropdownMenuItem className='flex gap-2 !p-0   focus:bg-transparent hover:border-transparent focus:text-white  transition-all duration-300 ease-linear cursor-pointer'>
-          <CustomMenuItem onClick={() => handleRedirect("/pricing")}>
-            <Support className='h-5 w-5 fill-white opacity-70' />
-            <span>Support Us</span>
-          </CustomMenuItem>
-        </DropdownMenuItem>
+        <CustomMenuItem onClick={() => handleRedirect("/pricing")}>
+          <Support className='h-5 w-5 fill-white opacity-70' />
+          <span>Support Us</span>
+        </CustomMenuItem>
 
-        <DropdownMenuItem className='flex gap-2 !p-0   focus:bg-transparent hover:border-transparent focus:text-white  transition-all duration-300 ease-linear cursor-pointer'>
-          <CustomMenuItem onClick={handleLogout}>
-            <img
-              src='/Icons/Logout.svg'
-              title='Logout Icon'
-              alt='Logout button'
-              className='h-5 w-5  opacity-70'
-            />
-            <span>Logout</span>
-          </CustomMenuItem>
-        </DropdownMenuItem>
+        <CustomMenuItem onClick={handleLogout}>
+          <img
+            src='/Icons/Logout.svg'
+            title='Logout Icon'
+            alt='Logout button'
+            className='h-5 w-5  opacity-70'
+          />
+          <span>Logout</span>
+        </CustomMenuItem>
       </div>
     </DropdownMenuContent>
   );

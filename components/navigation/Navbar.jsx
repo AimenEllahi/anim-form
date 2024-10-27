@@ -147,7 +147,7 @@ export default function Navbar({
   newGameStepper = false,
   hideHeader,
 }) {
-  const { isMobile } = useDeviceDetect();
+  const { isMobile, isTablet } = useDeviceDetect();
   const { invokeToast } = useCustomToast();
   const { showMenu, setShowMenu, selectedCompletedGame, selectedGame } =
     useControlsStore();
@@ -254,30 +254,30 @@ export default function Navbar({
     <nav
       suppressHydrationWarning
       className={cn(
-        "px-5 md:px-8 fixed top-0 pt-5  pb-4 gap-5  md:py-0 flex flex-col md:top-8 z-20 w-full",
+        "px-5 lg:px-8 fixed top-0 pt-5  pb-4 gap-5  lg:py-0 flex flex-col lg:top-8 z-20 w-full",
         isMobile &&
           !mobileBlurNotAllowed &&
           !showMenu &&
-          "bg-blur-bottom-menu md:bg-auto ",
+          "bg-blur-bottom-menu lg:bg-auto ",
         characterCreatePage && "pt-5",
         isNoGamesPage && "bg-transparent",
         (selectedGame || selectedCompletedGame || showOverlay) &&
-          "hidden md:flex"
+          "hidden lg:flex"
       )}
     >
       <div
         className={cn(
-          " running-text-mono w-full rounded-2xl md:border border-white/10 top-0 md:top-8 left-0 translate-x-[0] flex h-auto md:h-[64px]  justify-center md:p-[8px] md:ps-4 ",
+          " running-text-mono w-full rounded-2xl lg:border border-white/10 top-0 lg:top-8 left-0 translate-x-[0] flex h-auto lg:h-[64px]  justify-center lg:p-[8px] lg:ps-4 ",
           variant === "transparent" && "bg-transparent border-none",
-          variant === "glass" && "md:bg-blur",
-          isMobile && "!bg-transparent !border-none"
+          variant === "glass" && "lg:bg-blur",
+          isTablet && "!bg-transparent !border-none"
           //scrollFromTop.current > 100 && "bg-white/10 border-white/10 bg-blur"
         )}
       >
         {/* Mobile */}
         <div
           className={
-            "w-full h-full rounded-lg text-white  md:hidden flex justify-between items-center"
+            "w-full h-full rounded-lg text-white  lg:hidden flex justify-between items-center"
           }
         >
           <Link
@@ -312,7 +312,7 @@ export default function Navbar({
           />
         </div>
         {/* Desktop */}
-        <div className=' w-full hidden h-full text-white  md:flex justify-between items-center'>
+        <div className=' w-full hidden h-full text-white  lg:flex justify-between items-center'>
           <div className='flex justify-center items-center gap-6'>
             <Link
               href='/'
