@@ -302,7 +302,7 @@ export default function DrawerMenu({
   return (
     <div
       className={cn(
-        "absolute !z-[400]  -top-5 left-[50%] ease-animate opacity-0 pointer-events-none md:hidden translate-x-[-150%]    h-screen w-screen overflow-y-scroll pb-10 flex flex-col justify-start ",
+        "absolute !z-[400]  -top-5 left-[50%] ease-animate opacity-0 pointer-events-none lg:hidden translate-x-[-150%]    h-screen w-screen overflow-y-scroll pb-10 flex flex-col justify-start ",
         showMenu &&
           "translate-x-[-50%] bg-blur-drawer opacity-100 pointer-events-auto  ",
         characterCreatePage && "-top-5"

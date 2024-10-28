@@ -37,7 +37,7 @@ export default function Inventory({ character }) {
                 <RenderEquipmentData
                   key={index}
                   value={item}
-                  index={index + 1}
+                  index={index + item}
                   length={character.value.equipment.length + 1}
                   className={""}
                 />

@@ -3,8 +3,8 @@ import RenderCharacteristics from "./RenderCharacteristics";
 
 export default function general({ character }) {
   return (
-    <div className=' gap-4 md:gap-5 z-[10]'>
-      <div className='gap-4 flex flex-col md:flex-row md:gap-5 '>
+    <div className=' gap-4  lg:gap-5 z-[10]'>
+      <div className='gap-4 flex flex-col lg:flex-row lg:gap-5 '>
         <RenderCharacteristics
           title='General'
           data={[
