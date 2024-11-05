@@ -21,7 +21,7 @@ const Card = ({
   return (
     <div className='flex  col-span-4 rounded-[16px]  bg-white/10 border border-white/10  items-start justify-center flex-col md:flex-row  '>
       <div className='border-b md:border-b-0 md:border-r flex flex-col h-full p-5 pt-4 gap-4 border-white/10'>
-        <h3 className='running-text-large '>{title}</h3>
+        <h3 className='running-text-large break-all max-w-full '>{title}</h3>
         <div className='relative overflow-hidden'>
           {loadingAvatar && selectedCompanion.name === title && (
             <Loader
@@ -35,7 +35,7 @@ const Card = ({
               "/images/CreateCharacter/CharacterName/CharacterName.png"
             }
             alt={title}
-            className=' md:h-[182px] rounded-[10px]   object-cover '
+            className=' md:h-[182px] md:min-w-[193px] rounded-[10px]   object-cover '
           />
         </div>
         {isCreator && (
@@ -82,13 +82,13 @@ export default function Companions({
   if (character?.companions?.length <= 0)
     return (
       <NoCompanions
-        className={" left-0  "}
+        className={" left-1/2 -translate-x-1/2  "}
         isCompanion={true}
         character={character}
       />
     );
   return (
-    <div className='relative  grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 gap-5 '>
+    <div className='relative  grid grid-cols-4 md:grid-cols-8 xl:grid-cols-12 gap-5 '>
       {character?.companions?.map((companion, index) => (
         <Card
           key={index}

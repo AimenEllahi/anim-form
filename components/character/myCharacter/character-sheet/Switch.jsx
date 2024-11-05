@@ -9,15 +9,15 @@ import Inventory from "@/components/ui/Icons/Inventory";
 export default function Switch({ selectedTab, setSelectedTab }) {
   return (
     <div className='flex w-full z-[20]'>
-      <div className=' w-full md:w-fit overflow-x-scroll hide-scrollbar flex md:p-2 gap-2 md:bg-white/[8%] rounded-[16px] md:border border-white/10'>
+      <div className=' w-full md:w-fit overflow-x-scroll hide-scrollbar flex md:p-2 gap-2 md:bg-white/[8%] md:rounded-[16px] md:border border-white/10'>
         {/* Appearance Tab */}
         <CustomButton
           withIcon
           className={cn(
             "active:bg-white",
             selectedTab === "appearance"
-              ? "text-russianViolet !border !border-white/10 bg-white hover:bg-white "
-              : "text-gray2 border-transparent bg-transparent hover:border "
+              ? "text-russianViolet !border !border-white/10 bg-white hover:bg-white md:hover:bg-white "
+              : "text-gray2 border-transparent bg-transparent md:hover:border "
           )}
           onClick={() => setSelectedTab("appearance")}
         >
@@ -36,8 +36,8 @@ export default function Switch({ selectedTab, setSelectedTab }) {
           className={cn(
             "active:bg-white",
             selectedTab === "companions"
-              ? "text-russianViolet !border !border-white/10 bg-white hover:bg-white"
-              : "text-gray2 border-transparent bg-transparent hover:border"
+              ? "text-russianViolet !border !border-white/10 bg-white hover:bg-white md:hover:bg-white"
+              : "text-gray2 border-transparent bg-transparent md:hover:border"
           )}
           onClick={() => setSelectedTab("companions")}
         >
@@ -56,8 +56,8 @@ export default function Switch({ selectedTab, setSelectedTab }) {
           className={cn(
             "active:bg-white",
             selectedTab === "abilities"
-              ? "text-russianViolet !border !border-white/10 bg-white hover:bg-white"
-              : "text-gray2 border-transparent bg-transparent hover:border"
+              ? "text-russianViolet !border !border-white/10 bg-white hover:bg-white md:hover:bg-white"
+              : "text-gray2 border-transparent bg-transparent md:hover:border"
           )}
           onClick={() => setSelectedTab("abilities")}
         >
@@ -76,8 +76,8 @@ export default function Switch({ selectedTab, setSelectedTab }) {
           className={cn(
             "active:bg-white",
             selectedTab === "inventory"
-              ? "text-russianViolet !border !border-white/10 bg-white hover:bg-white"
-              : "text-gray2 border-transparent bg-transparent hover:border"
+              ? "text-russianViolet !border !border-white/10 bg-white hover:bg-white md:hover:bg-white"
+              : "text-gray2 border-transparent bg-transparent md:hover:border"
           )}
           onClick={() => setSelectedTab("inventory")}
         >
