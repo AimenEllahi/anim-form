@@ -67,7 +67,7 @@ export default function Index({ gameType, games, setGames }) {
     <div className='h-full z-[10]  w-full flex flex-col '>
       {/* Title Section */}
       <div
-        className={`flex flex-col md:flex-row gap-2.5 px-5 lg:px-12 ${
+        className={`flex flex-col md:flex-row gap-2.5 px-5 md:px-12 ${
           gameType === "multiPlayer"
             ? "md:flex-col justify-start items-start"
             : "justify-between"
@@ -102,7 +102,7 @@ export default function Index({ gameType, games, setGames }) {
             : "Completed Games"}
         </div>
       </div>
-      <div className='lg:px-12 h-full  md:overflow-hidden my-6'>
+      <div className='md:px-12 h-full  md:overflow-hidden my-6'>
         {selectedTab === "inProgress" && inProgressGames.length <= 0 ? (
           <NoGames removePadding={inProgressGames.length === 0} />
         ) : selectedTab === "completed" && completedGames.length <= 0 ? (
