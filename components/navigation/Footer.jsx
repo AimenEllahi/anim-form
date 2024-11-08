@@ -8,6 +8,10 @@ const NavMenu = ({ menu, disable }) => {
     switch (link) {
       case "Discord":
         return "https://discord.gg/aEdqs8hahN"; // Discord invite URL
+      case "Tiktok":
+        return "https://www.tiktok.com/@dndai.app"; 
+      case "Instagram":
+        return "https://www.instagram.com/dnd.ai.app/"; 
       case "Twitter":
         return "https://x.com/dndai_app"; // Replace with your Twitter URL
       case "Terms and Conditions":
@@ -107,7 +111,7 @@ export default function Footer() {
           <NavMenu
             menu={{
               heading: "SOCIAL MEDIA",
-              navlinks: ["Discord", "Twitter"],
+              navlinks: ["Discord", "Twitter","Tiktok", "Instagram"],
             }}
             disable={false} // Disable this menu
           />
