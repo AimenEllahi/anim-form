@@ -6,6 +6,7 @@ import { cva } from "class-variance-authority";
 
 import { cn } from "@/lib/utils";
 
+//labels
 const labelVariants = cva(
   "text-sm font-medium text-white leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
 );
