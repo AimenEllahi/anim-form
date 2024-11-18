@@ -45,26 +45,26 @@ export default function Achieve({ achievements, userAchievements }) {
   };
 
   return (
-    <div className='w-full p-5 flex flex-col gap-8'>
+    <div className="w-full p-5 flex flex-col gap-8">
       {achievements.map((category, catIndex) => (
-        <div key={catIndex} className='flex flex-col gap-4'>
-          <span className='running-text-mono text-gray2 uppercase flex items-center gap-2'>
+        <div key={catIndex} className="flex flex-col gap-4">
+          <span className="running-text-mono text-gray2 uppercase flex items-center gap-2">
             {category.name.toLowerCase().includes("character") && (
-              <Adventure className='w-5 h-5 fill-gray2 ' />
+              <Adventure className="w-5 h-5 fill-gray2 " />
             )}
             {category.name.toLowerCase().includes("campaign") && (
-              <Campaign className='w-5 h-5 fill-gray2 ' />
+              <Campaign className="w-5 h-5 fill-gray2 " />
             )}
             {category.name.toLowerCase().includes("game") && (
-              <Diamond className='w-5 h-5 fill-gray2 ' />
+              <Diamond className="w-5 h-5 fill-gray2 " />
             )}
             {category.name.toLowerCase().includes("lifetime") && (
-              <Watch className='w-5 h-5 fill-gray2 ' />
+              <Watch className="w-5 h-5 fill-gray2 " />
             )}
             {category.name}
           </span>
 
-          <div className='relative w-full rounded-2xl grid grid-cols-5 gap-5'>
+          <div className="relative w-full rounded-2xl grid md:grid-cols-5 grid-cols-1 gap-5">
             {category.achievements.map((achievement, index) => {
               const progressPercentage = calculateProgressPercentage(
                 achievement.progress,
@@ -78,22 +78,22 @@ export default function Achieve({ achievements, userAchievements }) {
                     checkIfAchievementUnlocked(achievement.id)
                   )} `}
                 >
-                  <div className='flex justify-center items-center mb-4'>
-                    <div className='relative'>
+                  <div className="flex justify-center items-center mb-4">
+                    <div className="relative">
                       <div
                         className={`w-16 h-16 border-2 rounded-full flex items-center justify-center  ${getProgressBarColor(
                           achievement.progress,
                           checkIfAchievementUnlocked(achievement.id)
                         )}`}
                       >
-                        <span className='text-gray-400'>
+                        <span className="text-gray-400">
                           {getProgressText(achievement.progress)}
                         </span>
                       </div>
                     </div>
                   </div>
-                  <div className='text-center running-text'>
-                    <span className='text-lg font-medium text-white'>
+                  <div className="text-center running-text">
+                    <span className="text-lg font-medium text-white">
                       {achievement.title}
                     </span>
                     <p
@@ -105,12 +105,12 @@ export default function Achieve({ achievements, userAchievements }) {
                       {achievement.description}
                     </p>
                   </div>
-                  <div className='text-center mt-2 running-text-mono'>
-                    <span className='text-sandyOrange flex gap-2 items-center'>
+                  <div className="text-center mt-2 running-text-mono">
+                    <span className="text-sandyOrange flex gap-2 items-center">
                       <img
-                        src='/achievements/icons/trophy.png'
-                        alt=''
-                        className='w-3 h-3'
+                        src="/achievements/icons/trophy.png"
+                        alt=""
+                        className="w-3 h-3"
                       />
                       {achievement.points}
                     </span>

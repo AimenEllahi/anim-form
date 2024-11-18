@@ -4,7 +4,7 @@ export default function Emblems() {
   const [selectedIndex, setSelectedIndex] = useState(null);
 
   return (
-    <div className="relative bg-white/[8%] w-full rounded-2xl p-5 grid grid-cols-10 gap-5">
+    <div className="relative md:bg-white/[8%] bg-transparent w-full rounded-2xl md:p-5 p-0 grid md:grid-cols-10 grid-cols-2 gap-5">
       {Array(20)
         .fill(0)
         .map((_, index) => (

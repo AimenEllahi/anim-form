@@ -26,10 +26,8 @@ export default function Titles({ userPokals }) {
     { rank: "Ascendant", pokalsRequired: 10750 },
   ];
 
- 
-
   return (
-    <div className='relative bg-white/[8%] w-3/4 rounded-2xl p-5 grid grid-cols-5 gap-5'>
+    <div className="relative md:bg-white/[8%] bg-transparent md:w-3/4 w-full rounded-2xl md:p-5 p-0 grid md:grid-cols-5 grid-cols-2 gap-5">
       {LEVELS.map((level, index) => (
         <div
           key={index}
@@ -39,16 +37,16 @@ export default function Titles({ userPokals }) {
               : "hover:border-[#8F91FF] hover:shadow-[0_0_30px_0_rgba(127,126,252,0.3)]"
           }`}
         >
-          <div className='p-2 pl-4 w-full  flex justify-between items-center'>
-            <span className='uppercase text-sandyOrange running-text-mono'>
+          <div className="p-2 pl-4 w-full  flex justify-between items-center">
+            <span className="uppercase text-sandyOrange running-text-mono">
               {level.rank}
             </span>
             {userPokals < level.pokalsRequired ? (
-              <div className='w-5 h-5 flex justify-center items-center p-[2px] rounded-full bg-white/10'>
-                <LockIcon fill='#fff' width='8px' />
+              <div className="w-5 h-5 flex justify-center items-center p-[2px] rounded-full bg-white/10">
+                <LockIcon fill="#fff" width="8px" />
               </div>
             ) : (
-              <div className='w-4 h-4 flex justify-center items-center p-[2px] rounded-full bg-irisPurpleLight'>
+              <div className="w-4 h-4 flex justify-center items-center p-[2px] rounded-full bg-irisPurpleLight">
                 <Check />
               </div>
             )}
