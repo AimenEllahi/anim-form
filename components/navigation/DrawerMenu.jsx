@@ -18,6 +18,7 @@ import CampaignAdd from "@/components/ui/Icons/CampaignAdd";
 import Adventure from "@/components/ui/Icons/Adventure";
 import Support from "@/components/ui/Icons/Support";
 import useGameStore from "@/utils/gameStore";
+import Emblem from "../ui/Icons/Emblem";
 
 const UserLoggedIn = ({ handleRedirect, handlePlay }) => {
   const { showMenu, setShowMenu } = useControlsStore();
@@ -107,20 +108,15 @@ const UserLoggedIn = ({ handleRedirect, handlePlay }) => {
 
       <hr className='border-white/10 ' />
       <div className='flex flex-col gap-6'>
-        {/* <CustomMenuItem
-          onClick={() => handleRedirect("/my-account/settings")}
+        <CustomMenuItem
+          onClick={() => handleRedirect("/emblems-titles")}
           className={
             "p-0 hover:bg-transparent active:bg-transparent hover:border-transparent active:border-transparent"
           }
         >
-          <img
-            src='/Icons/UserCircle.svg'
-            alt='My character button'
-            title='My Character icon'
-            className='h-5 w-5 opacity-70'
-          />
-          <span>Profile</span>
-        </CustomMenuItem> */}
+          <Emblem className='h-5 w-5 opacity-70 fill-white' />
+          <span>Emblems & Titles</span>
+        </CustomMenuItem>
         <CustomMenuItem
           onClick={() => handleRedirect("/character/my-characters")}
           className={

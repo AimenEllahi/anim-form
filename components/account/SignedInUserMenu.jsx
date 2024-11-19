@@ -11,6 +11,8 @@ import { useRouter } from "next/navigation";
 
 import Support from "@/components/ui/Icons/Support";
 import Adventure from "../ui/Icons/Adventure";
+import Achievement from "../ui/Icons/Achievement";
+import Emblem from "../ui/Icons/Emblem";
 export default function SignedInUserMenu() {
   const router = useRouter();
   const { user, setUser } = useUserStore();
@@ -56,23 +58,17 @@ export default function SignedInUserMenu() {
         </div>
       </div>
 
+      <div className='w-full px-2 gap-2 flex flex-col mt-2'>
+        <DropdownMenuItem className=' flex !p-0 gap-2 w-full focus:bg-transparent focus:text-white  transition-all duration-300 ease-linear cursor-pointer'>
+          <CustomMenuItem onClick={() => handleRedirect("/emblems-titles")}>
+            <Emblem className='h-5 w-5 fill-white opacity-70' />
+            <span>Emblems & Titles</span>
+          </CustomMenuItem>
+        </DropdownMenuItem>
+      </div>
+
       <hr className='w-full border-white/5 my-2' />
       <div className='w-full px-2 gap-2 flex flex-col'>
-        {/* 
-  <DropdownMenuItem className='flex !p-0 gap-2 w-full focus:bg-transparent focus:text-white  transition-all duration-300 ease-linear cursor-pointer'>
-    <CustomMenuItem
-      onClick={() => handleRedirect("/my-account/settings")}
-    >
-      <img
-        src='/Icons/UserCircle.svg'
-        alt='Button to get to the user created characters; heroes'
-        className='h-5 w-5  opacity-70'
-      />
-      <span>Emblems & Achievements</span>
-    </CustomMenuItem>
-  </DropdownMenuItem> 
-*/}
-
         <CustomMenuItem
           onClick={() => handleRedirect("/character/my-characters")}
         >

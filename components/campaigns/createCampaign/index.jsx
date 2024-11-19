@@ -50,12 +50,21 @@ export default function Index() {
     }
     try {
       setLoading(true);
-      const { newCampaign } = await createCampaign(campaign, user?.token);
+      const { newCampaign, unlockedAchievements, newLevel, newRank } =
+        await createCampaign(campaign, user?.token);
       const { credits } = await getCredits(user?.token);
-     // console.log(newCampaign);
+      // console.log(newCampaign);
       setYellowCredits((prev) => credits?.yellowCredits || prev);
 
       setBlueCredits((prev) => credits?.blueCredits || prev);
+
+      if (unlockedAchievements.length > 0) {
+        console.log("Unlocked Achievements:", unlockedAchievements);
+        invokeToast("Achievements unlocked!", "Success");
+      }
+      if (newLevel) {
+        invokeToast(`You've leveled up to level ${newLevel}!`, "Success");
+      }
       router.push(`/campaign/${newCampaign._id}`);
     } catch (error) {
       invokeToast(error?.response?.data || "Error creating Campaign", "Error");
@@ -89,7 +98,14 @@ export default function Index() {
           disabled={!isValid() || loading}
           onClick={handleCreateCampaign}
         >
-          Create campaign ( <img src='/gems/Legendary.webp' title='Legandary Gem' alt='Legendary Coin, Coin to generate Images on the website' className='h-[18px] object-contain ' /> 1)
+          Create campaign ({" "}
+          <img
+            src='/gems/Legendary.webp'
+            title='Legandary Gem'
+            alt='Legendary Coin, Coin to generate Images on the website'
+            className='h-[18px] object-contain '
+          />{" "}
+          1)
         </CustomButton>
       </div>
 

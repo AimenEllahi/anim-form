@@ -36,7 +36,8 @@ export default function RootLayout({ children }) {
     !pathname.includes("/campaign") &&
     !pathname.includes("game") &&
     !pathname.includes("payment") &&
-    !pathname.includes("settings");
+    !pathname.includes("settings") &&
+    !pathname.includes("emblems");
 
   const showDiceGold =
     pathname.includes("/character/create") && activeStep === 7;

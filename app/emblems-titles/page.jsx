@@ -31,6 +31,7 @@ function convertAchievements(data, progressData) {
       id: _id,
       title,
       description,
+      criteria,
       progress,
       points: pokals,
       unlocked,
@@ -75,6 +76,7 @@ export default function page() {
 
   const handleGetUserAchievements = async () => {
     try {
+      if (!user.token) return;
       const userAchievements = await getUserAchievements(user?.token);
 
       setUserAchievements(userAchievements);
