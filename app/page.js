@@ -1,7 +1,7 @@
 "use client";
 import Landing from "@/components/landingPage/index";
 
-//home
+//home page
 export default function Home() {
   return <Landing />;
 }
