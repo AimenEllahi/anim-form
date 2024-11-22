@@ -51,6 +51,7 @@ export default function AccountDropdown() {
       {user?.token ? (
         <SignedInUserMenu
           setOpen={setOpen}
+          open={open}
           role='menu' // Role for dropdown content
         />
       ) : (

@@ -11,15 +11,15 @@ import Titles from "../ui/Icons/Titles";
 
 export default function Switch({ selectedTab, setSelectedTab }) {
   return (
-    <div className="flex w-full z-[20]">
-      <div className=" w-full md:w-fit overflow-x-scroll hide-scrollbar flex md:p-2 gap-2 md:bg-white/[8%] md:rounded-[16px] md:border border-white/10">
+    <div className='flex w-full z-[20]'>
+      <div className=' w-full md:w-fit overflow-x-scroll hide-scrollbar flex md:p-2 gap-2 md:bg-white/[8%] md:rounded-[16px] md:border border-white/10'>
         {/* Emblems Tab */}
         <CustomButton
           withIcon
           className={cn(
             "active:bg-white",
             selectedTab === "emblems"
-              ? "text-russianViolet !border !border-white/10 bg-white hover:bg-white md:hover:bg-white "
+              ? "text-russianViolet !border !border-white/10 bg-white hover:bg-white md:hover:bg-white active:!bg-white "
               : "text-gray2 border-transparent bg-transparent md:hover:border "
           )}
           onClick={() => setSelectedTab("emblems")}
@@ -39,7 +39,7 @@ export default function Switch({ selectedTab, setSelectedTab }) {
           className={cn(
             "active:bg-white",
             selectedTab === "titles"
-              ? "text-russianViolet !border !border-white/10 bg-white hover:bg-white md:hover:bg-white"
+              ? "text-russianViolet !border !border-white/10 bg-white hover:bg-white md:hover:bg-white active:!bg-white"
               : "text-gray2 border-transparent bg-transparent md:hover:border"
           )}
           onClick={() => setSelectedTab("titles")}
@@ -59,7 +59,7 @@ export default function Switch({ selectedTab, setSelectedTab }) {
           className={cn(
             "active:bg-white",
             selectedTab === "achievements"
-              ? "text-russianViolet !border !border-white/10 bg-white hover:bg-white md:hover:bg-white"
+              ? "text-russianViolet !border !border-white/10 bg-white hover:bg-white md:hover:bg-white active:!bg-white"
               : "text-gray2 border-transparent bg-transparent md:hover:border"
           )}
           onClick={() => setSelectedTab("achievements")}

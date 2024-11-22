@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   DropdownMenuContent,
   DropdownMenuItem,
@@ -13,9 +13,11 @@ import Support from "@/components/ui/Icons/Support";
 import Adventure from "../ui/Icons/Adventure";
 import Achievement from "../ui/Icons/Achievement";
 import Emblem from "../ui/Icons/Emblem";
-export default function SignedInUserMenu() {
+import { getUserAchievements } from "@/actions/achievement";
+export default function SignedInUserMenu({ open }) {
   const router = useRouter();
-  const { user, setUser } = useUserStore();
+  const { user, setUser, rank, title, updateTitle, updateRank } =
+    useUserStore();
 
   const cookies = new Cookie();
   const handleLogout = () => {
@@ -27,38 +29,44 @@ export default function SignedInUserMenu() {
   const handleRedirect = (path) => {
     router.push(path);
   };
+
+  const handleGetUserAchievements = async () => {
+    try {
+      console.log("Getting user achievements");
+      const userAchievements = await getUserAchievements(user.token);
+      updateTitle(userAchievements.title);
+      updateRank(userAchievements.rank);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
+  console.log(open);
+  useEffect(() => {
+    console.log("Checking user achievements");
+    if (user?.token && (!rank || !title)) {
+      handleGetUserAchievements();
+    }
+  }, [open]);
   return (
-    <DropdownMenuContent className='uppercase flex flex-col mt-4 bg-white/10 !px-0 py-2 border border-white/10 z-[21] bg-blur menu-shadow text-white running-text-mono rounded-[16px] '>
-      <div className='gap-5 px-6 py-4 pb-3 flex flex-col'>
+    <DropdownMenuContent className='min-w-[250px] uppercase flex flex-col mt-4 bg-white/10 !px-0 py-2 border border-white/10 z-[21] bg-blur menu-shadow text-white running-text-mono rounded-[16px] '>
+      <div className='gap-2 px-6 py-4 pb-3 flex flex-col'>
         <div className='flex flex-col gap-2'>
           <span className=' headline-4'>{user.username}</span>
-          <span className='running-text-small lowercase text-gray2'>
-            {user?.email}
-          </span>
         </div>
-        <div className='flex gap-5'>
-          <CustomIcontext onClick={() => handleRedirect("/pricing")}>
-            <img
-              src='/gems/Mythic.webp'
-              title='Mytich Gem'
-              alt='Mythic gem, Gems to make turns in the game.'
-              className='h-[18px] object-contain '
-            />
-            {user.blueCredits}
-          </CustomIcontext>
-          <CustomIcontext onClick={() => handleRedirect("/pricing")}>
-            <img
-              src='/gems/Legendary.webp'
-              title='Legendary Gem'
-              alt='Legendary Coin, Coin to generate Images on the website'
-              className='h-[18px] object-contain '
-            />
-            {user.yellowCredits}
-          </CustomIcontext>
+        <div className='flex gap-2 items-center'>
+          <img
+            src={`https://dzjg7lvewk7ln.cloudfront.net/rank-images/${rank}.webp`}
+            alt=''
+            className='size-6 rounded-full'
+          />
+          <span className='running-text-mono uppercase text-sandyOrange'>
+            the {title}
+          </span>
         </div>
       </div>
 
-      <div className='w-full px-2 gap-2 flex flex-col mt-2'>
+      <div className='w-full px-2 gap-2 flex flex-col '>
         <DropdownMenuItem className=' flex !p-0 gap-2 w-full focus:bg-transparent focus:text-white  transition-all duration-300 ease-linear cursor-pointer'>
           <CustomMenuItem onClick={() => handleRedirect("/emblems-titles")}>
             <Emblem className='h-5 w-5 fill-white opacity-70' />

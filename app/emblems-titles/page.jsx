@@ -43,7 +43,7 @@ function convertAchievements(data, progressData) {
 }
 
 export default function page() {
-  const { user } = useUserStore();
+  const { user, updateRank, updateTitle } = useUserStore();
   const [userAchievements, setUserAchievements] = useState(null);
   const [achievements, setAchievements] = useState(null);
 
@@ -78,7 +78,8 @@ export default function page() {
     try {
       if (!user.token) return;
       const userAchievements = await getUserAchievements(user?.token);
-
+      updateRank(userAchievements.rank);
+      updateTitle(userAchievements.title);
       setUserAchievements(userAchievements);
     } catch (error) {
       console.error("Error:", error);
