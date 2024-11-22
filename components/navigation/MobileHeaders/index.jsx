@@ -82,8 +82,6 @@ export default function index() {
   }
   if (noHeading) return null;
 
-  console.log(characterSheet);
-
   const renderHeader = () => {
     if (signUp) {
       return (

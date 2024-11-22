@@ -13,6 +13,8 @@ const useUserStore = create(
       totalImages: null,
       totalPublicImages: null,
       totalPublicCampaigns: null,
+      rank: null,
+      title: null,
 
       setUser: (user) => set({ user }),
       setBlueCredits: (blueCredits) =>
@@ -29,6 +31,8 @@ const useUserStore = create(
         set({ totalPublicCampaigns }),
       updatePaymentHistory: (paymentHistory) =>
         set({ user: { ...get().user, paymentHistory } }),
+      updateRank: (rank) => set({ rank }),
+      updateTitle: (title) => set({ title }),
     }),
     {
       name: "user-storage", // name of the item in the storage (must be unique)

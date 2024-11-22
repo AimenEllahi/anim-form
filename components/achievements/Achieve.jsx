@@ -3,6 +3,7 @@ import Adventure from "@/components/ui/Icons/Adventure";
 import Campaign from "@/components/ui/Icons/Campaign";
 import Diamond from "@/components/ui/Icons/Diamond";
 import Watch from "@/components/ui/Icons/Watch";
+import { cn } from "@/lib/utils";
 
 export default function Achieve({ achievements, userAchievements }) {
   const [selectedIndex, setSelectedIndex] = useState(null);
@@ -212,9 +213,16 @@ export default function Achieve({ achievements, userAchievements }) {
                           progress
                         )}`}
                       >
-                        <span className='text-gray-400'>
-                          {getProgressText(progress)}
-                        </span>
+                        <div
+                          className={cn(
+                            "w-full h-full rounded-full  flex items-center justify-center",
+                            getBackgroundColor(progress, true)
+                          )}
+                        >
+                          <span className='text-gray-400'>
+                            {getProgressText(progress)}
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </div>
