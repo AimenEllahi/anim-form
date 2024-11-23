@@ -5,13 +5,12 @@ import {
 } from "@/components/ui/dropdown-menu";
 import CustomMenuItem from "../ui/custom-menu-item";
 import useUserStore from "@/utils/userStore";
-import CustomIcontext from "@/components/ui/custom-icontext";
+
 import Cookie from "universal-cookie";
 import { useRouter } from "next/navigation";
 
 import Support from "@/components/ui/Icons/Support";
 import Adventure from "../ui/Icons/Adventure";
-import Achievement from "../ui/Icons/Achievement";
 import Emblem from "../ui/Icons/Emblem";
 import { getUserAchievements } from "@/actions/achievement";
 export default function SignedInUserMenu({ open }) {
@@ -32,7 +31,6 @@ export default function SignedInUserMenu({ open }) {
 
   const handleGetUserAchievements = async () => {
     try {
-      console.log("Getting user achievements");
       const userAchievements = await getUserAchievements(user.token);
       updateTitle(userAchievements.title);
       updateRank(userAchievements.rank);
@@ -41,9 +39,7 @@ export default function SignedInUserMenu({ open }) {
     }
   };
 
-  console.log(open);
   useEffect(() => {
-    console.log("Checking user achievements");
     if (user?.token && (!rank || !title)) {
       handleGetUserAchievements();
     }

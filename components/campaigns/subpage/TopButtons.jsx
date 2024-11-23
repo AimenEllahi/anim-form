@@ -61,6 +61,25 @@ const TopButtons = ({ campaign, setCampaign, className }) => {
       }));
 
       invokeToast("Campaign published successfully", "success");
+
+      if (response.newLevel) {
+        setTimeout(() => {
+          invokeToast(`You have reached level ${response.newLevel}`, "success");
+        }, 4000);
+      }
+
+      if (response.unlockedAchievements.length > 0) {
+        response.unlockedAchievements.forEach((achievement, index) => {
+          setTimeout(
+            () => {
+              invokeToast(`${achievement.title} Unlocked`, "success");
+            },
+            index === 0 && response.newLevel
+              ? 8000
+              : 4000 * (index + (response.newLevel ? 2 : 1))
+          );
+        });
+      }
     } catch (error) {
       invokeToast(
         error?.response?.data?.error || "Error publishing campaign",
@@ -127,6 +146,18 @@ const TopButtons = ({ campaign, setCampaign, className }) => {
           likes: response.likes,
         },
       }));
+
+      if (response.newLevel) {
+        invokeToast(`You have reached level ${response.newLevel}`, "success");
+      }
+
+      if (response.unlockedAchievements.length > 0) {
+        response.unlockedAchievements.forEach((achievement, index) => {
+          setTimeout(() => {
+            invokeToast(`${achievement.title} Unlocked`, "success");
+          }, 4000 * (index + (response.newLevel ? 1 : 0)));
+        });
+      }
     } catch (error) {
       invokeToast(
         error?.response?.data?.error || "Error liking campaign",
@@ -148,6 +179,18 @@ const TopButtons = ({ campaign, setCampaign, className }) => {
           stars: response.stars,
         },
       }));
+
+      if (response.newLevel) {
+        invokeToast(`You have reached level ${response.newLevel}`, "success");
+      }
+
+      if (response.unlockedAchievements.length > 0) {
+        response.unlockedAchievements.forEach((achievement, index) => {
+          setTimeout(() => {
+            invokeToast(`${achievement.title} Unlocked`, "success");
+          }, 4000 * (index + (response.newLevel ? 1 : 0)));
+        });
+      }
     } catch (error) {
       invokeToast(
         error?.response?.data?.error || "Error starring campaign",

@@ -76,13 +76,14 @@ function GameHandler() {
     }
     INTTIATING = true;
     try {
-      const { game, character, campaign } = await initiateGame(
-        {
-          campaignId: currentCampaign._id,
-          characterId: currentCharacter._id,
-        },
-        user?.token
-      );
+      const { game, character, campaign, unlockedAchievements, newLevel } =
+        await initiateGame(
+          {
+            campaignId: currentCampaign._id,
+            characterId: currentCharacter._id,
+          },
+          user?.token
+        );
       setChoices(game.choices);
       setResponse(game.state);
 
@@ -94,6 +95,18 @@ function GameHandler() {
 
       //push to the game page with the game id
       router.push(`${pathname}?id=${game._id}`);
+
+      if (newLevel) {
+        invokeToast(`You have reached level ${newLevel}`, "success");
+      }
+
+      if (unlockedAchievements.length > 0) {
+        unlockedAchievements.forEach((achievement, index) => {
+          setTimeout(() => {
+            invokeToast(`${achievement.title} Unlocked`, "success");
+          }, 4000 * (index + (newLevel ? 1 : 0)));
+        });
+      }
     } catch (error) {
       invokeToast(error?.response?.data || "Error Initiating Game", "Error");
       router.push("/discover");
@@ -128,15 +141,15 @@ function GameHandler() {
     if (id) {
       handleGetGame();
     } else {
-   //   setGame(dummyGame);
-   //  setResponse(dummyGame.state);
-   //   setGameCharacter({
-    //    value: {},
-     //   personal: {
-    //      race: "",
+      //   setGame(dummyGame);
+      //  setResponse(dummyGame.state);
+      //   setGameCharacter({
+      //    value: {},
+      //   personal: {
+      //      race: "",
       //    class: "",
-    //    },
-    //  });
+      //    },
+      //  });
 
       handleInitiateGame();
     }

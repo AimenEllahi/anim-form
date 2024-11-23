@@ -167,6 +167,8 @@ export default function Index({
         responseText,
         choices,
         isCompleted,
+        newLevel,
+        unlockedAchievements,
       } = await addChoice(payload, user?.token);
       setGame(_game);
 
@@ -190,6 +192,18 @@ export default function Index({
           choices,
         },
       ]);
+
+      if (newLevel) {
+        invokeToast(`You have reached level ${newLevel}`, "success");
+      }
+
+      if (unlockedAchievements.length > 0) {
+        unlockedAchievements.forEach((achievement, index) => {
+          setTimeout(() => {
+            invokeToast(`${achievement.title} Unlocked`, "success");
+          }, 4000 * (index + (newLevel ? 1 : 0)));
+        });
+      }
     } catch (error) {
       console.log("Error in handleChat:", error);
       invokeToast(

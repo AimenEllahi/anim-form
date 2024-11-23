@@ -63,6 +63,18 @@ export default function card({
           stars: response.stars,
         },
       });
+
+      if (response.newLevel) {
+        invokeToast(`You have reached level ${response.newLevel}`, "success");
+      }
+
+      if (response.unlockedAchievements.length > 0) {
+        response.unlockedAchievements.forEach((achievement, index) => {
+          setTimeout(() => {
+            invokeToast(`${achievement.title} Unlocked`, "success");
+          }, 4000 * (index + (response.newLevel ? 1 : 0)));
+        });
+      }
     } catch (error) {
       invokeToast(
         error?.response?.data?.error || "Something went wrong",
@@ -85,6 +97,18 @@ export default function card({
           likes: response.likes,
         },
       });
+
+      if (response.newLevel) {
+        invokeToast(`You have reached level ${response.newLevel}`, "success");
+      }
+
+      if (response.unlockedAchievements.length > 0) {
+        response.unlockedAchievements.forEach((achievement, index) => {
+          setTimeout(() => {
+            invokeToast(`${achievement.title} Unlocked`, "success");
+          }, 4000 * (index + (response.newLevel ? 1 : 0)));
+        });
+      }
     } catch (error) {
       console.log(error);
       invokeToast(
