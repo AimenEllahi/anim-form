@@ -62,9 +62,6 @@ export default function Card({ campaign }) {
         </PopoverTrigger>
         <PopoverContent className='!min-w-[512px]'>
         <div className="flex flex-col gap-3">
-          <ReactMarkdown className="running-text" >
-            {campaign.adventure.title}
-          </ReactMarkdown>
           <ReactMarkdown className="running-text-small" >
           {campaign.adventure.plot.slice(0, 200) + " ..."}
           </ReactMarkdown>
