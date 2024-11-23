@@ -149,20 +149,8 @@ export default function BottomMenu({ character, setCharacter }) {
         ...character.equipment,
       };
 
-      const { newCharacter, unlockedAchievements, newLevel, newRank } =
+      const { newCharacter, unlockedAchievements, newLevel } =
         await createCharacter(payload, user?.token || null);
-
-      if (unlockedAchievements.length > 0) {
-        unlockedAchievements.forEach((achievement) => {
-          invokeToast(`Achievement Unlocked: ${achievement.title}`, "Success");
-        });
-      }
-      if (newLevel && newRank) {
-        invokeToast(
-          `Level Up! You are now level ${newLevel} and rank ${newRank}`,
-          "Success"
-        );
-      }
 
       if (user?.token) {
         router.push("/character/sheet/" + newCharacter._id);
@@ -175,6 +163,18 @@ export default function BottomMenu({ character, setCharacter }) {
       setActiveStep(0);
       setCharacter(INITIAL_CHARACTER);
       invokeToast("Character Created Successfully", "Success");
+
+      if (newLevel) {
+        invokeToast(`You have reached level ${newLevel}`, "success");
+      }
+
+      if (unlockedAchievements.length > 0) {
+        unlockedAchievements.forEach((achievement, index) => {
+          setTimeout(() => {
+            invokeToast(`${achievement.title} Unlocked`, "success");
+          }, 4000 * (index + (newLevel ? 2 : 1)));
+        });
+      }
     } catch (error) {
       invokeToast(
         error?.response?.data?.error || "Error Creating Character",

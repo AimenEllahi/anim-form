@@ -4,6 +4,7 @@ import Achievements from "@/components/achievements/index";
 import useUserStore from "@/utils/userStore";
 import Loader from "@/components/ui/Loader";
 import { getAllAchievements, getUserAchievements } from "@/actions/achievement";
+import useCustomToast from "@/hooks/useCustomToast";
 
 function convertAchievements(data, progressData) {
   // Group achievements by category
@@ -46,7 +47,7 @@ export default function page() {
   const { user, updateRank, updateTitle } = useUserStore();
   const [userAchievements, setUserAchievements] = useState(null);
   const [achievements, setAchievements] = useState(null);
-
+  const { invokeToast } = useCustomToast();
   const handleGetAllAchievements = async () => {
     try {
       const _achievements = await getAllAchievements();
@@ -81,8 +82,24 @@ export default function page() {
       updateRank(userAchievements.rank);
       updateTitle(userAchievements.title);
       setUserAchievements(userAchievements);
+
+      if (userAchievements.newLevel) {
+        invokeToast(`You have reached level ${newLevel}`, "success");
+      }
+
+      if (userAchievements.unlockedAchievements.length > 0) {
+        userAchievements.unlockedAchievements.forEach((achievement, index) => {
+          setTimeout(() => {
+            invokeToast(`${achievement.title} Unlocked`, "success");
+          }, 4000 * (index + (userAchievements.newLevel ? 1 : 0)));
+        });
+      }
     } catch (error) {
       console.error("Error:", error);
+      invokeToast(
+        error?.response?.data || "Error getting user achievements",
+        "error"
+      );
     }
   };
 

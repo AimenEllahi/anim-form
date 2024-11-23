@@ -58,13 +58,18 @@ export default function Index() {
 
       setBlueCredits((prev) => credits?.blueCredits || prev);
 
-      if (unlockedAchievements.length > 0) {
-        console.log("Unlocked Achievements:", unlockedAchievements);
-        invokeToast("Achievements unlocked!", "Success");
-      }
       if (newLevel) {
-        invokeToast(`You've leveled up to level ${newLevel}!`, "Success");
+        invokeToast(`You have reached level ${newLevel}`, "success");
       }
+
+      if (unlockedAchievements.length > 0) {
+        unlockedAchievements.forEach((achievement, index) => {
+          setTimeout(() => {
+            invokeToast(`${achievement.title} Unlocked`, "success");
+          }, 4000 * (index + (newLevel ? 1 : 0)));
+        });
+      }
+
       router.push(`/campaign/${newCampaign._id}`);
     } catch (error) {
       invokeToast(error?.response?.data || "Error creating Campaign", "Error");

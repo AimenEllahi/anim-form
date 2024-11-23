@@ -19,10 +19,11 @@ import Adventure from "@/components/ui/Icons/Adventure";
 import Support from "@/components/ui/Icons/Support";
 import useGameStore from "@/utils/gameStore";
 import Emblem from "../ui/Icons/Emblem";
-
+import { getUserAchievements } from "@/actions/achievement";
 const UserLoggedIn = ({ handleRedirect, handlePlay }) => {
   const { showMenu, setShowMenu } = useControlsStore();
-  const { user, setUser } = useUserStore();
+  const { user, setUser, rank, title, updateTitle, updateRank } =
+    useUserStore();
   const cookies = new Cookie();
 
   const handleLogout = () => {
@@ -30,6 +31,22 @@ const UserLoggedIn = ({ handleRedirect, handlePlay }) => {
     cookies.set("token", null, { path: "/" });
     setShowMenu(false);
   };
+
+  const handleGetUserAchievements = async () => {
+    try {
+      const userAchievements = await getUserAchievements(user.token);
+      updateTitle(userAchievements.title);
+      updateRank(userAchievements.rank);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
+  useEffect(() => {
+    if (user?.token && (!rank || !title)) {
+      handleGetUserAchievements();
+    }
+  }, [showMenu]);
   return (
     <div className='mx-[20px] mt-12 gap-[34px] flex flex-col running-text-mono uppercase pb-16'>
       <div className='gap-5 pb-4 flex flex-col'>
@@ -38,6 +55,16 @@ const UserLoggedIn = ({ handleRedirect, handlePlay }) => {
           <span className='running-text-small lowercase text-gray2'>
             {user?.email}
           </span>
+          <div className='flex gap-2 items-center'>
+            <img
+              src={`https://dzjg7lvewk7ln.cloudfront.net/rank-images/${rank}.webp`}
+              alt=''
+              className='size-6 rounded-full'
+            />
+            <span className='running-text-mono uppercase text-sandyOrange'>
+              the {title}
+            </span>
+          </div>
         </div>
         <div className='flex gap-5'>
           <CustomIcontext onClick={() => handleRedirect("/pricing")}>

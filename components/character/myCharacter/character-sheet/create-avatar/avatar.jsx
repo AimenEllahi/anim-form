@@ -116,10 +116,8 @@ export default function Avatar({
       setOpen(false);
       payload.appearance += " in the visual art of " + style;
 
-      const { avatarUrl, updatedCharacter } = await handleGenerateAvatar(
-        payload,
-        user?.token
-      );
+      const { avatarUrl, updatedCharacter, unlockedAchievements, newLevel } =
+        await handleGenerateAvatar(payload, user?.token);
       const { credits } = await getCredits(user?.token);
       if (isCompanion) {
         setCharacter(updatedCharacter);
@@ -136,6 +134,18 @@ export default function Avatar({
       }
       setBlueCredits(credits.blueCredits);
       setYellowCredits(credits.yellowCredits);
+
+      if (newLevel) {
+        invokeToast(`You have reached level ${newLevel}`, "success");
+      }
+
+      if (unlockedAchievements.length > 0) {
+        unlockedAchievements.forEach((achievement, index) => {
+          setTimeout(() => {
+            invokeToast(`${achievement.title} Unlocked`, "success");
+          }, 4000 * (index + (newLevel ? 1 : 0)));
+        });
+      }
     } catch (error) {
       invokeToast(
         error?.response?.data?.error || "Error generating avatar",
