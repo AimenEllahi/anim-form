@@ -60,8 +60,8 @@ export default function Card({ campaign }) {
         </PopoverTrigger>
         <PopoverContent className='!min-w-[512px]'>
           <div className='flex flex-col gap-3'>
-            <span className='running-text'>{campaign.title}</span>
-            <span className='running-text-small'>{campaign.plot}</span>
+            <span className='running-text'>{campaign.adventure.title}</span>
+            <span className='running-text-small'>{campaign.adventure.plot}</span>
           </div>
         </PopoverContent>
       </Popover>
