@@ -113,28 +113,28 @@ export default function characterSheet({ character, setCharacter }) {
   return (
     <div
       ref={containerRef}
-      className="h-full min-h-full w-full pt-[160px] px-5 pb-32 md:pt-[120px] md:pb-[104px] md:px-12 flex flex-col gap-[24px] relative z-10"
+      className='h-full min-h-full w-full pt-[160px] px-5 pb-32 md:pt-[120px] md:pb-[104px] md:px-12 flex flex-col gap-[24px] relative z-10'
     >
       <GuestUser />
-      <div className="hidden md:flex  items-start justify-start md:justify-between  gap-1 md:gap-[32px]  ">
-        <div className="z-10 flex justify-start items-start md:items-center gap-1 md:gap-5 flex-col md:flex-row">
-          <span className="text-white headline-3">
+      <div className='hidden md:flex  items-start justify-start md:justify-between  gap-1 md:gap-[32px]  '>
+        <div className='z-10 flex justify-start items-start md:items-center gap-1 md:gap-5 flex-col md:flex-row'>
+          <span className='text-white headline-3'>
             {character.personal.name}
           </span>
-          <div className="flex  items-center gap-2 md:gap-5">
+          <div className='flex  items-center gap-2 md:gap-5'>
             <img
               src={`https://dzjg7lvewk7ln.cloudfront.net/class/${character?.personal?.class
                 .toLowerCase()
                 .replaceAll(" ", "-")}.webp`}
-              className="rounded-full h-[32px] w-[32px]"
-              title="Characters Class"
-              alt="class of the Character"
+              className='rounded-full h-[32px] w-[32px]'
+              title='Characters Class'
+              alt='class of the Character'
             />
-            <div className="flex flex-col running-text-mono">
-              <span className="text-white ">LEVEL {character.value.level}</span>
-              <span className=" text-irisPurpleLight uppercase">
+            <div className='flex flex-col running-text-mono'>
+              <span className='text-white '>LEVEL {character.value.level}</span>
+              <span className=' text-irisPurpleLight uppercase'>
                 {character.value.race}{" "}
-                <span className=" text-sandyOrange uppercase">
+                <span className=' text-sandyOrange uppercase'>
                   {" "}
                   {character.value.class}
                 </span>
@@ -164,26 +164,27 @@ export default function characterSheet({ character, setCharacter }) {
          <Download fill='white' className='h-5 w-5 opacity-70 text-white' />
           Download character sheet
         </CustomButton> */}
-        <div className="flex gap-4">
+        <div className='flex gap-4'>
           <CustomButton
             withIcon={true}
-            variant="secondary"
+            variant='secondary'
             onClick={handleShareClick}
+            className={cn("hidden md:flex", !isCreator && "hidden md:hidden")}
           >
             <img
-              src="/Icons/Share.svg"
-              alt="Share Icon"
-              className="h-5 w-5 opacity-70"
+              src='/Icons/Share.svg'
+              alt='Share Icon'
+              className='h-5 w-5 opacity-70'
             />
             Share
           </CustomButton>
           <DeleteCharacter action={handleDeleteCharacter}>
             <CustomButton
               withIcon={true}
-              variant="secondary"
+              variant='secondary'
               className={cn("hidden md:flex", !isCreator && "hidden md:hidden")}
             >
-              <Delete className="h-5 w-5 opacity-70 fill-errorRed" />
+              <Delete className='h-5 w-5 opacity-70 fill-errorRed' />
               Delete character
             </CustomButton>
           </DeleteCharacter>
@@ -191,7 +192,7 @@ export default function characterSheet({ character, setCharacter }) {
       </div>
       <Switch selectedTab={selectedTab} setSelectedTab={setSelectedTab} />
       {selectedTab === "appearance" && (
-        <div className=" h-full gap-5  flex flex-col lg:flex-row">
+        <div className=' h-full gap-5  flex flex-col lg:flex-row'>
           <div>
             <CharacterInfo
               setOpen={setOpen}
@@ -201,11 +202,11 @@ export default function characterSheet({ character, setCharacter }) {
               isCreator={isCreator}
             />
           </div>
-          <div className="">
+          <div className=''>
             <Appearance character={character} />
           </div>
 
-          <div className="   ">
+          <div className='   '>
             <GeneralInfo character={character} />
           </div>
         </div>
@@ -225,16 +226,31 @@ export default function characterSheet({ character, setCharacter }) {
       )}
 
       {selectedTab === "appearance" && (
-        <DeleteCharacter action={handleDeleteCharacter}>
+        <div className='flex items-center gap-5'>
           <CustomButton
             withIcon={true}
-            variant="secondary"
-            className={cn(" md:hidden", !isCreator && "hidden")}
+            variant='secondary'
+            onClick={handleShareClick}
+            className={cn("md:hidden", !isCreator && "hidden")}
           >
-            <Delete className="h-5 w-5 opacity-70 fill-errorRed" />
-            Delete character
+            <img
+              src='/Icons/Share.svg'
+              alt='Share Icon'
+              className='h-5 w-5 opacity-70'
+            />
+            Share
           </CustomButton>
-        </DeleteCharacter>
+          <DeleteCharacter action={handleDeleteCharacter}>
+            <CustomButton
+              withIcon={true}
+              variant='secondary'
+              className={cn(" md:hidden", !isCreator && "hidden")}
+            >
+              <Delete className='h-5 w-5 opacity-70 fill-errorRed' />
+              Delete character
+            </CustomButton>
+          </DeleteCharacter>
+        </div>
       )}
       <Avatar
         open={open}
@@ -260,8 +276,8 @@ export default function characterSheet({ character, setCharacter }) {
             : character?.personal?.portraits || []
         }
       />
-      <div className="md:hidden z-[10] flex items-center justify-between bg-blur-bottom-menu fixed bottom-0 w-screen left-0 p-5 ">
-        <div className="flex items-center gap-4">
+      <div className='md:hidden z-[10] flex items-center justify-between bg-blur-bottom-menu fixed bottom-0 w-screen left-0 p-5 '>
+        <div className='flex items-center gap-4'>
           <SoundButton />
           <CustomIconbutton
             onClick={() => {
@@ -269,7 +285,7 @@ export default function characterSheet({ character, setCharacter }) {
               router.push(pathname);
             }}
           >
-            <Edit fill="white" className="h-5 w-5  " />
+            <Edit fill='white' className='h-5 w-5  ' />
           </CustomIconbutton>
         </div>
         <CustomButton
@@ -277,7 +293,7 @@ export default function characterSheet({ character, setCharacter }) {
           onClick={handlePlayWithCharacter}
           variant={"primary"}
         >
-          <Play className="h-5 w-5 opacity-70" />
+          <Play className='h-5 w-5 opacity-70' />
           Play Now
         </CustomButton>
       </div>

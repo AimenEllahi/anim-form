@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import CharacterSheet from "@/components/character/myCharacter/character-sheet";
 import { getCharacter } from "@/actions/character";
 import Loader from "@/components/ui/Loader";
@@ -8,6 +8,7 @@ import useCustomToast from "@/hooks/useCustomToast";
 import useUserStore from "@/utils/userStore";
 import Cookie from "universal-cookie";
 import useCharaterStore from "@/utils/characterStore";
+import useTracking from "@/hooks/useTracking";
 
 const ch = {
   personal: {
@@ -103,12 +104,14 @@ const ch = {
   updatedAt: "2024-08-24T18:30:56.534Z",
   __v: 4,
 };
-export default function page({ params }) {
+
+const SheetContainer = ({ params }) => {
   const [character, setCharacter] = useState();
   const router = useRouter();
   const { invokeToast } = useCustomToast();
   const { user } = useUserStore();
   const { setDisplayingCharacter } = useCharaterStore();
+  const tracking = useTracking();
 
   const handleGetCharacter = async () => {
     try {
@@ -135,5 +138,13 @@ export default function page({ params }) {
     <div className='bg-gradient text-white'>
       <CharacterSheet character={character} setCharacter={setCharacter} />
     </div>
+  );
+};
+
+export default function page({ params }) {
+  return (
+    <Suspense>
+      <SheetContainer params={params} />
+    </Suspense>
   );
 }

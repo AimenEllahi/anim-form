@@ -57,3 +57,14 @@ export const updatePassword = async (token, payload) => {
     throw error;
   }
 };
+
+export const trackShares = async (payload) => {
+  try {
+    const response = await api.post(`/user/trackShares`, payload);
+
+    return response.data;
+  } catch (error) {
+    console.error("Error:", error);
+    throw error;
+  }
+};
