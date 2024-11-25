@@ -4,6 +4,7 @@ import CampaignAdd from "@/components/ui/Icons/CampaignAdd";
 import Card from "../Step2/Card";
 import Adventure from "@/components/ui/Icons/Adventure";
 import useGameStore from "@/utils/gameStore";
+import ReactMarkdown from 'react-markdown';
 
 export default function Step3() {
   const { currentCharacter, currentCampaign } = useGameStore();
@@ -22,9 +23,9 @@ export default function Step3() {
             <p className='text-white running-text-large'>
               {currentCampaign?.title}
             </p>
-            <p className='text-gray2 running-text'>
+            <ReactMarkdown className='text-gray2 running-text'>
               {currentCampaign?.adventure.plot}
-            </p>
+            </ReactMarkdown>
           </div>
         </div>
 

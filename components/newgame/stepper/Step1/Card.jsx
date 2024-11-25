@@ -9,6 +9,8 @@ import useGameStore from "@/utils/gameStore";
 import CustomButton from "@/components/ui/custom-button";
 import Cancel from "@/components/ui/Icons/Cancel";
 import Information from "@/components/ui/Icons/Information";
+import ReactMarkdown from 'react-markdown';
+
 
 export default function Card({ campaign }) {
   const { currentCampaign, setCurrentCampaign } = useGameStore();
@@ -34,13 +36,13 @@ export default function Card({ campaign }) {
         {/* Left section for title and description */}
         <div className='flex flex-col'>
           <h3 className='running-text h-6 overflow-hidden text-white'>
-            {campaign.title}
+            {campaign.adventure.title}
           </h3>
           <p className='text-gray2 h-6  overflow-hidden running-text-small hidden md:block'>
-            {campaign.plot.slice(0, 80)}...
+            {campaign.adventure.plot.slice(0, 80)}...
           </p>
           <p className='text-gray2 max-h-6  truncate overflow-hidden running-text-small  md:hidden'>
-            {campaign.plot.slice(0, 30)}...
+            {campaign.adventure.plot.slice(0, 30)}...
           </p>
         </div>
       </div>
@@ -59,10 +61,11 @@ export default function Card({ campaign }) {
           </div>
         </PopoverTrigger>
         <PopoverContent className='!min-w-[512px]'>
-          <div className='flex flex-col gap-3'>
-            <span className='running-text'>{campaign.title}</span>
-            <span className='running-text-small'>{campaign.plot}</span>
-          </div>
+        <div className="flex flex-col gap-3">
+          <ReactMarkdown className="running-text-small" >
+          {campaign.adventure.plot.slice(0, 200) + " ..."}
+          </ReactMarkdown>
+        </div>
         </PopoverContent>
       </Popover>
 
@@ -88,9 +91,9 @@ export default function Card({ campaign }) {
               />
 
               <span className='headline-3'>{currentCampaign.title}</span>
-              <span className='running-text text-gray2'>
+              <ReactMarkdown className='running-text text-gray2'>
                 {currentCampaign.plot}
-              </span>
+              </ReactMarkdown>
             </div>
           </div>
 
