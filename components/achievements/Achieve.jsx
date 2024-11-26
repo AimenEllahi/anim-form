@@ -198,6 +198,34 @@ export default function Achieve({ achievements, userAchievements }) {
                 progress = `0/1`;
               }
 
+              if (
+                achievement.id === "6739002289dcd8613b6b36e9" &&
+                userAchievements.shares.includes("twitter")
+              ) {
+                progress = `1/1`;
+              }
+
+              if (
+                achievement.id === "6739002289dcd8613b6b36ea" &&
+                userAchievements.shares.includes("instagram")
+              ) {
+                progress = `1/1`;
+              }
+              if (
+                achievement.id === "6739002289dcd8613b6b36eb" &&
+                userAchievements.shares.includes("tiktok")
+              ) {
+                progress = `1/1`;
+              }
+              if (
+                achievement.id === "6739002289dcd8613b6b36ec" &&
+                userAchievements.shares.includes("twitter") &&
+                userAchievements.shares.includes("instagram") &&
+                userAchievements.shares.includes("tiktok")
+              ) {
+                progress = `1/1`;
+              }
+
               return (
                 <div
                   key={index}
