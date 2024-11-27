@@ -23,6 +23,7 @@ import Abilities from "./Abilities";
 import Inventory from "./Inventory";
 import Companions from "./Companions";
 import ShareDialogue from "./ShareDialogue";
+import Head from "next/head";
 
 export default function characterSheet({ character, setCharacter }) {
   const [isShareDialogOpen, setIsShareDialogOpen] = useState(false);
@@ -142,28 +143,7 @@ export default function characterSheet({ character, setCharacter }) {
             </div>
           </div>
         </div>
-        {/* <CustomButton
-          onClick={() => {
-            setOpen(true);
-            if (character?.personal?.portraits?.length > 0) {
-              router.push(pathname);
-            } else {
-              router.push(pathname + "?generateAvatar=true");
-            }
-          }}
-        >
-          {character?.personal?.portraits?.length > 0 ? (
-            <Edit fill="white" className="h-5 w-5 opacity-70" />
-          ) : (
-            <Generate className="h-5 w-5 opacity-70 fill-white" />
-          )}
-          {character?.personal?.portraits?.length > 0 ? "Change " : "Create "}
-          character portrait
-        </CustomButton> */}
-        {/**       <CustomButton variant='subtle'>
-         <Download fill='white' className='h-5 w-5 opacity-70 text-white' />
-          Download character sheet
-        </CustomButton> */}
+       
         <div className='flex gap-4'>
           <CustomButton
             withIcon={true}

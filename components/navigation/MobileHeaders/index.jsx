@@ -20,6 +20,10 @@ export default function index() {
     totalFavCampaigns,
     totalImages,
     totalPublicImages,
+    user,
+    rank,
+    level,
+    title,
     totalPublicCampaigns,
   } = useUserStore();
 
@@ -63,6 +67,7 @@ export default function index() {
   const contact = pathname.includes("/contact");
   const settings = pathname.includes("my-account/settings");
   const characterSheet = pathname.includes("character/sheet");
+  const emblem = pathname.includes("emblem");
 
   if (startNewGame) {
     return (
@@ -277,6 +282,27 @@ export default function index() {
                 </span>
               </div>
             </div>
+          </div>
+        </div>
+      );
+    } else if (emblem) {
+      return (
+        <div className='z-10  h-full !w-full  flex justify-start items-start md:items-center gap-4  flex-row'>
+          <div className='w-20 h-20  rounded-full '>
+            <img
+              src={`https://dzjg7lvewk7ln.cloudfront.net/rank-images/${rank}.webp`}
+              alt=''
+              className='w-full h-full object-cover rounded-full'
+            />
+          </div>
+          <div className='flex flex-col h-full'>
+            <span className=' text-sandyOrange running-text-mono  uppercase'>
+              {title}
+            </span>
+            <span className='text-white headline-3'>{user.username}</span>
+            <span className='text-gray2 headline-3 running-text-mono uppercase'>
+              Archievement Rank {level}
+            </span>
           </div>
         </div>
       );

@@ -25,17 +25,21 @@ import { LEVELS } from "./Titles";
 export default function Index({ userAchievements, achievements }) {
   const [selectedTab, setSelectedTab] = useState("emblems");
 
-  const { user, rank, title } = useUserStore();
+  const { user, rank, title, updateLevel } = useUserStore();
 
   const containerRef = useRef();
   const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    updateLevel(userAchievements.level);
+  }, [userAchievements]);
   const nextLevelToAchieve = LEVELS.find(
     (level) => userAchievements.pokal < level.pokalsRequired
   );
   return (
     <div
       ref={containerRef}
-      className='h-full min-h-full w-full pt-[90px] px-5 pb-32 md:pt-[120px]  md:pb-[104px] md:px-12 flex flex-col gap-[24px] relative z-10'
+      className='h-full min-h-full w-full pt-[188px] px-5 pb-32 md:pt-[120px]  md:pb-[104px] md:px-12 flex flex-col gap-[24px] relative z-10'
     >
       <GuestUser />
       {/* desktop */}
@@ -92,24 +96,6 @@ export default function Index({ userAchievements, achievements }) {
       {/* mobile */}
       <div className='md:hidden flex items-start justify-start md:justify-between gap-1 md:gap-[32px]  '>
         <div className='w-full z-10 flex flex-col gap-6 justify-between items-center'>
-          <div className='z-10  h-full !w-full  flex justify-start items-start md:items-center gap-4  flex-row'>
-            <div className='w-20 h-20  rounded-full '>
-              <img
-                src='/achievements/adept.png'
-                alt=''
-                className='w-full h-full object-cover rounded-full'
-              />
-            </div>
-            <div className='flex flex-col h-full'>
-              <span className=' text-sandyOrange running-text-mono  uppercase'>
-                {userAchievements.rank}
-              </span>
-              <span className='text-white headline-3'>{user.username}</span>
-              <span className='text-gray2 headline-3 running-text-mono uppercase'>
-                Archievement Rank {userAchievements.level}
-              </span>
-            </div>
-          </div>
           <div className='z-10 text-sandyOrange w-full h-12  flex flex-col gap-5 justify-start items-start '>
             <div className='w-full flex  justify-between items-center'>
               <span className='text-[#FFB371] flex gap-2 uppercase running-text-mono'>

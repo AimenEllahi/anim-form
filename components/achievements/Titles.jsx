@@ -30,7 +30,7 @@ export const LEVELS = [
 
 export default function Titles({ userPokals }) {
   const { invokeToast } = useCustomToast();
-  const { user, updateTitle: updateTitleInStore } = useUserStore();
+  const { user, updateTitle: updateTitleInStore, title } = useUserStore();
   const [isLoading, setIsLoading] = useState(false);
   const handleTitleUpdate = async (_title) => {
     try {
@@ -46,7 +46,7 @@ export default function Titles({ userPokals }) {
     }
   };
   return (
-    <div className='relative md:bg-white/[8%] md:border md:border-white/10 bg-transparent md:w-fit w-full rounded-[16px] md:p-5 p-0 grid md:grid-cols-5 grid-cols-2 gap-5'>
+    <div className='relative md:bg-white/[8%] md:border md:border-white/10 bg-transparent md:w-fit w-full rounded-[16px] md:p-5 p-0 grid md:grid-cols-5 grid-cols-2 gap-4 md:gap-5'>
       {LEVELS.map((level, index) => (
         <div
           onClick={() => {
@@ -55,10 +55,12 @@ export default function Titles({ userPokals }) {
           }}
           key={index}
           className={cn(
-            `h-[50px] border p-5 pe-3 border-white/10  w-[215px] bg-white/[8%] group rounded-[10px] flex items-center justify-center transition-shadow duration-300 `,
+            `h-[50px] border p-5 pe-3 border-white/[8%]  md:w-[215px] bg-white/[8%] group rounded-[10px] flex items-center justify-center ease-animate `,
             userPokals < level.pokalsRequired
-              ? "bg-white/[4%] pointer-events-none border-white/[4%]"
-              : "hover:border-[#8F91FF] cursor-pointer hover:shadow-[0_0_30px_0_rgba(127,126,252,0.3)]",
+              ? "bg-white/[4%] pointer-events-none border-white/[4%] opacity-70"
+              : "hover:bg-white/10 hover:border-white/20 active:border-[#8F91FF] cursor-pointer active:shadow-[0_0_30px_0_rgba(127,126,252,0.3)]",
+            level.rank === title &&
+              "border-irisPurpleLight bg-irisPurpleLight/[16%] shadow-[0_0_40px_0_rgba(143,145,255,0.4)] hover:border-irisPurpleLight hover:bg-irisPurpleLight/[16%] hover:shadow-[0_0_40px_0_rgba(143,145,255,0.4)]",
             isLoading && "pointer-events-none opacity-50"
           )}
         >
@@ -73,8 +75,9 @@ export default function Titles({ userPokals }) {
             )}
             <div
               className={cn(
-                "w-4 h-4 opacity-0 flex group-hover:opacity-100 ease-animate justify-center items-center p-[2px] rounded-full bg-irisPurpleLight",
-                userPokals < level.pokalsRequired && "hidden"
+                "w-4 h-4 opacity-0 flex ease-animate justify-center items-center p-[2px] rounded-full bg-irisPurpleLight",
+                userPokals < level.pokalsRequired && "hidden",
+                level.rank === title && "opacity-100"
               )}
             >
               <Check />

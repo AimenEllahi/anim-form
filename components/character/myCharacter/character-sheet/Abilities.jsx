@@ -54,13 +54,13 @@ export default function Abilities({ character }) {
           containerClassName='flex-row md:flex-col'
         />
       </div>
-      <div className=' h-fit col-span-12 md:col-span-6 lg:col-span-4  py-4 px-5 flex flex-col gap-3 justify-start bg-white/10 rounded-[16px] border border-white/10'>
+      <div className=' h-fit col-span-12 md:col-span-6 lg:col-span-3  py-4 px-5 flex flex-col gap-3 justify-start bg-white/10 rounded-[16px] border border-white/10'>
         <span className='running-text-large'>Abilities</span>
         <span className='running-text text-gray2'>
           {character.value.abilities}
         </span>
       </div>
-      <div className='col-span-12 md:col-span-6 lg:col-span-4'>
+      <div className='col-span-12 md:col-span-6 lg:col-span-2'>
         <div
           className={cn(
             " h-auto p-4 px-5  flex flex-col gap-3 justify-start bg-white/10 rounded-[16px] border border-white/10",

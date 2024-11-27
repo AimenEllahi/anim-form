@@ -44,7 +44,7 @@ export default function RightSection({
 
   return (
     <div className='flex flex-col justify-between h-full z-[100]   '>
-      <div className=' flex-col p-5 pt-20 md:pt-5 h-full pb-32 md:pb-0 overflow-y-scroll hide-scrollbar '>
+      <div className=' flex-col p-5 pt-20 md:pt-5 h-full pb-32 md:pb-5 overflow-y-scroll hide-scrollbar '>
         <span className='running-text-large'>
           {selectedGame?.campaign?.title}, {selectedGame?.character.name}
         </span>

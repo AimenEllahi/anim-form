@@ -15,7 +15,7 @@ export default function index({ completedGames, removePadding }) {
     <div
       className={twMerge(
         " flex w-full h-full justify-center items-center relative z-10",
-        removePadding && "-translate-y-[122px]"
+        removePadding && "-translate-y-[122px] md:translate-y-0"
       )}
     >
       <div className=' flex flex-col justify-center items-center gap-4 mb-4 z-10 '>
@@ -75,7 +75,7 @@ export default function index({ completedGames, removePadding }) {
           <img
             src='/images/NoGames/Background.webp'
             alt=''
-            className='w-full h-full fixed top-0 left-0 object-cover hidden md:block'
+            className='w-screen h-screen  fixed top-0 left-0 object-cover hidden md:block'
           />
         </>
       )}
