@@ -14,29 +14,36 @@ const Notification = () => {
   const defaultNotifications = [
     {
       id: 1,
+      message: "Achievemnts & Ranks Update 1.3",
+      link: "https://dndai.app/article/4",
+      read: false,
+    },
+    {
+      id: 2,
       message: "Adventurer Overview Update 1.2",
       link: "https://dndai.app/article/3",
       read: false,
     },
-    { id: 2, message: "Notification system added  ♥", read: true },
+    { id: 3, message: "Notification system added  ♥", read: true },
     {
-      id: 3,
+      id: 4,
       message: "Official Release of Patch 1.1",
       link: "https://dndai.app/article/2",
       read: true,
     },
     {
-      id: 4,
+      id: 5,
       message: "Official Release of Patch 1.0",
       link: "https://dndai.app/article/1",
       read: true,
     },
+    
   ];
 
   const [notifications, setNotifications] = useState(defaultNotifications);
 
   // Retrieve the stored read statuses from localStorage when the component mounts
-  const currentVersion = "1.0"; // Update this version each time you change defaultNotifications
+  const currentVersion = "1.1"; // Update this version each time you change defaultNotifications
 
   useEffect(() => {
     const storedNotifications = JSON.parse(
