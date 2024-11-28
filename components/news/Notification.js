@@ -3,7 +3,6 @@ import {
   DropdownMenu,
   DropdownMenuTrigger,
   DropdownMenuContent,
-  DropdownMenuItem,
 } from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
 import Notifications from "@/components/ui/Icons/Notification";
@@ -11,10 +10,11 @@ import CustomMenuItem from "../ui/custom-menu-item";
 
 const Notification = () => {
   const [open, setOpen] = useState(false);
+  const currentVersion = "1.1"; // Update this when notifications change
   const defaultNotifications = [
     {
       id: 1,
-      message: "Achievemnts & Ranks Update 1.3",
+      message: "Achievements & Ranks Update 1.3",
       link: "https://dndai.app/article/4",
       read: false,
     },
@@ -24,7 +24,7 @@ const Notification = () => {
       link: "https://dndai.app/article/3",
       read: false,
     },
-    { id: 3, message: "Notification system added  ♥", read: true },
+    { id: 3, message: "Notification system added ♥", read: true },
     {
       id: 4,
       message: "Official Release of Patch 1.1",
@@ -37,42 +37,49 @@ const Notification = () => {
       link: "https://dndai.app/article/1",
       read: true,
     },
-    
   ];
 
   const [notifications, setNotifications] = useState(defaultNotifications);
 
-  // Retrieve the stored read statuses from localStorage when the component mounts
-  const currentVersion = "1.1"; // Update this version each time you change defaultNotifications
-
+  // Initialize notifications from localStorage, or reset if version is outdated
   useEffect(() => {
+    const storedVersion = localStorage.getItem("notificationVersion");
     const storedNotifications = JSON.parse(
       localStorage.getItem("notifications")
     );
-    if (storedNotifications) {
+
+    if (storedVersion !== currentVersion || !storedNotifications) {
+      localStorage.setItem("notifications", JSON.stringify(defaultNotifications));
+      localStorage.setItem("notificationVersion", currentVersion);
+      setNotifications(defaultNotifications);
+    } else {
       setNotifications(storedNotifications);
     }
   }, []);
 
-  // Function to handle marking a notification as read
   const handleRead = (id) => {
     const updatedNotifications = notifications.map((notification) =>
-      notification.id === id ? { ...notification, read: true } : notification
+      notification.id === id && !notification.read
+        ? { ...notification, read: true }
+        : notification
     );
 
-    // Update state and localStorage
-    setNotifications(updatedNotifications);
-    localStorage.setItem("notifications", JSON.stringify(updatedNotifications));
+    if (
+      notifications.some(
+        (notification) => notification.id === id && !notification.read
+      )
+    ) {
+      setNotifications(updatedNotifications);
+      localStorage.setItem("notifications", JSON.stringify(updatedNotifications));
+    }
   };
 
-  // Count unread notifications
   const unreadCount = notifications.filter(
     (notification) => !notification.read
   ).length;
 
   return (
     <DropdownMenu suppressHydrationWarning open={open} onOpenChange={setOpen}>
-      {/* Accessible Trigger with keyboard and aria support */}
       <DropdownMenuTrigger
         asChild
         className="outline-0 hidden md:block"
@@ -82,12 +89,12 @@ const Notification = () => {
       >
         <div
           className="relative cursor-pointer"
-          role="button" // Make it identifiable as a button
-          aria-label="Notifications" // Add descriptive label
+          role="button"
+          aria-label="Notifications"
         >
           <div
             className={cn(
-              "bg-white/10 w-9 h-9  border bg-blur !flex !items-center !justify-center box-border ease-animate rounded-full border-white/[8%] cursor-pointer hover:border-white/20 hover:bg-white/10 active:bg-white/20 active:border-white/40 disabled:opacity-30% disabled:pointer-events-none hover:!duration-200 active:!duration-100",
+              "bg-white/10 w-9 h-9 border bg-blur flex items-center justify-center box-border rounded-full border-white/[8%] cursor-pointer hover:border-white/20 hover:bg-white/10 active:bg-white/20 active:border-white/40",
               open && "border-white/40 bg-white/20 cursor-pointer"
             )}
           >
@@ -104,22 +111,18 @@ const Notification = () => {
         </div>
       </DropdownMenuTrigger>
 
-      {/* Dropdown content with ARIA roles */}
       <DropdownMenuContent className="bg-transparent flex flex-col mt-4 p-2 !px-[9px] border border-white/10 z-[21] bg-blur menu-shadow text-white running-text-mono rounded-[16px] !gap-y-2">
         {notifications.length === 0 ? (
-          <div className="running-text-mono text-gray2 ">No notifications</div>
+          <div className="running-text-mono text-gray2">No notifications</div>
         ) : (
           notifications.map((notification) => (
             <CustomMenuItem
               key={notification.id}
-              // className={cn(
-              //   "flex gap-2 p-2 cursor-pointer rounded-[10px] transition-all duration-300 ease-linear pt-4  pl-4"
-              // )}
-              onMouseEnter={() => handleRead(notification.id)} // Trigger read on hover
+              onClick={() => handleRead(notification.id)}
             >
               <span>
                 {notification.message}
-                <br></br>
+                <br />
                 {notification.link && (
                   <a
                     href={notification.link}
