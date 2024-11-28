@@ -26,7 +26,7 @@ export default function Emblems({ userPokals }) {
   };
 
   return (
-    <div className='relative md:border md:border-white/10 md:bg-white/[8%] bg-transparent w-full rounded-[16px] md:p-5 p-0 grid md:grid-cols-10 grid-cols-2 gap-5'>
+    <div className='relative md:border md:border-white/10 md:bg-white/[8%] bg-transparent w-full rounded-[16px] md:p-5 p-0 grid md:grid-cols-10 grid-cols-2 gap-4 md:gap-5'>
       {LEVELS.map((_, index) => (
         <div
           key={index}
@@ -36,7 +36,7 @@ export default function Emblems({ userPokals }) {
           onMouseEnter={() => setSelectedIndex(index)}
           onMouseLeave={() => setSelectedIndex(null)}
           className={cn(
-            `h-[122px] relative w-full bg-white/10 rounded-[10px] flex items-center justify-center transition-shadow transition-border duration-300`,
+            `w-[168px] md:w-[122px] relative h-auto bg-white/10 rounded-[10px] overflow-hidden flex items-center justify-center transition-shadow transition-border duration-300`,
             selectedIndex === index && isUnlocked(index)
               ? "border border-[#8F91FF] shadow-[0_0_40px_0_rgba(143,145,255,0.4)]"
               : "border border-none",
@@ -54,7 +54,7 @@ export default function Emblems({ userPokals }) {
             src={`https://dzjg7lvewk7ln.cloudfront.net/rank-images/${_.rank}.webp`}
             alt=''
             className={cn(
-              "w-full h-full object-cover rounded-[10px] cursor-pointer",
+              "w-full object-contain  cursor-pointer",
               !isUnlocked(index) && "opacity-40 pointer-events-none"
             )}
           />

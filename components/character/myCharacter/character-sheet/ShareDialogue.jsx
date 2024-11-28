@@ -7,9 +7,8 @@ import Send from "@/components/ui/Icons/Send";
 import { usePathname } from "next/navigation";
 import useCustomToast from "@/hooks/useCustomToast";
 import useUserStore from "@/utils/userStore";
-
+import { FacebookShareButton } from "react-share";
 const socialPlatforms = [
-  { name: "TIKTOK", icon: "/Icons/tiktok.png" },
   { name: "X", icon: "/Icons/twitter.jpeg" },
   { name: "INSTAGRAM", icon: "/Icons/insta.png" },
 ];
@@ -42,31 +41,23 @@ export default function ShareDialogue({ open, onOpenChange }) {
     navigator.clipboard.writeText(shareableUrl);
 
     // Notify the user
-    invokeToast(
-      "Link copied to clipboard. Open Instagram to share!",
-      "success"
-    );
+    invokeToast("Link copied. Redirecting to Instagram!", "success");
+
+    // Open Instagram (it will create a post with the URL in the caption)
+
+    setTimeout(() => {
+      window.open(instagramUrl, "_blank");
+    }, 4000);
 
     // Open Instagram (it won't create a post but will redirect to Instagram)
-    // window.open(instagramUrl, "_blank");
+    //window.open(instagramUrl, "_blank");
   };
 
-  const shareOnTikTok = () => {
+  const shareOnFacebook = () => {
     const shareableUrl = `${url}?utm_source=tiktok&utm_user=${user._id}`;
-
-    const tiktokUrl = `https://www.tiktok.com/upload`;
-
-    // Copy the shareable link to clipboard
-    navigator.clipboard.writeText(shareableUrl);
-
-    // Notify the user
-    invokeToast(
-      "Link copied to clipboard. Open TikTok to create your post!",
-      "success"
-    );
-
-    // Open TikTok's upload page
-    // window.open(tiktokUrl, "_blank");
+    const shareUrl = encodeURIComponent(shareableUrl); // Replace with your website URL
+    const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`;
+    window.open(facebookShareUrl, "_blank");
   };
 
   const handleCopyClick = () => {
@@ -77,7 +68,7 @@ export default function ShareDialogue({ open, onOpenChange }) {
   };
 
   const handleShareOnSocialMedia = (platform) => {
-    if (platform === "TIKTOK") shareOnTikTok();
+    if (platform === "FACEBOOK") shareOnFacebook();
     else if (platform === "INSTAGRAM") shareOnInstagram();
     else if (platform === "X") shareOnTwitter();
   };
@@ -89,6 +80,25 @@ export default function ShareDialogue({ open, onOpenChange }) {
           <div className='p-4 running-text-large'>Share Adventurer</div>
           <div className='p-4 flex flex-col gap-6 border-y border-white/10'>
             <div className='w-full flex gap-6'>
+              <FacebookShareButton
+                url={url + "?utm_source=facebook&utm_user=" + user._id}
+                quote={"Check out this character on DnD AI"}
+              >
+                <div
+                  key={"FACEBOOK"}
+                  className='flex flex-col justify-center items-center gap-3'
+                >
+                  <div className='w-14 h-14 rounded-full'>
+                    <img
+                      //onClick={() => handleShareOnSocialMedia('FACEBOOK')}
+                      src={"/Icons/fb.png"}
+                      alt={`Facebook Icon`}
+                      className='object-contain cursor-pointer  rounded-full size-14'
+                    />
+                  </div>
+                  <span className='uppercase description'>Facebook</span>
+                </div>
+              </FacebookShareButton>
               {socialPlatforms.map((platform) => (
                 <div
                   key={platform.name}

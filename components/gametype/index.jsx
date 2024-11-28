@@ -40,7 +40,6 @@ export default function Index({ gameType, games, setGames }) {
     }
   }, [games]);
 
-  console.log(completedGames);
   const handleDeleteGame = async (id) => {
     try {
       setLoadingDelete(true);

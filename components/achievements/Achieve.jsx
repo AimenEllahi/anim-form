@@ -4,6 +4,7 @@ import Campaign from "@/components/ui/Icons/Campaign";
 import Diamond from "@/components/ui/Icons/Diamond";
 import Watch from "@/components/ui/Icons/Watch";
 import { cn } from "@/lib/utils";
+import AchievementFinished from "../ui/Icons/AchievementFinished";
 
 export default function Achieve({ achievements, userAchievements }) {
   const [selectedIndex, setSelectedIndex] = useState(null);
@@ -41,7 +42,7 @@ export default function Achieve({ achievements, userAchievements }) {
 
   const getProgressText = (progress, unlocked) => {
     const percentage = calculateProgressPercentage(progress);
-    return percentage === 100 ? "" : progress;
+    return percentage === 100 ? false : progress;
   };
 
   const trackProgress = (id) => {
@@ -213,7 +214,7 @@ export default function Achieve({ achievements, userAchievements }) {
               }
               if (
                 achievement.id === "6739002289dcd8613b6b36eb" &&
-                userAchievements.shares.includes("tiktok")
+                userAchievements.shares.includes("facebook")
               ) {
                 progress = `1/1`;
               }
@@ -248,7 +249,11 @@ export default function Achieve({ achievements, userAchievements }) {
                           )}
                         >
                           <span className='text-gray-400'>
-                            {getProgressText(progress)}
+                            {getProgressText(progress) ? (
+                              getProgressText(progress)
+                            ) : (
+                              <AchievementFinished className='w-10 h-10 fill-successGreen' />
+                            )}
                           </span>
                         </div>
                       </div>
