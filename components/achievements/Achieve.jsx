@@ -222,7 +222,7 @@ export default function Achieve({ achievements, userAchievements }) {
                 achievement.id === "6739002289dcd8613b6b36ec" &&
                 userAchievements.shares.includes("twitter") &&
                 userAchievements.shares.includes("instagram") &&
-                userAchievements.shares.includes("tiktok")
+                userAchievements.shares.includes("facebook")
               ) {
                 progress = `1/1`;
               }

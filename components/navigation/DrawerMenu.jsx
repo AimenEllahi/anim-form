@@ -43,7 +43,7 @@ const UserLoggedIn = ({ handleRedirect, handlePlay }) => {
   };
 
   useEffect(() => {
-    if (user?.token && (!rank || !title)) {
+    if (user?.token) {
       handleGetUserAchievements();
     }
   }, [showMenu]);
