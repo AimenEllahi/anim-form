@@ -33,9 +33,15 @@ export default function Index({ userAchievements, achievements }) {
   useEffect(() => {
     updateLevel(userAchievements.level);
   }, [userAchievements]);
-  const nextLevelToAchieve = LEVELS.find(
+  let nextLevelToAchieve = LEVELS.find(
     (level) => userAchievements.pokal < level.pokalsRequired
   );
+
+  //check if user has reached last level
+  if (!nextLevelToAchieve) {
+    nextLevelToAchieve = LEVELS[LEVELS.length - 1];
+  }
+
   return (
     <div
       ref={containerRef}

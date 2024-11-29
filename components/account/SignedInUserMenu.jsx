@@ -40,7 +40,7 @@ export default function SignedInUserMenu({ open }) {
   };
 
   useEffect(() => {
-    if (user?.token && (!rank || !title)) {
+    if (user?.token) {
       handleGetUserAchievements();
     }
   }, [open]);
