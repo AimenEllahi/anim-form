@@ -148,7 +148,7 @@ export default function Achieve({ achievements, userAchievements }) {
   };
 
   return (
-    <div className='w-full p-5 flex flex-col gap-8'>
+    <div className='w-full md:p-5 flex flex-col gap-8'>
       {achievements.map((category, catIndex) => (
         <div key={catIndex} className='flex flex-col gap-4'>
           <span className='running-text-mono text-gray2 uppercase flex items-center gap-2'>
@@ -167,7 +167,7 @@ export default function Achieve({ achievements, userAchievements }) {
             {category.name}
           </span>
 
-          <div className='relative w-full rounded-2xl grid md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 grid-cols-1 gap-5'>
+          <div className='relative w-full rounded-2xl grid md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 grid-cols-1 gap-5 '>
             {category.achievements.map((achievement, index) => {
               const userProgress = trackProgress(achievement.id);
 
@@ -230,7 +230,7 @@ export default function Achieve({ achievements, userAchievements }) {
               return (
                 <div
                   key={index}
-                  className={`h-[218px] w-full rounded-[16px] p-5 transition-shadow duration-300 flex flex-col justify-between items-center ${getBackgroundColor(
+                  className={`h-[218px] w-full  rounded-[16px] p-5 transition-shadow duration-300 flex flex-col justify-between items-center ${getBackgroundColor(
                     progress,
                     checkIfAchievementUnlocked(achievement.id)
                   )} `}
@@ -248,7 +248,7 @@ export default function Achieve({ achievements, userAchievements }) {
                             getBackgroundColor(progress, true)
                           )}
                         >
-                          <span className='text-gray-400'>
+                          <span className='text-gray-400 running-text-mono'>
                             {getProgressText(progress) ? (
                               getProgressText(progress)
                             ) : (

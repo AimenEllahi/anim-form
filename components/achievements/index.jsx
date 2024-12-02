@@ -4,23 +4,16 @@ import Emblems from "./Emblems";
 import CustomButton from "@/components/ui/custom-button";
 import Play from "@/components/ui/Icons/Play";
 import Edit from "@/components/ui/Icons/Edit";
-// import Avatar from "./create-avatar/avatar";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import CustomIconbutton from "@/components/ui/custom-iconbutton";
 import SoundButton from "@/components/ui/Shared/SoundButton";
-import Delete from "@/components/ui/Icons/Delete";
 import useUserStore from "@/utils/userStore";
-import { cn } from "@/lib/utils";
-import DeleteCharacter from "@/components/ui/Shared/Dialogue/DeleteCharacter";
-import useCustomToast from "@/hooks/useCustomToast";
-import { deleteCharacter, getCharacter } from "@/actions/character";
-import Loader from "@/components/ui/Loader";
-import useGameStore from "@/utils/gameStore";
+
 import GuestUser from "@/components/ui/Shared/Dialogue/GuestUser";
 import Switch from "./Switch";
 import Titles from "./Titles";
 import Achieve from "./Achieve";
 import { LEVELS } from "./Titles";
+import General from "../ui/Shared/TabBar/general";
 
 export default function Index({ userAchievements, achievements }) {
   const [selectedTab, setSelectedTab] = useState("emblems");
@@ -105,21 +98,22 @@ export default function Index({ userAchievements, achievements }) {
           <div className='z-10 text-sandyOrange w-full h-12  flex flex-col gap-5 justify-start items-start '>
             <div className='w-full flex  justify-between items-center'>
               <span className='text-[#FFB371] flex gap-2 uppercase running-text-mono'>
-                Total Trophies{" "}
-                <img src='/achievements/icons/trophy.png' alt='' />{" "}
-                {userAchievements.achievements.length}
+                Total Pokals <img src='/achievements/icons/trophy.png' alt='' />{" "}
+                {userAchievements.pokal}
               </span>
               <span className='text-[#FFB371] flex gap-2 uppercase running-text-mono'>
                 {" "}
                 <img src='/achievements/icons/trophy.png' alt='' />{" "}
-                {userAchievements.achievements.length}/40
+                {userAchievements.pokal}/{nextLevelToAchieve.pokalsRequired}
               </span>
             </div>
             <div className='w-full bg-white/[15%] rounded-full h-2'>
               <div
                 style={{
                   width: `${
-                    (userAchievements.achievements.length / 40) * 100
+                    (userAchievements.pokal /
+                      nextLevelToAchieve.pokalsRequired) *
+                    100
                   }%`,
                 }}
                 className={
@@ -147,27 +141,7 @@ export default function Index({ userAchievements, achievements }) {
           achievements={achievements}
         />
       )}
-      <div className='md:hidden z-[10] flex items-center justify-between bg-blur-bottom-menu fixed bottom-0 w-screen left-0 p-5 '>
-        <div className='flex items-center gap-4'>
-          <SoundButton />
-          <CustomIconbutton
-          // onClick={() => {
-          //   setOpen(true);
-          //   router.push(pathname);
-          // }}
-          >
-            <Edit fill='white' className='h-5 w-5  ' />
-          </CustomIconbutton>
-        </div>
-        <CustomButton
-          disabled={isLoading}
-          //   onClick={handlePlayWithCharacter}
-          variant={"primary"}
-        >
-          <Play className='h-5 w-5 opacity-70' />
-          Play Now
-        </CustomButton>
-      </div>
+      <General showSearch={false} />
     </div>
   );
 }

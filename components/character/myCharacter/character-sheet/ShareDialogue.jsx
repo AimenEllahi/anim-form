@@ -8,6 +8,7 @@ import { usePathname } from "next/navigation";
 import useCustomToast from "@/hooks/useCustomToast";
 import useUserStore from "@/utils/userStore";
 import { FacebookShareButton } from "react-share";
+import useDeviceDetect from "@/hooks/useDeviceDetect";
 const socialPlatforms = [
   { name: "X", icon: "/Icons/twitter.jpeg" },
   { name: "INSTAGRAM", icon: "/Icons/insta.png" },
@@ -17,6 +18,7 @@ export default function ShareDialogue({ open, onOpenChange }) {
   const pathname = usePathname();
   const { user } = useUserStore();
   const { invokeToast } = useCustomToast();
+  const { isMobile } = useDeviceDetect();
   const handleCancelClick = () => {
     onOpenChange(false); // Close the dialog by setting open to false
   };
@@ -75,9 +77,11 @@ export default function ShareDialogue({ open, onOpenChange }) {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className='bg-white/[8%] border border-white/[7%] !rounded-2xl !p-0 flex-col !gap-0  !w-[481px] max-w-screen flex '>
+      <DialogContent className='bg-white/[8%] border border-white/[7%] !rounded-2xl !p-0 flex-col !gap-0  w-[92%] md:!w-[481px] max-w-screen flex '>
         <div className='text-left text-white !z-50 flex flex-col'>
-          <div className='p-4 running-text-large'>Share Adventurer</div>
+          <div className='p-4 headline-3 md:running-text-large'>
+            Share Adventurer
+          </div>
           <div className='p-4 flex flex-col gap-6 border-y border-white/10'>
             <div className='w-full flex gap-6'>
               <FacebookShareButton
@@ -119,7 +123,7 @@ export default function ShareDialogue({ open, onOpenChange }) {
             <CustomInputIcon
               value={
                 process.env.NEXT_PUBLIC_BASE_URL +
-                pathname.substring(0, 15) +
+                pathname.substring(0, isMobile ? 5 : 15) +
                 "..."
               }
               //   onClick={addComment}
@@ -133,11 +137,12 @@ export default function ShareDialogue({ open, onOpenChange }) {
               isSubtle={true}
             />
           </div>
-          <div className='p-4 w-full flex justify-end'>
+          <div className='p-6 w-full flex justify-end'>
             <CustomButton
               withIcon={true}
               variant='secondary'
               onClick={handleCancelClick} // Close the dialog when clicked
+              className={"w-full md:w-fit"}
             >
               <Cancel className='h-3 w-3 opacity-70 fill-white' />
               Cancel

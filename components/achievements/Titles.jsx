@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import Check from "../ui/Icons/Check";
-import LockIcon from "../ui/Icons/Lock";
+import Check from "@/components/ui/Icons/Check";
+import LockIcon from "@/components/ui/Icons/Lock";
 import useUserStore from "@/utils/userStore";
 import { updateTitle } from "@/actions/achievement";
 import useCustomToast from "@/hooks/useCustomToast";
 import { cn } from "@/lib/utils";
+import CheckV2 from "../ui/Icons/CheckV2";
 export const LEVELS = [
   { rank: "Novice", pokalsRequired: 0 },
   { rank: "Apprentice", pokalsRequired: 100 },
@@ -80,7 +81,7 @@ export default function Titles({ userPokals }) {
                 level.rank === title && "opacity-100"
               )}
             >
-              <Check />
+              <CheckV2 className='h-[7px] w-[9px] fill-russianViolet' />
             </div>
           </div>
         </div>

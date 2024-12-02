@@ -55,7 +55,7 @@ export default function SearchInput({
               )}
               onClick={() => {
                 setTimeout(() => {
-                  triggerOnBlur(false);
+                  if (triggerOnBlur) triggerOnBlur(false);
                 }, 500);
                 setQuery("");
                 setInput("");

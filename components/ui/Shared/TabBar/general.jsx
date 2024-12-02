@@ -23,11 +23,7 @@ export default function General({ showSearch = true }) {
   const [isLoading, setIsLoading] = useState(false);
   const { invokeToast } = useCustomToast();
   const { user } = useUserStore();
-  const {
-    setCurrentCharacter,
-
-    setStartNewGame,
-  } = useGameStore();
+  const { setCurrentCharacter, setStartNewGame } = useGameStore();
   const [searchMode, setSearchMode] = useState(false);
   const [showButtons, setShowButtons] = useState(false);
   const [query, setQuery] = useState("");
@@ -92,6 +88,7 @@ export default function General({ showSearch = true }) {
           <SearchInput
             query={query}
             setQuery={setQuery}
+            triggerOnBlur={setSearchMode}
             autoFocus={true}
             className={"w-full search text-white"}
           />
