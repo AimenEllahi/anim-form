@@ -35,6 +35,13 @@ export default function ArticlesPage() {
         "Major rework of the adventurer overview and more...",
       imageUrl: "https://dzjg7lvewk7ln.cloudfront.net/der%20patron/1729688171168.webp",
       },
+      {
+        id: 4,
+        title: "Achievements & Ranks | Update Patch 1.3 ",
+        description:
+          "Unlock Achievements and Ranks...",
+        imageUrl: "https://dzjg7lvewk7ln.cloudfront.net/rank-images/Novice.webp",
+        },
     // Add more articles as needed
 
         //{

@@ -55,6 +55,12 @@ jobs:
         env:
           EC2_HOSTNAME: ${{ secrets.HOST }}
 
+      - name: Copy .env file based on branch
+        run: |
+          scp -i ssh_key.pem .env.production ec2-user@$EC2_HOSTNAME:~/dndaiFrontEnd/.env
+        env:
+          EC2_HOSTNAME: ${{ secrets.HOST }}
+
       - name: Build the project
         run: |
           ssh -i ssh_key.pem ec2-user@$EC2_HOSTNAME "export NEXT_PUBLIC_BACKEND_URL=https://dndai.app && cd ~/dndaiFrontEnd && npm run build"
