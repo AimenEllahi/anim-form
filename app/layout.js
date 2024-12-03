@@ -171,6 +171,8 @@ export default function RootLayout({ children }) {
           <link rel='icon' href='/favicon.ico' sizes='32x32' />
           <link rel='icon' href='/icon.svg' type='image/svg+xml' />
           <link rel='apple-touch-icon' href='/apple-touch-icon.png' />
+          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3291227232677056"
+            crossorigin="anonymous"></script>
           <Script
             strategy='afterInteractive'
             src={`https://www.googletagmanager.com/gtag/js?id=G-BTHMYX7TZ9`}
