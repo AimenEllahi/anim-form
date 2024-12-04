@@ -36,7 +36,7 @@ export default function Emblems({ userPokals }) {
             if (isUnlocked(index)) handleEmblemUpdate(_.rank);
           }}
           className={cn(
-            `w-[168px] md:w-[122px] relative h-auto bg-white/10 rounded-[10px] overflow-hidden flex items-center justify-center ease-animate sm:col-span-3 md:col-span-2 xl:col-span-1`,
+            `w-[168px] md:w-[122px] relative h-auto border border-transparent hover:border-irisPurpleLight bg-white/10 rounded-[10px] overflow-hidden flex items-center justify-center ease-animate sm:col-span-3 md:col-span-2 xl:col-span-1`,
 
             rank === _.rank &&
               "border !border-irisPurpleLight bg-irisPurpleLight/[16%] shadow-[0_0_40px_0_rgba(143,145,255,0.4)]",

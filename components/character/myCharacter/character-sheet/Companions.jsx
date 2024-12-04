@@ -21,14 +21,14 @@ const Card = ({
   const pathname = usePathname();
 
   return (
-    <div className="flex  col-span-4 rounded-[16px]  bg-white/10 border border-white/10  items-start justify-center flex-col md:flex-row  ">
-      <div className="border-b md:border-b-0 md:border-r flex flex-col h-full p-5 pt-4 gap-4 border-white/10">
-        <h3 className="running-text-large break-all max-w-full ">{title}</h3>
-        <div className="relative overflow-hidden">
+    <div className='flex w-full col-span-4 rounded-[16px]  bg-white/10 border border-white/10  items-start justify-center flex-col lg:flex-row  '>
+      <div className=' w-full border-b lg:border-b-0 lg:border-r flex flex-col h-full p-5 pt-4 gap-4 border-white/10'>
+        <h3 className='running-text-large break-words '>{title}</h3>
+        <div className='relative overflow-hidden w-full'>
           {loadingAvatar && selectedCompanion.name === title && (
             <Loader
-              text="Weaving illusions..."
-              className="absolute top-0 left-0 rounded-[10px] w-full h-full bg-blur flex items-center justify-center"
+              text='Weaving illusions...'
+              className='absolute top-0 left-0 rounded-[10px] w-full h-full bg-blur flex items-center justify-center'
             />
           )}
           <img
@@ -37,7 +37,7 @@ const Card = ({
               "/images/CreateCharacter/CharacterName/CharacterName.png"
             }
             alt={title}
-            className=" md:h-[182px] md:min-w-[193px] rounded-[10px]   object-cover "
+            className=' lg:h-[182px] lg:min-w-[193px] rounded-[10px]   object-cover '
           />
         </div>
         {isCreator && (
@@ -66,9 +66,9 @@ const Card = ({
           </CustomButton>
         )}
       </div>
-      <div className="flex flex-col justify-start p-5 pt-3.5 gap-4">
-        <span className="running-text-large">Appearance</span>
-        <p className="running-text text-gray2">{description}</p>
+      <div className='flex w-full flex-col justify-start p-5 pt-3.5 gap-4'>
+        <span className='running-text-large'>Appearance</span>
+        <p className='running-text text-gray2'>{description}</p>
       </div>
     </div>
   );
@@ -90,7 +90,7 @@ export default function Companions({
       />
     );
   return (
-    <div className="relative  grid grid-cols-4 md:grid-cols-8 xl:grid-cols-12 gap-5 ">
+    <div className='relative  grid grid-cols-4 md:grid-cols-8 xl:grid-cols-12 gap-5 '>
       {character?.companions?.map((companion, index) => (
         <Card
           key={index}

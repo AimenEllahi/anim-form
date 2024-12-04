@@ -23,7 +23,7 @@ export default function characterInfo({
   const router = useRouter();
   const pathname = usePathname();
   return (
-    <div className='w-full lg:w-[345px] h-auto p-4 border border-white/10 bg-white/10 rounded-[16px] overflow-hidden flex flex-col justify-start'>
+    <div className=' w-full lg:w-[345px] h-auto p-4 border border-white/10 bg-white/10 rounded-[16px] overflow-hidden flex flex-col justify-start'>
       <div className=''>
         <div className='h-auto w-full relative flex flex-col gap-4'>
           <div className='flex justify-between'>
