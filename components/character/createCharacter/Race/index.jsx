@@ -26,7 +26,7 @@ export default function Index({ character, setCharacter }) {
   }, [gender]);
 
   return (
-    <div className=' text-white  flex justify-start  items-start gap-5  h-full   w-full pb-28 pt-8 md:py-0'>
+    <div className=' text-white  flex justify-start  items-start gap-5  h-full   w-full pb-28 md:pt-8  md:py-0'>
       <Choose race={character.race} handleSelectRace={handleSelectRace} />
 
       <Info race={character.race} handleSelectRace={handleSelectRace} />

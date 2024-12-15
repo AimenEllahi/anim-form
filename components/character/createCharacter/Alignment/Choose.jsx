@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import SearchInput from "@/components/ui/search-input";
 import { cn } from "@/lib/utils";
 import { ALIGNMENT } from "../constants";
 import useCharacterStore from "@/utils/characterStore";
-import Information from "@/components/ui/Icons/Information";
+import Help from "@/components/ui/Icons/Help";
 export default function Choose({ handleAlignmentChange, alignment }) {
   const { setShowModal, setSelectedCharacteristic } = useCharacterStore();
   const [query, setQuery] = useState("");
@@ -38,7 +37,7 @@ export default function Choose({ handleAlignmentChange, alignment }) {
             className={`flex cursor-pointer col-span-4 md:col-span-4  relative  flex-col running-text-mono uppercase justify-start items-start gap-3  `}
           >
             <div className='relative w-full  '>
-              <Information
+              <Help
                 onClick={handleShowModal}
                 className={cn(
                   "h-6 w-6  left-2 bottom-2 md:hidden ease-animate absolute ",

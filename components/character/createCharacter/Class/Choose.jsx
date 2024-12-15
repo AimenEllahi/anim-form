@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { CLASSES } from "../constants";
-import useCharacterStore from "@/utils/characterStore"; // Import the store
-import Information from "@/components/ui/Icons/Information";
+import useCharacterStore from "@/utils/characterStore"; 
+import Help from "@/components/ui/Icons/Help";
 
 export default function Choose({ _class, handleSelectClass }) {
   const { setShowModal, setSelectedCharacteristic, setCharacterClass } = useCharacterStore(); // Add setCharacterClass
@@ -46,7 +46,7 @@ export default function Choose({ _class, handleSelectClass }) {
             }}
             className={`flex cursor-pointer col-span-4 md:col-span-4 relative xl:col-span-2 flex-col running-text-mono uppercase justify-start items-start gap-3`}>
             <div className='relative w-full'>
-              <Information
+              <Help
                 onClick={handleShowModal}
                 className={cn(
                   "h-6 w-6 left-2 bottom-2 md:hidden ease-animate absolute",

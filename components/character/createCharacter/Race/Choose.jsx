@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import SearchInput from "@/components/ui/search-input";
 import { cn } from "@/lib/utils";
 import { RACE } from "../constants";
-import useCharacterStore from "@/utils/characterStore"; // Import the store
-import Information from "@/components/ui/Icons/Information";
+import useCharacterStore from "@/utils/characterStore"; 
+import Help from "@/components/ui/Icons/Help";
 
 export default function Choose({ race, handleSelectRace }) {
   const {
@@ -86,7 +86,7 @@ export default function Choose({ race, handleSelectRace }) {
                   "border-2 border-irisPurpleLight shadow-custom-1"
                 }`}
               />
-              <Information
+              <Help
                 onClick={handleShowModal}
                 className={cn(
                   "h-6 w-6 left-2 bottom-2 md:hidden ease-animate absolute",

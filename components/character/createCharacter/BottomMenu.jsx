@@ -16,6 +16,8 @@ import { useRouter } from "next/navigation";
 import { INITIAL_CHARACTER } from "./constants";
 import useControlsStore from "@/utils/controlsStore";
 import Loader from "@/components/ui/Loader";
+import CustomRadioButton from "@/components/ui/custom-radio-button";
+import useStepperStore from "@/utils/characterStore";
 
 const BackButton = ({ activeStep, isChoosingRandom, handleBack }) => {
   return (
@@ -96,6 +98,7 @@ export default function BottomMenu({ character, setCharacter }) {
   const { isMobile } = useDeviceDetect();
   const { user, setBlueCredits, setYellowCredits } = useUserStore();
   const [isChoosingRandom, setIsChoosingRandom] = useState(false);
+  const { gender, setGender } = useStepperStore();
   const MAX_STEPS = isMobile ? 8 : 7;
   // console.log(character);
 
@@ -292,7 +295,15 @@ export default function BottomMenu({ character, setCharacter }) {
           activeStep >= 7 ? "!bg-transparent " : "bg-blur-bottom-menu"
         )}
       >
-        <div className=' flex items-center justify-between p-5  '>
+        {activeStep === 0 && (
+          <CustomRadioButton
+            options={["male", "female", "diverse"]}
+            selectedOption={gender}
+            className={"p-5 pb-0 flex flex-row flex-wrap  md:hidden"}
+            onChange={setGender}
+          />
+        )}
+        <div className=' flex items-center justify-between p-5 pt-6  '>
           {searchMode ? (
             <SearchInput
               autoFocus={true}

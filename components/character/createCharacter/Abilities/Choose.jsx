@@ -13,7 +13,7 @@ import useStepperStore from "@/utils/characterStore";
 import CustomDropdown from "@/components/ui/custom-dropdown";
 import RolledDice from "@/components/ui/Icons/RolledDice";
 import { cn } from "@/lib/utils";
-import Information from "@/components/ui/Icons/Information";
+import Help from "@/components/ui/Icons/Help";
 
 const _ABILITIES = [
   {
@@ -267,7 +267,7 @@ export default function Choose({ abilities, handleChangeAbilities }) {
         <Popover>
           <PopoverTrigger>
             <div className='flex items-center gap-2 running-text-mono uppercase'>
-              <Information className={cn("h-6 w-6   ease-animate   ")} />
+              <Help className={cn("h-6 w-6   ease-animate   ")} />
               help
             </div>
           </PopoverTrigger>

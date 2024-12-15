@@ -162,14 +162,6 @@ export default function index() {
             <span className='text-gray2'>Step {activeStep + 1}/9</span>
             <span className='text-white'> {STEP_NAMES[activeStep]}</span>
           </div>
-          {activeStep === 0 && (
-            <CustomRadioButton
-              options={["male", "female", "diverse"]}
-              selectedOption={gender}
-              className={"flex flex-row flex-wrap mt-2 md:hidden"}
-              onChange={setGender}
-            />
-          )}
         </div>
       );
     } else if (createCampaign) {

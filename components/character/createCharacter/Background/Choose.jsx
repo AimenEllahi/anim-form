@@ -3,8 +3,7 @@ import SearchInput from "@/components/ui/search-input";
 import { cn } from "@/lib/utils";
 import { BACKGROUND } from "../constants";
 import useCharacterStore from "@/utils/characterStore";
-
-import Information from "@/components/ui/Icons/Information";
+import Help from "@/components/ui/Icons/Help";
 
 export default function Choose({ background, handleSelectBackground }) {
   const {
@@ -57,7 +56,7 @@ export default function Choose({ background, handleSelectBackground }) {
             className={`flex cursor-pointer col-span-4 md:col-span-4  relative xl:col-span-2 flex-col running-text-mono uppercase justify-start items-start gap-3  `}
           >
             <div className='relative w-full  '>
-              <Information
+              <Help
                 onClick={handleShowModal}
                 className={cn(
                   "h-6 w-6 left-2 bottom-2 md:hidden ease-animate absolute ",
