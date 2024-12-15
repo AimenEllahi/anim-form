@@ -23,9 +23,9 @@ import Abilities from "./Abilities";
 import Inventory from "./Inventory";
 import Companions from "./Companions";
 import ShareDialogue from "./ShareDialogue";
-import Head from "next/head";
 
 export default function characterSheet({ character, setCharacter }) {
+
   const [isShareDialogOpen, setIsShareDialogOpen] = useState(false);
   const [selectedTab, setSelectedTab] = useState("appearance");
   const router = useRouter();
@@ -170,7 +170,11 @@ export default function characterSheet({ character, setCharacter }) {
           </DeleteCharacter>
         </div>
       </div>
-      <Switch selectedTab={selectedTab} setSelectedTab={setSelectedTab} />
+      <Switch
+        loadingAvatar={loadingAvatar}
+        selectedTab={selectedTab}
+        setSelectedTab={setSelectedTab}
+      />
 
       <div className='px-5 md:px-0'>
         {" "}
@@ -201,6 +205,7 @@ export default function characterSheet({ character, setCharacter }) {
             loadingAvatar={loadingAvatar}
             character={character}
             isCreator={isCreator}
+            setCharacter={setCharacter}
             selectedCompanion={selectedCompanion}
             setOpen={setOpen}
             setSelectedCompanion={setSelectedCompanion}

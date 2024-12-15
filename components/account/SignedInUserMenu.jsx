@@ -63,12 +63,10 @@ export default function SignedInUserMenu({ open }) {
       </div>
 
       <div className='w-full px-2 gap-2 flex flex-col '>
-        <DropdownMenuItem className=' flex !p-0 gap-2 w-full focus:bg-transparent focus:text-white  transition-all duration-300 ease-linear cursor-pointer'>
-          <CustomMenuItem onClick={() => handleRedirect("/emblems-titles")}>
-            <Emblem className='h-5 w-5 fill-white opacity-70' />
-            <span>Emblems & Titles</span>
-          </CustomMenuItem>
-        </DropdownMenuItem>
+        <CustomMenuItem onClick={() => handleRedirect("/emblems-titles")}>
+          <Emblem className='h-5 w-5 fill-white opacity-70' />
+          <span>Emblems & Titles</span>
+        </CustomMenuItem>
       </div>
 
       <hr className='w-full border-white/5 my-2' />

@@ -149,9 +149,15 @@ export default function Navbar({
 }) {
   const { isMobile, isTablet } = useDeviceDetect();
   const { invokeToast } = useCustomToast();
-  const { showMenu, setShowMenu, selectedCompletedGame, selectedGame } =
-    useControlsStore();
-  const { user } = useUserStore();
+  const {
+    showMenu,
+    setShowMenu,
+    selectedCompletedGame,
+    selectedGame,
+    updateTitle,
+    updateRank,
+  } = useControlsStore();
+  const { user, rank } = useUserStore();
   const {
     setCurrentCharacter,
     setCurrentCampaign,
@@ -250,6 +256,22 @@ export default function Navbar({
     }
   };
 
+  const handleGetUserAchievements = async () => {
+    try {
+      const userAchievements = await getUserAchievements(user.token);
+      updateTitle(userAchievements.title);
+      updateRank(userAchievements.rank);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
+  useEffect(() => {
+    if (user?.token) {
+      handleGetUserAchievements();
+    }
+  }, [showMenu]);
+
   return (
     <nav
       suppressHydrationWarning
@@ -332,11 +354,23 @@ export default function Navbar({
           </div>
           <div className='flex justify-center items-center gap-5'>
             {user?.token && <CreditsDisplay />}
-            {user?.token && <Notification />}
             {user?.token && <CreateMenu aria-label='Create Menu' />}
-            <AccountDropdown aria-label='Account Dropdown' />
-
             <SoundButton aria-label='Sound Button' />
+            {user?.token && <Notification />}
+            <AccountDropdown
+              trigger={
+                rank &&
+                !isGamePage &&
+                user?.token && (
+                  <img
+                    src={`https://dzjg7lvewk7ln.cloudfront.net/rank-images/${rank}.webp`}
+                    alt=''
+                    className='size-9 cursor-pointer rounded-full'
+                  />
+                )
+              }
+              aria-label='Account Dropdown'
+            />
 
             {characterSheet || isCampaignSubpage ? (
               <CustomButton

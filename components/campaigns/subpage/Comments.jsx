@@ -17,7 +17,6 @@ import useUserStore from "@/utils/userStore";
 import {
   commentOnCampaign,
   deleteComment,
-  getComments,
   likeComment,
 } from "@/actions/campaigns";
 import moment from "moment";
@@ -68,10 +67,18 @@ const Comment = ({ comment, handleUpdateComments, handleRemoveComment }) => {
   };
 
   return (
-    <div className="w-full flex flex-col gap-[16px] py-4 ">
-      <div className=" flex justify-between items-center">
-        <div className="flex  justify-center uppercase items-center !text-sm gap-2 font-roboto-mono">
-          <CustomIconbutton className="bg-white   font-roboto-mono hover:bg-white h-6 w-6"></CustomIconbutton>
+    <div className='w-full flex flex-col gap-[16px] py-4 '>
+      <div className=' flex justify-between items-center'>
+        <div className='flex  justify-center uppercase items-center !text-sm gap-2 font-roboto-mono'>
+          {comment?.rank ? (
+            <img
+              src={`https://dzjg7lvewk7ln.cloudfront.net/rank-images/${comment.rank}.webp`}
+              alt=''
+              className='size-6 object-cover rounded-full'
+            />
+          ) : (
+            <CustomIconbutton className='bg-white   font-roboto-mono hover:bg-white h-6 w-6'></CustomIconbutton>
+          )}
           {comment.playerName}
         </div>
         {comment.userId === user._id && (
@@ -88,13 +95,13 @@ const Comment = ({ comment, handleUpdateComments, handleRemoveComment }) => {
                   open && "border-white/40"
                 )}
               >
-                <img src="/Icons/Dots.png" title="three dots" alt="dots" />
+                <img src='/Icons/Dots.png' title='three dots' alt='dots' />
               </CustomIconbutton>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="bg-transparent uppercase flex flex-col mt-4 p-2 !px-[9px]  border border-white/10 z-[10] bg-blur menu-shadow text-white running-text-mono rounded-[16px] !gap-y-2">
-              <DropdownMenuItem className="flex !p-0  !my-0 w-full focus:bg-transparent focus:text-white  transition-all duration-300 ease-linear cursor-pointer">
+            <DropdownMenuContent className='bg-transparent uppercase flex flex-col mt-4 p-2 !px-[9px]  border border-white/10 z-[10] bg-blur menu-shadow text-white running-text-mono rounded-[16px] !gap-y-2'>
+              <DropdownMenuItem className='flex !p-0  !my-0 w-full focus:bg-transparent focus:text-white  transition-all duration-300 ease-linear cursor-pointer'>
                 <CustomMenuItem onClick={handleDeleteComment}>
-                  <Delete className="h-4 w-4 fill-errorRed" />
+                  <Delete className='h-4 w-4 fill-errorRed' />
                   <span>DELETE COMMENT</span>
                 </CustomMenuItem>
               </DropdownMenuItem>
@@ -102,15 +109,15 @@ const Comment = ({ comment, handleUpdateComments, handleRemoveComment }) => {
           </DropdownMenu>
         )}
       </div>
-      <div className=" flex flex-col gap-[16px]">
-        <span className="running-text text-white">{comment.comment}</span>
-        <span className="running-text-mono text-gray2">
+      <div className=' flex flex-col gap-[16px]'>
+        <span className='running-text text-white'>{comment.comment}</span>
+        <span className='running-text-mono text-gray2'>
           {moment(comment.createdAt).fromNow()}
         </span>
 
         <CustomIcontext onClick={handleLikeComment} disabled={isLoading}>
           <Like
-            className="h-5 w-5 fill-white opacity-70"
+            className='h-5 w-5 fill-white opacity-70'
             isfilled={
               comment.analytics.likes.includes(user?._id) ? "true" : null
             }
@@ -122,8 +129,7 @@ const Comment = ({ comment, handleUpdateComments, handleRemoveComment }) => {
   );
 };
 
-export default function Comments({ campaign }) {
-  const [comments, setComments] = useState([]);
+export default function Comments({ campaign, comments, setComments }) {
   const [comment, setComment] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const { user } = useUserStore();
@@ -140,17 +146,6 @@ export default function Comments({ campaign }) {
 
   const handleRemoveComment = (comment) => {
     setComments(comments.filter((c) => c._id !== comment._id));
-  };
-  const handleGetComments = async () => {
-    try {
-      const response = await getComments(campaign._id, user?.token);
-
-      setComments(response.comments);
-    } catch (error) {
-      invokeToast("Error getting comments", "error");
-      setComments([]);
-      console.error("Error:", error);
-    }
   };
 
   const addComment = async () => {
@@ -184,21 +179,17 @@ export default function Comments({ campaign }) {
     }
   };
 
-  useEffect(() => {
-    handleGetComments();
-  }, [campaign]);
-
   return (
-    <div className="flex flex-col gap-[20px] w-full  px-5 md:px-0 comment-section">
-      <div className="w-full">
+    <div className='flex flex-col gap-[20px] w-full  px-5 md:px-0 comment-section'>
+      <div className='w-full'>
         <CustomInputIcon
           value={comment}
           disabled={isLoading}
           onClick={addComment}
           onChange={(e) => setComment(e)}
           className={"w-full "}
-          placeholder="Write a comment...."
-          icon={<Send fill={"white"} className="h-4 w-4  opacity-70" />}
+          placeholder='Write a comment....'
+          icon={<Send fill={"white"} className='h-4 w-4  opacity-70' />}
           isComment={true}
           text={"Send"}
           isSubtle={true}

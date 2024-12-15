@@ -14,6 +14,7 @@ import Titles from "./Titles";
 import Achieve from "./Achieve";
 import { LEVELS } from "./Titles";
 import General from "../ui/Shared/TabBar/general";
+import AchievementV2 from "../ui/Icons/AchievementV2";
 
 export default function Index({ userAchievements, achievements }) {
   const [selectedTab, setSelectedTab] = useState("emblems");
@@ -66,13 +67,13 @@ export default function Index({ userAchievements, achievements }) {
           <div className='z-10 text-sandyOrange w-2/4 h-20  flex flex-col gap-5 justify-start items-start '>
             <div className='w-full flex  justify-between items-center'>
               <span className='text-[#FFB371] flex gap-2 uppercase running-text-mono'>
-                Total Pokals <img src='/achievements/icons/trophy.png' alt='' />{" "}
+                Total Pokals <AchievementV2 className='h-5 w-5 ' />{" "}
                 {userAchievements.pokal}
               </span>
               <span className='text-[#FFB371] flex gap-2 uppercase running-text-mono'>
                 {" "}
-                <img src='/achievements/icons/trophy.png' alt='' />{" "}
-                {userAchievements.pokal}/{nextLevelToAchieve.pokalsRequired}
+                <AchievementV2 className='h-5 w-5 ' /> {userAchievements.pokal}/
+                {nextLevelToAchieve.pokalsRequired}
               </span>
             </div>
             <div className='w-full bg-white/[15%] rounded-full h-2'>
@@ -98,13 +99,12 @@ export default function Index({ userAchievements, achievements }) {
           <div className='z-10 text-sandyOrange w-full h-12  flex flex-col gap-5 justify-start items-start '>
             <div className='w-full flex  justify-between items-center'>
               <span className='text-[#FFB371] flex gap-2 uppercase running-text-mono'>
-                Total Pokals <img src='/achievements/icons/trophy.png' alt='' />{" "}
-                {userAchievements.pokal}
+                Total Pokals <AchievementV2 /> {userAchievements.pokal}
               </span>
               <span className='text-[#FFB371] flex gap-2 uppercase running-text-mono'>
                 {" "}
-                <img src='/achievements/icons/trophy.png' alt='' />{" "}
-                {userAchievements.pokal}/{nextLevelToAchieve.pokalsRequired}
+                <AchievementV2 /> {userAchievements.pokal}/
+                {nextLevelToAchieve.pokalsRequired}
               </span>
             </div>
             <div className='w-full bg-white/[15%] rounded-full h-2'>

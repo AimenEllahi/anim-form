@@ -28,7 +28,7 @@ export default function Emblems({ userPokals }) {
   };
 
   return (
-    <div className='relative md:border md:border-white/10 md:bg-white/[8%] bg-transparent w-full rounded-[16px] md:p-5 p-0 grid sm:grid-cols-10 grid-cols-2 gap-4 md:gap-5'>
+    <div className='relative md:border md:border-white/10 md:bg-white/[8%] bg-transparent  w-full rounded-[16px] md:p-5 p-0 grid sm:grid-cols-9 md:grid-cols-8 grid-cols-2 xl:grid-cols-10  gap-4 md:gap-5'>
       {LEVELS.map((_, index) => (
         <div
           key={index}
@@ -36,7 +36,7 @@ export default function Emblems({ userPokals }) {
             if (isUnlocked(index)) handleEmblemUpdate(_.rank);
           }}
           className={cn(
-            `w-[168px] md:w-[122px] relative h-auto border border-transparent hover:border-irisPurpleLight bg-white/10 rounded-[10px] overflow-hidden flex items-center justify-center ease-animate sm:col-span-3 md:col-span-2 xl:col-span-1`,
+            `w-auto relative h-auto border border-transparent hover:border-irisPurpleLight bg-white/10 rounded-[10px] overflow-hidden flex items-center justify-center ease-animate col-span-1 sm:col-span-3 md:col-span-2 xl:col-span-1`,
 
             rank === _.rank &&
               "border !border-irisPurpleLight bg-irisPurpleLight/[16%] shadow-[0_0_40px_0_rgba(143,145,255,0.4)]",

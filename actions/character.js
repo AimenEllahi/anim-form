@@ -100,3 +100,21 @@ export const deleteCharacter = async (id, token) => {
     throw error;
   }
 };
+
+export const deleteCharacterCompanion = async (id, companionId, token) => {
+  try {
+    const response = await api.delete(
+      `/user/character/${id}/companion/${companionId}`,
+      {
+        headers: {
+          Authorization: token,
+        },
+      }
+    );
+
+    return response.data;
+  } catch (error) {
+    console.error("Error:", error);
+    throw error;
+  }
+};

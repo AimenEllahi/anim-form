@@ -6,8 +6,10 @@ import Comments from "./Comments";
 import Details from "./Details";
 import TopButtons from "./TopButtons";
 import CampaignTabBar from "@/components/ui/Shared/TabBar/campaign";
-
-const TabButtons = ({ activeTab, onClick, icon, text }) => {
+import { getComments } from "@/actions/campaigns";
+import useCustomToast from "@/hooks/useCustomToast";
+import useUserStore from "@/utils/userStore";
+const TabButtons = ({ activeTab, onClick, icon, text, count }) => {
   return (
     <Button
       onClick={onClick}
@@ -16,13 +18,37 @@ const TabButtons = ({ activeTab, onClick, icon, text }) => {
       active={activeTab === text.toLowerCase()}
     >
       <img src={icon} className='h-5 w-5 opacity-75 invert' alt='Button ' />{" "}
-      <span>{text}</span>
+      <span className='relative flex gap-1 '>
+        {text}
+        {count && (
+          <span className='text-[9px] self-start -mt-1  '>({count})</span>
+        )}
+      </span>
     </Button>
   );
 };
 
 export default function Index({ campaign, setCampaign }) {
   const [activeTab, setActiveTab] = useState("details");
+  const [comments, setComments] = useState([]);
+  const { user } = useUserStore();
+  const { invokeToast } = useCustomToast();
+
+  const handleGetComments = async () => {
+    try {
+      const response = await getComments(campaign._id, user?.token);
+
+      setComments(response.comments);
+    } catch (error) {
+      invokeToast("Error getting comments", "error");
+      setComments([]);
+      console.error("Error:", error);
+    }
+  };
+
+  useEffect(() => {
+    handleGetComments();
+  }, [campaign]);
 
   return (
     <>
@@ -68,6 +94,7 @@ export default function Index({ campaign, setCampaign }) {
                     activeTab={activeTab}
                     icon={"/Icons/Comment.svg"}
                     text={"Comments"}
+                    count={comments.length}
                   />
                   {/** <TabButtons icon={"/Icons/Adventure.svg"} text={"Adventures"} />*/}
                 </div>
@@ -83,7 +110,13 @@ export default function Index({ campaign, setCampaign }) {
                     setting={campaign?.setting}
                   />
                 )}
-                {activeTab === "comments" && <Comments campaign={campaign} />}
+                {activeTab === "comments" && (
+                  <Comments
+                    comments={comments}
+                    setComments={setComments}
+                    campaign={campaign}
+                  />
+                )}
 
                 {/**Comment section */}
               </div>

@@ -10,14 +10,15 @@ export default function CustomButton({
   disabled,
   onClick,
   active,
+  isTab,
 }) {
   return (
     <Button
       onClick={onClick}
       disabled={disabled}
       className={cn(
-        "running-text-mono gap-2 !h-[48px] px-6 bg-white/10 hover:bg-white/10 active:bg-white/10 md:hover:bg-white/10 uppercase border border-white/10 md:hover:border-white/20 md:active:bg-white/20 md:active:border-white/40 disabled:opacity-70 rounded-[10px] cursor-pointer z-[10] ease-animate hover:!duration-200 active:!duration-100",
-        withIcon && "flex items-center pe-5 ps-[20px]",
+        "running-text-mono gap-2 !h-[48px] px-6  bg-white/10 hover:bg-white/10 active:bg-white/10 md:hover:bg-white/10 uppercase border border-white/10 md:hover:border-white/20 md:active:bg-white/20 md:active:border-white/40 disabled:opacity-70 rounded-[10px] cursor-pointer z-[10] ease-animate hover:!duration-200 active:!duration-100",
+        withIcon && "flex items-center pe-5 !ps-[20px]",
         variant === "subtle" &&
           "!border-none bg-transparent md:hover:bg-transparent md:active:bg-transparent md:hover:text-gray1 md:active:text-gray2 !px-0",
         variant === "primary" &&
@@ -32,6 +33,7 @@ export default function CustomButton({
         active && "!bg-white/20 !border-white/40",
         variant === "upgrade" &&
           "bg-irisPurple hover:bg-irisPurple active:bg-irisPurple  md:hover:bg-[#5E60F4] md:active:bg-[#6C6EFD]",
+        isTab && "!py-3 !ps-3 !pe-4",
         className
       )}
     >
