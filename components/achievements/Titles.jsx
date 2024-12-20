@@ -33,10 +33,12 @@ export default function Titles({ userPokals }) {
   const { invokeToast } = useCustomToast();
   const { user, updateTitle: updateTitleInStore, title } = useUserStore();
   const [isLoading, setIsLoading] = useState(false);
+  console.log(title);
   const handleTitleUpdate = async (_title) => {
     try {
       setIsLoading(true);
       const { title } = await updateTitle(user.token, _title);
+
       updateTitleInStore(title);
       invokeToast("title updated successfully", "success");
     } catch (error) {

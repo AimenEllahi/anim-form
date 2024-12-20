@@ -75,7 +75,7 @@ const Card = ({
         </div>
       </div>
       {isCreator && (
-        <div className='flex flex-col md:flex-row items-center  justify-center gap-4 p-6 w-full'>
+        <div className='flex flex-col lg:flex-row items-center  justify-center gap-4 p-6 w-full'>
           <CustomButton
             onClick={() => {
               setOpen(true);
@@ -94,14 +94,14 @@ const Card = ({
             }}
             disabled={loadingAvatar}
             withIcon={true}
-            className={"w-full md:w-fit"}
+            className={"w-full lg:w-fit"}
           >
             <Edit className={"h-5 w-5 fill-white opacity-70  "} />
             Change Image
           </CustomButton>
           <CustomButton
             onClick={handleDeleteCharacter}
-            className={"w-full md:w-fit"}
+            className={"w-full lg:w-fit"}
           >
             <Delete className={"h-5 w-5 fill-errorRed  "} />
             Delete Character

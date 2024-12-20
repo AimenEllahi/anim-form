@@ -17,6 +17,7 @@ export default function Emblems({ userPokals }) {
     try {
       setIsLoading(true);
       const { rank } = await updateRank(user.token, _rank);
+    
       updateRankInStore(rank);
       invokeToast("Emblem updated successfully", "success");
     } catch (error) {

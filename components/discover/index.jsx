@@ -14,6 +14,7 @@ export default function index({
   loadingCampaigns,
   setLimit,
   setQuery,
+  sort,
 }) {
   const handleUpdateMostLikedCampaigns = (campaign) => {
     let _campaigns = mostLiked.filter((c) => c._id !== campaign._id);
@@ -22,10 +23,38 @@ export default function index({
     setCampaigns(_campaigns);
   };
 
+  console.log(popular);
+
   const handleUpdatePublicCampaigns = (campaign) => {
+    // Filter out the campaign to be updated and add the new/updated campaign
     let _campaigns = popular.filter((c) => c._id !== campaign._id);
     _campaigns.push(campaign);
-    _campaigns = _.sortBy(_campaigns, ["createdAt"]);
+    console.log(campaign);
+
+    // Handle sorting based on the selected criteria
+    if (sort === "newest-to-oldest") {
+      _campaigns = _campaigns.sort(
+        (a, b) => new Date(b.createdAt) - new Date(a.createdAt) // Sort by newest first
+      );
+    } else if (sort === "oldest-to-newest") {
+      _campaigns = _campaigns.sort(
+        (a, b) => new Date(a.createdAt) - new Date(b.createdAt) // Sort by oldest first
+      );
+    } else if (sort === "most-liked") {
+      _campaigns = _campaigns.sort(
+        (a, b) => b.analytics.likes.length - a.analytics.likes.length // Sort by most likes
+      );
+    } else if (sort === "most-played") {
+      _campaigns = _campaigns.sort(
+        (a, b) => b.analytics.plays.length - a.analytics.plays.length // Sort by most plays
+      );
+    } else if (sort === "most-starred") {
+      _campaigns = _campaigns.sort(
+        (a, b) => b.analytics.stars.length - a.analytics.stars.length // Sort by most stars
+      );
+    }
+
+    // Update the popular campaigns with the newly sorted array
     setPopularCampaigns(_campaigns);
   };
 

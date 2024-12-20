@@ -32,6 +32,7 @@ export default function SignedInUserMenu({ open }) {
   const handleGetUserAchievements = async () => {
     try {
       const userAchievements = await getUserAchievements(user.token);
+
       updateTitle(userAchievements.title);
       updateRank(userAchievements.rank);
     } catch (error) {

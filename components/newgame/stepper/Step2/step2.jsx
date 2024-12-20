@@ -13,6 +13,8 @@ export default function Step2({ characters, premadeCharacters }) {
     useGameStore();
   const router = useRouter();
 
+  console.log(premadeCharacters);
+
   useEffect(() => {
     if (!currentCharacter && characters.length > 0) {
       setCurrentCharacter(characters[0]);

@@ -25,7 +25,7 @@ import Companions from "./Companions";
 import ShareDialogue from "./ShareDialogue";
 
 export default function characterSheet({ character, setCharacter }) {
-
+  console.log(character);
   const [isShareDialogOpen, setIsShareDialogOpen] = useState(false);
   const [selectedTab, setSelectedTab] = useState("appearance");
   const router = useRouter();
@@ -46,6 +46,7 @@ export default function characterSheet({ character, setCharacter }) {
     character.personal.portraitUrl
   );
   const isCreator = user?._id === character?.userId;
+  const isPremade = character?.isPremade || character.premade;
 
   useEffect(() => {
     const container = containerRef.current;
@@ -144,7 +145,7 @@ export default function characterSheet({ character, setCharacter }) {
           </div>
         </div>
 
-        <div className='flex gap-4'>
+        <div className='hidden lg:flex gap-4'>
           <CustomButton
             withIcon={true}
             variant='secondary'
@@ -162,7 +163,10 @@ export default function characterSheet({ character, setCharacter }) {
             <CustomButton
               withIcon={true}
               variant='secondary'
-              className={cn("hidden md:flex", !isCreator && "hidden md:hidden")}
+              className={cn(
+                "hidden md:flex",
+                (!isCreator || isPremade) && "hidden md:hidden"
+              )}
             >
               <Delete className='h-5 w-5 opacity-70 fill-errorRed' />
               Delete character
@@ -212,12 +216,12 @@ export default function characterSheet({ character, setCharacter }) {
           />
         )}
         {selectedTab === "appearance" && (
-          <div className='flex items-center gap-5'>
+          <div className='flex items-center gap-5 lg:hidden mt-5'>
             <CustomButton
               withIcon={true}
               variant='secondary'
               onClick={handleShareClick}
-              className={cn("md:hidden", !isCreator && "hidden")}
+              className={cn("", !isCreator && "hidden")}
             >
               <img
                 src='/Icons/Share.svg'
@@ -230,7 +234,7 @@ export default function characterSheet({ character, setCharacter }) {
               <CustomButton
                 withIcon={true}
                 variant='secondary'
-                className={cn(" md:hidden", !isCreator && "hidden")}
+                className={cn(" ", !isCreator && "hidden")}
               >
                 <Delete className='h-5 w-5 opacity-70 fill-errorRed' />
                 Delete character

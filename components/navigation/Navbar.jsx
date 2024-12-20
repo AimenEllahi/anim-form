@@ -236,7 +236,7 @@ export default function Navbar({
       setIsLoading(true);
       const { characters } = await getCharacters(user?.token);
       if (characters.length === 0) {
-        router.push("/character/create");
+        setStartNewGame(true);
         return;
       } else if (characters.length === 1) {
         setCurrentCharacter(characters[0]);

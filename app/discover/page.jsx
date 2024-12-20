@@ -76,6 +76,7 @@ const DiscoverContainer = () => {
       setLimit={setLimit}
       loadingCampaigns={loadingCampaigns}
       setQuery={setQuery}
+      sort={sort}
     />
   );
 };
