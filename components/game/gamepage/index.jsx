@@ -226,7 +226,7 @@ export default function Index({
       {saveCharacterLoading && (
         <Loader
           text={"Saving Character..."}
-          className='absolute top-0 z-[40] left-0 max-h-screen h-screen w-screen bg-blur-bottom-menu flex items-center justify-center'
+          className="absolute top-0 z-[40] left-0 max-h-screen h-screen w-screen bg-blur-bottom-menu flex items-center justify-center"
         />
       )}
       {/* Show Game Completion Popup */}
@@ -236,31 +236,31 @@ export default function Index({
           onClose={() => setIsGameCompleted(false)}
         />
       )}
-      <div className='fixed pointer-events-none top-0 left-0 ease-animate z-[9] flex items-center justify-start w-screen'>
+      <div className="fixed pointer-events-none top-0 left-0 ease-animate z-[9] flex items-center justify-start w-screen">
         <img
-          src='/images/Game/gradient.png'
-          alt='gradient'
-          className='hidden lg:block w-full lg:h-full lg:object-contain'
+          src="/images/Game/gradient.png"
+          alt="gradient"
+          className="hidden lg:block w-full lg:h-full lg:object-contain"
         />
         <img
-          src='/images/Gradient-Mobile.png'
-          alt='gradient'
-          className='block lg:hidden w-full'
+          src="/images/Gradient-Mobile.png"
+          alt="gradient"
+          className="block lg:hidden w-full"
         />
       </div>
       <div
         suppressHydrationWarning
-        className='w-full flex gap-10 px-5 lg:px-12 pb-32 lg:pb-12 h-screen fixed z-[8] overflow-y-scroll hide-scrollbar text-white'
+        className="w-full flex gap-10 px-5 lg:px-12 pb-32 lg:pb-12 h-screen fixed z-[8] overflow-y-scroll hide-scrollbar text-white"
       >
-        <div className='w-1/4 b h-full hidden lg:flex flex-col gap-3 z-30 pt-[40px] lg:pt-[128px]'>
-          <span className='running-text-mono text-gray2'>CAMPAIGN</span>
-          <span className='headline-4 mb-3'>{gameCampaign?.title}</span>
+        <div className="w-1/4 b h-full hidden lg:flex flex-col gap-3 z-30 pt-[40px] lg:pt-[128px]">
+          <span className="running-text-mono text-gray2">CAMPAIGN</span>
+          <span className="headline-4 mb-3">{gameCampaign?.title}</span>
           <Card hideMenu={true} isGamePage={true} character={gameCharacter} />
         </div>
-        <div className='w-full lg:w-3/4 z-10 h-full'>
-          <div className='flex relative flex-col h-full gap-3 w-full '>
+        <div className="w-full lg:w-3/4 z-10 h-full">
+          <div className="flex relative flex-col h-full gap-3 w-full ">
             {showMobileMenu && (
-              <div className='fixed z-[10] top-0 left-0 w-screen h-screen bg-russianViolet/20'></div>
+              <div className="fixed z-[10] top-0 left-0 w-screen h-screen bg-russianViolet/20"></div>
             )}
             <Chatbox
               isImageLoading={isImageLoading}
@@ -273,7 +273,7 @@ export default function Index({
               narrate={narrate}
               setFocusTrigger={setFocusTrigger}
             />
-            <div className='z-[20] flex flex-col-reverse lg:flex-col gap-4 lg:gap-5 fixed bottom-0 left-0 w-screen bg-blur-bottom-menu lg:bg-transparent lg:backdrop-filter-none px-5 lg:p-0 lg:pt-2 pb-5 pt-4 lg:relative lg:w-full'>
+            <div className="z-[20] flex flex-col-reverse lg:flex-col gap-4 lg:gap-5 fixed bottom-0 left-0 w-screen bg-blur-bottom-menu lg:bg-transparent lg:backdrop-filter-none px-5 lg:p-0 lg:pt-2 pb-5 pt-4 lg:relative lg:w-full">
               <CustomInputIcon
                 focusTrigger={focusTrigger}
                 blurOnOutsideClick={true}
@@ -309,12 +309,12 @@ export default function Index({
                 textAreaClassName={
                   "h-[64px] lg:h-[80px] pt-[22px] lg:py-[28px]"
                 }
-                placeholder='What will you do?'
+                placeholder="What will you do?"
                 icon={
                   <img
-                    src='/Icons/ArrowUp.svg'
-                    alt='chat'
-                    className='h-5 w-5'
+                    src="/Icons/ArrowUp.svg"
+                    alt="chat"
+                    className="h-5 w-5"
                   />
                 }
               />
