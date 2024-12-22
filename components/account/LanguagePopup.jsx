@@ -3,6 +3,7 @@ import { Dialog, DialogContent, DialogFooter } from "@/components/ui/dialog";
 import Button from "@/components/ui/custom-button";
 import Cancel from "../ui/Icons/Cancel";
 
+//component
 export default function LanguagePopup({ open, onClose }) {
   return (
     <Dialog open={open} onOpenChange={(isOpen) => !isOpen && onClose()}>
