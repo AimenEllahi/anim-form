@@ -216,7 +216,7 @@ export default function characterSheet({ character, setCharacter }) {
           />
         )}
         {selectedTab === "appearance" && (
-          <div className='flex items-center gap-5 lg:hidden mt-5'>
+          <div className='flex items-center gap-5 lg:hidden mt-5  '>
             <CustomButton
               withIcon={true}
               variant='secondary'

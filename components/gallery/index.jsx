@@ -20,9 +20,19 @@ import ArrowLeft from "../ui/Icons/ArrowLeft";
 import { usePathname } from "next/navigation";
 import { useSearchParams } from "next/navigation";
 import Image from "./image";
+import useUserStore from "@/utils/userStore";
+import useCustomToast from "@/hooks/useCustomToast";
+import { invoke } from "lodash";
+import { likeImage, unlikeImage } from "@/actions/user";
 
-const GalleryImage = ({ src, className }) => {
+const GalleryImage = ({ img, className }) => {
   const [open, setOpen] = useState(false);
+  const [likedBy, setLikedBy] = useState(img.likedBy);
+  const [loading, setLoading] = useState(false);
+
+  let src = img.url;
+  const { user } = useUserStore();
+
   const downloadImage = () => {
     // download image
     const a = document.createElement("a");
@@ -33,49 +43,77 @@ const GalleryImage = ({ src, className }) => {
     a.click();
   };
 
-  const likeImage = () => {
-    console.log("hello liked image");
+  const handleLikeImage = async () => {
+    try {
+      console.log(user);
+      if (!user?.token) return;
+      setLoading(true);
+
+      const updatedImage = await likeImage(user._id, img._id);
+
+      setLikedBy(updatedImage.likedBy);
+    } catch (error) {
+      console.error("Error:", error);
+    } finally {
+      setLoading(false);
+    }
   };
 
+  console.log(likedBy.includes(user?._id), likedBy, user?._id);
+
   return (
-    <Dialog open={open} onOpenChange={(isOpen) => setOpen(isOpen)}>
-      <DialogTrigger asChild>
-        <div className={cn("relative  group", className)}>
+    <Dialog
+      open={open}
+      onOpenChange={(isOpen, e) => {
+        if (!isOpen) {
+          setOpen(isOpen);
+        }
+      }}
+    >
+      <div className={cn("relative  group", className)}>
+        <CustomIconbutton
+          disabled={loading}
+          onClick={downloadImage}
+          className={
+            "absolute top-4 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto right-4  bg-blur"
+          }
+        >
+          <Download className='h-5 w-5 fill-white' />
+        </CustomIconbutton>
+        {user?.token && (
           <CustomIconbutton
-            onClick={downloadImage}
-            className={
-              "absolute top-4 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto right-4  bg-blur"
-            }
-          >
-            <Download className="h-5 w-5 fill-white" />
-          </CustomIconbutton>
-          <CustomIconbutton
-            onClick={likeImage}
+            disabled={loading || likedBy.includes(user._id)}
+            onClick={handleLikeImage}
             className={
               "absolute top-4 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto right-16  bg-blur"
             }
           >
-            <Like className="h-5 w-5 fill-white" />
+            <Like
+              isfilled={likedBy.includes(user._id)}
+              className='h-5 w-5 fill-white'
+            />
           </CustomIconbutton>
-          <div
-            className={
-              "absolute flex justify-center items-center gap-2 bottom-4 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto right-[43%]"
-            }
-          >
-            <Like isfilled={"true"} className="h-5 w-5 fill-white" />
-            <span className="running-text-mono">1.7k</span>
-          </div>
-          <img
-            src={src}
-            alt="arrow down icon, to download"
-            title="Arrow icon"
-            className={cn(
-              "rounded-[16px] border h-full w-full border-transparent   hover:border-white/10 hover:shadow-custom-2 ease-animate cursor-pointer"
-            )}
-          />
+        )}
+        <div
+          className={
+            "absolute flex justify-center items-center gap-2 bottom-4 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto right-[43%]"
+          }
+        >
+          <Like isfilled={"true"} className='h-5 w-5 fill-white' />
+          <span className='running-text-mono'>{likedBy?.length || 0}</span>
         </div>
-      </DialogTrigger>
-      <Image setOpen={setOpen} image={src} />
+        <img
+          onClick={() => setOpen(true)}
+          src={src}
+          alt='arrow down icon, to download'
+          title='Arrow icon'
+          className={cn(
+            "rounded-[16px] border h-full w-full border-transparent   hover:border-white/10 hover:shadow-custom-2 ease-animate cursor-pointer"
+          )}
+        />
+      </div>
+
+      <Image setOpen={setOpen} image={src} likes={likedBy?.length || 0} />
     </Dialog>
   );
 };
@@ -104,15 +142,16 @@ export default function Gallery({
         const rowImages = images.slice(index, index + 4);
         rows.push(
           <div
-            className="grid grid-cols-4 md:grid-cols-8 gap-4"
+            className='grid grid-cols-4 md:grid-cols-8 gap-4'
             key={index + Math.random()}
           >
             {rowImages.map((src, i) => (
               <GalleryImage
-                src={src}
-                alt="user generated image from the story"
-                className="col-span-2 row-span-2"
-                key={src}
+                img={src}
+                likes={src.likedBy}
+                alt='user generated image from the story'
+                className='col-span-2 row-span-2'
+                key={src.url}
               />
             ))}
           </div>
@@ -124,15 +163,16 @@ export default function Gallery({
         const rowImages = images.slice(index, index + 2);
         rows.push(
           <div
-            className="grid grid-cols-4 md:grid-cols-8 gap-4"
+            className='grid grid-cols-4 md:grid-cols-8 gap-4'
             key={index + Math.random()}
           >
             {rowImages.map((src, i) => (
               <GalleryImage
-                src={src}
-                alt="user generated image from the story"
-                className="col-span-4 row-span-4"
-                key={src}
+                img={src}
+                likes={src.likedB}
+                alt='user generated image from the story'
+                className='col-span-4 row-span-4'
+                key={src.url}
               />
             ))}
           </div>
@@ -144,15 +184,16 @@ export default function Gallery({
         const rowImages = images.slice(index, index + 4);
         rows.push(
           <div
-            className="grid grid-cols-4 md:grid-cols-8 gap-4"
+            className='grid grid-cols-4 md:grid-cols-8 gap-4'
             key={index + Math.random()}
           >
             {rowImages.map((src, i) => (
               <GalleryImage
-                src={src}
-                alt="user generated image from the story"
-                className="col-span-2 row-span-2"
-                key={src}
+                img={src}
+                likes={src.likedB}
+                alt='user generated image from the story'
+                className='col-span-2 row-span-2'
+                key={src.url}
               />
             ))}
           </div>
@@ -165,21 +206,23 @@ export default function Gallery({
         const nextFourImages = images.slice(index + 1, index + 5);
         rows.push(
           <div
-            className="grid grid-cols-4 md:grid-cols-8 gap-4"
+            className='grid grid-cols-4 md:grid-cols-8 gap-4'
             key={index + Math.random()}
           >
             <GalleryImage
-              src={firstImage}
-              alt="user generated image from the story"
-              className="col-span-4 row-span-4"
-              key={firstImage}
+              img={firstImage}
+              likes={firstImage.likedB}
+              alt='user generated image from the story'
+              className='col-span-4 row-span-4'
+              key={firstImage.url}
             />
             {nextFourImages.map((src, i) => (
               <GalleryImage
-                src={src}
-                alt="user generated image from the story"
-                className="col-span-2 row-span-2"
-                key={src}
+                img={src}
+                likes={src.likedB}
+                alt='user generated image from the story'
+                className='col-span-2 row-span-2'
+                key={src.url}
               />
             ))}
           </div>
@@ -191,15 +234,16 @@ export default function Gallery({
         const rowImages = images.slice(index, index + 4);
         rows.push(
           <div
-            className="grid grid-cols-4 md:grid-cols-8 gap-4"
+            className='grid grid-cols-4 md:grid-cols-8 gap-4'
             key={index + Math.random()}
           >
             {rowImages.map((src, i) => (
               <GalleryImage
-                src={src}
-                alt="user generated image from the story"
-                className="col-span-2 row-span-2"
-                key={src}
+                img={src}
+                likes={src.likedB}
+                alt='user generated image from the story'
+                className='col-span-2 row-span-2'
+                key={src.url}
               />
             ))}
           </div>
@@ -222,14 +266,14 @@ export default function Gallery({
   };
 
   return (
-    <div className="h-full  text-white w-full flex flex-col pt-[154px] md:pt-[9rem] px-5 lg:px-12 pb-32 ">
-      <div className="flex flex-col w-full gap-2.5">
-        <div className=" flex justify-between text-white  z-[10]  w-full md:w-auto">
+    <div className='h-full  text-white w-full flex flex-col pt-[154px] md:pt-[9rem] px-5 lg:px-12 pb-32 '>
+      <div className='flex flex-col w-full gap-2.5'>
+        <div className=' flex justify-between text-white  z-[10]  w-full md:w-auto'>
           {/* desktop */}
-          <span className="headline-3 z-[10] hidden md:block ">
+          <span className='headline-3 z-[10] hidden md:block '>
             {isGallery ? "Gallery" : " My Images"}
 
-            <span className="text-gray2 ms-3 md:ms-4 font-roboto-mono transform translate-up text-[17px] md:text-[24px] translate-y-[-15px] md:translate-y-[-20px]">
+            <span className='text-gray2 ms-3 md:ms-4 font-roboto-mono transform translate-up text-[17px] md:text-[24px] translate-y-[-15px] md:translate-y-[-20px]'>
               ({totalRecords})
             </span>
           </span>
@@ -243,32 +287,32 @@ export default function Gallery({
           />
         </div>
 
-        <div className="w-full my-4 z-[9] ">
-          <div className="image-grid space-y-4">{renderImages()}</div>
+        <div className='w-full my-4 z-[9] '>
+          <div className='image-grid space-y-4'>{renderImages()}</div>
         </div>
         {totalPages > 1 && (
-          <div className="flex justify-center relative  items-center  flex-col md:flex-row gap-6 z-10">
-            <span className="text-gray2 left md:absolute left-0 running-text-mono uppercase">
+          <div className='flex justify-center relative  items-center  flex-col md:flex-row gap-6 z-10'>
+            <span className='text-gray2 left md:absolute left-0 running-text-mono uppercase'>
               Page {page} of {totalPages}{" "}
             </span>
-            <div className="flex items-center gap-6">
+            <div className='flex items-center gap-6'>
               <CustomButton
                 onClick={prevPage}
                 disabled={page === 1}
                 variant={"subtle"}
                 withIcon={true}
               >
-                <ArrowLeft className="h-5 w-5 fill-white opacity-70" />
+                <ArrowLeft className='h-5 w-5 fill-white opacity-70' />
                 Back
               </CustomButton>
               <CustomButton
                 onClick={nextPage}
                 disabled={page === totalPages}
                 withIcon={true}
-                variant="primary"
+                variant='primary'
               >
                 Next Page
-                <ArrowRight className="h-5 w-5 fill-russianViolet" />
+                <ArrowRight className='h-5 w-5 fill-russianViolet' />
               </CustomButton>
             </div>
           </div>

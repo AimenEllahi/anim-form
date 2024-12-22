@@ -68,3 +68,36 @@ export const trackShares = async (payload) => {
     throw error;
   }
 };
+
+export const likeImage = async (userId, imageId) => {
+  try {
+    const response = await api.post(`/user/likeImage`, {
+      userId,
+      imageId,
+    });
+
+    return response.data;
+  } catch (error) {
+    console.error("Error:", error);
+    throw error;
+  }
+};
+
+export const unlikeImage = async (token, imageId) => {
+  try {
+    const response = await api.post(
+      `/user/unlikeImage/` + imageId,
+      { imageId },
+      {
+        headers: {
+          Authorization: token,
+        },
+      }
+    );
+
+    return response.data;
+  } catch (error) {
+    console.error("Error:", error);
+    throw error;
+  }
+};
