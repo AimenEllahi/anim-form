@@ -10,13 +10,14 @@ import Script from "next/script";
 import "./globals.css";
 import CreditsDialogue from "@/components/ui/Shared/Dialogue/GetCredits";
 import useStepperStore from "@/utils/characterStore";
-
 import useUserStore from "@/utils/userStore";
 import Cookie from "universal-cookie";
 import { getMetaTags } from "@/utils/metaTags";
 import { cn } from "@/lib/utils";
 import NewGameModal from "@/components/newgame/index";
 import { getCredits } from "@/actions/character";
+import axios from "axios";
+
 const inter = Inter({ subsets: ["latin"] });
 
 const MemoizedNavbar = memo(Navbar);
@@ -78,14 +79,13 @@ export default function RootLayout({ children }) {
       handleRouteChange(pathname);
     }
   }, [pathname, title]);
+
   useEffect(() => {
-    //  get token
     const token = cookies.get("token");
     if (!token && user?.token) {
       cookies.set("token", user.token, {
         path: "/",
         secure: true,
-
         sameSite: "Strict",
       });
     }
@@ -101,87 +101,129 @@ export default function RootLayout({ children }) {
     }
   };
 
+  const setLanguageCookie = async () => {
+    const languageCookie = cookies.get("SelectedLanguage");
+    console.log(languageCookie);
+    if (!languageCookie) {
+      try {
+        const response = await axios.get("https://ipapi.co/json/");
+        const regionCode = response.data.country_code.toLowerCase();
+        const defaultLanguage =
+          {
+            us: "en",
+            de: "de",
+            es: "es",
+            fr: "fr",
+            it: "it",
+            pt: "pt",
+            ru: "ru",
+            ko: "ko",
+            cn: "zh",
+          }[regionCode] || "en"; // Default to English if region is not matched
+
+        cookies.set("SelectedLanguage", defaultLanguage, {
+          path: "/",
+          secure: true,
+          sameSite: "Strict",
+        });
+      } catch (error) {
+        console.error("Failed to fetch user region:", error);
+      }
+    }
+  };
+
   useEffect(() => {
     if (user?.token) {
       handleGetCredits();
     }
+    setLanguageCookie();
   }, [pathname]);
+
   return (
-    <html lang='en' suppressHydrationWarning className={inter.className}>
-      <GoogleOAuthProvider clientId='1036030324483-ltg0nqpg0ectr5q3n7cfa66l7eq1ban8.apps.googleusercontent.com'>
+    <html lang="en" suppressHydrationWarning className={inter.className}>
+      <GoogleOAuthProvider clientId="1036030324483-ltg0nqpg0ectr5q3n7cfa66l7eq1ban8.apps.googleusercontent.com">
         <head>
           <meta
-            name='viewport'
-            content='width=device-width, viewport-fit=cover'
+            name="viewport"
+            content="width=device-width, viewport-fit=cover"
           />
-          <meta charSet='UTF-8' />
+          <meta charSet="UTF-8" />
           <title>{ogTitle}</title>
-          <meta name='author' content='dndai.app' />
-          <meta name='robots' content='index, follow' />
-          <meta name='language' content='English' />
-          <meta name='revisit-after' content='daily' />
-          <meta name='theme-color' content='#0A0A21' />
+          <meta name="author" content="dndai.app" />
+          <meta name="robots" content="index, follow" />
+          <meta name="language" content="English" />
+          <meta name="revisit-after" content="daily" />
+          <meta name="theme-color" content="#0A0A21" />
 
-          <meta property='og:title' content={ogTitle} />
-          <meta property='og:description' content={ogDescription} />
-          <meta property='og:url' content={ogUrl} />
-          <meta property='og:image' content={ogImage} />
-          <meta property='og:video' content={ogVideo} />
-          <meta property='og:type' content={ogWebsite} />
-          <meta property='og:site_name' content='DND AI' />
-          <meta property='og:locale' content='en_US' />
-          <meta property='og:image:width' content='1200' />
-          <meta property='og:image:height' content='630' />
+          <meta property="og:title" content={ogTitle} />
+          <meta property="og:description" content={ogDescription} />
+          <meta property="og:url" content={ogUrl} />
+          <meta property="og:image" content={ogImage} />
+          <meta property="og:video" content={ogVideo} />
+          <meta property="og:type" content={ogWebsite} />
+          <meta property="og:site_name" content="DND AI" />
+          <meta property="og:locale" content="en_US" />
+          <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="630" />
 
-          <meta name='twitter:card' content='summary_large_image' />
-          <meta name='twitter:title' content={ogTitle} />
-          <meta name='twitter:description' content={ogDescription} />
-          <meta name='twitter:image' content={ogImage} />
-          <meta name='twitter:site' content='@dndai_app' />
-          <meta name='twitter:creator' content='@dndai_app' />
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:title" content={ogTitle} />
+          <meta name="twitter:description" content={ogDescription} />
+          <meta name="twitter:image" content={ogImage} />
+          <meta name="twitter:site" content="@dndai_app" />
+          <meta name="twitter:creator" content="@dndai_app" />
 
-          <meta name='description' content={description} />
-          <meta name='keywords' content={keywords} />
+          <meta name="description" content={description} />
+          <meta name="keywords" content={keywords} />
 
-          <meta name='mobile-web-app-capable' content='yes' />
+          <meta name="mobile-web-app-capable" content="yes" />
           <meta
-            name='apple-mobile-web-app-status-bar-style'
-            content='black-translucent'
+            name="apple-mobile-web-app-status-bar-style"
+            content="black-translucent"
           />
-          <meta name='apple-mobile-web-app-title' content='DND AI' />
-          <meta name='application-name' content='DND AI' />
-          <meta name='msapplication-TileColor' content='#0A0A21' />
-          <meta name='msapplication-TileImage' content={ogImage} />
+          <meta name="apple-mobile-web-app-title" content="DND AI" />
+          <meta name="application-name" content="DND AI" />
+          <meta name="msapplication-TileColor" content="#0A0A21" />
+          <meta name="msapplication-TileImage" content={ogImage} />
           <link
-            rel='preload'
-            href='/fonts/HelveticaNowDisplay-Medium.woff2'
-            as='font'
-            type='font/woff2'
-            crossOrigin='anonymous'
+            rel="preload"
+            href="/fonts/HelveticaNowDisplay-Medium.woff2"
+            as="font"
+            type="font/woff2"
+            crossOrigin="anonymous"
           />
           <link
-            rel='preload'
-            href='/fonts/RobotoMono-VariableFont_wght.woff2'
-            as='font'
-            type='font/woff2'
-            crossOrigin='anonymous'
+            rel="preload"
+            href="/fonts/RobotoMono-VariableFont_wght.woff2"
+            as="font"
+            type="font/woff2"
+            crossOrigin="anonymous"
           />
-          <link rel='canonical' href={ogUrl} />
-          <link rel='manifest' href='/manifest.webmanifest' />
-          <link rel='icon' href='/favicon.ico' sizes='32x32' />
-          <link rel='icon' href='/icon.svg' type='image/svg+xml' />
-          <link rel='apple-touch-icon' href='/apple-touch-icon.png' />
-          <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="1418fbdb-434a-4a16-b3ee-caaf4d7c27fc" type="text/javascript" async></script>
-          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3291227232677056"
-            crossorigin="anonymous"></script>
+          <link rel="canonical" href={ogUrl} />
+          <link rel="manifest" href="/manifest.webmanifest" />
+          <link rel="icon" href="/favicon.ico" sizes="32x32" />
+          <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+          <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+          <script
+            id="Cookiebot"
+            src="https://consent.cookiebot.com/uc.js"
+            data-cbid="1418fbdb-434a-4a16-b3ee-caaf4d7c27fc"
+            type="text/javascript"
+            async
+          ></script>
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3291227232677056"
+            crossorigin="anonymous"
+          ></script>
           <Script
-            strategy='afterInteractive'
+            strategy="afterInteractive"
             src={`https://www.googletagmanager.com/gtag/js?id=G-BTHMYX7TZ9`}
             async
           />
           <Script
-            id='google-analytics'
-            strategy='afterInteractive'
+            id="google-analytics"
+            strategy="afterInteractive"
             dangerouslySetInnerHTML={{
               __html: `
                   window.dataLayer = window.dataLayer || [];
@@ -194,18 +236,18 @@ export default function RootLayout({ children }) {
             }}
           />
         </head>
-        <body className='w-screen hide-scrollbar relative max-w-screen overflow-x-hidden bg-russianViolet'>
-          {showDiceGold && <div id='dice-box-gold' className='dice-box'></div>}
-          {showDiceGame && <div id='dice-box-game' className='dice-box '></div>}
+        <body className="w-screen hide-scrollbar relative max-w-screen overflow-x-hidden bg-russianViolet">
+          {showDiceGold && <div id="dice-box-gold" className="dice-box"></div>}
+          {showDiceGame && <div id="dice-box-game" className="dice-box "></div>}
           {showDiceAbilities && (
-            <div id='dice-box-abilities' className='dice-box'></div>
+            <div id="dice-box-abilities" className="dice-box"></div>
           )}
           <img
-            src='/images/bg.png'
-            alt='Background'
-            priority='true'
-            title='Background Gradient'
-            className='fixed w-screen h-screen top-0 left-0 z-0 object-cover'
+            src="/images/bg.png"
+            alt="Background"
+            priority="true"
+            title="Background Gradient"
+            className="fixed w-screen h-screen top-0 left-0 z-0 object-cover"
           />
           <MemoizedNavbar
             characterSheet={characterSheet}
@@ -222,7 +264,7 @@ export default function RootLayout({ children }) {
           <Suspense fallback={null}>
             <CreditsDialogue />
           </Suspense>
-          <div className='!z-[50]'>
+          <div className="!z-[50]">
             <Toaster />
           </div>
         </body>
