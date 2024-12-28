@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 import useCustomToast from "@/hooks/useCustomToast";
 import { usePathname } from "next/navigation";
 import { useSearchParams } from "next/navigation";
-const SORT_BY_OPTIONS = ["Newest to Oldest", "Oldest to Newest"];
+const SORT_BY_OPTIONS = ["Newest to Oldest", "Oldest to Newest", "Most Liked"];
 
 function GalleryContainer() {
   const [images, setImages] = useState();
@@ -25,8 +25,8 @@ function GalleryContainer() {
 
   const handleGetImages = async () => {
     try {
-      const isReverse = selectedOption === SORT_BY_OPTIONS[1];
-      const response = await getPublicImages(page, isReverse);
+      
+      const response = await getPublicImages(page, selectedOption);
       setImages(response.images);
       setTotalPages(response.totalPages);
       setTotalRecords(response.totalRecords);

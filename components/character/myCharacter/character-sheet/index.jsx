@@ -25,7 +25,7 @@ import Companions from "./Companions";
 import ShareDialogue from "./ShareDialogue";
 
 export default function characterSheet({ character, setCharacter }) {
-  console.log(character);
+  
   const [isShareDialogOpen, setIsShareDialogOpen] = useState(false);
   const [selectedTab, setSelectedTab] = useState("appearance");
   const router = useRouter();

@@ -34,6 +34,8 @@ export default function RollForStats({
   showRollAll,
   setShowRollAll,
   ABILITIES,
+  handleChangeAbilities,
+  abilities,
 }) {
   const {
     isRollingAbilities,

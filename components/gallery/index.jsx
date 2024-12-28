@@ -27,7 +27,7 @@ import { likeImage, unlikeImage } from "@/actions/user";
 
 const GalleryImage = ({ img, className }) => {
   const [open, setOpen] = useState(false);
-  const [likedBy, setLikedBy] = useState(img.likedBy);
+  const [likedBy, setLikedBy] = useState(img?.likedBy || []);
   const [loading, setLoading] = useState(false);
 
   let src = img.url;
@@ -58,8 +58,6 @@ const GalleryImage = ({ img, className }) => {
       setLoading(false);
     }
   };
-
-  console.log(likedBy.includes(user?._id), likedBy, user?._id);
 
   return (
     <Dialog
@@ -148,7 +146,7 @@ export default function Gallery({
             {rowImages.map((src, i) => (
               <GalleryImage
                 img={src}
-                likes={src.likedBy}
+                likes={src.likedBy || []}
                 alt='user generated image from the story'
                 className='col-span-2 row-span-2'
                 key={src.url}
@@ -169,7 +167,7 @@ export default function Gallery({
             {rowImages.map((src, i) => (
               <GalleryImage
                 img={src}
-                likes={src.likedB}
+                likes={src.likedBy || []}
                 alt='user generated image from the story'
                 className='col-span-4 row-span-4'
                 key={src.url}
@@ -190,7 +188,7 @@ export default function Gallery({
             {rowImages.map((src, i) => (
               <GalleryImage
                 img={src}
-                likes={src.likedB}
+                likes={src.likedBy || []}
                 alt='user generated image from the story'
                 className='col-span-2 row-span-2'
                 key={src.url}
@@ -219,7 +217,7 @@ export default function Gallery({
             {nextFourImages.map((src, i) => (
               <GalleryImage
                 img={src}
-                likes={src.likedB}
+                likes={src.likedBy || []}
                 alt='user generated image from the story'
                 className='col-span-2 row-span-2'
                 key={src.url}
@@ -240,7 +238,7 @@ export default function Gallery({
             {rowImages.map((src, i) => (
               <GalleryImage
                 img={src}
-                likes={src.likedB}
+                likes={src.likedBy || []}
                 alt='user generated image from the story'
                 className='col-span-2 row-span-2'
                 key={src.url}

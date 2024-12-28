@@ -3,6 +3,8 @@ import CustomButton from "@/components/ui/custom-button";
 import Dice from "@/components/ui/Icons/Dice";
 import CustomDropdown from "@/components/ui/custom-dropdown";
 import RollForStats from "./RollForStats";
+import PointsBuy from "./PointsBuy";
+import StandardArray from "./StandardArray";
 
 const _ABILITIES = [
   {
@@ -69,14 +71,31 @@ export default function Choose({
           className={"w-3/4"}
         />
       </div>
-      <RollForStats
-        ABILITIES={ABILITIES}
-        abilities={abilities}
-        handleChangeAbilities={handleChangeAbilities}
-        _ABILITIES={_ABILITIES}
-        setShowRollAll={setShowRollAll}
-        showRollAll={showRollAll}
-      />
+
+      {abilitiesTypeStep === 0 && (
+        <StandardArray
+          ABILITIES={_ABILITIES}
+          handleChangeAbilities={handleChangeAbilities}
+        />
+      )}
+      {abilitiesTypeStep === 1 && (
+        <PointsBuy
+          abilities={abilities}
+          ABILITIES={_ABILITIES}
+          handleChangeAbilities={handleChangeAbilities}
+        />
+      )}
+
+      {abilitiesTypeStep === 2 && (
+        <RollForStats
+          ABILITIES={ABILITIES}
+          abilities={abilities}
+          handleChangeAbilities={handleChangeAbilities}
+          _ABILITIES={_ABILITIES}
+          setShowRollAll={setShowRollAll}
+          showRollAll={showRollAll}
+        />
+      )}
     </div>
   );
 }

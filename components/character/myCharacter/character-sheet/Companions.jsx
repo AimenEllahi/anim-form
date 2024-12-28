@@ -8,6 +8,7 @@ import Delete from "@/components/ui/Icons/Delete";
 import { deleteCharacterCompanion } from "@/actions/character";
 import useUserStore from "@/utils/userStore";
 import useCustomToast from "@/hooks/useCustomToast";
+import DeleteCompanion from "@/components/ui/Shared/Dialogue/DeleteCompanion";
 
 //card
 const Card = ({
@@ -28,7 +29,7 @@ const Card = ({
   const { invokeToast } = useCustomToast();
   const { user } = useUserStore();
 
-  const handleDeleteCharacter = async () => {
+  const handleDeleteCompanion = async () => {
     if (!isCreator) {
       invokeToast("You are not authorized to delete this character", "error");
       return;
@@ -99,13 +100,12 @@ const Card = ({
             <Edit className={"h-5 w-5 fill-white opacity-70  "} />
             Change Image
           </CustomButton>
-          <CustomButton
-            onClick={handleDeleteCharacter}
-            className={"w-full lg:w-fit"}
-          >
-            <Delete className={"h-5 w-5 fill-errorRed  "} />
-            Delete Character
-          </CustomButton>
+          <DeleteCompanion action={handleDeleteCompanion}>
+            <CustomButton className={"w-full lg:w-fit"}>
+              <Delete className={"h-5 w-5 fill-errorRed  "} />
+              Delete Companion
+            </CustomButton>
+          </DeleteCompanion>
         </div>
       )}
     </div>
@@ -123,7 +123,7 @@ export default function Companions({
   if (character?.companions?.length <= 0)
     return (
       <NoCompanions
-        className={" left-1/2 -translate-x-1/2  "}
+        className={" left-1/2 -translate-x-1/2 -translate-y-1/4  "}
         isCompanion={true}
         character={character}
       />

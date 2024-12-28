@@ -11,6 +11,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import Help from "@/components/ui/Icons/Help";
 
 export default function characterInfo({
   character,
@@ -30,7 +31,7 @@ export default function characterInfo({
             <span className='running-text-large'>Character portrait</span>
             <Popover>
               <PopoverTrigger>
-                <Information className={cn("h-6 w-6   ")} />
+                <Help className={cn("h-6 w-6   ")} />
               </PopoverTrigger>
               <PopoverContent>
                 <p style={{ marginBottom: "10px" }}>
