@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import {
-  Dialog,
-  DialogContent,
-  DialogFooter,
-  DialogTrigger,
-} from "@/components/ui/dialog";
+  import {
+    Dialog,
+    DialogContent,
+    DialogFooter,
+    DialogTrigger,
+  } from "@/components/ui/dialog";
 import Button from "@/components/ui/custom-button";
 import Cancel from "@/components/ui/Icons/Cancel";
 import Delete from "@/components/ui/Icons/Delete";

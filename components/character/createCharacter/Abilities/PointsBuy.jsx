@@ -11,6 +11,7 @@ const INITIAL_ABILITIES = {
   wisdom: 8,
   charisma: 8,
 };
+
 const INITIAL_POINTS = 27;
 export default function PointsBuy({
   ABILITIES,
@@ -49,14 +50,15 @@ export default function PointsBuy({
   };
 
   return (
-    <div className='grid w-full  grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 hide-scrollbar overflow-y-scroll'>
+    <div className='grid w-full  gap-5 grid-cols-2 lg:grid-cols-3 hide-scrollbar overflow-y-scroll'>
       {ABILITIES.map((ability, index) => {
         const abilityName = ability.name.toLowerCase();
         const score = abilities[abilityName];
+
         return (
           <div
             key={index}
-            className='flex flex-col bg-white/[2%] border border-white/5 p-4 gap-4 rounded-[16px] items-center justify-between col-span-1'
+            className='flex flex-col md:bg-white/[2%] md:border border-white/5 md:p-4 gap-4 rounded-[16px] items-center justify-between col-span-1'
           >
             <div className='flex gap-3 w-full items-center'>
               <img
@@ -93,7 +95,7 @@ export default function PointsBuy({
                   (score === 14 && pointsToSpend <= 1)
                 }
                 variant={"primary"}
-                className={"h-6 w-6"}
+                className={"h-6 w-6 disabled:!opacity-50"}
               >
                 <img src='/Icons/Add.svg' alt='logo' className='h-2 w-2' />
               </CustomIconButton>
@@ -102,11 +104,10 @@ export default function PointsBuy({
         );
       })}
 
-      <div className='w-full flex items-center justify-between  sm:col-span-2 lg:col-span-3'>
+      <div className='w-full flex items-center justify-between  col-span-2 lg:col-span-3'>
         <CustomButton
-          //disabled={isRollingAbilities}
           className='w-fit'
-          //onClick={resetAbilities}
+          onClick={resetAbilities}
           withIcon={true}
         >
           <img
@@ -118,7 +119,7 @@ export default function PointsBuy({
           Reset stats
         </CustomButton>
         <span className='running-text-mono text-gray2 uppercase'>
-          Remaining Points:{" "}
+          Remaining Points: {pointsToSpend}
         </span>
       </div>
     </div>

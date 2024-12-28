@@ -290,7 +290,8 @@ export default function RollForStats({
           Points Total:{" "}
           {Object.keys(rollResults)
             .map((result) => rollResults[result].value)
-            .reduce((a, b) => a + b, 0) || 0}
+            .reduce((a, b) => 
+            coa + b, 0) || 0}
         </span>
       </div>
     </>

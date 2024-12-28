@@ -39,44 +39,44 @@ export default function Index({ userAchievements, achievements }) {
   return (
     <div
       ref={containerRef}
-      className="h-full min-h-full w-full pt-[188px] px-5 pb-32 md:pt-[120px]  md:pb-[104px] md:px-12 flex flex-col gap-[24px] relative z-10"
+      className='h-full min-h-full w-full pt-[188px] px-5 pb-32 md:pt-[120px]  md:pb-[104px] md:px-12 flex flex-col gap-[24px] relative z-10'
     >
       <GuestUser />
       {/* desktop */}
-      <div className="hidden md:flex  h-fit items-start justify-start md:justify-between gap-1 md:gap-[32px]  ">
-        <div className="w-full z-10 h-fit  flex justify-between items-center">
-          <div className="z-10 h-full w-2/4 flex justify-start items-start md:items-center gap-1 md:gap-5 flex-col md:flex-row">
+      <div className='hidden md:flex  h-fit items-start justify-start md:justify-between gap-1 md:gap-[32px]  '>
+        <div className='w-full z-10 h-fit  flex justify-between items-center'>
+          <div className='z-10 h-full w-2/4 flex justify-start items-start md:items-center gap-1 md:gap-5 flex-col md:flex-row'>
             <img
               src={`https://dzjg7lvewk7ln.cloudfront.net/rank-images/${rank}.webp`}
-              alt=""
-              className="size-20 object-cover rounded-full"
+              alt=''
+              className='size-20 object-cover rounded-full'
             />
 
-            <div className="flex flex-col gap-1  h-full">
-              <span className=" text-sandyOrange running-text-mono  uppercase">
+            <div className='flex flex-col gap-1  h-full'>
+              <span className=' text-sandyOrange running-text-mono  uppercase'>
                 {title}
               </span>
-              <span className="text-white headline-3 capitalize">
+              <span className='text-white headline-3 capitalize'>
                 {user.username}
               </span>
-              <span className="text-gray2 headline-3 running-text-mono uppercase">
+              <span className='text-gray2 headline-3 running-text-mono uppercase'>
                 Archievement Rank {userAchievements.level}
               </span>
             </div>
           </div>
-          <div className="z-10 text-sandyOrange w-2/4 h-20  flex flex-col gap-5 justify-start items-start ">
-            <div className="w-full flex  justify-between items-center">
-              <span className="text-[#FFB371] flex gap-2 uppercase running-text-mono">
-                Total Pokals <AchievementV2 className="h-5 w-5 " />{" "}
+          <div className='z-10 text-sandyOrange w-2/4 h-20  flex flex-col gap-5 justify-start items-start '>
+            <div className='w-full flex  justify-between items-center'>
+              <span className='text-[#FFB371] flex gap-2 uppercase items-center running-text-mono'>
+                Total Pokals <AchievementV2 className='h-5 w-5 ' />{" "}
                 {userAchievements.pokal}
               </span>
-              <span className="text-[#FFB371] flex gap-2 uppercase running-text-mono">
+              <span className='text-[#FFB371] flex gap-2 items-center uppercase running-text-mono'>
                 {" "}
-                <AchievementV2 className="h-5 w-5 " /> {userAchievements.pokal}/
+                <AchievementV2 className='h-5 w-5 ' /> {userAchievements.pokal}/
                 {nextLevelToAchieve.pokalsRequired}
               </span>
             </div>
-            <div className="w-full bg-white/[15%] rounded-full h-2">
+            <div className='w-full bg-white/[15%] rounded-full h-2'>
               <div
                 style={{
                   width: `${
@@ -94,20 +94,20 @@ export default function Index({ userAchievements, achievements }) {
         </div>
       </div>
       {/* mobile */}
-      <div className="md:hidden flex items-start justify-start md:justify-between gap-1 md:gap-[32px]  ">
-        <div className="w-full z-10 flex flex-col gap-6 justify-between items-center">
-          <div className="z-10 text-sandyOrange w-full h-12  flex flex-col gap-5 justify-start items-start ">
-            <div className="w-full flex  justify-between items-center">
-              <span className="text-[#FFB371] flex gap-2 uppercase running-text-mono">
+      <div className='md:hidden flex items-start justify-start md:justify-between gap-1 md:gap-[32px]  '>
+        <div className='w-full z-10 flex flex-col gap-6 justify-between items-center'>
+          <div className='z-10 text-sandyOrange w-full h-12  flex flex-col gap-5 justify-start items-start '>
+            <div className='w-full flex  justify-between items-center'>
+              <span className='text-[#FFB371] flex gap-2 uppercase running-text-mono'>
                 Total Pokals <AchievementV2 /> {userAchievements.pokal}
               </span>
-              <span className="text-[#FFB371] flex gap-2 uppercase running-text-mono">
+              <span className='text-[#FFB371] flex gap-2 uppercase running-text-mono'>
                 {" "}
                 <AchievementV2 /> {userAchievements.pokal}/
                 {nextLevelToAchieve.pokalsRequired}
               </span>
             </div>
-            <div className="w-full bg-white/[15%] rounded-full h-2">
+            <div className='w-full bg-white/[15%] rounded-full h-2'>
               <div
                 style={{
                   width: `${
@@ -126,8 +126,8 @@ export default function Index({ userAchievements, achievements }) {
       </div>
       <Switch selectedTab={selectedTab} setSelectedTab={setSelectedTab} />
       {selectedTab === "emblems" && (
-        <div className=" h-full w-full flex flex-col lg:flex-row">
-          <div className="w-full ">
+        <div className=' h-full w-full flex flex-col lg:flex-row'>
+          <div className='w-full '>
             <Emblems userPokals={userAchievements.pokal} />
           </div>
         </div>

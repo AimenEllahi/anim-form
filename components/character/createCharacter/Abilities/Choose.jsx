@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import CustomButton from "@/components/ui/custom-button";
-import Dice from "@/components/ui/Icons/Dice";
 import CustomDropdown from "@/components/ui/custom-dropdown";
 import RollForStats from "./RollForStats";
 import PointsBuy from "./PointsBuy";
 import StandardArray from "./StandardArray";
+import Help from "@/components/ui/Icons/Help";
+import AbilitiesTypeModal from "../shared/AbilitiesTypeModal";
 
 const _ABILITIES = [
   {
@@ -51,51 +51,67 @@ export default function Choose({
   handleChangeAbilities,
   setAbilitiesTypeStep,
   abilitiesTypeStep,
+  abilitiesDesc,
+  setShowModal,
 }) {
   const [showRollAll, setShowRollAll] = useState(true);
 
   return (
-    <div className='md:rounded-[16px] flex flex-col gap-6 w-full md:w-fit max-h-full h-fit md:p-5 md:pt-3.5 md:border border-white/10 md:bg-white/[8%]  '>
-      <div className='flex flex-col gap-4'>
-        <div className='flex items-center justify-between'>
-          <h1 className='running-text-large  hidden md:block'>Abilities</h1>
+    <>
+      <div className=' relative md:rounded-[16px] flex flex-col gap-8 md:gap-6 w-full md:w-fit max-h-full h-fit md:p-5 md:pt-3.5 md:border border-white/10 md:bg-white/[8%]  '>
+        <div className='flex flex-col gap-4'>
+          <div className='flex items-center justify-between'>
+            <h1 className='running-text-large  hidden md:block'>Abilities</h1>
+          </div>
+
+          <div className='flex gap-4 items-center md:hidden'>
+            <AbilitiesTypeModal
+              abilitiesTypeStep={abilitiesTypeStep}
+              abilitiesDesc={abilitiesDesc}
+            >
+              <Help className='size-6' />
+            </AbilitiesTypeModal>
+            <span className='running-text-large'>
+              {abilitiesType[abilitiesTypeStep]}
+            </span>
+          </div>
+          <CustomDropdown
+            options={abilitiesType}
+            setSelectedOption={(option) => {
+              setAbilitiesTypeStep(abilitiesType.indexOf(option));
+            }}
+            placeholder={"Choose Your Stat-Building Method"}
+            selectedOption={abilitiesType[abilitiesTypeStep]}
+            className={" w-full md:w-3/4"}
+          />
         </div>
 
-        <CustomDropdown
-          options={abilitiesType}
-          setSelectedOption={(option) => {
-            setAbilitiesTypeStep(abilitiesType.indexOf(option));
-          }}
-          placeholder={"Choose Your Stat-Building Method"}
-          selectedOption={abilitiesType[abilitiesTypeStep]}
-          className={"w-3/4"}
-        />
+        {abilitiesTypeStep === 0 && (
+          <StandardArray
+            abilities={abilities}
+            ABILITIES={_ABILITIES}
+            handleChangeAbilities={handleChangeAbilities}
+          />
+        )}
+        {abilitiesTypeStep === 1 && (
+          <PointsBuy
+            abilities={abilities}
+            ABILITIES={_ABILITIES}
+            handleChangeAbilities={handleChangeAbilities}
+          />
+        )}
+
+        {abilitiesTypeStep === 2 && (
+          <RollForStats
+            ABILITIES={ABILITIES}
+            abilities={abilities}
+            handleChangeAbilities={handleChangeAbilities}
+            _ABILITIES={_ABILITIES}
+            setShowRollAll={setShowRollAll}
+            showRollAll={showRollAll}
+          />
+        )}
       </div>
-
-      {abilitiesTypeStep === 0 && (
-        <StandardArray
-          ABILITIES={_ABILITIES}
-          handleChangeAbilities={handleChangeAbilities}
-        />
-      )}
-      {abilitiesTypeStep === 1 && (
-        <PointsBuy
-          abilities={abilities}
-          ABILITIES={_ABILITIES}
-          handleChangeAbilities={handleChangeAbilities}
-        />
-      )}
-
-      {abilitiesTypeStep === 2 && (
-        <RollForStats
-          ABILITIES={ABILITIES}
-          abilities={abilities}
-          handleChangeAbilities={handleChangeAbilities}
-          _ABILITIES={_ABILITIES}
-          setShowRollAll={setShowRollAll}
-          showRollAll={showRollAll}
-        />
-      )}
-    </div>
+    </>
   );
 }

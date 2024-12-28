@@ -2,7 +2,7 @@ import { create } from "zustand";
 
 const useCharaterStore = create((set) => ({
   // Existing states
-  activeStep: 2,
+  activeStep: 0,
   gender: "male",
   abilitiesRoll: {},
   isRollingAbilities: false,

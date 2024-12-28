@@ -1,7 +1,8 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Choose from "./Choose";
 import Help from "@/components/ui/Icons/Help";
+import AbilitiesTypeModal from "../shared/AbilitiesTypeModal";
 
 const abilitiesType = [
   {
@@ -55,8 +56,17 @@ const abilitiesType = [
   },
 ];
 
+const INITIAL_ABILITIES = {
+  strength: 8,
+  dexterity: 8,
+  constitution: 8,
+  intelligence: 8,
+  wisdom: 8,
+  charisma: 8,
+};
 export default function Index({ character, setCharacter }) {
-  const [abilitiesTypeStep, setAbilitiesTypeStep] = useState(2);
+  const [abilitiesTypeStep, setAbilitiesTypeStep] = useState(0);
+
   const handleChangeAbilities = (abilities) => {
     setCharacter((prev) => ({
       ...prev,
@@ -64,19 +74,28 @@ export default function Index({ character, setCharacter }) {
     }));
   };
 
+  useEffect(() => {
+    setCharacter((prev) => ({
+      ...prev,
+      INITIAL_ABILITIES,
+    }));
+  }, [abilitiesTypeStep]);
+
   return (
-    <div className=' text-white   flex justify-start items-start gap-5 h-full  w-full pb-32 sm:pb-0'>
+    <div className=' relative text-white   flex justify-start items-start gap-5 h-full  w-full pb-32 sm:pb-0'>
       <Choose
+        abilitiesDesc={abilitiesType}
         abilities={character.abilities}
         _pointsToSpend={character.pointsToSpend}
         handleChangeAbilities={handleChangeAbilities}
         setAbilitiesTypeStep={setAbilitiesTypeStep}
         abilitiesTypeStep={abilitiesTypeStep}
-
       />
-      <div className='border h-fit w-1/3 gap-4 flex flex-col bg-white/10 border-white/10 rounded-[16px] p-5 pt-3.5'>
+
+      <div className=' hidden border h-fit w-1/3 gap-4 md:flex flex-col bg-white/10 border-white/10 rounded-[16px] p-5 pt-3.5'>
         <div className='flex gap-4 items-center'>
           <Help className='size-6' />
+
           <span className='running-text-large'>
             {abilitiesType[abilitiesTypeStep].title}
           </span>

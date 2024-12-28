@@ -9,11 +9,12 @@ import ImageModal from "./shared/ImageModal";
 import BottomMenu from "./BottomMenu";
 import { useSearchParams } from "next/navigation";
 import { cn } from "@/lib/utils";
+import AbilitiesTypeModal from "./shared/AbilitiesTypeModal";
 
 export default function Index() {
   const { isMobile } = useDeviceDetect();
 
-  const { showModal, setActiveStep } = useCharacterStore();
+  const { showModal, setActiveStep, showAbilitiesHelpModal } = useCharacterStore();
   const searchParams = useSearchParams();
 
   const id = searchParams.get("id");
@@ -52,6 +53,8 @@ export default function Index() {
       )}
     >
       <ImageModal />
+     
+
       {/* Desktop */}
       <div className='hidden md:flex flex-col gap-2.5 '>
         <h1 className='text-center flex justify-start text-white headline-3 z-[10] '>
