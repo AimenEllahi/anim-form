@@ -42,10 +42,15 @@ export default function ArticlesPage() {
           "Unlock Achievements and Ranks...",
         imageUrl: "https://dzjg7lvewk7ln.cloudfront.net/rank-images/Novice.webp",
         },
-    // Add more articles as needed
-
+        {
+        id: 5,
+        title: "Likes in Community Gallery | Patch 1.4 ",
+        description:
+        "Updates in the community Gallery, Character creator and more...",
+      imageUrl: "https://dndai-images.s3.eu-central-1.amazonaws.com/daniel%20moll/1735459541150.webp",
+      },
         //{
-    // id: 2,
+    // id: 6,
     //  title: "Health Update: Benefits of a Balanced Diet",
     //  description:
     //    "A balanced diet is crucial for maintaining good health and wellbeing...",
