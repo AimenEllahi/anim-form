@@ -12,7 +12,7 @@ const INITIAL_USER = {
   surname: "",
   password: "",
 };
-export default function signup() {
+export default function signup({ dictionary }) {
   const [step, setStep] = useState(1);
   const [user, setUser] = useState(INITIAL_USER);
   const searchParams = useSearchParams();
@@ -30,9 +30,9 @@ export default function signup() {
       suppressHydrationWarning
     >
       <div className=' flex-col gap-4 hidden md:flex'>
-        <h1 className='headline-3 '>Sign Up</h1>
+        <h1 className='headline-3 '>{dictionary.signUp}</h1>
         <span className='text-gray2 running-text-small '>
-          Already have an account?{" "}
+          {dictionary.alreadyHaveAnAccount}{" "}
           <Link
             className='text-white'
             href={
@@ -40,13 +40,26 @@ export default function signup() {
               (redirect ? `?redirect=${redirect}&&id=${id}` : "")
             }
           >
-            Sign in
+            {dictionary.signIn}
           </Link>
         </span>
       </div>
-      {step == 1 && <Step1 setStep={setStep} user={user} setUser={setUser} />}
+      {step == 1 && (
+        <Step1
+          dictionary={dictionary}
+          setStep={setStep}
+          user={user}
+          setUser={setUser}
+        />
+      )}
       {step == 2 && (
-        <Step2 setStep={setStep} user={user} setUser={setUser} reset={reset} />
+        <Step2
+          dictionary={dictionary}
+          setStep={setStep}
+          user={user}
+          setUser={setUser}
+          reset={reset}
+        />
       )}
     </div>
   );

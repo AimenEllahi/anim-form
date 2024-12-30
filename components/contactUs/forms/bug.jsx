@@ -11,7 +11,7 @@ import useCustomToast from "@/hooks/useCustomToast";
 
 import { sendContact } from "@/actions/email";
 //bug component
-export default function bug() {
+export default function bug({ dictionary }) {
   const [files, setFiles] = useState([]);
   const [bugDescription, setBugDescription] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -43,17 +43,17 @@ export default function bug() {
   return (
     <div className=' flex w-full flex-col gap-6 justify-center items-center'>
       <div className='w-full flex flex-col gap-4'>
-        <span>Tell us more information about the bug</span>
+        <span>{dictionary.title}</span>
         <CustomTextArea
           value={bugDescription}
           onChange={(e) => setBugDescription(e)}
-          placeholder='Describe the bug'
+          placeholder={dictionary.describeBug}
         />
       </div>
       <div className='w-full flex flex-col gap-4'>
         <div className='w-full flex flex-col gap-2'>
-          <Upload files={files} setFiles={setFiles} />
-          <span className='text-gray2'>Max 5</span>
+          <Upload dictionary={dictionary} files={files} setFiles={setFiles} />
+          <span className='text-gray2'>{dictionary.max5}</span>
         </div>
         <div className='flex items-center gap-3 flex-wrap'>
           {files.map((image, index) => (
@@ -81,7 +81,7 @@ export default function bug() {
           withIcon={true}
           className={" focus:bg-white focus:text-black self-end"}
         >
-          <span>Send</span>
+          <span>{dictionary.send}</span>
           <ArrowRight className='h-5 w-5 fill-gray2' />
         </CustomButton>
       </div>

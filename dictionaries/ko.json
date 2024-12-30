@@ -1,0 +1,458 @@
+{
+  "navbar": {
+    "campaigns": "캠페인",
+    "community": "커뮤니티 갤러리",
+    "games": "계략",
+    "exitGame": "게임 종료",
+    "playCampaign": "플레이 캠페인",
+    "playNow": "지금 플레이",
+    "startNewGame": "새 게임 시작",
+    "playForFree": "무료로 플레이",
+    "characters": "캐릭터",
+    "createCampaign": "캠페인 만들기",
+    "createCharacter": "캐릭터 생성",
+    "search": "찾다",
+    "accountMenu": {
+      "signIn": "로그인",
+      "signUp": "가입",
+      "logout": "로그아웃",
+      "the": "그만큼",
+      "emblemsTitle": "엠블럼 및 타이틀",
+      "myAdventurers": "나의 모험가들",
+      "myImages": "내 이미지",
+      "myCampaigns": "내 캠페인",
+      "favorites": "즐겨찾기",
+      "accountSettings": "계정 설정",
+      "language": "언어",
+      "support": "우리를 지원하세요",
+      "playNow": "지금 플레이",
+      "myCharacters": "내 캐릭터",
+      "games": "계략",
+      "communityGallery": "커뮤니티 갤러리",
+      "campaigns": "캠페인",
+      "playForFree": "무료로 플레이",
+      "gallery": "갱도"
+    }
+  },
+  "footer": {
+    "rightsReserved": "DND AI © 2024 모든 권리 보유",
+    "designedBy": "  ♥ BY로 디자인",
+    "nexene": "넥센",
+    "helpAndSupport": {
+      "title": "도움말 및 지원",
+      "news": "소식",
+      "aboutUs": "회사 소개",
+      "contactUs": "문의하기",
+      "giveUsFeedback": "피드백을 주세요",
+      "reportABug": "버그 신고"
+    },
+    "legal": {
+      "title": "합법적인",
+      "imprint": "날인",
+      "termsAndConditions": "이용약관",
+      "privacy": "은둔",
+      "cookies": "쿠키"
+    },
+    "socialMedia": {
+      "title": "소셜 미디어",
+      "discord": "불화",
+      "twitter": "지저귀다",
+      "instagram": "인스타그램",
+      "tiktok": "틱톡"
+    }
+  },
+  "landingPage": {
+    "firstSection": {
+      "title": "무한한 게임플레이로 상상력을 마음껏 펼쳐보세요!"
+    },
+    "secondSection": {
+      "title": "무한한 창의적 가능성을 발견하세요."
+    },
+    "thirdSection": {
+      "step1": {
+        "number": "1단계",
+        "title": "나만의 캐릭터를 만들어보세요",
+        "description": "다양한 종족, 클래스, 배경, 시작 장비 등을 선택하여 나만의 캐릭터를 쉽게 만들 수 있습니다. "
+      },
+      "step2": {
+        "number": "2단계",
+        "title": "나만의 캠페인을 디자인하세요",
+        "description": "창의력을 발휘하고 손쉽게 나만의 캠페인을 만들어 보세요. "
+      },
+      "step3": {
+        "number": "3단계",
+        "title": "장대한 캐릭터 성장을 경험하세요",
+        "description": "캐릭터의 성장 여정에 푹 빠져보세요. "
+      }
+    },
+    "fourthSection": {
+      "title": " 무한한 시각화의 세계.",
+      "button": "더 많은 이미지"
+    },
+    "fifthSection": {
+      "title": "당신의 운명을 개척하고 캠페인을 선택하세요!",
+      "description": "모든 캠페인"
+    }
+  },
+  "supportUs": {
+    "startYourEpicJourney": "서사시적인 여행을 시작하세요! ",
+    "aiPowered": "AI 기반 모험",
+    "whereYourImagination": " 당신의 상상력이 영역을 지배하는 곳!",
+    "cardsSection": {
+      "monthly": "월간",
+      "semiannually": "반년마다",
+      "annually": "연간",
+      "month": "월",
+      "mostPopular": "가장 인기 있는",
+      "subscribeNow": "지금 구독하기",
+      "title": "우리를 지원하세요",
+      "description": "Patreon을 통해 지속적으로 플랫폼을 만들고 개선할 수 있도록 도와주세요. ",
+      "button": "우리를 지원하세요",
+      "adventurer": {
+        "monthly": [
+          "플레이 시간 50시간 이상 ",
+          "30개의 이미지 또는 맞춤 캠페인",
+          "매월 취소 가능"
+        ],
+        "semiannually": [
+          "300시간 이상의 플레이 시간 ",
+          "170개 이미지 또는 맞춤 캠페인",
+          "반년마다 취소 가능"
+        ],
+        "annually": [
+          "600시간 이상의 플레이 시간 ",
+          "340개 이미지 또는 맞춤 캠페인",
+          "매년 취소 가능"
+        ]
+      },
+      "champion": {
+        "monthly": [
+          "80시간 이상의 플레이 시간 ",
+          "45개의 이미지 또는 맞춤 캠페인",
+          "매월 취소 가능"
+        ],
+        "semiannually": [
+          "483시간 이상의 플레이 시간 ",
+          "270개 이미지 또는 맞춤 캠페인",
+          "반년마다 취소 가능"
+        ],
+        "annually": [
+          "967시간 이상의 플레이 시간 ",
+          "540개 이미지 또는 맞춤 캠페인",
+          "매년 취소 가능"
+        ]
+      },
+      "mythic": {
+        "monthly": [
+          "176시간 이상의 플레이 시간 ",
+          "100개의 이미지 또는 맞춤 캠페인",
+          "매월 취소 가능"
+        ],
+        "semiannually": [
+          "1060시간 이상의 플레이 시간 ",
+          "600개의 이미지 또는 맞춤 캠페인",
+          "반년마다 취소 가능"
+        ],
+        "annually": [
+          "2120시간 이상의 플레이 시간 ",
+          "1200개의 이미지 또는 맞춤 캠페인",
+          "매년 취소 가능"
+        ]
+      },
+      "legend": {
+        "monthly": [
+          "350시간 이상의 플레이 시간 ",
+          "200개의 이미지 또는 맞춤 캠페인",
+          "매월 취소 가능"
+        ],
+        "semiannually": [
+          "2133시간 이상의 플레이 시간 ",
+          "1200개의 이미지 또는 맞춤 캠페인",
+          "반년마다 취소 가능"
+        ],
+        "annually": [
+          "4000시간 이상의 플레이 시간 ",
+          "2400개의 이미지 또는 맞춤 캠페인",
+          "매년 취소 가능"
+        ]
+      }
+    },
+    "gemsSection": {
+      "heresHow": "우리의 방법은 다음과 같습니다",
+      "gemsSystem": "보석 시스템",
+      "works": "공장",
+      "legendary": {
+        "title": "전설적인 보석",
+        "description": "맞춤형 캐릭터 초상화, 생생한 장면, 치열한 적, 복잡한 던전 지도와 같은 놀라운 이미지를 생성하는 데 완벽한 마법 브러시입니다. ",
+        "benefits": [
+          "맞춤 캠페인 만들기",
+          "캐릭터 초상화 생성",
+          "활동 중인 캐릭터의 이미지 생성",
+          "적의 이미지 생성",
+          "던전 지도 생성"
+        ]
+      },
+      "mythic": {
+        "title": "신화적인 보석",
+        "description": "캐릭터를 생성하고, 게임을 플레이하고, 서사적인 이야기를 서술하는 데 사용되는 모험 티켓입니다. ",
+        "benefits": [
+          "나만의 커스텀 캐릭터 만들기",
+          "새 게임 시작하기",
+          "게임을 한 바퀴 돌립니다.",
+          "게임 계속하기"
+        ]
+      }
+    },
+    "creditSection": {
+      "our": "우리의",
+      "creditPackage": "신용 패키지",
+      "atAGlance": "한눈에",
+      "buyNow": "지금 구매",
+      "smallYellow": "40개의 이미지 또는 맞춤 캠페인",
+      "mediumYellow": "80개 이미지 또는 맞춤 캠페인",
+      "largeYellow": "260개 이미지 또는 맞춤 캠페인",
+      "smallBlue": "플레이 시간 50시간 이상",
+      "mediumBlue": "플레이타임 100시간 이상",
+      "largeBlue": "233시간 이상의 플레이 시간"
+    }
+  },
+  "aboutUs": {
+    "aboutUs": "회사 소개",
+    "welcomeTo": "에 오신 것을 환영합니다",
+    "p1": " 여기 DNDAI에서는 스토리텔링과 모험을 경험하는 방식을 변화시키기 위해 노력하고 있습니다! ",
+    "p2": " 우리의 여정은 OpenAI의 GPT와 같은 AI 모델의 놀라운 잠재력에 영감을 받아 2023년 3월에 시작되었습니다. ",
+    "p3": "  그 짜릿한 경험에 힘입어 우리는 전 세계 친구들에게 이 모험을 선사할 수 있는 완전히 개발된 플랫폼, 즉 더 웅장한 무언가를 구축하기 시작했습니다. ",
+    "p4": " 1년 반 동안의 끊임없는 테스트, 조정, 변화 끝에 버전 4.0을 공개하게 되어 매우 기쁩니다. ",
+    "ourTeam": "우리 팀",
+    "development": "개발",
+    "design": "설계"
+  },
+  "contactUs": {
+    "contact": "연락하다",
+    "reasonForContact": "연락 이유",
+    "supportRequest": "지원 요청",
+    "feedbackType": "피드백",
+    "reportABug": "버그 신고",
+    "bug": {
+      "title": "버그에 대한 자세한 정보를 알려주세요.",
+      "max5": "최대 5개",
+      "send": "보내다",
+      "describeBug": "버그를 설명하세요",
+      "dragAndDrop": "파일을 여기에 드래그 앤 드롭하거나",
+      "uploadFile": "파일 업로드"
+    },
+    "support": {
+      "name": "이름",
+      "email": "이메일",
+      "surname": "성",
+      "message": "메시지",
+      "bySelecting": "선택하면 dndai에 동의합니다.",
+      "termsAndConditions": "이용약관",
+      "youCanRead": "귀하는 당사가 귀하의 데이터를 사용하고 보호하는 방법을 당사에서 읽을 수 있습니다.",
+      "privacyPolicy": "개인 정보 보호 정책",
+      "send": "보내다"
+    },
+    "feedback": {
+      "title": "DNDai를 어떻게 평가하시나요?",
+      "doYouHave": "공유하고 싶은 생각이 있나요?",
+      "yourThoughts": "당신의 생각",
+      "send": "보내다"
+    }
+  },
+  "accountSettings": {
+    "accountSettings": "계정 설정",
+    "payment": "지불",
+    "userSettings": {
+      "username": "사용자 이름",
+      "usernameAlready": "사용자 이름이 이미 존재합니다.",
+      "cancel": "취소",
+      "e-mail": "이메일",
+      "edit": "편집하다",
+      "confirmPassword": "비밀번호 확인",
+      "newPassword": "새 비밀번호",
+      "passwordsDoNotMatch": "비밀번호가 일치하지 않습니다.",
+      "personalData": "개인 데이터",
+      "name": "이름",
+      "email": "이메일",
+      "password": "비밀번호",
+      "charactersWarning": "8자 이상",
+      "containsNumber": "숫자를 포함합니다",
+      "containsASpecialCharacter": "특수 문자가 포함되어 있습니다.",
+      "save": "구하다",
+      "changePassword": " 무단 액세스를 방지하려면 비밀번호를 정기적으로 변경하세요."
+    },
+    "activePayments": {
+      "activePayments": "활성 결제",
+      "downloadInvoice": "송장 다운로드",
+      "changeSubscription": "구독 변경",
+      "cancelSubscription": "구독 취소",
+      "debitInterval": "인출 간격",
+      "nextRenewal": "다음 갱신",
+      "lastInvoice": "마지막 송장",
+      "paymentMethod": "결제수단",
+      "upgrade": "업그레이드",
+      "youHave": "당신은 가지고 있습니다",
+      "noActive": "활성 없음",
+      "subscriptionsYet": "구독 아직",
+      "month": "월"
+    }
+  },
+  "auth": {
+    "signIn": {
+      "signIn": "로그인",
+      "noAccount": " 아직 계정이 없나요?",
+      "createAccount": "계정 만들기",
+      "showPassword": "비밀번호 아이콘 표시",
+      "stayLoggedIn": "로그인 상태 유지",
+      "signingIn": "로그인 중...",
+      "or": "또는",
+      "email": "이메일",
+      "password": "비밀번호",
+      "forgotPassword": "비밀번호를 잊으셨나요?",
+      "signInWith": "다음으로 로그인",
+      "dontHaveAnAccount": "계정이 없나요?",
+      "signUp": "가입",
+      "rememberMe": "나를 기억해",
+      "continueWithGoogle": " Google로 계속하기"
+    },
+    "signUp": {
+      "signUp": "가입",
+      "alreadyHaveAnAccount": "이미 계정이 있나요?",
+      "signIn": "로그인",
+      "email": "이메일",
+      "or": "또는",
+      "next": "다음",
+      "username": "사용자 이름",
+      "usernameAlready": "사용자 이름이 이미 존재합니다.",
+      "name": "이름",
+      "emailOrUsername": "이메일 또는 사용자 이름",
+      "surname": "성",
+      "password": "비밀번호",
+      "charactersWarning": "8자 이상",
+      "containsNumber": "숫자를 포함합니다",
+      "containsASpecialCharacter": "특수 문자가 포함되어 있습니다.",
+      "bySelecting": " 선택하면 dndai에 동의합니다.",
+      "termsAndConditions": "이용 약관.",
+      "youCanRead": "귀하는 당사가 귀하의 데이터를 사용하고 보호하는 방법을 당사에서 읽을 수 있습니다.",
+      "privacyPolicy": "개인 정보 보호 정책.",
+      "loading": "로드 중...",
+      "createAccount": "계정 만들기",
+      "continueWithGoogle": " Google로 계속하기"
+    },
+    "passwordChanged": {
+      "title": "비밀번호가 성공적으로 변경되었습니다",
+      "signIn": "로그인"
+    },
+    "checkMail": {
+      "title": "이메일을 확인하세요",
+      "subtext": "이메일로 비밀번호 재설정 링크를 보내드렸습니다. ",
+      "resend": "링크 재전송",
+      "back": "가입으로 돌아가기"
+    },
+    "forgetPass": {
+      "title": "비밀번호를 잊으셨나요?",
+      "desc": "  비밀번호를 재설정하려면 이메일 주소를 입력하세요. ",
+      "email": "이메일",
+      "loading": "로드 중...",
+      "resetPassword": "비밀번호 재설정",
+      "noAccess": " 내 이메일 주소에 접근할 수 없습니다"
+    },
+    "newPass": {
+      "enterNewPass": "새 비밀번호를 입력하세요",
+      "newPassword": "새 비밀번호",
+      "charactersWarning": "8자 이상",
+      "containsNumber": "숫자를 포함합니다",
+      "containsASpecialCharacter": "특수 문자가 포함되어 있습니다.",
+      "confirmPassword": "비밀번호 확인",
+      "passwordsDoNotMatch": "비밀번호가 일치하지 않습니다.",
+      "loading": "로드 중...",
+      "resetPassword": "비밀번호 재설정",
+      "backToSignUp": "가입으로 돌아가기"
+    }
+  },
+  "games": {
+    "loadingGame": "게임 로드 중...",
+    "games": "계략",
+    "gamesInProcess": "진행 중인 게임",
+    "publicGames": "공개 게임",
+    "completedGames": "완료된 게임",
+    "inProgress": "진행 중",
+    "completed": "완료됨",
+    "leftSection": {
+      "search": "찾다",
+      "newestToOldest": "최신순",
+      "oldestToNewest": "오래된 것부터 최신 것까지",
+      "turnsPlayed": "플레이한 턴",
+      "sortBy": "정렬 기준",
+      "played": "플레이함"
+    },
+    "rightSection": {
+      "currentSituation": "현재 상황",
+      "readMore": "자세히 알아보기",
+      "showLess": "간략히 표시",
+      "adventurer": "모험가",
+      "level": "수준",
+      "played": "플레이함",
+      "playTime": "분. ",
+      "deleteGame": "게임 삭제",
+      "continue": "계속하다",
+      "back": "뒤쪽에"
+    },
+    "noGames": {
+      "startNewGame": "새 게임 시작",
+      "startNow": "지금 시작",
+      "youHavent": "당신은하지 않았습니다",
+      "completed": "완전한",
+      "anyGamesYet": "아직 어떤 게임도 없어.",
+      "startNewAdventure": "새로운 모험을 시작하세요",
+      "readyToPlay": "시작할 준비가 되셨나요?",
+      "firstAdventure": "첫 모험?",
+      "youAreMoments": " 끝없는 창의력을 발휘하고 무한한 가능성으로 폭발할 준비가 된 순간입니다!"
+    }
+  },
+  "gallery": {
+    "newestToOldest": "최신순",
+    "oldestToNewest": "오래된 것부터 최신 것까지",
+    "mostLiked": "가장좋아요",
+    "loadingImages": "이미지 로드 중...",
+    "gallery": "갱도",
+    "myImages": "내 이미지",
+    "sortBy": "정렬 기준",
+    "page": "페이지",
+    "of": "~의",
+    "back": "뒤쪽에",
+    "nextPage": "다음 페이지",
+    "downloadImage": "이미지 다운로드",
+    "close": "닫다"
+  },
+  "discoverCampaigns": {
+    "search": "찾다",
+    "sortBy": "정렬 기준",
+    "newestToOldest": "최신순",
+    "oldestToNewest": "오래된 것부터 최신 것까지",
+    "mostLiked": "가장 좋아하는 것",
+    "mostPlayed": "최다 재생",
+    "mostStarred": "최다 별표",
+    "discoverCampaigns": "캠페인 발견",
+    "communityFavorties": "커뮤니티 즐겨찾기",
+    "publicCampaigns": "공개 캠페인",
+    "showMore": "더보기"
+  },
+  "campaign": {
+    "publish": "게시",
+    "unpublish": "게시 취소",
+    "delete": "삭제",
+    "details": "세부",
+    "comments": "댓글",
+    "time": "시간",
+    "setting": "환경",
+    "plot": "구성",
+    "hook": "훅",
+    "createdBy": "작성자:",
+    "created": "생성됨",
+    "lastPlayed": "마지막 플레이",
+    "writeAComment": "댓글 쓰기",
+    "send": "보내다",
+    "loadingCampaign": "캠페인 로딩 중"
+  }
+}

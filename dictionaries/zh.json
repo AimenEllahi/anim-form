@@ -1,0 +1,459 @@
+{
+  "navbar": {
+    "campaigns": "活动",
+    "community": "社区画廊",
+    "games": "游戏",
+    "exitGame": "退出游戏",
+    "playCampaign": "玩活动",
+    "playNow": "立即播放",
+    "startNewGame": "开始新游戏",
+    "playForFree": "免费玩",
+    "characters": "人物",
+    "createCampaign": "创建营销活动",
+    "createCharacter": "创建角色",
+    "search": "搜索",
+    "accountMenu": {
+      "signIn": "登入",
+      "signUp": "报名",
+      "logout": "退出",
+      "the": "这",
+      "emblemsTitle": "徽章和头衔",
+      "myAdventurers": "我的冒险者",
+      "myImages": "我的图片",
+      "myCampaigns": "我的活动",
+      "favorites": "收藏夹",
+      "accountSettings": "账户设置",
+      "language": "语言",
+      "support": "支持我们",
+      "playNow": "立即播放",
+      "myCharacters": "我的角色",
+      "games": "游戏",
+      "communityGallery": "社区画廊",
+      "campaigns": "活动",
+      "playForFree": "免费玩",
+      "gallery": "画廊"
+    }
+  },
+  "footer": {
+    "rightsReserved": "DND AI © 2024 版权所有",
+    "designedBy": "  由 ♥ 设计",
+    "nexene": "尼克森",
+    "helpAndSupport": {
+      "title": "帮助与支持",
+      "news": "消息",
+      "aboutUs": "关于我们",
+      "contactUs": "联系我们",
+      "giveUsFeedback": "给我们反馈",
+      "reportABug": "报告错误"
+    },
+    "legal": {
+      "title": "合法的",
+      "imprint": "印记",
+      "termsAndConditions": "条款和条件",
+      "privacy": "隐私",
+      "cookies": "曲奇饼"
+    },
+    "socialMedia": {
+      "title": "社交媒体",
+      "discord": "不和谐",
+      "twitter": "叽叽喳喳",
+      "instagram": "Instagram",
+      "tiktok": "抖音"
+    }
+  },
+  "landingPage": {
+    "firstSection": {
+      "title": "通过无限的游戏玩法释放您的想象力！"
+    },
+    "secondSection": {
+      "title": "发现无限的创意可能性。"
+    },
+    "thirdSection": {
+      "step1": {
+        "number": "步骤1",
+        "title": "打造你自己的角色",
+        "description": "您可以通过从各种种族、职业、背景、起始装备等中进行选择，轻松创建自己的角色。"
+      },
+      "step2": {
+        "number": "步骤2",
+        "title": "设计你自己的活动",
+        "description": "释放您的创造力，轻松打造您自己的营销活动。"
+      },
+      "step3": {
+        "number": "步骤3",
+        "title": "体验史诗般的角色进程",
+        "description": "让自己沉浸在角色的成长旅程中。"
+      }
+    },
+    "fourthSection": {
+      "title": " 无限的可视化世界。",
+      "button": "更多图片"
+    },
+    "fifthSection": {
+      "title": "塑造你的命运并选择你的战役！",
+      "description": "所有活动"
+    }
+  },
+  "supportUs": {
+    "startYourEpicJourney": "开始你的史诗之旅！",
+    "aiPowered": "人工智能驱动的冒险",
+    "whereYourImagination": " 你的想象力统治着这个领域！",
+    "cardsSection": {
+      "monthly": "每月",
+      "semiannually": "每半年",
+      "annually": "每年",
+      "month": "月",
+      "mostPopular": "最受欢迎",
+      "subscribeNow": "立即订阅",
+      "title": "支持我们",
+      "description": "通过在 Patreon 上支持我们，帮助我们继续创建和改进我们的平台。",
+      "button": "支持我们",
+      "adventurer": {
+        "monthly": [
+          "超过50小时的游戏时间 ",
+          "30 张图片或自定义营销活动",
+          "每月可取消"
+        ],
+        "semiannually": [
+          "超过300小时的游戏时间 ",
+          "170 张图片或自定义营销活动",
+          "每半年可取消"
+        ],
+        "annually": [
+          "超过 600 小时的游戏时间 ",
+          "340 张图片或自定义营销活动",
+          "每年可取消"
+        ]
+      },
+      "champion": {
+        "monthly": [
+          "超过80小时的游戏时间 ",
+          "45 张图片或自定义营销活动",
+          "每月可取消"
+        ],
+        "semiannually": [
+          "超过 483 小时的游戏时间 ",
+          "270 张图片或自定义营销活动",
+          "每半年可取消"
+        ],
+        "annually": [
+          "超过 967 小时的游戏时间 ",
+          "540 张图片或自定义营销活动",
+          "每年可取消"
+        ]
+      },
+      "mythic": {
+        "monthly": [
+          "超过 176 小时的游戏时间 ",
+          "100 张图片或自定义营销活动",
+          "每月可取消"
+        ],
+        "semiannually": [
+          "超过 1060 小时的游戏时间 ",
+          "600 张图片或自定义营销活动",
+          "每半年可取消"
+        ],
+        "annually": [
+          "超过 2120 小时的游戏时间 ",
+          "1200 张图片或自定义营销活动",
+          "每年可取消"
+        ]
+      },
+      "legend": {
+        "monthly": [
+          "超过 350 小时的游戏时间 ",
+          "200 张图片或自定义营销活动",
+          "每月可取消"
+        ],
+        "semiannually": [
+          "超过 2133 小时的游戏时间 ",
+          "1200 张图片或自定义营销活动",
+          "每半年可取消"
+        ],
+        "annually": [
+          "超过 4000 小时的游戏时间 ",
+          "2400 张图片或自定义营销活动",
+          "每年可取消"
+        ]
+      }
+    },
+    "gemsSection": {
+      "heresHow": "这是我们的方法",
+      "gemsSystem": "宝石系统",
+      "works": "作品",
+      "legendary": {
+        "title": "传奇宝石",
+        "description": "是你的魔法画笔，非常适合生成令人惊叹的图像，如自定义人物肖像、生动的场景、凶猛的敌人和复杂的地下城地图。",
+        "benefits": [
+          "创建自定义营销活动",
+          "生成人物肖像",
+          "生成角色的动作图像",
+          "生成敌人的图像",
+          "生成地下城地图"
+        ]
+      },
+      "mythic": {
+        "title": "神话宝石",
+        "description": "是您的冒险门票，用于创建角色、玩游戏和讲述您的史诗故事。",
+        "benefits": [
+          "创建您自己的自定义角色",
+          "开始新游戏",
+          "在游戏中轮流进行一轮。",
+          "继续游戏"
+        ]
+      }
+    },
+    "creditSection": {
+      "our": "我们的",
+      "creditPackage": "信贷套餐",
+      "atAGlance": "一目了然",
+      "buyNow": "立即购买",
+      "smallYellow": "40 张图片或自定义营销活动",
+      "mediumYellow": "80 张图片或自定义营销活动",
+      "largeYellow": "260 张图片或自定义营销活动",
+      "smallBlue": "超过50小时的游戏时间",
+      "mediumBlue": "超过100小时的游戏时间",
+      "largeBlue": "超过 233 小时的游戏时间"
+    }
+  },
+  "aboutUs": {
+    "aboutUs": "关于我们",
+    "welcomeTo": "欢迎来到",
+    "p1": " 在 DNDAI，我们致力于改变您体验讲故事和冒险的方式！",
+    "p2": " 我们的旅程始于 2023 年 3 月，受到 OpenAI 的 GPT 等人工智能模型令人难以置信的潜力的启发。",
+    "p3": "  在这种令人兴奋的体验的推动下，我们开始构建更宏伟的东西——一个完全开发的平台，可以将这次冒险带给世界各地的朋友。",
+    "p4": " 经过一年半的不懈测试、调整和改造，我们非常高兴地推出 4.0 版本。",
+    "ourTeam": "我们的团队",
+    "development": "发展",
+    "design": "设计"
+  },
+  "contactUs": {
+    "contact": "接触",
+    "reasonForContact": "联系原因",
+    "supportRequest": "支持请求",
+    "feedbackType": "反馈",
+    "reportABug": "报告错误",
+    "bug": {
+      "title": "告诉我们有关该错误的更多信息",
+      "max5": "最多 5 个",
+      "send": "发送",
+      "describeBug": "描述该错误",
+      "dragAndDrop": "将文件拖放到此处或",
+      "uploadFile": "上传文件"
+    }
+  },
+  "support": {
+    "name": "姓名",
+    "email": "电子邮件",
+    "surname": "姓",
+    "message": "信息",
+    "bySelecting": "通过选择我同意 dndai",
+    "termsAndConditions": "条款和条件",
+    "youCanRead": "您可以在我们的网站中了解我们如何使用和保护您的数据",
+    "privacyPolicy": "隐私政策",
+    "send": "发送"
+  },
+  "feedback": {
+    "title": "您如何评价 DNDa？",
+    "doYouHave": "您有什么想法想分享吗？",
+    "yourThoughts": "你的想法",
+    "send": "发送"
+  },
+  "accountSettings": {
+    "accountSettings": "账户设置",
+    "payment": "支付",
+    "userSettings": {
+      "username": "用户名",
+      "usernameAlready": "用户名已存在",
+      "cancel": "取消",
+      "e-mail": "电子邮件",
+      "edit": "编辑",
+      "newPassword": "新密码",
+      "passwordsDoNotMatch": "密码不匹配",
+      "personalData": "个人资料",
+      "name": "姓名",
+      "email": "电子邮件",
+      "password": "密码",
+      "save": "节省",
+      "confirmPassword": "确认密码",
+      "charactersWarning": "至少 8 个字符",
+      "containsNumber": "包含一个数字",
+      "containsASpecialCharacter": "包含特殊字符",
+      "changePassword": " 定期更改密码以防止未经授权的访问。"
+    },
+    "activePayments": {
+      "activePayments": "主动付款",
+      "downloadInvoice": "下载发票",
+      "changeSubscription": "更改订阅",
+      "cancelSubscription": "取消订阅",
+      "debitInterval": "借记间隔",
+      "nextRenewal": "下次续订",
+      "lastInvoice": "最后一张发票",
+      "paymentMethod": "付款方式",
+      "upgrade": "升级",
+      "youHave": "你有",
+      "noActive": "没有活跃的",
+      "subscriptionsYet": "订阅",
+      "month": "月"
+    }
+  },
+  "auth": {
+    "signIn": {
+      "signIn": "登入",
+      "noAccount": " 还没有帐户？",
+      "createAccount": "创建一个帐户",
+      "showPassword": "显示密码图标",
+      "stayLoggedIn": "保持登录状态",
+      "signingIn": "正在登录...",
+      "or": "或者",
+      "email": "电子邮件",
+      "password": "密码",
+      "forgotPassword": "忘记密码？",
+      "signInWith": "登录方式",
+      "dontHaveAnAccount": "没有帐户？",
+      "signUp": "报名",
+      "rememberMe": "记住账号",
+      "continueWithGoogle": " 继续使用谷歌"
+    },
+    "signUp": {
+      "signUp": "报名",
+      "alreadyHaveAnAccount": "已经有帐户？",
+      "signIn": "登入",
+      "email": "电子邮件",
+      "or": "或者",
+      "next": "下一个",
+      "username": "用户名",
+      "emailOrUsername": "电子邮件或用户名",
+      "usernameAlready": "用户名已存在",
+      "name": "姓名",
+      "surname": "姓",
+      "password": "密码",
+      "charactersWarning": "至少 8 个字符",
+      "containsNumber": "包含一个数字",
+      "containsASpecialCharacter": "包含特殊字符",
+      "bySelecting": " 通过选择我同意 dndai",
+      "termsAndConditions": "条款和条件。",
+      "youCanRead": "您可以在我们的网站中了解我们如何使用和保护您的数据",
+      "privacyPolicy": "隐私政策。",
+      "loading": "加载中...",
+      "createAccount": "创建账户",
+      "continueWithGoogle": " 继续使用谷歌"
+    },
+    "passwordChanged": {
+      "title": "您已成功更改密码",
+      "signIn": "登入"
+    },
+    "checkMail": {
+      "title": "检查您的电子邮件",
+      "subtext": "我们已通过电子邮件向您发送了重置密码的链接。",
+      "resend": "重新发送链接",
+      "back": "返回报名"
+    },
+    "forgetPass": {
+      "title": "忘记密码",
+      "desc": "  输入您的电子邮件地址以重置您的密码。",
+      "email": "电子邮件",
+      "loading": "加载中...",
+      "resetPassword": "重置密码",
+      "noAccess": " 我无法访问我的电子邮件地址"
+    },
+    "newPass": {
+      "enterNewPass": "输入您的新密码",
+      "newPassword": "新密码",
+      "charactersWarning": "至少 8 个字符",
+      "containsNumber": "包含一个数字",
+      "containsASpecialCharacter": "包含特殊字符",
+      "confirmPassword": "确认密码",
+      "passwordsDoNotMatch": "密码不匹配",
+      "loading": "加载中...",
+      "resetPassword": "重置密码",
+      "backToSignUp": "返回报名"
+    }
+  },
+  "games": {
+    "loadingGame": "正在加载游戏...",
+    "games": "游戏",
+    "gamesInProcess": "游戏进行中",
+    "publicGames": "公共游戏",
+    "completedGames": "已完成的游戏",
+    "inProgress": "进行中",
+    "completed": "已完成",
+    "leftSection": {
+      "search": "搜索",
+      "newestToOldest": "从最新到最旧",
+      "oldestToNewest": "从最旧到最新",
+      "turnsPlayed": "轮次播放",
+      "sortBy": "排序方式",
+      "played": "玩过"
+    },
+    "rightSection": {
+      "currentSituation": "现状",
+      "readMore": "阅读更多",
+      "showLess": "显示较少",
+      "adventurer": "冒险家",
+      "level": "等级",
+      "played": "玩过",
+      "playTime": "分钟。",
+      "deleteGame": "删除游戏",
+      "continue": "继续",
+      "back": "后退"
+    },
+    "noGames": {
+      "startNewGame": "开始新游戏",
+      "startNow": "现在开始",
+      "youHavent": "你还没有",
+      "completed": "完全的",
+      "anyGamesYet": "还没有任何游戏。",
+      "startNewAdventure": "开始新的冒险",
+      "readyToPlay": "准备好开始你的了吗？",
+      "firstAdventure": "第一次冒险？",
+      "youAreMoments": " 您只需几分钟就可以释放无尽的创造力，准备好爆发出无限的可能性！"
+    }
+  },
+
+  "gallery": {
+    "newestToOldest": "从最新到最旧",
+    "oldestToNewest": "从最旧到最新",
+    "mostLiked": "最喜欢的",
+    "loadingImages": "加载图像...",
+    "gallery": "画廊",
+    "myImages": "我的图片",
+    "sortBy": "排序方式",
+    "page": "页",
+    "of": "的",
+    "back": "后退",
+    "nextPage": "下一页",
+    "downloadImage": "下载图片",
+    "close": "关闭"
+  },
+  "discoverCampaigns": {
+    "search": "搜索",
+    "sortBy": "排序方式",
+    "newestToOldest": "从最新到最旧",
+    "oldestToNewest": "从最旧到最新",
+    "mostLiked": "最喜欢的",
+    "mostPlayed": "最常玩的",
+    "mostStarred": "最多明星",
+    "discoverCampaigns": "发现活动",
+    "communityFavorties": "社区最爱",
+    "publicCampaigns": "公众活动",
+    "showMore": "显示更多"
+  },
+  "campaign": {
+    "publish": "发布",
+    "unpublish": "取消发布",
+    "delete": "删除",
+    "details": "细节",
+    "comments": "评论",
+    "time": "时间",
+    "setting": "环境",
+    "plot": "阴谋",
+    "hook": "钩",
+    "createdBy": "创建者：",
+    "created": "已创建",
+    "lastPlayed": "上次玩过",
+    "writeAComment": "写评论",
+    "send": "发送",
+    "loadingCampaign": "正在加载活动"
+  }
+}

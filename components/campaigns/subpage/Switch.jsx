@@ -4,10 +4,15 @@ import { cn } from "@/lib/utils";
 import Eye from "@/components/ui/Icons/Eye";
 import Comment from "@/components/ui/Icons/Comment";
 
-export default function Switch({ selectedTab, setSelectedTab, commentCount }) {
+export default function Switch({
+  selectedTab,
+  setSelectedTab,
+  commentCount,
+  dictionary,
+}) {
   return (
-    <div className="flex w-full z-[20]">
-      <div className="w-full md:w-fit overflow-x-scroll hide-scrollbar flex md:p-2 gap-2">
+    <div className='flex w-full z-[20]'>
+      <div className='w-full md:w-fit overflow-x-scroll hide-scrollbar flex md:p-2 gap-2'>
         {/* Details Tab */}
         <CustomButton
           withIcon
@@ -25,7 +30,7 @@ export default function Switch({ selectedTab, setSelectedTab, commentCount }) {
               selectedTab === "details" ? "fill-russianViolet" : "fill-gray2"
             )}
           />
-          Details
+          {dictionary.details}
         </CustomButton>
 
         {/* Comments Tab */}
@@ -39,16 +44,16 @@ export default function Switch({ selectedTab, setSelectedTab, commentCount }) {
           )}
           onClick={() => setSelectedTab("comments")}
         >
-          <div className="relative flex gap-1">
+          <div className='relative flex gap-1'>
             <Comment
               className={cn(
                 "h-5 w-5",
                 selectedTab === "comments" ? "fill-russianViolet" : "fill-gray2"
               )}
             />
-            Comments
+            {dictionary.comments}
             {commentCount > 0 && (
-              <span className="text-[9px] self-start -mt-1">
+              <span className='text-[9px] self-start -mt-1'>
                 ({commentCount})
               </span>
             )}

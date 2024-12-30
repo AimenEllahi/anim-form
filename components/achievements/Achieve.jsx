@@ -148,7 +148,7 @@ export default function Achieve({ achievements, userAchievements }) {
   };
 
   return (
-    <div className='w-full md:p-5 flex flex-col gap-8'>
+    <div className='px-5 md:px-12 w-full md:p-5 flex flex-col gap-8'>
       {achievements.map((category, catIndex) => (
         <div key={catIndex} className='flex flex-col gap-4'>
           <span className='running-text-mono text-gray2 uppercase flex items-center gap-2'>

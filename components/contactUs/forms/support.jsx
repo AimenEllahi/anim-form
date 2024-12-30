@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 import { sendContact } from "@/actions/email";
 import useCustomToast from "@/hooks/useCustomToast";
 
-export default function support() {
+export default function support({ dictionary }) {
   const router = useRouter();
   const { invokeToast } = useCustomToast();
   const [flag, setFlag] = useState(false);
@@ -67,24 +67,24 @@ export default function support() {
         <CustomInput
           value={fd.name}
           onChange={(e) => setFd({ ...fd, name: e })}
-          placeholder='Name'
+          placeholder={dictionary.name}
         />
         <CustomInput
           value={fd.surname}
           onChange={(e) => setFd({ ...fd, surname: e })}
-          placeholder='surname'
+          placeholder={dictionary.surname}
         />
       </div>
       <div className='w-full flex flex-col gap-4'>
         <CustomInput
           value={fd.email}
           onChange={(e) => setFd({ ...fd, email: e })}
-          placeholder='e-mail'
+          placeholder={dictionary.email}
         />
         <CustomTextArea
           value={fd.message}
           onChange={(e) => setFd({ ...fd, message: e })}
-          placeholder='Message'
+          placeholder={dictionary.message}
         />
         <div className='flex justify-center items-center gap-4'>
           <Checkbox
@@ -94,19 +94,19 @@ export default function support() {
             className='border border-irisPurpleLight h-[20px] w-[20px]'
           />
           <span className='running-text-small'>
-            By selecting I agree to the dndai{" "}
+            {dictionary.bySelecting}{" "}
             <span
               onClick={() => handleNavigation("/terms")}
               className='text-irisPurpleLight cursor-pointer'
             >
-              terms and conditions
+              {dictionary.termsAndConditions}
             </span>
-            . You can read how we use and protect your data in our{" "}
+            . {dictionary.youCanRead}{" "}
             <span
               onClick={() => handleNavigation("/privacy")}
               className='text-irisPurpleLight cursor-pointer'
             >
-              privacy policy
+              {dictionary.privacyPolicy}
             </span>
             .
           </span>
@@ -118,7 +118,7 @@ export default function support() {
           withIcon={true}
           onClick={handleSend}
         >
-          <span>Send</span>
+          <span>{dictionary.send}</span>
           <ArrowRight className='h-5 w-5 fill-russianViolet opacity-70' />
         </CustomButton>
       </div>

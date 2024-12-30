@@ -15,6 +15,7 @@ export default function index({
   setLimit,
   setQuery,
   sort,
+  dictionary,
 }) {
   const handleUpdateMostLikedCampaigns = (campaign) => {
     let _campaigns = mostLiked.filter((c) => c._id !== campaign._id);
@@ -22,8 +23,6 @@ export default function index({
     _campaigns = _.sortBy(_campaigns, ["createdAt"]);
     setCampaigns(_campaigns);
   };
-
-  console.log(popular);
 
   const handleUpdatePublicCampaigns = (campaign) => {
     // Filter out the campaign to be updated and add the new/updated campaign
@@ -65,17 +64,19 @@ export default function index({
   return (
     <div className=' py-[108px] md:py-[9rem] w-full h-full relative text-white  '>
       <span className='headline-3 !z-[20] px-5 md:px-12 hidden md:block'>
-        Discover Campaigns
+        {dictionary.discoverCampaigns}
       </span>
       <div className='flex flex-col h-full gap-16 w-full mt-5 md:mt-9'>
         <Row
-          text={"Community Favorites"}
+          text={dictionary.communityFavorties}
           campaigns={mostLiked}
+          dictionary={dictionary}
           handleUpdateCampaigns={handleUpdateMostLikedCampaigns}
           icon={<Star isfilled={"true"} className='h-5 w-5 fill-gray2' />}
         />
         <Row
-          text={"Public Campaigns"}
+          text={dictionary.publicCampaigns}
+          dictionary={dictionary}
           handleUpdateCampaigns={handleUpdatePublicCampaigns}
           campaigns={popular}
           sort={true}

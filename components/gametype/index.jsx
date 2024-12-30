@@ -10,7 +10,7 @@ import useUserStore from "@/utils/userStore";
 import useControlsStore from "@/utils/controlsStore";
 import GameTabbar from "../ui/Shared/TabBar/games";
 import NoGames from "@/components/gametype/noGames/index";
-export default function Index({ gameType, games, setGames }) {
+export default function Index({ gameType, games, setGames, dictionary }) {
   const {
     selectedTab,
     setSelectedTab,
@@ -74,17 +74,18 @@ export default function Index({ gameType, games, setGames }) {
       >
         <h1 className='  hidden md:flex justify-start text-white headline-3 z-[10]'>
           {gameType === "multiPlayer"
-            ? "Games"
+            ? dictionary.games
             : selectedTab === "inProgress"
-            ? "Games in Progress"
+            ? dictionary.gamesInProgress
             : selectedTab === "publicGames"
-            ? "Public Games"
-            : "Completed Games"}
+            ? dictionary.publicGames
+            : dictionary.completedGames}
         </h1>
 
         {/* Switch Buttons */}
         <div className={cn("", gameType === "multiPlayer" ? "mt-2" : "")}>
           <Switch
+            dictionary={dictionary}
             selectedTab={selectedTab}
             setSelectedTab={setSelectedTab}
             gameType={gameType} // Pass game type here
@@ -93,24 +94,28 @@ export default function Index({ gameType, games, setGames }) {
         <div className='hidden md:block opacity-0 pointer-events-none headline-3 '>
           {" "}
           {gameType === "multiPlayer"
-            ? "Games"
+            ? dictionary.games
             : selectedTab === "inProgress"
-            ? "Games in Progress"
+            ? dictionary.gamesInProgress
             : selectedTab === "publicGames"
-            ? "Public Games"
-            : "Completed Games"}
+            ? dictionary.publicGames
+            : dictionary.completedGames}
         </div>
       </div>
       <div className='md:px-12 h-full  md:overflow-hidden my-6'>
         {selectedTab === "inProgress" && inProgressGames.length <= 0 ? (
-          <NoGames removePadding={inProgressGames.length === 0} />
+          <NoGames
+            dictionary={dictionary.noGames}
+            removePadding={inProgressGames.length === 0}
+          />
         ) : selectedTab === "completed" && completedGames.length <= 0 ? (
-          <NoGames completedGames={true} />
+          <NoGames dictionary={dictionary.noGames} completedGames={true} />
         ) : (
           <div className='flex md:border text-white md:bg-white/[8%] rounded-[16px] border-white/10 h-full justify-end items-end   w-full md:overflow-hidden px-5 lg:px-0'>
             <div className='w-full md:w-1/2 h-full md:border-r border-white/[8%]'>
               {selectedTab === "inProgress" ? (
                 <LeftSection
+                  dictionary={dictionary.leftSection}
                   selectedGame={selectedGame}
                   setSelectedGame={setSelectedGame}
                   games={inProgressGames}
@@ -118,6 +123,7 @@ export default function Index({ gameType, games, setGames }) {
                 />
               ) : (
                 <LeftSection
+                  dictionary={dictionary.leftSection}
                   selectedGame={selectedCompletedGame}
                   setSelectedGame={setSelectedCompletedGame}
                   games={completedGames}
@@ -135,6 +141,7 @@ export default function Index({ gameType, games, setGames }) {
               )}
             >
               <RightSection
+                dictionary={dictionary.rightSection}
                 selectedGame={
                   selectedTab === "inProgress"
                     ? selectedGame

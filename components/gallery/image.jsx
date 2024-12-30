@@ -6,7 +6,7 @@ import Cancel from "@/components/ui/Icons/Cancel";
 import CustomIconbutton from "@/components/ui/custom-iconbutton";
 import Like from "../ui/Icons/Like";
 
-export default function Image({ setOpen, image, likes }) {
+export default function Image({ setOpen, image, likes, dictionary, isLiked }) {
   const downloadImage = () => {
     const link = document.createElement("a");
     link.target = "_blank";
@@ -46,16 +46,18 @@ export default function Image({ setOpen, image, likes }) {
         <div className='flex justify-start gap-4 '>
           <CustomButton onClick={downloadImage} withIcon variant={"subtle"}>
             <Download className='h-5 w-5 opacity-70 fill-white' />
-            download image
+            {dictionary.downloadImage}
           </CustomButton>
         </div>
         <div className={" flex justify-center items-center gap-2 "}>
-          <Like className='h-5 w-5 fill-white' />
+          <Like isLiked={isLiked} className='h-5 w-5 fill-white' />
           <span className='running-text-mono'>{likes}</span>
         </div>
         <CustomButton onClick={() => setOpen(false)} withIcon>
           <Cancel className='w-3 h-3 opacity-70 fill-white' />
-          <span className='running-text-mono text-white'>CLOSE</span>
+          <span className='running-text-mono text-white'>
+            {dictionary.close}
+          </span>
         </CustomButton>
       </div>
     </DialogContent>

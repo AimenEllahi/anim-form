@@ -11,7 +11,13 @@ export default function LeftSection({
   games,
   selectedGame,
   setSelectedGame,
+  dictionary,
 }) {
+  const SORTING_OPTIONS = {
+    "Newest to Oldest": dictionary.newestToOldest,
+    "Oldest To Newest": dictionary.oldestToNewest,
+    "Turns Played": dictionary.turnsPlayed,
+  };
   const { isMobile } = useDeviceDetect();
   const [query, setQuery] = useState("");
   const [sortBy, setSortBy] = useState("Newest to Oldest");
@@ -52,7 +58,7 @@ export default function LeftSection({
           triggerOnBlur={setIsSearchOpen}
           onClick={() => setIsSearchOpen(true)}
           setQuery={setQuery}
-          placeholder={isMobile ? "" : "Search"}
+          placeholder={isMobile ? "" : dictionary.search}
           className={cn(
             "md:w-full  search-input transition-all   duration-[1000ms] h-12 ease-in-out",
             isSearchOpen && "w-full"
@@ -64,15 +70,21 @@ export default function LeftSection({
         />
 
         <CustomDropdown
-          options={["Newest to Oldest", "Oldest To Newest", "Turns Played"]}
-          selectedOption={sortBy}
-          setSelectedOption={setSortBy}
+          options={Object.entries(SORTING_OPTIONS).map(([key, value]) => value)}
+          selectedOption={SORTING_OPTIONS[sortBy]}
+          setSelectedOption={(option) =>
+            setSortBy(
+              Object.keys(SORTING_OPTIONS).find(
+                (key) => SORTING_OPTIONS[key] === option
+              )
+            )
+          }
           className={cn(
             "w-full md:w-fit transition-all duration-[1000ms] ease-in-out",
             isSearchOpen &&
               "w-0 opacity-0 pointer-events-none md:w-fit md:pointer-events-auto md:opacity-100"
           )}
-          placeholder={"Sort By"}
+          placeholder={dictionary.sortBy}
         />
       </div>
       <div
@@ -100,6 +112,7 @@ export default function LeftSection({
           })
           .map((option, index) => (
             <OptionCard
+              dictionary={dictionary}
               key={index}
               imageSrc={option.campaign.worldMapUrl}
               characterName={option.character.name}

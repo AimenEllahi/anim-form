@@ -49,7 +49,7 @@ export default function Titles({ userPokals }) {
     }
   };
   return (
-    <div className='relative md:bg-white/[8%] md:border md:border-white/10 bg-transparent md:w-fit w-full rounded-[16px] md:p-5 p-0 grid md:grid-cols-3 xl:grid-cols-5 grid-cols-2 gap-4 md:gap-5'>
+    <div className=' relative md:bg-white/[8%] md:border md:border-white/10 bg-transparent md:w-fit w-full rounded-[16px] md:p-5 p-0 grid md:grid-cols-3 xl:grid-cols-5 grid-cols-2 gap-4 md:gap-5'>
       {LEVELS.map((level, index) => (
         <div
           onClick={() => {

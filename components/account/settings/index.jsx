@@ -7,13 +7,15 @@ import Payment from "@/components/account/settings/sections/payment";
 import { cn } from "@/lib/utils";
 import Card from "@/components/ui/Icons/Card";
 
-export default function Index() {
+export default function Index({ dictionary }) {
   const [active, setActive] = useState("account");
   return (
     <div className='h-full md:h-full min-h-screen text-white w-full flex flex-col pt-[108px] md:pt-[9rem] px-5 lg:px-12 pb-32 relative'>
       <div className='flex flex-col w-full gap-2.5'>
         <div className='hidden md:flex justify-between text-white z-[10] w-full md:w-auto'>
-          <span className='headline-3 z-[10] '>Account settings</span>
+          <span className='headline-3 z-[10] '>
+            {dictionary.accountSettings}
+          </span>
         </div>
 
         <div className=' my-4 w-full  z-[2] h-full flex flex-col md:flex-row gap-5'>
@@ -29,7 +31,7 @@ export default function Index() {
               )}
             >
               <User className='h-5 w-5 opacity-70 fill-white ' />
-              Account Settings
+              {dictionary.accountSettings}
             </CustomButton>
 
             <CustomButton
@@ -42,7 +44,7 @@ export default function Index() {
               )}
             >
               <Card className='h-5 w-5 opacity-70 fill-white ' />
-              PAYMENT
+              {dictionary.payment}
             </CustomButton>
           </div>
 
@@ -60,7 +62,7 @@ export default function Index() {
                   active === "account" && "fill-russianViolet opacity-100"
                 )}
               />
-              Account Settings
+              {dictionary.accountSettings}
             </CustomButton>
 
             <CustomButton
@@ -75,11 +77,15 @@ export default function Index() {
                   active === "payment" && "fill-russianViolet opacity-100"
                 )}
               />
-              PAYMENT
+              {dictionary.payment}
             </CustomButton>
           </div>
-          {active === "account" && <Section />}
-          {active === "payment" && <Payment />}
+          {active === "account" && (
+            <Section dictionary={dictionary.userSettings} />
+          )}
+          {active === "payment" && (
+            <Payment dictionary={dictionary.activePayments} />
+          )}
         </div>
       </div>
     </div>

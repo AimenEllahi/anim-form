@@ -7,7 +7,7 @@ import { validateEmail } from "@/lib/Helpers/auth";
 import { verifyEmailExists } from "@/actions/auth";
 import CustomValidationtext from "@/components/ui/custom-validationtext";
 import authStore from "@/utils/authStore";
-export default function Step1({ setStep, user, setUser }) {
+export default function Step1({ setStep, user, setUser, dictionary }) {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const { setEmail } = authStore();
@@ -15,7 +15,7 @@ export default function Step1({ setStep, user, setUser }) {
   const next = async () => {
     try {
       const response = await verifyEmailExists(user.email);
-    //  console.log(response);
+      //  console.log(response);
       if (response.exists) {
         setError("Email already exists");
       } else {
@@ -30,7 +30,7 @@ export default function Step1({ setStep, user, setUser }) {
     <div className='w-full flex flex-col gap-6 pt-[172px] md:pt-0'>
       <div className='flex flex-col gap-3'>
         <CustomInput
-          placeholder='E-MAIL'
+          placeholder={dictionary?.email}
           className={"w-full"}
           error={error}
           value={user?.email}
@@ -56,15 +56,25 @@ export default function Step1({ setStep, user, setUser }) {
         }
         onClick={next}
       >
-        NEXT <img src='/Icons/ArrowRight.svg' title='Arrow right icon' alt='Icon with a arrow pointing right' className='h-5 w-5' />
+        {dictionary.next}{" "}
+        <img
+          src='/Icons/ArrowRight.svg'
+          title='Arrow right icon'
+          alt='Icon with a arrow pointing right'
+          className='h-5 w-5'
+        />
       </CustomButton>
 
       <div className='flex items-center justify-center w-full running-text-mono uppercase'>
         <div className='border-t border-gray3 w-full'></div>
-        <div className='px-2 text-lg text-gray2'>OR</div>
+        <div className='px-2 text-lg text-gray2'>{dictionary.or}</div>
         <div className='border-t border-gray3 w-full'></div>
       </div>
-      <GoogleAuth isLoading={isLoading} setIsLoading={setIsLoading} />
+      <GoogleAuth
+        dictionary={dictionary.continueWithGoogle}
+        isLoading={isLoading}
+        setIsLoading={setIsLoading}
+      />
     </div>
   );
 }

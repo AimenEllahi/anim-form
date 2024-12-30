@@ -11,8 +11,8 @@ import Titles from "../ui/Icons/Titles";
 
 export default function Switch({ selectedTab, setSelectedTab }) {
   return (
-    <div className='flex w-full z-[20]'>
-      <div className=' w-full md:w-fit overflow-x-scroll hide-scrollbar flex md:p-2 gap-2 md:bg-white/[8%] md:rounded-[16px] md:border border-white/10'>
+    <div className='  md:px-12 flex w-full z-[20]'>
+      <div className=' px-5  w-full md:w-fit overflow-x-scroll hide-scrollbar flex md:p-2 gap-2 md:bg-white/[8%] md:rounded-[16px] md:border border-white/10'>
         {/* Emblems Tab */}
         <CustomButton
           withIcon

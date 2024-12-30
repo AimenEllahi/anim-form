@@ -10,7 +10,7 @@ import Login from "@/components/ui/Icons/Login";
 import Discover from "@/components/ui/Icons/Discover";
 import AddUser from "../ui/Icons/AddUser";
 import SignUp from "@/components/ui/Icons/SignUp";
-export default function GeneralMenu({ setOpen }) {
+export default function GeneralMenu({ setOpen, dictionary }) {
   const router = useRouter();
 
   const handleRedirect = (path) => {
@@ -21,7 +21,7 @@ export default function GeneralMenu({ setOpen }) {
     <DropdownMenuContent className='bg-transparent uppercase flex flex-col mt-4 p-2 !px-[9px]  w-[192px] border border-white/10 z-[21] bg-blur menu-shadow text-white running-text-mono rounded-[16px] !gap-y-2'>
       <CustomButton withIcon onClick={() => handleRedirect("/auth/sign-in")}>
         <Login className='h-5 w-5  opacity-70 fill-white' />
-        SIGN IN
+        {dictionary?.accountMenu.signIn}
       </CustomButton>
       <CustomButton
         variant={"subtle"}
@@ -29,7 +29,7 @@ export default function GeneralMenu({ setOpen }) {
         onClick={() => handleRedirect("/auth/sign-up")}
       >
         <SignUp className='h-5 w-5   fill-white' />
-        SIGN UP
+        {dictionary?.accountMenu.signUp}
       </CustomButton>
     </DropdownMenuContent>
   );

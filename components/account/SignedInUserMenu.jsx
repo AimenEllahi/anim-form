@@ -15,10 +15,11 @@ import Emblem from "../ui/Icons/Emblem";
 import { getUserAchievements } from "@/actions/achievement";
 import Globe from "../ui/Icons/Globe";
 import LanguagePopup from "./LanguagePopup";
+import useControlsStore from "@/utils/controlsStore";
 
-export default function SignedInUserMenu({ open }) {
+export default function SignedInUserMenu({ open, dictionary }) {
   const router = useRouter();
-  const [isLanguage, setIsLanguage] = useState(false); // State to toggle LanguagePopup
+  const { showLanguageDialogue, setShowLanguageDialogue } = useControlsStore(); // State to toggle LanguagePopup
   const { user, setUser, rank, title, updateTitle, updateRank } =
     useUserStore();
 
@@ -53,112 +54,112 @@ export default function SignedInUserMenu({ open }) {
 
   return (
     <>
-      {isLanguage && (
+      {setShowLanguageDialogue && (
         <LanguagePopup
-          open={isLanguage}
-          onClose={() => setIsLanguage(false)} // Close popup on action
+          open={setShowLanguageDialogue}
+          onClose={() => setShowLanguageDialogue(false)} // Close popup on action
         />
       )}
-      <DropdownMenuContent className="min-w-[250px] uppercase flex flex-col mt-4 bg-white/10 !px-0 py-2 border border-white/10 z-[21] bg-blur menu-shadow text-white running-text-mono rounded-[16px]">
-        <div className="gap-2 px-6 py-4 pb-3 flex flex-col">
-          <div className="flex flex-col gap-2">
-            <span className="headline-4">{user.username}</span>
+      <DropdownMenuContent className='min-w-[250px] uppercase flex flex-col mt-4 bg-white/10 !px-0 py-2 border border-white/10 z-[21] bg-blur menu-shadow text-white running-text-mono rounded-[16px]'>
+        <div className='gap-2 px-6 py-4 pb-3 flex flex-col'>
+          <div className='flex flex-col gap-2'>
+            <span className='headline-4'>{user.username}</span>
           </div>
-          <div className="flex gap-2 items-center">
+          <div className='flex gap-2 items-center'>
             <img
               src={`https://dzjg7lvewk7ln.cloudfront.net/rank-images/${rank}.webp`}
               alt={`${user.username}'s rank icon`}
-              className="size-6 rounded-full"
+              className='size-6 rounded-full'
             />
-            <span className="running-text-mono uppercase text-sandyOrange">
-              the {title}
+            <span className='running-text-mono uppercase text-sandyOrange'>
+              {dictionary?.accountMenu.the} {title}
             </span>
           </div>
         </div>
 
-        <div className="w-full px-2 gap-2 flex flex-col">
+        <div className='w-full px-2 gap-2 flex flex-col'>
           <CustomMenuItem onClick={() => handleRedirect("/emblems-titles")}>
-            <Emblem className="h-5 w-5 fill-white opacity-70" />
-            <span>Emblems & Titles</span>
+            <Emblem className='h-5 w-5 fill-white opacity-70' />
+            <span> {dictionary?.accountMenu.emblemsTitle}</span>
           </CustomMenuItem>
         </div>
 
-        <hr className="w-full border-white/5 my-2" />
-        <div className="w-full px-2 gap-2 flex flex-col">
+        <hr className='w-full border-white/5 my-2' />
+        <div className='w-full px-2 gap-2 flex flex-col'>
           <CustomMenuItem
             onClick={() => handleRedirect("/character/my-characters")}
           >
-            <Adventure className="h-5 w-5 fill-white opacity-70" />
-            <span>My Adventurers</span>
+            <Adventure className='h-5 w-5 fill-white opacity-70' />
+            <span> {dictionary?.accountMenu.myAdventurers}</span>
           </CustomMenuItem>
           <CustomMenuItem onClick={() => handleRedirect("/my-account/gallery")}>
             <img
-              src="/Icons/ImageLibrary.svg"
-              title="My Image Gallery"
+              src='/Icons/ImageLibrary.svg'
+              title='My Image Gallery'
               alt="User's private image gallery"
-              className="h-5 w-5 opacity-70"
+              className='h-5 w-5 opacity-70'
             />
-            <span>My Images</span>
+            <span> {dictionary?.accountMenu.myImages}</span>
           </CustomMenuItem>
 
           <CustomMenuItem
             onClick={() => handleRedirect("/campaign/my-campaigns")}
           >
             <img
-              src="/Icons/Campaign.svg"
-              title="Campaigns"
+              src='/Icons/Campaign.svg'
+              title='Campaigns'
               alt="User's campaigns"
-              className="h-5 w-5 opacity-70"
+              className='h-5 w-5 opacity-70'
             />
-            <span>My Campaigns</span>
+            <span> {dictionary?.accountMenu.myCampaigns}</span>
           </CustomMenuItem>
 
           <CustomMenuItem
             onClick={() => handleRedirect("/campaign/my-campaigns/favorites")}
           >
             <img
-              src="/Icons/StarFilled.svg"
-              title="Favorites"
-              alt="Favorite campaigns"
-              className="h-5 w-5 opacity-70"
+              src='/Icons/StarFilled.svg'
+              title='Favorites'
+              alt='Favorite campaigns'
+              className='h-5 w-5 opacity-70'
             />
-            <span>Favorites</span>
+            <span> {dictionary?.accountMenu.favorites}</span>
           </CustomMenuItem>
         </div>
-        <hr className="w-full border-white/5 my-2" />
-        <div className="w-full px-2 gap-2 flex flex-col">
+        <hr className='w-full border-white/5 my-2' />
+        <div className='w-full px-2 gap-2 flex flex-col'>
           <CustomMenuItem
             onClick={() => handleRedirect("/my-account/settings")}
           >
             <img
-              src="/Icons/Settings.svg"
-              title="Settings icon"
-              alt="Account settings"
-              className="h-5 w-5 opacity-70"
+              src='/Icons/Settings.svg'
+              title='Settings icon'
+              alt='Account settings'
+              className='h-5 w-5 opacity-70'
             />
-            <span>Account Settings</span>
+            <span> {dictionary?.accountMenu.accountSettings}</span>
           </CustomMenuItem>
 
-          <CustomMenuItem onClick={() => setIsLanguage(true)}>
-            <Globe className="h-5 w-5 fill-white opacity-70" />
+          <CustomMenuItem onClick={() => setShowLanguageDialogue(true)}>
+            <Globe className='h-5 w-5 fill-white opacity-70' />
             <span>Language</span>
           </CustomMenuItem>
 
           <CustomMenuItem onClick={() => handleRedirect("/pricing")}>
-            <Support className="h-5 w-5 fill-white opacity-70" />
-            <span>Support Us</span>
+            <Support className='h-5 w-5 fill-white opacity-70' />
+            <span> {dictionary?.accountMenu.support}</span>
           </CustomMenuItem>
         </div>
-        <hr className="w-full border-white/5 my-2" />
-        <div className="w-full px-2 gap-2 flex flex-col">
+        <hr className='w-full border-white/5 my-2' />
+        <div className='w-full px-2 gap-2 flex flex-col'>
           <CustomMenuItem onClick={handleLogout}>
             <img
-              src="/Icons/Logout.svg"
-              title="Logout"
-              alt="Logout button"
-              className="h-5 w-5 opacity-70"
+              src='/Icons/Logout.svg'
+              title='Logout'
+              alt='Logout button'
+              className='h-5 w-5 opacity-70'
             />
-            <span>Logout</span>
+            <span> {dictionary?.accountMenu.logout}</span>
           </CustomMenuItem>
         </div>
       </DropdownMenuContent>

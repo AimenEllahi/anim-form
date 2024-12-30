@@ -21,7 +21,7 @@ import useCustomToast from "@/hooks/useCustomToast";
 import DeleteCampaign from "@/components/ui/Shared/Dialogue/DeleteCampaign";
 import Loader from "@/components/ui/Loader";
 
-const TopButtons = ({ campaign, setCampaign, className }) => {
+const TopButtons = ({ campaign, setCampaign, className, dictionary }) => {
   const { user } = useUserStore();
   const isCreator = campaign.userId === user?._id;
   const { invokeToast } = useCustomToast();
@@ -268,7 +268,9 @@ const TopButtons = ({ campaign, setCampaign, className }) => {
             className={cn(!isCreator && "hidden")}
           >
             <World className='h-5 w-5 fill-white' />{" "}
-            <span>{campaign.isPublished ? "Unpublish" : "Publish"}</span>
+            <span>
+              {campaign.isPublished ? dictionary.unpublish : dictionary.publish}
+            </span>
           </Button>
           <DeleteCampaign action={handleDelete}>
             <Button
@@ -279,7 +281,8 @@ const TopButtons = ({ campaign, setCampaign, className }) => {
                 !isCreator && "hidden"
               )}
             >
-              <Delete className='h-5 w-5 fill-errorRed' /> <span>Delete</span>
+              <Delete className='h-5 w-5 fill-errorRed' />{" "}
+              <span>{dictionary.delete}</span>
             </Button>
           </DeleteCampaign>
         </div>

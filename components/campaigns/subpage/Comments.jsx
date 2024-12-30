@@ -129,7 +129,12 @@ const Comment = ({ comment, handleUpdateComments, handleRemoveComment }) => {
   );
 };
 
-export default function Comments({ campaign, comments, setComments }) {
+export default function Comments({
+  campaign,
+  comments,
+  setComments,
+  dictionary,
+}) {
   const [comment, setComment] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const { user } = useUserStore();
@@ -191,7 +196,7 @@ export default function Comments({ campaign, comments, setComments }) {
           placeholder='Write a comment....'
           icon={<Send fill={"white"} className='h-4 w-4  opacity-70' />}
           isComment={true}
-          text={"Send"}
+          text={dictionary.send}
           isSubtle={true}
         />
       </div>

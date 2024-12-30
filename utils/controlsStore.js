@@ -1,7 +1,8 @@
- import { create } from "zustand";
+import { create } from "zustand";
 
 const useControlsStore = create((set, get) => ({
   showMenu: false,
+  showLanguageDialogue: false,
   showCreditsDialogue: false,
   selectedTab: "inProgress",
   selectedGame: null,
@@ -12,7 +13,8 @@ const useControlsStore = create((set, get) => ({
     set({ selectedCompletedGame }),
   setSelectedTab: (selectedTab) => set({ selectedTab }),
   setGamesLength: (gamesLength) => set({ gamesLength }),
-
+  setShowLanguageDialogue: (showLanguageDialogue) =>
+    set({ showLanguageDialogue }),
   setShowMenu: (showMenu) => set({ showMenu }),
   setShowCreditsDialogue: (showCreditsDialogue) => set({ showCreditsDialogue }),
 }));

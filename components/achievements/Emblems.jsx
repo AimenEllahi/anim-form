@@ -5,8 +5,9 @@ import Lock from "@/components/ui/Icons/Lock";
 import useUserStore from "@/utils/userStore";
 import { updateRank } from "@/actions/achievement";
 import useCustomToast from "@/hooks/useCustomToast";
-import Check from "../ui/Icons/Check";
 import CheckV2 from "../ui/Icons/CheckV2";
+
+
 export default function Emblems({ userPokals }) {
   const [selectedIndex, setSelectedIndex] = useState(null);
   const isUnlocked = (index) => userPokals >= LEVELS[index].pokalsRequired;
@@ -17,7 +18,7 @@ export default function Emblems({ userPokals }) {
     try {
       setIsLoading(true);
       const { rank } = await updateRank(user.token, _rank);
-    
+
       updateRankInStore(rank);
       invokeToast("Emblem updated successfully", "success");
     } catch (error) {
@@ -40,7 +41,7 @@ export default function Emblems({ userPokals }) {
             `w-auto relative h-auto border border-transparent hover:border-irisPurpleLight bg-white/10 rounded-[10px] overflow-hidden flex items-center justify-center ease-animate col-span-1 sm:col-span-3 md:col-span-2 xl:col-span-1`,
 
             rank === _.rank &&
-              "border !border-irisPurpleLight bg-irisPurpleLight/[16%] shadow-[0_0_40px_0_rgba(143,145,255,0.4)]",
+              "border !border-irisPurpleLight bg-irisPurpleLight/[16%] shadow-[0_0_40px_0_rgba(143,145,255,0.2)]",
             isLoading && "pointer-events-none opacity-50"
           )}
         >

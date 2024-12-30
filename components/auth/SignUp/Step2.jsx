@@ -14,7 +14,7 @@ import { useRouter } from "next/navigation";
 import { useDebounce } from "@/hooks/useDebounce";
 import { useSearchParams } from "next/navigation";
 
-export default function Step2({ setStep, user, setUser, reset }) {
+export default function Step2({ setStep, user, setUser, reset, dictionary }) {
   const router = useRouter();
   const [isPasswordFocused, setIsPasswordFocused] = useState(false);
   const { invokeToast } = useCustomToast();
@@ -89,7 +89,7 @@ export default function Step2({ setStep, user, setUser, reset }) {
     <div className='w-full  h-full md:h-auto flex flex-col gap-6 pt-[94px] md:pt-0'>
       <div>
         <CustomInput
-          placeholder='USERNAME'
+          placeholder={dictionary.username}
           value={user.username}
           onChange={(value) => onChange("username", value)}
           error={usernameExists}
@@ -110,44 +110,59 @@ export default function Step2({ setStep, user, setUser, reset }) {
         {usernameExists && user.username.length > 2 && (
           <CustomValidationtext
             validator={!usernameExists}
-            text={"Username is already taken"}
+            text={dictionary.usernameAlready}
           />
         )}
       </div>
       <CustomInput
-        placeholder='E-MAIL'
+        placeholder={dictionary.email}
         value={user.email}
         disabled
         onChange={(value) => {}}
         icon={
           user.email && (
-            <img src='/Icons/Success.svg' title='Sucess Icon' alt='Success' className=' h-5 w-5' />
+            <img
+              src='/Icons/Success.svg'
+              title='Sucess Icon'
+              alt='Success'
+              className=' h-5 w-5'
+            />
           )
         }
       />
       <CustomInput
-        placeholder='NAME'
+        placeholder={dictionary.name}
         value={user.name}
         onChange={(value) => onChange("name", value)}
         icon={
           user.name.length > 2 && (
-            <img src='/Icons/Success.svg' title='Sucess Icon' alt='Success' className=' h-5 w-5' />
+            <img
+              src='/Icons/Success.svg'
+              title='Sucess Icon'
+              alt='Success'
+              className=' h-5 w-5'
+            />
           )
         }
       />
       <CustomInput
-        placeholder='SURNAME'
+        placeholder={dictionary.surname}
         value={user.surname}
         onChange={(value) => onChange("surname", value)}
         icon={
           user.surname.length > 2 && (
-            <img src='/Icons/Success.svg' title='Sucess Icon' alt='Success' className=' h-5 w-5' />
+            <img
+              src='/Icons/Success.svg'
+              title='Sucess Icon'
+              alt='Success'
+              className=' h-5 w-5'
+            />
           )
         }
       />
       <div className='flex flex-col gap-3'>
         <CustomInput
-          placeholder='PASSWORD'
+          placeholder={dictionary.password}
           value={user.password}
           type={showPassword ? "text" : "password"}
           onChange={(value) => onChange("password", value)}
@@ -186,17 +201,17 @@ export default function Step2({ setStep, user, setUser, reset }) {
           <div>
             <CustomValidationtext
               validator={passwordValidation.hasMinLength}
-              text={"At least 8 characters"}
+              text={dictionary.charactersWarning}
               isPassword
             />
             <CustomValidationtext
               validator={passwordValidation.hasNumber}
-              text={"Contains a number"}
+              text={dictionary.containsNumber}
               isPassword
             />
             <CustomValidationtext
               validator={passwordValidation.hasSpecialChar}
-              text={"Contains a special character"}
+              text={dictionary.containsASpecialCharacter}
               isPassword
             />
           </div>
@@ -209,10 +224,14 @@ export default function Step2({ setStep, user, setUser, reset }) {
           className='border border-irisPurpleLight h-[20px] w-[20px]'
         />
         <span className='text-white running-text-small  text-left'>
-          By selecting I agree to the dndai{" "}
-          <span className='text-irisPurpleLight'>terms and conditions. </span>
-          You can read how we use and protect your data in our{" "}
-          <span className='text-irisPurpleLight'>privacy policy.</span>
+          {dictionary.bySelecting}{" "}
+          <span className='text-irisPurpleLight'>
+            {dictionary.termsAndConditions}{" "}
+          </span>
+          {dictionary.youCanRead}{" "}
+          <span className='text-irisPurpleLight'>
+            {dictionary.privacyPolicy}.
+          </span>
         </span>
       </div>
       <div className='w-full'>
@@ -223,11 +242,16 @@ export default function Step2({ setStep, user, setUser, reset }) {
           className={"w-full font-bold"}
         >
           {isLoading ? (
-            "LOADING..."
+            dictionary.loading
           ) : (
             <>
-              CREATE ACCOUNT{" "}
-              <img src='/Icons/ArrowRight.svg' title='Arrow Icon' alt='Arrow pointing right' className='h-5 w-5' />
+              {dictionary.createAccount}{" "}
+              <img
+                src='/Icons/ArrowRight.svg'
+                title='Arrow Icon'
+                alt='Arrow pointing right'
+                className='h-5 w-5'
+              />
             </>
           )}
         </CustomButton>

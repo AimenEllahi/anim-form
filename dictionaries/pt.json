@@ -1,0 +1,458 @@
+{
+  "navbar": {
+    "campaigns": "Campanhas",
+    "community": "Galeria da comunidade",
+    "games": "Jogos",
+    "exitGame": "Sair do jogo",
+    "playCampaign": "Jogar campanha",
+    "playNow": "Jogue agora",
+    "startNewGame": "Iniciar novo jogo",
+    "playForFree": "Jogue de graça",
+    "characters": "Personagens",
+    "createCampaign": "Criar campanha",
+    "createCharacter": "Criar personagem",
+    "search": "Procurar",
+    "accountMenu": {
+      "signIn": "Entrar",
+      "signUp": "Inscrever-se",
+      "logout": "Sair",
+      "the": "O",
+      "emblemsTitle": "Emblemas e Título",
+      "myAdventurers": "Meus aventureiros",
+      "myImages": "Minhas imagens",
+      "myCampaigns": "Minhas campanhas",
+      "favorites": "Favoritos",
+      "accountSettings": "Configurações de Conta",
+      "language": "Linguagem",
+      "support": "Apoie-nos",
+      "playNow": "Jogue agora",
+      "myCharacters": "Meus personagens",
+      "games": "Jogos",
+      "communityGallery": "Galeria da comunidade",
+      "campaigns": "Campanhas",
+      "playForFree": "Jogue de graça",
+      "gallery": "Galeria"
+    }
+  },
+  "footer": {
+    "rightsReserved": "DND AI © 2024 TODOS OS DIREITOS RESERVADOS",
+    "designedBy": "  PROJETADO COM ♥ POR",
+    "nexene": "NEXENO",
+    "helpAndSupport": {
+      "title": "AJUDA E SUPORTE",
+      "news": "Notícias",
+      "aboutUs": "Sobre nós",
+      "contactUs": "Contate-nos",
+      "giveUsFeedback": "Dê-nos comentários",
+      "reportABug": "Reportar um bug"
+    },
+    "legal": {
+      "title": "JURÍDICO",
+      "imprint": "imprimir",
+      "termsAndConditions": "Termos e Condições",
+      "privacy": "Privacidade",
+      "cookies": "Biscoitos"
+    },
+    "socialMedia": {
+      "title": "MÍDIA SOCIAL",
+      "discord": "Discórdia",
+      "twitter": "Twitter",
+      "instagram": "Instagram",
+      "tiktok": "TikTok"
+    }
+  },
+  "landingPage": {
+    "firstSection": {
+      "title": "LIBERE SUA IMAGINAÇÃO COM JOGABILIDADE ILIMITADA!"
+    },
+    "secondSection": {
+      "title": "DESCUBRA POSSIBILIDADES CRIATIVAS INFINITAS."
+    },
+    "thirdSection": {
+      "step1": {
+        "number": "PASSO 1",
+        "title": "CRIE SEU PRÓPRIO PERSONAGEM",
+        "description": "Você pode criar facilmente seu próprio personagem selecionando entre uma ampla variedade de raças, classes, origens, equipamentos iniciais e muito mais. "
+      },
+      "step2": {
+        "number": "PASSO 2",
+        "title": "PROJETE SUAS PRÓPRIAS CAMPANHAS",
+        "description": "Liberte a sua criatividade e crie facilmente a sua própria campanha. "
+      },
+      "step3": {
+        "number": "PASSO 3",
+        "title": "EXPERIMENTE A PROGRESSÃO DE PERSONAGEM ÉPICA",
+        "description": "Mergulhe na jornada de crescimento do seu personagem. "
+      }
+    },
+    "fourthSection": {
+      "title": " UM MUNDO INFINITO DE VISUALIZAÇÃO.",
+      "button": "MAIS IMAGENS"
+    },
+    "fifthSection": {
+      "title": "Forje seu destino e escolha sua campanha!",
+      "description": "Todas as campanhas"
+    }
+  },
+  "supportUs": {
+    "startYourEpicJourney": "Comece sua jornada épica! ",
+    "aiPowered": "Aventuras alimentadas por IA",
+    "whereYourImagination": " onde sua imaginação governa o reino!",
+    "cardsSection": {
+      "monthly": "Mensal",
+      "semiannually": "Semestral",
+      "annually": "Anual",
+      "month": "Mês",
+      "mostPopular": "Mais Popular",
+      "subscribeNow": "Inscrever-se agora",
+      "title": "APOIE-NOS",
+      "description": "Ajude-nos a continuar a criar e melhorar nossa plataforma apoiando-nos no Patreon. ",
+      "button": "APOIE-NOS",
+      "adventurer": {
+        "monthly": [
+          "Mais de 50 horas de jogo ",
+          "30 imagens ou campanhas personalizadas",
+          "Mensalmente cancelável"
+        ],
+        "semiannually": [
+          "Mais de 300 horas de reprodução ",
+          "170 imagens ou campanhas personalizadas",
+          "Semestralmente cancelável"
+        ],
+        "annually": [
+          "Mais de 600 horas de reprodução ",
+          "340 imagens ou campanhas personalizadas",
+          "Anualmente cancelável"
+        ]
+      },
+      "champion": {
+        "monthly": [
+          "Mais de 80 horas de jogo ",
+          "45 imagens ou campanhas personalizadas",
+          "Mensalmente cancelável"
+        ],
+        "semiannually": [
+          "Mais de 483 horas de jogo ",
+          "270 imagens ou campanhas personalizadas",
+          "Semestralmente cancelável"
+        ],
+        "annually": [
+          "Mais de 967 horas de jogo ",
+          "540 imagens ou campanhas personalizadas",
+          "Anualmente cancelável"
+        ]
+      },
+      "mythic": {
+        "monthly": [
+          "Mais de 176 horas de jogo ",
+          "100 imagens ou campanhas personalizadas",
+          "Mensalmente cancelável"
+        ],
+        "semiannually": [
+          "Mais de 1.060 horas de reprodução ",
+          "600 imagens ou campanhas personalizadas",
+          "Semestralmente cancelável"
+        ],
+        "annually": [
+          "Mais de 2.120 horas de reprodução ",
+          "1.200 imagens ou campanhas personalizadas",
+          "Anualmente cancelável"
+        ]
+      },
+      "legend": {
+        "monthly": [
+          "Mais de 350 horas de reprodução ",
+          "200 imagens ou campanhas personalizadas",
+          "Mensalmente cancelável"
+        ],
+        "semiannually": [
+          "Mais de 2.133 horas de jogo ",
+          "1.200 imagens ou campanhas personalizadas",
+          "Semestralmente cancelável"
+        ],
+        "annually": [
+          "Mais de 4.000 horas de reprodução ",
+          "2.400 imagens ou campanhas personalizadas",
+          "Anualmente cancelável"
+        ]
+      }
+    },
+    "gemsSection": {
+      "heresHow": "Veja como nosso",
+      "gemsSystem": "sistema de gemas",
+      "works": "funciona",
+      "legendary": {
+        "title": "Gemas lendárias",
+        "description": "são seus pincéis mágicos, perfeitos para gerar imagens impressionantes, como retratos personalizados de personagens, cenas vívidas, inimigos ferozes e mapas de masmorras complexos. ",
+        "benefits": [
+          "Crie uma campanha personalizada",
+          "Gere um retrato de personagem",
+          "Gere uma imagem do seu personagem em ação",
+          "Gere uma imagem do inimigo",
+          "Gere um mapa de masmorra"
+        ]
+      },
+      "mythic": {
+        "title": "Gemas míticas",
+        "description": "são seus ingressos de aventura, usados ​​para criar personagens, jogar e narrar suas histórias épicas. ",
+        "benefits": [
+          "Criando seu próprio personagem personalizado",
+          "Iniciando um novo jogo",
+          "Dando uma volta no jogo.",
+          "Continuando um jogo"
+        ]
+      }
+    },
+    "creditSection": {
+      "our": "Nosso",
+      "creditPackage": "pacotes de crédito",
+      "atAGlance": "de relance",
+      "buyNow": "Comprar agora",
+      "smallYellow": "40 imagens ou campanhas personalizadas",
+      "mediumYellow": "80 imagens ou campanhas personalizadas",
+      "largeYellow": "260 imagens ou campanhas personalizadas",
+      "smallBlue": "Mais de 50 horas de jogo",
+      "mediumBlue": "Mais de 100 horas de reprodução",
+      "largeBlue": "Mais de 233 horas de jogo"
+    }
+  },
+  "aboutUs": {
+    "aboutUs": "Sobre nós",
+    "welcomeTo": "Bem-vindo ao",
+    "p1": " Aqui no DNDAI, nosso objetivo é transformar a maneira como você vivencia a narrativa e a aventura! ",
+    "p2": " Nossa jornada começou em março de 2023, inspirada no incrível potencial de modelos de IA como o GPT da OpenAI. ",
+    "p3": "  Impulsionados por essa experiência eletrizante, decidimos construir algo maior: uma plataforma totalmente desenvolvida que pudesse levar essa aventura a amigos em todo o mundo. ",
+    "p4": " Depois de um ano e meio de testes, ajustes e transformações incansáveis, estamos muito entusiasmados em revelar a versão 4.0. ",
+    "ourTeam": "Nossa equipe",
+    "development": "Desenvolvimento",
+    "design": "Projeto"
+  },
+  "contactUs": {
+    "contact": "Contato",
+    "reasonForContact": "Motivo do contato",
+    "supportRequest": "Solicitação de suporte",
+    "feedbackType": "Opinião",
+    "reportABug": "Reportar um bug",
+    "bug": {
+      "title": "Conte-nos mais informações sobre o bug",
+      "max5": "Máximo 5",
+      "send": "Enviar",
+      "describeBug": "Descreva o erro",
+      "dragAndDrop": "Arraste e solte seus arquivos aqui ou",
+      "uploadFile": "Carregar arquivo"
+    },
+    "support": {
+      "name": "Nome",
+      "email": "E-mail",
+      "surname": "Sobrenome",
+      "message": "Mensagem",
+      "bySelecting": "Ao selecionar concordo com o dndai",
+      "termsAndConditions": "Termos e Condições",
+      "youCanRead": "Você pode ler como usamos e protegemos seus dados em nosso",
+      "privacyPolicy": "política de Privacidade",
+      "send": "Enviar"
+    },
+    "feedback": {
+      "title": "Como você avaliaria o DNDai?",
+      "doYouHave": "Você tem alguma ideia que gostaria de compartilhar?",
+      "yourThoughts": "Seus pensamentos",
+      "send": "Enviar"
+    }
+  },
+  "accountSettings": {
+    "accountSettings": "Configurações de Conta",
+    "payment": "Pagamento",
+    "userSettings": {
+      "username": "NOME DE USUÁRIO",
+      "usernameAlready": "O nome de usuário já existe",
+      "cancel": "Cancelar",
+      "e-mail": "E-MAIL",
+      "edit": "Editar",
+      "newPassword": "NOVA SENHA",
+      "passwordsDoNotMatch": "As senhas não coincidem",
+      "personalData": "Dados Pessoais",
+      "name": "Nome",
+      "email": "E-mail",
+      "password": "Senha",
+      "save": "Salvar",
+      "charactersWarning": "Pelo menos 8 caracteres",
+      "containsNumber": "Contém um número",
+      "confirmPassword": "CONFIRMAR SENHA",
+      "containsASpecialCharacter": "Contém um caractere especial",
+      "changePassword": " Altere sua senha regularmente para evitar acesso não autorizado."
+    },
+    "activePayments": {
+      "activePayments": "Pagamentos Ativos",
+      "downloadInvoice": "Baixar fatura",
+      "changeSubscription": "Alterar assinatura",
+      "cancelSubscription": "Cancelar assinatura",
+      "debitInterval": "Intervalo de débito",
+      "nextRenewal": "Próxima renovação",
+      "lastInvoice": "Última fatura",
+      "paymentMethod": "Método de pagamento",
+      "upgrade": "Atualizar",
+      "youHave": "Você tem",
+      "noActive": "Nenhuma ativa",
+      "subscriptionsYet": "assinatura ainda",
+      "month": "Mês"
+    }
+  },
+  "auth": {
+    "signIn": {
+      "signIn": "Entrar",
+      "noAccount": " Ainda não tem conta?",
+      "createAccount": "Crie uma conta",
+      "showPassword": "Mostrar ícone de senha",
+      "stayLoggedIn": "Permaneça conectado",
+      "signingIn": "Fazendo login...",
+      "or": "OU",
+      "emailOrUsername": "E-MAIL OU NOME DE USUÁRIO",
+      "email": "E-mail",
+      "password": "Senha",
+      "forgotPassword": "Esqueceu sua senha?",
+      "signInWith": "Faça login com",
+      "dontHaveAnAccount": "Não tem uma conta?",
+      "signUp": "Inscrever-se",
+      "rememberMe": "Lembre de mim",
+      "continueWithGoogle": " CONTINUAR COM O GOOGLE"
+    },
+    "signUp": {
+      "signUp": "Inscrever-se",
+      "alreadyHaveAnAccount": "Já tem uma conta?",
+      "signIn": "Entrar",
+      "email": "E-mail",
+      "or": "OU",
+      "next": "PRÓXIMO",
+      "username": "NOME DE USUÁRIO",
+      "usernameAlready": "O nome de usuário já existe",
+      "name": "NOME",
+      "surname": "SOBRENOME",
+      "password": "SENHA",
+      "charactersWarning": "Pelo menos 8 caracteres",
+      "containsNumber": "Contém um número",
+      "containsASpecialCharacter": "Contém um caractere especial",
+      "bySelecting": " Ao selecionar concordo com o dndai",
+      "termsAndConditions": "termos e Condições.",
+      "youCanRead": "Você pode ler como usamos e protegemos seus dados em nosso",
+      "privacyPolicy": "política de Privacidade.",
+      "loading": "CARREGANDO...",
+      "createAccount": "CRIAR UMA CONTA",
+      "continueWithGoogle": " CONTINUAR COM O GOOGLE"
+    },
+    "passwordChanged": {
+      "title": "Você alterou sua senha com sucesso",
+      "signIn": "Entrar"
+    },
+    "checkMail": {
+      "title": "Verifique seus e-mails",
+      "subtext": "Enviamos a você um link para redefinir sua senha por e-mail. ",
+      "resend": "REENVIAR LINK",
+      "back": "Voltar para se inscrever"
+    },
+    "forgetPass": {
+      "title": "Esqueceu sua senha",
+      "desc": "  Digite seu endereço de e-mail para redefinir sua senha. ",
+      "email": "E-MAIL",
+      "loading": "CARREGANDO...",
+      "resetPassword": "REINICIAR SENHA",
+      "noAccess": " Não tenho acesso ao meu endereço de e-mail"
+    },
+    "newPass": {
+      "enterNewPass": "Digite sua nova senha",
+      "newPassword": "NOVA SENHA",
+      "charactersWarning": "Pelo menos 8 caracteres",
+      "containsNumber": "Contém um número",
+      "containsASpecialCharacter": "Contém um caractere especial",
+      "confirmPassword": "CONFIRME SUA SENHA",
+      "passwordsDoNotMatch": "As senhas não coincidem",
+      "loading": "CARREGANDO...",
+      "resetPassword": "REINICIAR SENHA",
+      "backToSignUp": "Voltar para se inscrever"
+    }
+  },
+  "games": {
+    "loadingGame": "Carregando jogos...",
+    "games": "Jogos",
+    "gamesInProcess": "Jogos em andamento",
+    "publicGames": "Jogos Públicos",
+    "completedGames": "Jogos Concluídos",
+    "inProgress": "Em andamento",
+    "completed": "Concluído",
+    "leftSection": {
+      "search": "Procurar",
+      "newestToOldest": "Mais novo para mais antigo",
+      "oldestToNewest": "Do mais antigo para o mais recente",
+      "turnsPlayed": "Turnos Jogados",
+      "sortBy": "Ordenar por",
+      "played": "Jogado"
+    },
+    "rightSection": {
+      "currentSituation": "Situação Atual",
+      "readMore": "Leia mais",
+      "showLess": "Mostrar menos",
+      "adventurer": "Aventureiro",
+      "level": "Nível",
+      "played": "Jogado",
+      "playTime": "min. ",
+      "deleteGame": "Excluir jogo",
+      "continue": "Continuar",
+      "back": "Voltar"
+    },
+    "noGames": {
+      "startNewGame": "Iniciar novo jogo",
+      "startNow": "Começar agora",
+      "youHavent": "Você não",
+      "completed": "concluído",
+      "anyGamesYet": "nenhum jogo ainda.",
+      "startNewAdventure": "Comece uma nova aventura",
+      "readyToPlay": "Pronto para começar o seu?",
+      "firstAdventure": "primeira aventura?",
+      "youAreMoments": " Você está a poucos minutos de desbloquear o poder criativo sem fim, pronto para explodir em infinitas possibilidades!"
+    }
+  },
+  "gallery": {
+    "newestToOldest": "Mais novo para mais antigo",
+    "oldestToNewest": "Do mais antigo para o mais recente",
+    "mostLiked": "mais curtidos",
+    "loadingImages": "Carregando imagens...",
+    "gallery": "Galeria",
+    "myImages": "Minhas imagens",
+    "sortBy": "Ordenar por",
+    "page": "Página",
+    "of": "de",
+    "back": "Voltar",
+    "nextPage": "Próxima página",
+    "downloadImage": "Baixar imagem",
+    "close": "fechar"
+  },
+  "discoverCampaigns": {
+    "search": "Procurar",
+    "sortBy": "Ordenar por",
+    "newestToOldest": "Mais novo para mais antigo",
+    "oldestToNewest": "Do mais antigo para o mais recente",
+    "mostLiked": "Mais curtidos",
+    "mostPlayed": "Mais jogados",
+    "mostStarred": "Mais estrelado",
+    "discoverCampaigns": "Descubra campanhas",
+    "communityFavorties": "Favoritos da comunidade",
+    "publicCampaigns": "Campanhas Públicas",
+    "showMore": "Mostrar mais"
+  },
+  "campaign": {
+    "publish": "Publicar",
+    "unpublish": "Cancelar publicação",
+    "delete": "Excluir",
+    "details": "Detalhes",
+    "comments": "Comentários",
+    "time": "Tempo",
+    "setting": "Contexto",
+    "plot": "Trama",
+    "hook": "Gancho",
+    "createdBy": "Criado por",
+    "created": "Criado",
+    "lastPlayed": "Jogado pela última vez",
+    "writeAComment": "Escreva um comentário",
+    "send": "Enviar",
+    "loadingCampaign": "Carregando campanha"
+  }
+}

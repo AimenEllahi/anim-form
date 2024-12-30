@@ -6,7 +6,7 @@ import GameTabbar from "@/components/ui/Shared/TabBar/games";
 import { cn } from "@/lib/utils";
 import { twMerge } from "tailwind-merge";
 
-export default function index({ completedGames, removePadding }) {
+export default function index({ completedGames, removePadding, dictionary }) {
   const router = useRouter();
   const handleRedirect = () => {
     router.push("/discover");
@@ -30,22 +30,24 @@ export default function index({ completedGames, removePadding }) {
 
         {completedGames ? (
           <span className='headline-3 text-white text-center '>
-            You haven't <span className='text-irisPurpleLight'>completed</span>{" "}
-            any games yet.
+            {dictionary.youHavent}{" "}
+            <span className='text-irisPurpleLight'>{dictionary.completed}</span>{" "}
+            {dictionary.anyGamesYet}.
             <br />
-            Start a new adventure!
+            {dictionary.startNewAdventure}!
           </span>
         ) : (
           <span className='headline-3 text-white text-center '>
-            Ready to start your{" "}
-            <span className='text-irisPurpleLight'>first adventure?</span>
+            {dictionary.readyToPlay}{" "}
+            <span className='text-irisPurpleLight'>
+              {dictionary.firstAdventure}
+            </span>
           </span>
         )}
 
         {!completedGames && (
           <span className='running-text text-white   mb-4 text-center  w-4/5 md:w-3/5'>
-            You're just moments away from unlocking endless creative power,
-            ready to explode into infinite possibilities!
+            {dictionary.youAreMoments}
           </span>
         )}
         <CustomButton
@@ -60,7 +62,7 @@ export default function index({ completedGames, removePadding }) {
               completedGames && "fill-white opacity-70"
             )}
           />
-          {completedGames ? "Start New Game" : "Start Now"}
+          {completedGames ? dictionary.startNewGame : dictionary.startNow}
         </CustomButton>
       </div>
 

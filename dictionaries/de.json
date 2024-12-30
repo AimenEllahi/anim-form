@@ -1,0 +1,458 @@
+{
+  "navbar": {
+    "campaigns": "Kampagnen",
+    "community": "Community-Galerie",
+    "games": "Spiele",
+    "exitGame": "Spiel beenden",
+    "playCampaign": "Kampagne spielen",
+    "playNow": "jetzt spielen",
+    "startNewGame": "Neues Spiel starten",
+    "playForFree": "Kostenlos spielen",
+    "characters": "Charaktere",
+    "createCampaign": "Kampagne erstellen",
+    "createCharacter": "Charakter erstellen",
+    "search": "Suchen",
+    "accountMenu": {
+      "signIn": "Anmelden",
+      "signUp": "Melden Sie sich an",
+      "logout": "Abmelden",
+      "the": "Der",
+      "emblemsTitle": "Embleme und Titel",
+      "myAdventurers": "Meine Abenteurer",
+      "myImages": "Meine Bilder",
+      "myCampaigns": "Meine Kampagnen",
+      "favorites": "Favoriten",
+      "accountSettings": "Kontoeinstellungen",
+      "language": "Sprache",
+      "support": "Unterstützen Sie uns",
+      "playNow": "jetzt spielen",
+      "myCharacters": "Meine Charaktere",
+      "games": "Spiele",
+      "communityGallery": "Community-Galerie",
+      "campaigns": "Kampagnen",
+      "playForFree": "Kostenlos spielen",
+      "gallery": "Galerie"
+    }
+  },
+  "footer": {
+    "rightsReserved": "DND AI © 2024 ALLE RECHTE VORBEHALTEN",
+    "designedBy": "  ENTWICKELT MIT ♥ BY",
+    "nexene": "NEXEN",
+    "helpAndSupport": {
+      "title": "HILFE & UNTERSTÜTZUNG",
+      "news": "Nachricht",
+      "aboutUs": "Über uns",
+      "contactUs": "Kontaktieren Sie uns",
+      "giveUsFeedback": "Geben Sie uns Feedback",
+      "reportABug": "Melden Sie einen Fehler"
+    },
+    "legal": {
+      "title": "RECHTLICH",
+      "imprint": "Impressum",
+      "termsAndConditions": "Geschäftsbedingungen",
+      "privacy": "Privatsphäre",
+      "cookies": "Kekse"
+    },
+    "socialMedia": {
+      "title": "SOZIALE MEDIEN",
+      "discord": "Zwietracht",
+      "twitter": "Twitter",
+      "instagram": "Instagram",
+      "tiktok": "TikTok"
+    }
+  },
+  "landingPage": {
+    "firstSection": {
+      "title": "Lassen Sie Ihrer Fantasie freien Lauf mit grenzenlosem Gameplay!"
+    },
+    "secondSection": {
+      "title": "ENTDECKEN SIE UNENDLICHE KREATIVE MÖGLICHKEITEN."
+    },
+    "thirdSection": {
+      "step1": {
+        "number": "SCHRITT 1",
+        "title": "ERSTELLE DEINEN EIGENEN CHARAKTER",
+        "description": "Sie können ganz einfach Ihren eigenen Charakter erstellen, indem Sie aus einer Vielzahl von Rassen, Klassen, Hintergründen, Startausrüstung und mehr auswählen. "
+      },
+      "step2": {
+        "number": "SCHRITT 2",
+        "title": "GESTALTEN SIE IHRE EIGENEN KAMPAGNEN",
+        "description": "Lassen Sie Ihrer Kreativität freien Lauf und gestalten Sie mühelos Ihre eigene Kampagne. "
+      },
+      "step3": {
+        "number": "SCHRITT 3",
+        "title": "ERLEBEN SIE EINEN EPISCHEN CHARAKTERFORTSCHRITT",
+        "description": "Tauchen Sie ein in die Reise der Entwicklung Ihres Charakters. "
+      }
+    },
+    "fourthSection": {
+      "title": " EINE UNENDLICHE WELT DER VISUALISIERUNG.",
+      "button": "MEHR BILDER"
+    },
+    "fifthSection": {
+      "title": "Gestalten Sie Ihr Schicksal und wählen Sie Ihre Kampagne!",
+      "description": "Alle Kampagnen"
+    }
+  },
+  "supportUs": {
+    "startYourEpicJourney": "Beginnen Sie Ihre epische Reise! ",
+    "aiPowered": "KI-gestützte Abenteuer",
+    "whereYourImagination": " wo Ihre Fantasie das Reich regiert!",
+    "cardsSection": {
+      "monthly": "Monatlich",
+      "semiannually": "Halbjährlich",
+      "annually": "Jährlich",
+      "month": "Monat",
+      "mostPopular": "Am beliebtesten",
+      "subscribeNow": "Jetzt abonnieren",
+      "title": "UNTERSTÜTZEN SIE UNS",
+      "description": "Helfen Sie uns, unsere Plattform weiter zu entwickeln und zu verbessern, indem Sie uns auf Patreon unterstützen. ",
+      "button": "UNTERSTÜTZEN SIE UNS",
+      "adventurer": {
+        "monthly": [
+          "Über 50 Stunden Spielzeit ",
+          "30 Bilder oder benutzerdefinierte Kampagnen",
+          "Monatlich kündbar"
+        ],
+        "semiannually": [
+          "Über 300 Stunden Spielzeit ",
+          "170 Bilder oder individuelle Kampagnen",
+          "Halbjährlich kündbar"
+        ],
+        "annually": [
+          "Über 600 Stunden Spielzeit ",
+          "340 Bilder oder individuelle Kampagnen",
+          "Jährlich kündbar"
+        ]
+      },
+      "champion": {
+        "monthly": [
+          "Über 80 Stunden Spielzeit ",
+          "45 Bilder oder benutzerdefinierte Kampagnen",
+          "Monatlich kündbar"
+        ],
+        "semiannually": [
+          "Über 483 Stunden Spielzeit ",
+          "270 Bilder oder individuelle Kampagnen",
+          "Halbjährlich kündbar"
+        ],
+        "annually": [
+          "Über 967 Stunden Spielzeit ",
+          "540 Bilder oder benutzerdefinierte Kampagnen",
+          "Jährlich kündbar"
+        ]
+      },
+      "mythic": {
+        "monthly": [
+          "Über 176 Stunden Spielzeit ",
+          "100 Bilder oder benutzerdefinierte Kampagnen",
+          "Monatlich kündbar"
+        ],
+        "semiannually": [
+          "Über 1060 Stunden Spielzeit ",
+          "600 Bilder oder benutzerdefinierte Kampagnen",
+          "Halbjährlich kündbar"
+        ],
+        "annually": [
+          "Über 2120 Stunden Spielzeit ",
+          "1200 Bilder oder benutzerdefinierte Kampagnen",
+          "Jährlich kündbar"
+        ]
+      },
+      "legend": {
+        "monthly": [
+          "Über 350 Stunden Spielzeit ",
+          "200 Bilder oder benutzerdefinierte Kampagnen",
+          "Monatlich kündbar"
+        ],
+        "semiannually": [
+          "Über 2133 Stunden Spielzeit ",
+          "1200 Bilder oder benutzerdefinierte Kampagnen",
+          "Halbjährlich kündbar"
+        ],
+        "annually": [
+          "Über 4000 Stunden Spielzeit ",
+          "2400 Bilder oder benutzerdefinierte Kampagnen",
+          "Jährlich kündbar"
+        ]
+      }
+    },
+    "gemsSection": {
+      "heresHow": "So geht’s bei uns",
+      "gemsSystem": "Edelsteinsystem",
+      "works": "funktioniert",
+      "legendary": {
+        "title": "Legendäre Edelsteine",
+        "description": "sind Ihre magischen Pinsel, die sich perfekt zum Erstellen atemberaubender Bilder wie benutzerdefinierter Charakterporträts, lebendiger Szenen, wilder Feinde und komplizierter Dungeonkarten eignen. ",
+        "benefits": [
+          "Erstellen Sie eine benutzerdefinierte Kampagne",
+          "Erstellen Sie ein Charakterporträt",
+          "Erstellen Sie ein Bild Ihres Charakters in Aktion",
+          "Erzeugen Sie ein Bild des Feindes",
+          "Erstelle eine Dungeon-Karte"
+        ]
+      },
+      "mythic": {
+        "title": "Mythische Edelsteine",
+        "description": "sind Ihre Abenteuertickets, mit denen Sie Charaktere erstellen, das Spiel spielen und Ihre epischen Geschichten erzählen können. ",
+        "benefits": [
+          "Erstellen Sie Ihren eigenen benutzerdefinierten Charakter",
+          "Ein neues Spiel beginnen",
+          "Eine Runde im Spiel machen.",
+          "Ein Spiel fortsetzen"
+        ]
+      }
+    },
+    "creditSection": {
+      "our": "Unser",
+      "creditPackage": "Kreditpakete",
+      "atAGlance": "auf einen Blick",
+      "buyNow": "Jetzt kaufen",
+      "smallYellow": "40 Bilder oder individuelle Kampagnen",
+      "mediumYellow": "80 Bilder oder individuelle Kampagnen",
+      "largeYellow": "260 Bilder oder individuelle Kampagnen",
+      "smallBlue": "Über 50 Stunden Spielzeit",
+      "mediumBlue": "Über 100 Stunden Spielzeit",
+      "largeBlue": "Über 233 Stunden Spielzeit"
+    }
+  },
+  "aboutUs": {
+    "aboutUs": "Über uns",
+    "welcomeTo": "Willkommen bei",
+    "p1": " Hier bei DNDAI sind wir auf der Suche, die Art und Weise, wie Sie Geschichtenerzählen und Abenteuer erleben, zu verändern! ",
+    "p2": " Unsere Reise begann im März 2023, inspiriert vom unglaublichen Potenzial von KI-Modellen wie dem GPT von OpenAI. ",
+    "p3": "  Angetrieben von dieser elektrisierenden Erfahrung machten wir uns daran, etwas Größeres zu bauen – eine ausgereifte Plattform, die dieses Abenteuer Freunden auf der ganzen Welt zugänglich machen könnte. ",
+    "p4": " Nach anderthalb Jahren unermüdlichen Testens, Optimierens und Umwandelns freuen wir uns riesig, Version 4.0 vorzustellen. ",
+    "ourTeam": "Unser Team",
+    "development": "Entwicklung",
+    "design": "Design"
+  },
+  "contactUs": {
+    "contact": "Kontakt",
+    "reasonForContact": "Grund der Kontaktaufnahme",
+    "supportRequest": "Supportanfrage",
+    "feedbackType": "Rückmeldung",
+    "reportABug": "Melden Sie einen Fehler",
+    "bug": {
+      "title": "Teilen Sie uns weitere Informationen über den Fehler mit",
+      "max5": "Maximal 5",
+      "send": "Schicken",
+      "describeBug": "Beschreiben Sie den Fehler",
+      "dragAndDrop": "Ziehen Sie Ihre Dateien hierher oder",
+      "uploadFile": "Datei hochladen"
+    },
+    "support": {
+      "name": "Name",
+      "email": "E-Mail",
+      "surname": "Nachname",
+      "message": "Nachricht",
+      "bySelecting": "Mit der Auswahl stimme ich dem DNDAI zu",
+      "termsAndConditions": "Geschäftsbedingungen",
+      "youCanRead": "Wie wir Ihre Daten nutzen und schützen, können Sie in unserem nachlesen",
+      "privacyPolicy": "Datenschutzrichtlinie",
+      "send": "Schicken"
+    },
+    "feedback": {
+      "title": "Wie würden Sie DNDai bewerten?",
+      "doYouHave": "Haben Sie irgendwelche Gedanken, die Sie mitteilen möchten?",
+      "yourThoughts": "Deine Gedanken",
+      "send": "Schicken"
+    }
+  },
+  "accountSettings": {
+    "accountSettings": "Kontoeinstellungen",
+    "payment": "Zahlung",
+    "userSettings": {
+      "username": "BENUTZERNAME",
+      "usernameAlready": "Der Benutzername ist bereits vorhanden",
+      "cancel": "Stornieren",
+      "e-mail": "E-MAIL",
+      "edit": "Bearbeiten",
+      "newPassword": "NEUES PASSWORT",
+      "passwordsDoNotMatch": "Passwörter stimmen nicht überein",
+      "personalData": "Persönliche Daten",
+      "name": "Name",
+      "email": "E-Mail",
+      "password": "Passwort",
+      "save": "Speichern",
+      "confirmPassword": "PASSWORT BESTÄTIGEN",
+      "charactersWarning": "Mindestens 8 Zeichen",
+      "containsNumber": "Enthält eine Zahl",
+      "containsASpecialCharacter": "Enthält ein Sonderzeichen",
+      "changePassword": " Ändern Sie Ihr Passwort regelmäßig, um unbefugten Zugriff zu verhindern."
+    },
+    "activePayments": {
+      "activePayments": "Aktive Zahlungen",
+      "downloadInvoice": "Rechnung herunterladen",
+      "changeSubscription": "Abonnement ändern",
+      "cancelSubscription": "Abonnement kündigen",
+      "debitInterval": "Belastungsintervall",
+      "nextRenewal": "Nächste Erneuerung",
+      "lastInvoice": "Letzte Rechnung",
+      "paymentMethod": "Zahlungsmethode",
+      "upgrade": "Upgrade",
+      "youHave": "Sie haben",
+      "noActive": "Keine aktive",
+      "subscriptionsYet": "Abonnements bisher",
+      "month": "Monat"
+    }
+  },
+  "auth": {
+    "signIn": {
+      "signIn": "Anmelden",
+      "noAccount": " Noch kein Konto?",
+      "createAccount": "Ein Konto erstellen",
+      "showPassword": "Passwort-Symbol anzeigen",
+      "stayLoggedIn": "Bleiben Sie eingeloggt",
+      "signingIn": "Anmelden...",
+      "or": "ODER",
+      "emailOrUsername": "E-MAIL ODER BENUTZERNAME",
+      "email": "E-Mail",
+      "password": "Passwort",
+      "forgotPassword": "Passwort vergessen?",
+      "signInWith": "Melden Sie sich an mit",
+      "dontHaveAnAccount": "Sie haben noch kein Konto?",
+      "signUp": "Melden Sie sich an",
+      "rememberMe": "Erinnere dich an mich",
+      "continueWithGoogle": " WEITER MIT GOOGLE"
+    },
+    "signUp": {
+      "signUp": "Melden Sie sich an",
+      "alreadyHaveAnAccount": "Sie haben bereits ein Konto?",
+      "signIn": "Anmelden",
+      "email": "E-Mail",
+      "or": "ODER",
+      "next": "NÄCHSTE",
+      "username": "BENUTZERNAME",
+      "usernameAlready": "Der Benutzername ist bereits vorhanden",
+      "name": "NAME",
+      "surname": "NACHNAME",
+      "password": "PASSWORT",
+      "charactersWarning": "Mindestens 8 Zeichen",
+      "containsNumber": "Enthält eine Zahl",
+      "containsASpecialCharacter": "Enthält ein Sonderzeichen",
+      "bySelecting": " Mit der Auswahl stimme ich dem DNDAI zu",
+      "termsAndConditions": "Geschäftsbedingungen.",
+      "youCanRead": "Wie wir Ihre Daten nutzen und schützen, können Sie in unserem nachlesen",
+      "privacyPolicy": "Datenschutzrichtlinie.",
+      "loading": "LADEN...",
+      "createAccount": "BENUTZERKONTO ERSTELLEN",
+      "continueWithGoogle": " WEITER MIT GOOGLE"
+    },
+    "passwordChanged": {
+      "title": "Sie haben Ihr Passwort erfolgreich geändert",
+      "signIn": "Anmelden"
+    },
+    "checkMail": {
+      "title": "Überprüfen Sie Ihre E-Mails",
+      "subtext": "Wir haben Ihnen per E-Mail einen Link zum Zurücksetzen Ihres Passworts gesendet. ",
+      "resend": "LINK ERNEUT SENDEN",
+      "back": "Zurück zur Anmeldung"
+    },
+    "forgetPass": {
+      "title": "Passwort vergessen",
+      "desc": "  Geben Sie Ihre E-Mail-Adresse ein, um Ihr Passwort zurückzusetzen. ",
+      "email": "E-MAIL",
+      "loading": "LADEN...",
+      "resetPassword": "PASSWORT ZURÜCKSETZEN",
+      "noAccess": " Ich habe keinen Zugriff auf meine E-Mail-Adresse"
+    },
+    "newPass": {
+      "enterNewPass": "Geben Sie Ihr neues Passwort ein",
+      "newPassword": "NEUES PASSWORT",
+      "charactersWarning": "Mindestens 8 Zeichen",
+      "containsNumber": "Enthält eine Zahl",
+      "containsASpecialCharacter": "Enthält ein Sonderzeichen",
+      "confirmPassword": "PASSWORT BESTÄTIGEN",
+      "passwordsDoNotMatch": "Passwörter stimmen nicht überein",
+      "loading": "LADEN...",
+      "resetPassword": "PASSWORT ZURÜCKSETZEN",
+      "backToSignUp": "Zurück zur Anmeldung"
+    }
+  },
+  "games": {
+    "loadingGame": "Spiele werden geladen ...",
+    "games": "Spiele",
+    "gamesInProcess": "Spiele in Bearbeitung",
+    "publicGames": "Öffentliche Spiele",
+    "completedGames": "Abgeschlossene Spiele",
+    "inProgress": "In Bearbeitung",
+    "completed": "Abgeschlossen",
+    "leftSection": {
+      "search": "Suchen",
+      "newestToOldest": "Vom Neuesten zum Ältesten",
+      "oldestToNewest": "Vom Ältesten zum Neuesten",
+      "turnsPlayed": "Gespielte Runden",
+      "sortBy": "Sortieren nach",
+      "played": "Gespielt"
+    },
+    "rightSection": {
+      "currentSituation": "Aktuelle Situation",
+      "readMore": "Mehr lesen",
+      "showLess": "Weniger anzeigen",
+      "adventurer": "Abenteurer",
+      "level": "Ebene",
+      "played": "Gespielt",
+      "playTime": "min. ",
+      "deleteGame": "Spiel löschen",
+      "continue": "Weitermachen",
+      "back": "Zurück"
+    },
+    "noGames": {
+      "startNewGame": "Neues Spiel starten",
+      "startNow": "Jetzt starten",
+      "youHavent": "Das hast du nicht",
+      "completed": "vollendet",
+      "anyGamesYet": "noch irgendwelche Spiele.",
+      "startNewAdventure": "Beginnen Sie ein neues Abenteuer",
+      "readyToPlay": "Sind Sie bereit, mit Ihrem Projekt zu beginnen?",
+      "firstAdventure": "erstes Abenteuer?",
+      "youAreMoments": " Sie sind nur noch wenige Augenblicke davon entfernt, endlose kreative Kräfte freizusetzen und bereit, in unendliche Möglichkeiten zu explodieren!"
+    }
+  },
+  "gallery": {
+    "newestToOldest": "Vom Neuesten zum Ältesten",
+    "oldestToNewest": "Vom Ältesten zum Neuesten",
+    "mostLiked": "Am meisten gemocht",
+    "loadingImages": "Bilder werden geladen...",
+    "gallery": "Galerie",
+    "myImages": "Meine Bilder",
+    "sortBy": "Sortieren nach",
+    "page": "Seite",
+    "of": "von",
+    "back": "Zurück",
+    "nextPage": "Nächste Seite",
+    "downloadImage": "Bild herunterladen",
+    "close": "schließen"
+  },
+  "discoverCampaigns": {
+    "search": "Suchen",
+    "sortBy": "Sortieren nach",
+    "newestToOldest": "Vom Neuesten zum Ältesten",
+    "oldestToNewest": "Vom Ältesten zum Neuesten",
+    "mostLiked": "Am meisten gefallen",
+    "mostPlayed": "Meistgespielt",
+    "mostStarred": "Die meisten Sterne",
+    "discoverCampaigns": "Entdecken Sie Kampagnen",
+    "communityFavorties": "Community-Favoriten",
+    "publicCampaigns": "Öffentliche Kampagnen",
+    "showMore": "Mehr anzeigen"
+  },
+  "campaign": {
+    "publish": "Veröffentlichen",
+    "unpublish": "Veröffentlichung aufheben",
+    "delete": "Löschen",
+    "details": "Einzelheiten",
+    "comments": "Kommentare",
+    "time": "Zeit",
+    "setting": "Einstellung",
+    "plot": "Handlung",
+    "hook": "Haken",
+    "createdBy": "Erstellt von",
+    "created": "Erstellt",
+    "lastPlayed": "Zuletzt gespielt",
+    "writeAComment": "Schreiben Sie einen Kommentar",
+    "send": "Schicken",
+    "loadingCampaign": "Kampagne wird geladen"
+  }
+}

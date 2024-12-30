@@ -12,13 +12,7 @@ import SearchInput from "@/components/ui/search-input";
 import { cn } from "@/lib/utils";
 import useDeviceDetect from "@/hooks/useDeviceDetect";
 import { twMerge } from "tailwind-merge";
-const sortOptions = [
-  "newest to oldest",
-  "oldest to newest",
-  "most liked",
-  "most played",
-  "most starred",
-];
+
 export default function row({
   text,
   icon,
@@ -29,7 +23,15 @@ export default function row({
   onClickShowMore,
   isPublicCampaign,
   setQueryProp,
+  dictionary,
 }) {
+  const sortOptions = {
+    "newest to oldest": dictionary.newestToOldest,
+    "oldest to newest": dictionary.oldestToNewest,
+    "most liked": dictionary.mostLiked,
+    "most played": dictionary.mostPlayed,
+    "most starred": dictionary.mostStarred,
+  };
   const { isMobile } = useDeviceDetect();
   const router = useRouter();
   const pathname = usePathname();
@@ -85,7 +87,7 @@ export default function row({
               triggerOnBlur={setIsSearchOpen}
               onClick={() => setIsSearchOpen(true)}
               setQuery={setQuery}
-              placeholder={isMobile ? "" : "Search"}
+              placeholder={isMobile ? "" : dictionary.search}
               className={cn(
                 " search-input transition-all duration-300 h-12 ease-in-out md:w-full",
                 isSearchOpen && "w-full"
@@ -101,11 +103,17 @@ export default function row({
                 isSearchOpen &&
                   "w-0 opacity-0 pointer-events-none md:w-fit md:pointer-events-auto md:opacity-100"
               )}
-              placeholder={"Sort by"}
-              options={sortOptions}
-              selectedOption={sort.replaceAll("-", " ")}
+              placeholder={dictionary.sortBy}
+              options={Object.entries(sortOptions).map(([key, value]) => value)}
+              selectedOption={sortOptions[sort]}
               setSelectedOption={(_sort) => {
-                const url = `${pathname}?sort=${_sort.replaceAll(" ", "-")}`;
+                const selectedOption = Object.keys(sortOptions).find(
+                  (key) => sortOptions[key] === _sort
+                );
+                const url = `${pathname}?sort=${selectedOption.replaceAll(
+                  " ",
+                  "-"
+                )}`;
                 router.push(url);
               }}
             />
@@ -136,7 +144,8 @@ export default function row({
           className={"max-w-fit mx-auto mt-8"}
           onClick={onClickShowMore}
         >
-          Show More <ArrowRight className='h-5 w-5 fill-russianViolet' />
+          {dictionary.showMore}{" "}
+          <ArrowRight className='h-5 w-5 fill-russianViolet' />
         </CustomButton>
       )}
     </div>

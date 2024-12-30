@@ -7,7 +7,7 @@ import { loadStripe } from "@stripe/stripe-js";
 
 //load stripe
 
-export default function index() {
+export default function index({ dictionary }) {
   const [stripe, setStripe] = useState(null);
 
   const handleLoadStripe = async () => {
@@ -23,15 +23,15 @@ export default function index() {
     <div className='h-full z-[10] border-green-500 w-full flex flex-col px-5 lg:px-12 pb-32 pt-[130px]  md:py-[160px] md:pb-64 gap-16'>
       <div className='flex flex-col justify-center items-center gap-2.5 '>
         <span className='text-center w-full md:w-2/4 block text-white headline-3 z-[10] '>
-          Start you epic journey! Dive into{" "}
-          <span className='text-irisPurpleLight'>AI-Powered adventures</span>{" "}
-          where your imagination rules the realm!
+          {dictionary.startYourEpicJourney}{" "}
+          <span className='text-irisPurpleLight'>{dictionary.aiPowered}</span>{" "}
+          {dictionary.whereYourImagination}
         </span>
       </div>
 
-      <CardSection stripe={stripe} />
-      <GemsSection />
-      <CreditSection stripe={stripe} />
+      <CardSection stripe={stripe} dictionary={dictionary.cardsSection} />
+      <GemsSection dictionary={dictionary.gemsSection} />
+      <CreditSection dictionary={dictionary.creditSection} stripe={stripe} />
     </div>
   );
 }

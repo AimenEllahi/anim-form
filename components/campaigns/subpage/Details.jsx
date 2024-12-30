@@ -4,17 +4,18 @@ import React from "react";
 const splitIntoParagraphs = (text) => {
   // Split by common sentence endings and strip excess whitespace
   const sentences = text.split(/(?<=[.!?])\s+/);
-  
+
   // Group sentences into paragraphs based on some logic
   const paragraphs = [];
   let currentParagraph = [];
 
-  sentences.forEach(sentence => {
+  sentences.forEach((sentence) => {
     currentParagraph.push(sentence.trim());
 
     // You can add additional logic here to decide when to create a new paragraph.
     // For example, if a sentence is longer than a certain length or contains specific keywords.
-    if (currentParagraph.length >= 3) { // Example: every 3 sentences, create a new paragraph
+    if (currentParagraph.length >= 3) {
+      // Example: every 3 sentences, create a new paragraph
       paragraphs.push(currentParagraph.join(" "));
       currentParagraph = [];
     }
@@ -28,30 +29,42 @@ const splitIntoParagraphs = (text) => {
   return paragraphs;
 };
 
-export default function Details({ details, setting }) {
+export default function Details({ details, setting, dictionary }) {
   return (
     <div className='flex flex-col md:flex-row gap-[20px] w-full details-section px-5 md:px-0'>
       <div className='md:w-1/2 flex flex-col gap-[16px]'>
         <div className='flex flex-col gap-[16px]'>
-          <span className='running-text-mono text-gray2'>TIME</span>
+          <span className='running-text-mono text-gray2 uppercase'>
+            {dictionary.time}
+          </span>
           <p className='running-text'>{details.time}</p>
         </div>
         <div className='flex flex-col gap-[16px]'>
-          <span className='running-text-mono text-gray2'>PLOT</span>
+          <span className='running-text-mono text-gray2 uppercase'>
+            {dictionary.plot}
+          </span>
           {splitIntoParagraphs(details.plot).map((paragraph, index) => (
-            <p key={index} className='running-text'>{paragraph}</p>
+            <p key={index} className='running-text'>
+              {paragraph}
+            </p>
           ))}
         </div>
         <div className='flex flex-col gap-[16px]'>
-          <span className='running-text-mono text-gray2'>HOOK</span>
+          <span className='running-text-mono text-gray2 uppercase'>
+            {dictionary.hook}
+          </span>
           {splitIntoParagraphs(details.hook).map((paragraph, index) => (
-            <p key={index} className='running-text'>{paragraph}</p>
+            <p key={index} className='running-text'>
+              {paragraph}
+            </p>
           ))}
         </div>
       </div>
       <div className='md:w-1/2'>
         <div className='flex flex-col gap-[16px] items-start justify-start'>
-          <span className='running-text-mono text-gray2'>SETTINGS</span>
+          <span className='running-text-mono text-gray2 uppercase'>
+            {dictionary.setting}
+          </span>
           <span className='running-text md:hidden'>{setting}</span>
 
           <img

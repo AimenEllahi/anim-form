@@ -13,6 +13,7 @@ export default function OptionCard({
   characterName,
   campaignName,
   updatedAt,
+  dictionary,
 }) {
   return (
     <div
@@ -64,7 +65,7 @@ export default function OptionCard({
             {campaignName}, {characterName}
           </span>
           <span className='text-gray2 description uppercase text'>
-            Played {moment(updatedAt).fromNow()}
+            {dictionary.played} {moment(updatedAt).fromNow()}
           </span>
         </div>
       </div>

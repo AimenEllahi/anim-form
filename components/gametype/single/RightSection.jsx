@@ -25,6 +25,7 @@ export default function RightSection({
   selectedGame,
   handleDeleteGame,
   loadingDelete,
+  dictionary,
 }) {
   const [readMore, setReadMore] = useState(false);
   const { setSelectedCompletedGame, setSelectedGame } = useControlsStore();
@@ -52,7 +53,7 @@ export default function RightSection({
         <div className='border-none mt-4 bg-transparent flex gap-2 items-center hover:bg-transparent'>
           <Note className='h-5 w-5 fill-gray2' />
           <span className='running-text-mono uppercase text-gray2'>
-            current situation
+            {dictionary.currentSituation}
           </span>
         </div>
 
@@ -74,7 +75,7 @@ export default function RightSection({
                 onClick={() => setReadMore((prev) => !prev)}
                 className='text-irisPurpleLight cursor-pointer'
               >
-                Read more
+                {dictionary.readMore}
               </span>
             </>
           ) : (
@@ -94,7 +95,7 @@ export default function RightSection({
                   onClick={() => setReadMore((prev) => !prev)}
                   className='text-irisPurpleLight cursor-pointer'
                 >
-                  Show less
+                  {dictionary.showLess}
                 </span>
               )}
             </>
@@ -104,7 +105,7 @@ export default function RightSection({
         <div className='border-none mt-5 bg-transparent flex gap-2 hover:bg-transparent items-center'>
           <Adventure className='h-5 w-5 fill-gray2' />
           <span className='running-text-mono uppercase text-gray2'>
-            Character
+            {dictionary.adventurer}
           </span>
         </div>
 
@@ -120,7 +121,7 @@ export default function RightSection({
               </span>
               <div className='flex flex-col'>
                 <span className='description uppercase'>
-                  Level {selectedGame.character.level}
+                  {dictionary.level} {selectedGame.character.level}
                 </span>
                 <span className='flex gap-1 description uppercase'>
                   <span className='text-irisPurpleLight'>
@@ -139,7 +140,7 @@ export default function RightSection({
           <Turns className='h-5 w-5 fill-gray2' />
           <span className='text-gray2 running-text-mono'>
             {selectedGame.game.__v + 1}{" "}
-            {selectedGame.game.__v === 0 ? "turn" : "turns"} played
+            {selectedGame.game.__v === 0 ? "turn" : "turns"} {dictionary.played}
           </span>
         </div>
 
@@ -147,7 +148,7 @@ export default function RightSection({
           <div className='flex gap-2 mt-3 uppercase items-center'>
             <Watch className='h-5 w-5 fill-gray2' />
             <span className='text-gray2 running-text-mono'>
-              ~{(selectedGame.game.__v + 1) * 2} min. playtime
+              ~{(selectedGame.game.__v + 1) * 2} {dictionary.playTime}
             </span>
           </div>
           {selectedTab === "inProgress" && (
@@ -158,7 +159,7 @@ export default function RightSection({
                 className={"md:hidden me-auto"}
               >
                 <Delete className='h-5 w-5 fill-errorRed' />
-                delete game
+                {dictionary.deleteGame}
               </CustomButton>
             </DeleteGame>
           )}
@@ -176,7 +177,7 @@ export default function RightSection({
           <DeleteGame action={() => handleDeleteGame(gameId)}>
             <CustomButton disabled={loadingDelete} withIcon variant={"subtle"}>
               <Delete className='h-5 w-5 fill-errorRed' />
-              delete game
+              {dictionary.deleteGame}
             </CustomButton>
           </DeleteGame>
         )}
@@ -191,7 +192,7 @@ export default function RightSection({
           }
         >
           <Continue className='h-5 w-5 fill-russianViolet' />
-          continue
+          {dictionary.continue}
         </CustomButton>
       </div>
 
@@ -209,7 +210,7 @@ export default function RightSection({
           withIcon
         >
           <ArrowLeft className='h-5 w-5 fill-white opacity-70' />
-          Back
+          {dictionary.back}
         </CustomButton>
         <CustomButton
           onClick={() => handleRedirect("/game/play?id=" + gameId)}
@@ -217,7 +218,7 @@ export default function RightSection({
           variant={"primary"}
         >
           <Continue className='h-5 w-5 fill-russianViolet' />
-          continue
+          {dictionary.continue}
         </CustomButton>
       </div>
     </div>

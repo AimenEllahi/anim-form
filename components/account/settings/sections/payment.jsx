@@ -14,23 +14,25 @@ import {
 } from "@/actions/payment";
 import CancelSubscription from "@/components/ui/Shared/Dialogue/CancelSubscription";
 
-const NoSubscription = () => {
+const NoSubscription = ({ dictionary }) => {
   const router = useRouter();
   return (
     <div className='w-full p-6 flex items-center flex-col gap-6 justify-center text-center'>
       <span className=' running-text-large'>
-        You have <span className='text-irisPurpleLight'>no active</span> <br />
-        subscription yet
+        {dictionary.youHave}{" "}
+        <span className='text-irisPurpleLight'>{dictionary.noActive}</span>{" "}
+        <br />
+        {dictionary.subscriptionsYet}
       </span>
       <CustomButton onClick={() => router.push("/pricing")} withIcon={true}>
         <Diamond className='h-5 w-5 opacity-70 fill-white' />
-        Upgrade
+        {dictionary.upgrade}
       </CustomButton>
     </div>
   );
 };
 
-export default function Payment() {
+export default function Payment({ dictionary }) {
   const { user, updatePaymentHistory } = useUserStore();
   const [loading, setLoading] = useState(false);
   const [loadingDownload, setLoadingDownload] = useState(false);
@@ -131,7 +133,7 @@ export default function Payment() {
     <div className='w-full md:w-4/5  md:px-28 flex flex-col gap-4'>
       <div className='w-full border border-white/[8%] rounded-[16px] bg-white/[8%]'>
         <div className='p-4 flex justify-between items-center'>
-          <span className='headline-4'>Active payment</span>
+          <span className='headline-4'>{dictionary.activePayments}</span>
           <CustomButton
             disabled={loadingDownload}
             className=' hidden md:flex'
@@ -139,12 +141,12 @@ export default function Payment() {
             variant={"subtle"}
           >
             <Download className='h-5 w-5 opacity-70 fill-white' />
-            Download invoice
+            {dictionary.downloadInvoice}
           </CustomButton>
         </div>
         <hr className='border border-white/[8%] ' />
         {!subscription?.reward ? (
-          <NoSubscription />
+          <NoSubscription dictionary={dictionary} />
         ) : (
           <div className='p-4 flex justify-start items-center gap-6 flex-col md:flex-row'>
             <div className='bg-white/[8%] uppercase border border-white/10 rounded-[16px] w-full md:w-[267px]'>
@@ -154,7 +156,10 @@ export default function Payment() {
                 </span>
                 <span className='text-white headline-4'>
                   {subscription?.plan?.price || "NA"}
-                  <span className='running-text-mono text-gray2'> /Month</span>
+                  <span className='running-text-mono text-gray2'>
+                    {" "}
+                    /{dictionary.month}
+                  </span>
                 </span>
               </div>
               <hr className='border border-white/[8%]' />
@@ -183,10 +188,10 @@ export default function Payment() {
                 <CustomButton
                   withIcon={true}
                   variant={"primary"}
-                  className={"flex justify-start hidden "}
+                  className={" justify-start hidden "}
                 >
                   <Edit className='h-5 w-5 opacity-70 fill-black' />
-                  <span> change subscription</span>
+                  <span> {dictionary.changeSubscription}</span>
                 </CustomButton>
                 <CancelSubscription
                   action={() =>
@@ -199,7 +204,7 @@ export default function Payment() {
                     className={"flex justify-start  "}
                   >
                     <Delete className='h-5 w-5 opacity-70 fill-red-500' />
-                    <span> cancel subscription</span>
+                    <span> {dictionary.cancelSubscription}</span>
                   </CustomButton>
                 </CancelSubscription>
               </div>
@@ -207,7 +212,7 @@ export default function Payment() {
             <div className='uppercase flex flex-col gap-8 self-start   w-full   h-[135px] md:h-full flex-wrap'>
               <div className='flex flex-col gap-4'>
                 <span className=' text-irisPurpleLight font-roboto-mono text-[10px]'>
-                  Debit interval
+                  {dictionary.debitInterval}
                 </span>
                 <span className=' text-white running-text-mono'>
                   {subscription?.plan?.duration || "Null"}
@@ -215,7 +220,7 @@ export default function Payment() {
               </div>
               <div className='flex flex-col gap-4'>
                 <span className=' text-irisPurpleLight font-roboto-mono text-[10px]'>
-                  Next Renewal
+                  {dictionary.nextRenewal}
                 </span>
                 <span className=' text-white running-text-mono'>
                   {getNextRenewal()}
@@ -223,7 +228,7 @@ export default function Payment() {
               </div>
               <div className='flex flex-col gap-4'>
                 <span className=' text-irisPurpleLight font-roboto-mono text-[10px]'>
-                  Last Invoice
+                  {dictionary.nextRenewal}
                 </span>
                 <span className=' text-white running-text-mono'>
                   {formatDate(subscription.date)}
@@ -231,7 +236,7 @@ export default function Payment() {
               </div>
               <div className='flex flex-col gap-4'>
                 <span className=' text-irisPurpleLight font-roboto-mono text-[10px]'>
-                  Payment Method
+                  {dictionary.paymentMethod}
                 </span>
                 <span className=' text-white running-text-mono'>
                   {subscription?.method[0] || "Card"}
@@ -245,7 +250,7 @@ export default function Payment() {
               className={"md:hidden self-start"}
             >
               <Download className='h-5 w-5 opacity-70 fill-white' />
-              Download invoice
+              {dictionary.downloadInvoice}
             </CustomButton>
           </div>
         )}

@@ -27,7 +27,7 @@ import CustomNavtab from "../ui/custom-navtab";
 import Exit from "../ui/Icons/Exit";
 import Notification from "../news/Notification";
 
-const CampaignLinks = () => {
+const CampaignLinks = ({ dictionary }) => {
   const router = useRouter();
   const pathname = usePathname();
   return (
@@ -44,7 +44,7 @@ const CampaignLinks = () => {
         )}
       >
         <Game className='h-5 w-5 fill-white opacity-70 ' />
-        Games
+        {dictionary?.games}
       </CustomNavtab>
       <CustomNavtab
         onClick={() => {
@@ -58,7 +58,7 @@ const CampaignLinks = () => {
         )}
       >
         <CampaignAdd className='h-5 w-5 fill-white opacity-70 ' />
-        Campaigns
+        {dictionary?.campaigns}
       </CustomNavtab>
       <CustomNavtab
         onClick={() => {
@@ -78,7 +78,7 @@ const CampaignLinks = () => {
           title='My images button'
           className='h-5 w-5  opacity-70'
         />
-        Community Gallery
+        {dictionary?.community}
       </CustomNavtab>
     </div>
   );
@@ -120,7 +120,7 @@ const CreditsDisplay = () => {
   );
 };
 
-const ExitGameButton = () => {
+const ExitGameButton = ({ dictionary }) => {
   const { setStartNewGame } = useGameStore();
   const router = useRouter();
   const handleExitGame = () => {
@@ -135,7 +135,7 @@ const ExitGameButton = () => {
       className={"h-fit w-fit"}
     >
       <Exit className='h-5 w-5 fill-white opacity-70' />
-      Exit Game
+      {dictionary?.exitGame}
     </CustomButton>
   );
 };
@@ -146,7 +146,9 @@ export default function Navbar({
   characterSheet,
   newGameStepper = false,
   hideHeader,
+  dictionary,
 }) {
+  
   const { isMobile, isTablet } = useDeviceDetect();
   const { invokeToast } = useCustomToast();
   const {
@@ -328,6 +330,7 @@ export default function Navbar({
             <Menu fill='#9A9AC1' />
           </button>
           <DrawerMenu
+            dictionary={dictionary}
             newGameStepper={newGameStepper}
             handlePlay={handlePlay}
             characterCreatePage={characterCreatePage}
@@ -349,15 +352,18 @@ export default function Navbar({
               />
             </Link>
 
-            {showCampaignLinks && <CampaignLinks />}
-            {isGamePage && <ExitGameButton />}
+            {showCampaignLinks && <CampaignLinks dictionary={dictionary} />}
+            {isGamePage && <ExitGameButton dictionary={dictionary} />}
           </div>
           <div className='flex justify-center items-center gap-5'>
             {user?.token && <CreditsDisplay />}
-            {user?.token && <CreateMenu aria-label='Create Menu' />}
+            {user?.token && (
+              <CreateMenu dictionary={dictionary} aria-label='Create Menu' />
+            )}
             <SoundButton aria-label='Sound Button' />
             {user?.token && <Notification />}
             <AccountDropdown
+              dictionary={dictionary}
               trigger={
                 rank &&
                 !isGamePage &&
@@ -385,7 +391,9 @@ export default function Navbar({
                 aria-label={isCampaignSubpage ? "Play Campaign" : "Play Now"}
               >
                 <Play className='h-5 w-5 fill-russianViolet opacity-70' />
-                {isCampaignSubpage ? "Play Campaign" : "PLAY Now"}
+                {isCampaignSubpage
+                  ? dictionary?.playCampaign
+                  : dictionary?.playNow}
               </CustomButton>
             ) : (
               <CustomButton
@@ -397,10 +405,10 @@ export default function Navbar({
               >
                 <Play className='h-5 w-5 fill-russianViolet opacity-70' />
                 {isLandingPage
-                  ? "PLAY NOW"
+                  ? dictionary?.playNow
                   : user?.token
-                  ? "Start new Game"
-                  : "PLAY FOR FREE"}
+                  ? dictionary?.startNewGame
+                  : dictionary?.playForFree}
               </CustomButton>
             )}
           </div>

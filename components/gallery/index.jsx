@@ -25,7 +25,7 @@ import useCustomToast from "@/hooks/useCustomToast";
 import { invoke } from "lodash";
 import { likeImage, unlikeImage } from "@/actions/user";
 
-const GalleryImage = ({ img, className }) => {
+const GalleryImage = ({ img, className, dictionary }) => {
   const [open, setOpen] = useState(false);
   const [likedBy, setLikedBy] = useState(img?.likedBy || []);
   const [loading, setLoading] = useState(false);
@@ -111,7 +111,13 @@ const GalleryImage = ({ img, className }) => {
         />
       </div>
 
-      <Image setOpen={setOpen} image={src} likes={likedBy?.length || 0} />
+      <Image
+        isLiked={likedBy.includes(user._id)}
+        dictionary={dictionary}
+        setOpen={setOpen}
+        image={src}
+        likes={likedBy?.length || 0}
+      />
     </Dialog>
   );
 };
@@ -122,6 +128,7 @@ export default function Gallery({
   setSelectedOption,
   SORT_BY_OPTIONS,
   totalRecords,
+  dictionary,
 }) {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -145,6 +152,7 @@ export default function Gallery({
           >
             {rowImages.map((src, i) => (
               <GalleryImage
+                dictionary={dictionary}
                 img={src}
                 likes={src.likedBy || []}
                 alt='user generated image from the story'
@@ -166,6 +174,7 @@ export default function Gallery({
           >
             {rowImages.map((src, i) => (
               <GalleryImage
+                dictionary={dictionary}
                 img={src}
                 likes={src.likedBy || []}
                 alt='user generated image from the story'
@@ -187,6 +196,7 @@ export default function Gallery({
           >
             {rowImages.map((src, i) => (
               <GalleryImage
+                dictionary={dictionary}
                 img={src}
                 likes={src.likedBy || []}
                 alt='user generated image from the story'
@@ -208,6 +218,7 @@ export default function Gallery({
             key={index + Math.random()}
           >
             <GalleryImage
+              dictionary={dictionary}
               img={firstImage}
               likes={firstImage.likedB}
               alt='user generated image from the story'
@@ -216,6 +227,7 @@ export default function Gallery({
             />
             {nextFourImages.map((src, i) => (
               <GalleryImage
+                dictionary={dictionary}
                 img={src}
                 likes={src.likedBy || []}
                 alt='user generated image from the story'
@@ -237,6 +249,7 @@ export default function Gallery({
           >
             {rowImages.map((src, i) => (
               <GalleryImage
+                dictionary={dictionary}
                 img={src}
                 likes={src.likedBy || []}
                 alt='user generated image from the story'
@@ -269,7 +282,7 @@ export default function Gallery({
         <div className=' flex justify-between text-white  z-[10]  w-full md:w-auto'>
           {/* desktop */}
           <span className='headline-3 z-[10] hidden md:block '>
-            {isGallery ? "Gallery" : " My Images"}
+            {isGallery ? dictionary.gallery : dictionary.myImages}
 
             <span className='text-gray2 ms-3 md:ms-4 font-roboto-mono transform translate-up text-[17px] md:text-[24px] translate-y-[-15px] md:translate-y-[-20px]'>
               ({totalRecords})
@@ -277,10 +290,18 @@ export default function Gallery({
           </span>
 
           <CustomDropdown
-            placeholder={"sort by"}
-            selectedOption={selectedOption}
-            setSelectedOption={setSelectedOption}
-            options={SORT_BY_OPTIONS}
+            placeholder={dictionary.sortBy}
+            selectedOption={SORT_BY_OPTIONS[selectedOption]}
+            setSelectedOption={(option) => {
+              setSelectedOption(
+                Object.keys(SORT_BY_OPTIONS).find(
+                  (key) => SORT_BY_OPTIONS[key] === option
+                )
+              );
+            }}
+            options={Object.entries(SORT_BY_OPTIONS).map(
+              ([key, value]) => value
+            )}
             className={"w-full max-w-full md:max-w-[fit-content] md:!w-auto"}
           />
         </div>
@@ -291,7 +312,7 @@ export default function Gallery({
         {totalPages > 1 && (
           <div className='flex justify-center relative  items-center  flex-col md:flex-row gap-6 z-10'>
             <span className='text-gray2 left md:absolute left-0 running-text-mono uppercase'>
-              Page {page} of {totalPages}{" "}
+              {dictionary.page} {page} {dictionary.of} {totalPages}{" "}
             </span>
             <div className='flex items-center gap-6'>
               <CustomButton
@@ -301,7 +322,7 @@ export default function Gallery({
                 withIcon={true}
               >
                 <ArrowLeft className='h-5 w-5 fill-white opacity-70' />
-                Back
+                {dictionary.back}
               </CustomButton>
               <CustomButton
                 onClick={nextPage}
@@ -309,7 +330,7 @@ export default function Gallery({
                 withIcon={true}
                 variant='primary'
               >
-                Next Page
+                {dictionary.nextPage}
                 <ArrowRight className='h-5 w-5 fill-russianViolet' />
               </CustomButton>
             </div>

@@ -9,9 +9,9 @@ const NavMenu = ({ menu, disable }) => {
       case "Discord":
         return "https://discord.gg/aEdqs8hahN"; // Discord invite URL
       case "Tiktok":
-        return "https://www.tiktok.com/@dndai.app"; 
+        return "https://www.tiktok.com/@dndai.app";
       case "Instagram":
-        return "https://www.instagram.com/dnd.ai.app/"; 
+        return "https://www.instagram.com/dnd.ai.app/";
       case "Twitter":
         return "https://x.com/dndai_app"; // Replace with your Twitter URL
       case "Terms and Conditions":
@@ -47,23 +47,23 @@ const NavMenu = ({ menu, disable }) => {
         {menu.heading}
       </footer>
       <ul className='flex flex-col gap-4'>
-        {menu.navlinks.map((link, index) => (
+        {Object.entries(menu.navlinks).map(([key, value], index) => (
           <li key={index}>
             <Link
-              href={getLinkHref(link)}
+              href={getLinkHref(key)}
               className={`text-white ease-animate hover:text-gray2 running-text ${
                 disable ? "pointer-events-none text-gray-400" : ""
               }`}
               target={
-                link === "Discord" || link === "Twitter" ? "_blank" : undefined
+                key === "Discord" || key === "Twitter" ? "_blank" : undefined
               }
               rel={
-                link === "Discord" || link === "Twitter"
+                key === "Discord" || key === "Twitter"
                   ? "noopener noreferrer"
                   : undefined
               }
             >
-              {link}
+              {value}
             </Link>
           </li>
         ))}
@@ -71,7 +71,7 @@ const NavMenu = ({ menu, disable }) => {
     </div>
   );
 };
-export default function Footer() {
+export default function Footer({ dictionary }) {
   const pathname = usePathname();
 
   return (
@@ -87,31 +87,36 @@ export default function Footer() {
           {/* Help / Support Section */}
           <NavMenu
             menu={{
-              heading: "HELP AND SUPPORT",
-              navlinks: [
-                "About Us",
-                "News",
-                "Contact Us",
-                "Give us Feedback",
-                "Report a Bug",
-              ],
+              heading: dictionary?.helpAndSupport.title,
+              navlinks: {
+                "About Us": dictionary?.helpAndSupport.aboutUs,
+                News: dictionary?.helpAndSupport.news,
+                "Contact Us": dictionary?.helpAndSupport.contactUs,
+                "Give us Feedback": dictionary?.helpAndSupport.giveUsFeedback,
+                "Report a Bug": dictionary?.helpAndSupport.reportABug,
+              },
             }}
           />
           <NavMenu
             menu={{
-              heading: "LEGAL",
-              navlinks: [
-                "Imprint",
-                "Terms and Conditions",
-                "Privacy",
-                "Cookies",
-              ],
+              heading: dictionary?.legal.title,
+              navlinks: {
+                Imprint: dictionary?.legal.imprint,
+                "Terms and Conditions": dictionary?.legal.termsAndConditions,
+                Privacy: dictionary?.legal.privacy,
+                Cookies: dictionary?.legal.cookies,
+              },
             }}
           />
           <NavMenu
             menu={{
-              heading: "SOCIAL MEDIA",
-              navlinks: ["Discord", "Twitter","Tiktok", "Instagram"],
+              heading: dictionary?.socialMedia.title,
+              navlinks: {
+                Discord: dictionary?.socialMedia.discord,
+                Twitter: dictionary?.socialMedia.twitter,
+                Tiktok: dictionary?.socialMedia.tiktok,
+                Instagram: dictionary?.socialMedia.instagram,
+              },
             }}
             disable={false} // Disable this menu
           />
@@ -119,10 +124,10 @@ export default function Footer() {
         {/* Copyright Notice */}
         <div className='!z-10 mt-14 running-text-mono'>
           <p className='text-left relative z-10 text-white'>
-            DND AI © 2024 ALL RIGHTS RESERVED
+            {dictionary?.rightsReserved}
           </p>
           <p className='text-left md:text-right relative z-10 text-white pt-4 md:pt-0'>
-            DESIGNED WITH ♥ BY
+            {dictionary?.designedBy}
             <a href='https://www.nexene.at' target='_blank'>
               {" "}
               NEXENE

@@ -8,7 +8,7 @@ import { requestPasswordReset } from "@/actions/auth";
 import useCustomToast from "@/hooks/useCustomToast";
 import { useRouter } from "next/navigation";
 import CheckMail from "./checkmail";
-export default function forgotPass() {
+export default function forgotPass({ dictionary }) {
   const { invokeToast } = useCustomToast();
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -22,7 +22,7 @@ export default function forgotPass() {
         process.env.NEXT_PUBLIC_BASE_URL + "/auth/reset-password";
       const response = await requestPasswordReset(email, REDIRECT_URL);
       setEmailSent(true);
-    //  console.log(response);
+      //  console.log(response);
     } catch (error) {
       invokeToast(
         error?.response?.data?.message || "Something Went Wrong",
@@ -40,15 +40,12 @@ export default function forgotPass() {
   return (
     <div className=' text-white h-auto w-[345px]  flex flex-col justify-between items-start gap-8 z-[10]'>
       <div className='flex flex-col gap-4'>
-        <h1 className='running-text-large'>Forgot password?</h1>
-        <span className='running-text-small text-gray2'>
-          Enter your E-Mail address to reset your password. You may need to
-          check your spam folder.
-        </span>
+        <h1 className='running-text-large'>{dictionary.title}</h1>
+        <span className='running-text-small text-gray2'>{dictionary.desc}</span>
       </div>
       <div className='flex flex-col gap-6 w-full'>
         <CustomInput
-          placeholder='E-MAIL'
+          placeholder={dictionary.email}
           onChange={(value) => setEmail(value)}
           value={email}
         />
@@ -59,10 +56,10 @@ export default function forgotPass() {
             variant={"primary"}
             className={"w-full font-bold"}
           >
-            {isLoading ? "LOADING..." : "RESET PASSWORD"}
+            {isLoading ? dictionary.loading : dictionary.resetPassword}
           </CustomButton>
           <Link href='/' className='running-text-small'>
-            I do not have access to my E-Mail address
+            {dictionary.noAccess}
           </Link>
         </div>
       </div>

@@ -5,7 +5,7 @@ export default function Step({ number, title, description, image }) {
     <div className='flex flex-col  mb-16 md:mb-8  md:!py-32 py-0 md:gap-10  gap-5'>
       <div className='flex md:flex-row flex-col md:gap-10 gap-4 items-left justify-start '>
         <span className=' uppercase text-irisPurpleLight running-text-mono z-10'>
-          Step {number}
+          {number}
         </span>
         <span className='mb-2 text-white headline-2 md:headline-4 md:w-52 w-full z-10'>
           {title}
@@ -22,7 +22,12 @@ export default function Step({ number, title, description, image }) {
          z-10 overflow-hidden border-[1px] border-[#8F91FF]/20 l md:w-2/3 w-full'
         >
           {/* Render the image using an img tag */}
-          <img src={image} title={title} alt={title} className='w-full  object-contain' />
+          <img
+            src={image}
+            title={title}
+            alt={title}
+            className='w-full  object-contain'
+          />
         </div>
       </div>
     </div>

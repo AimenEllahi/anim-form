@@ -14,7 +14,7 @@ import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 
 //menu
-export default function CreateMenu() {
+export default function CreateMenu({ dictionary }) {
   const router = useRouter();
   const [open, setOpen] = React.useState(false);
   const isGamePage = usePathname().includes("/game/play");
@@ -58,7 +58,7 @@ export default function CreateMenu() {
           variant='subtle'
         >
           <AddUser className='h-5 w-5 fill-white' />
-          Create Adventurer
+          {dictionary?.createCharacter}
         </CustomMenuItem>
         <CustomMenuItem
           onClick={() => handleNavigation("/campaign/create")}
@@ -66,7 +66,7 @@ export default function CreateMenu() {
           variant='subtle'
         >
           <CampaignAdd className='h-5 w-5 fill-white' />
-          Create Campaign
+          {dictionary?.createCampaign}
         </CustomMenuItem>
       </PopoverContent>
     </Popover>

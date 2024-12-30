@@ -5,7 +5,7 @@ import Completed from "../Icons/Completed";
 import Globe from "../Icons/Globe";
 import { cn } from "@/lib/utils";
 
-export default function Switch({ selectedTab, setSelectedTab, gameType }) {
+export default function Switch({ selectedTab, setSelectedTab, gameType, dictionary }) {
   return (
     <div
       className={cn(
@@ -28,7 +28,7 @@ export default function Switch({ selectedTab, setSelectedTab, gameType }) {
               selectedTab === "inProgress" ? "fill-russianViolet" : "fill-gray2"
             }`}
           />
-          In Progress
+         {dictionary.inProgress}
         </CustomButton>
 
         {/* Public Games Tab (only for multiplayer) */}
@@ -50,7 +50,7 @@ export default function Switch({ selectedTab, setSelectedTab, gameType }) {
                   : "fill-[#05D381]"
               }`}
             />
-            Public Games
+            {dictionary.publicGames}
           </CustomButton>
         )}
 
@@ -71,7 +71,7 @@ export default function Switch({ selectedTab, setSelectedTab, gameType }) {
                 : "fill-[#05D381]"
             }`}
           />
-          Completed
+          {dictionary.completed}
         </CustomButton>
       </div>
     </div>
