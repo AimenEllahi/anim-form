@@ -47,6 +47,7 @@ export default function LanguagePopup({ open, onClose }) {
     segments[1] = newLocale;
     const newPath = segments.join("/");
     router.push(newPath);
+    onClose();
   };
 
   return (

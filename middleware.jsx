@@ -1,8 +1,5 @@
 import { NextResponse } from "next/server";
 import { i18n } from "./i18n";
-import { match as matchLocale } from "@formatjs/intl-localematcher";
-import Negotiator from "negotiator";
-import axios from "axios";
 
 // Use locales from the i18n configuration
 const locales = i18n.locales;
@@ -13,8 +10,9 @@ const defaultLocale = i18n.defaultLocale || "en";
 // Function to get the default locale based on the user's IP address
 async function getDefaultLocaleFromIP(ip) {
   try {
-    const response = await axios.get("https://ipapi.co/json/");
-    const regionCode = response.data.country_code.toLowerCase();
+    const response = await fetch("https://ipapi.co/json/");
+    const data = await response.json();
+    const regionCode = data.country_code.toLowerCase();
     const defaultLanguage =
       {
         us: "en",

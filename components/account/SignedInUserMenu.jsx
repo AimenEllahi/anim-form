@@ -54,9 +54,9 @@ export default function SignedInUserMenu({ open, dictionary }) {
 
   return (
     <>
-      {setShowLanguageDialogue && (
+      {showLanguageDialogue && (
         <LanguagePopup
-          open={setShowLanguageDialogue}
+          open={showLanguageDialogue}
           onClose={() => setShowLanguageDialogue(false)} // Close popup on action
         />
       )}

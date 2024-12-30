@@ -3,7 +3,4 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://dndai.app
-
-# Sitemaps
-Sitemap: https://dndai.app/sitemap.xml
+Host: http://localhost:3000
