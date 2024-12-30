@@ -10,29 +10,35 @@ import CustomMenuItem from "../ui/custom-menu-item";
 
 const Notification = () => {
   const [open, setOpen] = useState(false);
-  const currentVersion = "1.1"; // Update this when notifications change
+  const currentVersion = "1.2"; // Update this when notifications change
   const defaultNotifications = [
     {
       id: 1,
-      message: "Achievements & Ranks Update 1.3",
-      link: "https://dndai.app/article/4",
+      message: "Likes in Community Gallery | Patch 1.4",
+      link: "https://dndai.app/article/5",
       read: false,
     },
     {
       id: 2,
+      message: "Achievements & Ranks Update 1.3",
+      link: "https://dndai.app/article/4",
+      read: true,
+    },
+    {
+      id: 3,
       message: "Adventurer Overview Update 1.2",
       link: "https://dndai.app/article/3",
-      read: false,
+      read: true,
     },
-    { id: 3, message: "Notification system added ♥", read: true },
+    { id: 4, message: "Notification system added ♥", read: true },
     {
-      id: 4,
+      id: 5,
       message: "Official Release of Patch 1.1",
       link: "https://dndai.app/article/2",
       read: true,
     },
     {
-      id: 5,
+      id: 6,
       message: "Official Release of Patch 1.0",
       link: "https://dndai.app/article/1",
       read: true,
