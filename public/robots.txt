@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://dndai.app
+Host: http://localhost:3000
