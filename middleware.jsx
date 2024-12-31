@@ -44,12 +44,12 @@ export default async function middleware(req) {
   const userIP = req.headers.get("x-forwarded-for") || req.ip || "127.0.0.1"; // Fallback to localhost for testing
 
   // Determine the default locale based on the cookie or IP address
-  let detectedDefaultLocale;
-  if (selectedLanguage && locales.includes(selectedLanguage)) {
-    detectedDefaultLocale = selectedLanguage; // Use the cookie if present and valid
-  } else {
-    detectedDefaultLocale = await getDefaultLocaleFromIP(userIP); // Fallback to IP-based locale detection
-  }
+  let detectedDefaultLocale = "en";
+  // if (selectedLanguage && locales.includes(selectedLanguage)) {
+  //   detectedDefaultLocale = selectedLanguage; // Use the cookie if present and valid
+  // } else {
+  //   detectedDefaultLocale = await getDefaultLocaleFromIP(userIP); // Fallback to IP-based locale detection
+  // }
 
   // Check if the pathname already contains a locale
   const hasLocale = locales.some((locale) => pathname.startsWith(`/${locale}`));

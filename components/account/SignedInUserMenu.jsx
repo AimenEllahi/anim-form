@@ -140,10 +140,10 @@ export default function SignedInUserMenu({ open, dictionary }) {
             <span> {dictionary?.accountMenu.accountSettings}</span>
           </CustomMenuItem>
 
-          <CustomMenuItem onClick={() => setShowLanguageDialogue(true)}>
+          {/* <CustomMenuItem onClick={() => setShowLanguageDialogue(true)}>
             <Globe className='h-5 w-5 fill-white opacity-70' />
             <span>Language</span>
-          </CustomMenuItem>
+          </CustomMenuItem> */}
 
           <CustomMenuItem onClick={() => handleRedirect("/pricing")}>
             <Support className='h-5 w-5 fill-white opacity-70' />
