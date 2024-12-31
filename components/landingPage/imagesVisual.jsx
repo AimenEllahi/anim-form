@@ -9,7 +9,6 @@ export default function imagesVisual({ dictionary }) {
     router.push("/discover/gallery");
   };
 
-  console.log(dictionary);
   return (
     <div className=' h-full w-screen flex flex-col justify-center items-center text-white md:py-64 py-16 pb-32'>
       <h3 className='headline-1 text-center mb-16 px-12 z-10'>
