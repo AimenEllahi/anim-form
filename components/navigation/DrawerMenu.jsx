@@ -206,7 +206,7 @@ const UserLoggedIn = ({ handleRedirect, handlePlay, dictionary }) => {
           <span>{dictionary?.accountMenu.accountSettings}</span>
         </CustomMenuItem>
 
-        <CustomMenuItem
+        {/* <CustomMenuItem
           onClick={() => setShowLanguageDialogue(true)}
           className={
             "p-0 hover:bg-transparent active:bg-transparent hover:border-transparent active:border-transparent"
@@ -214,7 +214,7 @@ const UserLoggedIn = ({ handleRedirect, handlePlay, dictionary }) => {
         >
           <Globe className='h-5 w-5 opacity-70 fill-white' />
           <span>Language</span>
-        </CustomMenuItem>
+        </CustomMenuItem> */}
 
         <CustomMenuItem
           onClick={() => handleRedirect("/pricing")}
