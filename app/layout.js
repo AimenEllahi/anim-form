@@ -7,7 +7,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { usePathname } from "next/navigation";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import Script from "next/script";
-import "./globals.css";
+import "./[lang]/globals.css";
 import CreditsDialogue from "@/components/ui/Shared/Dialogue/GetCredits";
 import useStepperStore from "@/utils/characterStore";
 import useUserStore from "@/utils/userStore";
