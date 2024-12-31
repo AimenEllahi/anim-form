@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, Suspense, memo, useRef } from "react";
+import React, { useEffect, Suspense, memo, useState } from "react";
 import { Inter } from "next/font/google";
 import Navbar from "@/components/navigation/Navbar";
 import Footer from "@/components/navigation/Footer";
@@ -26,11 +26,11 @@ export default function RootLayout({ children }) {
   const pathname = usePathname();
   const { activeStep } = useStepperStore();
   const { user, setYellowCredits, setBlueCredits } = useUserStore();
+  const [dictionary, setDictionary] = useState(null);
   const cookies = new Cookie();
-  const dictionary = useRef(null);
 
   const locales = i18n.locales;
-  const defaultLocale = i18n.defaultLocale || "en";
+  const defaultLocale = "en";
 
   const locale = pathname.split("/")[1];
   const currentLocale = locales.includes(locale) ? locale : defaultLocale;
@@ -38,9 +38,7 @@ export default function RootLayout({ children }) {
   // Dynamically import the dictionary based on the current locale
   async function loadDictionary() {
     try {
-      const dictionaryModule = await import(
-        `../../dictionaries/${currentLocale}.json`
-      );
+      const dictionaryModule = await import(`../../dictionaries/en.json`);
       return dictionaryModule.default; // Assuming default export
     } catch (error) {
       console.error("Error loading dictionary:", error);
@@ -50,7 +48,8 @@ export default function RootLayout({ children }) {
 
   useEffect(() => {
     loadDictionary().then((_dictionary) => {
-      dictionary.current = _dictionary;
+      console.log(_dictionary);
+      setDictionary(_dictionary);
     });
   }, [currentLocale]);
 
@@ -231,7 +230,7 @@ export default function RootLayout({ children }) {
             className='fixed w-screen h-screen top-0 left-0 z-0 object-cover'
           />
           <MemoizedNavbar
-            dictionary={dictionary.current?.navbar}
+            dictionary={dictionary?.navbar}
             characterSheet={characterSheet}
             variant={isTransparentNavbar ? "transparent" : "glass"}
           />
@@ -242,9 +241,7 @@ export default function RootLayout({ children }) {
             <NewGameModal />
             {children}
           </main>
-          {showFooter && (
-            <MemoizedFooter dictionary={dictionary.current?.footer} />
-          )}
+          {showFooter && <MemoizedFooter dictionary={dictionary?.footer} />}
           <Suspense fallback={null}>
             <CreditsDialogue />
           </Suspense>
