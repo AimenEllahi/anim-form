@@ -12,7 +12,6 @@ export default function Article5() {
           <div className='flex flex-col gap-5 md:w-[711px] w-full '>
             <p className='running-text-large'>New Features:</p>
             <div className='flex flex-col gap-3 pl-5'>
-              <div><span className='font-bold'>Multi-Language Support:</span> The app now supports multiple languages, automatically set based on your country's IP. You can change the language anytime via the "Account Menu" in the top-right corner.</div>
               <div><span className='font-bold'>Community Gallery Likes:</span> You can now like images in the "Community Gallery" to rank your favorite contributions and filter for "Most Liked" images.</div>
               <div><span className='font-bold'>Improved Character Creator:</span> Introduced three ways to assign ability scores:
                 <div className='flex flex-col gap-2 pl-5'>
