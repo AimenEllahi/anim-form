@@ -23,6 +23,7 @@ const inter = Inter({ subsets: ["latin"] });
 const MemoizedNavbar = memo(Navbar);
 const MemoizedFooter = memo(Footer);
 
+//root
 export default function RootLayout({ children }) {
   const pathname = usePathname();
   const { activeStep } = useStepperStore();
