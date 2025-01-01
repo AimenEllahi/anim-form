@@ -72,7 +72,7 @@ export default function RootLayout({ children }) {
   const showDiceGame = pathname.includes("/game/play");
 
   const characterSheet = pathname.includes("/character/sheet");
-  const noMaxWidth = pathname.includes("/game/play") || pathname === "/";
+  const noMaxWidth = pathname.includes("/game/play") || pathname === "/en";
   const {
     title,
     description,
