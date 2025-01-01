@@ -26,32 +26,8 @@ export default function RootLayout({ children }) {
   const pathname = usePathname();
   const { activeStep } = useStepperStore();
   const { user, setYellowCredits, setBlueCredits } = useUserStore();
-  const [dictionary, setDictionary] = useState(null);
+
   const cookies = new Cookie();
-
-  const locales = i18n.locales;
-  const defaultLocale = "en";
-
-  const locale = pathname.split("/")[1];
-  const currentLocale = locales.includes(locale) ? locale : defaultLocale;
-
-  // Dynamically import the dictionary based on the current locale
-  async function loadDictionary() {
-    try {
-      const dictionaryModule = await import(`../../dictionaries/en.json`);
-      return dictionaryModule.default; // Assuming default export
-    } catch (error) {
-      console.error("Error loading dictionary:", error);
-      return {}; // Return a fallback if the dictionary cannot be loaded
-    }
-  }
-
-  useEffect(() => {
-    loadDictionary().then((_dictionary) => {
-      console.log(_dictionary);
-      setDictionary(_dictionary);
-    });
-  }, [currentLocale]);
 
   const isTransparentNavbar =
     pathname.includes("/auth") || pathname.includes("/game/play");
@@ -230,7 +206,6 @@ export default function RootLayout({ children }) {
             className='fixed w-screen h-screen top-0 left-0 z-0 object-cover'
           />
           <MemoizedNavbar
-            dictionary={dictionary?.navbar}
             characterSheet={characterSheet}
             variant={isTransparentNavbar ? "transparent" : "glass"}
           />
@@ -241,7 +216,7 @@ export default function RootLayout({ children }) {
             <NewGameModal />
             {children}
           </main>
-          {showFooter && <MemoizedFooter dictionary={dictionary?.footer} />}
+          {showFooter && <MemoizedFooter />}
           <Suspense fallback={null}>
             <CreditsDialogue />
           </Suspense>

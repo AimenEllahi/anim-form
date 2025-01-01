@@ -146,11 +146,10 @@ export default function Navbar({
   characterSheet,
   newGameStepper = false,
   hideHeader,
-  dictionary,
 }) {
-  
   const { isMobile, isTablet } = useDeviceDetect();
   const { invokeToast } = useCustomToast();
+  const [dictionary, setDictionary] = useState(null);
   const {
     showMenu,
     setShowMenu,
@@ -166,7 +165,7 @@ export default function Navbar({
     showOverlay,
     setStartNewGame,
   } = useGameStore();
-  const router = useRouter();
+
   const [isLoading, setIsLoading] = useState(false);
   const pathname = usePathname();
   const { gamesLength } = useControlsStore();
@@ -183,6 +182,23 @@ export default function Navbar({
   const regex = /^\/campaign\/[a-fA-F0-9]{24}$/;
 
   const isCampaignSubpage = regex.test(pathname);
+
+  // Dynamically import the dictionary based on the current locale
+  async function loadDictionary() {
+    try {
+      const dictionaryModule = await import(`../../dictionaries/en.json`);
+      return dictionaryModule.default; // Assuming default export
+    } catch (error) {
+      console.error("Error loading dictionary:", error);
+      return {}; // Return a fallback if the dictionary cannot be loaded
+    }
+  }
+
+  useEffect(() => {
+    loadDictionary().then((_dictionary) => {
+      setDictionary(_dictionary.navbar);
+    });
+  }, []);
 
   const handlePlayWithCampaign = async () => {
     try {
