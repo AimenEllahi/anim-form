@@ -20,7 +20,7 @@ export default function Card({ imgSrc, benefits, children }) {
           <ul className='text-white flex flex-col gap-3 w-full'>
             {benefits.map((benefit, i) => (
               <li index={i} className='flex gap-2 justify-start items-center'>
-                <Tick className='h-3.5 w-3.5 opacity-70' />
+                <Tick className='h-3.5 w-3.5 opacity-70 fill-white' />
                 <span className=' running-text-small '>{benefit}</span>
               </li>
             ))}

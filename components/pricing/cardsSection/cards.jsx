@@ -84,10 +84,7 @@ export default function cards({ plan, selectedPlan, stripe, dictionary }) {
             {chosenPrice}
           </span>
           {discountedPrice && <span>{discountedPrice}</span>}
-          <span className='text-gray2 running-text-mono'>
-            {" "}
-            /{dictionary.month}
-          </span>
+          <span className='text-gray2 running-text-mono'> /month</span>
         </div>
       </div>
       <div className='p-4  px-5 border-y border-white/10'>
@@ -118,7 +115,7 @@ export default function cards({ plan, selectedPlan, stripe, dictionary }) {
         <ul className='text-white flex flex-col gap-3'>
           {benefits?.map((benefit, i) => (
             <li key={i} className='flex gap-2 justify-start items-center'>
-              <Tick className='h-3.5 w-3.5 opacity-70' />
+              <Tick className='h-3.5 w-3.5 opacity-70 fill-white z-10' />
               <span className='text-white running-text-small '>
                 {benefit}
                 {i === 0}

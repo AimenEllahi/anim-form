@@ -87,7 +87,7 @@ export default function card({ _package, stripe }) {
       <div className='p-5 pt-4 flex flex-col gap-5'>
         <ul className='text-white   flex flex-col gap-2'>
           <li className='flex gap-2 justify-start items-center'>
-            <Tick className='h-3.5 w-3.5 opacity-70' />
+            <Tick className='h-3.5 w-3.5 opacity-70 fill-white' />
             <span className='text-white running-text-small '>
               {_package.benefit}
             </span>

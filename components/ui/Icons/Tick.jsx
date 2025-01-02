@@ -3,14 +3,12 @@ import React from "react";
 export default function Tick(props) {
   return (
     <svg
-      width="15"
-      height="11"
-      viewBox="0 0 15 11"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
+      xmlns='http://www.w3.org/2000/svg'
+      data-name='Ebene 1'
+      viewBox='0 0 20 20'
       {...props}
     >
-      <path d="M15 1.49997L5.5 11L0 5.49997L0.707 4.79297L5.5 9.58597L14.293 0.79297L15 1.49997Z" />
+      <path d='M17.293 4.793 8.5 13.586 3.707 8.793 3 9.5 8.5 15 18 5.5l-.707-.707z' />
     </svg>
   );
 }
