@@ -135,7 +135,7 @@ export default function cards({ plan, selectedPlan, stripe, dictionary }) {
           disabled={loading}
           className={"w-full"}
         >
-          {}
+          Subscribe Now
         </CustomButton>
       </div>
     </div>
