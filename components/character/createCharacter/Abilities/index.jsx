@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import Choose from "./Choose";
 import Help from "@/components/ui/Icons/Help";
-import AbilitiesTypeModal from "../shared/AbilitiesTypeModal";
 
 const abilitiesType = [
   {

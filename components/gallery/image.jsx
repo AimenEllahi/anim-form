@@ -6,7 +6,14 @@ import Cancel from "@/components/ui/Icons/Cancel";
 import CustomIconbutton from "@/components/ui/custom-iconbutton";
 import Like from "../ui/Icons/Like";
 
-export default function Image({ setOpen, image, likes, dictionary, isLiked }) {
+export default function Image({
+  setOpen,
+  image,
+  likes,
+  dictionary,
+  isLiked,
+  isCreator,
+}) {
   const downloadImage = () => {
     const link = document.createElement("a");
     link.target = "_blank";
@@ -42,18 +49,24 @@ export default function Image({ setOpen, image, likes, dictionary, isLiked }) {
         </div>
       </>
 
-      <div className='md:flex justify-between hidden '>
-        <div className='flex justify-start gap-4 '>
+      <div className='flex justify-center md:justify-between   '>
+        <div className='hidden md:flex justify-start gap-4 '>
           <CustomButton onClick={downloadImage} withIcon variant={"subtle"}>
             <Download className='h-5 w-5 opacity-70 fill-white' />
             {dictionary.downloadImage}
           </CustomButton>
         </div>
-        <div className={" flex justify-center items-center gap-2 "}>
-          <Like isLiked={isLiked} className='h-5 w-5 fill-white' />
-          <span className='running-text-mono'>{likes}</span>
-        </div>
-        <CustomButton onClick={() => setOpen(false)} withIcon>
+        {!isCreator && (
+          <div className={" flex justify-center items-center gap-2 "}>
+            <Like isLiked={isLiked} className='h-5 w-5 fill-white' />
+            <span className='running-text-mono'>{likes}</span>
+          </div>
+        )}
+        <CustomButton
+          className={"hidden md:flex"}
+          onClick={() => setOpen(false)}
+          withIcon
+        >
           <Cancel className='w-3 h-3 opacity-70 fill-white' />
           <span className='running-text-mono text-white'>
             {dictionary.close}

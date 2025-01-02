@@ -98,10 +98,10 @@ export default function Index({ userAchievements, achievements }) {
         <div className='w-full z-10 flex flex-col gap-6 justify-between items-center'>
           <div className='z-10 text-sandyOrange w-full h-12  flex flex-col gap-5 justify-start items-start '>
             <div className='w-full flex  justify-between items-center'>
-              <span className='text-[#FFB371] flex gap-2 uppercase running-text-mono'>
+              <span className='text-[#FFB371] items-center flex gap-2 uppercase running-text-mono'>
                 Total Pokals <AchievementV2 /> {userAchievements.pokal}
               </span>
-              <span className='text-[#FFB371] flex gap-2 uppercase running-text-mono'>
+              <span className='text-[#FFB371] items-center flex gap-2 uppercase running-text-mono'>
                 {" "}
                 <AchievementV2 /> {userAchievements.pokal}/
                 {nextLevelToAchieve.pokalsRequired}
