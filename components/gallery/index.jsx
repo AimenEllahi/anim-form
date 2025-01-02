@@ -30,6 +30,8 @@ const GalleryImage = ({ img, className, dictionary }) => {
   const [likedBy, setLikedBy] = useState(img?.likedBy || []);
   const [loading, setLoading] = useState(false);
 
+  const isCreator = img?.isCreator;
+
   let src = img.url;
   const { user } = useUserStore();
 
@@ -78,28 +80,30 @@ const GalleryImage = ({ img, className, dictionary }) => {
         >
           <Download className='h-5 w-5 fill-white' />
         </CustomIconbutton>
-        {user?.token && (
-          <CustomIconbutton
-            disabled={loading || likedBy.includes(user._id)}
-            onClick={handleLikeImage}
-            className={
-              "absolute top-4 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto right-16  bg-blur"
-            }
-          >
-            <Like
-              isfilled={likedBy.includes(user._id)}
-              className='h-5 w-5 fill-white'
-            />
-          </CustomIconbutton>
+        {user?.token && !isCreator && (
+          <>
+            <CustomIconbutton
+              disabled={loading || likedBy.includes(user._id)}
+              onClick={handleLikeImage}
+              className={
+                "absolute top-4 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto right-16  bg-blur"
+              }
+            >
+              <Like
+                isfilled={likedBy.includes(user._id)}
+                className='h-5 w-5 fill-white'
+              />
+            </CustomIconbutton>
+            <div
+              className={
+                "absolute flex justify-center items-center gap-2 bottom-4 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto right-[43%]"
+              }
+            >
+              <Like isfilled={"true"} className='h-5 w-5 fill-white' />
+              <span className='running-text-mono'>{likedBy?.length || 0}</span>
+            </div>
+          </>
         )}
-        <div
-          className={
-            "absolute flex justify-center items-center gap-2 bottom-4 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto right-[43%]"
-          }
-        >
-          <Like isfilled={"true"} className='h-5 w-5 fill-white' />
-          <span className='running-text-mono'>{likedBy?.length || 0}</span>
-        </div>
         <img
           onClick={() => setOpen(true)}
           src={src}
@@ -115,6 +119,7 @@ const GalleryImage = ({ img, className, dictionary }) => {
         isLiked={likedBy.includes(user._id)}
         dictionary={dictionary}
         setOpen={setOpen}
+        isCreator={isCreator}
         image={src}
         likes={likedBy?.length || 0}
       />
