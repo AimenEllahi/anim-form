@@ -291,7 +291,7 @@ export default function RollForStats({
           {Object.keys(rollResults)
             .map((result) => rollResults[result].value)
             .reduce((a, b) => 
-            coa + b, 0) || 0}
+            a + b, 0) || 0}
         </span>
       </div>
     </>
