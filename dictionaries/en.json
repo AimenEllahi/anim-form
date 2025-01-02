@@ -17,7 +17,7 @@
       "signUp": "Sign Up",
       "logout": "Logout",
       "the": "The",
-      "emblemsTitle": "Emblems & Title",
+      "emblemsTitle": "Emblems & Titles",
       "myAdventurers": "My Adventurers",
       "myImages": "My Images",
       "myCampaigns": "My Campaigns",
@@ -414,7 +414,7 @@
   "gallery": {
     "newestToOldest": "Newest to Oldest",
     "oldestToNewest": "Oldest to Newest",
-    "mostLiked": "mostLiked",
+    "mostLiked": "Most Liked",
     "loadingImages": "Loading Images...",
     "gallery": "Gallery",
     "myImages": "My Images",
