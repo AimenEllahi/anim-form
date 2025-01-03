@@ -61,9 +61,9 @@ export default function RollForStats({
     //initiate dice box
     const _diceBox = new DiceBox("#dice-box-abilities", {
       assetPath: "/assets/dice-box", // required
-      theme: "default", //optional
+      theme: "rock", //optional
       enableShadows: true, // optional
-      themeColor: "#242e9e", // optional
+      themeColor: "#4F4ED8", // optional
       scale: 4,
       lightIntensity: 1,
       shadowIntensity: 2,
