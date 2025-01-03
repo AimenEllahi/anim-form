@@ -63,7 +63,7 @@ export default function RollForStats({
       assetPath: "/assets/dice-box", // required
       theme: "rock", //optional
       enableShadows: true, // optional
-      themeColor: "#8F91FF", // optional
+      themeColor: "#4F4ED8", // optional
       scale: 4,
       lightIntensity: 1,
       shadowIntensity: 2,

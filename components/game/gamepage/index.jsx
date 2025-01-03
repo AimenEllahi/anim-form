@@ -58,7 +58,7 @@ export default function Index({
       assetPath: "/assets/dice-box",
       theme: "rock",
       enableShadows: true,
-      themeColor: "#8F91FF",
+      themeColor: "#4F4ED8",
       scale: 8,
       lightIntensity: 1,
       shadowIntensity: 2,
