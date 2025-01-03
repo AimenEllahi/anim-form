@@ -1,6 +1,5 @@
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
+import React from "react";
 import { cn } from "@/lib/utils";
 const NavMenu = ({ menu, disable }) => {
   const getLinkHref = (link) => {
@@ -47,23 +46,23 @@ const NavMenu = ({ menu, disable }) => {
         {menu.heading}
       </footer>
       <ul className='flex flex-col gap-4'>
-        {Object.entries(menu.navlinks).map(([key, value], index) => (
+        {menu.navlinks.map((link, index) => (
           <li key={index}>
             <Link
-              href={getLinkHref(key)}
+              href={getLinkHref(link)}
               className={`text-white ease-animate hover:text-gray2 running-text ${
                 disable ? "pointer-events-none text-gray-400" : ""
               }`}
               target={
-                key === "Discord" || key === "Twitter" ? "_blank" : undefined
+                link === "Discord" || link === "Twitter" ? "_blank" : undefined
               }
               rel={
-                key === "Discord" || key === "Twitter"
+                link === "Discord" || link === "Twitter"
                   ? "noopener noreferrer"
                   : undefined
               }
             >
-              {value}
+              {link}
             </Link>
           </li>
         ))}
@@ -72,25 +71,6 @@ const NavMenu = ({ menu, disable }) => {
   );
 };
 export default function Footer() {
-  const pathname = usePathname();
-  const [dictionary, setDictionary] = useState(null);
-  // Dynamically import the dictionary based on the current locale
-  async function loadDictionary() {
-    try {
-      const dictionaryModule = await import(`../../dictionaries/en.json`);
-      return dictionaryModule.default; // Assuming default export
-    } catch (error) {
-      console.error("Error loading dictionary:", error);
-      return {}; // Return a fallback if the dictionary cannot be loaded
-    }
-  }
-
-  useEffect(() => {
-    loadDictionary().then((_dictionary) => {
-      setDictionary(_dictionary.footer);
-    });
-  }, []);
-
   return (
     <footer
       className={cn(
@@ -104,47 +84,41 @@ export default function Footer() {
           {/* Help / Support Section */}
           <NavMenu
             menu={{
-              heading: dictionary?.helpAndSupport.title,
-              navlinks: {
-                "About Us": dictionary?.helpAndSupport.aboutUs,
-                News: dictionary?.helpAndSupport.news,
-                "Contact Us": dictionary?.helpAndSupport.contactUs,
-                "Give us Feedback": dictionary?.helpAndSupport.giveUsFeedback,
-                "Report a Bug": dictionary?.helpAndSupport.reportABug,
-              },
+              heading: "HELP AND SUPPORT",
+              navlinks: [
+                "About Us",
+                "News",
+                "Contact Us",
+                "Give us Feedback",
+                "Report a Bug",
+              ],
             }}
           />
           <NavMenu
             menu={{
-              heading: dictionary?.legal.title,
-              navlinks: {
-                Imprint: dictionary?.legal.imprint,
-                "Terms and Conditions": dictionary?.legal.termsAndConditions,
-                Privacy: dictionary?.legal.privacy,
-                Cookies: dictionary?.legal.cookies,
-              },
+              heading: "LEGAL",
+              navlinks: [
+                "Imprint",
+                "Terms and Conditions",
+                "Privacy",
+                "Cookies",
+              ],
             }}
           />
           <NavMenu
             menu={{
-              heading: dictionary?.socialMedia.title,
-              navlinks: {
-                Discord: dictionary?.socialMedia.discord,
-                Twitter: dictionary?.socialMedia.twitter,
-                Tiktok: dictionary?.socialMedia.tiktok,
-                Instagram: dictionary?.socialMedia.instagram,
-              },
+              heading: "SOCIAL MEDIA",
+              navlinks: ["Discord", "Twitter", "Tiktok", "Instagram"],
             }}
-            disable={false} // Disable this menu
           />
         </div>
         {/* Copyright Notice */}
         <div className='!z-10 mt-14 running-text-mono'>
           <p className='text-left relative z-10 text-white'>
-            {dictionary?.rightsReserved}
+            DND AI © 2024 ALL RIGHTS RESERVED
           </p>
           <p className='text-left md:text-right relative z-10 text-white pt-4 md:pt-0'>
-            {dictionary?.designedBy}
+            DESIGNED WITH ♥ BY
             <a href='https://www.nexene.at' target='_blank'>
               {" "}
               NEXENE
