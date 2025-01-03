@@ -9,7 +9,7 @@ import useCustomToast from "@/hooks/useCustomToast";
 import useUserStore from "@/utils/userStore";
 import { useSearchParams } from "next/navigation";
 
-export default function GoogleAuth({ isLoading, setIsLoading, dictionary }) {
+export default function GoogleAuth({ isLoading, setIsLoading }) {
   const router = useRouter();
   const { invokeToast } = useCustomToast();
   const { setUser } = useUserStore();
@@ -60,7 +60,7 @@ export default function GoogleAuth({ isLoading, setIsLoading, dictionary }) {
         title='Google Icon'
         alt='Logo of the Google company'
       />
-      {dictionary}
+      CONTINUE WITH GOOGLE
     </CustomButton>
   );
 }

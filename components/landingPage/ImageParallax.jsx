@@ -3,7 +3,7 @@ import React from "react";
 import { Parallax } from "react-scroll-parallax";
 import useDeviceDetect from "@/hooks/useDeviceDetect";
 
-export default function ImageParallax({ dictionary }) {
+export default function ImageParallax() {
   const { isMobile } = useDeviceDetect();
 
   return (
@@ -16,7 +16,7 @@ export default function ImageParallax({ dictionary }) {
             }}
             className='headline-1 text-center text-white z-[10]'
           >
-            {dictionary.firstSection.title}
+            DISCOVER ENDLESS CREATIVE POSSIBILITIES.
           </h2>
 
           <Parallax
@@ -204,7 +204,7 @@ export default function ImageParallax({ dictionary }) {
             }}
             className='headline-1 top-[50%] translate-y-[-50%] self-center text-center text-white absolute !z-[11]'
           >
-            {dictionary.secondSection.title}
+            DISCOVER ENDLESS CREATIVE POSSIBILITIES.
           </h2>
           <Parallax translateY={15} speed={-10} className='w-full z-10'>
             <video

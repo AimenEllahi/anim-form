@@ -13,7 +13,7 @@ function GalleryContainer() {
   const [images, setImages] = useState();
   const { user, setTotalImages } = useUserStore();
   const [totalPages, setTotalPages] = useState(1);
-  const [selectedOption, setSelectedOption] = useState(SORT_BY_OPTIONS[0]);
+  const [selectedOption, setSelectedOption] = useState("Newest to Oldest");
   const [totalRecords, setTotalRecords] = useState(0);
   const router = useRouter();
   const { invokeToast } = useCustomToast();
@@ -51,7 +51,7 @@ function GalleryContainer() {
   if (!searchParams.get("page")) {
     router.push("/my-account/gallery?page=1");
   }
-  if (!images) return <Loader text='Loading Images...' />;
+  if (!images) return <Loader text="Loading Images..." />;
   return (
     <Gallery
       images={images}

@@ -11,7 +11,7 @@ import useCustomToast from "@/hooks/useCustomToast";
 import useUserStore from "@/utils/userStore";
 import Switch from "./Switch";
 
-export default function Index({ campaign, setCampaign, dictionary }) {
+export default function Index({ campaign, setCampaign }) {
   const [activeTab, setActiveTab] = useState("details");
   const [comments, setComments] = useState([]);
   const { user } = useUserStore();
@@ -48,7 +48,6 @@ export default function Index({ campaign, setCampaign, dictionary }) {
             className='md:hidden object-contain w-full rounded-[16px]'
           />
           <TopButtons
-            dictionary={dictionary}
             campaign={campaign}
             setCampaign={setCampaign}
             className={" md:hidden"}
@@ -57,14 +56,13 @@ export default function Index({ campaign, setCampaign, dictionary }) {
 
         <div className='w-full flex flex-col gap-[20px] text-white z-[10] pt-9 md:pt-8 pb-32 md:pb-0'>
           <TopButtons
-            dictionary={dictionary}
             campaign={campaign}
             setCampaign={setCampaign}
             className={"hidden md:flex"}
           />
           <div className='w-full h-full flex flex-col-reverse md:flex-row justify-between gap-8 md:gap-[20px]'>
             <div className='px-5 md:px-0 w-full md:w-1/3'>
-              <TimeStamps dictionary={dictionary} campaign={campaign} />
+              <TimeStamps campaign={campaign} />
             </div>
             <div className='w-full md:w-2/3 flex flex-col gap-[20px] md:bg-white/[8%] md:border border-white/10 rounded-[16px] px-0 md:px-5'>
               <div className='flex flex-col gap-6 py-[20px]'>
@@ -83,7 +81,6 @@ export default function Index({ campaign, setCampaign, dictionary }) {
                     count={comments.length}
                   /> */}
                   <Switch
-                    dictionary={dictionary}
                     selectedTab={activeTab}
                     setSelectedTab={setActiveTab}
                     commentCount={comments.length} // Example count value
@@ -95,7 +92,6 @@ export default function Index({ campaign, setCampaign, dictionary }) {
 
                 {activeTab === "details" && (
                   <Details
-                    dictionary={dictionary}
                     details={{
                       time: campaign?.adventure?.time,
                       plot: campaign?.adventure?.plot,
@@ -106,7 +102,6 @@ export default function Index({ campaign, setCampaign, dictionary }) {
                 )}
                 {activeTab === "comments" && (
                   <Comments
-                    dictionary={dictionary}
                     comments={comments}
                     setComments={setComments}
                     campaign={campaign}

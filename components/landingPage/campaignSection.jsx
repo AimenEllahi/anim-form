@@ -5,7 +5,7 @@ import { getMostLikedCampaigns } from "@/actions/campaigns";
 import CampaignCarousel from "@/components/ui/Shared/Carousel/campaign";
 import { useRouter } from "next/navigation";
 import useCustomToast from "@/hooks/useCustomToast";
-export default function CampaignSection({ dictionary }) {
+export default function CampaignSection() {
   const [campaigns, setCampaigns] = useState([]);
   const { invokeToast } = useCustomToast();
   const router = useRouter();
@@ -35,12 +35,12 @@ export default function CampaignSection({ dictionary }) {
     <>
       <div className='max-w-screen h-full flex flex-col justify-center items-center pb-32 text-white '>
         <h4 className='headline-1 text-center w-full px-5 md:px-12 uppercase z-10 '>
-          {dictionary?.fifthSection.title}
+          Forge your destiny and choose your campaign!
         </h4>
         <CampaignCarousel isLanding campaigns={campaigns} />
 
         <CustomButton onClick={handleRedirect} className={"mt-8"}>
-          {dictionary?.fifthSection.title}
+          All Campaigns
         </CustomButton>
       </div>
     </>

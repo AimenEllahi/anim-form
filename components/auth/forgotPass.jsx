@@ -8,7 +8,7 @@ import { requestPasswordReset } from "@/actions/auth";
 import useCustomToast from "@/hooks/useCustomToast";
 import { useRouter } from "next/navigation";
 import CheckMail from "./checkmail";
-export default function forgotPass({ dictionary }) {
+export default function forgotPass() {
   const { invokeToast } = useCustomToast();
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -40,12 +40,15 @@ export default function forgotPass({ dictionary }) {
   return (
     <div className=' text-white h-auto w-[345px]  flex flex-col justify-between items-start gap-8 z-[10]'>
       <div className='flex flex-col gap-4'>
-        <h1 className='running-text-large'>{dictionary.title}</h1>
-        <span className='running-text-small text-gray2'>{dictionary.desc}</span>
+        <h1 className='running-text-large'>Forgot password?</h1>
+        <span className='running-text-small text-gray2'>
+          Enter your E-Mail address to reset your password. You may need to
+          check your spam folder.
+        </span>
       </div>
       <div className='flex flex-col gap-6 w-full'>
         <CustomInput
-          placeholder={dictionary.email}
+          placeholder='E-MAIL'
           onChange={(value) => setEmail(value)}
           value={email}
         />
@@ -56,10 +59,10 @@ export default function forgotPass({ dictionary }) {
             variant={"primary"}
             className={"w-full font-bold"}
           >
-            {isLoading ? dictionary.loading : dictionary.resetPassword}
+            {isLoading ? "LOADING..." : "RESET PASSWORD"}
           </CustomButton>
           <Link href='/' className='running-text-small'>
-            {dictionary.noAccess}
+            I do not have access to my E-Mail address
           </Link>
         </div>
       </div>

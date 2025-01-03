@@ -4,13 +4,13 @@ import { useDropzone } from "react-dropzone";
 
 import "subjx/dist/style/subjx.css";
 const allowedTypes = ["image/jpeg", "image/webp", "image/png"];
-const upload = ({ files, setFiles, dictionary }) => {
+const upload = ({ files, setFiles }) => {
   const onDrop = useCallback((acceptedFiles) => {
     acceptedFiles.forEach((file) => {
       const reader = new FileReader();
 
       if (!allowedTypes.includes(file.type)) {
-        //  console.log(`File type ${file.type} is not allowed.`);
+      //  console.log(`File type ${file.type} is not allowed.`);
         return; // Skip this file if it's not an allowed type
       }
 
@@ -58,8 +58,8 @@ const upload = ({ files, setFiles, dictionary }) => {
             <Upload />
 
             <span>
-              <span className='text-gray2'>{dictionary.dragAndDrop} </span>
-              {dictionary.uploadFile}
+              <span className='text-gray2'>Drag and drop files or </span>upload
+              files
             </span>
             <span className='text-gray2 font-roboto-mono'>png, jpg, webp</span>
           </div>

@@ -44,7 +44,7 @@ const emoticons = [
   },
 ];
 
-export default function Feedback({ dictionary }) {
+export default function Feedback() {
   const [selected, setSelected] = useState(5);
   const [thoughts, setThoughts] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -77,7 +77,7 @@ export default function Feedback({ dictionary }) {
   return (
     <div className='flex w-full flex-col gap-6 justify-center items-center'>
       <div className='w-full flex flex-col gap-4'>
-        <span>{dictionary.title}</span>
+        <span>How would you rate DNDai?</span>
         <div className='flex flex-col items-start'>
           <div className='flex justify-start space-x-4'>
             {emoticons.map((emoticon) => (
@@ -107,11 +107,11 @@ export default function Feedback({ dictionary }) {
         </div>
       </div>
       <div className='w-full flex flex-col gap-4'>
-        <span>{dictionary.doYouHave}</span>
+        <span>Do you have any thoughts you’d like to share?</span>
         <CustomTextArea
           value={thoughts}
           onChange={(e) => setThoughts(e)}
-          placeholder={dictionary.yourThoughts}
+          placeholder='Your thoughts'
         />
         <CustomButton
           variant={"primary"}
@@ -120,7 +120,7 @@ export default function Feedback({ dictionary }) {
           withIcon={true}
           className={"focus:bg-white focus:text-black self-end"}
         >
-          <span>{dictionary.send}</span>
+          <span>Send</span>
           <ArrowRight className='h-5 w-5 fill-russianViolet opacity-70' />
         </CustomButton>
       </div>

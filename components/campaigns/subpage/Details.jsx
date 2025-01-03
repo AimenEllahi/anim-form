@@ -29,20 +29,16 @@ const splitIntoParagraphs = (text) => {
   return paragraphs;
 };
 
-export default function Details({ details, setting, dictionary }) {
+export default function Details({ details, setting }) {
   return (
     <div className='flex flex-col md:flex-row gap-[20px] w-full details-section px-5 md:px-0'>
       <div className='md:w-1/2 flex flex-col gap-[16px]'>
         <div className='flex flex-col gap-[16px]'>
-          <span className='running-text-mono text-gray2 uppercase'>
-            {dictionary.time}
-          </span>
+          <span className='running-text-mono text-gray2'>TIME</span>
           <p className='running-text'>{details.time}</p>
         </div>
         <div className='flex flex-col gap-[16px]'>
-          <span className='running-text-mono text-gray2 uppercase'>
-            {dictionary.plot}
-          </span>
+          <span className='running-text-mono text-gray2'>PLOT</span>
           {splitIntoParagraphs(details.plot).map((paragraph, index) => (
             <p key={index} className='running-text'>
               {paragraph}
@@ -50,9 +46,7 @@ export default function Details({ details, setting, dictionary }) {
           ))}
         </div>
         <div className='flex flex-col gap-[16px]'>
-          <span className='running-text-mono text-gray2 uppercase'>
-            {dictionary.hook}
-          </span>
+          <span className='running-text-mono text-gray2'>HOOK</span>
           {splitIntoParagraphs(details.hook).map((paragraph, index) => (
             <p key={index} className='running-text'>
               {paragraph}
@@ -62,9 +56,7 @@ export default function Details({ details, setting, dictionary }) {
       </div>
       <div className='md:w-1/2'>
         <div className='flex flex-col gap-[16px] items-start justify-start'>
-          <span className='running-text-mono text-gray2 uppercase'>
-            {dictionary.setting}
-          </span>
+          <span className='running-text-mono text-gray2'>SETTINGS</span>
           <span className='running-text md:hidden'>{setting}</span>
 
           <img

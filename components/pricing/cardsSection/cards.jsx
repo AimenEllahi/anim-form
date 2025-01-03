@@ -8,7 +8,7 @@ import useCustomToast from "@/hooks/useCustomToast";
 import Generate from "@/components/ui/Icons/Generate";
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
-export default function cards({ plan, selectedPlan, stripe, dictionary }) {
+export default function cards({ plan, selectedPlan, stripe }) {
   const selectedPlay_formatted = selectedPlan.toLowerCase().replace("-", "");
   const chosenPrice = plan.price[selectedPlay_formatted];
   const discountedPrice = plan.discountedPrice[selectedPlay_formatted];
@@ -72,7 +72,7 @@ export default function cards({ plan, selectedPlan, stripe, dictionary }) {
           <div className='flex uppercase absolute top-2.5 right-2.5 items-center gap-1.5 py-1.5 px-3.5 ps-3 rounded-[8px] bg-irisPurpleLight'>
             <Generate className='h-4 w-4 fill-russianViolet' />
             <span className='running-text-mono text-[10px] text-russianViolet font-[500]'>
-              {dictionary.mostPopular}
+              most popular
             </span>
           </div>
         )}
@@ -115,7 +115,7 @@ export default function cards({ plan, selectedPlan, stripe, dictionary }) {
         <ul className='text-white flex flex-col gap-3'>
           {benefits?.map((benefit, i) => (
             <li key={i} className='flex gap-2 justify-start items-center'>
-              <Tick className='h-3.5 w-3.5 opacity-70 fill-white z-10' />
+              <Tick className='h-3.5 w-3.5 opacity-70' />
               <span className='text-white running-text-small '>
                 {benefit}
                 {i === 0}
@@ -132,7 +132,7 @@ export default function cards({ plan, selectedPlan, stripe, dictionary }) {
           disabled={loading}
           className={"w-full"}
         >
-          Subscribe Now
+          Subscribe now
         </CustomButton>
       </div>
     </div>

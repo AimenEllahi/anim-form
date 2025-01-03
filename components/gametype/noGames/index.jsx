@@ -6,7 +6,7 @@ import GameTabbar from "@/components/ui/Shared/TabBar/games";
 import { cn } from "@/lib/utils";
 import { twMerge } from "tailwind-merge";
 
-export default function index({ completedGames, removePadding, dictionary }) {
+export default function index({ completedGames, removePadding }) {
   const router = useRouter();
   const handleRedirect = () => {
     router.push("/discover");
@@ -30,24 +30,21 @@ export default function index({ completedGames, removePadding, dictionary }) {
 
         {completedGames ? (
           <span className='headline-3 text-white text-center '>
-            {dictionary.youHavent}{" "}
-            <span className='text-irisPurpleLight'>{dictionary.completed}</span>{" "}
-            {dictionary.anyGamesYet}.
+            You haven't <span className='text-irisPurpleLight'>completed</span>{" "}
+            any games yet.
             <br />
-            {dictionary.startNewAdventure}!
+            Start a new adventure!
           </span>
         ) : (
           <span className='headline-3 text-white text-center '>
-            {dictionary.readyToPlay}{" "}
-            <span className='text-irisPurpleLight'>
-              {dictionary.firstAdventure}
-            </span>
+            Ready to start your{" "}
+            <span className='text-irisPurpleLight'>first adventure?</span>
           </span>
         )}
-
         {!completedGames && (
           <span className='running-text text-white   mb-4 text-center  w-4/5 md:w-3/5'>
-            {dictionary.youAreMoments}
+            You're just moments away from unlocking endless creative power,
+            ready to explode into infinite possibilities!
           </span>
         )}
         <CustomButton
@@ -62,7 +59,7 @@ export default function index({ completedGames, removePadding, dictionary }) {
               completedGames && "fill-white opacity-70"
             )}
           />
-          {completedGames ? dictionary.startNewGame : dictionary.startNow}
+          {completedGames ? "Start New Game" : "Start Now"}
         </CustomButton>
       </div>
 

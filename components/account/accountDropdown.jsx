@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 
 import User from "@/components/ui/Icons/User";
 
-export default function AccountDropdown({ trigger, dictionary }) {
+export default function AccountDropdown({ trigger }) {
   const [open, setOpen] = useState(false);
   const { user } = useUserStore();
 
@@ -54,14 +54,12 @@ export default function AccountDropdown({ trigger, dictionary }) {
       {/* Dropdown content with ARIA roles */}
       {user?.token ? (
         <SignedInUserMenu
-          dictionary={dictionary}
           setOpen={setOpen}
           open={open}
           role='menu' // Role for dropdown content
         />
       ) : (
         <GeneralMenu
-          dictionary={dictionary}
           setOpen={setOpen}
           role='menu' // Role for dropdown content
         />

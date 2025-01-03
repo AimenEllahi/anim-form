@@ -10,7 +10,6 @@ import useCustomToast from "@/hooks/useCustomToast";
 import useControlsStore from "@/utils/controlsStore";
 import { getCredits } from "@/actions/character";
 
-
 //game logic fixed
 let INTTIATING = false;
 function GameHandler() {
@@ -127,7 +126,7 @@ function GameHandler() {
 
   //console.log(choices);
   if (!response) {
-    return <Loader text='Loading Game ...' />;
+    return <Loader text="Loading Game ..." />;
   }
   return (
     <Game

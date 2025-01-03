@@ -13,7 +13,7 @@ import Cookie from "universal-cookie";
 import { useRouter } from "next/navigation";
 import { useSearchParams } from "next/navigation";
 
-export default function SignIn({ dictionary }) {
+export default function SignIn() {
   const cookies = new Cookie();
   const router = useRouter();
   const { setUser } = useUserStore();
@@ -75,9 +75,9 @@ export default function SignIn({ dictionary }) {
       suppressHydrationWarning
     >
       <div className='md:flex flex-col gap-4 hidden '>
-        <h1 className='headline-3'>{dictionary.signIn}</h1>
+        <h1 className='headline-3'>Sign in</h1>
         <span className='text-gray2 running-text-small'>
-          {dictionary.noAccount}{" "}
+          No account yet?{" "}
           <Link
             className='text-white'
             href={
@@ -85,13 +85,13 @@ export default function SignIn({ dictionary }) {
               (redirect ? `?redirect=${redirect}&&id=${id}` : "")
             }
           >
-            {dictionary.createAccount}
+            Create an account
           </Link>
         </span>
       </div>
       <div className='flex w-full flex-col gap-6 pt-[136px] md:pt-0'>
         <CustomInput
-          placeholder={dictionary.emailOrUsername}
+          placeholder='E-MAIL OR USERNAME'
           value={email}
           onChange={(value) => handleEmailChange(value)}
           icon={
@@ -109,7 +109,7 @@ export default function SignIn({ dictionary }) {
 
         <div className='gap-2.5 flex flex-col'>
           <CustomInput
-            placeholder={dictionary.password}
+            placeholder='PASSWORD'
             value={password}
             onChange={(value) => setPassword(value)}
             type={isPasswordVisible ? "text" : "password"}
@@ -129,7 +129,7 @@ export default function SignIn({ dictionary }) {
             href={"/auth/forgot-pass"}
             className='text-white running-text-small cursor-pointer'
           >
-            {dictionary.forgotPassword}
+            Forgot password?
           </Link>
         </div>
       </div>
@@ -138,7 +138,7 @@ export default function SignIn({ dictionary }) {
           <div className='flex justify-center items-center gap-2'>
             <Checkbox className='border border-irisPurpleLight' />
             <span className='text-white running-text-small text-center'>
-              {dictionary.stayLoggedIn}
+              Stay logged in
             </span>
           </div>
           <CustomButton
@@ -146,19 +146,15 @@ export default function SignIn({ dictionary }) {
             disabled={isLoading || email.length <= 2 || password.length === 0}
             variant={"primary"}
           >
-            {isLoading ? dictionary.signingIn : dictionary.signIn}
+            {isLoading ? "Signing in..." : "Sign in"}
           </CustomButton>
         </div>
         <div className='flex items-center justify-center w-full running-text-mono'>
           <div className='border-t border-gray3 w-full'></div>
-          <div className='px-2 text-lg text-gray2'>{dictionary.or}</div>
+          <div className='px-2 text-lg text-gray2'>OR</div>
           <div className='border-t border-gray3 w-full'></div>
         </div>
-        <GoogleAuth
-          dictionary={dictionary.continueWithGoogle}
-          setIsLoading={setIsLoading}
-          isLoading={isLoading}
-        />
+        <GoogleAuth setIsLoading={setIsLoading} isLoading={isLoading} />
       </div>
     </div>
   );

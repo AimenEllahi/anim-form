@@ -16,9 +16,9 @@ export default function Index({ character, setCharacter }) {
     setRollSound(rollSound);
     const _diceBox = new DiceBox("#dice-box-gold", {
       assetPath: "/assets/dice-box", // required
-      theme: "default", //optional
+      theme: "rock", //optional
       enableShadows: true, // optional
-      themeColor: "#242e9e", // optional
+      themeColor: "#4F4ED8", // optional
       scale: 8,
       lightIntensity: 1,
       shadowIntensity: 2,

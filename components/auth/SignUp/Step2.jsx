@@ -14,7 +14,7 @@ import { useRouter } from "next/navigation";
 import { useDebounce } from "@/hooks/useDebounce";
 import { useSearchParams } from "next/navigation";
 
-export default function Step2({ setStep, user, setUser, reset, dictionary }) {
+export default function Step2({ setStep, user, setUser, reset }) {
   const router = useRouter();
   const [isPasswordFocused, setIsPasswordFocused] = useState(false);
   const { invokeToast } = useCustomToast();
@@ -89,7 +89,7 @@ export default function Step2({ setStep, user, setUser, reset, dictionary }) {
     <div className='w-full  h-full md:h-auto flex flex-col gap-6 pt-[94px] md:pt-0'>
       <div>
         <CustomInput
-          placeholder={dictionary.username}
+          placeholder='USERNAME'
           value={user.username}
           onChange={(value) => onChange("username", value)}
           error={usernameExists}
@@ -110,12 +110,12 @@ export default function Step2({ setStep, user, setUser, reset, dictionary }) {
         {usernameExists && user.username.length > 2 && (
           <CustomValidationtext
             validator={!usernameExists}
-            text={dictionary.usernameAlready}
+            text={"Username is already taken"}
           />
         )}
       </div>
       <CustomInput
-        placeholder={dictionary.email}
+        placeholder='E-MAIL'
         value={user.email}
         disabled
         onChange={(value) => {}}
@@ -131,7 +131,7 @@ export default function Step2({ setStep, user, setUser, reset, dictionary }) {
         }
       />
       <CustomInput
-        placeholder={dictionary.name}
+        placeholder='NAME'
         value={user.name}
         onChange={(value) => onChange("name", value)}
         icon={
@@ -146,7 +146,7 @@ export default function Step2({ setStep, user, setUser, reset, dictionary }) {
         }
       />
       <CustomInput
-        placeholder={dictionary.surname}
+        placeholder='SURNAME'
         value={user.surname}
         onChange={(value) => onChange("surname", value)}
         icon={
@@ -162,7 +162,7 @@ export default function Step2({ setStep, user, setUser, reset, dictionary }) {
       />
       <div className='flex flex-col gap-3'>
         <CustomInput
-          placeholder={dictionary.password}
+          placeholder='PASSWORD'
           value={user.password}
           type={showPassword ? "text" : "password"}
           onChange={(value) => onChange("password", value)}
@@ -201,17 +201,17 @@ export default function Step2({ setStep, user, setUser, reset, dictionary }) {
           <div>
             <CustomValidationtext
               validator={passwordValidation.hasMinLength}
-              text={dictionary.charactersWarning}
+              text={"At least 8 characters"}
               isPassword
             />
             <CustomValidationtext
               validator={passwordValidation.hasNumber}
-              text={dictionary.containsNumber}
+              text={"Contains a number"}
               isPassword
             />
             <CustomValidationtext
               validator={passwordValidation.hasSpecialChar}
-              text={dictionary.containsASpecialCharacter}
+              text={"Contains a special character"}
               isPassword
             />
           </div>
@@ -224,14 +224,10 @@ export default function Step2({ setStep, user, setUser, reset, dictionary }) {
           className='border border-irisPurpleLight h-[20px] w-[20px]'
         />
         <span className='text-white running-text-small  text-left'>
-          {dictionary.bySelecting}{" "}
-          <span className='text-irisPurpleLight'>
-            {dictionary.termsAndConditions}{" "}
-          </span>
-          {dictionary.youCanRead}{" "}
-          <span className='text-irisPurpleLight'>
-            {dictionary.privacyPolicy}.
-          </span>
+          By selecting I agree to the dndai{" "}
+          <span className='text-irisPurpleLight'>terms and conditions. </span>
+          You can read how we use and protect your data in our{" "}
+          <span className='text-irisPurpleLight'>privacy policy.</span>
         </span>
       </div>
       <div className='w-full'>
@@ -242,10 +238,10 @@ export default function Step2({ setStep, user, setUser, reset, dictionary }) {
           className={"w-full font-bold"}
         >
           {isLoading ? (
-            dictionary.loading
+            "LOADING..."
           ) : (
             <>
-              {dictionary.createAccount}{" "}
+              CREATE ACCOUNT{" "}
               <img
                 src='/Icons/ArrowRight.svg'
                 title='Arrow Icon'

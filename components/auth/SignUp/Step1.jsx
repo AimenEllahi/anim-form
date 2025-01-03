@@ -7,7 +7,7 @@ import { validateEmail } from "@/lib/Helpers/auth";
 import { verifyEmailExists } from "@/actions/auth";
 import CustomValidationtext from "@/components/ui/custom-validationtext";
 import authStore from "@/utils/authStore";
-export default function Step1({ setStep, user, setUser, dictionary }) {
+export default function Step1({ setStep, user, setUser }) {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const { setEmail } = authStore();
@@ -30,7 +30,7 @@ export default function Step1({ setStep, user, setUser, dictionary }) {
     <div className='w-full flex flex-col gap-6 pt-[172px] md:pt-0'>
       <div className='flex flex-col gap-3'>
         <CustomInput
-          placeholder={dictionary?.email}
+          placeholder='E-MAIL'
           className={"w-full"}
           error={error}
           value={user?.email}
@@ -56,7 +56,7 @@ export default function Step1({ setStep, user, setUser, dictionary }) {
         }
         onClick={next}
       >
-        {dictionary.next}{" "}
+        NEXT{" "}
         <img
           src='/Icons/ArrowRight.svg'
           title='Arrow right icon'
@@ -67,14 +67,10 @@ export default function Step1({ setStep, user, setUser, dictionary }) {
 
       <div className='flex items-center justify-center w-full running-text-mono uppercase'>
         <div className='border-t border-gray3 w-full'></div>
-        <div className='px-2 text-lg text-gray2'>{dictionary.or}</div>
+        <div className='px-2 text-lg text-gray2'>OR</div>
         <div className='border-t border-gray3 w-full'></div>
       </div>
-      <GoogleAuth
-        dictionary={dictionary.continueWithGoogle}
-        isLoading={isLoading}
-        setIsLoading={setIsLoading}
-      />
+      <GoogleAuth isLoading={isLoading} setIsLoading={setIsLoading} />
     </div>
   );
 }

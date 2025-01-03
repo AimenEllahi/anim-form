@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, Suspense, memo, useState } from "react";
+import React, { useEffect, Suspense, memo } from "react";
 import { Inter } from "next/font/google";
 import Navbar from "@/components/navigation/Navbar";
 import Footer from "@/components/navigation/Footer";
@@ -16,7 +16,7 @@ import { getMetaTags } from "@/utils/metaTags";
 import { cn } from "@/lib/utils";
 import NewGameModal from "@/components/newgame/index";
 import { getCredits } from "@/actions/character";
-import { i18n } from "../../i18n";
+
 const inter = Inter({ subsets: ["latin"] });
 
 const MemoizedNavbar = memo(Navbar);
@@ -26,7 +26,6 @@ export default function RootLayout({ children }) {
   const pathname = usePathname();
   const { activeStep } = useStepperStore();
   const { user, setYellowCredits, setBlueCredits } = useUserStore();
-
   const cookies = new Cookie();
 
   const isTransparentNavbar =

@@ -8,7 +8,7 @@ export default function Switch({
   selectedTab,
   setSelectedTab,
   commentCount,
-  dictionary,
+
 }) {
   return (
     <div className='flex w-full z-[20]'>
@@ -30,7 +30,7 @@ export default function Switch({
               selectedTab === "details" ? "fill-russianViolet" : "fill-gray2"
             )}
           />
-          {dictionary.details}
+          Details
         </CustomButton>
 
         {/* Comments Tab */}
@@ -51,7 +51,7 @@ export default function Switch({
                 selectedTab === "comments" ? "fill-russianViolet" : "fill-gray2"
               )}
             />
-            {dictionary.comments}
+            Comments
             {commentCount > 0 && (
               <span className='text-[9px] self-start -mt-1'>
                 ({commentCount})

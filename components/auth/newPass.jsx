@@ -9,7 +9,7 @@ import { isPasswordValid } from "@/lib/Helpers/auth";
 import CustomValidationtext from "@/components/ui/custom-validationtext";
 import useCustomToast from "@/hooks/useCustomToast";
 import { useRouter } from "next/navigation";
-export default function newPass({ dictionary }) {
+export default function newPass() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const token = searchParams.get("token");
@@ -52,12 +52,12 @@ export default function newPass({ dictionary }) {
   return (
     <div className=' text-white h-auto w-[345px]  flex flex-col justify-between items-start gap-8 z-[10]'>
       <div className='flex flex-col gap-4'>
-        <h1 className='running-text-large'>{dictionary.enterNewPass}</h1>
+        <h1 className='running-text-large'>Enter your new password</h1>
       </div>
       <div className='flex flex-col gap-6 w-full'>
         <div className='flex flex-col gap-3'>
           <CustomInput
-            placeholder={dictionary.newPassword}
+            placeholder='NEW PASSWORD'
             onChange={(value) => setPassword(value)}
             value={password}
             type={isPasswordVisible ? "text" : "password"}
@@ -84,15 +84,15 @@ export default function newPass({ dictionary }) {
           {password.length > 0 && (
             <ul>
               <CustomValidationtext
-                text={dictionary.charactersWarning}
+                text='At least 8 characters'
                 validator={passwordValidation.hasMinLength}
               />
               <CustomValidationtext
-                text={dictionary.containsNumber}
+                text='Contains a number'
                 validator={passwordValidation.hasNumber}
               />
               <CustomValidationtext
-                text={dictionary.containsASpecialCharacter}
+                text='Contains a special character'
                 validator={passwordValidation.hasSpecialChar}
               />
             </ul>
@@ -100,7 +100,7 @@ export default function newPass({ dictionary }) {
         </div>
         <div className='flex flex-col gap-2'>
           <CustomInput
-            placeholder={dictionary.confirmPassword}
+            placeholder='CONFIRM PASSWORD'
             onChange={(value) => setConfirmPassword(value)}
             value={confirmPassword}
             type={isConfirmPasswordVisible ? "text" : "password"}
@@ -122,7 +122,7 @@ export default function newPass({ dictionary }) {
             // Show the validation text only if the password is not empty
             password && confirmPassword && password !== confirmPassword && (
               <CustomValidationtext
-                text={dictionary.passwordsDoNotMatch}
+                text='Passwords do not match'
                 validator={password === confirmPassword}
               />
             )
@@ -140,11 +140,11 @@ export default function newPass({ dictionary }) {
             password !== confirmPassword
           }
         >
-          {isLoading ? dictionary.loading : dictionary.resetPassword}
+          {isLoading ? "LOADING..." : "RESET PASSWORD"}
         </CustomButton>
         <div className='w-full flex flex-col gap-4 '>
           <Link href='/auth/sign-up' className='running-text-small'>
-            {dictionary.backToSignUp}
+            Back to sign up
           </Link>
         </div>
       </div>

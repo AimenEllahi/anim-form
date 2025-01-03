@@ -10,9 +10,10 @@ export default function Image({
   setOpen,
   image,
   likes,
-  dictionary,
+
   isLiked,
   isCreator,
+  handleLikeImage,
 }) {
   const downloadImage = () => {
     const link = document.createElement("a");
@@ -49,18 +50,25 @@ export default function Image({
         </div>
       </>
 
-      <div className='flex justify-center md:justify-between   '>
+      <div className=' justify-center md:justify-between flex  '>
         <div className='hidden md:flex justify-start gap-4 '>
           <CustomButton onClick={downloadImage} withIcon variant={"subtle"}>
             <Download className='h-5 w-5 opacity-70 fill-white' />
-            {dictionary.downloadImage}
+            download image
           </CustomButton>
         </div>
         {!isCreator && (
-          <div className={" flex justify-center items-center gap-2 "}>
+          <CustomButton
+            onClick={handleLikeImage}
+            withIcon
+            variant={"subtle"}
+            className={
+              " bg-transparent hover:bg-transparent active:bg-transparent !px-0"
+            }
+          >
             <Like isLiked={isLiked} className='h-5 w-5 fill-white' />
             <span className='running-text-mono'>{likes}</span>
-          </div>
+          </CustomButton>
         )}
         <CustomButton
           className={"hidden md:flex"}
@@ -68,9 +76,7 @@ export default function Image({
           withIcon
         >
           <Cancel className='w-3 h-3 opacity-70 fill-white' />
-          <span className='running-text-mono text-white'>
-            {dictionary.close}
-          </span>
+          <span className='running-text-mono text-white'>Close</span>
         </CustomButton>
       </div>
     </DialogContent>

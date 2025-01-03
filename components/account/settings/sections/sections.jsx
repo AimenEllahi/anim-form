@@ -12,13 +12,13 @@ import { isPasswordValid } from "@/lib/Helpers/auth";
 import CustomValidationtext from "@/components/ui/custom-validationtext";
 import { useDebounce } from "@/hooks/useDebounce";
 import { verifyUserNameExists } from "@/actions/auth";
-export default function Index({ dictionary }) {
+export default function Index() {
   const { user, setUser } = useUserStore();
   const [isLoading, setIsLoading] = useState(false);
   const [fd, setFd] = useState({
-    name: user?.name,
-    username: user?.username,
-    email: user?.email,
+    name: user.name,
+    username: user.username,
+    email: user.email,
   });
   const [usernameExists, setUsernameExists] = useState(false);
   const debounceUsername = useDebounce(fd.username, 150);
@@ -95,7 +95,7 @@ export default function Index({ dictionary }) {
         <div className='p-4 flex flex-col gap-8'>
           <div>
             <CustomInput
-              placeholder={dictionary.username}
+              placeholder='USERNAME'
               value={fd.username}
               onChange={(e) =>
                 setFd((prev) => ({
@@ -119,7 +119,7 @@ export default function Index({ dictionary }) {
             {usernameExists && user.username.length > 2 && (
               <CustomValidationtext
                 validator={!usernameExists}
-                text={dictionary.usernameAlready}
+                text={"Username is already taken"}
               />
             )}
           </div>
@@ -131,7 +131,7 @@ export default function Index({ dictionary }) {
                 name: e,
               }))
             }
-            placeholder={dictionary.name}
+            placeholder='Name'
           />
         </div>
         <hr className='border border-white/[8%]' />
@@ -142,9 +142,7 @@ export default function Index({ dictionary }) {
             onClick={() => handleEditClick("personalData")}
           >
             <Cancel className=' h-3 w-3 fill-white' />
-            <span className='running-text-mono text-white'>
-              {dictionary.cancel}
-            </span>
+            <span className='running-text-mono text-white'>CANCEL</span>
           </CustomButton>
           <CustomButton
             onClick={handleUpdateUser}
@@ -153,9 +151,7 @@ export default function Index({ dictionary }) {
             variant={"primary"}
           >
             <Save className=' h-5 w-5 fill-black' />
-            <span className='running-text-mono text-black'>
-              {dictionary.save}
-            </span>
+            <span className='running-text-mono text-black'>SAVE</span>
           </CustomButton>
         </div>
       </div>
@@ -163,13 +159,13 @@ export default function Index({ dictionary }) {
       <div>
         <div className='p-4 flex flex-col gap-4'>
           <span className='font-roboto-mono text-[10px] leading-[15px]  text-irisPurpleLight'>
-            {dictionary.username}
+            USERNAME
           </span>
           <span className='running-text-mono'>{user.username}</span>
         </div>
         <div className='p-4 flex flex-col gap-4'>
-          <span className='font-roboto-mono text-[10px] uppercase leading-[15px]  text-irisPurpleLight'>
-            {dictionary.name}
+          <span className='font-roboto-mono text-[10px] leading-[15px]  text-irisPurpleLight'>
+            NAME
           </span>
           <span className='running-text-mono'>{user.name}</span>
         </div>
@@ -188,15 +184,11 @@ export default function Index({ dictionary }) {
         <div className='flex gap-4 justify-end items-end p-4'>
           <CustomButton withIcon onClick={() => handleEditClick("email")}>
             <Cancel className=' h-3 w-3 fill-white' />
-            <span className='running-text-mono uppercase text-white'>
-              {dictionary.cancel}
-            </span>
+            <span className='running-text-mono text-white'>CANCEL</span>
           </CustomButton>
           <CustomButton withIcon variant={"primary"}>
             <Save className=' h-5 w-5 fill-black' />
-            <span className='running-text-mono uppercase text-black'>
-              {dictionary.save}
-            </span>
+            <span className='running-text-mono text-black'>SAVE</span>
           </CustomButton>
         </div>
       </div>
@@ -204,7 +196,7 @@ export default function Index({ dictionary }) {
       <div>
         <div className='p-4 flex flex-col gap-4 uppercase'>
           <span className='font-roboto-mono text-[10px] leading-[15px]  text-irisPurpleLight'>
-            {dictionary.email}
+            E-MAIL
           </span>
           <span className='running-text-mono'>{user.email}</span>
         </div>
@@ -261,7 +253,7 @@ export default function Index({ dictionary }) {
         <div className='p-4 flex flex-col gap-8'>
           <div className='flex flex-col gap-3'>
             <CustomInput
-              placeholder={dictionary.newPassword}
+              placeholder='NEW PASSWORD'
               onChange={(value) => setPassword(value)}
               value={password}
               type={isPasswordVisible ? "text" : "password"}
@@ -290,15 +282,15 @@ export default function Index({ dictionary }) {
             {password.length > 0 && (
               <ul>
                 <CustomValidationtext
-                  text={dictionary.charactersWarning}
+                  text='At least 8 characters'
                   validator={passwordValidation.hasMinLength}
                 />
                 <CustomValidationtext
-                  text={dictionary.containsNumber}
+                  text='Contains a number'
                   validator={passwordValidation.hasNumber}
                 />
                 <CustomValidationtext
-                  text={dictionary.containsASpecialCharacter}
+                  text='Contains a special character'
                   validator={passwordValidation.hasSpecialChar}
                 />
               </ul>
@@ -328,7 +320,7 @@ export default function Index({ dictionary }) {
               // Show the validation text only if the password is not empty
               password && confirmPassword && password !== confirmPassword && (
                 <CustomValidationtext
-                  text={dictionary.passwordsDoNotMatch}
+                  text='Passwords do not match'
                   validator={password === confirmPassword}
                 />
               )
@@ -339,9 +331,7 @@ export default function Index({ dictionary }) {
         <div className='flex gap-4 justify-end items-end p-4'>
           <CustomButton disabled={isLoading} withIcon onClick={reset}>
             <Cancel className=' h-3 w-3 fill-white' />
-            <span className='running-text-mono text-white'>
-              {dictionary.cancel}
-            </span>
+            <span className='running-text-mono text-white'>CANCEL</span>
           </CustomButton>
           <CustomButton
             onClick={handleUpdatePassword}
@@ -350,17 +340,15 @@ export default function Index({ dictionary }) {
             variant={"primary"}
           >
             <Save className=' h-5 w-5 fill-black' />
-            <span className='running-text-mono text-black'>
-              {dictionary.save}
-            </span>
+            <span className='running-text-mono text-black'>SAVE</span>
           </CustomButton>
         </div>
       </div>
     ) : (
       <div>
         <div className='p-4 flex flex-col gap-4 uppercase'>
-          <span className=' uppercase font-roboto-mono text-[10px] leading-[15px]  text-irisPurpleLight'>
-            {dictionary.password}
+          <span className='font-roboto-mono text-[10px] leading-[15px]  text-irisPurpleLight'>
+            PASSWORD
           </span>
           <span className='running-text-mono'>*********</span>
         </div>
@@ -371,7 +359,7 @@ export default function Index({ dictionary }) {
     <div className='w-full md:w-4/5  md:px-28 flex flex-col gap-4'>
       <div className='w-full border border-white/[8%] rounded-[16px] bg-white/[8%] uppercase'>
         <div className='p-4 flex justify-between items-center'>
-          <span className='headline-4'>{dictionary.personalData}</span>
+          <span className='headline-4'>Personal Data</span>
           <CustomButton
             withIcon={true}
             variant={"subtle"}
@@ -379,7 +367,7 @@ export default function Index({ dictionary }) {
             onClick={() => handleEditClick("personalData")}
           >
             <Edit className='h-5 w-5 opacity-70 fill-white' />
-            {dictionary.edit}
+            EDIT
           </CustomButton>
         </div>
         <hr className='border border-white/[8%]' />
@@ -387,7 +375,7 @@ export default function Index({ dictionary }) {
       </div>
       <div className='w-full border border-white/[8%] rounded-[16px] bg-white/[8%] uppercase'>
         <div className='p-4 flex justify-between items-center'>
-          <span className='headline-4 uppercase'>{dictionary.email}</span>
+          <span className='headline-4'>E-MAIL</span>
           {/* <span
             className='running-text-mono flex justify-center items-center gap-2 cursor-pointer'
             onClick={() => handleEditClick("email")}
@@ -402,9 +390,9 @@ export default function Index({ dictionary }) {
       <div className='w-full border border-white/[8%] rounded-[16px] bg-white/[8%]'>
         <div className='p-4 flex justify-between items-center'>
           <div className='flex flex-col gap-2'>
-            <span className='headline-4'>{dictionary.password}</span>
+            <span className='headline-4'>Password</span>
             <span className='running-text-small text-gray2'>
-              {dictionary.changePassword}
+              Change your password regularly to prevent unauthorized access.
             </span>
           </div>
           <CustomButton
@@ -414,7 +402,7 @@ export default function Index({ dictionary }) {
             onClick={() => handleEditClick("password")}
           >
             <Edit className='h-5 w-5 opacity-70 fill-white' />
-            {dictionary.edit}
+            EDIT
           </CustomButton>
         </div>
         <hr className='border border-white/[8%]' />

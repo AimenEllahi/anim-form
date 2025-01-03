@@ -18,14 +18,12 @@ import CampaignAdd from "@/components/ui/Icons/CampaignAdd";
 import Adventure from "@/components/ui/Icons/Adventure";
 import Support from "@/components/ui/Icons/Support";
 import useGameStore from "@/utils/gameStore";
-import Emblem from "@/components/ui/Icons/Emblem";
+import Emblem from "../ui/Icons/Emblem";
 import { getUserAchievements } from "@/actions/achievement";
-import Globe from "@/components/ui/Icons/Globe";
-const UserLoggedIn = ({ handleRedirect, handlePlay, dictionary }) => {
+const UserLoggedIn = ({ handleRedirect, handlePlay }) => {
   const { showMenu, setShowMenu } = useControlsStore();
   const { user, setUser, rank, title, updateTitle, updateRank } =
     useUserStore();
-  const { setShowLanguageDialogue } = useControlsStore();
   const cookies = new Cookie();
 
   const handleLogout = () => {
@@ -64,7 +62,7 @@ const UserLoggedIn = ({ handleRedirect, handlePlay, dictionary }) => {
               className='size-6 rounded-full'
             />
             <span className='running-text-mono uppercase text-sandyOrange'>
-              {dictionary?.accountMenu.the} {title}
+              the {title}
             </span>
           </div>
         </div>
@@ -95,7 +93,7 @@ const UserLoggedIn = ({ handleRedirect, handlePlay, dictionary }) => {
           className={"w-fit"}
         >
           <Play className='h-5 w-5 fill-russianViolet' />
-          {dictionary?.playNow}
+          Play Now
         </Button>
       </div>
 
@@ -108,7 +106,7 @@ const UserLoggedIn = ({ handleRedirect, handlePlay, dictionary }) => {
           }
         >
           <Discover className='h-5 w-5 opacity-70 fill-white' />
-          <span>{dictionary?.games}</span>
+          <span>Games</span>
         </CustomMenuItem>
         <CustomMenuItem
           onClick={() => handleRedirect("/discover")}
@@ -117,7 +115,7 @@ const UserLoggedIn = ({ handleRedirect, handlePlay, dictionary }) => {
           }
         >
           <CampaignAdd className='h-5 w-5 opacity-70 fill-white' />
-          <span>{dictionary?.campaigns}</span>
+          <span>Campaigns</span>
         </CustomMenuItem>
         <CustomMenuItem
           onClick={() => handleRedirect("/discover/gallery?page=1")}
@@ -131,7 +129,7 @@ const UserLoggedIn = ({ handleRedirect, handlePlay, dictionary }) => {
             title='gallery'
             className='h-5 w-5  opacity-70'
           />
-          <span>{dictionary?.community}</span>
+          <span>Community Gallery</span>
         </CustomMenuItem>
       </div>
 
@@ -144,7 +142,7 @@ const UserLoggedIn = ({ handleRedirect, handlePlay, dictionary }) => {
           }
         >
           <Emblem className='h-5 w-5 opacity-70 fill-white' />
-          <span>{dictionary?.accountMenu.emblemsTitle}</span>
+          <span>Emblems & Titles</span>
         </CustomMenuItem>
         <CustomMenuItem
           onClick={() => handleRedirect("/character/my-characters")}
@@ -153,7 +151,7 @@ const UserLoggedIn = ({ handleRedirect, handlePlay, dictionary }) => {
           }
         >
           <Adventure className='h-5 w-5 opacity-70 fill-white' />
-          <span>{dictionary?.accountMenu.myAdventurers}</span>
+          <span>My Adventurers</span>
         </CustomMenuItem>
         <CustomMenuItem
           onClick={() => handleRedirect("/my-account/gallery?page=1")}
@@ -167,7 +165,7 @@ const UserLoggedIn = ({ handleRedirect, handlePlay, dictionary }) => {
             title='My images Icon'
             className='h-5 w-5  opacity-70'
           />
-          <span>{dictionary?.accountMenu.myImages}</span>
+          <span>My images</span>
         </CustomMenuItem>
         <CustomMenuItem
           onClick={() => handleRedirect("/campaign/my-campaigns")}
@@ -181,7 +179,7 @@ const UserLoggedIn = ({ handleRedirect, handlePlay, dictionary }) => {
             title='My Campaigns Icon'
             className='h-5 w-5  opacity-70'
           />
-          <span>{dictionary?.accountMenu.myCampaigns}</span>
+          <span>My campaigns</span>
         </CustomMenuItem>
         <CustomMenuItem
           onClick={() => handleRedirect("/campaign/my-campaigns/favorites")}
@@ -190,7 +188,7 @@ const UserLoggedIn = ({ handleRedirect, handlePlay, dictionary }) => {
           }
         >
           <Star isfilled={"true"} className='h-5 w-5 opacity-70 fill-white' />
-          <span>{dictionary?.accountMenu.favorites}</span>
+          <span>Favorites</span>
         </CustomMenuItem>
       </div>
 
@@ -203,18 +201,8 @@ const UserLoggedIn = ({ handleRedirect, handlePlay, dictionary }) => {
           }
         >
           <Settings className='h-5 w-5 opacity-70 fill-white' />
-          <span>{dictionary?.accountMenu.accountSettings}</span>
+          <span>Account Setting</span>
         </CustomMenuItem>
-
-        {/* <CustomMenuItem
-          onClick={() => setShowLanguageDialogue(true)}
-          className={
-            "p-0 hover:bg-transparent active:bg-transparent hover:border-transparent active:border-transparent"
-          }
-        >
-          <Globe className='h-5 w-5 opacity-70 fill-white' />
-          <span>Language</span>
-        </CustomMenuItem> */}
 
         <CustomMenuItem
           onClick={() => handleRedirect("/pricing")}
@@ -223,7 +211,7 @@ const UserLoggedIn = ({ handleRedirect, handlePlay, dictionary }) => {
           }
         >
           <Support className='h-5 w-5 opacity-70 fill-white' />
-          <span>{dictionary?.accountMenu.support}</span>
+          <span>Support Us</span>
         </CustomMenuItem>
 
         <CustomMenuItem
@@ -233,7 +221,7 @@ const UserLoggedIn = ({ handleRedirect, handlePlay, dictionary }) => {
           }
         >
           <Logout className='h-5 w-5 opacity-70 fill-white' />
-          <span>{dictionary?.accountMenu.logout}</span>
+          <span>Logout</span>
         </CustomMenuItem>
       </div>
 
@@ -243,7 +231,7 @@ const UserLoggedIn = ({ handleRedirect, handlePlay, dictionary }) => {
     </div>
   );
 };
-const UserLoggedOut = ({ handleRedirect, dictionary }) => {
+const UserLoggedOut = ({ handleRedirect }) => {
   const { setStartNewGame } = useGameStore();
   return (
     <div className='mx-[20px] mt-10 gap-[34px] flex flex-col running-text-mono uppercase '>
@@ -255,13 +243,13 @@ const UserLoggedOut = ({ handleRedirect, dictionary }) => {
             title='Login Icon'
             className='h-5 w-5 opacity-70 '
           />
-          {dictionary?.accountMenu.signIn}
+          SIGN IN
         </Button>
         <Button
           onClick={() => handleRedirect("/auth/sign-up")}
           variant='subtle'
         >
-          {dictionary?.accountMenu.signUp}
+          Sign Up
         </Button>
       </div>
 
@@ -271,7 +259,7 @@ const UserLoggedOut = ({ handleRedirect, dictionary }) => {
       >
         <Discover className='h-5 w-5 opacity-70 fill-white' />
 
-        <span>{dictionary?.games}</span>
+        <span>Games</span>
       </div>
       <div
         onClick={() => handleRedirect("/discover")}
@@ -283,7 +271,7 @@ const UserLoggedOut = ({ handleRedirect, dictionary }) => {
           alt='My campaigns button'
           className='h-5 w-5  opacity-70'
         />
-        <span>{dictionary?.accountMenu.campaigns}</span>
+        <span>Campaigns</span>
       </div>
       <div
         onClick={() => handleRedirect("/discover/gallery?page=1")}
@@ -295,7 +283,7 @@ const UserLoggedOut = ({ handleRedirect, dictionary }) => {
           title='My images button'
           className='h-5 w-5  opacity-70'
         />
-        <span>{dictionary?.accountMenu.gallery}</span>
+        <span>Gallery</span>
       </div>
 
       {/* <div className='flex gap-3  hover:bg-transparent focus:bg-transparent focus:text-white  transition-all duration-300 ease-linear cursor-pointer'>
@@ -307,7 +295,7 @@ const UserLoggedOut = ({ handleRedirect, dictionary }) => {
         className='mt-3 w-40'
         variant='primary'
       >
-        {dictionary?.accountMenu.playForFree}
+        PLAY FOR FREE
       </Button>
     </div>
   );
@@ -316,7 +304,6 @@ export default function DrawerMenu({
   characterCreatePage,
   handlePlay,
   newGameStepper = false,
-  dictionary,
 }) {
   const { user } = useUserStore();
   const { showMenu, setShowMenu } = useControlsStore();
@@ -374,7 +361,6 @@ export default function DrawerMenu({
       </div>
       {user?.token ? (
         <UserLoggedIn
-          dictionary={dictionary}
           handlePlay={() => {
             setShowMenu(false);
             handlePlay();
@@ -384,7 +370,6 @@ export default function DrawerMenu({
         />
       ) : (
         <UserLoggedOut
-          dictionary={dictionary}
           handlePlay={() => {
             setShowMenu(false);
             handlePlay();

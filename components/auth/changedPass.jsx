@@ -3,7 +3,7 @@ import React from "react";
 import CustomButton from "../ui/custom-button";
 import { useRouter } from "next/navigation";
 
-export default function changedPass({ dictionary }) {
+export default function changedPass() {
   const router = useRouter();
   const handleSignIn = () => {
     router.push("/auth/sign-in");
@@ -18,7 +18,9 @@ export default function changedPass({ dictionary }) {
         className='w-[128px]   object-contain icon-glow'
       />
       <div className='flex flex-col justify-center items-center gap-4'>
-        <h1 className='running-text-large'>{dictionary.title}</h1>
+        <h1 className='running-text-large'>
+          You’ve successfully changed your password
+        </h1>
       </div>
 
       <div className='w-full flex flex-col gap-4'>
@@ -27,7 +29,7 @@ export default function changedPass({ dictionary }) {
           variant={"primary"}
           className={"w-full font-bold"}
         >
-          {dictionary.signIn}{" "}
+          SIGN IN{" "}
           <img
             src='/Icons/ArrowRight.svg'
             title='Sign in icon'

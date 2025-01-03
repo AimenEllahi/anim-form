@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React from "react";
+import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 const NavMenu = ({ menu, disable }) => {
   const getLinkHref = (link) => {
@@ -71,6 +72,8 @@ const NavMenu = ({ menu, disable }) => {
   );
 };
 export default function Footer() {
+  const pathname = usePathname();
+
   return (
     <footer
       className={cn(

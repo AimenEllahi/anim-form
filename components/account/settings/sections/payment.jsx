@@ -14,25 +14,23 @@ import {
 } from "@/actions/payment";
 import CancelSubscription from "@/components/ui/Shared/Dialogue/CancelSubscription";
 
-const NoSubscription = ({ dictionary }) => {
+const NoSubscription = () => {
   const router = useRouter();
   return (
     <div className='w-full p-6 flex items-center flex-col gap-6 justify-center text-center'>
       <span className=' running-text-large'>
-        {dictionary.youHave}{" "}
-        <span className='text-irisPurpleLight'>{dictionary.noActive}</span>{" "}
-        <br />
-        {dictionary.subscriptionsYet}
+        You have <span className='text-irisPurpleLight'>no active</span> <br />
+        subscription yet
       </span>
       <CustomButton onClick={() => router.push("/pricing")} withIcon={true}>
         <Diamond className='h-5 w-5 opacity-70 fill-white' />
-        {dictionary.upgrade}
+        Upgrade
       </CustomButton>
     </div>
   );
 };
 
-export default function Payment({ dictionary }) {
+export default function Payment() {
   const { user, updatePaymentHistory } = useUserStore();
   const [loading, setLoading] = useState(false);
   const [loadingDownload, setLoadingDownload] = useState(false);
@@ -133,7 +131,7 @@ export default function Payment({ dictionary }) {
     <div className='w-full md:w-4/5  md:px-28 flex flex-col gap-4'>
       <div className='w-full border border-white/[8%] rounded-[16px] bg-white/[8%]'>
         <div className='p-4 flex justify-between items-center'>
-          <span className='headline-4'>{dictionary.activePayments}</span>
+          <span className='headline-4'>Active payment</span>
           <CustomButton
             disabled={loadingDownload}
             className=' hidden md:flex'
@@ -141,12 +139,12 @@ export default function Payment({ dictionary }) {
             variant={"subtle"}
           >
             <Download className='h-5 w-5 opacity-70 fill-white' />
-            {dictionary.downloadInvoice}
+            Download invoice
           </CustomButton>
         </div>
         <hr className='border border-white/[8%] ' />
         {!subscription?.reward ? (
-          <NoSubscription dictionary={dictionary} />
+          <NoSubscription />
         ) : (
           <div className='p-4 flex justify-start items-center gap-6 flex-col md:flex-row'>
             <div className='bg-white/[8%] uppercase border border-white/10 rounded-[16px] w-full md:w-[267px]'>
@@ -156,10 +154,7 @@ export default function Payment({ dictionary }) {
                 </span>
                 <span className='text-white headline-4'>
                   {subscription?.plan?.price || "NA"}
-                  <span className='running-text-mono text-gray2'>
-                    {" "}
-                    /{dictionary.month}
-                  </span>
+                  <span className='running-text-mono text-gray2'> /Month</span>
                 </span>
               </div>
               <hr className='border border-white/[8%]' />
@@ -188,10 +183,10 @@ export default function Payment({ dictionary }) {
                 <CustomButton
                   withIcon={true}
                   variant={"primary"}
-                  className={" justify-start hidden "}
+                  className={"flex justify-start hidden "}
                 >
                   <Edit className='h-5 w-5 opacity-70 fill-black' />
-                  <span> {dictionary.changeSubscription}</span>
+                  <span> change subscription</span>
                 </CustomButton>
                 <CancelSubscription
                   action={() =>
@@ -204,7 +199,7 @@ export default function Payment({ dictionary }) {
                     className={"flex justify-start  "}
                   >
                     <Delete className='h-5 w-5 opacity-70 fill-red-500' />
-                    <span> {dictionary.cancelSubscription}</span>
+                    <span> cancel subscription</span>
                   </CustomButton>
                 </CancelSubscription>
               </div>
@@ -212,7 +207,7 @@ export default function Payment({ dictionary }) {
             <div className='uppercase flex flex-col gap-8 self-start   w-full   h-[135px] md:h-full flex-wrap'>
               <div className='flex flex-col gap-4'>
                 <span className=' text-irisPurpleLight font-roboto-mono text-[10px]'>
-                  {dictionary.debitInterval}
+                  Debit interval
                 </span>
                 <span className=' text-white running-text-mono'>
                   {subscription?.plan?.duration || "Null"}
@@ -220,7 +215,7 @@ export default function Payment({ dictionary }) {
               </div>
               <div className='flex flex-col gap-4'>
                 <span className=' text-irisPurpleLight font-roboto-mono text-[10px]'>
-                  {dictionary.nextRenewal}
+                  Next Renewal
                 </span>
                 <span className=' text-white running-text-mono'>
                   {getNextRenewal()}
@@ -228,7 +223,7 @@ export default function Payment({ dictionary }) {
               </div>
               <div className='flex flex-col gap-4'>
                 <span className=' text-irisPurpleLight font-roboto-mono text-[10px]'>
-                  {dictionary.nextRenewal}
+                  Last Invoice
                 </span>
                 <span className=' text-white running-text-mono'>
                   {formatDate(subscription.date)}
@@ -236,7 +231,7 @@ export default function Payment({ dictionary }) {
               </div>
               <div className='flex flex-col gap-4'>
                 <span className=' text-irisPurpleLight font-roboto-mono text-[10px]'>
-                  {dictionary.paymentMethod}
+                  Payment Method
                 </span>
                 <span className=' text-white running-text-mono'>
                   {subscription?.method[0] || "Card"}
@@ -250,7 +245,7 @@ export default function Payment({ dictionary }) {
               className={"md:hidden self-start"}
             >
               <Download className='h-5 w-5 opacity-70 fill-white' />
-              {dictionary.downloadInvoice}
+              Download invoice
             </CustomButton>
           </div>
         )}
