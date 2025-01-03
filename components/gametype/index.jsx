@@ -63,7 +63,7 @@ export default function Index({ gameType, games, setGames, dictionary }) {
   };
 
   return (
-    <div className='h-full z-[10]  w-full flex flex-col '>
+    <div className="h-full z-[10]  w-full flex flex-col ">
       {/* Title Section */}
       <div
         className={`flex flex-col md:flex-row gap-2.5 px-5 md:px-12 ${
@@ -72,7 +72,7 @@ export default function Index({ gameType, games, setGames, dictionary }) {
             : "justify-between"
         }`}
       >
-        <h1 className='  hidden md:flex justify-start text-white headline-3 z-[10]'>
+        <h1 className="  hidden md:flex justify-start text-white headline-3 z-[10]">
           {gameType === "multiPlayer"
             ? dictionary.games
             : selectedTab === "inProgress"
@@ -91,7 +91,7 @@ export default function Index({ gameType, games, setGames, dictionary }) {
             gameType={gameType} // Pass game type here
           />
         </div>
-        <div className='hidden md:block opacity-0 pointer-events-none headline-3 '>
+        <div className="hidden md:block opacity-0 pointer-events-none headline-3 ">
           {" "}
           {gameType === "multiPlayer"
             ? dictionary.games
@@ -102,7 +102,7 @@ export default function Index({ gameType, games, setGames, dictionary }) {
             : dictionary.completedGames}
         </div>
       </div>
-      <div className='md:px-12 h-full  md:overflow-hidden my-6'>
+      <div className="md:px-12 h-full  md:overflow-hidden my-6">
         {selectedTab === "inProgress" && inProgressGames.length <= 0 ? (
           <NoGames
             dictionary={dictionary.noGames}
@@ -111,8 +111,8 @@ export default function Index({ gameType, games, setGames, dictionary }) {
         ) : selectedTab === "completed" && completedGames.length <= 0 ? (
           <NoGames dictionary={dictionary.noGames} completedGames={true} />
         ) : (
-          <div className='flex md:border text-white md:bg-white/[8%] rounded-[16px] border-white/10 h-full justify-end items-end   w-full md:overflow-hidden px-5 lg:px-0'>
-            <div className='w-full md:w-1/2 h-full md:border-r border-white/[8%]'>
+          <div className="flex md:border text-white md:bg-white/[8%] rounded-[16px] border-white/10 h-full justify-end items-end   w-full md:overflow-hidden px-5 lg:px-0">
+            <div className="w-full md:w-1/2 h-full md:border-r border-white/[8%]">
               {selectedTab === "inProgress" ? (
                 <LeftSection
                   dictionary={dictionary.leftSection}

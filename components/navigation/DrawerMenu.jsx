@@ -50,64 +50,64 @@ const UserLoggedIn = ({ handleRedirect, handlePlay, dictionary }) => {
     }
   }, [showMenu]);
   return (
-    <div className='mx-[20px] mt-12 gap-[34px] flex flex-col running-text-mono uppercase pb-16'>
-      <div className='gap-5 pb-4 flex flex-col'>
-        <div className='flex flex-col gap-2'>
-          <span className=' headline-4'>{user.username}</span>
-          <span className='running-text-small lowercase text-gray2'>
+    <div className="mx-[20px]  mt-12 gap-[34px] flex flex-col running-text-mono uppercase pb-16">
+      <div className="gap-5 pb-4 flex flex-col">
+        <div className="flex flex-col gap-2 ">
+          <span className=" headline-4">{user.username}</span>
+          <span className="running-text-small lowercase text-gray2">
             {user?.email}
           </span>
-          <div className='flex gap-2 items-center'>
+          <div className="flex gap-2 items-center">
             <img
               src={`https://dzjg7lvewk7ln.cloudfront.net/rank-images/${rank}.webp`}
-              alt=''
-              className='size-6 rounded-full'
+              alt=""
+              className="size-6 rounded-full"
             />
-            <span className='running-text-mono uppercase text-sandyOrange'>
+            <span className="running-text-mono uppercase text-sandyOrange">
               {dictionary?.accountMenu.the} {title}
             </span>
           </div>
         </div>
-        <div className='flex gap-5'>
+        <div className="flex gap-5">
           <CustomIcontext onClick={() => handleRedirect("/pricing")}>
             <img
-              src='/gems/Mythic.webp'
-              alt='Mythic gem image'
-              title='Mythic Gem'
-              className='h-[18px] object-contain '
+              src="/gems/Mythic.webp"
+              alt="Mythic gem image"
+              title="Mythic Gem"
+              className="h-[18px] object-contain "
             />
             {user.blueCredits}
           </CustomIcontext>
           <CustomIcontext>
             <img
-              src='/gems/Legendary.webp'
-              alt='Legendary gem'
-              title='Legendary Gem'
-              className='h-[18px] object-contain '
+              src="/gems/Legendary.webp"
+              alt="Legendary gem"
+              title="Legendary Gem"
+              className="h-[18px] object-contain "
             />
             {user.yellowCredits}
           </CustomIcontext>
         </div>
         <Button
           onClick={handlePlay}
-          variant='primary'
+          variant="primary"
           withIcon={true}
           className={"w-fit"}
         >
-          <Play className='h-5 w-5 fill-russianViolet' />
+          <Play className="h-5 w-5 fill-russianViolet" />
           {dictionary?.playNow}
         </Button>
       </div>
 
-      <hr className='border-white/10 ' />
-      <div className='flex flex-col gap-6'>
+      <hr className="border-white/10 " />
+      <div className="flex flex-col gap-6">
         <CustomMenuItem
           onClick={() => handleRedirect("/games")}
           className={
             "p-0 hover:bg-transparent active:bg-transparent hover:border-transparent active:border-transparent"
           }
         >
-          <Discover className='h-5 w-5 opacity-70 fill-white' />
+          <Discover className="h-5 w-5 opacity-70 fill-white" />
           <span>{dictionary?.games}</span>
         </CustomMenuItem>
         <CustomMenuItem
@@ -116,7 +116,7 @@ const UserLoggedIn = ({ handleRedirect, handlePlay, dictionary }) => {
             "p-0 hover:bg-transparent active:bg-transparent hover:border-transparent active:border-transparent"
           }
         >
-          <CampaignAdd className='h-5 w-5 opacity-70 fill-white' />
+          <CampaignAdd className="h-5 w-5 opacity-70 fill-white" />
           <span>{dictionary?.campaigns}</span>
         </CustomMenuItem>
         <CustomMenuItem
@@ -126,24 +126,24 @@ const UserLoggedIn = ({ handleRedirect, handlePlay, dictionary }) => {
           }
         >
           <img
-            src='/Icons/ImageLibrary.svg'
-            alt='Gallery'
-            title='gallery'
-            className='h-5 w-5  opacity-70'
+            src="/Icons/ImageLibrary.svg"
+            alt="Gallery"
+            title="gallery"
+            className="h-5 w-5  opacity-70"
           />
           <span>{dictionary?.community}</span>
         </CustomMenuItem>
       </div>
 
-      <hr className='border-white/10 ' />
-      <div className='flex flex-col gap-6'>
+      <hr className="border-white/10 " />
+      <div className="flex flex-col gap-6">
         <CustomMenuItem
           onClick={() => handleRedirect("/emblems-titles")}
           className={
             "p-0 hover:bg-transparent active:bg-transparent hover:border-transparent active:border-transparent"
           }
         >
-          <Emblem className='h-5 w-5 opacity-70 fill-white' />
+          <Emblem className="h-5 w-5 opacity-70 fill-white" />
           <span>{dictionary?.accountMenu.emblemsTitle}</span>
         </CustomMenuItem>
         <CustomMenuItem
@@ -152,7 +152,7 @@ const UserLoggedIn = ({ handleRedirect, handlePlay, dictionary }) => {
             "p-0 hover:bg-transparent active:bg-transparent hover:border-transparent active:border-transparent"
           }
         >
-          <Adventure className='h-5 w-5 opacity-70 fill-white' />
+          <Adventure className="h-5 w-5 opacity-70 fill-white" />
           <span>{dictionary?.accountMenu.myAdventurers}</span>
         </CustomMenuItem>
         <CustomMenuItem
@@ -162,10 +162,10 @@ const UserLoggedIn = ({ handleRedirect, handlePlay, dictionary }) => {
           }
         >
           <img
-            src='/Icons/ImageLibrary.svg'
-            alt='My images button'
-            title='My images Icon'
-            className='h-5 w-5  opacity-70'
+            src="/Icons/ImageLibrary.svg"
+            alt="My images button"
+            title="My images Icon"
+            className="h-5 w-5  opacity-70"
           />
           <span>{dictionary?.accountMenu.myImages}</span>
         </CustomMenuItem>
@@ -176,10 +176,10 @@ const UserLoggedIn = ({ handleRedirect, handlePlay, dictionary }) => {
           }
         >
           <img
-            src='/Icons/Campaign.svg'
-            alt='My campaigns button'
-            title='My Campaigns Icon'
-            className='h-5 w-5  opacity-70'
+            src="/Icons/Campaign.svg"
+            alt="My campaigns button"
+            title="My Campaigns Icon"
+            className="h-5 w-5  opacity-70"
           />
           <span>{dictionary?.accountMenu.myCampaigns}</span>
         </CustomMenuItem>
@@ -189,20 +189,20 @@ const UserLoggedIn = ({ handleRedirect, handlePlay, dictionary }) => {
             "p-0 hover:bg-transparent active:bg-transparent hover:border-transparent active:border-transparent"
           }
         >
-          <Star isfilled={"true"} className='h-5 w-5 opacity-70 fill-white' />
+          <Star isfilled={"true"} className="h-5 w-5 opacity-70 fill-white" />
           <span>{dictionary?.accountMenu.favorites}</span>
         </CustomMenuItem>
       </div>
 
-      <hr className='border-white/10 ' />
-      <div className='flex flex-col gap-6'>
+      <hr className="border-white/10 " />
+      <div className="flex flex-col gap-6">
         <CustomMenuItem
           onClick={() => handleRedirect("/my-account/settings")}
           className={
             "p-0 hover:bg-transparent active:bg-transparent hover:border-transparent active:border-transparent"
           }
         >
-          <Settings className='h-5 w-5 opacity-70 fill-white' />
+          <Settings className="h-5 w-5 opacity-70 fill-white" />
           <span>{dictionary?.accountMenu.accountSettings}</span>
         </CustomMenuItem>
 
@@ -222,7 +222,7 @@ const UserLoggedIn = ({ handleRedirect, handlePlay, dictionary }) => {
             "p-0 hover:bg-transparent active:bg-transparent hover:border-transparent active:border-transparent"
           }
         >
-          <Support className='h-5 w-5 opacity-70 fill-white' />
+          <Support className="h-5 w-5 opacity-70 fill-white" />
           <span>{dictionary?.accountMenu.support}</span>
         </CustomMenuItem>
 
@@ -232,7 +232,7 @@ const UserLoggedIn = ({ handleRedirect, handlePlay, dictionary }) => {
             "p-0 hover:bg-transparent active:bg-transparent hover:border-transparent active:border-transparent"
           }
         >
-          <Logout className='h-5 w-5 opacity-70 fill-white' />
+          <Logout className="h-5 w-5 opacity-70 fill-white" />
           <span>{dictionary?.accountMenu.logout}</span>
         </CustomMenuItem>
       </div>
@@ -246,20 +246,20 @@ const UserLoggedIn = ({ handleRedirect, handlePlay, dictionary }) => {
 const UserLoggedOut = ({ handleRedirect, dictionary }) => {
   const { setStartNewGame } = useGameStore();
   return (
-    <div className='mx-[20px] mt-10 gap-[34px] flex flex-col running-text-mono uppercase '>
+    <div className="mx-[20px] mt-10 gap-[34px] flex flex-col running-text-mono uppercase ">
       <div className={cn("flex items-center gap-6 ")}>
         <Button onClick={() => handleRedirect("/auth/sign-in")} withIcon>
           <img
-            src='/Icons/Login.svg'
-            alt='logo'
-            title='Login Icon'
-            className='h-5 w-5 opacity-70 '
+            src="/Icons/Login.svg"
+            alt="logo"
+            title="Login Icon"
+            className="h-5 w-5 opacity-70 "
           />
           {dictionary?.accountMenu.signIn}
         </Button>
         <Button
           onClick={() => handleRedirect("/auth/sign-up")}
-          variant='subtle'
+          variant="subtle"
         >
           {dictionary?.accountMenu.signUp}
         </Button>
@@ -267,33 +267,33 @@ const UserLoggedOut = ({ handleRedirect, dictionary }) => {
 
       <div
         onClick={() => handleRedirect("/games")}
-        className='flex gap-3  hover:bg-transparent focus:bg-transparent focus:text-white  transition-all duration-300 ease-linear cursor-pointer'
+        className="flex gap-3  hover:bg-transparent focus:bg-transparent focus:text-white  transition-all duration-300 ease-linear cursor-pointer"
       >
-        <Discover className='h-5 w-5 opacity-70 fill-white' />
+        <Discover className="h-5 w-5 opacity-70 fill-white" />
 
         <span>{dictionary?.games}</span>
       </div>
       <div
         onClick={() => handleRedirect("/discover")}
-        className='flex gap-3 hover:bg-transparent focus:bg-transparent focus:text-white  transition-all duration-300 ease-linear cursor-pointer'
+        className="flex gap-3 hover:bg-transparent focus:bg-transparent focus:text-white  transition-all duration-300 ease-linear cursor-pointer"
       >
         <img
-          src='/Icons/Campaign.svg'
-          title='My campaigns Button'
-          alt='My campaigns button'
-          className='h-5 w-5  opacity-70'
+          src="/Icons/Campaign.svg"
+          title="My campaigns Button"
+          alt="My campaigns button"
+          className="h-5 w-5  opacity-70"
         />
         <span>{dictionary?.accountMenu.campaigns}</span>
       </div>
       <div
         onClick={() => handleRedirect("/discover/gallery?page=1")}
-        className='flex gap-3 hover:bg-transparent focus:bg-transparent focus:text-white  transition-all duration-300 ease-linear cursor-pointer'
+        className="flex gap-3 hover:bg-transparent focus:bg-transparent focus:text-white  transition-all duration-300 ease-linear cursor-pointer"
       >
         <img
-          src='/Icons/ImageLibrary.svg'
-          alt='My images button'
-          title='My images button'
-          className='h-5 w-5  opacity-70'
+          src="/Icons/ImageLibrary.svg"
+          alt="My images button"
+          title="My images button"
+          className="h-5 w-5  opacity-70"
         />
         <span>{dictionary?.accountMenu.gallery}</span>
       </div>
@@ -304,8 +304,8 @@ const UserLoggedOut = ({ handleRedirect, dictionary }) => {
 
       <Button
         onClick={() => setStartNewGame(true)}
-        className='mt-3 w-40'
-        variant='primary'
+        className="mt-3 w-40"
+        variant="primary"
       >
         {dictionary?.accountMenu.playForFree}
       </Button>
@@ -351,19 +351,19 @@ export default function DrawerMenu({
         )}
       >
         <Link
-          href='/'
+          href="/"
           onClick={() => {
             console.log("clicked");
             setShowMenu(false);
             if (newGameStepper) setStartNewGame(false);
           }}
-          className='text-white hover:text-gray2 transition-all duration-300 ease-in-out keychainify-checked'
+          className="text-white hover:text-gray2 transition-all duration-300 ease-in-out keychainify-checked"
         >
           <img
-            src='/Icons/Logo.svg'
-            alt='logo'
-            title='logo'
-            className='h-[32px] object-contain'
+            src="/Icons/Logo.svg"
+            alt="logo"
+            title="logo"
+            className="h-[32px] object-contain"
           />
         </Link>
         <Cancel

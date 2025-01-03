@@ -5,14 +5,19 @@ import Completed from "../Icons/Completed";
 import Globe from "../Icons/Globe";
 import { cn } from "@/lib/utils";
 
-export default function Switch({ selectedTab, setSelectedTab, gameType, dictionary }) {
+export default function Switch({
+  selectedTab,
+  setSelectedTab,
+  gameType,
+  dictionary,
+}) {
   return (
     <div
       className={cn(
         gameType === "multiPlayer" ? "flex z-[10]" : "flex w-full z-[10] "
       )}
     >
-      <div className='flex p-2 gap-2 bg-white/[8%] rounded-[16px] border border-white/10 '>
+      <div className="flex p-2 gap-2 bg-white/[8%] rounded-[16px] border border-white/10 ">
         {/* In Progress Tab */}
         <CustomButton
           withIcon
@@ -28,7 +33,8 @@ export default function Switch({ selectedTab, setSelectedTab, gameType, dictiona
               selectedTab === "inProgress" ? "fill-russianViolet" : "fill-gray2"
             }`}
           />
-         {dictionary.inProgress}
+          {/* {dictionary.inProgress} */}
+          in progress
         </CustomButton>
 
         {/* Public Games Tab (only for multiplayer) */}

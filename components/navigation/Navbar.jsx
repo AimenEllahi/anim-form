@@ -18,7 +18,7 @@ import { getCampaignBySlug } from "@/actions/campaigns";
 import SoundButton from "@/components/ui/Shared/SoundButton";
 import MobileHeader from "@/components/navigation/MobileHeaders/index";
 import useCustomToast from "@/hooks/useCustomToast";
-
+import { getUserAchievements } from "@/actions/achievement";
 import CustomIcontext from "@/components/ui/custom-icontext";
 import CreateMenu from "@/components/ui/Shared/CreateMenu";
 import CampaignAdd from "@/components/ui/Icons/CampaignAdd";
@@ -31,19 +31,19 @@ const CampaignLinks = ({ dictionary }) => {
   const router = useRouter();
   const pathname = usePathname();
   return (
-    <div className='flex items-center gap-2'>
+    <div className="flex items-center  gap-2">
       <CustomNavtab
         onClick={() => {
           router.push("/games");
         }}
         variant={"subtle"}
         withIcon={true}
-        aria-label='Games'
+        aria-label="Games"
         className={cn(
-          pathname === "/games" && "bg-white/10 hover:bg-white/[8%]"
+          pathname === "/en/games" && "bg-white/10 hover:bg-white/[8%]"
         )}
       >
-        <Game className='h-5 w-5 fill-white opacity-70 ' />
+        <Game className="h-5 w-5 fill-white opacity-70 " />
         {dictionary?.games}
       </CustomNavtab>
       <CustomNavtab
@@ -52,12 +52,12 @@ const CampaignLinks = ({ dictionary }) => {
         }}
         variant={"subtle"}
         withIcon={true}
-        aria-label='Discover'
+        aria-label="Discover"
         className={cn(
-          pathname === "/discover" && "bg-white/10 hover:bg-white/[8%]"
+          pathname === "/en/discover" && "bg-white/10 hover:bg-white/[8%]"
         )}
       >
-        <CampaignAdd className='h-5 w-5 fill-white opacity-70 ' />
+        <CampaignAdd className="h-5 w-5 fill-white opacity-70 " />
         {dictionary?.campaigns}
       </CustomNavtab>
       <CustomNavtab
@@ -66,17 +66,17 @@ const CampaignLinks = ({ dictionary }) => {
         }}
         variant={"subtle"}
         withIcon={true}
-        aria-label='Images'
+        aria-label="Images"
         className={cn(
           pathname.includes("/discover/gallery") &&
             "bg-white/10 hover:bg-white/[8%]"
         )}
       >
         <img
-          src='/Icons/ImageLibrary.svg'
-          alt='My images button'
-          title='My images button'
-          className='h-5 w-5  opacity-70'
+          src="/Icons/ImageLibrary.svg"
+          alt="My images button"
+          title="My images button"
+          className="h-5 w-5  opacity-70"
         />
         {dictionary?.community}
       </CustomNavtab>
@@ -93,26 +93,26 @@ const CreditsDisplay = () => {
       <CustomIcontext
         onClick={() => handleRedirect("/pricing")}
         className={"pointer-events-none"}
-        aria-label='Blue Credits'
+        aria-label="Blue Credits"
       >
         <img
-          src='/gems/Mythic.webp'
-          alt='Blue Credits'
-          title='blue credits'
-          className='h-[18px] object-contain '
+          src="/gems/Mythic.webp"
+          alt="Blue Credits"
+          title="blue credits"
+          className="h-[18px] object-contain "
         />
         {user?.blueCredits}
       </CustomIcontext>
       <CustomIcontext
         onClick={() => handleRedirect("/pricing")}
         className={"pointer-events-none"}
-        aria-label='Yellow Credits'
+        aria-label="Yellow Credits"
       >
         <img
-          src='/gems/Legendary.webp'
-          alt='Yellow Credits'
-          title='Legendary Credits'
-          className='h-[18px] object-contain '
+          src="/gems/Legendary.webp"
+          alt="Yellow Credits"
+          title="Legendary Credits"
+          className="h-[18px] object-contain "
         />
         {user?.yellowCredits}
       </CustomIcontext>
@@ -130,11 +130,11 @@ const ExitGameButton = ({ dictionary }) => {
   return (
     <CustomButton
       onClick={handleExitGame}
-      aria-label='Exit Game'
-      variant='subtle'
+      aria-label="Exit Game"
+      variant="subtle"
       className={"h-fit w-fit"}
     >
-      <Exit className='h-5 w-5 fill-white opacity-70' />
+      <Exit className="h-5 w-5 fill-white opacity-70" />
       {dictionary?.exitGame}
     </CustomButton>
   );
@@ -150,15 +150,9 @@ export default function Navbar({
   const { isMobile, isTablet } = useDeviceDetect();
   const { invokeToast } = useCustomToast();
   const [dictionary, setDictionary] = useState(null);
-  const {
-    showMenu,
-    setShowMenu,
-    selectedCompletedGame,
-    selectedGame,
-    updateTitle,
-    updateRank,
-  } = useControlsStore();
-  const { user, rank } = useUserStore();
+  const { showMenu, setShowMenu, selectedCompletedGame, selectedGame } =
+    useControlsStore();
+  const { user, rank, updateTitle, updateRank } = useUserStore();
   const {
     setCurrentCharacter,
     setCurrentCampaign,
@@ -172,7 +166,7 @@ export default function Navbar({
 
   const isGamePage = pathname.includes("/game/play");
 
-  const isLandingPage = pathname === "/";
+  const isLandingPage = pathname === "/en";
   const mobileBlurNotAllowed = isLandingPage || isGamePage;
 
   const showCampaignLinks = !isGamePage;
@@ -294,7 +288,7 @@ export default function Navbar({
     <nav
       suppressHydrationWarning
       className={cn(
-        "px-5 lg:px-8 fixed top-0 pt-5  pb-4 gap-5  lg:py-0 flex flex-col lg:top-8 z-20 w-full",
+        "px-5 lg:px-8  fixed top-0 pt-5  pb-4 gap-5  lg:py-0 flex flex-col lg:top-8 z-20 w-full",
         isMobile &&
           !mobileBlurNotAllowed &&
           !showMenu &&
@@ -307,7 +301,7 @@ export default function Navbar({
     >
       <div
         className={cn(
-          " running-text-mono w-full rounded-2xl lg:border border-white/10 top-0 lg:top-8 left-0 translate-x-[0] flex h-auto lg:h-[64px]  justify-center lg:p-[8px] lg:ps-4 ",
+          " running-text-mono  w-full rounded-2xl lg:border border-white/10 top-0 lg:top-8 left-0 translate-x-[0] flex h-auto lg:h-[64px]  justify-center lg:p-[8px] lg:ps-4 ",
           variant === "transparent" && "bg-transparent border-none",
           variant === "glass" && "lg:bg-blur",
           isTablet && "!bg-transparent !border-none"
@@ -317,7 +311,7 @@ export default function Navbar({
         {/* Mobile */}
         <div
           className={
-            "w-full h-full rounded-lg text-white  lg:hidden flex justify-between items-center"
+            "w-full  h-full rounded-lg text-white  lg:hidden flex justify-between items-center"
           }
         >
           <Link
@@ -327,23 +321,23 @@ export default function Navbar({
                 setStartNewGame(false);
               }
             }}
-            href='/'
-            className='text-white hover:text-gray1 transition-all duration-300 ease-in-out keychainify-checked'
-            aria-label='Home'
+            href="/"
+            className="text-white hover:text-gray1 transition-all duration-300 ease-in-out keychainify-checked"
+            aria-label="Home"
           >
             <img
-              src='/Icons/Logo.svg'
-              alt='logo'
-              title='Logo icon'
-              className='h-8 object-contain'
+              src="/Icons/Logo.svg"
+              alt="logo"
+              title="Logo icon"
+              className="h-8 object-contain"
             />
           </Link>
           <button
             onClick={() => setShowMenu(true)}
-            className='w-10'
-            aria-label='Menu'
+            className="w-10"
+            aria-label="Menu"
           >
-            <Menu fill='#9A9AC1' />
+            <Menu fill="#9A9AC1" />
           </button>
           <DrawerMenu
             dictionary={dictionary}
@@ -353,30 +347,30 @@ export default function Navbar({
           />
         </div>
         {/* Desktop */}
-        <div className=' w-full hidden h-full text-white  lg:flex justify-between items-center'>
-          <div className='flex justify-center items-center gap-6'>
+        <div className=" w-full hidden h-full text-white  lg:flex justify-between items-center">
+          <div className="flex justify-center items-center gap-6">
             <Link
-              href='/'
-              className='text-white me-2 hover:text-gray1 transition-all duration-300 ease-in-out keychainify-checked'
-              aria-label='Home'
+              href="/"
+              className="text-white me-2 hover:text-gray1 transition-all duration-300 ease-in-out keychainify-checked"
+              aria-label="Home"
             >
               <img
-                src='/Icons/Logo.svg'
-                title='Logo icon'
-                alt='logo'
-                className='h-10'
+                src="/Icons/Logo.svg"
+                title="Logo icon"
+                alt="logo"
+                className="h-10"
               />
             </Link>
 
             {showCampaignLinks && <CampaignLinks dictionary={dictionary} />}
             {isGamePage && <ExitGameButton dictionary={dictionary} />}
           </div>
-          <div className='flex justify-center items-center gap-5'>
+          <div className="flex justify-center items-center gap-5">
             {user?.token && <CreditsDisplay />}
             {user?.token && (
-              <CreateMenu dictionary={dictionary} aria-label='Create Menu' />
+              <CreateMenu dictionary={dictionary} aria-label="Create Menu" />
             )}
-            <SoundButton aria-label='Sound Button' />
+            <SoundButton aria-label="Sound Button" />
             {user?.token && <Notification />}
             <AccountDropdown
               dictionary={dictionary}
@@ -386,12 +380,12 @@ export default function Navbar({
                 user?.token && (
                   <img
                     src={`https://dzjg7lvewk7ln.cloudfront.net/rank-images/${rank}.webp`}
-                    alt=''
-                    className='size-9 cursor-pointer rounded-full'
+                    alt=""
+                    className="size-9 cursor-pointer rounded-full"
                   />
                 )
               }
-              aria-label='Account Dropdown'
+              aria-label="Account Dropdown"
             />
 
             {characterSheet || isCampaignSubpage ? (
@@ -406,7 +400,7 @@ export default function Navbar({
                 }
                 aria-label={isCampaignSubpage ? "Play Campaign" : "Play Now"}
               >
-                <Play className='h-5 w-5 fill-russianViolet opacity-70' />
+                <Play className="h-5 w-5 fill-russianViolet opacity-70" />
                 {isCampaignSubpage
                   ? dictionary?.playCampaign
                   : dictionary?.playNow}
@@ -417,9 +411,9 @@ export default function Navbar({
                 onClick={handlePlay}
                 variant={"primary"}
                 className={cn(isGamePage && "hidden")}
-                aria-label='Play for Free'
+                aria-label="Play for Free"
               >
-                <Play className='h-5 w-5 fill-russianViolet opacity-70' />
+                <Play className="h-5 w-5 fill-russianViolet opacity-70" />
                 {isLandingPage
                   ? dictionary?.playNow
                   : user?.token
@@ -430,7 +424,7 @@ export default function Navbar({
           </div>
         </div>
       </div>
-      {!hideHeader && <MobileHeader aria-label='Mobile Header' />}
+      {!hideHeader && <MobileHeader aria-label="Mobile Header" />}
     </nav>
   );
 }

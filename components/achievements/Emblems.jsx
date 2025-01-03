@@ -29,7 +29,7 @@ export default function Emblems({ userPokals }) {
   };
 
   return (
-    <div className='relative md:border md:border-white/10 md:bg-white/[8%] bg-transparent  w-full rounded-[16px] md:p-5 p-0 grid sm:grid-cols-9 md:grid-cols-8 grid-cols-2 xl:grid-cols-10  gap-4 md:gap-5'>
+    <div className="relative md:border md:border-white/10 md:bg-white/[8%] bg-transparent  w-full rounded-[16px] md:p-5 p-0 grid sm:grid-cols-9 md:grid-cols-8 grid-cols-2 xl:grid-cols-10  gap-4 md:gap-5">
       {LEVELS.map((_, index) => (
         <div
           key={index}
@@ -37,14 +37,14 @@ export default function Emblems({ userPokals }) {
             if (isUnlocked(index)) handleEmblemUpdate(_.rank);
           }}
           className={cn(
-            `w-auto relative h-auto border border-transparent hover:border-white/20 bg-white/10 rounded-[10px] overflow-hidden flex items-center justify-center ease-animate col-span-1 sm:col-span-3 md:col-span-2 xl:col-span-1`,
+            `w-auto relative h-auto border-white/20 hover:border  hover:border-white/20 bg-white/10 rounded-[10px] overflow-hidden flex items-center justify-center ease-animate col-span-1 sm:col-span-3 md:col-span-2 xl:col-span-1`,
 
             rank === _.rank &&
               "border !border-irisPurpleLight bg-irisPurpleLight/[16%] shadow-[0_0_40px_0_rgba(143,145,255,0.4)]",
             isLoading && "pointer-events-none opacity-50"
           )}
         >
-          <div className='absolute bottom-2 right-2 z-[10]'>
+          <div className="absolute bottom-2 right-2 z-[10]">
             <div
               className={cn(
                 " flex items-center justify-center backdrop-blur-[32px] rounded-full h-6 w-6 bg-white/[8%] ",
@@ -53,10 +53,10 @@ export default function Emblems({ userPokals }) {
               )}
             >
               {!isUnlocked(index) ? (
-                <Lock className='h-3 w-2.5 fill-white' />
+                <Lock className="h-3 w-2.5 fill-white" />
               ) : (
                 rank === _.rank && (
-                  <CheckV2 className=' h-[7px] w-[9px] fill-russianViolet' />
+                  <CheckV2 className=" h-[7px] w-[9px] fill-russianViolet" />
                 )
               )}
             </div>
@@ -64,7 +64,7 @@ export default function Emblems({ userPokals }) {
 
           <img
             src={`https://dzjg7lvewk7ln.cloudfront.net/rank-images/${_.rank}.webp`}
-            alt=''
+            alt=""
             className={cn(
               "w-full object-contain  cursor-pointer",
               !isUnlocked(index) && "opacity-40 pointer-events-none"
